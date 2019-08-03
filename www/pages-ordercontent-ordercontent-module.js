@@ -146,7 +146,7 @@ var OrdercontentPage = /** @class */ (function () {
             var _this = this;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 return [2 /*return*/, new Promise(function (resolve, reject) {
-                        _this.http.getDataloading(_this.http.orderDetail, { order_id: _this.orderId }).subscribe(function (res) {
+                        _this.http.getDataloading(_this.http.orderDetail, { order_sn: _this.orderId }).subscribe(function (res) {
                             console.log(res);
                             _this.data = res.data;
                             console.log(_this.data);

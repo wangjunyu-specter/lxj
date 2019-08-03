@@ -103,11 +103,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var LoginPage = /** @class */ (function () {
-    function LoginPage(router, nav, http, native, alertController, userfn) {
+    function LoginPage(router, nav, http, native, activeroute, alertController, userfn) {
         this.router = router;
         this.nav = nav;
         this.http = http;
         this.native = native;
+        this.activeroute = activeroute;
         this.alertController = alertController;
         this.userfn = userfn;
         this.pageType = 1;
@@ -121,14 +122,19 @@ var LoginPage = /** @class */ (function () {
         };
     }
     LoginPage.prototype.ngOnInit = function () {
-        var _this = this;
         console.log(this.native.getPlatform());
-        this.router.queryParams.subscribe(function (res) {
-            console.log(res);
-            if (res && res['type']) {
-                _this.pageType = res['type'];
-            }
-        });
+    };
+    LoginPage.prototype.ionViewWillEnter = function () {
+        var res = this.activeroute.snapshot.queryParams;
+        if (res && res['type'] == 1) {
+            this.pageType = res['type'];
+        }
+        // this.router.queryParams.subscribe(res => {
+        //   console.log(res);
+        //   if (res && res['type']) {
+        //     this.pageType = res['type'];
+        //   }
+        // });
     };
     LoginPage.prototype.toggleType = function (type) {
         this.pageType = type;
@@ -249,7 +255,7 @@ var LoginPage = /** @class */ (function () {
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"],
             _services_http_service__WEBPACK_IMPORTED_MODULE_4__["HttpService"],
-            _services_native_service__WEBPACK_IMPORTED_MODULE_5__["NativeService"],
+            _services_native_service__WEBPACK_IMPORTED_MODULE_5__["NativeService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"], _services_user_service__WEBPACK_IMPORTED_MODULE_6__["UserService"]])
     ], LoginPage);
     return LoginPage;

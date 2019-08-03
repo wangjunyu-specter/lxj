@@ -117,7 +117,7 @@ var BrowseRecordsPage = /** @class */ (function () {
         var _this = this;
         var idlist = this.lljl.getList(this.page, this.limit);
         console.log(idlist);
-        idlist = ['292', '293'];
+        // idlist = ['292', '293'];
         if (!idlist || idlist.length === 0) {
             return false;
         }

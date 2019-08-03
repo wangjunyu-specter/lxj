@@ -1,15 +1,15 @@
 /*
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
- * @LastEditors: wjy-home
- * @LastEditTime: 2019-08-03 17:46:41
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-08-04 00:48:00
  * @Description: 关于我们页面
  */
 import { ShopContentService } from './../../services/shop-content.service';
 import { Component, OnInit } from '@angular/core';
 import {NavController} from '@ionic/angular';
 import { NativeService } from 'src/app/services/native.service';
-import { Market } from '@ionic-native/market/ngx';
+// import { Market } from '@ionic-native/market/ngx';
 @Component({
   selector: 'app-about-us',
   templateUrl: './about-us.page.html',
@@ -19,7 +19,7 @@ export class AboutUsPage implements OnInit {
   data: any;
   appver: string;
   isios: boolean;
-  constructor(private nav: NavController, private shopservice: ShopContentService, private native: NativeService, private market: Market) { }
+  constructor(private nav: NavController, private shopservice: ShopContentService, private native: NativeService) { }
 
   ngOnInit() {
     this.shopservice.getShop().then(res => {
@@ -28,8 +28,7 @@ export class AboutUsPage implements OnInit {
     }).catch(err => {});
     this.native.getAppversion().then(res => {
       this.appver = res;
-    }).catch(err2 => {
-    });
+    }).catch(err2 => {});
     this.isios = this.native.isios();
   }
   goBack(type2?, type3?): void {
@@ -46,7 +45,7 @@ export class AboutUsPage implements OnInit {
    * @Date: 2019-08-03 17:32:35
    */
   openStore() {
-    this.market.open('io.lxj.wjy');
+    this.native.openStore();
   }
   /**
    * @Author: wjy-home

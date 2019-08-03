@@ -60,7 +60,7 @@ var CenterMorePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>更多设置</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n\n<ion-content padding>\n  <ion-list>\n    <ion-item *ngIf=\"user && user.is_surplus_open == 0\" button (click)=\"setPaypwd()\">设置支付密码</ion-item>\n    <ion-item *ngIf=\"user && user.is_surplus_open == 1\" button (click)=\"setPaypwd()\">修改支付密码</ion-item>\n    <ion-item *ngIf=\"user\" button (click)=\"gotopage(1)\">地址管理</ion-item>\n    <ion-item button>修改登录密码</ion-item>\n  </ion-list>\n  <ion-button color=\"danger\" expand=\"block\" (click)=\"loginout()\">退出登录</ion-button>\n</ion-content>\n"
+module.exports = "<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>更多设置</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n\n<ion-content padding>\n  <ion-list>\n    <ion-item *ngIf=\"user && user.is_surplus_open == 0\" button (click)=\"setPaypwd()\">设置支付密码</ion-item>\n    <ion-item *ngIf=\"user && user.is_surplus_open == 1\" button (click)=\"setPaypwd()\">修改支付密码</ion-item>\n    <ion-item *ngIf=\"user\" button (click)=\"gotopage(1)\">地址管理</ion-item>\n    <!-- <ion-item button (click)=\"tobill()\">账单</ion-item> 感觉无用 wjy -->\n    <ion-item button>修改登录密码</ion-item>\n    <ion-item button (click)=\"toabout()\" *ngIf=\"ismobile\">关于我们</ion-item>\n  </ion-list>\n  <ion-button color=\"danger\" expand=\"block\" (click)=\"loginout()\">退出登录</ion-button>\n</ion-content>\n"
 
 /***/ }),
 
@@ -90,19 +90,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 /* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/user.service */ "./src/app/services/user.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var src_app_services_native_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/native.service */ "./src/app/services/native.service.ts");
 
+/*
+ * @Author: wjy
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy
+ * @LastEditTime: 2019-08-03 17:16:11
+ * @Description: file content
+ */
 
 
 // import { PayboxComponent } from '../../components/paybox/paybox.component';
 
 
+
 var CenterMorePage = /** @class */ (function () {
-    function CenterMorePage(route, nav, userfn) {
+    function CenterMorePage(route, nav, userfn, native) {
         this.route = route;
         this.nav = nav;
         this.userfn = userfn;
+        this.native = native;
     }
     CenterMorePage.prototype.ngOnInit = function () {
+        this.ismobile = this.native.ismobile();
     };
     CenterMorePage.prototype.ionViewWillEnter = function () {
         var _this = this;
@@ -124,13 +135,19 @@ var CenterMorePage = /** @class */ (function () {
     CenterMorePage.prototype.gotopage = function () {
         this.route.navigate(['/contactlist'], { queryParams: { type: 3 } });
     };
+    CenterMorePage.prototype.tobill = function () {
+        this.route.navigate(['/bill']);
+    };
+    CenterMorePage.prototype.toabout = function () {
+        this.route.navigate(['/about-us']);
+    };
     CenterMorePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-center-more',
             template: __webpack_require__(/*! ./center-more.page.html */ "./src/app/pages/center-more/center-more.page.html"),
             styles: [__webpack_require__(/*! ./center-more.page.scss */ "./src/app/pages/center-more/center-more.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_services_native_service__WEBPACK_IMPORTED_MODULE_5__["NativeService"]])
     ], CenterMorePage);
     return CenterMorePage;
 }());

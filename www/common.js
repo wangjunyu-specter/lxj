@@ -336,9 +336,9 @@ var PqlistService = /** @class */ (function () {
                 if (type) {
                     _this.gzList.length = 0;
                 }
-                (_a = _this.gzList).push.apply(_a, data['result']);
                 var userlist = data['users'];
                 _this.gzlistfn.setList(userlist);
+                (_a = _this.gzList).push.apply(_a, data['result']);
                 if (!data['result'].length || data['result'].length < _this.gzpageObj.num) {
                     _this.gzpageObj.isall = true;
                 }
@@ -435,8 +435,9 @@ var SupplierlistService = /** @class */ (function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
             var _this = this;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                console.log(id);
                 return [2 /*return*/, new Promise(function (resolve, reject) {
-                        _this.http.getData(_this.http.getsupplier, { id: gid, supplier_id: Number(id) }).subscribe(function (res) {
+                        _this.http.getData(_this.http.getsupplier, { id: gid, supplier_id: id ? Number(id) : -1 }).subscribe(function (res) {
                             _this.setList(res['data']);
                             resolve(true);
                         }, function (err) {

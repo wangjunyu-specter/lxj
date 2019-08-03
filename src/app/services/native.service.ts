@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 23:14:51
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-08-04 00:47:32
+ * @Description: file content
+ */
 import { Injectable } from '@angular/core';
 import {AlertController, LoadingController, ToastController, Platform } from '@ionic/angular';
 import {NativeStorage} from '@ionic-native/native-storage/ngx';
@@ -9,6 +16,7 @@ import {StatusBar} from '@ionic-native/status-bar/ngx';
 import {VideoPlayer} from '@ionic-native/video-player/ngx';
 import { Network } from '@ionic-native/network/ngx';
 import { AppVersion } from '@ionic-native/app-version/ngx';
+import { Market } from '@ionic-native/market/ngx';
 // import { Device } from '@ionic-native/device/ngx';
 
 @Injectable({
@@ -22,7 +30,8 @@ export class NativeService {
               public plt: Platform, private mediaCapture: MediaCapture,
               private imagePicker: ImagePicker, private camera: Camera,
               private androidFullScreen: AndroidFullScreen, private statusbar: StatusBar,
-              private videoPlayer: VideoPlayer, private network: Network, private appVersion: AppVersion) { }
+              private videoPlayer: VideoPlayer, private network: Network, private appVersion: AppVersion,
+              private market: Market) { }
   public async getAppversion() {
     const version = await this.appVersion.getVersionNumber();
     return version;
@@ -132,6 +141,16 @@ export class NativeService {
   }
   isios() {
     return this.plt.is('ios');
+  }
+   /**
+   * @Author: wjy-home
+   * @description: 打开商店,只有ios可以使用
+   * @param {type} 
+   * @return: 
+   * @Date: 2019-08-03 17:32:35
+   */
+  openStore() {
+    this.market.open('io.lxj.wjy');
   }
   /**
    * 获取网络类型 如`unknown`, `ethernet`, `wifi`, `2g`, `3g`, `4g`, `cellular`, `none`

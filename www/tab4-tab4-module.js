@@ -1,567 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["tab4-tab4-module"],{
 
-/***/ "./src/app/pipes/datecontent.pipe.ts":
-/*!*******************************************!*\
-  !*** ./src/app/pipes/datecontent.pipe.ts ***!
-  \*******************************************/
-/*! exports provided: DatecontentPipe */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DatecontentPipe", function() { return DatecontentPipe; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-
-var DatecontentPipe = /** @class */ (function () {
-    function DatecontentPipe() {
-    }
-    DatecontentPipe.prototype.transform = function (value, args) {
-        console.log(value);
-        return null;
-    };
-    DatecontentPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
-            name: 'datecontent'
-        })
-    ], DatecontentPipe);
-    return DatecontentPipe;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/pipes/decodeuri.pipe.ts":
-/*!*****************************************!*\
-  !*** ./src/app/pipes/decodeuri.pipe.ts ***!
-  \*****************************************/
-/*! exports provided: DecodeuriPipe */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DecodeuriPipe", function() { return DecodeuriPipe; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-
-var DecodeuriPipe = /** @class */ (function () {
-    function DecodeuriPipe() {
-    }
-    DecodeuriPipe.prototype.transform = function (value, args) {
-        if (value) {
-            return decodeURIComponent(value);
-        }
-        return null;
-    };
-    DecodeuriPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
-            name: 'decodeuri'
-        })
-    ], DecodeuriPipe);
-    return DecodeuriPipe;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/pipes/goodsattr.pipe.ts":
-/*!*****************************************!*\
-  !*** ./src/app/pipes/goodsattr.pipe.ts ***!
-  \*****************************************/
-/*! exports provided: GoodsattrPipe */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GoodsattrPipe", function() { return GoodsattrPipe; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-
-var GoodsattrPipe = /** @class */ (function () {
-    function GoodsattrPipe() {
-    }
-    GoodsattrPipe.prototype.transform = function (value, args) {
-        console.log(value);
-        value = value.replace(/\[\S*\]/g, '');
-        console.log(value.length);
-        if (value.length > 15) {
-            return value.slice(0, 15);
-        }
-        return value;
-    };
-    GoodsattrPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
-            name: 'goodsattr'
-        })
-    ], GoodsattrPipe);
-    return GoodsattrPipe;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/pipes/imgsrc.pipe.ts":
-/*!**************************************!*\
-  !*** ./src/app/pipes/imgsrc.pipe.ts ***!
-  \**************************************/
-/*! exports provided: ImgsrcPipe */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImgsrcPipe", function() { return ImgsrcPipe; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-
-var ImgsrcPipe = /** @class */ (function () {
-    function ImgsrcPipe() {
-    }
-    ImgsrcPipe.prototype.transform = function (value, args) {
-        // : todo 暂未实现    所有img src pipe
-        if (!value) {
-            return '../../assets/mrtx.jpg';
-        }
-        if (value.startsWith('http') || value.startsWith('data:image') || value.startsWith('file:///') || value.startsWith('cdvfile://')) {
-            return value;
-        }
-        else {
-            return args + value;
-        }
-    };
-    ImgsrcPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
-            name: 'imgsrc'
-        })
-    ], ImgsrcPipe);
-    return ImgsrcPipe;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/pipes/isgz.pipe.ts":
-/*!************************************!*\
-  !*** ./src/app/pipes/isgz.pipe.ts ***!
-  \************************************/
-/*! exports provided: IsgzPipe */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IsgzPipe", function() { return IsgzPipe; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-
-var IsgzPipe = /** @class */ (function () {
-    function IsgzPipe() {
-    }
-    IsgzPipe.prototype.transform = function (value, args) {
-        console.log(value);
-        console.log(args);
-        if (args.includes(value)) {
-            return false;
-        }
-        return true;
-    };
-    IsgzPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
-            name: 'isgz'
-        })
-    ], IsgzPipe);
-    return IsgzPipe;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/pipes/isvideo.pipe.ts":
-/*!***************************************!*\
-  !*** ./src/app/pipes/isvideo.pipe.ts ***!
-  \***************************************/
-/*! exports provided: IsvideoPipe */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IsvideoPipe", function() { return IsvideoPipe; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-
-var IsvideoPipe = /** @class */ (function () {
-    function IsvideoPipe() {
-    }
-    IsvideoPipe.prototype.transform = function (value, args) {
-        if (!value) {
-            return false;
-        }
-        var index = value.lastIndexOf('.');
-        if (index < 0) {
-            return false;
-        }
-        var type = value.substr(index + 1);
-        if (type === 'mp4' || type === 'ogg' || type === 'WebM') {
-            return true;
-        }
-        console.error(type);
-        return false;
-    };
-    IsvideoPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
-            name: 'isvideo'
-        })
-    ], IsvideoPipe);
-    return IsvideoPipe;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/pipes/namesubstr.pipe.ts":
-/*!******************************************!*\
-  !*** ./src/app/pipes/namesubstr.pipe.ts ***!
-  \******************************************/
-/*! exports provided: NamesubstrPipe */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NamesubstrPipe", function() { return NamesubstrPipe; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-
-var NamesubstrPipe = /** @class */ (function () {
-    function NamesubstrPipe() {
-    }
-    NamesubstrPipe.prototype.transform = function (value, args) {
-        console.log(value);
-        if (isNaN(Number(args)) || !value) {
-            return value;
-        }
-        else {
-            if (value.length > args) {
-                return value.substr(0, args) + '...';
-            }
-        }
-        return value;
-    };
-    NamesubstrPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
-            name: 'namesubstr'
-        })
-    ], NamesubstrPipe);
-    return NamesubstrPipe;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/pipes/oldtonow.pipe.ts":
-/*!****************************************!*\
-  !*** ./src/app/pipes/oldtonow.pipe.ts ***!
-  \****************************************/
-/*! exports provided: OldtonowPipe */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OldtonowPipe", function() { return OldtonowPipe; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-
-var OldtonowPipe = /** @class */ (function () {
-    function OldtonowPipe() {
-    }
-    OldtonowPipe.prototype.transform = function (value, args) {
-        return getTimeUntilNow(value);
-        return null;
-    };
-    OldtonowPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
-            name: 'oldtonow'
-        })
-    ], OldtonowPipe);
-    return OldtonowPipe;
-}());
-
-function getTimeUntilNow(mss) {
-    var days = parseInt((mss / (1000 * 60 * 60 * 24)).toString(), 10);
-    if (days > 0) {
-        return days + '天前';
-    }
-    var hours = parseInt(((mss % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString(), 10);
-    if (hours > 0) {
-        return hours + '小时前';
-    }
-    var minutes = parseInt(((mss % (1000 * 60 * 60)) / (1000 * 60)).toString(), 10);
-    if (minutes > 0) {
-        return minutes + '分钟前';
-    }
-    var seconds = (mss % (1000 * 60)) / 1000;
-    return '刚刚 ';
-}
-
-
-/***/ }),
-
-/***/ "./src/app/pipes/pipes.module.ts":
-/*!***************************************!*\
-  !*** ./src/app/pipes/pipes.module.ts ***!
-  \***************************************/
-/*! exports provided: PipesModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PipesModule", function() { return PipesModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _datecontent_pipe__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./datecontent.pipe */ "./src/app/pipes/datecontent.pipe.ts");
-/* harmony import */ var _goodsattr_pipe__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./goodsattr.pipe */ "./src/app/pipes/goodsattr.pipe.ts");
-/* harmony import */ var _oldtonow_pipe__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./oldtonow.pipe */ "./src/app/pipes/oldtonow.pipe.ts");
-/* harmony import */ var _isgz_pipe__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./isgz.pipe */ "./src/app/pipes/isgz.pipe.ts");
-/* harmony import */ var _imgsrc_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./imgsrc.pipe */ "./src/app/pipes/imgsrc.pipe.ts");
-/* harmony import */ var _decodeuri_pipe__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./decodeuri.pipe */ "./src/app/pipes/decodeuri.pipe.ts");
-/* harmony import */ var _setnum_pipe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./setnum.pipe */ "./src/app/pipes/setnum.pipe.ts");
-/* harmony import */ var _telhide_pipe__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./telhide.pipe */ "./src/app/pipes/telhide.pipe.ts");
-/* harmony import */ var _isvideo_pipe__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./isvideo.pipe */ "./src/app/pipes/isvideo.pipe.ts");
-/* harmony import */ var _namesubstr_pipe__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./namesubstr.pipe */ "./src/app/pipes/namesubstr.pipe.ts");
-/* harmony import */ var _xclistattr_pipe__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./xclistattr.pipe */ "./src/app/pipes/xclistattr.pipe.ts");
-/* harmony import */ var _xccontentsplit_pipe__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./xccontentsplit.pipe */ "./src/app/pipes/xccontentsplit.pipe.ts");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { YhqtitlePipe } from './yhqtitle.pipe';
-var PipesModule = /** @class */ (function () {
-    function PipesModule() {
-    }
-    PipesModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            declarations: [_datecontent_pipe__WEBPACK_IMPORTED_MODULE_3__["DatecontentPipe"], _goodsattr_pipe__WEBPACK_IMPORTED_MODULE_4__["GoodsattrPipe"], _oldtonow_pipe__WEBPACK_IMPORTED_MODULE_5__["OldtonowPipe"], _isgz_pipe__WEBPACK_IMPORTED_MODULE_6__["IsgzPipe"],
-                _imgsrc_pipe__WEBPACK_IMPORTED_MODULE_7__["ImgsrcPipe"], _decodeuri_pipe__WEBPACK_IMPORTED_MODULE_8__["DecodeuriPipe"], _setnum_pipe__WEBPACK_IMPORTED_MODULE_9__["SetnumPipe"], _telhide_pipe__WEBPACK_IMPORTED_MODULE_10__["TelhidePipe"], _isvideo_pipe__WEBPACK_IMPORTED_MODULE_11__["IsvideoPipe"], _namesubstr_pipe__WEBPACK_IMPORTED_MODULE_12__["NamesubstrPipe"],
-                _xclistattr_pipe__WEBPACK_IMPORTED_MODULE_13__["XclistattrPipe"],
-                _xccontentsplit_pipe__WEBPACK_IMPORTED_MODULE_14__["XccontentsplitPipe"]],
-            imports: [
-                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"]
-            ],
-            exports: [_datecontent_pipe__WEBPACK_IMPORTED_MODULE_3__["DatecontentPipe"], _goodsattr_pipe__WEBPACK_IMPORTED_MODULE_4__["GoodsattrPipe"], _oldtonow_pipe__WEBPACK_IMPORTED_MODULE_5__["OldtonowPipe"], _isgz_pipe__WEBPACK_IMPORTED_MODULE_6__["IsgzPipe"], _imgsrc_pipe__WEBPACK_IMPORTED_MODULE_7__["ImgsrcPipe"],
-                _decodeuri_pipe__WEBPACK_IMPORTED_MODULE_8__["DecodeuriPipe"], _setnum_pipe__WEBPACK_IMPORTED_MODULE_9__["SetnumPipe"], _telhide_pipe__WEBPACK_IMPORTED_MODULE_10__["TelhidePipe"], _isvideo_pipe__WEBPACK_IMPORTED_MODULE_11__["IsvideoPipe"], _namesubstr_pipe__WEBPACK_IMPORTED_MODULE_12__["NamesubstrPipe"],
-                _xclistattr_pipe__WEBPACK_IMPORTED_MODULE_13__["XclistattrPipe"], _xccontentsplit_pipe__WEBPACK_IMPORTED_MODULE_14__["XccontentsplitPipe"]]
-        })
-    ], PipesModule);
-    return PipesModule;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/pipes/setnum.pipe.ts":
-/*!**************************************!*\
-  !*** ./src/app/pipes/setnum.pipe.ts ***!
-  \**************************************/
-/*! exports provided: SetnumPipe */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SetnumPipe", function() { return SetnumPipe; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-
-var SetnumPipe = /** @class */ (function () {
-    function SetnumPipe() {
-    }
-    SetnumPipe.prototype.transform = function (value, args) {
-        if (!value || isNaN(Number(value))) {
-            return 0;
-        }
-        var num = Number(value);
-        if (num > 10000) {
-            var w = Math.floor(num / 10000);
-            var y = num % 10000;
-            var str = w.toString();
-            if (y > 0) {
-                var q = Math.floor(y / 1000);
-                if (q > 0) {
-                    str += '.' + q + '+';
-                }
-            }
-            return str + '万';
-        }
-        return value;
-    };
-    SetnumPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
-            name: 'setnum'
-        })
-    ], SetnumPipe);
-    return SetnumPipe;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/pipes/telhide.pipe.ts":
-/*!***************************************!*\
-  !*** ./src/app/pipes/telhide.pipe.ts ***!
-  \***************************************/
-/*! exports provided: TelhidePipe */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TelhidePipe", function() { return TelhidePipe; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-
-var TelhidePipe = /** @class */ (function () {
-    function TelhidePipe() {
-    }
-    TelhidePipe.prototype.transform = function (value, args) {
-        if (!value) {
-            return '';
-        }
-        var start = value.substr(0, 3);
-        var end = value.substr(-4);
-        return start + '****' + end;
-    };
-    TelhidePipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
-            name: 'telhide'
-        })
-    ], TelhidePipe);
-    return TelhidePipe;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/pipes/xccontentsplit.pipe.ts":
-/*!**********************************************!*\
-  !*** ./src/app/pipes/xccontentsplit.pipe.ts ***!
-  \**********************************************/
-/*! exports provided: XccontentsplitPipe */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "XccontentsplitPipe", function() { return XccontentsplitPipe; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-
-var XccontentsplitPipe = /** @class */ (function () {
-    function XccontentsplitPipe() {
-    }
-    XccontentsplitPipe.prototype.transform = function (value, args) {
-        if (!value) {
-            return '';
-        }
-        value = value.replace(/\r?\n|\r/g, "");
-        var arr = value.split(' ');
-        var arr2 = [];
-        arr.map(function (res) {
-            if (!res) {
-                return false;
-            }
-            res = res.replace(/(\[\d*\])/g, '');
-            arr2.push(res.split(':'));
-        });
-        return arr2;
-    };
-    XccontentsplitPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
-            name: 'xccontentsplit'
-        })
-    ], XccontentsplitPipe);
-    return XccontentsplitPipe;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/pipes/xclistattr.pipe.ts":
-/*!******************************************!*\
-  !*** ./src/app/pipes/xclistattr.pipe.ts ***!
-  \******************************************/
-/*! exports provided: XclistattrPipe */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "XclistattrPipe", function() { return XclistattrPipe; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-
-var XclistattrPipe = /** @class */ (function () {
-    function XclistattrPipe() {
-    }
-    XclistattrPipe.prototype.transform = function (value, args) {
-        if (!value) {
-            return '';
-        }
-        value = value.replace(/\r?\n|\r/g, "");
-        var arr = value.split(' ');
-        var arr2 = [];
-        arr.map(function (res) {
-            if (!res) {
-                return false;
-            }
-            res = res.replace(/(\[\d*\])/g, '');
-            arr2.push(res);
-        });
-        if (arr2.length > 3 && !args) {
-            arr2.length = 3;
-            arr2.push('...');
-        }
-        return arr2;
-    };
-    XclistattrPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
-            name: 'xclistattr'
-        })
-    ], XclistattrPipe);
-    return XclistattrPipe;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/tab4/tab4.module.ts":
 /*!*************************************!*\
   !*** ./src/app/tab4/tab4.module.ts ***!
@@ -623,7 +61,7 @@ var Tab4PageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header [translucent]=\"true\" mode=\"ios\">\r\n  <ion-toolbar  mode=\"ios\" [ngClass]=\"'show-' + toolbaropacity\">\r\n    <ion-title *ngIf=\"isshow\">{{user.user_name}}</ion-title>\r\n    <ion-buttons slot=\"primary\">\r\n      <ion-button (click)=\"openPage(5)\">\r\n        <!--<ion-icon slot=\"icon-only\" name=\"cog\"></ion-icon>-->\r\n        <img src=\"./assets/center-arrow.svg\">\r\n      </ion-button>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content [scrollEvents]=\"true\" [fullscreen]=\"true\" (ionScroll)=\"logScrolling($event)\">\r\n\r\n  <div class=\"center-top\">\r\n    <!--<div class=\"top-right\">-->\r\n      <!--<ion-button fill=\"clear\">-->\r\n        <!--&lt;!&ndash;<ion-icon slot=\"icon-only\" name=\"cog\"></ion-icon>&ndash;&gt;-->\r\n        <!--<img src=\"./assets/center-arrow.svg\">-->\r\n      <!--</ion-button>-->\r\n    <!--</div>-->\r\n    <!--<img src=\"./assets/centerhead.svg\">-->\r\n    <div class=\"box\" padding>\r\n      <div class=\"header\">\r\n        <ion-avatar>\r\n          <img [src]=\"user.headimg  | imgsrc: http.domain\">\r\n        </ion-avatar>\r\n        <div class=\"right\">\r\n          <div class=\"name\">\r\n            {{user.user_name}}\r\n            <ion-button fill=\"clear\" size=\"small\">\r\n              个人主页\r\n              <img src=\"./assets/centerarrow.svg\">\r\n            </ion-button>\r\n          </div>\r\n          <div class=\"des\">\r\n            <span>LV.{{user.user_rank}}</span>\r\n            {{user.lxdj}}\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"footer\">\r\n        <ion-grid>\r\n          <ion-row *ngIf=\"centeruser\">\r\n            <ion-col>\r\n              <span>{{centeruser.gznum | setnum}}</span><span>关注</span>\r\n            </ion-col>\r\n            <ion-col>\r\n              <span>{{centeruser.fsnum | setnum}}</span><span>粉丝</span>\r\n            </ion-col>\r\n            <ion-col>\r\n              <span>{{centeruser.dznum | setnum}}</span><span>获赞</span>\r\n            </ion-col>\r\n          </ion-row>\r\n        </ion-grid>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"topnav\">\r\n    <ion-card mode=\"ios\">\r\n      <ion-card-content>\r\n        <ion-grid>\r\n          <ion-row>\r\n            <ion-col (click)=\"openPage(1)\"><img src=\"./assets/wdxc.svg\"><span>我的行程</span></ion-col>\r\n            <ion-col (click)=\"openPage(2)\"><img src=\"./assets/wdsc.svg\"><span>行程收藏</span></ion-col>\r\n            <ion-col (click)=\"openPage(3)\"><img src=\"./assets/yhq.svg\"><span>优惠券</span></ion-col>\r\n          </ion-row>\r\n        </ion-grid>\r\n      </ion-card-content>\r\n    </ion-card>\r\n  </div>\r\n  <ion-card class=\"tis\" mode=\"ios\">\r\n    <ion-card-content>\r\n      <div class=\"my-title\">\r\n        <img src=\"../assets/znxl.png\">\r\n        <img src=\"../assets/centercha.svg\">\r\n      </div>\r\n      距离行程出发还有2天，请做好安排哦！ <ion-text color=\"primary\">去看看</ion-text>\r\n    </ion-card-content>\r\n  </ion-card>\r\n  <ion-card mode=\"ios\" class=\"cygj\">\r\n    <ion-card-header>\r\n      <ion-card-title>常用工具</ion-card-title>\r\n    </ion-card-header>\r\n\r\n    <ion-card-content>\r\n      <ion-row>\r\n        <ion-col (click)=\"openPage(11)\"><img src=\"./assets/wdfb.svg\"><span>我的发布</span></ion-col>\r\n        <ion-col><img src=\"./assets/wdcg.svg\"><span>我的草稿</span></ion-col>\r\n        <ion-col (click)=\"openPage(8)\"><img src=\"./assets/jfsc.svg\"><span>购物车</span></ion-col>\r\n        <ion-col (click)=\"openPage(10)\"><img src=\"./assets/allorder.svg\"><span>全部订单</span></ion-col>\r\n      </ion-row>\r\n      <ion-row>\r\n        <ion-col (click)=\"openPage(4)\"><img src=\"./assets/wddp.svg\"><span>我的收藏</span></ion-col>\r\n        <ion-col (click)=\"openPage(9)\"><img src=\"./assets/lljl.svg\"><span>浏览记录</span></ion-col>\r\n        <ion-col><img src=\"./assets/kf.svg\"><span>客服服务</span></ion-col>\r\n        <ion-col><img src=\"./assets/hzqt.svg\"><span>合作洽谈</span></ion-col>\r\n      </ion-row>\r\n    </ion-card-content>\r\n  </ion-card>\r\n  <ion-card mode=\"ios\" class=\"hdbox\">\r\n    <ion-card-header>\r\n      <ion-card-title>活动中心</ion-card-title>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n      <ion-row>\r\n        <ion-col>\r\n          <div class=\"box\">\r\n            <div class=\"left\">\r\n              <div class=\"title\">分享有礼</div>\r\n              <div class=\"des\">邀请好友<ion-text color=\"danger\">得红包</ion-text></div>\r\n            </div>\r\n            <img src=\"../assets/share.svg\">\r\n          </div>\r\n          <div class=\"box\">\r\n            <div class=\"left\">\r\n              <div class=\"title\">有奖问卷</div>\r\n              <div class=\"des\">快来参与问卷调查</div>\r\n            </div>\r\n            <img src=\"../assets/yjwd.svg\">\r\n          </div>\r\n        </ion-col>\r\n      </ion-row>\r\n    </ion-card-content>\r\n  </ion-card>\r\n</ion-content>\r\n"
+module.exports = "<ion-header [translucent]=\"true\" mode=\"ios\">\r\n  <ion-toolbar  mode=\"ios\" [ngClass]=\"'show-' + toolbaropacity\">\r\n    <ion-title *ngIf=\"isshow\">{{user.user_name}}</ion-title>\r\n    <ion-buttons slot=\"primary\">\r\n      <ion-button (click)=\"openPage(5)\">\r\n        <!--<ion-icon slot=\"icon-only\" name=\"cog\"></ion-icon>-->\r\n        <img src=\"./assets/center-arrow.svg\">\r\n      </ion-button>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content [scrollEvents]=\"true\" [fullscreen]=\"true\" (ionScroll)=\"logScrolling($event)\">\r\n\r\n  <div class=\"center-top\">\r\n    <!--<div class=\"top-right\">-->\r\n      <!--<ion-button fill=\"clear\">-->\r\n        <!--&lt;!&ndash;<ion-icon slot=\"icon-only\" name=\"cog\"></ion-icon>&ndash;&gt;-->\r\n        <!--<img src=\"./assets/center-arrow.svg\">-->\r\n      <!--</ion-button>-->\r\n    <!--</div>-->\r\n    <!--<img src=\"./assets/centerhead.svg\">-->\r\n    <div class=\"box\" padding>\r\n      <div class=\"header\">\r\n        <ion-avatar>\r\n          <img [src]=\"user.headimg  | imgsrc: http.domain\">\r\n        </ion-avatar>\r\n        <div class=\"right\">\r\n          <div class=\"name\">\r\n            {{user.user_name}}\r\n            <ion-button fill=\"clear\" size=\"small\" (click)=\"openPage(14)\">\r\n              修改资料\r\n              <img src=\"./assets/centerarrow.svg\">\r\n            </ion-button>\r\n          </div>\r\n          <div class=\"des\">\r\n            <span>LV.{{user.user_rank}}</span>\r\n            {{user.lxdj}}\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"footer\">\r\n        <ion-grid>\r\n          <ion-row *ngIf=\"centeruser\">\r\n            <ion-col (click)=\"openPage(12)\">\r\n              <span>{{centeruser.gznum | setnum}}</span><span>关注</span>\r\n            </ion-col>\r\n            <ion-col (click)=\"openPage(13)\">\r\n              <span>{{centeruser.fsnum | setnum}}</span><span>粉丝</span>\r\n            </ion-col>\r\n            <ion-col>\r\n              <span>{{centeruser.dznum | setnum}}</span><span>获赞</span>\r\n            </ion-col>\r\n          </ion-row>\r\n        </ion-grid>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"topnav\">\r\n    <ion-card mode=\"ios\">\r\n      <ion-card-content>\r\n        <ion-grid>\r\n          <ion-row>\r\n            <ion-col (click)=\"openPage(1)\"><img src=\"./assets/wdxc.svg\"><span>我的行程</span></ion-col>\r\n            <ion-col (click)=\"openPage(2)\"><img src=\"./assets/wdsc.svg\"><span>行程收藏</span></ion-col>\r\n            <ion-col (click)=\"openPage(3)\"><img src=\"./assets/yhq.svg\"><span>优惠券</span></ion-col>\r\n          </ion-row>\r\n        </ion-grid>\r\n      </ion-card-content>\r\n    </ion-card>\r\n  </div>\r\n  <ion-card class=\"tis\" mode=\"ios\">\r\n    <ion-card-content>\r\n      <div class=\"my-title\">\r\n        <img src=\"../assets/znxl.png\">\r\n        <img src=\"../assets/centercha.svg\">\r\n      </div>\r\n      距离行程出发还有2天，请做好安排哦！ <ion-text color=\"primary\">去看看</ion-text>\r\n    </ion-card-content>\r\n  </ion-card>\r\n  <ion-card mode=\"ios\" class=\"cygj\">\r\n    <ion-card-header>\r\n      <ion-card-title>常用工具</ion-card-title>\r\n    </ion-card-header>\r\n\r\n    <ion-card-content>\r\n      <ion-row>\r\n        <ion-col (click)=\"openPage(11)\"><img src=\"./assets/wdfb.svg\"><span>我的发布</span></ion-col>\r\n        <ion-col (click)=\"openPage(15)\"><img src=\"./assets/wdcg.svg\"><span>我的草稿</span></ion-col>\r\n        <ion-col (click)=\"openPage(8)\"><img src=\"./assets/jfsc.svg\"><span>购物车</span></ion-col>\r\n        <ion-col (click)=\"openPage(10)\"><img src=\"./assets/allorder.svg\"><span>全部订单</span></ion-col>\r\n      </ion-row>\r\n      <ion-row>\r\n        <ion-col (click)=\"openPage(4)\"><img src=\"./assets/wddp.svg\"><span>我的收藏</span></ion-col>\r\n        <ion-col (click)=\"openPage(9)\"><img src=\"./assets/lljl.svg\"><span>浏览记录</span></ion-col>\r\n        <ion-col><img src=\"./assets/kf.svg\"><span>客服服务</span></ion-col>\r\n        <ion-col><img src=\"./assets/hzqt.svg\"><span>合作洽谈</span></ion-col>\r\n      </ion-row>\r\n    </ion-card-content>\r\n  </ion-card>\r\n  <ion-card mode=\"ios\" class=\"hdbox\" *ngIf=\"centeruser && centeruser['advertisement'] && centeruser['advertisement'].length > 0\">\r\n    <ion-card-header>\r\n      <ion-card-title>活动中心</ion-card-title>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n      <ion-row>\r\n        <ion-col *ngFor=\"let item of centeruser['advertisement']\" (click)=\"openOtherpage(item)\">\r\n          <!--<div class=\"box\">-->\r\n            <!--<div class=\"left\">-->\r\n              <!--<div class=\"title\">分享有礼</div>-->\r\n              <!--<div class=\"des\">邀请好友<ion-text color=\"danger\">得红包</ion-text></div>-->\r\n            <!--</div>-->\r\n            <!--<img src=\"../assets/share.svg\">-->\r\n          <!--</div>-->\r\n          <!--<div class=\"box\">-->\r\n            <!--<div class=\"left\">-->\r\n              <!--<div class=\"title\">有奖问卷</div>-->\r\n              <!--<div class=\"des\">快来参与问卷调查</div>-->\r\n            <!--</div>-->\r\n            <!--<img src=\"../assets/yjwd.svg\">-->\r\n          <!--</div>-->\r\n          <img [src]=\"item.image | imgsrc: http.domain\" alt=\"\">\r\n        </ion-col>\r\n      </ion-row>\r\n    </ion-card-content>\r\n  </ion-card>\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -654,6 +92,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/user.service */ "./src/app/services/user.service.ts");
 /* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/http.service */ "./src/app/services/http.service.ts");
 /* harmony import */ var _services_usercenter_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/usercenter.service */ "./src/app/services/usercenter.service.ts");
+/* harmony import */ var _services_topage_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/topage.service */ "./src/app/services/topage.service.ts");
+/* harmony import */ var _services_native_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/native.service */ "./src/app/services/native.service.ts");
+
+
 
 
 
@@ -661,16 +103,32 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Tab4Page = /** @class */ (function () {
-    function Tab4Page(route, userfn, http, usercenter) {
+    function Tab4Page(route, userfn, http, usercenter, toPage, native) {
         this.route = route;
         this.userfn = userfn;
         this.http = http;
         this.usercenter = usercenter;
+        this.toPage = toPage;
+        this.native = native;
     }
     Tab4Page.prototype.ngOnInit = function () {
         this.isshow = false;
         this.user = {};
         this.toolbaropacity = '0';
+        this.hdzxList = [
+            {
+                image: "data/afficheimg/1561275185704229306.png",
+                name: "出境过暖冬",
+                type: "2",
+                url: "371",
+            },
+            {
+                image: "data/afficheimg/1561275185704229306.png",
+                name: "出境过暖冬",
+                type: "2",
+                url: "371",
+            }
+        ];
     };
     Tab4Page.prototype.ionViewDidEnter = function () {
         var _this = this;
@@ -710,11 +168,10 @@ var Tab4Page = /** @class */ (function () {
         this.setNavstatus(num);
     };
     Tab4Page.prototype.setNavstatus = function (num) {
-        // const el = document.querySelector('ion-toolbar');
-        // el.style.setProperty('--opacity', num);
         this.toolbaropacity = (parseInt((num * 100).toString(), 10)).toString();
     };
     Tab4Page.prototype.openPage = function (type) {
+        var _this = this;
         if (type === 9) {
             this.route.navigate(['/browse-records']);
         }
@@ -742,6 +199,26 @@ var Tab4Page = /** @class */ (function () {
         else if (type === 11) {
             this.route.navigate(['/myrelease']);
         }
+        else if (type === 12) {
+            this.route.navigate(['/userlist'], { queryParams: { type: 1 } });
+        }
+        else if (type === 13) {
+            this.route.navigate(['/userlist'], { queryParams: { type: 2 } });
+        }
+        else if (type === 14) {
+            this.route.navigate(['/edmit-user']);
+        }
+        else if (type === 15) {
+            // this.route.navigate(['/fbyj'], {queryParams: {type: res.data.type}});
+            this.native.getStorage('yjcontent').then(function (res) {
+                _this.route.navigate(['/fbyj'], { queryParams: { type: res.type - 1, iscg: 1 } });
+            }).catch(function (error) {
+                _this.native.presentAlert('没有草稿!');
+            });
+        }
+    };
+    Tab4Page.prototype.openOtherpage = function (item) {
+        this.toPage.toPage(item.type, item.url);
     };
     Tab4Page = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -750,7 +227,7 @@ var Tab4Page = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./tab4.page.scss */ "./src/app/tab4/tab4.page.scss")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _services_http_service__WEBPACK_IMPORTED_MODULE_4__["HttpService"],
-            _services_usercenter_service__WEBPACK_IMPORTED_MODULE_5__["UsercenterService"]])
+            _services_usercenter_service__WEBPACK_IMPORTED_MODULE_5__["UsercenterService"], _services_topage_service__WEBPACK_IMPORTED_MODULE_6__["TopageService"], _services_native_service__WEBPACK_IMPORTED_MODULE_7__["NativeService"]])
     ], Tab4Page);
     return Tab4Page;
 }());

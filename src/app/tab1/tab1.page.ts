@@ -1,6 +1,13 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-15 22:18:06
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-08-04 00:52:05
+ * @Description: file content
+ */
 import { Component, OnInit, ViewChild  } from '@angular/core';
 import { Router } from '@angular/router';
-import {ModalController, NavController} from '@ionic/angular';
+import {ModalController, NavController, AlertController} from '@ionic/angular';
 // import { SearchPage } from '../search/search.page';
 import { SearchComponent } from '../components/search/search.component';
 import { HttpService } from '../services/http.service';
@@ -11,6 +18,8 @@ import { TopageService } from '../services/topage.service';
 // import { GetshopService } from '../services/getshop.service';
 import { UserService } from '../services/user.service';
 import { GaoDeLocation, PositionOptions } from '@ionic-native/gao-de-location/ngx';
+import { AppUpdate } from '@ionic-native/app-update/ngx';
+import { NativeService } from '../services/native.service';
 
 @Component({
   selector: 'app-tab1',
@@ -43,7 +52,8 @@ export class Tab1Page implements OnInit {
   location: any;
   constructor(public modalController: ModalController,
               private http: HttpService, private shop: ShopContentService,
-              private topage: TopageService, private user: UserService, private route: Router) {
+              private topage: TopageService, private user: UserService, private route: Router,
+              private appUpdate: AppUpdate, private native: NativeService, public alertController: AlertController) {
   }
   ngOnInit() {
     // this.shopdata = {}
@@ -78,19 +88,28 @@ export class Tab1Page implements OnInit {
       //   }
       // },
     }
-
   }
   ionViewDidEnter() {
     this.moreGoods = this.shop.getMoregoods();
     console.log(this.moreGoods)
     this.getShopcontent();
     this.location = this.user.getLocation();
-
   }
   getShopcontent() {
     this.shop.getShop().then(res => {
       this.shopdata = res;
-      console.log(res)
+      if (this.native.isandroid()) { // 安卓版本更新
+        const updateUrl = this.http.zdomain + 'update.xml';
+        this.appUpdate.checkAppUpdate(updateUrl).then(() => { console.log('Update available') }).catch(err2 => {
+          console.error(2);
+        });
+      } else if (this.native.isios()) { // ios 版本更新
+        this.native.getAppversion().then(version => {
+          if (version != res.iosapp_verson) {
+            this.updateios();
+          }
+        })
+      }
       this.navList = this.shop.getIndexnav();
       this.bannerList = this.shop.getIndexbanner();
       this.bzjx = this.shop.getBzjx();
@@ -110,6 +129,20 @@ export class Tab1Page implements OnInit {
         this.keywords = this.shopdata['keywords'][0];
       }
     }).catch(err => {});
+  }
+  async updateios() {
+    const alert = await this.alertController.create({
+      header: '提示',
+      message: '有新版了，为了更好的服务将立即更新!.',
+      buttons: [{
+        text: '确定',
+        handler: () => {
+          this.native.openStore();
+        }
+      }]
+    });
+
+    await alert.present();
   }
   doRefresh(event) {
     console.log('Begin async operation');

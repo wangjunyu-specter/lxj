@@ -17,6 +17,12 @@
       "OKHTTP_VERSION": "3.10.0",
       "PACKAGE_NAME": "io.lxj.wjy"
     },
+    "cordova-plugin-app-update": {
+      "PACKAGE_NAME": "io.lxj.wjy"
+    },
+    "cordova-plugin-app-version": {
+      "PACKAGE_NAME": "io.lxj.wjy"
+    },
     "cordova-plugin-device": {
       "PACKAGE_NAME": "io.lxj.wjy"
     },
@@ -42,6 +48,9 @@
     },
     "cordova-plugin-ionic-webview": {
       "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+",
+      "PACKAGE_NAME": "io.lxj.wjy"
+    },
+    "cordova-plugin-market": {
       "PACKAGE_NAME": "io.lxj.wjy"
     },
     "cordova-plugin-media-capture": {
@@ -70,6 +79,9 @@
     }
   },
   "dependent_plugins": {
+    "cordova-plugin-appversion": {
+      "PACKAGE_NAME": "io.lxj.wjy"
+    },
     "cordova-plugin-camera": {
       "PACKAGE_NAME": "io.lxj.wjy"
     }

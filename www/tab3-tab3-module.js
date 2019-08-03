@@ -188,7 +188,7 @@ var Tab3Page = /** @class */ (function () {
     Tab3Page.prototype.openpage = function ($event) {
         console.log($event);
         // this.nav.navigateForward(['/productcontent'], );
-        this.route.navigate(['/productcontent'], { queryParams: { id: $event.goods_id, suppid: $event.supplier_id } });
+        this.route.navigate(['/productcontent'], { queryParams: { id: $event.goods_id || $event.id, suppid: $event.supplier_id } });
     };
     Tab3Page.prototype.toPage = function (type, id, name) {
         this.topage.toPage(type, id, name);

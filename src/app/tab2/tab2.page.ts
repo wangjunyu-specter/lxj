@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-14 23:03:42
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-08-04 00:04:38
+ * @Description: file content
+ */
 import {Component, OnInit} from '@angular/core';
 import {HttpService} from '../services/http.service';
 import {ShopContentService} from '../services/shop-content.service';
@@ -53,6 +60,11 @@ export class Tab2Page implements OnInit {
     }).catch(err => {
 
     });
+    this.native.getAppversion().then(res => {
+      console.log(res);
+    }).catch(err2 => {
+      console.error(err2);
+    })
   }
   ngOnInit() {
     // this.gzlist = this.pqlistfn.getgzList();

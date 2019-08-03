@@ -62,7 +62,7 @@ var FbyjPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>发布{{title}}</ion-title>\n    <ion-buttons slot=\"end\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"save()\" [disabled]=\"!head || !formdata.title || !content || issub || issave\">\n        <ion-icon name=\"paper-plane\"></ion-icon>保存\n      </ion-button>\n      <ion-button (click)=\"sub(1)\" [disabled]=\"!head || !formdata.title || !content || issub || issave\">\n        <ion-icon name=\"paper-plane\"></ion-icon>发表\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div *ngIf=\"!iscontent\">\n    <div class=\"top-head\">\n      <img [src]=\"head\" alt=\"\" *ngIf=\"head\" (click)=\"addfm()\">\n      <div *ngIf=\"!head\" class=\"ts-box\" (click)=\"addfm()\">\n        添加封面\n      </div>\n    </div>\n    <ion-list>\n      <ion-item>\n        <ion-input [(ngModel)]=\"formdata.title\" clearInput placeholder=\"添加标题\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input [(ngModel)]=\"formdata.destination\" clearInput placeholder=\"目的地\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-datetime no-padding no-margin [(ngModel)]=\"formdata.outtime\" placeholder=\"出发日期\" display-format=\"YYYY.MM.DD\" [doneText]=\"'确定'\" [cancelText]=\"'取消'\"></ion-datetime>\n      </ion-item>\n      <ion-item>\n        <ion-input [(ngModel)]=\"formdata.days\" type=\"number\" clearInput placeholder=\"出行天数\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input [(ngModel)]=\"formdata.money\" clearInput type=\"number\" placeholder=\"人均花费\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input [(ngModel)]=\"formdata.tag\" clearInput placeholder=\"添加标签\"></ion-input>\n      </ion-item>\n      <ion-item lines=\"none\">\n        <ion-textarea [(ngModel)]=\"formdata.des\" rows=\"3\" placeholder=\"一句话描述...\"></ion-textarea>\n      </ion-item>\n    </ion-list>\n  </div>\n  <div *ngIf=\"iscontent\">\n    <ckeditor [(ngModel)]=\"content\" [config]=\"config\" debounce=\"500\">  </ckeditor>\n  </div>\n  <div class=\"keyboard-height\" [ngStyle]=\"{height: keyboardH + 'px'}\"></div>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"setContent()\" [disabled]=\"issub\">\n        {{iscontent ? '标题' : '正文'}}\n      </ion-button>\n    </ion-buttons>\n    <ion-buttons slot=\"end\" *ngIf=\"iscontent\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"addimg()\" [disabled]=\"issub\">\n        <ion-icon name=\"images\"></ion-icon>插入图片\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-footer>\n"
+module.exports = "<ion-header>\n\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>发布{{title}}</ion-title>\n    <ion-buttons slot=\"end\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"savefn(1)\" [disabled]=\"!formdata.title || !content || issub || issave\">\n        <ion-icon name=\"paper-plane\"></ion-icon>保存\n      </ion-button>\n      <ion-button (click)=\"sub(1)\" [disabled]=\"!formdata.title || !content || issub || issave\">\n        <ion-icon name=\"paper-plane\"></ion-icon>发表\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div *ngIf=\"!iscontent\">\n    <div class=\"top-head\">\n      <img [src]=\"head\" alt=\"\" *ngIf=\"head\" (click)=\"addfm()\">\n      <div *ngIf=\"!head\" class=\"ts-box\" (click)=\"addfm()\">\n        添加封面\n      </div>\n    </div>\n    <ion-list>\n      <ion-item>\n        <ion-input [(ngModel)]=\"formdata.title\" clearInput placeholder=\"添加标题\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input [(ngModel)]=\"formdata.destination\" clearInput placeholder=\"目的地\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-datetime no-padding no-margin [(ngModel)]=\"formdata.outtime\" placeholder=\"出发日期\" display-format=\"YYYY.MM.DD\" [doneText]=\"'确定'\" [cancelText]=\"'取消'\"></ion-datetime>\n      </ion-item>\n      <ion-item>\n        <ion-input [(ngModel)]=\"formdata.days\" type=\"number\" clearInput placeholder=\"出行天数\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input [(ngModel)]=\"formdata.money\" clearInput type=\"number\" placeholder=\"人均花费\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input [(ngModel)]=\"formdata.tag\" clearInput placeholder=\"添加标签\"></ion-input>\n      </ion-item>\n      <ion-item lines=\"none\">\n        <ion-textarea [(ngModel)]=\"formdata.des\" rows=\"3\" placeholder=\"一句话描述...\"></ion-textarea>\n      </ion-item>\n    </ion-list>\n  </div>\n  <div *ngIf=\"iscontent\">\n    <ckeditor [(ngModel)]=\"content\" [config]=\"config\" debounce=\"500\">  </ckeditor>\n  </div>\n  <div class=\"keyboard-height\" [ngStyle]=\"{height: keyboardH + 'px'}\"></div>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"setContent()\" [disabled]=\"issub\">\n        {{iscontent ? '标题' : '正文'}}\n      </ion-button>\n    </ion-buttons>\n    <ion-buttons slot=\"end\" *ngIf=\"iscontent\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"addimg()\" [disabled]=\"issub\">\n        <ion-icon name=\"images\"></ion-icon>插入图片\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-footer>\n"
 
 /***/ }),
 
@@ -205,6 +205,9 @@ var FbyjPage = /** @class */ (function () {
             default:
                 this.title = '游记';
         }
+        if (params['iscg']) {
+            this.getCg();
+        }
         try {
             window.addEventListener('keyboardWillShow', function (event) {
                 _this.keyboardH = event.keyboardHeight;
@@ -216,6 +219,27 @@ var FbyjPage = /** @class */ (function () {
         catch (e) {
             console.log(e);
         }
+    };
+    FbyjPage.prototype.getCg = function () {
+        var _this = this;
+        this.native.getStorage('yjcontent').then(function (res) {
+            _this.head = res.head;
+            _this.type = res.type - 1;
+            _this.address = res.address;
+            _this.lnglat = res.lnglat;
+            _this.content = res.content;
+            _this.formdata = res;
+            if (_this.formdata.outtime) {
+                console.log(_this.formdata.outtime);
+                var date = new Date(_this.formdata.outtime * 1000);
+                var year = date.getFullYear();
+                var month = date.getMonth() + 1;
+                var day = date.getDate();
+                _this.formdata.outtime = year + '.' + month + '.' + day;
+                console.log(_this.formdata.outtime);
+            }
+        }).catch(function (error) {
+        });
     };
     FbyjPage.prototype.setContent = function () {
         this.iscontent = !this.iscontent;
@@ -314,6 +338,7 @@ var FbyjPage = /** @class */ (function () {
                 var nstr = "<img style=\"max-width: 100%\" src=\"" + (_this.http.zdomain + res['src']) + "\" alt=\"\">";
                 _this.content = _this.content.replace(regex, nstr);
                 _this.sub();
+                _this.savefn();
             }).catch(function (err2) {
                 _this.contentimgarr[num] = false;
                 _this.suberr();
@@ -330,6 +355,7 @@ var FbyjPage = /** @class */ (function () {
             _this.isloadhead = false;
             _this.head = _this.http.zdomain + res['src'];
             _this.sub();
+            _this.savefn();
         }).catch(function (err2) {
             _this.isloadhead = false;
             _this.suberr();
@@ -352,19 +378,35 @@ var FbyjPage = /** @class */ (function () {
             oReq.send(file);
         });
     };
-    FbyjPage.prototype.save = function () {
+    /**
+     * 获取之前已保存数据
+     * 暂定只能保存一个
+     */
+    // save() {
+    //   this.issave = true;
+    //   this.native.getStorage('yjcontent').then(arr => {
+    //     this.setsave(arr);
+    //   }).catch(error => {
+    //     this.setsave([]);
+    //   })
+    // }
+    /**
+     * 添加新保存数据
+     * @param {Object[]} arr
+     */
+    // setsave(arr: object[]) { // 保存多个的时候使用，暂定只能保存一个
+    FbyjPage.prototype.setsave = function () {
         var _this = this;
-        this.issave = true;
         var obj = {
-            img: JSON.stringify([this.head]),
+            head: this.head,
             type: this.type + 1,
             address: this.address,
             lnglat: this.lnglat,
             content: this.content
         };
         obj = Object.assign(obj, this.formdata);
-        console.log(obj);
         obj['outtime'] = obj['outtime'] ? Date.parse((new Date(obj['outtime'])).toString()) / 1000 : '';
+        // arr.push(obj); 保存多个的时候使用，暂定只能保存一个
         this.native.setStorage('yjcontent', obj).then(function (res) {
             _this.issave = false;
             _this.native.presentAlert('保存成功,如需使用请到个人中心查看');
@@ -378,14 +420,35 @@ var FbyjPage = /** @class */ (function () {
             this.issub = true;
             this.subloading();
         }
-        var canupdate = this.iscansub();
+        var canupdate = this.iscansub(1);
         if (!canupdate) {
             return false;
         }
         this.subupdate();
     };
-    FbyjPage.prototype.iscansub = function () {
-        if (!this.issub) {
+    /**
+     * 判断是否可以立即保存
+     * @returns {boolean}
+     */
+    FbyjPage.prototype.savefn = function (issave) {
+        if (issave) {
+            this.issave = true;
+        }
+        if (!this.iscansub(2)) {
+            return false;
+        }
+        this.setsave();
+    };
+    /**
+     * type 1 表示发表 2 表示保存
+     * @param {number} type
+     * @returns {boolean}
+     */
+    FbyjPage.prototype.iscansub = function (type) {
+        if (!this.issub && type === 1) {
+            return false;
+        }
+        else if (type === 2 && !this.issave) {
             return false;
         }
         if (this.isloadhead) {

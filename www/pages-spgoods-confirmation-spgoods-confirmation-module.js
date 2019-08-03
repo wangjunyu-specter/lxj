@@ -137,7 +137,7 @@ var SpgoodsConfirmationPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<ion-header mode=\"ios\">\r\n  <ion-toolbar mode=\"ios\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-button (click)=\"goBack()\">\r\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\r\n      </ion-button>\r\n    </ion-buttons>\r\n    <ion-title>确认订单</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n<ion-content>\r\n  <!--<app-pagetitle [myname]=\"'收货人信息'\" [smpadding]=\"true\"></app-pagetitle>-->\r\n  <div class=\"shperson-box\">\r\n    <div class=\"ts-box\" *ngIf=\"!activePerson || activePerson.length == 0\" (click)=\"seleteAddress()\">请选择收货人</div>\r\n    <ion-list inset=\"true\" line=\"none\">\r\n      <ion-item *ngFor=\"let item of activePerson\" (click)=\"seleteAddress()\" lines=\"none\">\r\n        <ion-label><h2>{{item.name}} <span style=\"font-size: 12px;color:#666;\">{{item.mobile}}</span></h2><p>{{item.address}}</p></ion-label>\r\n      </ion-item>\r\n    </ion-list>\r\n\r\n  </div>\r\n  <ion-list *ngFor=\"let item of goodsList; let i = index\" inset=\"true\" line=\"none\">\r\n    <ion-item lines=\"none\">\r\n      <app-pagetitle [myname]=\"item.supname\" [smpadding]=\"true\"></app-pagetitle>\r\n    </ion-item>\r\n    <ion-item *ngFor=\"let data of item.goodlist\" lines=\"none\">\r\n      <ion-thumbnail slot=\"start\">\r\n        <img [src]=\"http.domain + data.goods_thumb\">\r\n      </ion-thumbnail>\r\n      <ion-label>\r\n        <h3 class=\"goods_title\">{{data.goods_name}}</h3>\r\n        <p class=\"goods_title\">{{data.goods_attr | goodsattr}}</p>\r\n      </ion-label>\r\n      <div slot=\"end\" class=\"end-price\">\r\n        <span>{{data.formated_goods_price}}</span>\r\n        <span>×{{data.goods_number}}</span>\r\n      </div>\r\n    </ion-item>\r\n    <ion-item *ngIf=\"allowusebonus == 1 && item.redbag && item.redbag.length > 0\" lines=\"none\">\r\n      <select name=\"\" id=\"\" class=\"myselect\" [(ngModel)]=\"changebonus[i]\"\r\n              (change)=\"changeYhq(item.redbag[0]['supplier_id'], i)\" placeholder=\"使用优惠券\">\r\n        <option value=\"\" selected>不使用优惠券</option>\r\n        <option *ngFor=\"let hbitem of item.redbag\" [value]=\"hbitem.bonus_id\">{{hbitem.type_name}}[{{hbitem.type_money}}]</option>\r\n      </select>\r\n    </ion-item>\r\n    <!--<ion-item>-->\r\n      <!--<ion-label>使用线下优惠券</ion-label>-->\r\n      <!--<ion-toggle [(ngModel)]=\"isxxyhq[i]\"></ion-toggle>-->\r\n    <!--</ion-item>-->\r\n    <!--<ion-item *ngIf=\"isxxyhq[i]\" class=\"xxyhqbox\">-->\r\n      <!--<div class=\"left\">-->\r\n        <!--<input type=\"text\" [(ngModel)]=\"xxyhq[i]\" placeholder=\"请输入优惠券编码\">-->\r\n      <!--</div>-->\r\n      <!--<div class=\"right\">-->\r\n        <!--<ion-button expand=\"full\" (click)=\"subyhq(i, item.redbag[0]['supplier_id'])\">确定</ion-button>-->\r\n      <!--</div>-->\r\n    <!--</ion-item>-->\r\n    <ion-item *ngIf=\"item.zhekou\" lines=\"none\">\r\n      <div class=\"goods_title\" [innerHTML]=\"assembleHTML(item.zhekou.your_discount)\"></div>\r\n    </ion-item>\r\n    <!--<ion-item lines=\"none\">-->\r\n      <!--<span class=\"goods_title\">运费: </span>-->\r\n      <!--<div class=\"goods_title\" slot=\"end\" >-->\r\n        <!--&lt;!&ndash;{{item.shipping.shipping_desc}}&ndash;&gt;-->\r\n        <!--<span *ngIf=\"item.shipping && item.shipping.shipping_fee && item.shipping.format_shipping_fee && item.shipping.format_shipping_fee != '0.00'\">-->\r\n          <!--{{item.shipping.format_shipping_fee}}-->\r\n        <!--</span>-->\r\n        <!--<span *ngIf=\"!item.shipping.shipping_fee || item.shipping.format_shipping_fee == '0.00'\">-->\r\n          <!--包邮-->\r\n        <!--</span>-->\r\n      <!--</div>-->\r\n    <!--</ion-item>-->\r\n  </ion-list>\r\n  <ion-list *ngIf=\"pricearr\" inset=\"true\">\r\n    <ion-item  *ngFor=\"let item of pricearr['hdarr']\">\r\n      <ion-label>{{item.key}}</ion-label>\r\n      <div class=\"end\">{{item.value}}</div>\r\n    </ion-item>\r\n  </ion-list>\r\n  <ion-list *ngIf=\"pricearr\" inset=\"true\">\r\n    <ion-item  *ngFor=\"let item of pricearr['pricearr']; let i = index\">\r\n      <ion-label>{{item.key}}</ion-label>\r\n      <div class=\"end\" [ngClass]=\"{'red': i > 1}\">{{item.value}}</div>\r\n    </ion-item>\r\n  </ion-list>\r\n\r\n  <ion-list *ngIf=\"allowusesurplus == 1 && yoursurplusnum > 0\" inset=\"true\" line=\"none\">\r\n    <ion-item>\r\n      <ion-label>使用余额</ion-label>\r\n      <ion-toggle [(ngModel)]=\"kysyye\" (ionChange)=\"setissyye()\"></ion-toggle>\r\n    </ion-item>\r\n    <ion-item lines=\"none\" *ngIf=\"kysyye\">\r\n      <ion-label>使用余额</ion-label>\r\n      <ion-input type=\"number\" mode=\"ios\" (ionChange)=\"setyechange()\" [max]=\"yoursurplus\" min=\"0\" [(ngModel)]=\"syye\" color=\"success\"></ion-input>\r\n      <ion-note>元</ion-note>\r\n    </ion-item>\r\n    <ion-item>\r\n      <small>您当前的可用余额为{{yoursurplus}}</small>\r\n    </ion-item>\r\n  </ion-list>\r\n  <ion-list inset=\"true\" line=\"none\" *ngIf=\"payList && payList.length > 0\">\r\n    <ion-radio-group [(ngModel)]=\"payType\">\r\n      <ion-list-header>\r\n        支付方式\r\n      </ion-list-header>\r\n      <ion-item *ngFor=\"let item of payList\" lines=\"none\">\r\n        <ion-label>{{item.pay_name}}</ion-label>\r\n        <ion-radio slot=\"start\" value=\"{{item.pay_id}}\" mode=\"md\"></ion-radio>\r\n      </ion-item>\r\n    </ion-radio-group>\r\n  </ion-list>\r\n</ion-content>\r\n<ion-footer mode=\"ios\">\r\n  <ion-toolbar mode=\"ios\">\r\n    <app-footer [type]=\"3\" *ngIf=\"total\" [allprice]=\"total.amount_formated\" (sub)=\"submit($event)\"></app-footer>\r\n  </ion-toolbar>\r\n</ion-footer>\r\n"
+module.exports = "\r\n<ion-header mode=\"ios\">\r\n  <ion-toolbar mode=\"ios\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-button (click)=\"goBack()\">\r\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\r\n      </ion-button>\r\n    </ion-buttons>\r\n    <ion-title>确认订单</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n<ion-content>\r\n  <!--<app-pagetitle [myname]=\"'收货人信息'\" [smpadding]=\"true\"></app-pagetitle>-->\r\n  <div class=\"shperson-box\">\r\n    <div class=\"ts-box\" *ngIf=\"!activePerson || activePerson.length == 0\" (click)=\"seleteAddress()\">请选择收货人</div>\r\n    <ion-list inset=\"true\" line=\"none\">\r\n      <ion-item *ngFor=\"let item of activePerson\" (click)=\"seleteAddress()\" lines=\"none\">\r\n        <ion-label><h2>{{item.name}} <span style=\"font-size: 12px;color:#666;\">{{item.mobile}}</span></h2><p>{{item.address}}</p></ion-label>\r\n      </ion-item>\r\n    </ion-list>\r\n\r\n  </div>\r\n  <ion-list *ngFor=\"let item of goodsList; let i = index\" inset=\"true\" line=\"none\">\r\n    <ion-item lines=\"none\">\r\n      <app-pagetitle [myname]=\"item.supname\" [smpadding]=\"true\"></app-pagetitle>\r\n    </ion-item>\r\n    <ion-item *ngFor=\"let data of item.goodlist\" lines=\"none\">\r\n      <ion-thumbnail slot=\"start\">\r\n        <img [src]=\"http.domain + data.goods_thumb\">\r\n      </ion-thumbnail>\r\n      <ion-label>\r\n        <h3 class=\"goods_title\">{{data.goods_name}}</h3>\r\n        <p class=\"goods_title\">{{data.goods_attr | goodsattr}}</p>\r\n      </ion-label>\r\n      <div slot=\"end\" class=\"end-price\">\r\n        <span>{{data.formated_goods_price}}</span>\r\n        <span>×{{data.goods_number}}</span>\r\n      </div>\r\n    </ion-item>\r\n    <ion-item *ngIf=\"allowusebonus == 1 && item.redbag && item.redbag.length > 0\" lines=\"none\">\r\n      <select name=\"\" id=\"\" class=\"myselect\" [(ngModel)]=\"changebonus[i]\"\r\n              (change)=\"changeYhq(item['supplier_id'], i)\" placeholder=\"使用优惠券\">\r\n        <option value=\"\" selected>不使用优惠券</option>\r\n        <option *ngFor=\"let hbitem of item.redbag\" [value]=\"hbitem.bonus_id\">{{hbitem.type_name}}[{{hbitem.type_money}}]</option>\r\n      </select>\r\n    </ion-item>\r\n    <ion-item>\r\n      <ion-label>备注</ion-label>\r\n      <ion-input placeholder=\"如果需要请备注\" [(ngModel)]=\"bzarr[i]\"></ion-input>\r\n    </ion-item>\r\n    <!--<ion-item>-->\r\n      <!--<ion-label>使用线下优惠券</ion-label>-->\r\n      <!--<ion-toggle [(ngModel)]=\"isxxyhq[i]\"></ion-toggle>-->\r\n    <!--</ion-item>-->\r\n    <!--<ion-item *ngIf=\"isxxyhq[i]\" class=\"xxyhqbox\">-->\r\n      <!--<div class=\"left\">-->\r\n        <!--<input type=\"text\" [(ngModel)]=\"xxyhq[i]\" placeholder=\"请输入优惠券编码\">-->\r\n      <!--</div>-->\r\n      <!--<div class=\"right\">-->\r\n        <!--<ion-button expand=\"full\" (click)=\"subyhq(i, item.redbag[0]['supplier_id'])\">确定</ion-button>-->\r\n      <!--</div>-->\r\n    <!--</ion-item>-->\r\n    <ion-item *ngIf=\"item.zhekou\" lines=\"none\">\r\n      <div class=\"goods_title\" [innerHTML]=\"assembleHTML(item.zhekou.your_discount)\"></div>\r\n    </ion-item>\r\n    <!--<ion-item lines=\"none\">-->\r\n      <!--<span class=\"goods_title\">运费: </span>-->\r\n      <!--<div class=\"goods_title\" slot=\"end\" >-->\r\n        <!--&lt;!&ndash;{{item.shipping.shipping_desc}}&ndash;&gt;-->\r\n        <!--<span *ngIf=\"item.shipping && item.shipping.shipping_fee && item.shipping.format_shipping_fee && item.shipping.format_shipping_fee != '0.00'\">-->\r\n          <!--{{item.shipping.format_shipping_fee}}-->\r\n        <!--</span>-->\r\n        <!--<span *ngIf=\"!item.shipping.shipping_fee || item.shipping.format_shipping_fee == '0.00'\">-->\r\n          <!--包邮-->\r\n        <!--</span>-->\r\n      <!--</div>-->\r\n    <!--</ion-item>-->\r\n  </ion-list>\r\n  <ion-list *ngIf=\"pricearr\" inset=\"true\">\r\n    <ion-item  *ngFor=\"let item of pricearr['hdarr']\">\r\n      <ion-label>{{item.key}}</ion-label>\r\n      <div class=\"end\">{{item.value}}</div>\r\n    </ion-item>\r\n  </ion-list>\r\n  <ion-list *ngIf=\"pricearr\" inset=\"true\">\r\n    <ion-item  *ngFor=\"let item of pricearr['pricearr']; let i = index\">\r\n      <ion-label>{{item.key}}</ion-label>\r\n      <div class=\"end\" [ngClass]=\"{'red': i > 1}\">{{item.value}}</div>\r\n    </ion-item>\r\n  </ion-list>\r\n\r\n  <ion-list *ngIf=\"allowusesurplus == 1 && yoursurplusnum > 0\" inset=\"true\" line=\"none\">\r\n    <ion-item>\r\n      <ion-label>使用余额</ion-label>\r\n      <ion-toggle [(ngModel)]=\"kysyye\" (ionChange)=\"setissyye()\"></ion-toggle>\r\n    </ion-item>\r\n    <ion-item lines=\"none\" *ngIf=\"kysyye\">\r\n      <ion-label>使用余额</ion-label>\r\n      <ion-input type=\"number\" mode=\"ios\" (ionChange)=\"setyechange()\" [max]=\"yoursurplus\" min=\"0\" [(ngModel)]=\"syye\" color=\"success\"></ion-input>\r\n      <ion-note>元</ion-note>\r\n    </ion-item>\r\n    <ion-item>\r\n      <small>您当前的可用余额为{{yoursurplus}}</small>\r\n    </ion-item>\r\n  </ion-list>\r\n  <ion-list inset=\"true\" line=\"none\" *ngIf=\"payList && payList.length > 0\">\r\n    <ion-radio-group [(ngModel)]=\"payType\">\r\n      <ion-list-header>\r\n        支付方式\r\n      </ion-list-header>\r\n      <ion-item *ngFor=\"let item of payList\" lines=\"none\">\r\n        <ion-label>{{item.pay_name}}</ion-label>\r\n        <ion-radio slot=\"start\" value=\"{{item.pay_id}}\" mode=\"md\"></ion-radio>\r\n      </ion-item>\r\n    </ion-radio-group>\r\n  </ion-list>\r\n</ion-content>\r\n<ion-footer mode=\"ios\">\r\n  <ion-toolbar mode=\"ios\">\r\n    <app-footer [type]=\"3\" *ngIf=\"total\" [allprice]=\"total.amount_formated\" (sub)=\"submit($event)\"></app-footer>\r\n  </ion-toolbar>\r\n</ion-footer>\r\n"
 
 /***/ }),
 
@@ -210,6 +210,8 @@ var SpgoodsConfirmationPage = /** @class */ (function () {
         if (this.payList.length > 0) {
             this.payType = this.payList[0]['pay_id'];
         }
+        this.bonusList = [];
+        this.bzarr = [];
     };
     SpgoodsConfirmationPage.prototype.reset = function () {
         this.goodsList = [];
@@ -256,9 +258,9 @@ var SpgoodsConfirmationPage = /** @class */ (function () {
             _this.total = res['data']['total'];
             _this.order = res['data']['order'];
             _this.pricearr = res.data.pricearr;
-            if (res.data.is_surplus_open != 0) {
-                _this.kysyye = true;
-            }
+            // if (res.data.is_surplus_open != 0) {
+            //   this.kysyye = true;
+            // }
             if (!type) {
                 _this.allowusebonus = res['data']['allow_use_bonus'];
                 _this.allowusesurplus = res['data']['allow_use_surplus'];
@@ -300,15 +302,25 @@ var SpgoodsConfirmationPage = /** @class */ (function () {
     //   });
     // }
     SpgoodsConfirmationPage.prototype.changeYhq = function (id, index) {
-        if (this.isxxyhq[index]) {
-            this.isxxyhq[index] = false;
-        }
+        // if (this.isxxyhq[index]) {
+        //   this.isxxyhq[index] = false;
+        // }
+        console.log(this.changebonus);
+        // const arr = this.changebonus.filter(res => {
+        //   if (res) {
+        //     return true;
+        //   } else {
+        //     return false;
+        //   }
+        // })
+        // console.log(arr);
         var obj = {
-            bonus: this.changebonus,
+            bonus: this.changebonus[index],
             sel_cartgoods: this.idlist,
             suppid: id,
         };
         this.setHttp(this.http.changebonus, obj);
+        this.bonusList[id] = this.changebonus[index];
     };
     SpgoodsConfirmationPage.prototype.subyhq = function (i, id) {
         if (this.changebonus[i]) {
@@ -363,7 +375,7 @@ var SpgoodsConfirmationPage = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         surplus = this.kysyye ? this.syye : 0;
-                        if (!(surplus > 0)) return [3 /*break*/, 11];
+                        if (!(surplus > 0)) return [3 /*break*/, 12];
                         return [4 /*yield*/, this.syyepay()];
                     case 1:
                         pwd = _a.sent();
@@ -406,7 +418,11 @@ var SpgoodsConfirmationPage = /** @class */ (function () {
                         }
                         console.log(this.syye);
                         _a.label = 11;
-                    case 11:
+                    case 11: return [3 /*break*/, 13];
+                    case 12:
+                        this.native.presentAlert('暂未开通支付，请选择余额支付');
+                        return [2 /*return*/, false];
+                    case 13:
                         this.paysuccess(surplus);
                         // : todo 调用支付还未做
                         // alert('调用支付还未做')
@@ -483,10 +499,16 @@ var SpgoodsConfirmationPage = /** @class */ (function () {
     SpgoodsConfirmationPage.prototype.paysuccess = function (surplus) {
         var _this = this;
         console.log('支付成功');
-        var bonusarr = [];
+        var bonusarr = []; // 红包列表
         this.changebonus.map(function (res) {
             if (res) {
                 bonusarr.push(res);
+            }
+        });
+        var bzarr = []; // 备注列表
+        this.bzarr.map(function (res, index) {
+            if (res) {
+                bzarr[_this.goodsList[index]['supplier_id']] = res;
             }
         });
         var obj = {
@@ -496,9 +518,9 @@ var SpgoodsConfirmationPage = /** @class */ (function () {
             // inv_type, 发票信息
             // inv_payee,
             // inv_content,
-            postscript: '我是备注',
+            postscript: JSON.stringify(bzarr),
             integral: 0,
-            bonus: JSON.stringify(bonusarr),
+            bonus: JSON.stringify(this.bonusList),
             bonus_sn: this.xxyhq,
             surplus: surplus,
             payment: this.payType
@@ -528,6 +550,9 @@ var SpgoodsConfirmationPage = /** @class */ (function () {
         this.pricearr = res.pricearr;
         if (res.surplus) {
             this.syye = res.surplus;
+        }
+        else if (res.total.amount) {
+            this.syye = res.total.amount;
         }
     };
     SpgoodsConfirmationPage.prototype.setissyye = function () {
@@ -566,6 +591,7 @@ var SpgoodsConfirmationPage = /** @class */ (function () {
     };
     SpgoodsConfirmationPage.prototype.setHttp = function (src, obj) {
         var _this = this;
+        // this.order['bonus_id'] = this.changebonus[0];
         var obj1 = {
             sel_cartgoods: this.idlist,
             order: JSON.stringify(this.order)
@@ -573,6 +599,9 @@ var SpgoodsConfirmationPage = /** @class */ (function () {
         this.http.getpostformdata(src, obj, obj1).subscribe(function (res) {
             console.log(res);
             _this.setPrice(res);
+            if (res['order']) {
+                _this.order = res['order'];
+            }
             // this.total = res.total;
             // this.pricearr = res.pricearr;
         }, function (error2) { });

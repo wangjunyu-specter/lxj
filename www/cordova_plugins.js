@@ -248,6 +248,30 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
+      "id": "cordova-plugin-appversion.RareloopAppVersion",
+      "file": "plugins/cordova-plugin-appversion/www/app-version.js",
+      "pluginId": "cordova-plugin-appversion",
+      "clobbers": [
+        "AppVersion"
+      ]
+    },
+    {
+      "id": "cordova-plugin-app-update.AppUpdate",
+      "file": "plugins/cordova-plugin-app-update/www/AppUpdate.js",
+      "pluginId": "cordova-plugin-app-update",
+      "clobbers": [
+        "AppUpdate"
+      ]
+    },
+    {
+      "id": "cordova-plugin-app-version.AppVersionPlugin",
+      "file": "plugins/cordova-plugin-app-version/www/AppVersionPlugin.js",
+      "pluginId": "cordova-plugin-app-version",
+      "clobbers": [
+        "cordova.getAppVersion"
+      ]
+    },
+    {
       "id": "cordova-plugin-camera.Camera",
       "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
       "pluginId": "cordova-plugin-camera",
@@ -342,6 +366,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "pluginId": "cordova-plugin-ionic-webview",
       "clobbers": [
         "Ionic.WebView"
+      ]
+    },
+    {
+      "id": "cordova-plugin-market.Market",
+      "file": "plugins/cordova-plugin-market/www/market.js",
+      "pluginId": "cordova-plugin-market",
+      "clobbers": [
+        "cordova.plugins.market"
       ]
     },
     {
@@ -485,6 +517,9 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "com.moust.cordova.videoplayer": "1.0.1",
     "cordova-plugin-file": "6.0.1",
     "cordova-plugin-advanced-http": "2.1.1",
+    "cordova-plugin-appversion": "1.0.0",
+    "cordova-plugin-app-update": "2.0.2",
+    "cordova-plugin-app-version": "0.1.9",
     "cordova-plugin-camera": "4.0.3",
     "cordova-plugin-device": "2.0.3",
     "cordova-plugin-file-transfer": "1.7.1",
@@ -493,6 +528,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-inappbrowser": "3.1.0",
     "cordova-plugin-ionic-keyboard": "2.1.3",
     "cordova-plugin-ionic-webview": "4.1.1",
+    "cordova-plugin-market": "1.2.0",
     "cordova-plugin-media-capture": "3.0.3",
     "cordova-plugin-nativestorage": "2.3.2",
     "cordova-plugin-network-information": "2.0.2",

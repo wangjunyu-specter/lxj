@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 23:14:51
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-08-04 00:05:03
+ * @Description: file content
+ */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -14,6 +21,7 @@ import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { Network } from '@ionic-native/network/ngx';
 import { AppVersion } from '@ionic-native/app-version/ngx';
 import { Market } from '@ionic-native/market/ngx';
+import { AppUpdate } from '@ionic-native/app-update/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -159,6 +167,7 @@ import { ModelTimePipe } from './pipes/model-time.pipe';
     InAppBrowser,
     AppVersion,
     Market,
+    AppUpdate,
     // NavigationBar,
     // ComponentsModule,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

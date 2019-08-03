@@ -158,6 +158,7 @@ var ConfirmationorderPage = /** @class */ (function () {
     ConfirmationorderPage.prototype.getData = function () {
         var _this = this;
         this.getProduct.getProduct(this.pid).then(function (res) {
+            console.log(res);
             _this.data = res;
             var activeData = _this.getProduct.getActiveobj(); // 获取选中对象
             _this.setProduct(activeData);
@@ -255,6 +256,10 @@ var ConfirmationorderPage = /** @class */ (function () {
             arr.push(res.address_id);
         });
         tripid = arr.join(',');
+        var bounsarr = [];
+        bounsarr[this.data.suppId] = this.changebonus;
+        var bzarr = [];
+        bzarr[this.data.suppId] = this.bz;
         var obj = {
             sel_cartgoods: [this.cid],
             // how_oos, 缺货处理
@@ -262,9 +267,9 @@ var ConfirmationorderPage = /** @class */ (function () {
             // inv_type, 发票信息
             // inv_payee,
             // inv_content,
-            postscript: this.bz,
+            postscript: JSON.stringify(bzarr),
             integral: 0,
-            bonus: JSON.stringify([this.changebonus]),
+            bonus: JSON.stringify(bounsarr),
             // bonus_sn: this.isxxyhq,
             surplus: 0,
             payment: 1,
