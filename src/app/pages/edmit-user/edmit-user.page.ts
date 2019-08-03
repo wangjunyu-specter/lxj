@@ -95,7 +95,7 @@ export class EdmitUserPage implements OnInit {
       oReq.onreadystatechange = (oEvent) => {
         if (oReq.readyState == 4 && oReq.status == 200) {
           const res = JSON.parse(oReq.response)
-          resolve(res.result['src']);
+          resolve(res.result['thumb']);
         }
       }
       oReq.onerror = (err) => {
