@@ -15,9 +15,9 @@
     <ion-item *ngIf="user && user.is_surplus_open == 0" button (click)="setPaypwd()">设置支付密码</ion-item>
     <ion-item *ngIf="user && user.is_surplus_open == 1" button (click)="setPaypwd()">修改支付密码</ion-item>
     <ion-item *ngIf="user" button (click)="gotopage(1)">地址管理</ion-item>
-    <ion-item button (click)="tobill()">账单</ion-item>
+    <!-- <ion-item button (click)="tobill()">账单</ion-item> 感觉无用 wjy -->
     <ion-item button>修改登录密码</ion-item>
-    <ion-item button (click)="toabout()">关于我们</ion-item>
+    <ion-item button (click)="toabout()" *ngIf="ismobile">关于我们</ion-item>
   </ion-list>
   <ion-button color="danger" expand="block" (click)="loginout()">退出登录</ion-button>
 </ion-content>

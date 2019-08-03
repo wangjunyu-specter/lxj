@@ -8,6 +8,7 @@ import { AndroidFullScreen } from '@ionic-native/android-full-screen/ngx';
 import {StatusBar} from '@ionic-native/status-bar/ngx';
 import {VideoPlayer} from '@ionic-native/video-player/ngx';
 import { Network } from '@ionic-native/network/ngx';
+import { AppVersion } from '@ionic-native/app-version/ngx';
 // import { Device } from '@ionic-native/device/ngx';
 
 @Injectable({
@@ -21,8 +22,11 @@ export class NativeService {
               public plt: Platform, private mediaCapture: MediaCapture,
               private imagePicker: ImagePicker, private camera: Camera,
               private androidFullScreen: AndroidFullScreen, private statusbar: StatusBar,
-              private videoPlayer: VideoPlayer, private network: Network,) { }
-
+              private videoPlayer: VideoPlayer, private network: Network, private appVersion: AppVersion) { }
+  public async getAppversion() {
+    const version = await this.appVersion.getVersionNumber();
+    return version;
+  }
   async presentAlert(msg, title?) {
     const alert = await this.alertController.create({
       header: title || '提示',
@@ -125,6 +129,9 @@ export class NativeService {
   }
   isandroid() {
     return this.plt.is('android');
+  }
+  isios() {
+    return this.plt.is('ios');
   }
   /**
    * 获取网络类型 如`unknown`, `ethernet`, `wifi`, `2g`, `3g`, `4g`, `cellular`, `none`

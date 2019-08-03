@@ -12,7 +12,8 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { VideoPlayer } from '@ionic-native/video-player/ngx';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { Network } from '@ionic-native/network/ngx';
-
+import { AppVersion } from '@ionic-native/app-version/ngx';
+import { Market } from '@ionic-native/market/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -156,6 +157,8 @@ import { ModelTimePipe } from './pipes/model-time.pipe';
     SearchendgoodsService,
     GaoDeLocation,
     InAppBrowser,
+    AppVersion,
+    Market,
     // NavigationBar,
     // ComponentsModule,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

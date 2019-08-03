@@ -1,8 +1,16 @@
+/*
+ * @Author: wjy
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy
+ * @LastEditTime: 2019-08-03 17:16:11
+ * @Description: file content
+ */
 import { Component, OnInit } from '@angular/core';
 import {NavController, PopoverController} from "@ionic/angular";
 // import { PayboxComponent } from '../../components/paybox/paybox.component';
 import { UserService } from '../../services/user.service';
 import {Router} from "@angular/router";
+import { NativeService } from 'src/app/services/native.service';
 
 @Component({
   selector: 'app-center-more',
@@ -11,10 +19,11 @@ import {Router} from "@angular/router";
 })
 export class CenterMorePage implements OnInit {
   user: any;
-  constructor(private route: Router, private nav: NavController, private userfn: UserService) { }
+  ismobile: boolean;
+  constructor(private route: Router, private nav: NavController, private userfn: UserService, public native: NativeService) { }
 
   ngOnInit() {
-
+    this.ismobile = this.native.ismobile();
   }
   ionViewWillEnter() {
     this.userfn.getUserp().then(res => {
