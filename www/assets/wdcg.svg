@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>分组 58@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="54.9078125%" y1="100%" x2="54.2177083%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#1AC6A4" offset="0%"></stop>
+            <stop stop-color="#20AFD0" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="0" y="0" width="40" height="36" rx="6"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="个人中心" transform="translate(-265.000000, -850.000000)">
+            <g id="分组-58" transform="translate(265.000000, 850.000000)">
+                <rect id="矩形-copy-4" fill="#FFFFFF" fill-rule="nonzero" x="0" y="0" width="48" height="48"></rect>
+                <g id="分组-44" transform="translate(4.000000, 6.000000)">
+                    <g id="路径-7">
+                        <mask id="mask-3" fill="white">
+                            <use xlink:href="#path-2"></use>
+                        </mask>
+                        <use id="Mask" fill="url(#linearGradient-1)" fill-rule="nonzero" opacity="0.7" xlink:href="#path-2"></use>
+                        <path d="M25.4769999,-8.8817842e-16 L11.7699989,36 L6,36 C2.6862915,36 4.05812251e-16,33.3137085 0,30 L0,6 C-4.05812251e-16,2.6862915 2.6862915,-2.79460044e-16 6,-8.8817842e-16 L25.4769999,-8.8817842e-16 Z" id="路径" fill="#FFFFFF" fill-rule="nonzero" opacity="0.1" mask="url(#mask-3)"></path>
+                    </g>
+                    <g id="分组-45" transform="translate(11.000000, 13.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                        <path d="M1.17391304,3 C0.525578772,3 0,2.32842712 0,1.5 C0,0.671572875 0.525578772,0 1.17391304,0 L16.826087,0 C17.4744212,0 18,0.671572875 18,1.5 C18,2.32842712 17.4744212,3 16.826087,3 L1.17391304,3 Z" id="路径-2"></path>
+                        <path d="M2.33333333,11 C1.59695367,11 1,10.3284271 1,9.5 C1,8.67157288 1.59695367,8 2.33333333,8 L7.66666667,8 C8.40304633,8 9,8.67157288 9,9.5 C9,10.3284271 8.40304633,11 7.66666667,11 L2.33333333,11 Z" id="路径-2"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

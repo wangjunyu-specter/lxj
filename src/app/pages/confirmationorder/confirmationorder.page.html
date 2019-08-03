@@ -1,0 +1,124 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon mode="ios" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>确认订单</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="orderContent" padding *ngIf="data">
+    <div class="title">{{data.topData.name}}</div>
+    <!--<div class="day">5天4晚</div>-->
+    <!--<div class="tc">套餐类型：查汶中心·室外泳池]垂直酒店或同级</div>-->
+    <!--<div>出发日期：2019-01-24</div>-->
+    <div *ngFor="let item of activeData">{{item}}</div>
+    <div>数量：{{num}}</div>
+  </div>
+
+  <div class="person" padding *ngIf="activePerson && activePerson.length > 0">
+    <app-pagetitle [myname]="'出行人信息'" [nopadding]="true"></app-pagetitle>
+    <div class="box" *ngFor="let item of activePerson">
+      <div class="left">出行人</div>
+      <div class="center">
+        <div class="des-name">{{item.name}}</div>
+      </div>
+      <div class="right">
+        <div (click)="getContact()"><ion-icon name="add"></ion-icon></div>
+      </div>
+    </div>
+  </div>
+  <div class="person" padding *ngIf="activePerson.length == 0">
+    <app-pagetitle [myname]="'出行人信息'" [nopadding]="true"></app-pagetitle>
+    <div class="box">
+      <div class="left">出行人</div>
+      <div class="center">
+        <div class="des-name">请添加{{num}}位出行人</div>
+      </div>
+      <div class="right">
+        <div (click)="getContact()"><ion-icon name="add"></ion-icon></div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <ion-list no-margin>
+      <ion-item *ngIf="allowusebonus == 1 && redbag && redbag.length > 0" lines="none">
+        <select name="" id="" class="myselect" [(ngModel)]="changebonus"
+                (change)="changeYhq(redbag[0]['supplier_id'], i)" placeholder="使用优惠券">
+          <option value="" selected>不使用优惠券</option>
+          <option *ngFor="let hbitem of redbag" [value]="hbitem.bonus_id">{{hbitem.type_name}}[{{hbitem.type_money}}]</option>
+        </select>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div class="bx-box">
+    <div class="title">
+      <app-pagetitle [myname]="'保险服务'" [smpadding]="true"></app-pagetitle>
+    </div>
+    <div class="des">您购买的商品可能包含高风险性旅游项目，建议您购买旅游保险以保障 您的权益及出行安全。</div>
+    <ion-button fill="clear" color="dark" size="small">
+      安盛AXA·全球旅游险-150万总保障
+      <ion-icon name="information-circle-outline" color="primary"></ion-icon>
+    </ion-button>
+    <div class="box">
+      <app-yhbox [color]="'yellow'" [title]="'申根&全球保障推荐'"></app-yhbox>
+      <app-yhbox [color]="'green'" [title]="'80%购买选择'"></app-yhbox>
+    </div>
+    <p>商家为您购买</p>
+  </div>
+  <div class="lxr">
+    <div class="title">
+      <app-pagetitle [myname]="'联系人'" [smpadding]="true"></app-pagetitle>
+    </div>
+    <ion-list>
+      <ion-item>
+        <ion-label position="fixed"><ion-text color="danger">*</ion-text>姓名</ion-label>
+        <ion-input required [(ngModel)]="username"  placeholder="请输入联系人姓名"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="fixed"><ion-text color="danger">*</ion-text>手机</ion-label>
+        <ion-input type="tel" [(ngModel)]="usertel" placeholder="请输入联系人手机"></ion-input>
+      </ion-item>
+      <!--<ion-item>-->
+      <!--<ion-label position="fixed">微信</ion-label>-->
+      <!--<ion-input placeholder="请输入联系人微信"></ion-input>-->
+      <!--</ion-item>-->
+      <ion-item>
+        <ion-label position="fixed">备注</ion-label>
+        <ion-input placeholder="如果需要请备注" [(ngModel)]="bz"></ion-input>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div class="yhxx">
+    <div padding-top padding-start padding-end>
+      <app-pagetitle [myname]="'优惠信息'" [nopadding]="true"></app-pagetitle>
+    </div>
+    <!--<p><ion-text color="danger">优惠券自动抵扣¥300</ion-text></p>-->
+    <!--<p *ngIf="result_jf"><ion-text color="primary">赠送{{result_jf}}积分</ion-text></p>-->
+
+    <ion-list *ngIf="pricearr" inset="true">
+      <ion-item  *ngFor="let item of pricearr['pricearr']; let i = index">
+        <ion-label>{{item.key}}</ion-label>
+        <div class="end" [ngClass]="{'red': i > 1}">{{item.value}}</div>
+      </ion-item>
+    </ion-list>
+    <ion-list *ngIf="pricearr" inset="true" no-margin>
+      <ion-item  *ngFor="let item of pricearr['hdarr']">
+        <ion-label>{{item.key}}</ion-label>
+        <div class="end"><ion-text color="primary">{{item.value}}</ion-text></div>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div class="ptxz" padding>
+    点击“提交订单”表示已阅读并同意 <ion-text color="primary">《旅行家平台服务协议》《旅游 安全须知》</ion-text>
+  </div>
+</ion-content>
+<ion-footer mode="ios">
+  <ion-toolbar mode="ios">
+    <app-footer [type]="3" [allprice]="total.amount_formated" (sub)="submit($event)" [disabled]="num != activePerson.length || !username || !usertel"></app-footer>
+  </ion-toolbar>
+</ion-footer>

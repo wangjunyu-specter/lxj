@@ -1,0 +1,14 @@
+.top-head {
+  .ts-box {
+    min-height: 200px;
+    background-color: var(--ion-gray-background-color);
+    line-height: 200px;
+    text-align: center;
+    font-size: var(--ion-text);
+    color: var(--ion-color-medium);
+  }
+}
+ion-backdrop {
+  background: blue;
+  --background: red;
+}

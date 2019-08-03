@@ -1,0 +1,24 @@
+<div class="my-content-bg" *ngFor="let item of list; let i = index">
+  <ion-list inset="true" line="none">
+    <div class="shopname-box">
+      <div class="left">
+        <img src="../../../assets/icon/dianpu.png" alt=""><h3 class="supper_name" (click)="gotoPage(7, item.supplier_id)">{{item.shopname}}</h3>
+      </div>
+      <div class="right">{{item.order_status}}</div>
+    </div>
+    <ion-item *ngFor="let data of item.goods_list" lines="none" (click)="gotoPage(12, item.order_sn)">
+      <ion-thumbnail slot="start">
+        <img [src]="data.goods_thumb | imgsrc: http.domain">
+      </ion-thumbnail>
+      <ion-label>
+        <h3 class="goods_title">{{data.goods_name | namesubstr: 25}}</h3>
+        <p class="goods_title">{{data.goods_attr}}</p>
+      </ion-label>
+      <div slot="end" class="end-price">
+        <span>{{data.formated_goods_price}}</span>
+        <span>×{{data.goods_number}}</span>
+      </div>
+    </ion-item>
+    <p class="order_des">共{{item.count}}件商品&nbsp;&nbsp;¥:{{item.total_fee}}</p>
+  </ion-list>
+</div>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>口碑@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#F2E535" offset="0%"></stop>
+            <stop stop-color="#E1C718" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="产品详情" transform="translate(-130.000000, -2321.000000)" fill-rule="nonzero">
+            <g id="分组-50" transform="translate(0.000000, 778.000000)">
+                <g id="分组-48" transform="translate(0.000000, 1444.000000)">
+                    <g id="分组-21" transform="translate(130.000000, 49.000000)">
+                        <g id="口碑" transform="translate(0.000000, 50.000000)">
+                            <circle id="椭圆形" fill="url(#linearGradient-1)" cx="12" cy="12" r="12"></circle>
+                            <path d="M11.187984,15.8498436 C11.2013366,16.4699587 10.7621418,16.984753 10.2070151,16.9996687 C9.65188839,17.0145845 9.19104487,16.5239735 9.17769228,15.9038584 L9.000692,7.68368295 C8.96953598,6.23674773 9.99432365,5.03556121 11.2896193,5.00075777 C11.3178231,5.0001263 11.3178231,5.0001263 11.3460323,5 L13.9945634,5 C14.5498507,5 15,5.50284801 15,6.12314247 C15,6.74343692 14.5498507,7.24628493 13.9945634,7.24628493 L11.3460323,7.24628493 C11.3420024,7.24630297 11.3420024,7.24630297 11.3379733,7.24639318 C11.1529311,7.2513651 11.0065328,7.42296318 11.0109837,7.62966821 L11.187984,15.8498436 Z" id="路径" fill="#FFFFFF" transform="translate(12.000000, 11.000000) rotate(-135.000000) translate(-12.000000, -11.000000) "></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

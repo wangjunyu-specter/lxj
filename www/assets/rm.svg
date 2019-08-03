@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="34px" height="34px" viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>分组 14@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="110.256696%" y1="50%" x2="-11.1886161%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#FE8D10" offset="0%"></stop>
+            <stop stop-color="#FF5389" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="搜索" transform="translate(-314.000000, -156.000000)">
+            <g id="分组" transform="translate(30.000000, 158.000000)">
+                <g id="分组-14" transform="translate(287.000000, 1.000000)">
+                    <path d="M14,-1.5 C22.5604136,-1.5 29.5,5.43958638 29.5,14 C29.5,22.5604136 22.5604136,29.5 14,29.5 L-1.5,29.5 L-1.5,14 C-1.5,5.43958638 5.43958638,-1.5 14,-1.5 Z" id="矩形" stroke="#FFFFFF" stroke-width="3" fill="url(#linearGradient-1)"></path>
+                    <text id="热" font-family="FZLTHK--GBK1-0, FZLanTingHei-R-GBK" font-size="18" font-weight="normal" line-spacing="18" fill="#FFFFFF">
+                        <tspan x="5" y="21">热</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

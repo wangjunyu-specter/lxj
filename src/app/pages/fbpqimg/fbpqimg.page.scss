@@ -1,0 +1,43 @@
+.img-box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.box {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  //margin: 5% 5% 0 0;
+  float: left;
+  font-size: 12px;
+  background-color: var(--ion-gray-background-color);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  overflow: hidden;
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+.box:before {
+  /* Other ratios */
+
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+.bf-box {
+  width: 100px;
+  height: 100px;
+  border: 1px solid var(--ion-color-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 40%;
+  }
+}

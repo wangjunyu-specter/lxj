@@ -1,0 +1,41 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start" mode="ios">
+      <!--<ion-back-button></ion-back-button>-->
+      <ion-button (click)="goBack()">
+        <ion-icon mode="ios" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>发布</ion-title>
+    <ion-buttons slot="end">
+      <!--<ion-back-button></ion-back-button>-->
+      <ion-button (click)="sub()" [disabled]="!content && imgs.length === 0">
+        <ion-icon name="paper-plane"></ion-icon>发表
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-textarea rows="7" [maxlength]="300" [(ngModel)]="content" placeholder="此刻你在哪里,分享下你的旅行心情吧~"></ion-textarea>
+  <app-pqimgbox *ngIf="type != '2'" [imglist]="imgs" [showend]="isshowend" (clickItem)="remove($event)" (addimgitem)="addfm()"></app-pqimgbox>
+  <!--<img [src]="videoslt" alt="">-->
+  <!--<video width="320" height="240" controls>-->
+    <!--<source [src]="videofile" type="video/mp4">-->
+    <!--<source [src]="videofile" type="video/ogg">-->
+    <!--您的浏览器不支持 video 标签。-->
+  <!--</video>-->
+  <!--<video width="320" height="240" controls>-->
+    <!--<source [src]="videofile1" type="video/mp4">-->
+    <!--<source [src]="videofile1" type="video/ogg">-->
+    <!--您的浏览器不支持 video 标签。-->
+  <!--</video>-->
+  <div class="bf-box" *ngIf="type == '2'" (click)="playvideo()">
+    <img src="../../../assets/icon/play.svg" alt="">
+  </div>
+  <ion-list margin-top>
+    <ion-item button>
+      <ion-icon name="pin" slot="start"></ion-icon>{{addressObj.address}}
+    </ion-item>
+  </ion-list>
+</ion-content>

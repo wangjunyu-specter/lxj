@@ -1,0 +1,204 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+    <div class="footer-bar">
+      <div *ngFor="let item of pageArray;let i = index" class="item"
+           [ngClass]="{active: pageType == i}" (click)="setType(i)">{{item}}</div>
+    </div>
+    <ion-buttons slot="end" mode="ios">
+      <ion-button color="white" (click)="close()">
+        取消
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar mode="ios" (ionChange)="searchkey()" [(ngModel)]="searchtext" [cancelButtonIcon]="true" [placeholder]="searchKey"></ion-searchbar>
+  <div class="content-box content-one" [ngClass]="{show: pageType == 0}">
+    <div *ngFor="let item of list">
+      <ion-card mode="ios" margin-start="0" margin-end="0" *ngIf="item.opentype == 0">
+        <ion-item>
+          <ion-avatar slot="start"  (click)="goperson(item.userid)">
+            <img [src]="http.headimg | imgsrc: http.zdomain">
+          </ion-avatar>
+          <ion-label>
+            <h2 class="item-title" (click)="goperson(item.userid)">{{item.user_name}}<app-yhbox [color]="'yellow'" [title]="item.name" [noborder]="true"></app-yhbox></h2>
+            <p>{{item.createtime | oldtonow}}</p></ion-label>
+          <ion-button  *ngIf="item.userid | isgz: gzlistfn.getList()" (click)="setgz(item.userid)" color="medium" size="small" shape="round" fill="outline" slot="end">+关注</ion-button>
+        </ion-item>
+
+        <ion-card-content>
+          <div class="title" (click)="toPage(item.id)"  *ngIf="item.content && item.content != 'null'">{{item.content}}</div>
+          <div padding-top>
+            <app-pqimgbox [imglist]="item.thumb[0] ? item.thumb : item.imgarr" [ytimglist]="item.imgarr"></app-pqimgbox>
+          </div>
+          <!--<img (click)="toPage(1, 1)" class="radius-img" src="https://ionicframework.com/docs/demos/api/card/madison.jpg" alt="">-->
+          <div class="address-box">
+            <div class="left">
+              <div class="address" *ngIf="item.address && item.address != 'null'">
+                <ion-icon name="pin" color="dark"></ion-icon>
+                <span>{{item.address}}</span>
+              </div>
+            </div>
+            <div class="right">
+              <ion-button size="small" fill="clear" color="dark" (click)="setdz(item)">
+                <ion-icon name="heart-empty" *ngIf="item.isdz == 0"></ion-icon>
+                <ion-icon name="heart" color="danger" *ngIf="item.isdz == 1"></ion-icon>
+                {{item.dznum | setnum}}
+              </ion-button>
+              <ion-button size="small" fill="clear" color="dark" (click)="toPage(item.id)">
+                <ion-icon slot="start" name="text" mode="md"></ion-icon>
+                {{item.plnum | setnum}}
+              </ion-button>
+            </div>
+          </div>
+          <div class="img-box" *ngIf="item.dznum > 0">
+            <img *ngFor="let src of item.heads" [src]="src | imgsrc: http.zdomain" alt="">
+
+            {{item.dznum | setnum}}人觉得很赞
+          </div>
+          <div class="pl" (click)="toPage(item.id)" *ngFor="let pl of item.plarr">
+            <span>{{pl.user_name}}：</span>{{pl.content | decodeuri}}
+          </div>
+          <ion-button no-padding size="small" fill="clear" (click)="toPage(item.id)" *ngIf="item.plnum > 2">查看剩余{{(item.plnum - 2) | setnum}}条回复</ion-button>
+        </ion-card-content>
+      </ion-card>
+      <div *ngIf="item.opentype != 0" padding>
+        <div class="gg-box" (click)="toPages(item.opentype, item.url)">
+          <div class="title">{{item.content}}</div>
+          <ion-row>
+            <ion-col *ngFor="let src of item.imgarr">
+              <img [src]="src | imgsrc: http.zdomain" alt="">
+            </ion-col>
+          </ion-row>
+          <div class="footer">
+            <span class="tag-box red">广告</span>
+            <span>{{item.author || item.user_name}}</span>
+            <!--<span>{{item.plnum}}条评论</span>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content-box content-three" [ngClass]="{show: pageType == 1}">
+    <ion-row *ngFor="let item of list">
+      <ion-col [size]="12" no-padding *ngIf="item.opentype == 0">
+        <ion-card mode="ios" margin-start="0" margin-end="0">
+          <ion-card-header *ngIf="item.imgarr.length > 0" (click)="toPage(item.id)">
+            <img class="radius-img" [src]="item.thumb[0] || item.imgarr[0] | imgsrc: http.zdomain" alt="">
+          </ion-card-header>
+
+          <ion-card-content>
+            <div class="title yj-title" (click)="toPage(item.id)">{{item.title}}</div>
+            <p *ngIf="item.des && item.des != 'null'" (click)="toPage(item.id)">{{item.des}}</p>
+            <div class="person-box" margin-top>
+              <div class="person" (click)="goperson(item.userid)">
+                <img [src]="item.headimg | imgsrc: http.zdomain">
+                <div class="name-box">
+                  <div class="name">{{item.user_name}} <app-yhbox [color]="'yellow'" [title]="item.name" [noborder]="true"></app-yhbox></div>
+                  <div class="des">{{item.createtime | oldtonow}}</div>
+                </div>
+              </div>
+              <div class="gz" *ngIf="item.userid | isgz: gzlistfn.getList()" (click)="setgz(item.userid)">
+                <span>+关注</span>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <div *ngIf="item.opentype != 0" padding>
+        <div class="gg-box" (click)="toPages(item.opentype, item.url)">
+          <div class="title">{{item.title}}</div>
+          <ion-row>
+            <ion-col *ngFor="let src of item.imgarr">
+              <img [src]="http.zdomain + src" alt="">
+            </ion-col>
+          </ion-row>
+          <div class="footer">
+            <span class="tag-box red">广告</span>
+            <span>{{item.author || item.user_name}}</span>
+            <!--<span>{{item.plnum}}条评论</span>-->
+          </div>
+        </div>
+      </div>
+    </ion-row>
+  </div>
+  <div class="content-box content-four" [ngClass]="{show: pageType == 2}">
+    <div  *ngFor="let item of list">
+      <ion-item *ngIf="item.opentype == 0">
+        <ion-thumbnail slot="end" *ngIf="item.imgarr.length > 0" (click)="toPage(item.id)">
+          <img class="radius-img" [src]="item.thumb[0] || item.imgarr[0] | imgsrc: http.zdomain " alt="">
+        </ion-thumbnail>
+        <ion-label>
+          <div (click)="toPage(item.id)">
+            {{item.title}}
+          </div>
+
+          <div class="footer">
+            <span class="tag-box" [ngStyle]="{display: item.tag && item.tag != 'null' ? '' : 'none'}" (click)="toPage(item.id)">{{item.tag}}</span>
+            <span (click)="goperson(item.userid)">{{item.author || item.user_name}}</span>
+            <span>&nbsp;|&nbsp;</span>
+            <span (click)="toPage(item.id)">{{item.plnum | setnum}}条评论</span>
+          </div>
+        </ion-label>
+      </ion-item>
+      <div *ngIf="item.opentype != 0" padding>
+        <div class="gg-box" (click)="toPages(item.opentype, item.url)">
+          <div class="title">{{item.title}}</div>
+          <ion-row>
+            <ion-col *ngFor="let src of item.imgarr">
+              <img [src]="http.zdomain + src" alt="">
+            </ion-col>
+          </ion-row>
+          <div class="footer">
+            <span class="tag-box red">广告</span>
+            <span>{{item.author || item.user_name}}</span>
+            <!--<span>{{item.plnum}}条评论</span>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content-box content-four" [ngClass]="{show: pageType == 3}">
+    <div *ngFor="let item of list">
+      <ion-item *ngIf="item.opentype == 0">
+        <ion-thumbnail slot="start" *ngIf="item.imgarr.length > 0" (click)="toPage(item.id)">
+          <img class="radius-img" [src]="item.thumb[0] || item.imgarr[0] | imgsrc: http.zdomain" alt="">
+        </ion-thumbnail>
+        <ion-label>
+          <div (click)="toPage(item.id)">
+            {{item.title}}
+          </div>
+          <div class="footer">
+            <span class="tag-box"  (click)="toPage(item.id)" [ngStyle]="{display: item.tag && item.tag != 'null' ? '' : 'none'}">{{item.tag}}</span>
+            <span (click)="goperson(item.userid)">{{item.author || item.user_name}}</span>
+            <span>&nbsp;|&nbsp;</span>
+            <span (click)="toPage(item.id)">{{item.plnum | setnum}}条评论</span>
+          </div>
+        </ion-label>
+      </ion-item>
+      <div *ngIf="item.opentype != 0" padding>
+        <div class="gg-box" (click)="toPages(item.opentype, item.url)">
+          <div class="title">{{item.title}}</div>
+          <ion-row>
+            <ion-col *ngFor="let src of item.imgarr">
+              <img [src]="http.zdomain + src" alt="">
+            </ion-col>
+          </ion-row>
+          <div class="footer">
+            <span class="tag-box red">广告</span>
+            <span>{{item.author || item.user_name}}</span>
+            <!--<span>{{item.plnum}}条评论</span>-->
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+       loadingSpinner="bubbles"
+       loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

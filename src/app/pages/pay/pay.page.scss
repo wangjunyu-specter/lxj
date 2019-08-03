@@ -1,0 +1,67 @@
+.pay-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  .time {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--ion-title);
+    margin: 10px 0;
+    .box {
+      width: 24px;
+      height: 24px;
+      background-color: rgba(239, 240, 243, 1);
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 3px;
+      margin-left: 3px;
+    }
+  }
+  .title, .des {
+    font-size: var(--ion-sm-text);
+  }
+  .des {
+    color: var(--ion-color-medium);
+  }
+}
+.order {
+  &>div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--ion-title);
+    color: var(--ion-color-dark);
+    padding: 5px 0;
+  }
+}
+.line {
+  height: 15px;
+  background-color: var(--ion-gray-background-color);
+}
+.zftype {
+  ion-label {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  img {
+    width: 25px;
+    margin-right: 10px;
+  }
+}
+ion-toolbar {
+  --padding-bottom: 0;
+  --padding-end: 0;
+  --padding-start: 0;
+  --padding-top: 0;
+}

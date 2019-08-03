@@ -1,0 +1,30 @@
+<div class="sj-top">
+  <div class="top">
+    <div class="top-bar">
+      <div class="title" (click)="openpage()">{{supplier ? supplier.suppliername : ''}}<img *ngIf="supplier" class="arrow" src="../../../assets/icon/arrow.svg" alt=""></div>
+      <div class="right">
+        <!--<div *ngIf="supplier ? !supplier.is_guanzhu : true" (click)="setgz()">-->
+          <!--<img *ngIf="supplier ? !supplier.is_guanzhu : true" (click)="setgz()" src="../../../assets/icon/scno.svg" alt="">-->
+        <!--</div>-->
+        <img *ngIf="supplier ? !supplier.is_guanzhu : true" (click)="setgz()" src="../../../assets/icon/scno.svg" alt="">
+        <img (click)="closepage()" src="../../../assets/icon/close.svg" alt="">
+        <!--<ion-icon (click)="closepage()" name="close-circle-outline"></ion-icon>-->
+      </div>
+    </div>
+    <div class="sc">
+      <img class="scimg" src="../../../assets/icon/scselete.svg" alt="">
+      {{supplier ? supplier.fensiobj[1] : 0}}人收藏
+    </div>
+  </div>
+
+  <div class="nav-box">
+    <div class="search">
+      <ion-icon name="search"></ion-icon>
+      搜索
+    </div>
+    <div class="nav">
+      <a [ngClass]="{'active': active == 1}" (click)="toggleNav(1)">首页</a>
+      <a [ngClass]="{'active': active == 2}" (click)="toggleNav(2)">商品</a>
+    </div>
+  </div>
+</div>

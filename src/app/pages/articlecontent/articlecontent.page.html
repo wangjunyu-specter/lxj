@@ -1,0 +1,32 @@
+<ion-header [translucent]="true" mode="ios">
+  <ion-toolbar mode="ios" [ngClass]="'show-' + toolbaropacity">
+    <div class="search-bar">
+      <div class="left" (click)="goBack()">
+        <img src="/assets/backbg.svg" alt="">
+      </div>
+      <div class="center">
+      </div>
+      <div class="right">
+        <!--<img src="/assets/wechatbg.svg" alt="">-->
+        <div class="round"><ion-icon name="share"></ion-icon></div>
+        <!--<div class="round" (click)="toprightmore($event)"><ion-icon name="more" mode="ios"></ion-icon></div>-->
+        <!--<img src="/assets/czbg.svg" alt="">-->
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true" [fullscreen]="true" (ionScroll)="logScrolling($event)">
+  <img class="banner" *ngIf="data" [src]="http.zdomain + data.img" alt="">
+  <div class="my-content" padding>
+    <h2>{{data.title}}</h2>
+    <p *ngIf="data.goods && data.goods.length > 0">{{data.goods.length}}款好货，{{data.author}}选择</p>
+    <!--<div class="des">{{data.des}}</div>-->
+    <div *ngIf="data.content" [innerHTML]="assembleHTML(data.content)"></div>
+  </div>
+  <div class="jptj" padding><span>精品推荐</span></div>
+  <div padding>
+    <app-productlist *ngFor="let item of data.goods" [data]="item" (open)="openpage($event)"></app-productlist>
+
+  </div>
+</ion-content>

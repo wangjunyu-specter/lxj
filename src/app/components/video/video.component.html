@@ -1,0 +1,16 @@
+<vg-player>
+  <vg-overlay-play></vg-overlay-play>
+  <vg-buffering></vg-buffering>
+  <!--<vg-controls [vgAutohide]="true" [vgAutohideTime]="5">-->
+  <!--<vg-play-pause></vg-play-pause>-->
+  <!--<vg-time-display [vgProperty]="'current'"></vg-time-display>-->
+  <!--<vg-scrub-bar>-->
+  <!--<vg-scrub-bar-current-time [vgSlider]="true"></vg-scrub-bar-current-time>-->
+  <!--<vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>-->
+  <!--</vg-scrub-bar>-->
+  <!--<vg-time-display [vgProperty]="'total'"></vg-time-display>-->
+  <!--<vg-fullscreen></vg-fullscreen>-->
+  <!--</vg-controls>-->
+  <video #media playsinline webkit-playsinline [vgMedia]="media" [src]="src" autoplay></video>
+</vg-player>
+<div class="close" (click)="close()">关闭</div>

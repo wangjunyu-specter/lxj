@@ -1,0 +1,17 @@
+<ion-header>
+
+  <ion-toolbar>
+    <ion-title>发布{{title}}</ion-title>
+    <ion-buttons slot="end">
+      <!--<ion-back-button></ion-back-button>-->
+      <ion-button (click)="goBack()">
+        完成
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>{{title}}发布成功</h2>
+  <p>这是你发表的第{{num}}篇游记 &nbsp;&nbsp;积分+32</p>
+</ion-content>

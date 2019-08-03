@@ -1,0 +1,122 @@
+
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon mode="ios" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>确认订单</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <!--<app-pagetitle [myname]="'收货人信息'" [smpadding]="true"></app-pagetitle>-->
+  <div class="shperson-box">
+    <div class="ts-box" *ngIf="!activePerson || activePerson.length == 0" (click)="seleteAddress()">请选择收货人</div>
+    <ion-list inset="true" line="none">
+      <ion-item *ngFor="let item of activePerson" (click)="seleteAddress()" lines="none">
+        <ion-label><h2>{{item.name}} <span style="font-size: 12px;color:#666;">{{item.mobile}}</span></h2><p>{{item.address}}</p></ion-label>
+      </ion-item>
+    </ion-list>
+
+  </div>
+  <ion-list *ngFor="let item of goodsList; let i = index" inset="true" line="none">
+    <ion-item lines="none">
+      <app-pagetitle [myname]="item.supname" [smpadding]="true"></app-pagetitle>
+    </ion-item>
+    <ion-item *ngFor="let data of item.goodlist" lines="none">
+      <ion-thumbnail slot="start">
+        <img [src]="http.domain + data.goods_thumb">
+      </ion-thumbnail>
+      <ion-label>
+        <h3 class="goods_title">{{data.goods_name}}</h3>
+        <p class="goods_title">{{data.goods_attr | goodsattr}}</p>
+      </ion-label>
+      <div slot="end" class="end-price">
+        <span>{{data.formated_goods_price}}</span>
+        <span>×{{data.goods_number}}</span>
+      </div>
+    </ion-item>
+    <ion-item *ngIf="allowusebonus == 1 && item.redbag && item.redbag.length > 0" lines="none">
+      <select name="" id="" class="myselect" [(ngModel)]="changebonus[i]"
+              (change)="changeYhq(item['supplier_id'], i)" placeholder="使用优惠券">
+        <option value="" selected>不使用优惠券</option>
+        <option *ngFor="let hbitem of item.redbag" [value]="hbitem.bonus_id">{{hbitem.type_name}}[{{hbitem.type_money}}]</option>
+      </select>
+    </ion-item>
+    <ion-item>
+      <ion-label>备注</ion-label>
+      <ion-input placeholder="如果需要请备注" [(ngModel)]="bzarr[i]"></ion-input>
+    </ion-item>
+    <!--<ion-item>-->
+      <!--<ion-label>使用线下优惠券</ion-label>-->
+      <!--<ion-toggle [(ngModel)]="isxxyhq[i]"></ion-toggle>-->
+    <!--</ion-item>-->
+    <!--<ion-item *ngIf="isxxyhq[i]" class="xxyhqbox">-->
+      <!--<div class="left">-->
+        <!--<input type="text" [(ngModel)]="xxyhq[i]" placeholder="请输入优惠券编码">-->
+      <!--</div>-->
+      <!--<div class="right">-->
+        <!--<ion-button expand="full" (click)="subyhq(i, item.redbag[0]['supplier_id'])">确定</ion-button>-->
+      <!--</div>-->
+    <!--</ion-item>-->
+    <ion-item *ngIf="item.zhekou" lines="none">
+      <div class="goods_title" [innerHTML]="assembleHTML(item.zhekou.your_discount)"></div>
+    </ion-item>
+    <!--<ion-item lines="none">-->
+      <!--<span class="goods_title">运费: </span>-->
+      <!--<div class="goods_title" slot="end" >-->
+        <!--&lt;!&ndash;{{item.shipping.shipping_desc}}&ndash;&gt;-->
+        <!--<span *ngIf="item.shipping && item.shipping.shipping_fee && item.shipping.format_shipping_fee && item.shipping.format_shipping_fee != '0.00'">-->
+          <!--{{item.shipping.format_shipping_fee}}-->
+        <!--</span>-->
+        <!--<span *ngIf="!item.shipping.shipping_fee || item.shipping.format_shipping_fee == '0.00'">-->
+          <!--包邮-->
+        <!--</span>-->
+      <!--</div>-->
+    <!--</ion-item>-->
+  </ion-list>
+  <ion-list *ngIf="pricearr" inset="true">
+    <ion-item  *ngFor="let item of pricearr['hdarr']">
+      <ion-label>{{item.key}}</ion-label>
+      <div class="end">{{item.value}}</div>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="pricearr" inset="true">
+    <ion-item  *ngFor="let item of pricearr['pricearr']; let i = index">
+      <ion-label>{{item.key}}</ion-label>
+      <div class="end" [ngClass]="{'red': i > 1}">{{item.value}}</div>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="allowusesurplus == 1 && yoursurplusnum > 0" inset="true" line="none">
+    <ion-item>
+      <ion-label>使用余额</ion-label>
+      <ion-toggle [(ngModel)]="kysyye" (ionChange)="setissyye()"></ion-toggle>
+    </ion-item>
+    <ion-item lines="none" *ngIf="kysyye">
+      <ion-label>使用余额</ion-label>
+      <ion-input type="number" mode="ios" (ionChange)="setyechange()" [max]="yoursurplus" min="0" [(ngModel)]="syye" color="success"></ion-input>
+      <ion-note>元</ion-note>
+    </ion-item>
+    <ion-item>
+      <small>您当前的可用余额为{{yoursurplus}}</small>
+    </ion-item>
+  </ion-list>
+  <ion-list inset="true" line="none" *ngIf="payList && payList.length > 0">
+    <ion-radio-group [(ngModel)]="payType">
+      <ion-list-header>
+        支付方式
+      </ion-list-header>
+      <ion-item *ngFor="let item of payList" lines="none">
+        <ion-label>{{item.pay_name}}</ion-label>
+        <ion-radio slot="start" value="{{item.pay_id}}" mode="md"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+</ion-content>
+<ion-footer mode="ios">
+  <ion-toolbar mode="ios">
+    <app-footer [type]="3" *ngIf="total" [allprice]="total.amount_formated" (sub)="submit($event)"></app-footer>
+  </ion-toolbar>
+</ion-footer>

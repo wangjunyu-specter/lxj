@@ -1,0 +1,29 @@
+.swiper-pagination2 {
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+  left: 0;
+  --bullet-background-active: var(--ion-color-secondary);
+  --bullet-background: #333;
+  .swiper-pagination-bullet-active {
+  }
+
+}
+.my-swiper-item {
+  width: 5px;
+  height: 5px;
+  margin: 0 5px !important;
+}
+
+.emoje-box {
+  border-top: 1px solid var(--ion-color-light);
+  position: absolute;
+  height: 150px;
+  width: 100%;
+  left: 0;
+  padding: 10px;
+  div {
+    width: 100%;
+  }
+}

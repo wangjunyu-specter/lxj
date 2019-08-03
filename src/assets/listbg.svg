@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="750px" height="349px" viewBox="0 0 750 349" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>分组 31</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="54.9078125%" y1="100%" x2="54.2177083%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#1AC6A4" offset="0%"></stop>
+            <stop stop-color="#20AFD0" offset="100%"></stop>
+        </linearGradient>
+        <path d="M0,0 L750,0 L750,349 C624.496094,335.666667 499.328125,329 374.496094,329 C249.664062,329 124.832031,335.666667 0,349 L0,0 Z" id="path-2"></path>
+        <filter x="-50.0%" y="-50.0%" width="200.0%" height="200.0%" filterUnits="objectBoundingBox" id="filter-4">
+            <feGaussianBlur stdDeviation="1" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <filter x="-100.0%" y="-100.0%" width="300.0%" height="300.0%" filterUnits="objectBoundingBox" id="filter-5">
+            <feGaussianBlur stdDeviation="2" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <filter x="-150.0%" y="-150.0%" width="400.0%" height="400.0%" filterUnits="objectBoundingBox" id="filter-6">
+            <feGaussianBlur stdDeviation="2" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <linearGradient x1="100%" y1="0%" x2="0%" y2="100%" id="linearGradient-7">
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="产品列表">
+            <g id="Bitmap-+-Mask-Mask">
+                <g id="分组-31">
+                    <mask id="mask-3" fill="white">
+                        <use xlink:href="#path-2"></use>
+                    </mask>
+                    <use id="Mask" fill="url(#linearGradient-1)" fill-rule="nonzero" xlink:href="#path-2"></use>
+                    <circle id="椭圆形" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" filter="url(#filter-4)" mask="url(#mask-3)" cx="149" cy="59" r="3"></circle>
+                    <circle id="椭圆形" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" filter="url(#filter-5)" mask="url(#mask-3)" cx="440" cy="38" r="3"></circle>
+                    <circle id="椭圆形" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" mask="url(#mask-3)" cx="603" cy="108" r="3"></circle>
+                    <circle id="椭圆形" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" mask="url(#mask-3)" cx="359" cy="130" r="3"></circle>
+                    <circle id="椭圆形" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" filter="url(#filter-6)" mask="url(#mask-3)" cx="80" cy="43" r="2"></circle>
+                    <path d="M182,103.5 L242.1875,43.3125" id="路径-31" stroke="url(#linearGradient-7)" opacity="0.346865699" stroke-linecap="round" fill-rule="nonzero" mask="url(#mask-3)"></path>
+                    <path d="M461,164.5 L544.375,81.125" id="路径-31" stroke="url(#linearGradient-7)" opacity="0.346865699" stroke-linecap="round" fill-rule="nonzero" mask="url(#mask-3)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

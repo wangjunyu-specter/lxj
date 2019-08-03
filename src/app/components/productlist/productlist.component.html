@@ -1,0 +1,42 @@
+<div class="list-box" (click)="openpage()">
+  <div class="left" *ngIf="data.goods_thumb || data.thumb">
+    <img *ngIf="!imgtype" src="{{http.zdomain + (data.goods_thumb || data.thumb)}}">
+    <ion-img *ngIf="imgtype" [src]="http.zdomain + (data.goods_thumb || data.thumb)"></ion-img>
+  </div>
+  <div class="right">
+    <div class="right-t">
+      <div class="title wrap" [ngClass]="{'hasimg': (data.is_best == 1 || type == 1) || ((data.is_best != 1 && data.is_hot == 1) || type == 2)}" [ngStyle]="{'margin-bottom': data.goods_thumb ? 0 : '3px'}">
+        <img *ngIf="data.is_best == 1 || type == 1" src="./assets/jx.svg" alt="">
+        <img *ngIf="(data.is_best != 1 && data.is_hot == 1) || type == 2" src="./assets/rx.svg" alt="">
+        <p class="text">{{data.name || data.short_name || data.goods_name}}</p>
+      </div>
+      <div class="bq" *ngIf="!ishw">
+        <!--<span color="success" *ngFor="let item of data.tags">{{item.tag_words}}</span>-->
+        <p *ngIf="isshowattr">{{data.goods_attr_str}}</p>
+        <p *ngIf="!isshowattr && data.keywords">{{data.keywords}}</p>
+      </div>
+      <div class="bq" *ngIf="ishw && data.tags && data.tags.length > 0">
+        <span color="success" *ngFor="let item of data.tags">{{item.tag_words}}</span>
+        <p *ngIf="isshowattr">{{data.goods_attr_str}}</p>
+      </div>
+      <div class="bq" *ngIf="ishw && (!data.tags || data.tags.length == 0) && data.keywords">
+        <span color="success" *ngFor="let item of data.keywords | splitarr">{{item}}</span>
+        <p *ngIf="isshowattr">{{data.goods_attr_str}}</p>
+      </div>
+    </div>
+    <div class="right-f">
+      <div class="price">
+        <div class="price-box">
+          <span *ngIf="price">¥ {{price}}</span>
+          <span *ngIf="!price && data.rank_price"><small>[会员专享]</small>¥{{data.rank_price}}</span>
+          <span *ngIf="!price && !data.rank_price && data.shop_price">¥ {{data.shop_price}}</span>
+          <span *ngIf="!noshowmore">起</span>
+          <span *ngIf="!showyj && (data.market_price && data.shop_price != data.market_price)" class="oldprice">原价{{data.market_price}}</span>
+          <span *ngIf="data.buymax" color="medium">限购{{data.buymax}}</span>
+        </div>
+        <div class="des" *ngIf="data.des">{{data.des}}</div>
+      </div>
+      <div class="footer" *ngIf="data.supplier_name"><img src="./assets/dp.svg" alt="">{{data.supplier_name || '旅行家'}}</div>
+    </div>
+  </div>
+</div>

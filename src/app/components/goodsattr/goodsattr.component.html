@@ -1,0 +1,56 @@
+<div class="goodsattr">
+  <div class="zcontent">
+    <div class="top">
+      <div class="left">
+        <img *ngIf="src" [src]="src" alt="">
+        <div class="title-box">
+          <div>¥{{price}}</div>
+          <div>库存：{{kc}}</div>
+          <div [innerHTML]="assembleHTML(selecattr)"></div>
+        </div>
+      </div>
+      <div class="right">
+        <ion-icon name="close-circle-outline" (click)="close()"></ion-icon>
+      </div>
+    </div>
+    <div class="content">
+      <div class="item" *ngFor="let data of attrlist; let k = index;">
+        <div class="name">{{data.name}}</div>
+        <div class="btn-box" *ngFor="let item of data.values; let i = index"
+             [ngClass]="{'active': item.isactive, graybg: item.graybg}" (click)="setClick(item, k)">
+          <div class="title" class="iscenter">{{item.label}}</div>
+          <span class="bg" *ngIf="item.isactive"></span>
+          <img *ngIf="item.isactive" src="./assets/wwg.svg" alt="">
+        </div>
+      </div>
+      <div class="num">
+        <div class="left">购买数量 <span *ngIf="max">(每人限购{{max}}件)</span></div>
+        <div class="right">
+          <div class="box" [ngClass]="{disabled: num === 1}" (click)="setnumfn(-1)"><ion-icon name="remove"></ion-icon></div>
+          <div>{{num}}</div>
+          <div class="box" [ngClass]="{disabled: max && max == num}" (click)="setnumfn(1)"><ion-icon name="add"></ion-icon></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div padding *ngIf="type != 1">
+    <ion-button
+                color="secondary"
+                expand="block"
+                shape="round"
+                (click)="setclose()"
+                [disabled]="goodsattrfn.isclick && attrlist.length > 0 || kc == 0">{{kc > 0 ? '确定' : '无货'}}</ion-button>
+  </div>
+  <div *ngIf="type == 1">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button color="secondary" (click)="setclose(2)" expand="block"  shape="round" [disabled]="attrlist.length > 0 && goodsattrfn.isclick || kc == 0">{{kc > 0 ? '加入购物车' : '无货'}}</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button color="danger"  (click)="setclose(3)" expand="block"  shape="round" [disabled]="attrlist.length > 0 && goodsattrfn.isclick || kc == 0">{{kc > 0 ? '立即购买' : '无货'}}</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</div>

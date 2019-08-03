@@ -1,0 +1,40 @@
+<ion-header mode="ios">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back" mode="ios"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>购物车</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <app-gwcitem *ngFor="let item of goodsList; let i = index"
+               [item]="item"
+                (clickItem)="clickItem($event)"
+               (changeattrfn)="changeattrfn($event)"></app-gwcitem>
+
+</ion-content>
+
+<ion-footer mode="ios">
+  <ion-toolbar mode="ios">
+    <div class="footer-box">
+      <div class="left">
+        <ion-checkbox color="danger"
+                      [(ngModel)]="options.isall"
+                      (ionChange)="setIsall()" (click)="setIsclick()"></ion-checkbox>全选
+      </div>
+      <div class="right">
+        <div class="box">不包含邮费</div>
+        <div class="box">
+          <div>合计:<span>¥{{options.allPrice}}</span></div>
+          <div class="des">{{options.des}}</div>
+        </div>
+        <div class="box">
+          <ion-button size="small" shape="round" color="danger" (click)="jspage()" [disabled]="options.yxnum === 0">结算({{options.yxnum}})</ion-button>
+        </div>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>

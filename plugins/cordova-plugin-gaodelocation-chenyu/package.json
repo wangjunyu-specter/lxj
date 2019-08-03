@@ -1,0 +1,55 @@
+{
+  "_from": "cordova-plugin-gaodelocation-chenyu",
+  "_id": "cordova-plugin-gaodelocation-chenyu@2.0.2",
+  "_inBundle": false,
+  "_integrity": "sha512-/SQUFucMdGY/aAA3/6dJMV2SLAPCTKeuu6bAPMZRLMCl7K7HnKXRbd9dvO4AseWKEvjktdNi/EPgb2t4j48FyA==",
+  "_location": "/cordova-plugin-gaodelocation-chenyu",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-gaodelocation-chenyu",
+    "name": "cordova-plugin-gaodelocation-chenyu",
+    "escapedName": "cordova-plugin-gaodelocation-chenyu",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-gaodelocation-chenyu/-/cordova-plugin-gaodelocation-chenyu-2.0.2.tgz",
+  "_shasum": "03d6038072af6a1a495f34d1fba35ffad35f17b5",
+  "_spec": "cordova-plugin-gaodelocation-chenyu",
+  "_where": "/Users/wjy/Desktop/lxj",
+  "author": {
+    "name": "chenyu"
+  },
+  "bugs": {
+    "url": "https://github.com/waliu/cordova-plugin-gaodelocation-chenyu/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-gaodelocation-chenyu",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "高德地图定位sdk",
+  "homepage": "https://github.com/waliu/cordova-plugin-gaodelocation-chenyu#readme",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "license": "ISC",
+  "name": "cordova-plugin-gaodelocation-chenyu",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waliu/cordova-plugin-gaodelocation-chenyu.git"
+  },
+  "version": "2.0.2"
+}

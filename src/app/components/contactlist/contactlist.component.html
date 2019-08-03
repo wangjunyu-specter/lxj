@@ -1,0 +1,24 @@
+<ion-searchbar cancelButtonText="取消" placeholder="请输入姓名" [(ngModel)]="searchText" (ionChange)="searchItem()"></ion-searchbar>
+<ion-button expand="full" fill="clear" (click)="addPerson()"><ion-icon name="add"></ion-icon>增加联系人</ion-button>
+<div class="line"></div>
+<ion-list *ngIf="list">
+  <ion-item-sliding *ngFor="let item of list" #slide>
+    <ion-item (click)="changeitem(item)">
+      <ion-label>
+        <div class="name"><div>{{item.name}}</div><span>{{item.mobile}} <span *ngIf="item.mr == 1">(默认)</span></span></div>
+        <p *ngIf="pageType == 1"><span class="card">身份证</span><span class="card-num">{{item.card}}</span></p>
+        <p *ngIf="pageType == 2"><span class="card">地址</span><span class="card-num">{{item.address}}</span></p>
+      </ion-label>
+      <ion-button size="small" *ngIf="pageType == 3 && item.mr != 1" (click)="setMr(item.id)">设为默认</ion-button>
+      <ion-icon *ngIf="pageType !== 3 && item.active" name="checkmark" solt="end"></ion-icon>
+    </ion-item>
+    <ion-item-options side="end">
+      <ion-item-option color="success" (click)="edmit(item, slide)">
+        <ion-icon slot="icon-only" name="create"></ion-icon>
+      </ion-item-option>
+      <ion-item-option color="danger" (click)="delete(item.id, slide)">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>

@@ -1,0 +1,37 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon mode="ios" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{type === 1 ? '关注的人' : '粉丝列表'}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+       pullingIcon="arrow-dropdown"
+       pullingText="Pull to refresh"
+       refreshingSpinner="circles"
+       refreshingText="更新中...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <ion-item *ngFor="let item of list" [button]="true" mode="ios" (click)="open(item.user_id)">
+      <ion-avatar slot="start">
+        <img [src]="item.headimg  | imgsrc: http.domain">
+      </ion-avatar>
+      <ion-label>{{item.user_name}}
+        <p><ion-text color="success">LV.{{item.user_rank}}</ion-text>&nbsp;&nbsp;<ion-text color="primary">{{item.lxdj}}</ion-text></p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+       loadingSpinner="bubbles"
+       loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

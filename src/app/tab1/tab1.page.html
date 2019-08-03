@@ -1,0 +1,218 @@
+<ion-header [translucent]="true" mode="ios">
+  <ion-toolbar mode="ios" [ngClass]="'show-' + toolbaropacity">
+    <div class="search-bar">
+      <div class="left" (click)="toPage(4)" *ngIf="location">
+        <span>{{location.city}}</span>
+        <img src="/assets/index-arrow.svg">
+      </div>
+      <div class="center" (click)="presentModal()">
+        <div class="search-box">
+          <img src="/assets/fdj.svg"><span *ngIf="shopdata">{{keywords}}</span>
+        </div>
+      </div>
+      <!--<div class="right">-->
+        <!--<img src="/assets/ewm.svg" alt="">-->
+      <!--</div>-->
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content [scrollEvents]="true" [fullscreen]="true" (ionScroll)="logScrolling($event)">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div class="myslides-box">
+    <div class="banner-skeleton-text" *ngIf="!bannerList">
+      <ion-skeleton-text animated></ion-skeleton-text>
+    </div>
+    <ion-slides pager="true"  *ngIf="bannerList" id="myswiper" [options]="bannerslideopts">
+      <ion-slide *ngFor="let item of bannerList" (click)="toPage(item.type, item.url)">
+        <img src="{{item.image  | imgsrc: http.domain}}">
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <ion-row *ngIf="!navList" class="nav-skeleton">
+    <ion-col><ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-col>
+    <ion-col><ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-col>
+    <ion-col><ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-col>
+    <ion-col><ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-col>
+    <ion-col><ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-col>
+  </ion-row>
+  <ion-row *ngIf="!navList" class="nav-skeleton">
+    <ion-col><ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-col>
+    <ion-col><ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-col>
+    <ion-col><ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-col>
+    <ion-col><ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-col>
+    <ion-col><ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-col>
+  </ion-row>
+  <ion-slides pager="true" [options]="slideOpts" style="margin-top: 10px;"  *ngIf="navList">
+    <ion-slide *ngFor="let item of navList" (click)="toPage(item.type, item.menu_url)">
+      <img class="nav-img" src="{{item.menu_img | imgsrc: http.domain}}">
+      <div>{{item.menu_name}}</div>
+    </ion-slide>
+  </ion-slides>
+  <!--<div class="swiper-pagination2"></div>-->
+  <ion-grid class="indexnav">
+    <ion-row *ngIf="!navList2" class="nav-skeleton">
+      <ion-col><ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-col>
+      <ion-col><ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-col>
+      <ion-col><ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-col>
+      <ion-col><ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-col>
+    </ion-row>
+    <ion-row *ngIf="navList2">
+      <ion-col *ngFor="let item of navList2" (click)="toPage(item.type, item.url)">
+        <img src="{{http.domain + item.image}}" alt="">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="xsqgs" padding *ngIf="hdbox1 || hdbox2">
+    <div class="left"  (click)="toPage(hdbox1.type, hdbox1.url)">
+      <img *ngIf="hdbox1" [src]="hdbox1.image | imgsrc: http.domain" alt="">
+    </div>
+    <div class="right">
+      <div class="xsqg-box" *ngFor="let item of hdbox2" (click)="toPage(item.type, item.url)">
+        <img [src]="item.image | imgsrc: http.domain" alt="">
+      </div>
+    </div>
+  </div>
+  <ion-grid class="xsqg" *ngIf="!hdbox1 && !hdbox2">
+    <ion-row>
+      <ion-col>
+        <!--<app-xsg-box [src]="'./assets/index/xsqg.png'" [name]="'菲律宾长滩岛6天自由行'" [price]="300"></app-xsg-box>-->
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </ion-col>
+      <ion-col>
+        <div class="xsqg-right">
+          <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+        </div>
+        <div class="xsqg-right">
+          <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+        </div>
+        <!--<div class="xsqg-right">-->
+          <!--<img src="./assets/index/xsqg3.png">-->
+          <!--<div class="name">户外主题游乐园预定</div>-->
+          <!--<app-pricebutton [name]="'仅剩64张'"></app-pricebutton>-->
+        <!--</div>-->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!--<ion-grid class="xsqg">-->
+    <!--<ion-row>-->
+      <!--<ion-col *ngFor="let item of hdbox2" (click)="toPage(item.type, item.url)">-->
+        <!--<img [src]="item.image | imgsrc: http.domain" alt="">-->
+      <!--</ion-col>-->
+    <!--</ion-row>-->
+  <!--</ion-grid>-->
+  <div padding *ngIf="!bzjx">
+    <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+    <ion-row>
+      <ion-col><ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-col>
+      <ion-col><ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-col>
+      <ion-col><ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-col>
+      <ion-col><ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col><ion-skeleton-text animated style="width: 100%; height: 100px"></ion-skeleton-text></ion-col>
+      <ion-col><ion-skeleton-text animated style="width: 100%; height: 100px"></ion-skeleton-text></ion-col>
+      <ion-col><ion-skeleton-text animated style="width: 100%; height: 100px"></ion-skeleton-text></ion-col>
+    </ion-row>
+  </div>
+  <div padding class="my-content" *ngIf="bzjx">
+    <app-pagetitle [myname]="bzjx['title']" [type]="true" [des]="bzjx['desc']"></app-pagetitle>
+    <div class="jx-nav">
+      <div *ngFor="let item of bzjx.sort_goods_arr; let i = index"  [ngClass]="{active: bzjxActive === i}" (click)="bzjxActive = i">{{item.name}}</div>
+    </div>
+  </div>
+  <ion-grid *ngIf="bzjx">
+    <ion-row *ngFor="let item of bzjx.sort_goods_arr; let i = index" [ngClass]="{none: bzjxActive !== i}">
+      <ion-col size="6" *ngFor="let goods of item.goods">
+        <app-tjproduct [id]="goods.goods_id" [price]="goods.org_price" [dessubstr]="true" [des]="goods.goods_brief || goods.short_name"
+                       [src]="http.zdomain + goods.original_img" [dessubstrnum]="15" (tclick)="clickbzjx($event)"></app-tjproduct>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!--<div padding  class="my-content">暂时隐藏-->
+    <!--<app-pagetitle *ngIf="indexTitle" [myname]="indexTitle.lxlgtitle" [des]="indexTitle.lxlgdes" [type]="true"></app-pagetitle>-->
+    <!--<ion-slides pager="true" [options]="slideOptslv" class="lxlg">-->
+      <!--<ion-slide>-->
+        <!--<img src="./assets/index/tjcp.png">-->
+        <!--<div class="name">浪漫的蜜月之地</div>-->
+        <!--<p>体会爱情的浪门时刻</p>-->
+      <!--</ion-slide>-->
+      <!--<ion-slide>-->
+        <!--<img src="./assets/index/tjcp.png">-->
+        <!--<div class="name">浪漫的蜜月之地</div>-->
+        <!--<p>体会爱情的浪门时刻</p>-->
+      <!--</ion-slide>-->
+      <!--<ion-slide>-->
+        <!--<img src="./assets/index/tjcp.png">-->
+        <!--<div class="name">浪漫的蜜月之地</div>-->
+        <!--<p>体会爱情的浪门时刻</p>-->
+      <!--</ion-slide>-->
+      <!--<ion-slide>-->
+        <!--<img src="./assets/index/tjcp.png">-->
+        <!--<div class="name">浪漫的蜜月之地</div>-->
+        <!--<p>体会爱情的浪门时刻</p>-->
+      <!--</ion-slide>-->
+    <!--</ion-slides>-->
+  <!--</div>-->
+  <div padding class="my-content">
+    <app-pagetitle *ngIf="indexTitle" [myname]="indexTitle.rmzttitle" [des]="indexTitle.rmztdes" [type]="true"></app-pagetitle>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <!--<app-tjproduct [name]="'租个海岛度假 我也可以当岛主'"-->
+                       <!--[des]="'约上好友一起 人均很划算哦'"-->
+                       <!--[src]="'./assets/index/rmzt.png'"></app-tjproduct>-->
+        <img *ngIf="rmzt1" [src]="rmzt1.image | imgsrc: http.domain" alt="" (click)="toPage(rmzt1.type, rmzt1.url)">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid class="rmzt2box">
+    <ion-row *ngIf="rmzt2">
+      <ion-col *ngFor="let item of rmzt2" (click)="toPage(item.type, item.url)">
+        <!--<app-tjproduct [name]="'亲子户外游'"-->
+                       <!--[des]="'征服世界第一站'"-->
+                       <!--[src]="'./assets/index/rmzt2.png'"></app-tjproduct>-->
+        <img [src]="item.image | imgsrc: http.domain" alt="">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="wntj" padding>
+    <div  class="title-img">
+      <img *ngIf="indexTitle" [src]="indexTitle.wntj || './assets/wntj.svg'" alt="">
+    </div>
+    <div *ngFor="let item of catcalelist">
+      <div class="yjfx" *ngIf="item">{{item.name}}</div>
+      <div *ngFor="let data of item.arr">
+        <app-pagetitle [myname]="data.short_title" [val]="data.id" (setclick)="setopen($event)" [type]="false"></app-pagetitle>
+        <p  (click)="toPage(9, data.id)">{{data.des}}</p>
+        <img (click)="toPage(9, data.id)" *ngIf="data.img" [src]="data.img | imgsrc: http.zdomain">
+        <app-productlist *ngIf="data.goods && data.goods[0]" [ishw]="true" [data]="data.goods[0]" (open)="openpage($event)"></app-productlist>
+        <app-productlist *ngIf="data.goods && data.goods[1]" [ishw]="true" [data]="data.goods[1]" (open)="openpage($event)"></app-productlist>
+        <app-productlist *ngIf="data.goods && data.goods[2]" [ishw]="true" [data]="data.goods[2]" (open)="openpage($event)"></app-productlist>
+      </div>
+    </div>
+
+    <div *ngFor="let item of bestGood">
+      <div class="yjfx" *ngIf="item.arr && item.arr.length > 0"> {{item.title}}</div>
+      <app-productlist *ngFor="let citem of item.arr" [ishw]="true" [data]="citem" [type]="item.type" (open)="openpage($event)"></app-productlist>
+    </div>
+    <div *ngIf="moreGoods && moreGoods.length > 0">
+      <div class="yjfx">{{indexTitle.pttj}}</div>
+      <app-productlist *ngFor="let item of moreGoods" [ishw]="true" [data]="item" (open)="openpage($event)"></app-productlist>
+    </div>
+    <!--<ion-virtual-scroll [items]="moreGoods" approxItemHeight="153px">-->
+      <!--<div *virtualItem="let item">-->
+        <!--<app-productlist [data]="item" [imgtype]="1"></app-productlist>-->
+      <!--</div>-->
+    <!--</ion-virtual-scroll>-->
+  </div>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+       loadingSpinner="crescent"
+       loadingText="加载更多...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="21px" viewBox="0 0 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>路径</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="54.9078125%" y1="100%" x2="54.2177083%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#1AC6A4" offset="0%"></stop>
+            <stop stop-color="#20AFD0" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="0" y="0" width="750" height="428"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="个人中心" transform="translate(-691.000000, -157.000000)">
+            <rect fill="#F4F6F8" x="0" y="0" width="750" height="1484"></rect>
+            <g id="分组">
+                <mask id="mask-3" fill="white">
+                    <use xlink:href="#path-2"></use>
+                </mask>
+                <use id="矩形" fill="url(#linearGradient-1)" fill-rule="nonzero" xlink:href="#path-2"></use>
+            </g>
+            <g id="分组-10" transform="translate(596.000000, 155.000000)">
+                <g id="分组-22">
+                    <g id="分组-15">
+                        <text id="个人主页" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" line-spacing="24" fill="#FFFFFF">
+                            <tspan x="0" y="25">个人主页</tspan>
+                        </text>
+                        <polyline id="路径" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill-rule="nonzero" transform="translate(104.500000, 12.500000) scale(-1, 1) rotate(-45.000000) translate(-104.500000, -12.500000) " points="98 19 98 6 111 6"></polyline>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

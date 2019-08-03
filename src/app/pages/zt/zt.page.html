@@ -1,0 +1,46 @@
+<ion-header [translucent]="true" mode="ios">
+  <ion-toolbar mode="ios">
+    <div class="search-bar">
+      <div class="left" (click)="goBack()">
+        <ion-icon name="arrow-back" mode="ios"></ion-icon>
+      </div>
+      <div class="center" (click)="toPage(5)">
+        {{title || '专题页'}}
+        <!--<div class="search-box">-->
+          <!--<img src="/assets/fdj.svg"><span *ngIf="shopdata">{{shopdata.search_keywords}}</span>-->
+        <!--</div>-->
+      </div>
+      <div class="right">
+        <ion-icon name="more" mode="ios"></ion-icon>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  [scrollEvents]="true" [fullscreen]="true" (ionScroll)="logScrolling($event)">
+  <div class="top-box" padding>
+    <div class="banner">
+      <img *ngIf="banner" [src]="http.zdomain + banner" alt="">
+      <img *ngIf="!banner" [src]="http.zdomain + banner1" alt="">
+    </div>
+    <div class="yhtime-box" *ngIf="topone && topone.promote_price && topone.promote_price !== '0' && topone.promote_end_date">
+      <img src="./assets/cxbar.svg" alt="">
+      <div class="text-content">
+        <div class="left"><span>限时价</span><span>¥</span><span>{{topone.promote_price}}</span></div>
+        <div class="right">
+          <span>剩余时间</span>
+          <div class="time-box">
+            <span *ngIf="xsday && xsday != 0">{{xsday}}</span><span *ngIf="xsday && xsday != 0">:</span><span>{{xsHouse}}</span><span>:</span><span>{{xsMin}}</span><span>:</span><span>{{xsSec}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="title-box" *ngIf="topone" [ngClass]="{'title-top': !topone.promote_price || topone.promote_price == '0' || !topone.promote_end_date}">
+      <app-productlist *ngIf="topone" [data]="topone"></app-productlist>
+    </div>
+  </div>
+  <div padding-start padding-end padding-top *ngFor="let item of list">
+    <app-pagetitle [myname]="item['title']" [type]="true" [nopadding]="true"></app-pagetitle>
+    <app-productlist *ngFor="let citem of item.goods" [data]="citem" (open)="openpage($event)"></app-productlist>
+  </div>
+</ion-content>

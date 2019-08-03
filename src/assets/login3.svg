@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="630px" height="31px" viewBox="0 0 630 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>分组</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.3">
+        <g id="登陆" transform="translate(-60.000000, -1175.000000)" fill="#FFFFFF">
+            <g id="分组-3" transform="translate(60.000000, 1122.000000)">
+                <g id="分组" transform="translate(0.000000, 53.000000)">
+                    <text id="or" font-family="DINAlternate-Bold, DIN Alternate" font-size="42" font-weight="bold" line-spacing="30">
+                        <tspan x="296" y="39">or</tspan>
+                    </text>
+                    <rect id="矩形" fill-rule="nonzero" x="0" y="18" width="276" height="1"></rect>
+                    <rect id="矩形-copy" fill-rule="nonzero" x="354" y="18" width="276" height="1"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

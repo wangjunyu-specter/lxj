@@ -1,0 +1,208 @@
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  color: #fff;
+  padding: 0 10px;
+  .left {
+    width: var(--ion-statusbar-left);
+    font-size: var(--ion-icon-big);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    img {
+      width: 12px;
+      margin-left: 5px;
+    }
+  }
+  .right {
+    width: 50px;
+    font-size: var(--ion-title);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    span {
+      display: inline-block;
+      flex: 1;
+      line-height: 18px;
+    }
+    img {
+      width: 19px;
+    }
+    ion-icon {
+      font-size: 13px;
+    }
+  }
+  .center {
+    display: -webkit-box;
+    flex: 1;
+    margin: 0 15px;
+    height: 27px;
+    background-color: #fff;
+    -webkit-border-radius: 13.5px;
+    -moz-border-radius: 13.5px;
+    border-radius: 13.5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 10px;
+    .search-box {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      color: var(--ion-color-medium);
+      font-size: var(--ion-text);
+      line-height: 27px;
+      img {
+        width: 17px;
+        height: 20px;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+ion-toolbar {
+  --background: linear-gradient(var(--ion-color-secondary, red), var(--ion-color-success, blue));
+  --opacity: 0;
+  &.nobanner {
+    --opacity: 1;
+  }
+}
+@for $i from 0 through 100 {
+  .show-#{$i} {   --opacity: #{$i / 100}; }
+}
+ion-content {
+  position: relative;
+}
+.top {
+  //margin-top: -44px;
+  margin-top: var(--ion-platform-margin-top);
+  overflow: hidden;
+  .banner {
+    position: relative;
+    //top: -68px;
+    margin-top: -106px;
+    width: 100%;
+  }
+  ion-slides {
+    --bullet-background-active: #fff;
+  }
+}
+//.hastop {
+//  margin-top: 30px;
+//}
+
+.issupplier {
+  height: calc(var(--ion-platform-margin-height));
+  //translateY(calc(10px + var(--ion-safe-area-top, 0px)));
+  overflow: hidden;
+}
+ion-card {
+  margin-top: 30px;
+  ion-card-content {
+    padding: 0;
+    .card-title {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      line-height: 30px;
+      font-size: var(--ion-text);
+      color: var(--ion-color-danger);
+      background-color: #F5F2DE;
+      padding-left: 15px;
+      img {
+        width: 12px;
+        margin-right: 5px;
+      }
+    }
+  }
+  ion-row {
+    ion-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-right: 1px solid var(--ion-color-light);
+      border-bottom: 1px solid var(--ion-color-light);
+      &:nth-of-type(3n) {
+        border-right: none;
+      }
+      .title {
+        color: var(--ion-color-dark);
+        font-size: var(--ion-title);
+      }
+      span {
+        font-size: var(--ion-sm-text);
+      }
+    }
+    &:first-of-type {
+      ion-col {
+        span {
+          margin-bottom: 5px;
+        }
+      }
+    }
+    &:last-of-type {
+      ion-col {
+        .title {
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+}
+ion-card {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.list-content {
+  padding-top: 0;
+}
+.tjnav {
+  ion-grid {
+    padding-top: 0;
+  }
+  .title {
+    font-weight: 600;
+  }
+  ion-col {
+    position: relative;
+    img {
+      width: 34px;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+}
+
+.listnav2 {
+  background-color: #fff;
+  z-index: 100;
+  width: 100%;
+  //width: calc(100% - 32px);
+  left: 0;
+  position: fixed;
+  top: var(--ion-platform-margin-height);
+  //left: calc(20px - 4px);
+  border-bottom: 1px solid var(--ion-color-light);
+  .title {
+    border-bottom: 1px solid var(--ion-color-light);
+
+  }
+}
+.listnav {
+  min-height: 37px;
+  &.isabsolute {
+    position: relative;
+  }
+}
+.line {
+  height: 1px;
+  background-color: var(--ion-color-light);
+}

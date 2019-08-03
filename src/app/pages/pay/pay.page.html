@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!--<ion-back-button></ion-back-button>-->
+      <ion-button (click)="goBack()">
+        <ion-icon mode="ios" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>收银台</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="pay-box">
+    <div class="title">支付剩余时间</div>
+    <div class="time">
+      <div class="box">0</div>
+      <div class="box">0</div>:
+      <div class="box">4</div>
+      <div class="box">7</div>:
+      <div class="box">3</div>
+      <div class="box">2</div>
+    </div>
+    <div class="des">支付成功后客服会与您取得联系</div>
+  </div>
+  <div class="order" padding>
+    <div>
+      <div class="box">订单号：</div>
+      <div class="box">{{ordersn}}</div>
+    </div>
+    <div>
+      <div class="box">应付金额:</div>
+      <div class="box"><ion-text color="danger">¥ {{price}}</ion-text></div>
+    </div>
+  </div>
+  <div *ngIf="yepay" class="line"></div>
+  <ion-list *ngIf="yepay" inset="true" line="none">
+    <ion-item>
+      <ion-label>使用余额</ion-label>
+      <ion-toggle [(ngModel)]="kysyye" (ionChange)="setyenum()" color="success" [disabled]="isyepayend"></ion-toggle>
+    </ion-item>
+    <ion-item lines="none" *ngIf="kysyye">
+      <ion-label>输入金额</ion-label>
+      <ion-input type="number" mode="ios" (ionChange)="setyechange()" [disabled]="isyepayend" [max]="yoursurplus" min="0" [(ngModel)]="syye" color="success"></ion-input>
+      <ion-note>元</ion-note>
+    </ion-item>
+    <ion-item>
+      <small>您当前的可用余额为{{yoursurplus}}</small>
+    </ion-item>
+  </ion-list>
+  <div class="line"></div>
+  <div class="zftype">
+    <ion-list>
+      <ion-radio-group [(ngModel)]="dataObj.payType" (ionChange)="toggle()">
+        <ion-list-header>
+          支付方式
+        </ion-list-header>
+        <ion-item *ngFor="let item of payList">
+          <ion-label><img [src]="item.pay_code == 'alipay' ? './assets/zfb.svg' : './assets/wechartpay.svg'" alt="">{{item.pay_name}}</ion-label>
+          <ion-radio color="success" value="{{item.pay_code}}" mode="md" checked></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  </div>
+</ion-content>
+<ion-footer mode="ios">
+  <ion-toolbar mode="ios">
+    <app-footer [type]="2" [allprice]="price" (sub)="submit($event)"></app-footer>
+  </ion-toolbar>
+</ion-footer>

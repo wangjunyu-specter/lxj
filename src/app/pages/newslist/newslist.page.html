@@ -1,0 +1,50 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back" mode="ios"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>四川知行逸旅行社</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="box">
+    <div class="time">上午 09:32</div>
+    <div class="item">
+      <div class="left">
+        <img class="header" src="./assets/icon/favicon.png" alt="">
+      </div>
+      <div class="right">
+        <div class="name">凌妹子</div>
+        <div class="content">
+          您好，请问需要什么帮助啊
+        </div>
+      </div>
+    </div>
+    <div class="me">
+      <div class="left">
+        <span class="content">
+          这次去苏梅岛你们
+        </span>
+      </div>
+      <div class="right">
+        <img src="./assets/icon/favicon.png" alt="">
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer mode="ios">
+  <ion-toolbar mode="ios">
+    <ion-searchbar searchIcon="create" mode="ios" placeholder="请输入消息"></ion-searchbar>
+    <ion-buttons slot="end" mode="ios">
+      <ion-button color="dark" (click)="close()">
+        <img class="happyface" src="./assets/hanpyface.svg" alt="">
+      </ion-button>
+      <ion-button color="dark" (click)="close()">
+        <img src="./assets/imgk.svg" alt="">
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

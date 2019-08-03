@@ -1,0 +1,37 @@
+.my-list {
+  .my-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    color: #fff;
+    .left {
+      background: var(--ion-color-linegradient);
+      flex: 1;
+      border-radius: 5px;
+      border-right: 1px solid var(--ion-color-light);
+      box-sizing: border-box;
+      padding: 7px;
+      .title {
+        font-size: var(--ion-text);
+        span {
+          font-size: var(--ion-big-title);
+          font-weight: 600;
+          margin-right: 5px;
+        }
+      }
+      .des {
+        font-size: var(--ion-sm-text);
+      }
+    }
+    .right {
+      background: var(--ion-color-linegradient);
+      border-radius: 5px;
+      width: 100px;
+      font-size: var(--ion-text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

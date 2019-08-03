@@ -1,0 +1,29 @@
+<div id="date" class="select-date">
+  <div class="month-nav">
+    <div class="box" *ngFor="let item of montharr; let i = index;" (click)="toggleSlide(i)" [ngClass]="{active: i == monthactive}">{{item >= 10 ? item : '0' + item}}月</div>
+  </div>
+  <div class="border"></div>
+  <div class="weekbox">
+    <div class="date">日</div>
+    <div class="date">一</div>
+    <div class="date">二</div>
+    <div class="date">三</div>
+    <div class="date">四</div>
+    <div class="date">五</div>
+    <div class="date">六</div>
+  </div>
+  <div class="border"></div>
+  <ion-slides pager="false" (ionSlideWillChange)="changemoth($event)">
+    <ion-slide  class="month" *ngFor="let item of allDate">
+      <div class="month-box" *ngIf="item">
+        <div class="date" *ngFor="let date of item" [ngClass]="{active: isactiveobj == (date.year + '-' + date.month + '-' + date.day)}" (click)="seleteDay(date)">
+          <span [ngClass]="{active: date.num}">{{date.day}}</span>
+          <span *ngIf="date.minprice" class="price">{{date.minprice}}起</span>
+          <span *ngIf="date.num" class="num">{{date.num | morenum}}</span>
+          <span class="bg" *ngIf="isactiveobj == (date.year + '-' + date.month + '-' + date.day)"></span>
+          <img *ngIf="isactiveobj == (date.year + '-' + date.month + '-' + date.day)" src="./assets/wwg.svg" alt="">
+        </div>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</div>

@@ -1,0 +1,111 @@
+.sj-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: #fff;
+  padding: 0 10px 3px;
+  .top {
+    width: 100%;
+    .top-bar {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      .title {
+        font-size: var(--ion-big-title);
+      }
+      .right {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        //div {
+        //  //$height: 28px;
+        //  //font-size: var(--ion-text);
+        //  //width: 50px;
+        //  //height: $height;
+        //  //border-radius: $height / 2;
+        //  //border: 1px solid var(--ion-color-light);
+        //  //display: flex;
+        //  //flex-direction: row;
+        //  //justify-content: center;
+        //  //align-items: center;
+        //  margin-right: 5px;
+        //  img {
+        //    width: 29px;
+        //  }
+        //}
+        img {
+          width: 29px;
+          &:first-of-type {
+            width: 33px;
+            margin-right: 5px;
+          }
+        }
+        ion-icon {
+          font-size: 30px;
+          --color: #fff;
+        }
+      }
+    }
+    .sc {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      font-size: var(--ion-sm-text);
+    }
+  }
+  .nav-box {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    .search {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      font-size: var(--ion-title);
+      background-color: rgba(255, 255, 255, .3);
+      $height: 28px;
+      width: 65px;
+      height: $height;
+      border-radius: $height / 2;
+      ion-icon {
+        font-size: 20px;
+      }
+    }
+    .nav {
+      a {
+        margin-left: 25px;
+        color: #fff;
+        font-size: var(--ion-title);
+        &.active {
+          font-weight: 600;
+          position: relative;
+          &::after {
+            content: '';
+            display: block;
+            height: 1px;
+            width: 80%;
+            background-color: #fff;
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            margin-left: -40%;
+          }
+        }
+      }
+    }
+  }
+}
+.arrow {
+  width: 13px;
+}
+.scimg {
+  width: 15px;
+  margin-right: 5px;
+}

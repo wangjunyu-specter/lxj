@@ -1,0 +1,52 @@
+.yhbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid var(--ion-color-danger);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-size: var(--ion-sm-text);
+  overflow: hidden;
+
+  .title {
+    background-color: var(--ion-color-danger);
+    color: #fff;
+    padding: 0px 3px;
+    flex: 1;
+    line-height: 20px;
+  }
+  .des {
+    color: var(--ion-color-danger);
+    padding: 0px 3px;
+  }
+  &.yellow {
+    border: 1px solid var(--ion-color-warning);
+    &.noborder {
+      border: none;
+      .title {
+        background-color: var(--ion-color-warning);
+        color: #fff;
+      }
+    }
+    .title {
+      background-color: rgba(var(--ion-color-warning-rgb), .4);
+      color: #C2A40C;
+    }
+  }
+  &.green {
+    border: 1px solid #609D55;
+    &.noborder {
+      border: none;
+      .title {
+        background-color: rgb(96, 157, 85);
+        color: #fff;
+      }
+    }
+    .title {
+      background-color: rgba(96, 157, 85, 0.1);
+      color: #609D55;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>分组 51@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="48" height="48"></rect>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#78B9F6" offset="0%"></stop>
+            <stop stop-color="#2EA4EC" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#65CCFF" offset="0%"></stop>
+            <stop stop-color="#2F96FF" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-5" x="0" y="0" width="44" height="30" rx="6"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="个人中心" transform="translate(-121.000000, -436.000000)">
+            <g id="分组-51" transform="translate(121.000000, 436.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="矩形" fill="#FFFFFF" fill-rule="nonzero" xlink:href="#path-1"></use>
+                <g id="分组-16" transform="translate(2.000000, 2.000000)">
+                    <circle id="椭圆形" fill="url(#linearGradient-3)" fill-rule="nonzero" opacity="0.8" cx="9" cy="41" r="3"></circle>
+                    <circle id="椭圆形" fill="url(#linearGradient-3)" fill-rule="nonzero" opacity="0.8" cx="35" cy="41" r="3"></circle>
+                    <g id="路径-4" transform="translate(0.000000, 11.000000)">
+                        <mask id="mask-6" fill="white">
+                            <use xlink:href="#path-5"></use>
+                        </mask>
+                        <use id="Mask" fill="url(#linearGradient-4)" fill-rule="nonzero" xlink:href="#path-5"></use>
+                        <path d="M28.538951,-6.66133815e-16 L10.0938313,30 L6,30 C2.6862915,30 4.05812251e-16,27.3137085 0,24 L0,6 C-4.05812251e-16,2.6862915 2.6862915,6.08718376e-16 6,0 L28.538951,-6.66133815e-16 Z" id="路径" fill="#FFFFFF" fill-rule="nonzero" opacity="0.1" mask="url(#mask-6)"></path>
+                    </g>
+                    <path d="M13,7.53320313 C13,8.36163025 12.3284271,9.03320313 11.5,9.03320313 C10.6715729,9.03320313 10,8.36163025 10,7.53320313 L10,3.5 C10,1.56700338 11.5670034,0 13.5,0 L30.5,0 C32.4329966,0 34,1.56700338 34,3.5 L34,7.5703125 C34,8.39873962 33.3284271,9.0703125 32.5,9.0703125 C31.6715729,9.0703125 31,8.39873962 31,7.5703125 L31,3.5 C31,3.22385763 30.7761424,3 30.5,3 L13.5,3 C13.2238576,3 13,3.22385763 13,3.5 L13,7.53320313 Z" id="路径" fill="#77B9F6" fill-rule="nonzero"></path>
+                    <path d="M11,21.0700144 C11,20.1284904 11.6715729,19.3652344 12.5,19.3652344 C13.3284271,19.3652344 14,20.1284904 14,21.0700144 L14,31.2952199 C14,32.236744 13.3284271,33 12.5,33 C11.6715729,33 11,32.236744 11,31.2952199 L11,21.0700144 Z" id="路径-3" fill="#FFFFFF" fill-rule="nonzero" opacity="0.734654018"></path>
+                    <path d="M30,21.0700144 C30,20.1284904 30.6715729,19.3652344 31.5,19.3652344 C32.3284271,19.3652344 33,20.1284904 33,21.0700144 L33,31.2952199 C33,32.236744 32.3284271,33 31.5,33 C30.6715729,33 30,32.236744 30,31.2952199 L30,21.0700144 Z" id="路径-3" fill="#FFFFFF" fill-rule="nonzero" opacity="0.734654018"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

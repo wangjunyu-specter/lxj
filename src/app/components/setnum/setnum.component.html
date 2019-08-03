@@ -1,0 +1,8 @@
+<div class="num">
+  <div class="left">购买数量：&nbsp;&nbsp;(¥{{price || 0}})</div>
+  <div class="right">
+    <div class="box" [ngClass]="{disabled: num === 1}" (click)="setnumfn(-1)"><ion-icon name="remove"></ion-icon></div>
+    <div>{{num}}</div>
+    <div class="box" [ngClass]="{disabled: maxnum && maxnum == num}" (click)="setnumfn(1)"><ion-icon name="add"></ion-icon></div>
+  </div>
+</div>

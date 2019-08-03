@@ -1,0 +1,57 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon mode="ios" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>添加出行人</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+<ion-content padding>
+  <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ion-item>
+        <ion-input placeholder="请输入姓名" required [(ngModel)]="dataObj.consignee" name="consignee" #consignee="ngModel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="请输入有效手机号码" required [(ngModel)]="dataObj.tel" name="tel" #tel="ngModel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="请输入18位身份证号码" required [(ngModel)]="dataObj.card" name="card" #card="ngModel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>省</ion-label>
+        <ion-select placeholder="请选择省" (ionChange)="selteaddress(2, dataObj.province)" required [(ngModel)]="dataObj.province" name="province" cancelText="取消" okText="确定" #province="ngModel">
+          <ion-select-option *ngFor="let item of provincelist" [value]="item.region_id">{{item.region_name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>市</ion-label>
+        <ion-select placeholder="请选择市" (ionChange)="selteaddress(3, dataObj.city)" required [(ngModel)]="dataObj.city" name="city" cancelText="取消" okText="确定" #city="ngModel">
+          <ion-select-option *ngFor="let item of citylist" [value]="item.region_id">{{item.region_name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>区</ion-label>
+        <ion-select placeholder="请选择区" required [(ngModel)]="dataObj.district" name="district" cancelText="取消" okText="确定" #district="ngModel">
+          <ion-select-option *ngFor="let item of arealist" [value]="item.region_id">{{item.region_name}}</ion-select-option>
+        </ion-select>
+
+      </ion-item>
+      <ion-item>
+        <ion-textarea placeholder="详细地址：如道路、门牌号、小区、楼栋号、单元室等" required [(ngModel)]="dataObj.address" name="address" #address="ngModel"></ion-textarea>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-label>设为默认地址</ion-label>
+        <ion-toggle color="success" [(ngModel)]="dataObj.defalut" name="defalut"></ion-toggle>
+      </ion-item>
+    </ion-list>
+    <ion-button color="success" expand="block" type="submit" [disabled]="!userForm.form.valid">提交</ion-button>
+  </form>
+  <p class="des"><ion-text color="danger">身份证号码错误会导致无法购买车票及保险</ion-text></p>
+</ion-content>

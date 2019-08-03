@@ -1,0 +1,44 @@
+.tjproduct {
+  width: 100%;
+  position: relative;
+  img {
+    width: 100%;
+  }
+  .title {
+    position: absolute;
+    font-size: var(--ion-text);
+    bottom: 34px;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #fff;
+    font-weight: 600;
+    &.onlyTitle {
+      bottom: 20px;
+    }
+    span {
+      display: block;
+      &.smdes {
+        font-size: var(--ion-sm-text);
+        font-weight: 400;
+      }
+      &.bigdes {
+        font-size: var(--ion-title);
+      }
+    }
+    .des {
+      white-space: normal;
+      max-width: 100%;
+    }
+  }
+  p {
+    position: absolute;
+    bottom: 3px;
+    font-size: var(--ion-sm-text);
+    margin-left: 5px;
+    margin-right: 5px;
+    color: var(--ion-color-danger);
+    span {
+      color: #fff;
+    }
+  }
+}

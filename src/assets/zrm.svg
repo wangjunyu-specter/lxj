@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="70px" height="70px" viewBox="0 0 70 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>分组 19</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="110.256696%" y1="50%" x2="-11.1886161%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#FE8D10" offset="0%"></stop>
+            <stop stop-color="#FF5389" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="产品列表" transform="translate(-190.000000, -755.000000)">
+            <g id="分组-19" transform="translate(190.000000, 755.000000)">
+                <polygon id="合并形状" fill="url(#linearGradient-1)" points="0 0 70 0 70 70"></polygon>
+                <text id="最热门" transform="translate(45.104816, 25.016504) rotate(45.000000) translate(-45.104816, -25.016504) " font-family="FZLTZHUNHK--GBK1-0, FZLanTingHei-M-GBK" font-size="17" font-weight="normal" line-spacing="18" fill="#FFFFFF">
+                    <tspan x="19.604816" y="31.0165043">最热门</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

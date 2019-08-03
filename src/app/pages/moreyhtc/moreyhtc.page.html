@@ -1,0 +1,29 @@
+<ion-header mode="ios">
+  <ion-toolbar>
+    <ion-buttons slot="primary" slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back" mode="ios"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>优惠套餐</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngFor="let item of list">
+    <app-pagetitle [myname]="item.act_name" [type]="true" [smpadding]="true"></app-pagetitle>
+    <app-productlist *ngFor="let data of item.goods_list" [data]="data" [isshowattr]="true" [noshowmore]="true" [showyj]="true" (open)="openpage($event)"></app-productlist>
+    <div class="price-box">
+      <div>套餐优惠价：<span>{{item.package_price}}</span> 原价：<span>{{item.subtotal}}</span></div>
+      <div>节省：{{item.saving}}</div>
+    </div>
+    <ion-row>
+      <ion-col>
+        <ion-button color="success" expand="block" (click)="add(item, 1)">加入购物车</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button color="danger" expand="block" (click)="add(item, 2)">立即购买</ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

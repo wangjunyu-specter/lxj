@@ -1,0 +1,68 @@
+<ion-header [translucent]="true" mode="ios">
+  <ion-toolbar mode="ios" [ngClass]="'show-' + toolbaropacity">
+    <div class="search-bar">
+      <div class="left" (click)="goBack()">
+        <img src="/assets/backbg.svg" alt="">
+      </div>
+      <div class="center">
+      </div>
+      <div class="right">
+        <!--<img src="/assets/wechatbg.svg" alt="">-->
+        <div class="round"><ion-icon name="share"></ion-icon></div>
+        <!--<div class="round" (click)="toprightmore($event)"><ion-icon name="more" mode="ios"></ion-icon></div>-->
+        <!--<img src="/assets/czbg.svg" alt="">-->
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true" [fullscreen]="true" (ionScroll)="logScrolling($event)">
+  <div class="banner">
+    <img *ngIf="data" [src]="data.imgarr[0] | imgsrc: http.zdomain" alt="">
+  </div>
+  <div class="top-content" padding-top padding-start padding-end *ngIf="data">
+    <div class="title">{{data.title}}</div>
+    <div class="des">
+      <div class="left">
+        <img src="../../../assets/tagleft.svg" alt=""><div class="box" *ngIf="data.tag && data.tag != 'null'">{{data.tag}}</div>
+      </div>
+      <div class="right">
+        <ion-text color="medium">{{data.readnum}}阅读</ion-text>
+      </div>
+    </div>
+    <ion-row>
+      <ion-col *ngIf="data.destination && data.destination != 'null'">
+        <div class="top">目的地</div>
+        <div class="footer">{{data.destination}}</div>
+      </ion-col>
+      <ion-col *ngIf="data.outtime && data.outtime != 'null'">
+        <div class="top">出发时间</div>
+        <div class="footer">{{data.outtime | time: '.'}}</div>
+      </ion-col>
+      <ion-col *ngIf="data.days && data.days != 'null'">
+        <div class="top">出行天数</div>
+        <div class="footer">{{data.days}}天</div>
+      </ion-col>
+      <ion-col *ngIf="data.money && data.money != 'null' && data.money != '0'">
+        <div class="top">人均花费</div>
+        <div class="footer">¥ {{data.money}}</div>
+      </ion-col>
+    </ion-row>
+    <div class="line"></div>
+  </div>
+  <div class="text-content" padding>
+    <div *ngIf="data && data.content" [innerHTML]="assembleHTML(data.content)"></div>
+  </div>
+  <div *ngIf="data" class="app-pllist" padding-bottom margin-bottom>
+    <div class="hfnum">{{data.plnum}}条回复</div>
+    <app-pllist *ngFor="let item of pllist" [data]="item" [tid]="id" (setItem)="setplItem($event)"></app-pllist>
+  </div>
+  <ion-backdrop *ngIf="isshowDrop" (ionBackdropTap)="clickdrop()"></ion-backdrop>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <app-chatinputbox (sub)="sub($event)" (myfous)="monfous()" (mybulr)="monblur()" [username]="seletename"></app-chatinputbox>
+  </ion-toolbar>
+</ion-footer>

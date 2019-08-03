@@ -1,0 +1,15 @@
+<div class="footer-content">
+  <div class="left">
+    <div class="box">
+      <span *ngIf="!type || type == 1 || type == 3">总价</span>
+      <span *ngIf="type == 2">订单金额</span>
+    </div>
+    <div class="box red"><span>¥</span><span class="price">{{allprice}}</span></div>
+    <div class="box" *ngIf="price"><span>优惠券抵扣¥{{price}}</span></div>
+  </div>
+  <div class="right" (click)="subbtn()" [ngClass]="{disabled: disabled}">
+    <span *ngIf="!type || type == 1">立即购买</span>
+    <span *ngIf="type == 2">去支付</span>
+    <span *ngIf="type == 3">提交订单</span>
+  </div>
+</div>

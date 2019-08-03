@@ -1,0 +1,8 @@
+<div class="emoje-box" [@openClose]="isshow.show ? 'show' : 'close'">
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide *ngFor="let item of list">
+      <div (click)="changeItem(item)">{{item}}</div>
+    </ion-slide>
+  </ion-slides>
+  <div class="swiper-pagination2"></div>
+</div>

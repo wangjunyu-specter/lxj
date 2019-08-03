@@ -1,0 +1,15 @@
+<div class="xclx">
+  <div class="box" *ngFor="let item of data; let i = index">
+    <div class="big-bitlte"><span></span><b>{{i > 10 ? i + 1 : '0' + (i + 1)}}</b>{{item.xc}}</div>
+    <p class="des">
+      {{item.xcdesc}}
+    </p>
+    <div class="item">
+      <p class="item-title">餐饮</p>
+      <div class="item-des">{{item.cy}}</div>
+      <p class="item-title">入驻酒店</p>
+      <div class="item-des">{{item.zs}}</div>
+      <!--<img *ngFor="let img of obj.imgs" src="{{img}}" alt="">-->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>分组 57@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="54.9078125%" y1="100%" x2="54.2177083%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#1AC6A4" offset="0%"></stop>
+            <stop stop-color="#20AFD0" offset="100%"></stop>
+        </linearGradient>
+        <path d="M36,11.4444444 L41.0287141,8.65071437 C41.9942816,8.114288 43.2118882,8.46217559 43.7483146,9.42774306 C43.913379,9.72485906 44,10.0591404 44,10.3990289 L44,23.6009711 C44,24.7055406 43.1045695,25.6009711 42,25.6009711 C41.6601115,25.6009711 41.3258301,25.5143501 41.0287141,25.3492856 L36,22.5555556 L36,28 C36,31.3137085 33.3137085,34 30,34 L6,34 C2.6862915,34 4.05812251e-16,31.3137085 0,28 L0,6 C-4.05812251e-16,2.6862915 2.6862915,6.07153217e-16 6,0 L30,0 C33.3137085,-6.07153217e-16 36,2.6862915 36,6 L36,11.4444444 Z" id="path-2"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="个人中心" transform="translate(-92.000000, -850.000000)">
+            <g id="分组-57" transform="translate(92.000000, 850.000000)">
+                <rect id="矩形" fill="#FFFFFF" fill-rule="nonzero" x="0" y="0" width="48" height="48"></rect>
+                <g id="分组-42" transform="translate(2.000000, 7.000000)">
+                    <g id="路径-7">
+                        <mask id="mask-3" fill="white">
+                            <use xlink:href="#path-2"></use>
+                        </mask>
+                        <use id="Mask" fill="url(#linearGradient-1)" fill-rule="nonzero" opacity="0.7" xlink:href="#path-2"></use>
+                        <path d="M8.53149899,34 L6,34 C2.6862915,34 -3.14690143e-15,31.3137085 -3.55271368e-15,28 L-3.55271368e-15,6 C-3.95852593e-15,2.6862915 2.6862915,-2.07091289e-14 6,-2.13162821e-14 L21.4769999,-2.13162821e-14 L8.53149899,34 Z" id="路径" fill="#FFFFFF" fill-rule="nonzero" opacity="0.1" mask="url(#mask-3)"></path>
+                    </g>
+                    <path d="M21.6384638,14.3406626 L24.7971527,18.8530753 C25.4305817,19.7579739 25.2105122,21.0050348 24.3056136,21.6384638 C23.9694465,21.8737808 23.5690331,22 23.1586889,22 L16.8413111,22 C15.7367416,22 14.8413111,21.1045695 14.8413111,20 C14.8413111,19.5896558 14.9675303,19.1892424 15.2028473,18.8530753 L18.3615362,14.3406626 C18.9949652,13.435764 20.2420261,13.2156945 21.1469247,13.8491235 C21.3382073,13.9830213 21.504566,14.14938 21.6384638,14.3406626 Z" id="三角形" fill="#FFFFFF" fill-rule="nonzero" transform="translate(20.000000, 17.000000) rotate(-270.000000) translate(-20.000000, -17.000000) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

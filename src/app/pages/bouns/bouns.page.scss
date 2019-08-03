@@ -1,0 +1,78 @@
+.my-list {
+  .item {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    -webkit-box-shadow: 0 0 9px #f3f3f3;
+    -moz-box-shadow: 0 0 9px #f3f3f3;
+    box-shadow: 0 0 9px #f3f3f3;
+    margin-top: 15px;
+    overflow: hidden;
+    .left {
+      flex: 1;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      .title {
+        color: var(--ion-color-dark);
+        font-size: var(--ion-title);
+        margin-bottom: 30px;
+      }
+      p {
+        color: var(--ion-color-medium);
+        font-size: var(--ion-sm-text);
+        margin: 0;
+      }
+    }
+    .center {
+      width: 100px;
+      background: #E71F19;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .top {
+        text-align: center;
+        font-weight: 600;
+        span {
+          font-size: 24px;
+        }
+      }
+      p {
+        font-size: var(--ion-sm-text);
+        text-align: center;
+        margin-top: 5px;
+      }
+    }
+    .right {
+      width: 16px;
+      background: url("../../../assets/bonus_grey.png") top left repeat-y;
+    }
+    .tag {
+      position: absolute;
+      top:8px;
+      right: -16px;
+      font-size: var(--ion-sm-text);
+      background-color: var(--ion-color-success);
+      color: #fff;
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+      width: 65px;
+      text-align: center;
+      &.nouse {
+        background-color: var(--ion-color-primary);
+      }
+      &.ygq {
+        background-color: var(--ion-color-medium);
+      }
+    }
+  }
+}

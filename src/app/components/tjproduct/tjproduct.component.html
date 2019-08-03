@@ -1,0 +1,9 @@
+<div class="tjproduct" (click)="setClick()">
+  <img src="{{src}}">
+  <div class="title" [ngClass]="{onlyTitle: !price}">
+    <span [ngClass]="{bigdes: !price}">{{name | namesubstr: 10}}</span>
+    <span class="des" *ngIf="des && dessubstr" [ngClass]="{smdes: !price}">{{des | namesubstr: dessubstrnum || 10}}</span>
+    <span class="des" *ngIf="des && !dessubstr" [ngClass]="{smdes: !price}">{{des}}</span>
+  </div>
+  <p *ngIf="price">¥ {{price}}<span>起</span></p>
+</div>

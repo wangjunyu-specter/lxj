@@ -1,0 +1,315 @@
+<ion-header [translucent]="true" mode="ios">
+  <ion-toolbar *ngIf="suppId === 0" mode="ios" [ngClass]="'show-' + toolbaropacity" [ngClass]="{nobanner: !bannerList || bannerList && bannerList.length == 0}">
+    <div class="search-bar">
+      <div class="left" (click)="goBack()">
+        <ion-icon name="arrow-back" mode="ios"></ion-icon>
+      </div>
+      <div class="center" (click)="searchModel()">
+        <div class="search-box">
+          <img src="/assets/fdj.svg"><span>{{'请输入搜索内容'}}</span>
+        </div>
+      </div>
+      <div class="right" (click)="presentPopover($event)" *ngIf="suppId === 0 && active && ishw && active.navName">
+        <span>{{active.navName}}</span> <ion-icon name="arrow-dropdown-circle"></ion-icon>
+      </div>
+    </div>
+  </ion-toolbar>
+  <ion-toolbar mode="ios" *ngIf="suppId !== 0" [ngClass]="'show-' + toolbaropacity" [ngClass]="{nobanner: !bannerList || bannerList && bannerList.length == 0}">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon mode="ios" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>商品列表</ion-title>
+  </ion-toolbar>
+  <div class="listnav2 isfixed" *ngIf="isshowtopnav">
+    <app-hwcpsort *ngIf="ishw && togglelist" [togglelist]="togglelist"
+                  (sethwActivesortfn)="sethwActivesort($event)" [pricearea]="price_grade"
+                  (seleteend)="seleteend($event)" [allAddress]="allAddress" [changeAddress]="changeAddress"
+                  (isSetshowbg)="isSetshowbg($event)" [setCloseattr]="setCloseattr" [tjcity]="tjcity"
+                  [jtjyList]="jtjyList" [suppid]="suppId"></app-hwcpsort>
+
+    <app-goodssort *ngIf="!ishw && togglelist" [suppid]="suppId" [togglelist]="togglelist"
+                   [isactivesortobj]="isactivesort" (togglenavfn)="togglenav($event)"></app-goodssort>
+  </div>
+</ion-header>
+<ion-backdrop *ngIf="setShow" [visible]="true" [stopPropagation]="false"></ion-backdrop>
+
+<ion-content [scrollEvents]="true" [fullscreen]="true" (ionScroll)="logScrolling($event)" >
+  <ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+       pullingIcon="arrow-dropdown"
+       pullingText="Pull to refresh"
+       refreshingSpinner="circles"
+       refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div class="top" *ngIf="bannerList && bannerList.length > 0">
+    <img src="./assets/listbg.svg" alt="">
+    <div class="banner" padding *ngIf="suppId === 0 && bannerList && bannerList.length > 0">
+      <ion-slides pager="true">
+        <ion-slide *ngFor="let item of bannerList" (click)="toPage(item.type, item.href_url)">
+          <img src="{{http.zdomain +'data/catflashimg/' + item.img_url}}">
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </div>
+  <ion-card class="tjnav" *ngIf="childnav.length > 0">
+    <ion-card-content>
+      <div class="card-title">
+        <img src="./assets/fire.svg" alt="">更多分类
+      </div>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4" *ngFor="let item of childnav" size="4" (click)="goothercate(item.id)">
+            <!--文本类型，先使用图片，后期需要再放开,还有css部分-->
+            <div class="title">{{item.name}}</div>
+            <!--<span>已售2320</span>-->
+            <!--<img src="./assets/zrm.svg" alt="">-->
+            <!--<img [src]="http.domain + item.image" alt="" style="width: 100%">-->
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="tjnav" *ngIf="suppId === 0 && ishw && navlist && navlist.length > 0">
+    <ion-card-content>
+      <div class="card-title">
+        <img src="./assets/fire.svg" alt="">热门地点推荐
+      </div>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4" *ngFor="let item of navlist; let i = index;" size="4" (click)="setAddress(item.toaddress)">
+            <!--文本类型，先使用图片，后期需要再放开,还有css部分-->
+            <div class="title">{{item.toaddress}}</div>
+            <span>已售{{item.count}}</span>
+              <img *ngIf="i == 0" src="./assets/zrm.svg" alt="">
+            <!--<img [src]="http.domain + item.image" alt="" style="width: 100%">-->
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="list-content" padding [ngClass]="{hastop: (!navlist || navlist && navlist.length == 0) && ( bannerList && bannerList.length > 0)}">
+    <app-pagetitle *ngIf="suppId === 0 && listTitle" [myname]="listTitle" [type]="true"></app-pagetitle>
+    <div class="listnav isabsolute">
+      <app-hwcpsort *ngIf="ishw && togglelist" [togglelist]="togglelist"
+                    (sethwActivesortfn)="sethwActivesort($event)" [pricearea]="price_grade"
+                    (seleteend)="seleteend($event)" [allAddress]="allAddress" [changeAddress]="changeAddress"
+                    (isSetshowbg)="isSetshowbg($event)" [setCloseattr]="setCloseattr" [tjcity]="tjcity"
+                    [jtjyList]="jtjyList" [suppid]="suppId"></app-hwcpsort>
+      <app-goodssort *ngIf="!ishw && togglelist" [suppid]="suppId" [togglelist]="togglelist"
+                     [isactivesortobj]="isactivesort" (togglenavfn)="togglenav($event)"></app-goodssort>
+    </div>
+
+    <!--<div class="line"></div>-->
+    <div *ngIf="dataList">
+      <app-productlist *ngFor="let item of dataList" [data]="item" [ishw]="ishw" (open)="openpage($event)"></app-productlist>
+    </div>
+
+    <!--<ion-virtual-scroll [items]="dataList" approxItemHeight="153px">-->
+      <!--<div *virtualItem="let item">-->
+        <!--<app-productlist [data]="item" (open)="openpage($event)" [imgtype]="1"></app-productlist>-->
+      <!--</div>-->
+    <!--</ion-virtual-scroll>-->
+    <div *ngIf="!dataList">
+      <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+      <ion-row>
+        <ion-col><ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-col>
+        <ion-col><ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-col>
+        <ion-col><ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-col>
+        <ion-col><ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-col>
+      </ion-row>
+      <ion-list>
+
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+
+      </ion-list>
+    </div>
+  </div>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+       loadingSpinner="crescent"
+       loadingText="加载更多...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
+<ion-backdrop *ngIf="isshowbg" [visible]="false" [tappable]="true" (ionBackdropTap)="closeDrop()"></ion-backdrop>

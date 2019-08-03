@@ -1,0 +1,63 @@
+
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon mode="ios" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>商品分类</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollY]="false">
+  <div class="my-content">
+    <div class="left">
+      <ion-content>
+        <div class="left-nav">
+          <div class="item"
+               *ngFor="let item of navlist; let i = index"
+               [ngClass]="{'active': i == active}" (click)="setActive(i, item)">{{item.name}}</div>
+        </div>
+      </ion-content>
+    </div>
+    <div class="right">
+      <ion-content *ngIf="activeList" padding>
+        <!--<ion-button color="success">{{activeList['name']}}</ion-button>-->
+        <app-seletebtn (mclick)="clickotherfn($event)" [name]="'进入' + activeList['name'] + '频道'" [isshowimg]="true" [id]="activeList['id']" [iscenter]="true" [isactive]="true"></app-seletebtn>
+        <!--<app-seletebtn *ngFor="let c of activeList.cat_id" (mclick)="clickotherfn($event)" [name]="c['name']" [id]="c['id']" [iscenter]="true" [small]="true" [graybgon]="true" [block]="false" ></app-seletebtn>-->
+        <div class="button-box" margin-top>
+          <div class="button-item" *ngFor="let c of activeList.cat_id">
+            <div class="title" (click)="open(c['id'])">{{c['name']}}</div>
+            <div class="cbutton-box">
+              <div class="cbutton-item" (click)="open(c['id'])">
+                {{c['name']}}
+              </div>
+              <div class="cbutton-item" *ngFor="let d of c.cat_id" (click)="open(d['id'])">
+                {{d['name']}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-content>
+    </div>
+  </div>
+  <!--<div class="nav-box" *ngFor="let item of navlist">-->
+    <!--<ion-grid>-->
+      <!--<ion-row>-->
+        <!--<ion-col size="6">-->
+          <!--<ion-button size="small" color="light" expand="block" (click)="open(item.id)">{{item.name}}</ion-button>-->
+        <!--</ion-col>-->
+      <!--</ion-row>-->
+    <!--</ion-grid>-->
+    <!--&lt;!&ndash;<div class="title" padding>{{item.name}}</div>&ndash;&gt;-->
+    <!--<ion-grid>-->
+      <!--<ion-row>-->
+        <!--<ion-col size="6" *ngFor="let c of item.cat_id">-->
+          <!--<ion-button size="small" color="success" expand="block" (click)="open(c.id)">{{c.name}}</ion-button>-->
+        <!--</ion-col>-->
+      <!--</ion-row>-->
+    <!--</ion-grid>-->
+  <!--</div>-->
+
+</ion-content>

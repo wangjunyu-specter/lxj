@@ -1,0 +1,4 @@
+<div class="yhbox" [ngClass]="{yellow: color == 'yellow', green: color == 'green', noborder: noborder}">
+  <div class="title" *ngIf="!notitle">{{title | yhqtitle}}</div>
+  <div class="des" *ngIf="des">{{des}}</div>
+</div>

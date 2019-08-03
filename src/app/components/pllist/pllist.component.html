@@ -1,0 +1,50 @@
+<ion-item [lines]="'none'">
+  <ion-avatar slot="start"  (click)="goperson(data.uid)">
+    <img [src]="data.headimg | imgsrc: http.zdomain">
+  </ion-avatar>
+  <ion-label>
+    <h2 class="item-title" (click)="goperson(data.uid)">
+      {{data.user_name}}
+      <ion-text color="medium" *ngIf="uid == data.uid">(作者)</ion-text>
+      <app-yhbox *ngIf="uid != data.uid" [color]="'yellow'" [title]="data.name" [noborder]="true"></app-yhbox>
+    </h2>
+    <p class="sm-text">{{data.time | oldtonow}}</p>
+  </ion-label>
+  <ion-note slot="end" class="my-note" (click)="setdz(data)">
+    <ion-icon name="heart-empty" *ngIf="data.isdz == 0"></ion-icon>
+    <ion-icon name="heart" color="danger" *ngIf="data.isdz == 1"></ion-icon>
+    <span *ngIf="data.dznum > 0">{{data.dznum}}</span>
+  </ion-note>
+</ion-item>
+<ion-item [lines]="'none'">
+  <ion-avatar slot="start">
+  </ion-avatar>
+  <div class="pl-content" >
+    <p no-padding no-margin (click)="seleteItem(data)">{{data.content | decodeuri}}</p>
+    <div class="hf-box" *ngIf="data.plnum > 0">
+      <div class="my-item" *ngFor="let item of data.chrild">
+        <div class="top">
+          <div class="left" (click)="goperson(item.uid)">
+            <img [src]="item.headimg | imgsrc: http.zdomain">
+            <span style="margin-right: 10px">{{item.user_name}}</span>
+            <ion-text color="medium" *ngIf="uid == item.uid">(作者)</ion-text>
+            <app-yhbox *ngIf="uid != item.uid" [color]="'yellow'" [title]="item.name" [noborder]="true"></app-yhbox>
+          </div>
+          <div class="right" (click)="setdz(item)">
+            <ion-icon name="heart-empty" *ngIf="item.isdz == 0"></ion-icon>
+            <ion-icon name="heart" color="danger" *ngIf="item.isdz == 1"></ion-icon>
+            <span *ngIf="item.dznum > 0">{{item.dznum}}</span>
+          </div>
+        </div>
+        <div no-margin no-padding class="hfcontent" (click)="seleteItem(item)">
+          <span *ngIf="item.ishf == 1">回复</span>&nbsp;
+          <ion-text color="medium"  *ngIf="item.ishf == 1" (click)="goperson(item.touid)">{{item.tuser_name}}</ion-text>
+          <span *ngIf="item.ishf == 1">：</span>
+          {{item.content | decodeuri}}
+          <ion-text color="medium">{{item.time | oldtonow}}</ion-text>
+        </div>
+      </div>
+      <ion-button *ngIf="data.plnum > data.chrild.length" no-padding fill="clear" size="small" (click)="geitmore()">全部{{data.plnum - data.chrild.length}}条回复</ion-button>
+    </div>
+  </div>
+</ion-item>

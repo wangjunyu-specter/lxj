@@ -1,0 +1,27 @@
+<div class="footer-box">
+    <form (ngSubmit)="onSubmit(heroForm.value)" #heroForm="ngForm">
+        <div class="user-name" *ngIf="username">
+            回复：{{username}}
+        </div>
+        <div class="input-box">
+            <ion-textarea
+                    #myInput
+                    [autoGrow]="true"
+                    name="myInput"
+                    [ngStyle]="setHeight"
+                    (ionFocus)="ionFocus()"
+                    (ionBlur)="ionBlur()"
+                    [(ngModel)]="formdata.content"
+                    placeholder="说个什么吧~"
+                    required
+                    mode="ios">
+            </ion-textarea>
+
+            <ion-icon name="happy" mode="md" (click)="toggle()"></ion-icon>
+            <!--<ion-button *ngIf="isandroid" size="small" color="success" type="submit" [disabled]="!content">发送</ion-button>-->
+            <ion-button size="small" color="success" type="submit" [disabled]="!heroForm.form.valid">发送</ion-button>
+        </div>
+        <app-emojipick (setItem)="changeItem($event)"></app-emojipick>
+    </form>
+    <div class="dtbox" [ngStyle]="{height: keyboardH + 'px'}"></div>
+</div>

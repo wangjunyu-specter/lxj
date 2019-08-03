@@ -1,0 +1,18 @@
+<div class="img-box zcbox"
+     [ngClass]="{isone: imglist && imglist.length == 1,
+     isonelist: imglist && imglist.length == 1 && !showend,
+     istwo: imglist && (imglist.length == 2 || imglist.length == 4),
+     issix: imglist && imglist.length == 6, isno: !imglist || imglist.length == 0}">
+  <div class="box" *ngFor="let item of imglist; let i = index">
+    <!--<img *ngIf="item.fullPath" [src]="item.fullPath" alt="">-->
+    <div *ngIf="ytimglist && (ytimglist[i] | isvideo)" class="video-box" (click)="playvideofn(i)">
+      <img  [src]="sanitize(item | imgsrc: http.zdomain)" alt="">
+      <img class="play-img" src="../../../assets/icon/play.svg" alt="">
+    </div>
+    <img *ngIf="item && (!ytimglist || !(ytimglist[i] | isvideo))" (click)="openItem(i)" [src]="sanitize(item | imgsrc: http.zdomain)" alt="">
+    <!--<img [src]="item | imgsrc: http.zdomain" alt="">-->
+  </div>
+  <div class="box addimg" *ngIf="showend" (click)="addImg(i)">
+    <img src="../../../assets/add.png" alt="">
+  </div>
+</div>

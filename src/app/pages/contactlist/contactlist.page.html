@@ -1,0 +1,21 @@
+<ion-header mode="ios">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon mode="ios" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title *ngIf="pageType == 1">选择出行人</ion-title>
+    <ion-title *ngIf="pageType == 2">选择收货人</ion-title>
+    <ion-title *ngIf="pageType == 3">查看详情</ion-title>
+    <ion-buttons slot="end" *ngIf="pageType !== 3">
+      <ion-button (click)="goBack()" [disabled]="activeList.length != pernum">
+        确定
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <app-contactlists (setItem)="clickitem($event)" [pageType]="pageType"></app-contactlists>
+
+</ion-content>

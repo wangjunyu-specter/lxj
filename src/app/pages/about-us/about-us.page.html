@@ -1,0 +1,28 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon mode="ios" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <!--<ion-title>账单</ion-title>-->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="top" *ngIf="data">
+    <img [src]="data.shop_logo" alt="">
+    <h2>{{data.shop_name}}</h2>
+    <p no-margin>Version&nbsp;&nbsp;{{data.app_verson}}</p>
+  </div>
+  <ion-list>
+    <ion-item button>去评分</ion-item>
+    <ion-item button>版本更新</ion-item>
+  </ion-list>
+  <div class="footer">
+    <ion-text *ngIf="data" color="medium">{{data.company_name}}公司&nbsp;&nbsp;版本所有</ion-text>
+    <br>
+    <ion-text color="medium">Copyright&nbsp;&nbsp;©2019-2029&nbsp;&nbsp;lvxingjia.All&nbsp;&nbsp;Rights&nbsp;&nbsp;Reserved</ion-text>
+  </div>
+</ion-content>
+

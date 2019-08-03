@@ -1,0 +1,193 @@
+import { Component, OnInit } from '@angular/core';
+// import {ActivatedRoute} from "@angular/router";
+import {NavController} from "@ionic/angular";
+import {DomSanitizer} from "@angular/platform-browser";
+import { YjlistService } from '../../services/yjlist.service';
+import {HttpService} from "../../services/http.service";
+import {GzlistService} from "../../services/gzlist.service";
+import {UserService} from "../../services/user.service";
+import {EmojiishowService} from "../../services/emojiishow.service";
+import {PlitemclickService} from "../../services/plitemclick.service";
+import {ActivatedRoute} from "@angular/router";
+@Component({
+  selector: 'app-yjcontent',
+  templateUrl: './yjcontent.page.html',
+  styleUrls: ['./yjcontent.page.scss'],
+})
+export class YjcontentPage implements OnInit {
+  toolbaropacity: string;
+  id: string;
+  data: any;
+  type: number;
+  pllist: any[];
+  pageObj: any;
+  setPlitem: any;
+  seletename: string;
+  isshowDrop: boolean;
+  user: any;
+  constructor( private nav: NavController,
+              public sanitizer: DomSanitizer, private yjlist: YjlistService,
+              private http: HttpService, private gzlist: GzlistService, private emojiishow: EmojiishowService,
+               private activeroute: ActivatedRoute,
+               private userfn: UserService, private itemclickfn: PlitemclickService) {
+    this.pageObj = {
+      page: 1,
+      num: 20
+    };
+  }
+
+  ngOnInit() {
+    this.isshowDrop = false;
+    this.setPlitem = {};
+    this.toolbaropacity = '0';
+    this.data = {};
+    const params = this.activeroute.snapshot.queryParams;
+    this.id = params['id'];
+    this.type = params['type'] ? Number(params['type']) : 0;
+    this.data = this.yjlist.getPqone(this.id, this.type);
+
+  }
+  ionViewDidEnter() {
+    this.getContent();
+    this.userfn.getUserp().then(res => {
+      this.user = res;
+    });
+  }
+  getContent() {
+    let hasdata = 1;
+    if (!this.data) {
+      hasdata = 2;
+    }
+    const obj = {
+      tid: this.id,
+      page: this.pageObj.page,
+      num: this.pageObj.num,
+      hasdata,
+      type: this.type + 2
+    }
+    this.http.getData(this.http.getpllist, obj).subscribe(res => {
+      console.log(res);
+      if (!this.data) {
+        this.data = res.result.data.result;
+        this.gzlist.setList(res.result.data.users);
+      }
+      this.pllist = res.result.result;
+    }, err => {
+      console.log(err);
+    });
+  }
+  logScrolling($event) {
+    // this.itemclickfn.Source.emit(2);
+    const top: number = $event.detail.scrollTop;
+    let num = 0;
+    if (top < 44) {
+      num = top * 2 / 100;
+    } else {
+      num = 1;
+    }
+    this.setNavstatus(num);
+  }
+  assembleHTML(strHTML: any) {
+
+    return this.sanitizer.bypassSecurityTrustHtml(strHTML);
+  }
+  setNavstatus(num: number) {
+    this.toolbaropacity = parseInt((num * 100).toString(), 10).toString();
+  }
+  goBack(): void {
+    console.log('退出')
+    this.nav.back();
+  }
+  monfous() {
+    console.log('时候')
+    this.isshowDrop = true;
+    // const el = document.querySelector('ion-footer');
+    // setTimeout(() => {
+    //     el.scrollIntoView(false);
+    // }, 200);
+    // this.positionStyle = {
+    //     position: 'absolute',
+    //     bottom: 0
+    // };
+  }
+  monblur() {
+    if (!this.emojiishow.getIsshows()) {
+      this.blurClear();
+    }
+    // const el = document.querySelector('ion-footer');
+    // el.scrollIntoView(true);
+    // this.positionStyle = {
+    //     position: '',
+    //     bottom: ''
+    // };
+  }
+  sub(content) {
+    console.log(content);
+    console.log(this.setPlitem);
+    console.log(this.data);
+    console.log(this.user)
+    const obj: any = {
+      touid: this.setPlitem.userid || this.data.userid,
+      tid: this.data.id,
+      content,
+    };
+    if (this.setPlitem.uid != this.user.user_id && this.setPlitem.touid == this.user.user_id) {
+      obj.ishf = 1;
+    } else {
+      obj.ishf = 0;
+    }
+    if (this.setPlitem.pid && this.setPlitem.pid != 0){
+      obj['pid'] = this.setPlitem.pid;
+    } else if (this.setPlitem.id && this.setPlitem.id != 0) {
+      obj['pid'] = this.setPlitem.id;
+    } else {
+      obj['pid'] = 0;
+    }
+    console.log(obj);
+    this.blurClear(1);
+    this.http.postformdataloading(this.http.setpl, obj).subscribe(res => {
+      console.log(res);
+      // : todo 差头像等数据
+      obj.id = res.result.id;
+      obj.time = Date.parse((new Date()).toString()) / 1000;
+      obj.headimg = this.user.headimg;
+      obj.dznum = 0;
+      obj.user_name = this.user.user_name;
+      obj.name = res.result.user.name;
+      console.log(obj.pid);
+
+      if (obj.pid == 0) {
+        this.pllist.unshift(obj);
+      } else {
+        for (let i = 0, j = this.pllist.length; i < j; i++) {
+          console.log(this.pllist[i].id)
+          if (this.pllist[i].id == obj.pid) {
+            this.pllist[i].chrild.unshift(obj);
+            this.pllist[i].plnum += 1;
+            console.log(this.pllist[i])
+            return false;
+          }
+        }
+      }
+    })
+  }
+  clickdrop() {
+    this.blurClear(1);
+    this.itemclickfn.Source.emit(2);
+
+  }
+  setplItem(item) {
+    console.log(item);
+    this.isshowDrop = true;
+    this.seletename = item.user_name;
+    this.setPlitem = item;
+  }
+  blurClear(type?) {
+    if (type) {
+      this.emojiishow.setIsshow(2);
+    }
+    this.setPlitem = {};
+    this.seletename = '';
+    this.isshowDrop = false;
+  }
+}

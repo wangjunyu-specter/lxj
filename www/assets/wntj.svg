@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="124px" height="41px" viewBox="0 0 124 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>分组 34@2x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页" transform="translate(-313.000000, -2878.000000)">
+            <g id="分组-37" transform="translate(0.000000, 1705.000000)">
+                <g id="分组-36" transform="translate(0.000000, 1167.000000)">
+                    <g id="分组-35">
+                        <g id="分组-34" transform="translate(313.000000, 0.000000)">
+                            <text id="为你推荐" font-family="PingFangSC-Semibold, PingFang SC" font-size="26" font-weight="500" fill="#111111">
+                                <tspan x="10" y="28">为你推荐</tspan>
+                            </text>
+                            <g id="分组-16" transform="translate(0.000000, 6.000000)" fill="#E1C718">
+                                <path d="M122.881002,5 L117.113431,5 C116.501044,5 116,4.55 116,4 C116,3.45 116.501044,3 117.113431,3 L122.886569,3 C123.498956,3 124,3.45 124,4 C124,4.55 123.498956,5 122.881002,5 Z" id="路径"></path>
+                                <path d="M120,8 C119.45,8 119,7.50953678 119,6.91008174 L119,1.08991826 C119,0.490463215 119.45,0 120,0 C120.55,0 121,0.490463215 121,1.08991826 L121,6.91008174 C121,7.51498638 120.55,8 120,8 Z" id="路径"></path>
+                                <path d="M0,5.5 C0,6.32842712 0.671572875,7 1.5,7 C2.32842712,7 3,6.32842712 3,5.5 C3,4.67157288 2.32842712,4 1.5,4 C0.671572875,4 0,4.67157288 0,5.5 Z" id="路径"></path>
+                                <path d="M4,2.99999998 C3.99999998,3.35726557 4.1905989,3.6873926 4.49999999,3.8660254 C4.80940107,4.0446582 5.19059893,4.0446582 5.50000001,3.8660254 C5.8094011,3.6873926 6.00000002,3.35726557 6,2.99999998 C6,2.44771524 5.55228475,2 5,2 C4.44771525,2 4,2.44771524 4,2.99999998 Z" id="路径"></path>
+                            </g>
+                            <g id="分组-28" transform="translate(52.000000, 41.000000)" fill="#1AC5A6" fill-rule="nonzero">
+                                <rect id="矩形" x="0" y="0" width="20" height="6" rx="3"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

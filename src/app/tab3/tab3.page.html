@@ -1,0 +1,170 @@
+<ion-header [translucent]="true" mode="ios">
+  <ion-toolbar mode="ios" [ngClass]="'show-' + toolbaropacity">
+    <div class="search-bar">
+      <!--<div class="left" (click)="goBack()">-->
+        <!--<ion-icon name="arrow-back" mode="ios"></ion-icon>-->
+      <!--</div>-->
+      <div class="center" (click)="searchpage()">
+        <div class="search-box">
+          <img src="/assets/fdj.svg"><span>{{keywords || '精彩等你发现'}}</span>
+        </div>
+      </div>
+      <!--<div class="right">-->
+      <!--<img src="/assets/ewm.svg" alt="">-->
+      <!--</div>-->
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  [scrollEvents]="true" [fullscreen]="true" (ionScroll)="logScrolling($event)">
+  <div *ngIf="!bannerList" class="page-top">
+    <ion-skeleton-text animated style="height: 260px;"></ion-skeleton-text>
+    <ion-row class="nav-skeleton">
+      <ion-col><ion-skeleton-text animated style="height: 50px;width: 100%"></ion-skeleton-text></ion-col>
+      <ion-col><ion-skeleton-text animated style="height: 50px;width: 100%"></ion-skeleton-text></ion-col>
+      <ion-col><ion-skeleton-text animated style="height: 50px;width: 100%"></ion-skeleton-text></ion-col>
+      <ion-col><ion-skeleton-text animated style="height: 50px;width: 100%"></ion-skeleton-text></ion-col>
+      <ion-col><ion-skeleton-text animated style="height: 50px;width: 100%"></ion-skeleton-text></ion-col>
+    </ion-row>
+    <ion-row class="nav-skeleton">
+      <ion-col><ion-skeleton-text animated style="height: 50px;width: 100%"></ion-skeleton-text></ion-col>
+      <ion-col><ion-skeleton-text animated style="height: 50px;width: 100%"></ion-skeleton-text></ion-col>
+    </ion-row>
+    <ion-skeleton-text animated style="width: 20%; height: 20px;" ></ion-skeleton-text>
+    <ion-row class="nav-skeleton">
+      <ion-col><ion-skeleton-text animated style="height: 80px;width: 100%"></ion-skeleton-text></ion-col>
+      <ion-col><ion-skeleton-text animated style="height: 80px;width: 100%"></ion-skeleton-text></ion-col>
+      <ion-col><ion-skeleton-text animated style="height: 80px;width: 100%"></ion-skeleton-text></ion-col>
+      <ion-col><ion-skeleton-text animated style="height: 80px;width: 100%"></ion-skeleton-text></ion-col>
+    </ion-row>
+    <ion-skeleton-text animated style="height: 200px;margin-top: 10px;"></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 20%; height: 20px;" ></ion-skeleton-text>
+    <ion-row class="nav-skeleton">
+      <ion-col><ion-skeleton-text animated style="height: 100px;width: 100%"></ion-skeleton-text></ion-col>
+      <ion-col><ion-skeleton-text animated style="height: 100px;width: 100%"></ion-skeleton-text></ion-col>
+    </ion-row>
+  </div>
+  <div class="myslides-box" *ngIf="bannerList">
+    <ion-slides pager="true" id="myswiper">
+      <ion-slide *ngFor="let item of bannerList" (click)="toPage(item.type, item.url)">
+        <img src="{{http.domain + item.image}}">
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <ion-slides pager="true" [options]="slideOpts" style="margin-top: 10px">
+    <ion-slide *ngFor="let item of navList" (click)="toPage(item.type, item.menu_url)">
+      <img class="nav-img" src="{{http.domain + item.menu_img}}">
+      <div>{{item.menu_name}}</div>
+    </ion-slide>
+  </ion-slides>
+  <ion-grid *ngIf="ggtj1">
+    <ion-row *ngIf="ggtj1.length == 1">
+      <ion-col size="12" *ngFor="let item of ggtj1" (click)="toPage(item.type, item.url)">
+        <img src="{{http.domain + item.image}}" alt="">
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="ggtj1.length > 1">
+      <ion-col size="6" *ngFor="let item of ggtj1" (click)="toPage(item.type, item.url)">
+        <img src="{{http.domain + item.image}}" alt="">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div padding>
+    <app-pagetitle *ngIf="titleList && titleList['title1']" [nopadding]="true" [myname]="titleList['title1']" [type]="true" [des]="titleList['desc1']"></app-pagetitle>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3" *ngFor="let item of pptj" (click)="toPage(item.type, item.url)">
+        <img src="{{http.domain + item.image}}" alt="">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let item of ggtj5" (click)="toPage(item.type, item.url)">
+        <img src="{{http.domain + item.image}}" alt="">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div padding>
+    <app-pagetitle *ngIf="titleList && titleList['title2']" [nopadding]="true" [myname]="titleList['title2']" [type]="true" [des]="titleList['desc2']"></app-pagetitle>
+  </div>
+  <ion-grid class="nopaddingbottom">
+    <ion-row class="nopaddingbottom">
+      <ion-col size="6" *ngFor="let item of ggtj7" (click)="toPage(item.type, item.url)">
+        <img src="{{http.domain + item.image}}" alt="">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid class="nopaddingtop">
+    <ion-row class="nopaddingtop">
+      <ion-col size="4" *ngFor="let item of ggtj8" (click)="toPage(item.type, item.url)">
+        <img src="{{http.domain + item.image}}" alt="">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div *ngIf="topgoods" padding>
+    <app-productlist *ngFor="let citem of topgoods" [data]="citem"  (open)="openpage($event)" type="2"></app-productlist>
+  </div>
+  <div padding>
+    <app-pagetitle *ngIf="titleList && titleList['title3']" [nopadding]="true" [myname]="titleList['title3']" [type]="true" [des]="titleList['desc3']"></app-pagetitle>
+  </div>
+  <ion-grid class="nopaddingbottom">
+    <ion-row class="nopaddingbottom">
+      <ion-col *ngFor="let item of ggtj2" (click)="toPage(item.type, item.url)">
+        <img src="{{http.domain + item.image}}" alt="">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid class="nopaddingbottom nopaddingtop">
+    <ion-row class="nopaddingbottom nopaddingtop">
+      <ion-col size="6" *ngFor="let item of ggtj3" (click)="toPage(item.type, item.url)">
+        <img src="{{http.domain + item.image}}" alt="">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid class="nopaddingtop">
+    <ion-row>
+      <ion-col size="4" *ngFor="let item of ggtj4" (click)="toPage(item.type, item.url)">
+        <img src="{{http.domain + item.image}}" alt="">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div padding>
+    <app-pagetitle *ngIf="titleList && titleList['title4']" [nopadding]="true" [myname]="titleList['title4']" [type]="true" [des]="titleList['desc4']"></app-pagetitle>
+  </div>
+  <div *ngIf="tjgoods && tjgoods[0]" padding>
+    <app-productlist *ngFor="let citem of tjgoods[0].arr" [data]="citem"  (open)="openpage($event)" type="1"></app-productlist>
+
+  </div>
+  <div padding>
+    <app-pagetitle *ngIf="titleList && titleList['title5']" [nopadding]="true" [myname]="titleList['title5']" [type]="true" [des]="titleList['desc5']"></app-pagetitle>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let item of ggtj6" (click)="toPage(item.type, item.url)">
+        <img src="{{http.domain + item.image}}" alt="">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div padding>
+    <app-pagetitle *ngIf="titleList && titleList['title6']" [nopadding]="true" [myname]="titleList['title6']" [type]="true" [des]="titleList['desc6']"></app-pagetitle>
+  </div>
+  <div *ngIf="tjgoods && tjgoods[1]" padding>
+    <app-productlist *ngFor="let citem of tjgoods[1].arr" [data]="citem"  (open)="openpage($event)" type="3"></app-productlist>
+
+  </div>
+  <div padding>
+    <app-pagetitle *ngIf="titleList && titleList['title7']" [nopadding]="true" [myname]="titleList['title7']" [type]="true" [des]="titleList['desc7']"></app-pagetitle>
+  </div>
+  <div padding *ngIf="moreGoods">
+    <app-productlist *ngFor="let item of moreGoods" [data]="item" (open)="openpage($event)"></app-productlist>
+  </div>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+       loadingSpinner="crescent"
+       loadingText="加载更多...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

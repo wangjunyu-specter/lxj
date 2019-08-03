@@ -1,0 +1,53 @@
+<div class="list" padding>
+  <div class="title">
+    <div class="left checkleft">
+      <ion-checkbox color="danger"
+                    [(ngModel)]="item.active"
+                    (click)="setisall()"
+                    (ionChange)="setAll()"
+                    [disabled]="allno">
+
+      </ion-checkbox>
+    </div>
+    <div class="right">{{item.supplier_name}}</div>
+  </div>
+  <ion-item-sliding *ngFor="let data of item.goods_list; let i = index">
+    <ion-checkbox class="item-checkbox" color="danger" [disabled]="data.goods_number > data.allnumber || data.allnumber == 0" [(ngModel)]="data.active" (click)="setone()" (ionChange)="changeitem(data)"></ion-checkbox>
+    <ion-item lines="none">
+      <div class="item">
+        <div class="left checkleft"></div>
+        <div class="right">
+          <div class="left">
+            <ion-thumbnail slot="start" (click)="openpage(data)">
+              <img [src]="http.domain + data.goods_thumb">
+              <span *ngIf="data.allnumber == 0" class="wuhuo">无货</span>
+              <span *ngIf="data.goods_number > data.allnumber && data.allnumber != 0" class="wuhuo">货源<br/>不足</span>
+            </ion-thumbnail>
+          </div>
+          <div class="right">
+            <div class="top">
+              <h3 class="goods_title" (click)="openpage(data)">{{data.goods_name}}</h3>
+              <p class="goods_title" *ngIf="data.goods_attr" (click)="changeattr(data)">{{data.goods_attr | goodsattr}}<ion-icon name="arrow-down" mode="ios"></ion-icon></p>
+            </div>
+            <div class="footer">
+              <div class="left">¥{{data.subtotal}}</div>
+              <div class="right">
+                <div class="set-box" (click)="setNum(data, -1)"><ion-icon name="remove" [ngClass]="{gray: data.goods_number <= 1 || data.allnumber == 0}"></ion-icon></div>
+                <div class="input-box">
+                  <input type="number" [(ngModel)]="data.goods_number" [disabled]="data.allnumber == 0" (change)="changenum(data)">
+                </div>
+                <div class="set-box" (click)="setNum(data, 1)"><ion-icon name="add" [ngClass]="{gray: data.goods_number > data.allnumber || data.allnumber == 0}"></ion-icon></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ion-item>
+
+    <ion-item-options side="end">
+      <ion-item-option color="danger" (click)="unread(data.rec_id, i)">删除</ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+
+  <!--<div *ngIf="item.discount" class="goods_desc" [innerHTML]="assembleHTML(item.discount.your_discount)"></div>-->
+</div>

@@ -1,0 +1,37 @@
+ion-searchbar {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.line {
+  height: 10px;
+  background-color: var(--ion-gray-background-color);
+}
+ion-item {
+  .name {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    div {
+      font-size: var(--ion-title);
+
+    }
+    span {
+      font-size: var(--ion-sm-text);
+      color: var(--ion-color-medium);
+      margin-left: 10px;
+    }
+  }
+  ion-label {
+    color: var(--ion-color-medium);
+    font-size: 10px;
+  }
+  .card {
+    margin-right: 10px;
+    display: inline-block;
+  }
+  .card-num {
+    font-size: var(--ion-sm-text);
+    color: var(--ion-color-medium);
+  }
+}

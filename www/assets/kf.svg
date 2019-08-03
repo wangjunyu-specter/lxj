@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>分组 63@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="54.9078125%" y1="100%" x2="54.2177083%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#1AC6A4" offset="0%"></stop>
+            <stop stop-color="#20AFD0" offset="100%"></stop>
+        </linearGradient>
+        <path d="M20,0 L20,0 C31.045695,-2.02906125e-15 40,8.954305 40,20 L40,20 C40,31.045695 31.045695,40 20,40 L0,40 L0,20 C-1.3527075e-15,8.954305 8.954305,2.02906125e-15 20,0 Z" id="path-2"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="个人中心" transform="translate(-438.000000, -995.000000)">
+            <g id="分组-63" transform="translate(438.000000, 995.000000)">
+                <rect id="矩形-copy-8" fill="#FFFFFF" fill-rule="nonzero" x="0" y="0" width="48" height="48"></rect>
+                <g id="分组-21" transform="translate(4.000000, 4.000000)">
+                    <g id="路径-7">
+                        <mask id="mask-3" fill="white">
+                            <use xlink:href="#path-2"></use>
+                        </mask>
+                        <use id="Mask" fill="url(#linearGradient-1)" fill-rule="nonzero" opacity="0.7" xlink:href="#path-2"></use>
+                        <path d="M23.9149609,0.383003352 L8.83078833,40 L-1.42108547e-14,40 L-1.42108547e-14,20 C-1.55635622e-14,8.954305 8.954305,1.12163185e-13 20,1.10134124e-13 C21.3398419,1.09887999e-13 22.6489117,0.131750685 23.9149609,0.383003352 Z" id="路径" fill="#FFFFFF" fill-rule="nonzero" opacity="0.1" mask="url(#mask-3)"></path>
+                    </g>
+                    <path d="M12.5261102,26.4300473 C14.2406867,28.7041569 16.9647766,30.1742851 20.0322334,30.1742851 C23.0782191,30.1742851 25.785628,28.7246656 27.5022042,26.4776826" id="路径" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" fill-rule="nonzero"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

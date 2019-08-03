@@ -1,0 +1,63 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon mode="ios" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>修改资料</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form #data="ngForm" *ngIf="userData" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ion-item>
+        <ion-label>用户名</ion-label>
+        <ion-input text-end
+           [(ngModel)]="userData.username" name="username" required></ion-input>
+      </ion-item>
+      <!--<ion-item>-->
+        <!--<ion-label>手机号</ion-label>-->
+        <!--<ion-input-->
+           <!--[(ngModel)]="userData.mobile_phone" name="mobile_phone" required></ion-input>-->
+      <!--</ion-item>-->
+      <ion-item (click)="imgFrom()" detail>
+        <ion-avatar slot="end">
+          <img [src]="userData.headimg | imgsrc: http.domain">
+        </ion-avatar>
+        <ion-label>头像</ion-label>
+      </ion-item>
+      <ion-item detail>
+        <ion-label>生日</ion-label>
+        <ion-datetime displayFormat="YYYY-MM-DD"
+                      pickerFormat="YYYY-MM-DD"
+                      Format="YYYY-MM-DD" doneText="确定" cancelText="取消"
+                      [(ngModel)]="userData.birthday" name="birthday"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>性别</ion-label>
+        <ion-select  [(ngModel)]="userData.sex" name="sex" interface="action-sheet">
+          <ion-select-option value="1">男</ion-select-option>
+          <ion-select-option value="0">女</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <!--<ion-radio-group [(ngModel)]="userData.sex" name="sex">-->
+        <!--<ion-list-header>-->
+          <!--性别-->
+        <!--</ion-list-header>-->
+        <!--<ion-item>-->
+          <!--<ion-label>男</ion-label>-->
+          <!--<ion-radio value="1"></ion-radio>-->
+        <!--</ion-item>-->
+
+        <!--<ion-item>-->
+          <!--<ion-label>女</ion-label>-->
+          <!--<ion-radio value="0"></ion-radio>-->
+        <!--</ion-item>-->
+      <!--</ion-radio-group>-->
+    </ion-list>
+    <ion-button type="submit" color="success" expand="block" [disabled]="!data.form.valid" *ngIf="!data.form.pristine && !isupdate">提交</ion-button>
+  </form>
+
+</ion-content>

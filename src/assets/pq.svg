@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="176px" height="176px" viewBox="0 0 176 176" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>分组 13</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FF7E7E" offset="0%"></stop>
+            <stop stop-color="#F84F4F" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-2" cx="74" cy="74" r="74"></circle>
+        <filter x="-16.2%" y="-12.2%" width="132.4%" height="132.4%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="6" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="7" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.97254902   0 0 0 0 0.345098039   0 0 0 0 0.345098039  0 0 0 0.240687274 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <path d="M45,44.0000002 L103,44 C106.313708,44 109,46.6862915 109,50 L109.000005,94.0707197 C109.000005,96.7687644 107.199126,99.1349917 104.598607,99.853844 C94.5991906,102.617948 84.4794071,104 74.239257,104 C63.9712826,104 53.7024256,102.610427 43.4326861,99.8312818 C40.8166899,99.1233548 39,96.7496962 39,94.0396046 L39,50.0000002 C39,46.6862917 41.6862915,44.0000002 45,44.0000002 Z M94,86.881365 L93.9696106,62.9551806 C93.9693437,62.7450509 93.9028906,62.5403445 93.7796857,62.3701236 C93.4558662,61.9227319 92.8306759,61.8225569 92.3832842,62.1463764 L67.1710155,80.3948706 C66.5595454,80.8374492 65.7509883,80.8980631 65.080367,80.5515974 L55.4589971,75.5808712 C55.3171023,75.5075635 55.1597127,75.469309 55,75.469309 C54.4477153,75.469309 54,75.9170242 54,76.469309 L54,86.9132926 C54,87.7381035 54.5434262,88.4570067 55.317913,88.6567797 C61.3743092,90.2189266 67.4307054,91 73.4871016,91 C79.5738467,91 85.9608302,90.211079 92.6480522,88.6332369 C93.4390131,88.4466107 93.9999995,87.719677 94,86.881365 Z M59.1666667,66.8333334 C61.4678531,66.8333334 63.3333333,64.9678532 63.3333333,62.6666667 C63.3333333,60.3654803 61.4678531,58.5000001 59.1666667,58.5000001 C56.8654802,58.5000001 55,60.3654803 55,62.6666667 C55,64.9678532 56.8654802,66.8333334 59.1666667,66.8333334 Z" id="path-4"></path>
+        <filter x="-35.7%" y="-33.3%" width="171.4%" height="183.3%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="0" dy="5" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="7.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.948448129   0 0 0 0 0.287895023   0 0 0 0 0.287895023  0 0 0 0.785241168 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="分享发布" transform="translate(-133.000000, -587.000000)" fill-rule="nonzero">
+            <g id="分组-13" transform="translate(147.000000, 595.000000)">
+                <g id="椭圆形">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                    <use fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+                </g>
+                <g id="合并形状">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-4"></use>
+                    <use fill="#FFFFFF" xlink:href="#path-4"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

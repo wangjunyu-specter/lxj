@@ -1,0 +1,15 @@
+<ion-grid class="listnav">
+  <!--<ion-row *ngIf="ishw">-->
+  <!--<ion-col (click)="showzhpx()" [ngClass]="{pxactive: ishwactive === 1}">综合排序<ion-icon name="arrow-dropdown" mode="md"></ion-icon></ion-col>-->
+  <!--<ion-col (click)="showoter(2)" [ngClass]="{pxactive: ishwactive === 2}">目的地<ion-icon name="arrow-dropdown" mode="md"></ion-icon></ion-col>-->
+  <!--<ion-col (click)="showoter(3)" [ngClass]="{pxactive: ishwactive === 3}">价格区间<ion-icon name="arrow-dropdown" mode="md"></ion-icon></ion-col>-->
+  <!--<ion-col (click)="showoter(4)" [ngClass]="{pxactive: ishwactive === 4}">行程时间<ion-icon name="arrow-dropdown" mode="md"></ion-icon></ion-col>-->
+  <!--</ion-row>-->
+  <ion-row>
+    <ion-col *ngFor="let item of togglelist" [ngClass]="{pxactive: item.id === isactivesort.id, none: suppid != 0 && item.name == '价格'}"
+             (click)="togglenav(item)">{{item.name}}
+      <ion-icon *ngIf="item.sort.length > 0" name="arrow-dropdown" mode="md"></ion-icon>
+    </ion-col>
+    <!--<ion-col>店铺<ion-icon name="arrow-dropdown" mode="md"></ion-icon></ion-col>-->
+  </ion-row>
+</ion-grid>

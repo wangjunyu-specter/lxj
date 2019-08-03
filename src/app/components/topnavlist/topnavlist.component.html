@@ -1,0 +1,5 @@
+<ion-list>
+  <ion-item *ngFor="let item of navList"
+            [ngClass]="{hide: item.menu_url == id}"
+            (click)="open(item)">{{item.menu_name}}</ion-item>
+</ion-list>

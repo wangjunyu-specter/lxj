@@ -1,0 +1,27 @@
+.price-box {
+  padding: 15px 0;
+  font-size: var(--ion-text);
+  &>div {
+    &:first-of-type {
+      span {
+        &:first-of-type {
+          color: var(--ion-color-danger);
+          font-size: var(--ion-title);
+        }
+        &:last-of-type {
+          color: var(--ion-color-medium);
+          text-decoration:line-through;
+        }
+      }
+    }
+    &:last-of-type {
+      border: 1px solid var(--ion-color-danger);
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      display: inline-block;
+      padding: 3px 7px;
+      margin-top: 5px;
+    }
+  }
+}

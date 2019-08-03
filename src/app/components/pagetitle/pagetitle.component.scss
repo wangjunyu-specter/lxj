@@ -1,0 +1,27 @@
+.pageTitle {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0 10px;
+  &.nobigBox {
+    padding: 0;
+  }
+  &.smpadding {
+    padding: 10px 0 10px;
+  }
+  .nobold {
+    font-weight: 400 !important;
+  }
+  .title {
+    font-size: var(--ion-title);
+    font-weight: 600;
+  }
+  .bigTitle {
+    font-size: var(--ion-big-title);
+  }
+  span {
+    font-size: var(--ion-sm-text);
+  }
+}

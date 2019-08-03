@@ -1,0 +1,51 @@
+
+<ion-content>
+  <div class="my-content">
+    <div class="login-top">
+      <div class="top-back">
+        <ion-button fill="clear" (click)="backButton()" *ngIf="pageType != 1"><ion-icon name="arrow-back"></ion-icon></ion-button>
+      </div>
+      <div class="title-box">
+        <div class="title">旅行家</div>
+        <p>专注户外游领域，感悟旅行更多意义</p>
+      </div>
+    </div>
+
+    <div class="form-center">
+      <ion-input placeholder="请输入手机号" type="tel" [(ngModel)]="formData.tel" minlength="11" required #name="ngModel"></ion-input>
+      <div class="my-input" *ngIf="pageType == 2 || pageType == 3 || pageType == 4">
+        <input type="text" placeholder="请输入验证码" [(ngModel)]="formData.yzm" #yzm="ngModel" required>
+        <button float-right [disabled]="isGetyzm" (click)="getYzm()">{{yzmText}}</button>
+      </div>
+      <ion-input *ngIf="pageType != 3" [placeholder]="pageType == 1? '请输入密码' : '请输入新密码'" type="password" minlength="6" [(ngModel)]="formData.pwd" #pwd="ngModel" required></ion-input>
+      <app-mybutton [isdisabled]="isLoading || name.invalid || (pageType !== 3 && formData.pwd.length < 6) || (pageType !== 1 && !formData.yzm)" [bname]="pageType === 2 ? '注册': pageType == 4 ? '提交':'登录'" minlength="6" [isblock]="true" (subClick)="sub()"></app-mybutton>
+      <ion-grid *ngIf="pageType == 1 || pageType == 3">
+        <ion-row>
+          <ion-col>
+            <a (click)="toggleType(4)">
+              <img src="./assets/login2.svg" alt="">
+              忘记密码
+            </a>
+          </ion-col>
+          <ion-col text-right>
+            <a (click)="toggleType(3)" *ngIf="pageType == 1">验证码登录</a>
+            <a (click)="toggleType(1)" *ngIf="pageType == 3">密码登录</a>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-progress-bar *ngIf="isLoading" type="indeterminate" reversed="true"></ion-progress-bar>
+    </div>
+    <div class="login-footer" *ngIf="pageType == 1 || pageType == 3">
+      <ion-button class="zhuce" fill="clear" expand="block" (click)="toggleType(2)">现在去注册</ion-button>
+      <div class="or-line">
+        <img src="./assets/login3.svg" alt="">
+      </div>
+      <ion-button class="sbgg" fill="clear" expand="block">随便逛逛</ion-button>
+    </div>
+    <div class="login-footer" *ngIf="pageType == 2">
+      <p>已阅读并同意以下协议</p>
+      <div><a>《旅行家平台服务协议》</a><a href="#">《隐私权政策》</a><a href="#">《法律声明》</a></div>
+    </div>
+    <div class="login-footer" *ngIf="pageType !== 1 && pageType !== 3 && pageType !== 2"></div>
+  </div>
+</ion-content>

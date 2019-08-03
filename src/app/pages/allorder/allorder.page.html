@@ -1,0 +1,70 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon mode="ios" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>我的订单</ion-title>
+    <ion-buttons slot="end">
+      <!--<ion-back-button></ion-back-button>-->
+      <ion-button (click)="search()">
+        <ion-icon name="search"></ion-icon>搜索
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <!--<ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200">-->
+    <!--<ion-refresher-content></ion-refresher-content>-->
+  <!--</ion-refresher>-->
+  <ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+       pullingIcon="arrow-dropdown"
+       pullingText="Pull to refresh"
+       refreshingSpinner="circles"
+       refreshingText="更新中...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div style="background: #fff">
+    <ion-segment mode="ios" (ionChange)="segmentChanged()" color="success" [(ngModel)]="type">
+      <ion-segment-button [value]="1" mode="ios">
+        <ion-label>全部</ion-label>
+      </ion-segment-button>
+      <ion-segment-button [value]="2" mode="ios">
+        <ion-label>待付款</ion-label>
+      </ion-segment-button>
+      <ion-segment-button [value]="3" mode="ios">
+        <ion-label>待发货</ion-label>
+      </ion-segment-button>
+      <ion-segment-button [value]="4" mode="ios">
+        <ion-label>待收货</ion-label>
+      </ion-segment-button>
+      <ion-segment-button [value]="5" mode="ios">
+        <ion-label>已完成</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <div [hidden]="type != 1">
+    <app-orderlist [list]="list1"></app-orderlist>
+  </div>
+  <div [hidden]="type != 2">
+    <app-orderlist [list]="list2"></app-orderlist>
+  </div>
+  <div [hidden]="type != 3">
+    <app-orderlist [list]="list3"></app-orderlist>
+  </div>
+  <div [hidden]="type != 4">
+    <app-orderlist [list]="list4"></app-orderlist>
+  </div>
+  <div [hidden]="type != 5">
+    <app-orderlist [list]="list5"></app-orderlist>
+  </div>
+  <ion-infinite-scroll (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+       loadingSpinner="bubbles"
+       loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

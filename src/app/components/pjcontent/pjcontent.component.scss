@@ -1,0 +1,23 @@
+ion-list {
+  margin-bottom: 0;
+  ion-item {
+    --background: #fff;
+    color: var(--ion-color-medium);
+    span {
+      font-size: var(--ion-text);
+    }
+  }
+}
+.text-content {
+  padding-top: 6px;
+  padding-bottom: 0;
+  font-size: var(--ion-text);
+  color: var(--ion-color-medium);
+}
+.swiper-content {
+  padding-bottom: 0;
+}
+ .line {
+   border-bottom: 1px solid var(--ion-color-light);
+   margin-top: 15px;
+ }

@@ -1,0 +1,36 @@
+<div padding>
+  <h2>请输入余额支付密码</h2>
+  <p>￥{{price || 0}}</p>
+  <div class="pwd-box-div">
+    <ion-input type="password" maxlength="6" [(ngModel)]="pwd" #pwdbox
+               (ionBlur)="setisfous(2)"
+               (ionFocus)="setisfous(1)" (ionChange)="padchange()"> </ion-input>
+    <ul class="pwd-box"  (click)="setfoucs()">
+      <li>
+        <div>
+          <span class="round" *ngIf="pwd.length > 0"></span>
+          <span class="gb" *ngIf="pwd.length == 0 && isfous">|</span>
+        </div></li>
+      <li><div>
+        <span class="round" *ngIf="pwd.length > 1"></span>
+        <span class="gb" *ngIf="pwd.length == 1 && isfous">|</span>
+      </div></li>
+      <li><div>
+        <span class="round" *ngIf="pwd.length > 2"></span>
+        <span class="gb" *ngIf="pwd.length == 2 && isfous">|</span>
+      </div></li>
+      <li><div>
+        <span class="round" *ngIf="pwd.length > 3"></span>
+        <span class="gb" *ngIf="pwd.length == 3 && isfous">|</span>
+      </div></li>
+      <li><div>
+        <span class="round" *ngIf="pwd.length > 4"></span>
+        <span class="gb" *ngIf="pwd.length == 4 && isfous">|</span>
+      </div></li>
+      <li><div>
+        <span class="round" *ngIf="pwd.length > 5"></span>
+        <span class="gb" *ngIf="pwd.length == 5 && isfous">|</span>
+      </div></li>
+    </ul>
+  </div>
+</div>

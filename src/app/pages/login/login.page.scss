@@ -1,0 +1,104 @@
+.my-content {
+  padding-left: 30px;
+  padding-right: 30px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("/assets/Bitmap@2x.png") left top no-repeat;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  ion-icon {
+    color: #fff;
+  }
+  ion-input {
+    margin-bottom: 15px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    --padding-start: 15px;
+    --padding-end: 15px;
+    --background: rgba(255,255,255,.2);
+    --placeholder-color: #ebebeb;
+    --color: var(--ion-color-light, #fff);
+  }
+  .my-input {
+    background: rgba(255,255,255,.2);
+    height:41px;
+    border-radius: 20px;
+    width: 100%;
+    margin-bottom: 15px;
+    input {
+      height: 41px;
+      padding: 15px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      background: none;
+      border: none;
+      color: #fff;
+      outline: none;
+      width: calc(100% - 100px);
+      &::-webkit-input-placeholder {
+        color: rgba(var(--ion-color-light-rgb, 0,0,0), .5);
+      }
+    }
+    button {
+      font-size: var(--ion-text);
+      height: 41px;
+      background: none;
+      border: none;
+      outline: none;
+      color: var(--ion-color-secondary);
+      width: 100px;
+      &:active {
+        color: var(--ion-color-secondary-shade);
+      }
+    }
+  }
+  a {
+    text-decoration: none;
+    color: #fff;
+    font-size: var(--ion-title, 14px);
+  }
+  .top-back {
+    height: 55px;
+    margin-left: -30px;
+    margin-right: -30px;
+  }
+  .title-box {
+    color: #fff;
+    .title {
+      font-size: 35px;
+    }
+  }
+  .login-footer {
+    height: 135px;
+    .or-line {
+      border: 1px dashed rgba(var(--ion-color-light-rgb, 255,255,255), .5);
+    }
+    img {
+      min-height: 23px;
+    }
+    .zhuce {
+      --color: var(--ion-color-secondary);
+    }
+    .sbgg {
+      --color: var(--ion-color-light, #fff);
+    }
+    p {
+      color: var(--ion-color-light, #fff);
+    }
+    a {
+      font-size: var(--ion-sm-text, 12px);
+      color: var(--ion-color-secondary);
+    }
+  }
+  .form-center {
+    img {
+      width: 17px;
+    }
+  }
+}

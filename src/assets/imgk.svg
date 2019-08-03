@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="34px" viewBox="0 0 40 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>分组 2@2x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="消息详情" transform="translate(-670.000000, -1273.000000)" fill-rule="nonzero">
+            <g id="分组-3" transform="translate(590.000000, 1270.000000)">
+                <g id="分组-2" transform="translate(80.000000, 3.000000)">
+                    <path d="M4,1.50000014 C2.61928813,1.50000014 1.5,2.61928827 1.5,4.00000014 L1.5,27.8883973 C1.5,29.0255858 2.26748464,30.0194976 3.36770037,30.307115 C8.96147463,31.7694392 14.5501811,32.5 20.1367182,32.5 C25.7023743,32.5 31.2037916,31.774899 36.6442115,30.3239812 C37.7385635,30.032126 38.4999919,29.0410174 38.499992,27.9084156 L38.4999998,4.00000001 C38.4999998,2.61928814 37.3807117,1.50000001 35.9999998,1.50000001 L4.00000001,1.50000014 Z" id="合并形状" stroke="#111111" stroke-width="3"></path>
+                    <path d="M8.95703125,31.2573242 L25.6430915,13.5392368 C27.1478373,11.941423 29.2429594,11.0320107 31.4377725,11.0239877 L38,11" id="路径-39" stroke="#111111" stroke-width="3" stroke-linecap="round"></path>
+                    <circle id="椭圆形" fill="#111111" cx="11.5" cy="11.5" r="2.5"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

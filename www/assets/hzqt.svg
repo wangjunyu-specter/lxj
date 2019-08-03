@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>分组 64@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="54.9078125%" y1="100%" x2="54.2177083%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#1AC6A4" offset="0%"></stop>
+            <stop stop-color="#20AFD0" offset="100%"></stop>
+        </linearGradient>
+        <path d="M12,22.560239 L17.6432502,26.4415061 L22,23.4450574 L22,21 C22,17.6862915 24.6862915,15 28,15 C31.3137085,15 34,17.6862915 34,21 L34,40 L22,40 L22,26.9009933 L18.8773144,29.0486878 C18.8328771,29.0792504 18.7870513,29.1074744 18.7400512,29.133377 C18.1629703,29.591981 17.2530647,29.6290835 16.6226436,29.1954978 L12,26.0161749 L12,40 L0,40 L0,21 C-4.05812251e-16,17.6862915 2.6862915,15 6,15 C9.3137085,15 12,17.6862915 12,21 L12,22.560239 Z M6,12 C2.6862915,12 0,9.3137085 0,6 C0,2.6862915 2.6862915,0 6,0 C9.3137085,0 12,2.6862915 12,6 C12,9.3137085 9.3137085,12 6,12 Z M28,12 C24.6862915,12 22,9.3137085 22,6 C22,2.6862915 24.6862915,0 28,0 C31.3137085,0 34,2.6862915 34,6 C34,9.3137085 31.3137085,12 28,12 Z" id="path-2"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="个人中心" transform="translate(-611.000000, -995.000000)">
+            <g id="分组-64" transform="translate(611.000000, 995.000000)">
+                <rect id="矩形-copy-7" fill="#FFFFFF" fill-rule="nonzero" x="0" y="0" width="48" height="48"></rect>
+                <g id="分组-11" transform="translate(7.000000, 4.000000)">
+                    <g id="路径-7">
+                        <mask id="mask-3" fill="white">
+                            <use xlink:href="#path-2"></use>
+                        </mask>
+                        <use id="Mask" fill="url(#linearGradient-1)" fill-rule="nonzero" opacity="0.7" xlink:href="#path-2"></use>
+                        <path d="M0,38.6487165 L0,21 C-4.05812251e-16,17.6862915 2.6862915,15 6,15 C6.9914017,15 7.92664342,15.2404495 8.75058906,15.6662124 L0,38.6487165 Z M6,12 C2.6862915,12 0,9.3137085 0,6 C0,2.6862915 2.6862915,0 6,0 C9.3137085,0 12,2.6862915 12,6 C12,9.3137085 9.3137085,12 6,12 Z" id="形状" fill="#FFFFFF" fill-rule="nonzero" opacity="0.1" mask="url(#mask-3)"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

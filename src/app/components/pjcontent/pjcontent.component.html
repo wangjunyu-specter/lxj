@@ -1,0 +1,18 @@
+<ion-list lines="none">
+  <ion-item>
+    <ion-avatar slot="start">
+      <img src="{{data.headimg || 'https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y'}}">
+    </ion-avatar>
+    <ion-label>{{data.user_name}}</ion-label>
+    <span>{{data.add_time | time: [1, '/']}}</span>
+  </ion-item>
+</ion-list>
+<div padding class="text-content">{{data.content}}</div>
+<div padding class="swiper-content">
+  <ion-slides [options]="slideOpts">
+    <ion-slide *ngFor="let src of data.images">
+      <img src="{{http.zdomain + src.images}}">
+    </ion-slide>
+  </ion-slides>
+  <div class="line"></div>
+</div>

@@ -1,0 +1,33 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+    <ion-searchbar mode="ios" (ionChange)="searchkey()" [(ngModel)]="searchtext" [cancelButtonIcon]="true" [placeholder]="keywords ? keywords[0] : ''"></ion-searchbar>
+    <ion-buttons slot="end" mode="ios">
+      <ion-button color="dark" (click)="close()">
+        取消
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="tj-box" *ngIf="keyList.length == 0">
+    <div class="box" *ngFor="let item of keywords; let i = index;" (click)="topage(item)">
+      {{item}}
+      <img *ngIf="i === 0" src="./assets/rm.svg" alt="">
+      <img *ngIf="i === 1" class="tj" src="./assets/tj.svg" alt="">
+    </div>
+    <div class="box" *ngFor="let item of keywords2; let i = index;" (click)="topage(item)">
+      {{item}}
+      <img *ngIf="i === 0" src="./assets/rm.svg" alt="">
+      <img *ngIf="i === 1" class="tj" src="./assets/tj.svg" alt="">
+    </div>
+  </div>
+  <div class="title" *ngIf="keyList.length == 0">历史记录</div>
+  <div class="tj-box" *ngIf="keyList.length == 0">
+    <div class="box" *ngFor="let item of list" (click)="topage(item)">{{item}}</div>
+  </div>
+  <ion-list>
+    <ion-item [button]="true" *ngFor="let item of keyList" (click)="topage(item)">
+      <ion-label>{{item}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

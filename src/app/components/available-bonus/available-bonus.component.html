@@ -1,0 +1,23 @@
+<ion-toolbar mode="ios">
+  <ion-title>优惠券</ion-title>
+  <ion-buttons slot="end">
+    <ion-button (click)="close()">
+      <ion-icon name="close-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+<ion-content padding>
+  <div class="my-list">
+    <div class="my-item" *ngFor="let item of list" margin-bottom>
+      <div class="left">
+        <div class="title">￥<span>{{item.type_money}}</span>店铺优惠券</div>
+        <div class="des">满{{item.min_goods_amount}}使用</div>
+        <div class="des">有效期{{item.use_start_date | modelTime: [1, '.']}}-{{item.use_end_date | modelTime: [1, '.']}}</div>
+      </div>
+      <div class="right" (click)="getBonus(item.type_id)">
+        立即领取
+      </div>
+    </div>
+  </div>
+</ion-content>
+

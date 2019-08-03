@@ -1,0 +1,108 @@
+<div class="content-box">
+  <div [ngClass]="setShow ? 'listnav-box' : ''">
+    <ion-grid class="listnav">
+      <ion-row>
+        <ion-col (click)="showzhpx()" [ngClass]="{pxactive: ishwactive === 1}">综合排序<ion-icon name="arrow-dropdown" mode="md"></ion-icon></ion-col>
+        <ion-col (click)="showoter(2)" [ngClass]="{pxactive: ishwactive === 2}">目的地<ion-icon name="arrow-dropdown" mode="md"></ion-icon></ion-col>
+        <ion-col (click)="showoter(3)" [ngClass]="{pxactive: ishwactive === 3}">几天几夜<ion-icon name="arrow-dropdown" mode="md"></ion-icon></ion-col>
+        <ion-col (click)="showoter(4)" [ngClass]="{pxactive: ishwactive === 4}">更多选择<ion-icon name="arrow-dropdown" mode="md"></ion-icon></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div class="nav-content">
+    <div padding-start class="title" *ngIf="setShow">
+      <app-pagetitle [myname]="settitle" [smpadding]="true"></app-pagetitle>
+    </div>
+    <ion-grid *ngIf="setShow">
+      <div *ngIf="ishwclick === 2">
+        <ion-row>
+          <ion-col size="3">
+            <app-seletebtn (mclick)="setAddress($event)" [iscenter]="true" [name]="allAddress2.name"
+                           [id]="allAddress2.name" [isactive]="allAddress2.active" [small]="true"></app-seletebtn>
+          </ion-col>
+          <ion-col size="3" *ngFor="let item of tjcity">
+            <app-seletebtn (mclick)="setAddress($event)" [iscenter]="true" [name]="item.name"
+                           [id]="item.id" [isactive]="item.active" [small]="true"></app-seletebtn>
+          </ion-col>
+        </ion-row>
+        <div *ngFor="let item of allAddress; let i = index;">
+          <div padding-start class="title time-title">
+            <app-pagetitle [myname]="item.name" [nopadding]="true" [nobold]="true"></app-pagetitle>
+          </div>
+          <ion-row>
+            <ion-col size="4" *ngFor="let data of item.arr; let j = index;">
+              <app-seletebtn (mclick)="setAddress($event, i, j)" [iscenter]="true" [name]="data.name"
+                             [id]="data.id" [isactive]="data.active"></app-seletebtn>
+            </ion-col>
+          </ion-row>
+        </div>
+      </div>
+
+      <ion-row *ngIf="ishwclick === 3 && jtjyList">
+        <ion-col *ngFor="let item of jtjyList" size="4">
+          <app-seletebtn (mclick)="setJtjyfn($event)" [iscenter]="true" [name]="item.attr_value"
+                         [id]="item.attr_value" [isactive]="item.active" [graybgon]="true"></app-seletebtn>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="ishwclick === 3 && !jtjyList">
+        <ion-col *ngFor="let item of jtjyList2" size="4">
+          <app-seletebtn (mclick)="setJtjyfn($event)" [iscenter]="true" [name]="item.name"
+                         [id]="item.name" [isactive]="item.active" [graybgon]="true"></app-seletebtn>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="ishwclick === 4">
+        <ion-col *ngFor="let item of months">
+          <app-seletebtn (mclick)="setMonths($event)" [iscenter]="true" [name]="item.name"
+                         [id]="item.id" [isactive]="item.active" [graybgon]="true"></app-seletebtn>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div padding-start class="title time-title" *ngIf="setShow && ishwclick === 4">
+      <app-pagetitle [myname]="'具体行程时间'" [nopadding]="true" [nobold]="true"></app-pagetitle>
+      <!--<div class="isjttime">-->
+      <!--<ion-toggle></ion-toggle>-->
+      <!--</div>-->
+    </div>
+    <div padding *ngIf="setShow && ishwclick === 4">
+      <div class="jttime-box">
+        <div class="box">
+          <div class="name">行程出发日期</div>
+          <!--<div class="time">2019-03-24</div>-->
+          <ion-datetime display-format="YYYY-MM-DD" [min]="mindate"  [(ngModel)]="startDate" (ionChange)="changestart()" placeholder="选择日期" doneText="确定" cancelText="取消"></ion-datetime>
+        </div>
+        <div class="box"><span></span></div>
+        <div class="box">
+          <div class="name">最迟出发日期</div>
+          <!--<div class="time">选择日期</div>-->
+          <ion-datetime display-format="YYYY-MM-DD" [min]="mindate"  [(ngModel)]="endData" (ionChange)="chengeendtime()"  placeholder="选择日期" doneText="确定" cancelText="取消"></ion-datetime>
+        </div>
+      </div>
+    </div>
+    <div padding-start class="title time-title" *ngIf="setShow && ishwclick === 4">
+      <app-pagetitle [myname]="'价格区间'" [nopadding]="true"></app-pagetitle>
+      <!--<div class="isjttime">-->
+      <!--<ion-toggle></ion-toggle>-->
+      <!--</div>-->
+    </div>
+    <ion-row *ngIf="setShow && ishwclick === 4 && pricearea">
+      <ion-col *ngFor="let item of pricearea" size="4">
+        <app-seletebtn (mclick)="setPricearea($event)" [iscenter]="true" [name]="item.price_range"
+                       [id]="item.price_range" [isactive]="item.selected" [graybgon]="true"></app-seletebtn>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="setShow && ishwclick === 4 && !pricearea">
+      <ion-col *ngFor="let item of pricearea2" size="4">
+        <app-seletebtn (mclick)="setPricearea($event)" [iscenter]="true" [name]="item.price_range"
+                       [id]="item.price_range" [isactive]="item.selected" [graybgon]="true"></app-seletebtn>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="setShow && ishwclick !== 1">
+      <ion-col *ngIf="ishwclick === 4">
+        <ion-button expand="block" size="small" margin-top color="secondary" (click)="czTimefn()">重置</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="block" size="small" margin-top color="success" (click)="seleteTimefn()">确定</ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon mode="ios" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>设置密码</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+<ion-content padding>
+  <div class="box" *ngIf="type === 1">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">请输入登录密码</ion-label>
+        <ion-input type="password" [(ngModel)]="loginpwd"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="block" color="success" margin-top [disabled]="!loginpwd" (click)="yzloginpwd()">确定</ion-button>
+  </div>
+  <div class="box" *ngIf="type === 2">
+    <p *ngIf="user">验证码已发送至手机{{user.mobile_phone | telhide}}</p>
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked" class="yzm-text">请输入验证码
+          <ion-text color="medium" *ngIf="time > 0">{{time}}s</ion-text>
+          <ion-button *ngIf="time === 0" (click)="czyzm()" color="success" size="small" fill="clear" no-padding no-margin>没有收到验证码?</ion-button>
+        </ion-label>
+        <ion-input type="test" [(ngModel)]="yzm"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="block" color="success" margin-top [disabled]="!yzm" (click)="setYzm()">确定</ion-button>
+  </div>
+  <div class="box" *ngIf="type === 3 || type === 4">
+    <p *ngIf="type === 3">请输入新密码</p>
+    <p *ngIf="type === 4">请确认新密码</p>
+    <div class="pwd-box-div">
+      <ion-input type="password" maxlength="6" [(ngModel)]="pwd" #pwdbox (ionBlur)="setisfous(2)" (ionFocus)="setisfous(1)"> </ion-input>
+      <ul class="pwd-box"  (click)="setfoucs()">
+        <li>
+          <div>
+            <span class="round" *ngIf="pwd.length > 0"></span>
+            <span class="gb" *ngIf="pwd.length == 0 && isfous">|</span>
+          </div></li>
+        <li><div>
+          <span class="round" *ngIf="pwd.length > 1"></span>
+          <span class="gb" *ngIf="pwd.length == 1 && isfous">|</span>
+        </div></li>
+        <li><div>
+          <span class="round" *ngIf="pwd.length > 2"></span>
+          <span class="gb" *ngIf="pwd.length == 2 && isfous">|</span>
+        </div></li>
+        <li><div>
+          <span class="round" *ngIf="pwd.length > 3"></span>
+          <span class="gb" *ngIf="pwd.length == 3 && isfous">|</span>
+        </div></li>
+        <li><div>
+          <span class="round" *ngIf="pwd.length > 4"></span>
+          <span class="gb" *ngIf="pwd.length == 4 && isfous">|</span>
+        </div></li>
+        <li><div>
+          <span class="round" *ngIf="pwd.length > 5"></span>
+          <span class="gb" *ngIf="pwd.length == 5 && isfous">|</span>
+        </div></li>
+      </ul>
+    </div>
+    <ion-button style="margin-top: 50px" color="success" expand="block" [disabled]="!pwd || pwd.length != 6" *ngIf="type === 3" (click)="setpwd()">确定</ion-button>
+    <ion-row style="margin-top: 50px" *ngIf="type === 4">
+      <ion-col><ion-button color="danger" expand="block" (click)="setback()">上一步</ion-button></ion-col>
+      <ion-col><ion-button color="success" expand="block" (click)="sub()" [disabled]="!pwd || pwd.length != 6">确定</ion-button></ion-col>
+    </ion-row>
+  </div>
+</ion-content>

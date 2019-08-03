@@ -1,0 +1,21 @@
+.mybutton {
+  &.block {
+    display: block;
+    width: 100%;
+  }
+  height: 41px;
+  -webkit-border-radius: 41px;
+  -moz-border-radius: 41px;
+  border-radius: 41px;
+  font-size: var(--ion-big-title, 36px);
+  background: linear-gradient(var(--ion-color-secondary, red), var(--ion-color-success, blue));
+  text-align: center;
+  color: #fff;
+  &:active {
+    background-color: red;
+  }
+}
+ion-button {
+  --background: linear-gradient(var(--ion-color-secondary, red), var(--ion-color-success, blue));
+  --background-activated: linear-gradient(var(--ion-color-secondary-shade, red), var(--ion-color-success-shade, blue));
+}

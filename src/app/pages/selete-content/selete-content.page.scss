@@ -1,0 +1,42 @@
+.tcbox {
+  app-seletebtn {
+    margin-right: 7px;
+    margin-bottom: 7px;
+    display: inline-block;
+  }
+}
+.tctype {
+  app-seletebtn {
+    display: block;
+    margin-bottom: 7px;
+  }
+}
+.border{
+  position: relative;
+  &::before{
+    content: "";
+    pointer-events: none; /* 防止点击触发 */
+    box-sizing: border-box;
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    left: 0;
+    top: 0;
+    border-radius: 8px;
+    border:1px solid var(--ion-color-light);
+    transform: scale(0.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
+}
+#layui-laydate1 {
+  background: red;
+  --width: 100%;
+}
+
+ion-toolbar {
+  --padding-bottom: 0;
+  --padding-end: 0;
+  --padding-start: 0;
+  --padding-top: 0;
+}

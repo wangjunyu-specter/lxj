@@ -1,0 +1,56 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+    <div class="search-bar">
+      <div class="left" (click)="goBack()">
+        <img src="/assets/backbg.svg" alt="">
+      </div>
+      <div class="center" *ngIf="data">
+        <div class="person">
+          <img [src]="data.headimg | imgsrc: http.zdomain">
+          <div class="name-box">
+            <div class="name">{{data.user_name}} <app-yhbox [color]="'yellow'" [title]="data.name" [noborder]="true"></app-yhbox></div>
+            <div class="des">{{data.createtime | oldtonow}}</div>
+          </div>
+        </div>
+        <div class="gz" *ngIf="data.userid | isgz: gzlistarr">
+          <span>+关注</span>
+        </div>
+      </div>
+      <div class="right">
+        <ion-icon name="more" mode="ios"></ion-icon>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="top-content" padding *ngIf="data">
+    <p *ngIf="data.content && data.content != 'null'">{{data.content}}</p>
+    <app-pqimgbox [imglist]="data.thumb && data.thumb[0] ? data.thumb : data.imgarr" [ytimglist]="data.imgarr"></app-pqimgbox>
+    <div class="address-box" *ngIf="data.address && data.address != 'null'">
+      <div class="left">
+        <div class="address">
+          <ion-icon name="pin" color="dark"></ion-icon>
+          <span>{{data.address}}</span>
+        </div>
+      </div>
+      <ion-text color="medium">距你9053km</ion-text>
+    </div>
+    <div class="img-box">
+      <img *ngFor="let src of data.heads" [src]="src | imgsrc: http.zdomain" alt="">
+      {{data.dznum}}人觉得很赞
+    </div>
+  </div>
+  <div *ngIf="data" class="app-pllist" padding-bottom margin-bottom>
+    <div class="hfnum">{{data.plnum}}条回复</div>
+    <app-pllist *ngFor="let item of pllist" [data]="item" [tid]="id" [uid]="data.userid" (setItem)="setplItem($event)"></app-pllist>
+  </div>
+  <ion-backdrop *ngIf="isshowDrop" (ionBackdropTap)="clickdrop()"></ion-backdrop>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar no-padding>
+    <app-chatinputbox (sub)="sub($event)" (myfous)="monfous()" (mybulr)="monblur()" [username]="seletename"></app-chatinputbox>
+  </ion-toolbar>
+</ion-footer>

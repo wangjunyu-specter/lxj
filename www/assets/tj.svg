@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>分组 14@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="54.9078125%" y1="100%" x2="54.2177083%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#1AC6A4" offset="0%"></stop>
+            <stop stop-color="#20AFD0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="搜索" transform="translate(-317.000000, -229.000000)">
+            <g id="分组-copy" transform="translate(30.000000, 228.000000)">
+                <g id="分组-14" transform="translate(287.000000, 1.000000)">
+                    <path d="M14,0 L14,0 C21.7319865,-1.42034288e-15 28,6.2680135 28,14 L28,14 C28,21.7319865 21.7319865,28 14,28 L0,28 L0,14 C-9.46895252e-16,6.2680135 6.2680135,1.42034288e-15 14,0 Z" id="矩形" fill="url(#linearGradient-1)" fill-rule="nonzero"></path>
+                    <text id="荐" font-family="FZLTHK--GBK1-0, FZLanTingHei-R-GBK" font-size="18" font-weight="normal" line-spacing="18" fill="#FFFFFF">
+                        <tspan x="5" y="21">荐</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,59 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+    <ion-title>店铺印象</ion-title>
+    <ion-buttons slot="start" color="light">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="none" class="top">
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>骆驼户外旅游旗舰店</h2>
+        <p><span><img class="kb" src="./assets/kb.svg" alt="">认证商家</span><span><img src="./assets/dz.svg" alt="">金牌口碑</span></p>
+      </ion-label>
+      <app-mybutton [bname]="'收藏'" slot="end"></app-mybutton>
+    </ion-item>
+  </ion-list>
+  <div class="line"></div>
+  <ion-list>
+    <ion-item>
+      <ion-label class="flexlabel">
+        <div>用户点评</div>
+        <h2>99%满意</h2>
+        <p>高于同行99%</p>
+      </ion-label>
+    </ion-item>
+    <ion-item button>
+      <ion-label class="flexlabel">
+        <div>店铺标签</div>
+        <h2>认证商家</h2>
+        <h2>金牌口碑</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <div class="line"></div>
+  <ion-list class="list-end">
+    <ion-item>
+      <ion-label>在线咨询</ion-label>
+      <p slot="end">凌妹子<img src="./assets/xb.svg" alt=""></p>
+    </ion-item>
+    <ion-item>
+      <ion-label>资质</ion-label>
+      <p slot="end"><img src="./assets/xb.svg" alt="">已签署消保协议</p>
+    </ion-item>
+    <ion-item>
+      <ion-label>企业资质</ion-label>
+      <p slot="end"><img src="./assets/xb.svg" alt="">营业执照</p>
+    </ion-item>
+    <ion-item>
+      <ion-label>开店时间</ion-label>
+      <p slot="end">2018-10-20 17:20:34</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

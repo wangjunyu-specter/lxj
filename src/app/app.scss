@@ -1,0 +1,26 @@
+// App Styles
+// ----------------------------------------------------------------------------
+// Put style rules here that you want to apply to the entire application. These
+// styles are for the entire app and not just one component. Additionally, this
+// file can hold Sass mixins, functions, and placeholder classes to be imported
+// and used throughout the application.
+
+ion-app {
+  background: linear-gradient(var(--ion-color-secondary, red), var(--ion-color-success, blue));
+  .refresher-ios .refresher-pulling-icon, .refresher-ios .refresher-pulling-text, .refresher-ios .refresher-refreshing-icon, .refresher-ios .refresher-refreshing-text {
+    color: #fff;
+  }
+  .refresher-md .refresher-pulling-icon, .refresher-md .refresher-pulling-text, .refresher-md .refresher-refreshing-icon, .refresher-md .refresher-refreshing-text {
+    color: #fff;
+  }
+  .refresher-md .refresher-refreshing-icon:host {
+    color: #fff;
+  }
+
+}
+ .cke_dialog .ImagePreviewBox {
+   width: auto !important;
+ }
+.cke_contents{
+  height: 400px !important;
+}

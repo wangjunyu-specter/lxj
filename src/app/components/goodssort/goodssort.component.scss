@@ -1,0 +1,16 @@
+.pxactive {
+  color: var(--ion-color-danger) !important;
+}
+.listnav {
+  ion-col {
+    font-size: var(--ion-sm-text);
+    color: var(--ion-color-dark);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.none {
+  display: none !important;
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>分组 60@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="54.9078125%" y1="100%" x2="54.2177083%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#1AC6A4" offset="0%"></stop>
+            <stop stop-color="#20AFD0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="个人中心" transform="translate(-611.000000, -850.000000)" fill-rule="nonzero">
+            <g id="分组-60" transform="translate(611.000000, 850.000000)">
+                <rect id="矩形-copy-6" fill="#FFFFFF" x="0" y="0" width="48" height="48"></rect>
+                <g id="分组-49" transform="translate(6.000000, 4.000000)">
+                    <g id="路径-7">
+                        <path d="M8,1 L8,6 C8,6.55228475 8.44771525,7 9,7 L27,7 C27.5522847,7 28,6.55228475 28,6 L28,1 L30,1 C33.3137085,1 36,3.6862915 36,7 L36,34 C36,37.3137085 33.3137085,40 30,40 L6,40 C2.6862915,40 4.05812251e-16,37.3137085 0,34 L8.8817842e-16,7 C4.82366169e-16,3.6862915 2.6862915,1 6,1 L8,1 Z" id="路径" fill="url(#linearGradient-1)" opacity="0.7"></path>
+                        <path d="M20.4309997,7 L7.8662488,40 L6,40 C2.6862915,40 4.05812251e-16,37.3137085 0,34 L8.8817842e-16,7 C4.82366169e-16,3.6862915 2.6862915,1 6,1 L8,1 L8,6 C8,6.55228475 8.44771525,7 9,7 L20.4309997,7 Z" id="路径" fill="#FFFFFF" opacity="0.1"></path>
+                        <rect id="矩形" fill="url(#linearGradient-1)" opacity="0.8" x="10" y="0" width="16" height="5" rx="2.5"></rect>
+                    </g>
+                    <rect id="矩形" fill="#FFFFFF" x="12" y="17" width="12" height="3" rx="1.5"></rect>
+                    <rect id="矩形" fill="#FFFFFF" x="12" y="25" width="12" height="3" rx="1.5"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
