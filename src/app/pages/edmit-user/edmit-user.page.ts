@@ -2,7 +2,7 @@
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy
- * @LastEditTime: 2019-08-04 01:36:43
+ * @LastEditTime: 2019-08-04 01:52:51
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -154,6 +154,7 @@ export class EdmitUserPage implements OnInit {
       const file = this.native.getImgbase64tofile(this.userData.headimg, this.userData.username + 'userhead' + this.userData.user_id);
       console.log(file);
       const filepath = await this.imgupload(file);
+      console.log(filepath)
       this.userData.headimg = filepath;
       this.ischangeHead = false;
       if (this.isloading) {
