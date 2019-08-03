@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy
+ * @LastEditTime: 2019-08-03 19:21:43
+ * @Description: 所有跳转页面类型服务
+ */
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
@@ -62,18 +69,10 @@ export class TopageService {
         } else {
           href += '?user_id=' + res['user_id'];
         }
-        const options: InAppBrowserOptions = { // : todo 需要设置ios配置
-          location: 'yes',
-          // closebuttoncaption: '关闭',
-          toolbarcolor: '#f1f1f1',
-          closebuttoncolor: '#333333',
-          navigationbuttoncolor: '#333333',
-          footer: 'no',
-          // hidenavigationbuttons: 'yes'
-          hideurlbar: 'yes'
-        }
-        const browser = this.iab.create(href, '', options);
-      }).catch(err2 => {});
+        this.openBrowser(href);
+      }).catch(err2 => {
+        this.openBrowser(href);
+      });
     } else if (type === 11) {
       this.router.navigate(['/xccontent'], {queryParams: {id}});
 
@@ -83,5 +82,25 @@ export class TopageService {
     } else {
       this.router.navigate(['/tabs/tab1']);
     }
+  }
+  /**
+   * @Author: wjy
+   * @description: 打开浏览器,
+   * @param {type} 传入链接
+   * @return: 
+   * @Date: 2019-08-03 19:19:41
+   */
+  private openBrowser(link: string) {
+    const options: InAppBrowserOptions = { // : todo 需要设置ios配置
+      location: 'yes',
+      // closebuttoncaption: '关闭',
+      toolbarcolor: '#f1f1f1',
+      closebuttoncolor: '#333333',
+      navigationbuttoncolor: '#333333',
+      footer: 'no',
+      // hidenavigationbuttons: 'yes'
+      hideurlbar: 'yes'
+    };
+    const browser = this.iab.create(link, '', options);
   }
 }

@@ -1,3 +1,10 @@
+<!--
+ * @Author: wjy
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy
+ * @LastEditTime: 2019-08-04 01:26:30
+ * @Description: file content
+ -->
 <ion-header mode="ios">
   <ion-toolbar mode="ios">
     <ion-buttons slot="start">
@@ -57,7 +64,7 @@
         <!--</ion-item>-->
       <!--</ion-radio-group>-->
     </ion-list>
-    <ion-button type="submit" color="success" expand="block" [disabled]="!data.form.valid" *ngIf="!data.form.pristine && !isupdate">提交</ion-button>
+    <ion-button type="submit" color="success" expand="block" [disabled]="!data.form.valid || isloading" *ngIf="!data.form.pristine && !isupdate || ischangeHeadend">提交</ion-button>
   </form>
 
 </ion-content>

@@ -1,3 +1,11 @@
+import { TopageService } from './../../services/topage.service';
+/*
+ * @Author: wjy
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy
+ * @LastEditTime: 2019-08-03 19:23:10
+ * @Description: file content
+ */
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {AlertController, NavController} from '@ionic/angular';
@@ -18,7 +26,7 @@ export class LoginPage implements OnInit {
   constructor(private router: ActivatedRoute, private nav: NavController,
               private http: HttpService,
               private native: NativeService, private activeroute: ActivatedRoute,
-              private alertController: AlertController, private userfn: UserService) {
+              private alertController: AlertController, private userfn: UserService, private toPagefn: TopageService) {
     this.pageType = 1;
     this.yzmText = '获取验证码';
     this.isGetyzm = false;
@@ -137,5 +145,16 @@ export class LoginPage implements OnInit {
       }
       this.yzmText = (Number(this.yzmText) - 1).toString();
     }, 1000);
+  }
+  openXy(type: number) {
+    let link: string;
+    if (type === 1) {
+      link = this.http.zdomain + 'ptxy.html';
+    } else if (type === 2) {
+      link = this.http.zdomain + 'yszc.html';
+    } else {
+      link = this.http.zdomain + 'flsm.html';
+    }
+    this.toPagefn.toPage(10, link);
   }
 }
