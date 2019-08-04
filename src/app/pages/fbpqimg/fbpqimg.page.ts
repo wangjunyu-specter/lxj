@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy
+ * @LastEditTime: 2019-08-04 02:07:00
+ * @Description: file content
+ */
 import { Component, OnInit } from '@angular/core';
 import {NavController, ActionSheetController, PopoverController} from '@ionic/angular';
 import { HttpService } from '../../services/http.service';
@@ -146,7 +153,7 @@ export class FbpqimgPage implements OnInit {
       // this.isloading = false;
       this.user.addjf(res.result.num);
       this.uploadEnd();
-      this.route.navigate(['/fbyjmore'], {queryParams: {type: 1, num: res.result().num}});
+      this.route.navigate(['/fbyjmore'], {queryParams: {type: 1, num: res.result.num}});
 
     }, err2 => {
       this.uploadEnd();

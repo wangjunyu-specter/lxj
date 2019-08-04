@@ -2,7 +2,7 @@
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy
- * @LastEditTime: 2019-08-04 01:36:43
+ * @LastEditTime: 2019-08-04 02:02:53
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -17,11 +17,12 @@ import {HttpService} from "../../services/http.service";
   styleUrls: ['./edmit-user.page.scss'],
 })
 export class EdmitUserPage implements OnInit {
-  userData: any;
+  userData: any; // 可以修改的user数据
   isupdate: boolean; // 是否已上传数据
   ischangeHead: boolean; // 是否正在上传图片
   ischangeHeadend: boolean; // 是否改变图片
   isloading: boolean; // 是否正在上传
+  userid: string;
   constructor(private nav: NavController, private userfn: UserService,
               private native: NativeService, public actionSheetController: ActionSheetController,
               private http: HttpService) { }
@@ -29,14 +30,15 @@ export class EdmitUserPage implements OnInit {
   ngOnInit() {
     this.userfn.getUserp().then(res =>{
       console.log(res);
+      this.userid = res.user_id;
       this.userData = {
         headimg: res.headimg,
         username: res.user_name || res.username,
         birthday: res.birthday,
         // mobile_phone: res.mobile_phone,
         sex: res.sex
-      }
-    }).catch(err => {})
+      };
+    }).catch(err => {});
   }
   goBack () {
     this.nav.back();
@@ -93,7 +95,7 @@ export class EdmitUserPage implements OnInit {
       oReq.onreadystatechange = (oEvent) => {
         if (oReq.readyState == 4 && oReq.status == 200) {
           const res = JSON.parse(oReq.response)
-          resolve(res.result['src']);
+          resolve(res.result['thumb']);
         }
       }
       oReq.onerror = (err) => {
@@ -151,9 +153,10 @@ export class EdmitUserPage implements OnInit {
     this.ischangeHead = true;
     this.userData.headimg = link;
     try {
-      const file = this.native.getImgbase64tofile(this.userData.headimg, this.userData.username + 'userhead' + this.userData.user_id);
+      const file = this.native.getImgbase64tofile(this.userData.headimg, this.userData.username + 'userhead' + this.userid);
       console.log(file);
       const filepath = await this.imgupload(file);
+      console.log(filepath)
       this.userData.headimg = filepath;
       this.ischangeHead = false;
       if (this.isloading) {
