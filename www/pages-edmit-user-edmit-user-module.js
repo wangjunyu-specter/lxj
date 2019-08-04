@@ -61,7 +61,7 @@ var EdmitUserPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\n * @Author: wjy\n * @Date: 2019-08-03 14:52:31\n * @LastEditors: wjy\n * @LastEditTime: 2019-08-04 01:26:30\n * @Description: file content\n -->\n<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>修改资料</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <form #data=\"ngForm\" *ngIf=\"userData\" (ngSubmit)=\"onSubmit()\">\n    <ion-list>\n      <ion-item>\n        <ion-label>用户名</ion-label>\n        <ion-input text-end\n           [(ngModel)]=\"userData.username\" name=\"username\" required></ion-input>\n      </ion-item>\n      <!--<ion-item>-->\n        <!--<ion-label>手机号</ion-label>-->\n        <!--<ion-input-->\n           <!--[(ngModel)]=\"userData.mobile_phone\" name=\"mobile_phone\" required></ion-input>-->\n      <!--</ion-item>-->\n      <ion-item (click)=\"imgFrom()\" detail>\n        <ion-avatar slot=\"end\">\n          <img [src]=\"userData.headimg | imgsrc: http.domain\">\n        </ion-avatar>\n        <ion-label>头像</ion-label>\n      </ion-item>\n      <ion-item detail>\n        <ion-label>生日</ion-label>\n        <ion-datetime displayFormat=\"YYYY-MM-DD\"\n                      pickerFormat=\"YYYY-MM-DD\"\n                      Format=\"YYYY-MM-DD\" doneText=\"确定\" cancelText=\"取消\"\n                      [(ngModel)]=\"userData.birthday\" name=\"birthday\"></ion-datetime>\n      </ion-item>\n      <ion-item>\n        <ion-label>性别</ion-label>\n        <ion-select  [(ngModel)]=\"userData.sex\" name=\"sex\" interface=\"action-sheet\">\n          <ion-select-option value=\"1\">男</ion-select-option>\n          <ion-select-option value=\"0\">女</ion-select-option>\n        </ion-select>\n      </ion-item>\n      <!--<ion-radio-group [(ngModel)]=\"userData.sex\" name=\"sex\">-->\n        <!--<ion-list-header>-->\n          <!--性别-->\n        <!--</ion-list-header>-->\n        <!--<ion-item>-->\n          <!--<ion-label>男</ion-label>-->\n          <!--<ion-radio value=\"1\"></ion-radio>-->\n        <!--</ion-item>-->\n\n        <!--<ion-item>-->\n          <!--<ion-label>女</ion-label>-->\n          <!--<ion-radio value=\"0\"></ion-radio>-->\n        <!--</ion-item>-->\n      <!--</ion-radio-group>-->\n    </ion-list>\n    <ion-button type=\"submit\" color=\"success\" expand=\"block\" [disabled]=\"!data.form.valid || isloading\" *ngIf=\"!data.form.pristine && !isupdate || ischangeHeadend\">提交</ion-button>\n  </form>\n\n</ion-content>\n"
+module.exports = "<!--\n * @Author: wjy\n * @Date: 2019-08-03 14:52:31\n * @LastEditors: wjy\n * @LastEditTime: 2019-08-04 22:55:07\n * @Description: file content\n -->\n<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>修改资料</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <form #data=\"ngForm\" *ngIf=\"userData\" (ngSubmit)=\"onSubmit()\">\n    <ion-list>\n      <ion-item>\n        <ion-label>用户名</ion-label>\n        <ion-input text-end\n           [(ngModel)]=\"userData.username\" name=\"username\" required></ion-input>\n      </ion-item>\n      <!--<ion-item>-->\n        <!--<ion-label>手机号</ion-label>-->\n        <!--<ion-input-->\n           <!--[(ngModel)]=\"userData.mobile_phone\" name=\"mobile_phone\" required></ion-input>-->\n      <!--</ion-item>-->\n      <ion-item (click)=\"imgFrom()\" detail>\n        <ion-avatar slot=\"end\">\n          <img [src]=\"userData.headimg | imgsrc: http.domain\">\n        </ion-avatar>\n        <ion-label>头像</ion-label>\n      </ion-item>\n      <ion-item detail>\n        <ion-label>生日</ion-label>\n        <ion-datetime displayFormat=\"YYYY-MM-DD\"\n                      pickerFormat=\"YYYY-MM-DD\"\n                      Format=\"YYYY-MM-DD\" doneText=\"确定\" cancelText=\"取消\"\n                      [(ngModel)]=\"userData.birthday\" name=\"birthday\"></ion-datetime>\n      </ion-item>\n      <ion-item>\n        <ion-label>性别</ion-label>\n        <ion-select  [(ngModel)]=\"userData.sex\" name=\"sex\" interface=\"action-sheet\">\n          <ion-select-option value=\"1\">男</ion-select-option>\n          <ion-select-option value=\"0\">女</ion-select-option>\n        </ion-select>\n      </ion-item>\n      <!--<ion-radio-group [(ngModel)]=\"userData.sex\" name=\"sex\">-->\n        <!--<ion-list-header>-->\n          <!--性别-->\n        <!--</ion-list-header>-->\n        <!--<ion-item>-->\n          <!--<ion-label>男</ion-label>-->\n          <!--<ion-radio value=\"1\"></ion-radio>-->\n        <!--</ion-item>-->\n\n        <!--<ion-item>-->\n          <!--<ion-label>女</ion-label>-->\n          <!--<ion-radio value=\"0\"></ion-radio>-->\n        <!--</ion-item>-->\n      <!--</ion-radio-group>-->\n    </ion-list>\n    <ion-button type=\"submit\" color=\"success\" expand=\"block\" [disabled]=\"!data.form.valid || isloading\" *ngIf=\"!data.form.pristine && !isupdate || ischangeHeadend\">提交</ion-button>\n  </form>\n\n</ion-content>\n"
 
 /***/ }),
 
@@ -96,8 +96,8 @@ __webpack_require__.r(__webpack_exports__);
 /*
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
- * @LastEditors: wjy
- * @LastEditTime: 2019-08-04 02:02:53
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-08-05 00:22:27
  * @Description: file content
  */
 
@@ -178,6 +178,7 @@ var EdmitUserPage = /** @class */ (function () {
             _this.isupdate = true;
             _this.userfn.upDataobj(data);
             _this.isloading = false;
+            _this.ischangeHeadend = false;
         }, function (error2) {
             _this.isloading = false;
         });
@@ -276,6 +277,7 @@ var EdmitUserPage = /** @class */ (function () {
                         console.log(filepath);
                         this.userData.headimg = filepath;
                         this.ischangeHead = false;
+                        this.ischangeHeadend = true;
                         if (this.isloading) {
                             this.onSubmit();
                         }

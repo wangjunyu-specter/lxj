@@ -1,8 +1,8 @@
 /*
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
- * @LastEditors: wjy
- * @LastEditTime: 2019-08-04 22:54:57
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-08-05 00:22:27
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -84,6 +84,7 @@ export class EdmitUserPage implements OnInit {
       this.isupdate = true;
       this.userfn.upDataobj(data);
       this.isloading = false;
+      this.ischangeHeadend = false;
     }, error2 => {
       this.isloading = false;
     });
