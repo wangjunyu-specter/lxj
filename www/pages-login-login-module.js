@@ -89,13 +89,22 @@ module.exports = ".my-content {\n  padding-left: 30px;\n  padding-right: 30px;\n
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPage", function() { return LoginPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/http.service */ "./src/app/services/http.service.ts");
-/* harmony import */ var _services_native_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/native.service */ "./src/app/services/native.service.ts");
-/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _services_topage_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../services/topage.service */ "./src/app/services/topage.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/http.service */ "./src/app/services/http.service.ts");
+/* harmony import */ var _services_native_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/native.service */ "./src/app/services/native.service.ts");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/user.service */ "./src/app/services/user.service.ts");
 
+
+/*
+ * @Author: wjy
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy
+ * @LastEditTime: 2019-08-03 19:23:10
+ * @Description: file content
+ */
 
 
 
@@ -103,7 +112,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var LoginPage = /** @class */ (function () {
-    function LoginPage(router, nav, http, native, activeroute, alertController, userfn) {
+    function LoginPage(router, nav, http, native, activeroute, alertController, userfn, toPagefn) {
         this.router = router;
         this.nav = nav;
         this.http = http;
@@ -111,6 +120,7 @@ var LoginPage = /** @class */ (function () {
         this.activeroute = activeroute;
         this.alertController = alertController;
         this.userfn = userfn;
+        this.toPagefn = toPagefn;
         this.pageType = 1;
         this.yzmText = '获取验证码';
         this.isGetyzm = false;
@@ -247,16 +257,29 @@ var LoginPage = /** @class */ (function () {
             _this.yzmText = (Number(_this.yzmText) - 1).toString();
         }, 1000);
     };
+    LoginPage.prototype.openXy = function (type) {
+        var link;
+        if (type === 1) {
+            link = this.http.zdomain + 'ptxy.html';
+        }
+        else if (type === 2) {
+            link = this.http.zdomain + 'yszc.html';
+        }
+        else {
+            link = this.http.zdomain + 'flsm.html';
+        }
+        this.toPagefn.toPage(10, link);
+    };
     LoginPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
             selector: 'app-login',
             template: __webpack_require__(/*! ./login.page.html */ "./src/app/pages/login/login.page.html"),
             styles: [__webpack_require__(/*! ./login.page.scss */ "./src/app/pages/login/login.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"],
-            _services_http_service__WEBPACK_IMPORTED_MODULE_4__["HttpService"],
-            _services_native_service__WEBPACK_IMPORTED_MODULE_5__["NativeService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"], _services_user_service__WEBPACK_IMPORTED_MODULE_6__["UserService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"],
+            _services_http_service__WEBPACK_IMPORTED_MODULE_5__["HttpService"],
+            _services_native_service__WEBPACK_IMPORTED_MODULE_6__["NativeService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["AlertController"], _services_user_service__WEBPACK_IMPORTED_MODULE_7__["UserService"], _services_topage_service__WEBPACK_IMPORTED_MODULE_1__["TopageService"]])
     ], LoginPage);
     return LoginPage;
 }());

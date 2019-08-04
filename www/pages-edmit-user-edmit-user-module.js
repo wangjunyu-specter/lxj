@@ -61,7 +61,7 @@ var EdmitUserPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>修改资料</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <form #data=\"ngForm\" *ngIf=\"userData\" (ngSubmit)=\"onSubmit()\">\n    <ion-list>\n      <ion-item>\n        <ion-label>用户名</ion-label>\n        <ion-input text-end\n           [(ngModel)]=\"userData.username\" name=\"username\" required></ion-input>\n      </ion-item>\n      <!--<ion-item>-->\n        <!--<ion-label>手机号</ion-label>-->\n        <!--<ion-input-->\n           <!--[(ngModel)]=\"userData.mobile_phone\" name=\"mobile_phone\" required></ion-input>-->\n      <!--</ion-item>-->\n      <ion-item (click)=\"imgFrom()\" detail>\n        <ion-avatar slot=\"end\">\n          <img [src]=\"userData.headimg | imgsrc: http.domain\">\n        </ion-avatar>\n        <ion-label>头像</ion-label>\n      </ion-item>\n      <ion-item detail>\n        <ion-label>生日</ion-label>\n        <ion-datetime displayFormat=\"YYYY-MM-DD\"\n                      pickerFormat=\"YYYY-MM-DD\"\n                      Format=\"YYYY-MM-DD\" doneText=\"确定\" cancelText=\"取消\"\n                      [(ngModel)]=\"userData.birthday\" name=\"birthday\"></ion-datetime>\n      </ion-item>\n      <ion-item>\n        <ion-label>性别</ion-label>\n        <ion-select  [(ngModel)]=\"userData.sex\" name=\"sex\" interface=\"action-sheet\">\n          <ion-select-option value=\"1\">男</ion-select-option>\n          <ion-select-option value=\"0\">女</ion-select-option>\n        </ion-select>\n      </ion-item>\n      <!--<ion-radio-group [(ngModel)]=\"userData.sex\" name=\"sex\">-->\n        <!--<ion-list-header>-->\n          <!--性别-->\n        <!--</ion-list-header>-->\n        <!--<ion-item>-->\n          <!--<ion-label>男</ion-label>-->\n          <!--<ion-radio value=\"1\"></ion-radio>-->\n        <!--</ion-item>-->\n\n        <!--<ion-item>-->\n          <!--<ion-label>女</ion-label>-->\n          <!--<ion-radio value=\"0\"></ion-radio>-->\n        <!--</ion-item>-->\n      <!--</ion-radio-group>-->\n    </ion-list>\n    <ion-button type=\"submit\" color=\"success\" expand=\"block\" [disabled]=\"!data.form.valid\" *ngIf=\"!data.form.pristine && !isupdate\">提交</ion-button>\n  </form>\n\n</ion-content>\n"
+module.exports = "<!--\n * @Author: wjy\n * @Date: 2019-08-03 14:52:31\n * @LastEditors: wjy\n * @LastEditTime: 2019-08-04 01:26:30\n * @Description: file content\n -->\n<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>修改资料</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <form #data=\"ngForm\" *ngIf=\"userData\" (ngSubmit)=\"onSubmit()\">\n    <ion-list>\n      <ion-item>\n        <ion-label>用户名</ion-label>\n        <ion-input text-end\n           [(ngModel)]=\"userData.username\" name=\"username\" required></ion-input>\n      </ion-item>\n      <!--<ion-item>-->\n        <!--<ion-label>手机号</ion-label>-->\n        <!--<ion-input-->\n           <!--[(ngModel)]=\"userData.mobile_phone\" name=\"mobile_phone\" required></ion-input>-->\n      <!--</ion-item>-->\n      <ion-item (click)=\"imgFrom()\" detail>\n        <ion-avatar slot=\"end\">\n          <img [src]=\"userData.headimg | imgsrc: http.domain\">\n        </ion-avatar>\n        <ion-label>头像</ion-label>\n      </ion-item>\n      <ion-item detail>\n        <ion-label>生日</ion-label>\n        <ion-datetime displayFormat=\"YYYY-MM-DD\"\n                      pickerFormat=\"YYYY-MM-DD\"\n                      Format=\"YYYY-MM-DD\" doneText=\"确定\" cancelText=\"取消\"\n                      [(ngModel)]=\"userData.birthday\" name=\"birthday\"></ion-datetime>\n      </ion-item>\n      <ion-item>\n        <ion-label>性别</ion-label>\n        <ion-select  [(ngModel)]=\"userData.sex\" name=\"sex\" interface=\"action-sheet\">\n          <ion-select-option value=\"1\">男</ion-select-option>\n          <ion-select-option value=\"0\">女</ion-select-option>\n        </ion-select>\n      </ion-item>\n      <!--<ion-radio-group [(ngModel)]=\"userData.sex\" name=\"sex\">-->\n        <!--<ion-list-header>-->\n          <!--性别-->\n        <!--</ion-list-header>-->\n        <!--<ion-item>-->\n          <!--<ion-label>男</ion-label>-->\n          <!--<ion-radio value=\"1\"></ion-radio>-->\n        <!--</ion-item>-->\n\n        <!--<ion-item>-->\n          <!--<ion-label>女</ion-label>-->\n          <!--<ion-radio value=\"0\"></ion-radio>-->\n        <!--</ion-item>-->\n      <!--</ion-radio-group>-->\n    </ion-list>\n    <ion-button type=\"submit\" color=\"success\" expand=\"block\" [disabled]=\"!data.form.valid || isloading\" *ngIf=\"!data.form.pristine && !isupdate || ischangeHeadend\">提交</ion-button>\n  </form>\n\n</ion-content>\n"
 
 /***/ }),
 
@@ -93,6 +93,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_native_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/native.service */ "./src/app/services/native.service.ts");
 /* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/http.service */ "./src/app/services/http.service.ts");
 
+/*
+ * @Author: wjy
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy
+ * @LastEditTime: 2019-08-04 01:36:43
+ * @Description: file content
+ */
 
 
 
@@ -124,46 +131,54 @@ var EdmitUserPage = /** @class */ (function () {
     };
     EdmitUserPage.prototype.onSubmit = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var userdata, file, filepath, err_1;
-            var _this = this;
+            var userdata;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        console.log(this.userData);
-                        userdata = Object.assign({}, this.userData);
-                        if (!userdata.username) {
-                            this.native.presentAlert('请输入用户名!');
-                            return [2 /*return*/, false];
-                        }
-                        if (userdata.birthday.includes('T')) {
-                            userdata.birthday = userdata.birthday.split('T')[0];
-                            this.userData.birthday = userdata.birthday;
-                        }
-                        if (!userdata.headimg.includes('data:image/jpeg;base64')) return [3 /*break*/, 4];
-                        file = this.native.getImgbase64tofile(userdata.headimg, userdata.username + 'pqtx');
-                        _a.label = 1;
-                    case 1:
-                        _a.trys.push([1, 3, , 4]);
-                        return [4 /*yield*/, this.imgupload(file)];
-                    case 2:
-                        filepath = _a.sent();
-                        userdata.headimg = filepath;
-                        this.userData.headimg = filepath;
-                        return [3 /*break*/, 4];
-                    case 3:
-                        err_1 = _a.sent();
-                        this.native.presentAlert('图片上传失败，请稍后再试!');
-                        return [2 /*return*/, false];
-                    case 4:
-                        console.log(this.http);
-                        this.http.postformdataloading(this.http.editprofile, userdata).subscribe(function (res) {
-                            console.log(res);
-                            _this.isupdate = true;
-                            _this.userfn.upDataobj(userdata);
-                        }, function (error2) { });
-                        return [2 /*return*/];
+                console.log(this.userData);
+                userdata = Object.assign({}, this.userData);
+                if (!userdata.username) {
+                    this.native.presentAlert('请输入用户名!');
+                    return [2 /*return*/, false];
                 }
+                this.isloading = true;
+                if (userdata.birthday.includes('T')) {
+                    userdata.birthday = userdata.birthday.split('T')[0];
+                    this.userData.birthday = userdata.birthday;
+                }
+                if (this.ischangeHead) {
+                    return [2 /*return*/, false];
+                }
+                // if (userdata.headimg.includes('data:image/jpeg;base64')) {
+                //   const file = this.native.getImgbase64tofile(userdata.headimg, userdata.username + 'pqtx');
+                //   try {
+                //     const filepath = await this.imgupload(file);
+                //     userdata.headimg = filepath;
+                //     this.userData.headimg = filepath;
+                //   } catch (err) {
+                //     this.native.presentAlert('图片上传失败，请稍后再试!')
+                //     return false;
+                //   }
+                // }
+                this.updateData(userdata);
+                return [2 /*return*/];
             });
+        });
+    };
+    /**
+     * @Author: wjy
+     * @description: 更新服务器用户数据
+     * @param {type} data 上传的用户数据
+     * @return:
+     * @Date: 2019-08-04 01:18:32
+     */
+    EdmitUserPage.prototype.updateData = function (data) {
+        var _this = this;
+        this.http.postformdataloading(this.http.editprofile, data).subscribe(function (res) {
+            console.log(res);
+            _this.isupdate = true;
+            _this.userfn.upDataobj(data);
+            _this.isloading = false;
+        }, function (error2) {
+            _this.isloading = false;
         });
     };
     EdmitUserPage.prototype.imgupload = function (file) {
@@ -174,7 +189,7 @@ var EdmitUserPage = /** @class */ (function () {
             oReq.onreadystatechange = function (oEvent) {
                 if (oReq.readyState == 4 && oReq.status == 200) {
                     var res = JSON.parse(oReq.response);
-                    resolve(res.result);
+                    resolve(res.result['src']);
                 }
             };
             oReq.onerror = function (err) {
@@ -199,8 +214,9 @@ var EdmitUserPage = /** @class */ (function () {
                                             if (!filedata) {
                                                 return false;
                                             }
+                                            console.log(filedata);
                                             // console.log()
-                                            _this.userData.headimg = filedata;
+                                            _this.changeHead(filedata);
                                         });
                                     }
                                 }, {
@@ -211,7 +227,8 @@ var EdmitUserPage = /** @class */ (function () {
                                             if (!filedata) {
                                                 return false;
                                             }
-                                            _this.userData.headimg = filedata;
+                                            console.log(filedata);
+                                            _this.changeHead(filedata);
                                         });
                                     }
                                 }, {
@@ -228,6 +245,48 @@ var EdmitUserPage = /** @class */ (function () {
                     case 2:
                         _a.sent();
                         return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * @Author: wjy
+     * @description: 预览头像
+     * @param {type} link 图片路径
+     * @return:
+     * @Date: 2019-08-04 01:13:02
+     */
+    EdmitUserPage.prototype.changeHead = function (link) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var file, filepath, err_1;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        this.ischangeHead = true;
+                        this.userData.headimg = link;
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 4]);
+                        file = this.native.getImgbase64tofile(this.userData.headimg, this.userData.username + 'userhead' + this.userData.user_id);
+                        console.log(file);
+                        return [4 /*yield*/, this.imgupload(file)];
+                    case 2:
+                        filepath = _a.sent();
+                        this.userData.headimg = filepath;
+                        this.ischangeHead = false;
+                        if (this.isloading) {
+                            this.onSubmit();
+                        }
+                        return [3 /*break*/, 4];
+                    case 3:
+                        err_1 = _a.sent();
+                        this.native.presentAlert('图片上传失败，请重新选择!');
+                        this.ischangeHead = false;
+                        if (this.isloading) {
+                            this.isloading = false;
+                        }
+                        return [2 /*return*/, false];
+                    case 4: return [2 /*return*/];
                 }
             });
         });

@@ -6859,6 +6859,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/in-app-browser/ngx */ "./node_modules/@ionic-native/in-app-browser/ngx/index.js");
 /* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user.service */ "./src/app/services/user.service.ts");
 
+/*
+ * @Author: wjy
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy
+ * @LastEditTime: 2019-08-03 19:21:43
+ * @Description: 所有跳转页面类型服务
+ */
 
 
 
@@ -6933,18 +6940,10 @@ var TopageService = /** @class */ (function () {
                 else {
                     href_1 += '?user_id=' + res['user_id'];
                 }
-                var options = {
-                    location: 'yes',
-                    // closebuttoncaption: '关闭',
-                    toolbarcolor: '#f1f1f1',
-                    closebuttoncolor: '#333333',
-                    navigationbuttoncolor: '#333333',
-                    footer: 'no',
-                    // hidenavigationbuttons: 'yes'
-                    hideurlbar: 'yes'
-                };
-                var browser = _this.iab.create(href_1, '', options);
-            }).catch(function (err2) { });
+                _this.openBrowser(href_1);
+            }).catch(function (err2) {
+                _this.openBrowser(href_1);
+            });
         }
         else if (type === 11) {
             this.router.navigate(['/xccontent'], { queryParams: { id: id } });
@@ -6955,6 +6954,26 @@ var TopageService = /** @class */ (function () {
         else {
             this.router.navigate(['/tabs/tab1']);
         }
+    };
+    /**
+     * @Author: wjy
+     * @description: 打开浏览器,
+     * @param {type} 传入链接
+     * @return:
+     * @Date: 2019-08-03 19:19:41
+     */
+    TopageService.prototype.openBrowser = function (link) {
+        var options = {
+            location: 'yes',
+            // closebuttoncaption: '关闭',
+            toolbarcolor: '#f1f1f1',
+            closebuttoncolor: '#333333',
+            navigationbuttoncolor: '#333333',
+            footer: 'no',
+            // hidenavigationbuttons: 'yes'
+            hideurlbar: 'yes'
+        };
+        var browser = this.iab.create(link, '', options);
     };
     TopageService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
