@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy
- * @LastEditTime: 2019-08-04 01:36:43
+ * @LastEditTime: 2019-08-04 02:02:53
  * @Description: file content
  */
 
@@ -117,6 +117,7 @@ var EdmitUserPage = /** @class */ (function () {
         var _this = this;
         this.userfn.getUserp().then(function (res) {
             console.log(res);
+            _this.userid = res.user_id;
             _this.userData = {
                 headimg: res.headimg,
                 username: res.user_name || res.username,
@@ -189,7 +190,7 @@ var EdmitUserPage = /** @class */ (function () {
             oReq.onreadystatechange = function (oEvent) {
                 if (oReq.readyState == 4 && oReq.status == 200) {
                     var res = JSON.parse(oReq.response);
-                    resolve(res.result['src']);
+                    resolve(res.result['thumb']);
                 }
             };
             oReq.onerror = function (err) {
@@ -267,11 +268,12 @@ var EdmitUserPage = /** @class */ (function () {
                         _a.label = 1;
                     case 1:
                         _a.trys.push([1, 3, , 4]);
-                        file = this.native.getImgbase64tofile(this.userData.headimg, this.userData.username + 'userhead' + this.userData.user_id);
+                        file = this.native.getImgbase64tofile(this.userData.headimg, this.userData.username + 'userhead' + this.userid);
                         console.log(file);
                         return [4 /*yield*/, this.imgupload(file)];
                     case 2:
                         filepath = _a.sent();
+                        console.log(filepath);
                         this.userData.headimg = filepath;
                         this.ischangeHead = false;
                         if (this.isloading) {

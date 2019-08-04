@@ -119,6 +119,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 
+/*
+ * @Author: wjy
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy
+ * @LastEditTime: 2019-08-04 01:59:39
+ * @Description: file content
+ */
 
 var ImgsrcPipe = /** @class */ (function () {
     function ImgsrcPipe() {
@@ -130,6 +137,9 @@ var ImgsrcPipe = /** @class */ (function () {
         }
         if (value.startsWith('http') || value.startsWith('data:image') || value.startsWith('file:///') || value.startsWith('cdvfile://')) {
             return value;
+        }
+        else if (value.startsWith('/mobile') && args.endsWidth('mobile/')) {
+            return value + args.substring(7);
         }
         else {
             return args + value;

@@ -98,6 +98,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_native_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../services/native.service */ "./src/app/services/native.service.ts");
 /* harmony import */ var _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../components/upload/upload.component */ "./src/app/components/upload/upload.component.ts");
 
+/*
+ * @Author: wjy
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy
+ * @LastEditTime: 2019-08-04 02:07:00
+ * @Description: file content
+ */
 
 
 
@@ -240,7 +247,7 @@ var FbpqimgPage = /** @class */ (function () {
             // this.isloading = false;
             _this.user.addjf(res.result.num);
             _this.uploadEnd();
-            _this.route.navigate(['/fbyjmore'], { queryParams: { type: 1, num: res.result().num } });
+            _this.route.navigate(['/fbyjmore'], { queryParams: { type: 1, num: res.result.num } });
         }, function (err2) {
             _this.uploadEnd();
         });
