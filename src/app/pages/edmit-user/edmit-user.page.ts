@@ -2,7 +2,7 @@
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy
- * @LastEditTime: 2019-08-04 02:02:53
+ * @LastEditTime: 2019-08-04 22:54:57
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -159,6 +159,7 @@ export class EdmitUserPage implements OnInit {
       console.log(filepath)
       this.userData.headimg = filepath;
       this.ischangeHead = false;
+      this.ischangeHeadend = true;
       if (this.isloading) {
         this.onSubmit();
       }
