@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-08-07 00:07:38
+ * @Description: file content
+ */
 import {Component, ElementRef, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import {ModalController, NavController, PopoverController} from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -321,7 +328,9 @@ export class ProductsPage implements OnInit {
     this.price_grade = res['price_grade'];
     this.tjcity = res['tjcity'];
     this.jtjyList = res['jtjy'];
-    this.jtjyList.unshift({'attr_value': '全部', active: true})
+    if (this.jtjyList) {
+      this.jtjyList.unshift({'attr_value': '全部', active: true})
+    }
     const carr = [];
     const contryarr = [];
     const addressarr = res['address'];

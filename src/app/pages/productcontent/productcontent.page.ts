@@ -1,3 +1,11 @@
+import { NativeService } from './../../services/native.service';
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-08-06 23:03:41
+ * @Description: file content
+ */
 import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import {NavController, IonContent, ActionSheetController, ModalController, PopoverController} from '@ionic/angular';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -55,7 +63,7 @@ export class ProductcontentPage implements OnInit {
               private getProduct: GetproductService, public actionSheetController: ActionSheetController,
               private supplierlist: SupplierlistService, public modalController: ModalController,
               public popoverController: PopoverController, private lljlfn: LljlService, private gwcfn: GwcService,
-              private collefn: CollelistService, private xcxlfn: XcsclistService) {
+              private collefn: CollelistService, private xcxlfn: XcsclistService, private native: NativeService) {
     this.slideOptslv = {
       // slidesOffsetBefore : 50,
       slidesPerView : 3.2,
@@ -278,7 +286,7 @@ export class ProductcontentPage implements OnInit {
         gxb: this.productData.gxb,
         attrlist: this.productData.specification,
         goodsid: this.pid,
-        type: type,
+        type,
         mrattr: this.productData.mrattrarr
       }
     });
@@ -315,6 +323,7 @@ export class ProductcontentPage implements OnInit {
         if (res['rec_id'] && data.type === 3) {
           this.route.navigate(['/spgoods-confirmation'], {queryParams: {catid: res['rec_id']}});
         } else {
+          this.native.presentToast(res.msg || res.message)
           this.gwcfn.getListhttp(1);
         }
       }, error2 => {});

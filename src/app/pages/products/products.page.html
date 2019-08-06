@@ -1,3 +1,10 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-08-07 00:13:05
+ * @Description: file content
+ -->
 <ion-header [translucent]="true" mode="ios">
   <ion-toolbar *ngIf="suppId === 0" mode="ios" [ngClass]="'show-' + toolbaropacity" [ngClass]="{nobanner: !bannerList || bannerList && bannerList.length == 0}">
     <div class="search-bar">
@@ -14,7 +21,8 @@
       </div>
     </div>
   </ion-toolbar>
-  <ion-toolbar mode="ios" *ngIf="suppId !== 0" [ngClass]="'show-' + toolbaropacity" [ngClass]="{nobanner: !bannerList || bannerList && bannerList.length == 0}">
+  <!-- <ion-toolbar mode="ios" *ngIf="suppId !== 0" [ngClass]="'show-' + toolbaropacity" [ngClass]="{nobanner: !bannerList || bannerList && bannerList.length == 0}"> -->
+  <ion-toolbar mode="ios" *ngIf="suppId !== 0" [ngClass]="'show-' + toolbaropacity" class="nobanner">
     <ion-buttons slot="start">
       <ion-button (click)="goBack()">
         <ion-icon mode="ios" name="arrow-back"></ion-icon>

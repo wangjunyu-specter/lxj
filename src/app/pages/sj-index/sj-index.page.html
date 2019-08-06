@@ -1,3 +1,10 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-08-07 00:40:57
+ * @Description: file content
+ -->
 <ion-header mode="ios">
   <ion-toolbar mode="ios">
     <!--<img src="./assets/sjtop.png" alt="">-->
@@ -15,28 +22,44 @@
       </ion-slide>
     </ion-slides>
     <div class="content" padding *ngIf="supplier">
-      <app-pagetitle [myname]="'店铺推荐'" [type]="1"></app-pagetitle>
       <app-productlist  *ngFor="let item of supplier.best_goods" [type]="1" [data]="item" (open)="goodsContent($event)"></app-productlist>
-      <ion-virtual-scroll [items]="tjlist">
-        <div *virtualItem="let item">
-          <app-productlist  *ngFor="let item of tjlist" [data]="item" (open)="goodsContent($event)" [imgtype]="1"></app-productlist>
-        </div>
-      </ion-virtual-scroll>
+      <div>
+        <app-pagetitle [myname]="'精品推荐'"></app-pagetitle>
+        <app-productlist *ngFor="let item of tjlist1" [data]="item" (open)="goodsContent($event)" [imgtype]="1"></app-productlist>
+      </div>
+      <div>
+        <app-pagetitle [myname]="'热销推荐'"></app-pagetitle>
+        <app-productlist *ngFor="let item of tjlist2" [data]="item" (open)="goodsContent($event)" [imgtype]="1"></app-productlist>
+      </div>
+      <div>
+        <app-pagetitle [myname]="'新品推荐'"></app-pagetitle>
+        <app-productlist *ngFor="let item of tjlist3" [data]="item" (open)="goodsContent($event)" [imgtype]="1"></app-productlist>
+      </div>
+      <div *ngFor="let item of tjlist">
+        <app-pagetitle [myname]="item['cat_name']"></app-pagetitle>
+        <app-productlist  *ngFor="let item of item['goods']" [data]="item" (open)="goodsContent($event)" [imgtype]="1"></app-productlist>
+      </div>
     </div>
   </div>
   <div class="isindex" *ngIf="isactive == 2">
     <div class="content" padding>
-      <ion-grid>
+      <!-- <ion-grid>
         <ion-row>
           <ion-col [ngClass]="{active: isnavactive == 1}" (click)="selectepx(1)">综合</ion-col>
           <ion-col [ngClass]="{active: isnavactive == 2}" (click)="selectepx(2)">销量</ion-col>
           <ion-col [ngClass]="{active: isnavactive == 3}" (click)="selectepx(3)">价格</ion-col>
           <ion-col [ngClass]="{active: isnavactive == 4}" (click)="selectepx(4)">新品</ion-col>
         </ion-row>
-      </ion-grid>
-      <app-productlist *ngFor="let item of tjlist" [data]="item"></app-productlist>
+      </ion-grid> -->
+      <app-productlist *ngFor="let item of all" [data]="item"></app-productlist>
     </div>
   </div>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)" [disabled]="isactive != 2">
+      <ion-infinite-scroll-content
+         loadingSpinner="crescent"
+         loadingText="加载更多...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>
 
 <ion-footer mode="ios">

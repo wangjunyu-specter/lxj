@@ -1,5 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { NavController} from '@ionic/angular';
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-08-07 00:50:02
+ * @Description: file content
+ */
+import { Component, OnInit, ViewChild  } from '@angular/core';
+import { NavController, IonInfiniteScroll } from '@ionic/angular';
 import { SupplierlistService } from '../../services/supplierlist.service';
 import {ActivatedRoute, Router} from "@angular/router";
 import { HttpService } from '../../services/http.service';
@@ -12,20 +19,34 @@ import { CollelistService } from '../../services/collelist.service';
   styleUrls: ['./sj-index.page.scss'],
 })
 export class SjIndexPage implements OnInit {
-  tjlist: any[];
+  tjlist: any[]; // 分类推荐
+  tjlist1: any[]; // 精品推荐
+  tjlist2: any[]; // 热销推荐
+  tjlist3: any[]; // 新品推荐
   isactive: number; // 1 首页 2商品列表
   isnavactive: number;
   supplier: any;
+  all: object[]; // 所有商品
+  suppId: string; // 商家id
+  pageObj: object;
+  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   constructor(private nav: NavController, private suppliserlist: SupplierlistService,
               private activeroute: ActivatedRoute,
               private http: HttpService, private route: Router,
               private tjlistfn: SjindextjgoodsService, private collefn: CollelistService) { }
 
   ngOnInit() {
+    this.pageObj = {
+      page: 1,
+      page_size: 20
+    };
+    this.all = [];
     this.tjlist = [];
+    this.tjlist1 = [];
+    this.tjlist2 = [];
+    this.tjlist3 = [];
     this.isactive = 1;
     this.isnavactive = 1;
-
   }
   ionViewDidEnter() {
     this.activeroute.queryParams.subscribe(params => {
@@ -40,21 +61,50 @@ export class SjIndexPage implements OnInit {
 
     });
   }
-  getIndextj (id) {
+  getIndextj(id) {
+    this.suppId = id;
     this.tjlistfn.getData(id).then(res => {
       console.log(res)
-      this.tjlist.push(...res['best_goods'])
-      this.tjlist.push(...res['hot_goods'])
-      this.tjlist.push(...res['new_goods'])
-      this.tjlist.push(...res['tjgoods'])
-    }).catch(err => {})
+      this.tjlist1.push(...res['best_goods']);
+      this.tjlist2.push(...res['hot_goods']);
+      this.tjlist3.push(...res['new_goods']);
+      this.tjlist.push(...res['tjgoods']);
+    }).catch(err => {});
   }
-  goBack () {
+  goBack() {
     this.nav.back();
     // this.nav.navigateBack('/productcontent');
   }
-  setNav ($event) {
+  setNav($event) {
     this.isactive = $event;
+    if ($event == 2 && this.all.length === 0) {
+      this.getAll();
+    }
+  }
+  loadData(event) {
+    this.pageObj['page']++;
+    this.getAll(event);
+  }
+  getAll(event?) {
+    const obj = Object.assign({suppId: this.suppId}, this.pageObj);
+    this.http.getDataloading(this.http.getsjsearchgoods, obj).subscribe(res => {
+      console.log(res)
+      if (res.data && res.data.length > 0) {
+        this.all.push(...res['data']);
+      }
+      if (event) {
+        event.target.complete();
+        if (!res['data'] || res['data'].length < this.pageObj['page_size']) {
+          event.target.disabled = true;
+        }
+      } else if (!res['data'] || res['data'].length < this.pageObj['page_size']) {
+        this.infiniteScroll.disabled = true;
+      }
+    }, err2 => {
+      if (event) {
+        event.target.complete();
+      }
+    });
   }
   selectepx (type: number) {
     this.isnavactive = type;

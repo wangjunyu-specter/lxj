@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-08-07 00:23:28
+ * @Description: file content
+ */
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
@@ -46,6 +53,7 @@ export class HttpService {
   getsjindexmore = 'goods.php?act=getsuppliertjgoods'; // 获取商家首页推荐商品
   getsjfl = 'supplier_catalog.php?act=dianpufeilieajax'; // 获取商家分类suppId=18
   getsjflgoods = 'supplier.php?go=category&act=getgoods'; // 获取商家分类商品suppId=18,id=91
+  getsjsearchgoods = 'supplier.php?go=search'; // 获取商家搜索或所有商品&suppId=1&keywords=
   addgwc = 'flow.php?step=add_to_cart'; // 加入购物车 goods: {"quick":0,"spec":[],"goods_id":277,"number":"1","parent":0}
   addgz = 'user.php?act=collect2'; // 关注商品  user_id, id
   scshop = 'supplier.php?go=other&act=add_guanzhu'; // 收藏店铺 suppId

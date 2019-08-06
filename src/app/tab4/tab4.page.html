@@ -1,3 +1,10 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-08-07 00:58:02
+ * @Description: file content
+ -->
 <ion-header [translucent]="true" mode="ios">
   <ion-toolbar  mode="ios" [ngClass]="'show-' + toolbaropacity">
     <ion-title *ngIf="isshow">{{user.user_name}}</ion-title>
@@ -85,9 +92,9 @@
 
     <ion-card-content>
       <ion-row>
+          <ion-col (click)="openPage(8)"><img src="./assets/jfsc.svg"><span>购物车</span></ion-col>
         <ion-col (click)="openPage(11)"><img src="./assets/wdfb.svg"><span>我的发布</span></ion-col>
         <ion-col (click)="openPage(15)"><img src="./assets/wdcg.svg"><span>我的草稿</span></ion-col>
-        <ion-col (click)="openPage(8)"><img src="./assets/jfsc.svg"><span>购物车</span></ion-col>
         <ion-col (click)="openPage(10)"><img src="./assets/allorder.svg"><span>全部订单</span></ion-col>
       </ion-row>
       <ion-row>
