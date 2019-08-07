@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-08-07 00:50:02
+ * @LastEditTime: 2019-08-07 23:50:59
  * @Description: file content
  */
 import { Component, OnInit, ViewChild  } from '@angular/core';
@@ -92,13 +92,11 @@ export class SjIndexPage implements OnInit {
       if (res.data && res.data.length > 0) {
         this.all.push(...res['data']);
       }
+      if (!res['data'] || res['data'].length < this.pageObj['page_size']) {
+        this.infiniteScroll.disabled = true;
+      }
       if (event) {
         event.target.complete();
-        if (!res['data'] || res['data'].length < this.pageObj['page_size']) {
-          event.target.disabled = true;
-        }
-      } else if (!res['data'] || res['data'].length < this.pageObj['page_size']) {
-        this.infiniteScroll.disabled = true;
       }
     }, err2 => {
       if (event) {
@@ -109,17 +107,20 @@ export class SjIndexPage implements OnInit {
   selectepx (type: number) {
     this.isnavactive = type;
   }
-  toPage () {
+  toPage() {
     this.nav.navigateForward('/sjdpyx');
   }
-  setGz () {
-    console.log(this.supplier)
+  toSearch() {
+    this.nav.navigateForward('/sjsearch', {queryParams: {suppid: this.suppId}});
+  }
+  setGz() {
+    console.log(this.supplier);
     this.suppliserlist.setData(this.supplier['suppid'], 'is_guanzhu', true)
     this.http.getData(this.http.scshop, {suppId: this.supplier['suppid']}).subscribe(res => {
       this.collefn.reset();
     }, error2 => {
       this.collefn.reset();
-    })
+    });
   }
   goodsContent ($event) {
     console.log($event);
@@ -130,6 +131,5 @@ export class SjIndexPage implements OnInit {
       return false;
     }
     this.route.navigate(['/productcontent'], {queryParams: {id: id, suppid: this.supplier.suppid}});
-
   }
 }

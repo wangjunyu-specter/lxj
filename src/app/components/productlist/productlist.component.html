@@ -1,7 +1,14 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-08-07 23:53:13
+ * @Description: file content
+ -->
 <div class="list-box" (click)="openpage()">
   <div class="left" *ngIf="data.goods_thumb || data.thumb">
-    <img *ngIf="!imgtype" src="{{http.zdomain + (data.goods_thumb || data.thumb)}}">
-    <ion-img *ngIf="imgtype" [src]="http.zdomain + (data.goods_thumb || data.thumb)"></ion-img>
+    <img *ngIf="!imgtype" src="{{(data.goods_thumb || data.thumb) | imgsrc: http.zdomain}}">
+    <ion-img *ngIf="imgtype" [src]="(data.goods_thumb || data.thumb) | imgsrc: http.zdomain"></ion-img>
   </div>
   <div class="right">
     <div class="right-t">

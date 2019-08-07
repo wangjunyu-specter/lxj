@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-08-07 00:40:57
+ * @LastEditTime: 2019-08-07 23:50:12
  * @Description: file content
  -->
 <ion-header mode="ios">
@@ -10,7 +10,7 @@
     <!--<img src="./assets/sjtop.png" alt="">-->
     <app-sj-top (close)="goBack()" (topage)="toPage()"
                 [active]="isactive" [supplier]="supplier"
-                (toggle)="setNav($event)" (setGz)="setGz()"></app-sj-top>
+                (toggle)="setNav($event)" (setGz)="setGz()" (tosearch)="toSearch()"></app-sj-top>
   </ion-toolbar>
 </ion-header>
 
@@ -25,19 +25,19 @@
       <app-productlist  *ngFor="let item of supplier.best_goods" [type]="1" [data]="item" (open)="goodsContent($event)"></app-productlist>
       <div>
         <app-pagetitle [myname]="'精品推荐'"></app-pagetitle>
-        <app-productlist *ngFor="let item of tjlist1" [data]="item" (open)="goodsContent($event)" [imgtype]="1"></app-productlist>
+        <app-productlist *ngFor="let item of tjlist1" [data]="item" (open)="goodsContent($event)"></app-productlist>
       </div>
       <div>
         <app-pagetitle [myname]="'热销推荐'"></app-pagetitle>
-        <app-productlist *ngFor="let item of tjlist2" [data]="item" (open)="goodsContent($event)" [imgtype]="1"></app-productlist>
+        <app-productlist *ngFor="let item of tjlist2" [data]="item" (open)="goodsContent($event)"></app-productlist>
       </div>
       <div>
         <app-pagetitle [myname]="'新品推荐'"></app-pagetitle>
-        <app-productlist *ngFor="let item of tjlist3" [data]="item" (open)="goodsContent($event)" [imgtype]="1"></app-productlist>
+        <app-productlist *ngFor="let item of tjlist3" [data]="item" (open)="goodsContent($event)"></app-productlist>
       </div>
       <div *ngFor="let item of tjlist">
         <app-pagetitle [myname]="item['cat_name']"></app-pagetitle>
-        <app-productlist  *ngFor="let item of item['goods']" [data]="item" (open)="goodsContent($event)" [imgtype]="1"></app-productlist>
+        <app-productlist  *ngFor="let item of item['goods']" [data]="item" (open)="goodsContent($event)"></app-productlist>
       </div>
     </div>
   </div>
@@ -51,7 +51,7 @@
           <ion-col [ngClass]="{active: isnavactive == 4}" (click)="selectepx(4)">新品</ion-col>
         </ion-row>
       </ion-grid> -->
-      <app-productlist *ngFor="let item of all" [data]="item"></app-productlist>
+      <app-productlist *ngFor="let item of all" [data]="item" (open)="goodsContent($event)"></app-productlist>
     </div>
   </div>
   <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)" [disabled]="isactive != 2">

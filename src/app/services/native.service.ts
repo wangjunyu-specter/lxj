@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-08-04 00:47:32
+ * @LastEditTime: 2019-08-07 23:24:08
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -395,6 +395,26 @@ export class NativeService {
     } else {
       this.statusbar.show();
     }
+    this.statusbar.overlaysWebView(true);
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 设置头部白色背景
+   * @param {type} 
+   * @return: 
+   * @Date: 2019-08-07 23:23:27
+   */
+  setStatusbardefalt() {
+    this.statusbar.styleDefault();
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 回复头部为透明颜色
+   * @param {type} 
+   * @return: 
+   * @Date: 2019-08-07 23:23:51
+   */
+  setStatusbarnomal() {
     this.statusbar.overlaysWebView(true);
   }
   nativeVideoplay(src: string) {
