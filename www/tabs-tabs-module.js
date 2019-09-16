@@ -52,7 +52,7 @@ var TabsPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-tabs>\r\n\r\n  <ion-tab-bar slot=\"bottom\">\r\n    <ion-tab-button tab=\"tab1\">\r\n      <ion-icon name=\"home\"></ion-icon>\r\n      <!--<ion-img src=\"./assets/indexicon.svg\"></ion-img>-->\r\n      <ion-label>首页</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"tab2\">\r\n      <ion-icon name=\"information-circle-outline\"></ion-icon>\r\n      <ion-label>发现</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"tab3\">\r\n      <ion-icon name=\"appstore\"></ion-icon>\r\n      <ion-label>装备</ion-label>\r\n    </ion-tab-button>\r\n    <ion-tab-button tab=\"tab4\">\r\n      <ion-icon name=\"happy\"></ion-icon>\r\n      <ion-label>我的</ion-label>\r\n    </ion-tab-button>\r\n  </ion-tab-bar>\r\n\r\n</ion-tabs>\r\n"
+module.exports = "<!--\r\n * @Author: wjy-mac\r\n * @Date: 2019-08-03 14:52:31\r\n * @LastEditors: wjy-mac\r\n * @LastEditTime: 2019-08-07 00:55:34\r\n * @Description: file content\r\n -->\r\n<ion-tabs>\r\n\r\n  <ion-tab-bar slot=\"bottom\">\r\n    <ion-tab-button tab=\"tab1\">\r\n      <ion-icon name=\"home\"></ion-icon>\r\n      <!--<ion-img src=\"./assets/indexicon.svg\"></ion-img>-->\r\n      <ion-label>首页</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"tab2\">\r\n      <ion-icon name=\"information-circle-outline\"></ion-icon>\r\n      <ion-label>发现</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"tab3\">\r\n      <ion-icon name=\"appstore\"></ion-icon>\r\n      <ion-label>装备</ion-label>\r\n    </ion-tab-button>\r\n    <ion-tab-button tab=\"tab4\">\r\n      <ion-icon name=\"happy\"></ion-icon>\r\n      <ion-label>我的</ion-label>\r\n    </ion-tab-button>\r\n  </ion-tab-bar>\r\n\r\n</ion-tabs>\r\n"
 
 /***/ }),
 
@@ -63,7 +63,7 @@ module.exports = "<ion-tabs>\r\n\r\n  <ion-tab-bar slot=\"bottom\">\r\n    <ion-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "ion-img {\n  width: 30px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC90YWJzL3RhYnMucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsV0FBVyxFQUFBIiwiZmlsZSI6InNyYy9hcHAvdGFicy90YWJzLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImlvbi1pbWcge1xyXG4gIHdpZHRoOiAzMHB4O1xyXG59Il19 */"
+module.exports = "ion-img {\n  width: 30px; }\n\nion-tab-button {\n  --color-selected: var(--ion-color-success); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC90YWJzL3RhYnMucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsV0FBVyxFQUFBOztBQUViO0VBQ0UsMENBQWlCLEVBQUEiLCJmaWxlIjoic3JjL2FwcC90YWJzL3RhYnMucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLWltZyB7XHJcbiAgd2lkdGg6IDMwcHg7XHJcbn1cclxuaW9uLXRhYi1idXR0b24ge1xyXG4gIC0tY29sb3Itc2VsZWN0ZWQ6IHZhcigtLWlvbi1jb2xvci1zdWNjZXNzKTtcclxufSJdfQ== */"
 
 /***/ }),
 

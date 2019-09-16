@@ -4515,6 +4515,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/http/ngx */ "./node_modules/@ionic-native/http/ngx/index.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-08-07 00:23:28
+ * @Description: file content
+ */
 
 
 
@@ -4564,6 +4571,7 @@ var HttpService = /** @class */ (function () {
         this.getsjindexmore = 'goods.php?act=getsuppliertjgoods'; // 获取商家首页推荐商品
         this.getsjfl = 'supplier_catalog.php?act=dianpufeilieajax'; // 获取商家分类suppId=18
         this.getsjflgoods = 'supplier.php?go=category&act=getgoods'; // 获取商家分类商品suppId=18,id=91
+        this.getsjsearchgoods = 'supplier.php?go=search'; // 获取商家搜索或所有商品&suppId=1&keywords=
         this.addgwc = 'flow.php?step=add_to_cart'; // 加入购物车 goods: {"quick":0,"spec":[],"goods_id":277,"number":"1","parent":0}
         this.addgz = 'user.php?act=collect2'; // 关注商品  user_id, id
         this.scshop = 'supplier.php?go=other&act=add_guanzhu'; // 收藏店铺 suppId

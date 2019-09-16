@@ -243,21 +243,30 @@ module.exports = ".search-bar {\n  display: flex;\n  flex-direction: row;\n  jus
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductcontentPage", function() { return ProductcontentPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/http.service */ "./src/app/services/http.service.ts");
-/* harmony import */ var _services_getproduct_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/getproduct.service */ "./src/app/services/getproduct.service.ts");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-/* harmony import */ var _services_supplierlist_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/supplierlist.service */ "./src/app/services/supplierlist.service.ts");
-/* harmony import */ var _components_goodsattr_goodsattr_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/goodsattr/goodsattr.component */ "./src/app/components/goodsattr/goodsattr.component.ts");
-/* harmony import */ var _components_goods_contentnav_goods_contentnav_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../components/goods-contentnav/goods-contentnav.component */ "./src/app/components/goods-contentnav/goods-contentnav.component.ts");
-/* harmony import */ var _services_lljl_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../services/lljl.service */ "./src/app/services/lljl.service.ts");
-/* harmony import */ var _services_gwc_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../services/gwc.service */ "./src/app/services/gwc.service.ts");
-/* harmony import */ var _services_collelist_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../services/collelist.service */ "./src/app/services/collelist.service.ts");
-/* harmony import */ var _services_xcsclist_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../services/xcsclist.service */ "./src/app/services/xcsclist.service.ts");
-/* harmony import */ var _components_available_bonus_available_bonus_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../components/available-bonus/available-bonus.component */ "./src/app/components/available-bonus/available-bonus.component.ts");
+/* harmony import */ var _services_native_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../services/native.service */ "./src/app/services/native.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/http.service */ "./src/app/services/http.service.ts");
+/* harmony import */ var _services_getproduct_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/getproduct.service */ "./src/app/services/getproduct.service.ts");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var _services_supplierlist_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/supplierlist.service */ "./src/app/services/supplierlist.service.ts");
+/* harmony import */ var _components_goodsattr_goodsattr_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../components/goodsattr/goodsattr.component */ "./src/app/components/goodsattr/goodsattr.component.ts");
+/* harmony import */ var _components_goods_contentnav_goods_contentnav_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../components/goods-contentnav/goods-contentnav.component */ "./src/app/components/goods-contentnav/goods-contentnav.component.ts");
+/* harmony import */ var _services_lljl_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../services/lljl.service */ "./src/app/services/lljl.service.ts");
+/* harmony import */ var _services_gwc_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../services/gwc.service */ "./src/app/services/gwc.service.ts");
+/* harmony import */ var _services_collelist_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../services/collelist.service */ "./src/app/services/collelist.service.ts");
+/* harmony import */ var _services_xcsclist_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../services/xcsclist.service */ "./src/app/services/xcsclist.service.ts");
+/* harmony import */ var _components_available_bonus_available_bonus_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../components/available-bonus/available-bonus.component */ "./src/app/components/available-bonus/available-bonus.component.ts");
 
+
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-08-06 23:03:41
+ * @Description: file content
+ */
 
 
 
@@ -277,7 +286,7 @@ __webpack_require__.r(__webpack_exports__);
 var ProductcontentPage = /** @class */ (function () {
     // mrattrarr: string[]; // 默认选中属性
     // mrseletestr: string;
-    function ProductcontentPage(nav, el, route, http, activeroute, sanitizer, getProduct, actionSheetController, supplierlist, modalController, popoverController, lljlfn, gwcfn, collefn, xcxlfn) {
+    function ProductcontentPage(nav, el, route, http, activeroute, sanitizer, getProduct, actionSheetController, supplierlist, modalController, popoverController, lljlfn, gwcfn, collefn, xcxlfn, native) {
         this.nav = nav;
         this.el = el;
         this.route = route;
@@ -293,6 +302,7 @@ var ProductcontentPage = /** @class */ (function () {
         this.gwcfn = gwcfn;
         this.collefn = collefn;
         this.xcxlfn = xcxlfn;
+        this.native = native;
         this.slideOptslv = {
             // slidesOffsetBefore : 50,
             slidesPerView: 3.2,
@@ -533,7 +543,7 @@ var ProductcontentPage = /** @class */ (function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.modalController.create({
-                            component: _components_goodsattr_goodsattr_component__WEBPACK_IMPORTED_MODULE_8__["GoodsattrComponent"],
+                            component: _components_goodsattr_goodsattr_component__WEBPACK_IMPORTED_MODULE_9__["GoodsattrComponent"],
                             cssClass: 'attrModal',
                             componentProps: {
                                 // src: this.http.domain + this.productData.goods_thumb,
@@ -586,6 +596,7 @@ var ProductcontentPage = /** @class */ (function () {
                                     _this.route.navigate(['/spgoods-confirmation'], { queryParams: { catid: res['rec_id'] } });
                                 }
                                 else {
+                                    _this.native.presentToast(res.msg || res.message);
                                     _this.gwcfn.getListhttp(1);
                                 }
                             }, function (error2) { });
@@ -607,7 +618,7 @@ var ProductcontentPage = /** @class */ (function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.modalController.create({
-                            component: _components_available_bonus_available_bonus_component__WEBPACK_IMPORTED_MODULE_14__["AvailableBonusComponent"],
+                            component: _components_available_bonus_available_bonus_component__WEBPACK_IMPORTED_MODULE_15__["AvailableBonusComponent"],
                             cssClass: 'attrModal',
                             componentProps: {
                                 // src: this.http.domain + this.productData.goods_thumb,
@@ -821,7 +832,7 @@ var ProductcontentPage = /** @class */ (function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.popoverController.create({
-                            component: _components_goods_contentnav_goods_contentnav_component__WEBPACK_IMPORTED_MODULE_9__["GoodsContentnavComponent"],
+                            component: _components_goods_contentnav_goods_contentnav_component__WEBPACK_IMPORTED_MODULE_10__["GoodsContentnavComponent"],
                             event: ev,
                             mode: 'ios',
                             translucent: true
@@ -853,21 +864,21 @@ var ProductcontentPage = /** @class */ (function () {
         this.shopName = null;
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonContent"]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonContent"])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"])(_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonContent"]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonContent"])
     ], ProductcontentPage.prototype, "content", void 0);
     ProductcontentPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
             selector: 'app-productcontent',
             template: __webpack_require__(/*! ./productcontent.page.html */ "./src/app/pages/productcontent/productcontent.page.html"),
             styles: [__webpack_require__(/*! ./productcontent.page.scss */ "./src/app/pages/productcontent/productcontent.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
-            _services_http_service__WEBPACK_IMPORTED_MODULE_4__["HttpService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__["DomSanitizer"],
-            _services_getproduct_service__WEBPACK_IMPORTED_MODULE_5__["GetproductService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ActionSheetController"],
-            _services_supplierlist_service__WEBPACK_IMPORTED_MODULE_7__["SupplierlistService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["PopoverController"], _services_lljl_service__WEBPACK_IMPORTED_MODULE_10__["LljlService"], _services_gwc_service__WEBPACK_IMPORTED_MODULE_11__["GwcService"],
-            _services_collelist_service__WEBPACK_IMPORTED_MODULE_12__["CollelistService"], _services_xcsclist_service__WEBPACK_IMPORTED_MODULE_13__["XcsclistService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"], _angular_core__WEBPACK_IMPORTED_MODULE_2__["ElementRef"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            _services_http_service__WEBPACK_IMPORTED_MODULE_5__["HttpService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__["DomSanitizer"],
+            _services_getproduct_service__WEBPACK_IMPORTED_MODULE_6__["GetproductService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ActionSheetController"],
+            _services_supplierlist_service__WEBPACK_IMPORTED_MODULE_8__["SupplierlistService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["PopoverController"], _services_lljl_service__WEBPACK_IMPORTED_MODULE_11__["LljlService"], _services_gwc_service__WEBPACK_IMPORTED_MODULE_12__["GwcService"],
+            _services_collelist_service__WEBPACK_IMPORTED_MODULE_13__["CollelistService"], _services_xcsclist_service__WEBPACK_IMPORTED_MODULE_14__["XcsclistService"], _services_native_service__WEBPACK_IMPORTED_MODULE_1__["NativeService"]])
     ], ProductcontentPage);
     return ProductcontentPage;
 }());
