@@ -1,0 +1,28 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-08-07 23:04:49
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-08-07 23:51:35
+ * @Description: file content
+ -->
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start" mode="ios">
+      <ion-button (click)="goBack()" mode="ios">
+        <ion-icon mode="ios" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <!--<ion-title>账单</ion-title>-->
+    <ion-searchbar mode="ios" showCancelButton="focus" (ionChange)="searchFn($event)" cancelButtonText="取消"  placeholder="输入关键词搜索"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <app-productlist *ngFor="let item of list" [data]="item" (open)="goodsContent($event)"></app-productlist>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)" [disabled]="isactive != 2">
+      <ion-infinite-scroll-content
+         loadingSpinner="crescent"
+         loadingText="加载更多...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

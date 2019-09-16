@@ -47,6 +47,7 @@ const routes: Routes = [
   { path: 'userlist', loadChildren: './pages/userlist/userlist.module#UserlistPageModule' },
   { path: 'edmit-user', loadChildren: './pages/edmit-user/edmit-user.module#EdmitUserPageModule' },  { path: 'bill', loadChildren: './pages/bill/bill.module#BillPageModule' },
   { path: 'about-us', loadChildren: './pages/about-us/about-us.module#AboutUsPageModule' },
+  { path: 'sjsearch', loadChildren: './pages/sjsearch/sjsearch.module#SjsearchPageModule' },
 
 ];
 @NgModule({

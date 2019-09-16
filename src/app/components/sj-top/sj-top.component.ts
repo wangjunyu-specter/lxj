@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-08-07 23:07:13
+ * @Description: file content
+ */
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -6,12 +13,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./sj-top.component.scss'],
 })
 export class SjTopComponent implements OnInit {
-  @Output() close = new EventEmitter()
-  @Output() toggle = new EventEmitter()
+  @Output() close = new EventEmitter();
+  @Output() toggle = new EventEmitter();
   @Input() active: number;
   @Input() supplier: any;
-  @Output() topage = new EventEmitter()
-  @Output() setGz = new EventEmitter()
+  @Output() topage = new EventEmitter();
+  @Output() setGz = new EventEmitter();
+  @Output() tosearch = new EventEmitter();
   constructor() { }
 
   ngOnInit() {}
@@ -27,5 +35,8 @@ export class SjTopComponent implements OnInit {
   }
   setgz () {
     this.setGz.emit();
+  }
+  tosearchfn() {
+    this.tosearch.emit();
   }
 }
