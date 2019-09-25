@@ -1,0 +1,17 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-09-25 16:03:17
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-09-25 16:41:53
+ * @Description: file content
+ -->
+<div class="goods">
+  <img [src]="src" alt="">
+  <div class="content">
+    <div class="title">{{data.short_name}}</div>
+    <div class="tag">
+      <span *ngFor="let item of tag; let i = index;" [ngStyle]="{display: i > 1 ? 'none': ''}">{{item}}</span>
+    </div>
+    <div class="price">￥<span>{{data.org_price}}</span>起</div>
+  </div>
+</div>

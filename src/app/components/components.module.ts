@@ -1,8 +1,18 @@
+import { GoodsupanddownComponent } from './goodsupanddown/goodsupanddown.component';
+import { ArticlecardComponent } from './articlecard/articlecard.component';
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-28 00:35:54
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-09-25 16:03:40
+ * @Description: file content
+ */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 
 import { PagetitleComponent } from './pagetitle/pagetitle.component';
+import { NewpagetitleComponent } from './newpagetitle/newpagetitle.component';
 import { SeletebtnComponent } from './seletebtn/seletebtn.component';
 import { ProductlistComponent } from './productlist/productlist.component';
 import { YhboxComponent } from './yhbox/yhbox.component';
@@ -22,6 +32,7 @@ import { GoodssortComponent } from './goodssort/goodssort.component';
 import { ContactlistComponent } from './contactlist/contactlist.component';
 import { PqimgboxComponent } from './pqimgbox/pqimgbox.component';
 import { PllistComponent } from './pllist/pllist.component';
+import { BztjboxComponent} from './bztjbox/bztjbox.component';
 
 // import { GoodsContentnavComponent } from './goods-contentnav/goods-contentnav.component';
 // import { SeleteAddressComponent } from './selete-address/selete-address.component';
@@ -38,14 +49,15 @@ import { EmojiService } from '../services/emoji.service';
 import { OrderlistComponent } from './orderlist/orderlist.component';
 import { OrdercontentgoodsComponent } from './ordercontentgoods/ordercontentgoods.component';
 import { XclistComponent } from './xclist/xclist.component';
+import { RmztitemComponent } from './rmztitem/rmztitem.component';
 // import { SearchComponent } from './search/search.component';
 @NgModule({
-  declarations: [SeletebtnComponent, PagetitleComponent, ProductlistComponent, YhboxComponent,
+  declarations: [SeletebtnComponent, PagetitleComponent, NewpagetitleComponent, ProductlistComponent, YhboxComponent,
     PjcontentComponent, MybuttonComponent, TjproductComponent, XclxComponent, DatecontentComponent,
     FooterComponent, SjTopComponent, TimePipe, MorenumPipe, SetnumComponent, YhqtitlePipe,
     HwcpsortComponent, GoodssortComponent, ContactlistComponent, GwcitemComponent, PqimgboxComponent, PllistComponent,
     EmojipickComponent, ChatinputboxComponent, OrderlistComponent, OrdercontentgoodsComponent,
-    XclistComponent],
+    XclistComponent, BztjboxComponent, RmztitemComponent, ArticlecardComponent, GoodsupanddownComponent],
   imports: [
     CommonModule,
     IonicModule,
@@ -60,6 +72,6 @@ import { XclistComponent } from './xclist/xclist.component';
     FooterComponent, SjTopComponent, SetnumComponent, HwcpsortComponent,
     GoodssortComponent, ContactlistComponent, TimePipe, GwcitemComponent,
     PqimgboxComponent, PllistComponent, ChatinputboxComponent, OrderlistComponent, OrdercontentgoodsComponent,
-    XclistComponent]
+    XclistComponent, NewpagetitleComponent, BztjboxComponent, RmztitemComponent, ArticlecardComponent, GoodsupanddownComponent]
 })
 export class ComponentsModule { }

@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-15 22:18:06
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-08-04 00:52:05
+ * @LastEditTime: 2019-09-25 10:39:48
  * @Description: file content
  */
 import { Component, OnInit, ViewChild  } from '@angular/core';
@@ -31,14 +31,15 @@ export class Tab1Page implements OnInit {
   navList: any[]; // 导航
   navList2: any[]; // 第二导航   户外亲子游
   slideOpts: any; // 第二导航swiper参数
+  bztjslideOptslv: any; // 本周推荐
   slideOptslv: any; // 旅行灵感参数
   scroolold: number; // 滚动条上一次的值
   dataList: any[];
   shopdata: any;
   bzjx: any; // 本周精选
   bzjxActive: number; // 本周精选 当前选中
-  rmzt1: any; // 热门主题第一部分 宽屏
-  rmzt2: any; // 热门主题第2部分 宽屏
+  rmzt1: any[]; // 热门主题 宽屏
+  // rmzt2: any; // 热门主题第2部分 宽屏
   indexTitle: any; // 首页标题 （本周精选标题由专题数据自带）
   hdbox1: any; // 顶部产品推荐左边
   hdbox2: any; // 顶部产品推荐右边
@@ -47,6 +48,7 @@ export class Tab1Page implements OnInit {
   catcalelist: any[]; // 文章列表
   toolbaropacity: string;
   bannerslideopts: any; // banner 配置
+  bztjlist: object[]; // 本周推荐当前选中列表
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   keywords: string;
   location: any;
@@ -78,6 +80,11 @@ export class Tab1Page implements OnInit {
       pagination: ''
       // slidesOffsetAfter : 100,
     };
+    this.bztjslideOptslv = {
+      slidesPerView : 2.2,
+      slidesPerGroup : 1,
+      spaceBetween : 10,
+    }
     this.bannerslideopts = {
       // pagination: {
       //   el: '.swiper-pagination',
@@ -112,9 +119,14 @@ export class Tab1Page implements OnInit {
       }
       this.navList = this.shop.getIndexnav();
       this.bannerList = this.shop.getIndexbanner();
+      console.log(this.bannerList);
       this.bzjx = this.shop.getBzjx();
+      if (this.bzjx) {
+        this.bztjlist = this.bzjx['sort_goods_arr'][0]['goods'];
+        console.log(this.bztjlist);
+      }
       this.rmzt1 = this.shop.getRmzt();
-      this.rmzt2 = this.shop.getRmzt2();
+      // this.rmzt2 = this.shop.getRmzt2();
       this.indexTitle = this.shop.getIndextitle();
       this.hdbox1 = this.shop.getHdbox1();
       this.hdbox2 = this.shop.getHdbox2();
@@ -143,6 +155,11 @@ export class Tab1Page implements OnInit {
     });
 
     await alert.present();
+  }
+  setBztjlist(index: number) {
+    this.bzjxActive = index;
+    this.bztjlist = this.bzjx.sort_goods_arr[index]['goods'];
+    console.log(this.bztjlist);
   }
   doRefresh(event) {
     console.log('Begin async operation');

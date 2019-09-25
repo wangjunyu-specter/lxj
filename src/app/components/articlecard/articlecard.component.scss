@@ -1,0 +1,49 @@
+.article {
+  position: relative;
+  &>img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  .box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid #fff;
+      margin-top: 15px;
+      margin-bottom: 7px;
+    }
+    .title {
+      font-size: var(--ion-title);
+      font-family: "PingFang";
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+      line-height: 1.4;
+      text-shadow: 0 0 1px #ccc;
+    }
+    .name {
+      font-size: var(--ion-text);
+      font-family: "PingFang";
+      color: rgb(255, 255, 255);
+      line-height: 1.615;
+      text-shadow: 0 0 1px #ccc;
+    }
+    .des {
+      font-size: var(--ion-sm-text);
+      font-family: "PingFang";
+      color: rgb(255, 255, 255);
+      line-height: 2.1;
+      text-shadow: 0 0 1px #ccc;
+    }
+  }
+}

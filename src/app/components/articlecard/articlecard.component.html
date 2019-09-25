@@ -1,0 +1,16 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-09-25 15:20:15
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-09-25 15:42:17
+ * @Description: file content
+ -->
+<div class="article">
+  <img [src]="src" alt="">
+  <div class="box">
+    <div class="title">{{data.short_title}}</div>
+    <img [src]="src" alt="">
+    <div class="name">{{data.cat_name}}</div>
+    <div class="des">{{data.des | namesubstr: 10}}</div>
+  </div>
+</div>

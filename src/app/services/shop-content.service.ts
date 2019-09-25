@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-30 22:58:50
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-09-25 10:34:05
+ * @Description: file content
+ */
 import { Injectable } from '@angular/core';
 import {HttpService} from "./http.service";
 import {ShopNavService} from "./shop-nav.service";
@@ -152,10 +159,10 @@ export class ShopContentService {
         this.shopnav.setNav(data['categories']);
         this.setIndexbanner(data['index_banner']);
         this.bzjx = data['bzjx'];
-        this.rmzt1 = data['index_box71'][0];
-        this.rmzt2 = data['index_box72'];
+        this.rmzt1 = data['index_box71'];
+        // this.rmzt2 = data['index_box72'];
         this.indexTitle = data['index_title'];
-        this.hdbox1 = data['index_box41'][0];
+        this.hdbox1 = data['index_box41'];
         this.hdbox2 = data['index_box42'];
         this.bestGoods = data['tj_goods'];
         this.caticallist = data['new_articles'];

@@ -1,8 +1,8 @@
 /*
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
- * @LastEditors: wjy
- * @LastEditTime: 2019-08-03 19:21:43
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-09-25 11:30:05
  * @Description: 所有跳转页面类型服务
  */
 import { Injectable } from '@angular/core';
@@ -19,7 +19,7 @@ export class TopageService {
 
   /**
    * type 1 商品分类列表 2 商品详情 3 主题 4 选择选择地址 5 搜索 6 商城首页 7 店铺首页 8 品牌馆 9 新闻详情
-   * 10 跳转网页, 11 跳转行程 12跳转订单详情
+   * 10 跳转网页, 11 跳转行程 12跳转订单详情 13专题列表
    * @param type
    * @param id
    */
