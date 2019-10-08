@@ -2,7 +2,7 @@
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-09-28 18:45:00
+ * @LastEditTime: 2019-10-08 20:55:40
  * @Description: 所有跳转页面类型服务
  */
 import { Injectable } from '@angular/core';
@@ -78,9 +78,9 @@ export class TopageService {
     } else if (type === 12) {
       this.router.navigate(['/ordercontent'], {queryParams: {id}});
     } else if (type === 13) {
-      this.router.navigate(['/all-zt'], {queryParams: {type: 1}});
+      this.router.navigate(['/all-zt'], {queryParams: {type: 0}});
     } else if (type === 14) {
-      this.router.navigate(['/all-zt'], {queryParams: {type: 2}});
+      this.router.navigate(['/all-zt'], {queryParams: {type: 1}});
     } else {
       this.router.navigate(['/tabs/tab1']);
     }

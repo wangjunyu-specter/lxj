@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-09-26 16:52:52
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-08 15:51:31
+ * @LastEditTime: 2019-10-08 21:28:49
  * @Description: 专题列表
  -->
 <ion-header [translucent]="true">
@@ -17,10 +17,16 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <div class="top">
-        <img src="./assets/listbg.svg" alt="">
-        <div class="banner" padding>
-          <img src="http://img1.imgtn.bdimg.com/it/u=2174909441,2495215020&fm=26&gp=0.jpg">
-        </div>
-      </div>
+  <div class="top">
+    <img src="./assets/listbg.svg" alt="">
+    <div class="banner" padding *ngIf="banner" (click)="goPagefn(banner.url, banner.type)">
+      <img [src]="banner.image | imgsrc: http.domain">
+    </div>
+  </div>
+  <div class="my-list">
+    <div class="item" *ngFor="let item of list" (click)="goPagefn(item.topic_id)">
+      <img [src]="item.topic_img | imgsrc: http.zdomain" alt="">
+      <div class="title">{{item.title}}</div>
+    </div>
+  </div>
 </ion-content>

@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-08-07 00:23:28
+ * @LastEditTime: 2019-10-08 21:19:29
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -104,6 +104,9 @@ export class HttpService {
   goodsSearch = 'search4.php?'; // 搜索
   tipword = 'ajax_www_68ecshop_com.php?act=tipword'; // 搜索 关键字
   getbonus = 'user.php?act=adduser_bonus'; // 领取优惠券 ', 'id=' + type_id + '&no_have=' + no_have
+  getZtlist = 'topic.php?act=get_ztlist'; // 获取专题列表
+  getZtlistbanner = 'topic.php?act=get_ztlist_banner'; // 获取专题列表banner
+
   // changebonus = 'flow.php?step=select_shipping'; // 使用红包 bonus suppid sel_cartgoods
   constructor(private http: HttpClient, private nhttp: HTTP, private nativeService: NativeService,
               private userfn: UserService, private nav: NavController) { }
