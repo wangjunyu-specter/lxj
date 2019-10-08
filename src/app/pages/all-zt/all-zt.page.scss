@@ -1,0 +1,11 @@
+.top {
+  //margin-top: -44px;
+  margin-top: var(--ion-platform-margin-top);
+  overflow: hidden;
+  .banner {
+    position: relative;
+    //top: -68px;
+    margin-top: -106px;
+    width: 100%;
+  }
+}

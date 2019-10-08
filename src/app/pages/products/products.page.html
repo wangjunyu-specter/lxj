@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-08-07 00:13:05
+ * @LastEditTime: 2019-10-08 15:15:24
  * @Description: file content
  -->
 <ion-header [translucent]="true" mode="ios">
@@ -62,7 +62,33 @@
       </ion-slides>
     </div>
   </div>
-  <ion-card class="tjnav" *ngIf="childnav.length > 0">
+  <div class="gdfl" *ngIf="childnav.length > 0">
+    <app-newpagetitle [title]="'更多分类'"></app-newpagetitle>
+    <div padding-start padding-end>
+      <ion-slides [options]="slideOptslv">
+          <ion-slide *ngFor="let item of childnav" (click)="goothercate(item.id)">
+            <div class="item-box">
+              <img [src]="item.catimg | imgsrc: http.zdomain + 'data/catthumb/'" alt="">
+              <span>{{item.name}}</span>
+            </div>
+          </ion-slide>
+        </ion-slides>
+    </div>
+  </div>
+  <div class="rmtj">
+      <app-newpagetitle [title]="'热门推荐'"></app-newpagetitle>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4" *ngFor="let item of navlist;">
+            <div class="box" (click)="setAddress(item.toaddress)">
+              <div class="title">{{item.toaddress}}</div>
+              <span>已售{{item.count}}</span>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  </div>
+  <!-- <ion-card class="tjnav" *ngIf="childnav.length > 0">
     <ion-card-content>
       <div class="card-title">
         <img src="./assets/fire.svg" alt="">更多分类
@@ -70,18 +96,15 @@
       <ion-grid>
         <ion-row>
           <ion-col size="4" *ngFor="let item of childnav" size="4" (click)="goothercate(item.id)">
-            <!--文本类型，先使用图片，后期需要再放开,还有css部分-->
-            <div class="title">{{item.name}}</div>
-            <!--<span>已售2320</span>-->
-            <!--<img src="./assets/zrm.svg" alt="">-->
-            <!--<img [src]="http.domain + item.image" alt="" style="width: 100%">-->
+            <img *ngIf="item.catimg" [src]="item.catimg | imgsrc: http.zdomain" alt="">
+            <div *ngIf="!item.catimg" class="title">{{item.name}}</div>
+            {{item | json}}
           </ion-col>
-
         </ion-row>
       </ion-grid>
     </ion-card-content>
-  </ion-card>
-  <ion-card class="tjnav" *ngIf="suppId === 0 && ishw && navlist && navlist.length > 0">
+  </ion-card> -->
+  <!-- <ion-card class="tjnav" *ngIf="suppId === 0 && ishw && navlist && navlist.length > 0">
     <ion-card-content>
       <div class="card-title">
         <img src="./assets/fire.svg" alt="">热门地点推荐
@@ -89,17 +112,17 @@
       <ion-grid>
         <ion-row>
           <ion-col size="4" *ngFor="let item of navlist; let i = index;" size="4" (click)="setAddress(item.toaddress)">
-            <!--文本类型，先使用图片，后期需要再放开,还有css部分-->
+            文本类型，先使用图片，后期需要再放开,还有css部分
             <div class="title">{{item.toaddress}}</div>
             <span>已售{{item.count}}</span>
               <img *ngIf="i == 0" src="./assets/zrm.svg" alt="">
-            <!--<img [src]="http.domain + item.image" alt="" style="width: 100%">-->
+            <img [src]="http.domain + item.image" alt="" style="width: 100%">
           </ion-col>
 
         </ion-row>
       </ion-grid>
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
 
   <div class="list-content" padding [ngClass]="{hastop: (!navlist || navlist && navlist.length == 0) && ( bannerList && bannerList.length > 0)}">
     <app-pagetitle *ngIf="suppId === 0 && listTitle" [myname]="listTitle" [type]="true"></app-pagetitle>

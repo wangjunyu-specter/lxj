@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-08-07 00:07:38
+ * @LastEditTime: 2019-10-08 12:01:15
  * @Description: file content
  */
 import {Component, ElementRef, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
@@ -63,6 +63,8 @@ export class ProductsPage implements OnInit {
   changeAddress: boolean; // 是否点击热门推荐
   tjcity: object[]; // 推荐的城市
   jtjyList: object[]; // 几天几夜列表
+  slideOptslv: any; // 更多分类参数
+
   constructor(private nav: NavController, private route: Router,
               private http: HttpService, private activeroute: ActivatedRoute,
               private shopservice: ShopContentService, public popoverController: PopoverController,
@@ -73,6 +75,14 @@ export class ProductsPage implements OnInit {
   }
   ionViewDidEnter() {
     console.log('加载完了')
+    this.slideOptslv = {
+      // slidesOffsetBefore : 50,
+      slidesPerView : 4.2,
+      slidesPerGroup : 1,
+      spaceBetween : 10,
+      pagination: ''
+      // slidesOffsetAfter : 100,
+    };
     this.shopservice.getShop().then(res => {
       this.shop = res;
       this.getParam();
@@ -324,13 +334,17 @@ export class ProductsPage implements OnInit {
     }
   }
   setTj(res) {
+    res = Object.assign({}, res);
+    console.log(res);
     this.navlist = res['banner'];
     this.price_grade = res['price_grade'];
     this.tjcity = res['tjcity'];
-    this.jtjyList = res['jtjy'];
-    if (this.jtjyList) {
-      this.jtjyList.unshift({'attr_value': '全部', active: true})
-    }
+    const arr: any[] = Array.from(res['jtjy']);
+    arr.unshift({'attr_value': '全部', active: true})
+    this.jtjyList = arr;
+    // if (this.jtjyList) {
+    //   this.jtjyList.unshift({'attr_value': '全部', active: true})
+    // }
     const carr = [];
     const contryarr = [];
     const addressarr = res['address'];

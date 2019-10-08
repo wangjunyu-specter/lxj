@@ -1,9 +1,26 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>allZt</ion-title>
-  </ion-toolbar>
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-09-26 16:52:52
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-10-08 15:51:31
+ * @Description: 专题列表
+ -->
+<ion-header [translucent]="true">
+    <ion-toolbar mode="ios">
+      <ion-buttons slot="start">
+        <ion-button (click)="goBack()">
+          <ion-icon mode="ios" name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>{{type == 1 ? '户外专题' : '装备专题'}}</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content [fullscreen]="true">
+    <div class="top">
+        <img src="./assets/listbg.svg" alt="">
+        <div class="banner" padding>
+          <img src="http://img1.imgtn.bdimg.com/it/u=2174909441,2495215020&fm=26&gp=0.jpg">
+        </div>
+      </div>
 </ion-content>
