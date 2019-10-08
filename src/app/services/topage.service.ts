@@ -2,7 +2,7 @@
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-09-26 16:54:10
+ * @LastEditTime: 2019-09-28 18:45:00
  * @Description: 所有跳转页面类型服务
  */
 import { Injectable } from '@angular/core';
@@ -19,7 +19,7 @@ export class TopageService {
 
   /**
    * type 1 商品分类列表 2 商品详情 3 主题 4 选择选择地址 5 搜索 6 商城首页 7 店铺首页 8 品牌馆 9 新闻详情
-   * 10 跳转网页, 11 跳转行程 12跳转订单详情 13专题列表
+   * 10 跳转网页, 11 跳转行程 12跳转订单详情 13专题列表 14商城专题列表
    * @param type
    * @param id
    */
@@ -78,7 +78,9 @@ export class TopageService {
     } else if (type === 12) {
       this.router.navigate(['/ordercontent'], {queryParams: {id}});
     } else if (type === 13) {
-      this.router.navigate(['/all-zt'], {queryParams: {type: id || 1}});
+      this.router.navigate(['/all-zt'], {queryParams: {type: 1}});
+    } else if (type === 14) {
+      this.router.navigate(['/all-zt'], {queryParams: {type: 2}});
     } else {
       this.router.navigate(['/tabs/tab1']);
     }
