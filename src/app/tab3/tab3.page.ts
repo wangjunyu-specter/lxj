@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-23 20:29:06
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-10-09 17:50:32
+ * @Description: file content
+ */
 import { Component } from '@angular/core';
 import {ModalController, NavController} from "@ionic/angular";
 import { ScindexService } from '../services/scindex.service';
@@ -20,6 +27,7 @@ export class Tab3Page {
 
   slideOpts: any; // 第二导航swiper参数
   slideOptslv: any; // 旅行灵感参数
+  xsmsOptslv: any; // 限时秒杀参数
   titleList: object; // 标题列表
   ggtj1: any[]; // 广告1
   ggtj2: any[]; // 广告2
@@ -33,6 +41,8 @@ export class Tab3Page {
   tjgoods: any; // 推荐商品
   moreGoods: any[]; // 更多商品
   topgoods: any[]; // 热卖10
+  xsms: object; // 限时秒杀
+  tjzt: object[]; // 推荐专题
   // shopdata: any;
   keywords: string; // 首页搜索提示文字
   constructor (private nav: NavController, private getIndex: ScindexService,
@@ -46,7 +56,7 @@ export class Tab3Page {
     this.slideOpts = {
       slidesPerView : 5,
       slidesPerGroup : 5,
-      slidesPerColumn: 1,
+      slidesPerColumn: 2,
       pagination: {
         el: '.swiper-pagination2'
       },
@@ -54,6 +64,14 @@ export class Tab3Page {
     this.slideOptslv = {
       // slidesOffsetBefore : 50,
       slidesPerView : 2.5,
+      slidesPerGroup : 1,
+      spaceBetween : 10,
+      pagination: ''
+      // slidesOffsetAfter : 100,
+    };
+    this.xsmsOptslv = {
+      // slidesOffsetBefore : 50,
+      slidesPerView : 2.6,
       slidesPerGroup : 1,
       spaceBetween : 10,
       pagination: ''
@@ -72,12 +90,15 @@ export class Tab3Page {
       this.ggtj4 = res['index_gg4'];
       this.ggtj5 = res['index_gg5'];
       this.ggtj6 = res['index_gg6'];
-      this.ggtj7 = res['index_gg7'];
-      this.ggtj8 = res['index_gg8'];
+      // this.ggtj7 = res['index_gg7'];
+      // this.ggtj8 = res['index_gg8'];
       this.titleList = res['index_title'];
       this.pptj = res['index_gg9'];
+      console.log(this.pptj)
       this.tjgoods = res['tj_goods'];
       this.topgoods = res['top_goods'];
+      this.xsms = res['xsms'];
+      this.tjzt = res['tjzt'];
       // console.log(this.titleList)
     }).catch(err =>{})
     this.shop.getShop().then(res => {

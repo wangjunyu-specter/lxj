@@ -4,7 +4,7 @@ import { ArticlecardComponent } from './articlecard/articlecard.component';
  * @Author: wjy-mac
  * @Date: 2019-07-28 00:35:54
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-09-25 16:03:40
+ * @LastEditTime: 2019-10-09 12:00:11
  * @Description: file content
  */
 import { NgModule } from '@angular/core';
@@ -50,6 +50,7 @@ import { OrderlistComponent } from './orderlist/orderlist.component';
 import { OrdercontentgoodsComponent } from './ordercontentgoods/ordercontentgoods.component';
 import { XclistComponent } from './xclist/xclist.component';
 import { RmztitemComponent } from './rmztitem/rmztitem.component';
+import { ScnewtitleComponent } from './scnewtitle/scnewtitle.component';
 // import { SearchComponent } from './search/search.component';
 @NgModule({
   declarations: [SeletebtnComponent, PagetitleComponent, NewpagetitleComponent, ProductlistComponent, YhboxComponent,
@@ -57,7 +58,7 @@ import { RmztitemComponent } from './rmztitem/rmztitem.component';
     FooterComponent, SjTopComponent, TimePipe, MorenumPipe, SetnumComponent, YhqtitlePipe,
     HwcpsortComponent, GoodssortComponent, ContactlistComponent, GwcitemComponent, PqimgboxComponent, PllistComponent,
     EmojipickComponent, ChatinputboxComponent, OrderlistComponent, OrdercontentgoodsComponent,
-    XclistComponent, BztjboxComponent, RmztitemComponent, ArticlecardComponent, GoodsupanddownComponent],
+    XclistComponent, BztjboxComponent, RmztitemComponent, ArticlecardComponent, GoodsupanddownComponent, ScnewtitleComponent],
   imports: [
     CommonModule,
     IonicModule,
@@ -72,6 +73,7 @@ import { RmztitemComponent } from './rmztitem/rmztitem.component';
     FooterComponent, SjTopComponent, SetnumComponent, HwcpsortComponent,
     GoodssortComponent, ContactlistComponent, TimePipe, GwcitemComponent,
     PqimgboxComponent, PllistComponent, ChatinputboxComponent, OrderlistComponent, OrdercontentgoodsComponent,
-    XclistComponent, NewpagetitleComponent, BztjboxComponent, RmztitemComponent, ArticlecardComponent, GoodsupanddownComponent]
+    XclistComponent, NewpagetitleComponent, BztjboxComponent, RmztitemComponent, ArticlecardComponent, GoodsupanddownComponent,
+    ScnewtitleComponent]
 })
 export class ComponentsModule { }

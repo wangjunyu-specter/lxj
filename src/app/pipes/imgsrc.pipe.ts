@@ -2,7 +2,7 @@
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-08-05 00:17:38
+ * @LastEditTime: 2019-10-09 16:24:11
  * @Description: file content
  */
 import { Pipe, PipeTransform } from '@angular/core';
@@ -23,6 +23,8 @@ export class ImgsrcPipe implements PipeTransform {
       return value;
     } else if (value.startsWith('/mobile') && args && args.endsWith('mobile/')) {
       return args + value.substring(7);
+    } else if (value.startsWith('./../')) {
+      return args + value.substring(5);
     } else {
       return args + value;
     }
