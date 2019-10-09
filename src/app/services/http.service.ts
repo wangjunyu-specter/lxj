@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-08 21:19:29
+ * @LastEditTime: 2019-10-09 21:33:12
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -324,7 +324,7 @@ export class HttpService {
       } else if (res && res.status === 3) {
         this.nativeService.presentToast('登录失效，请重新登录!');
         this.logints();
-          return false;
+        return false;
       } else {
         const msg = res ? (res.msg || res.message) : '响应错误';
         this.requestFailed('', '',  msg);
@@ -349,7 +349,7 @@ export class HttpService {
   }
   private requestFailed(url: string, err, rmsg ?: string) {
     this.nativeService.hideLoading();
-    let msg = url ? url : '接口' + ':';
+    let msg = url ? url : '';
     if (!err) {
       msg += rmsg;
     } else {

@@ -49,6 +49,7 @@ const routes: Routes = [
   { path: 'about-us', loadChildren: './pages/about-us/about-us.module#AboutUsPageModule' },
   { path: 'sjsearch', loadChildren: './pages/sjsearch/sjsearch.module#SjsearchPageModule' },
   { path: 'all-zt', loadChildren: './pages/all-zt/all-zt.module#AllZtPageModule' },
+  { path: 'news', loadChildren: './pages/news/news.module#NewsPageModule' },
 
 ];
 @NgModule({

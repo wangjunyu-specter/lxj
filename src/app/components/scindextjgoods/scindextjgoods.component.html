@@ -1,3 +1,15 @@
-<p>
-  scindextjgoods works!
-</p>
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-10-09 19:49:58
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-10-09 21:36:33
+ * @Description: 商城首页推荐商品模块
+ -->
+<div class="goods-box" [ngClass]="{showshadow: shadow == 2}">
+  <img src="{{src}}">
+  <div class="title" [ngClass]="{two: type == 2, one: type == 1}">{{name}}</div>
+  <div class="price">
+    <ion-text color="danger">￥{{nowprice}}</ion-text>
+    <span *ngIf="oldPrice">￥{{oldPrice}}</span>
+  </div>
+</div>

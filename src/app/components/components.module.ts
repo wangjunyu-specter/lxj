@@ -4,7 +4,7 @@ import { ArticlecardComponent } from './articlecard/articlecard.component';
  * @Author: wjy-mac
  * @Date: 2019-07-28 00:35:54
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-09 12:00:11
+ * @LastEditTime: 2019-10-09 20:14:22
  * @Description: file content
  */
 import { NgModule } from '@angular/core';
@@ -51,6 +51,7 @@ import { OrdercontentgoodsComponent } from './ordercontentgoods/ordercontentgood
 import { XclistComponent } from './xclist/xclist.component';
 import { RmztitemComponent } from './rmztitem/rmztitem.component';
 import { ScnewtitleComponent } from './scnewtitle/scnewtitle.component';
+import { ScindextjgoodsComponent } from './scindextjgoods/scindextjgoods.component';
 // import { SearchComponent } from './search/search.component';
 @NgModule({
   declarations: [SeletebtnComponent, PagetitleComponent, NewpagetitleComponent, ProductlistComponent, YhboxComponent,
@@ -58,7 +59,8 @@ import { ScnewtitleComponent } from './scnewtitle/scnewtitle.component';
     FooterComponent, SjTopComponent, TimePipe, MorenumPipe, SetnumComponent, YhqtitlePipe,
     HwcpsortComponent, GoodssortComponent, ContactlistComponent, GwcitemComponent, PqimgboxComponent, PllistComponent,
     EmojipickComponent, ChatinputboxComponent, OrderlistComponent, OrdercontentgoodsComponent,
-    XclistComponent, BztjboxComponent, RmztitemComponent, ArticlecardComponent, GoodsupanddownComponent, ScnewtitleComponent],
+    XclistComponent, BztjboxComponent, RmztitemComponent, ArticlecardComponent, GoodsupanddownComponent, ScnewtitleComponent,
+    ScindextjgoodsComponent],
   imports: [
     CommonModule,
     IonicModule,
@@ -74,6 +76,6 @@ import { ScnewtitleComponent } from './scnewtitle/scnewtitle.component';
     GoodssortComponent, ContactlistComponent, TimePipe, GwcitemComponent,
     PqimgboxComponent, PllistComponent, ChatinputboxComponent, OrderlistComponent, OrdercontentgoodsComponent,
     XclistComponent, NewpagetitleComponent, BztjboxComponent, RmztitemComponent, ArticlecardComponent, GoodsupanddownComponent,
-    ScnewtitleComponent]
+    ScnewtitleComponent, ScindextjgoodsComponent]
 })
 export class ComponentsModule { }

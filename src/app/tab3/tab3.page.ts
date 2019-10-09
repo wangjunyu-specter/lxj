@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-23 20:29:06
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-09 17:50:32
+ * @LastEditTime: 2019-10-09 21:25:57
  * @Description: file content
  */
 import { Component } from '@angular/core';
@@ -110,9 +110,10 @@ export class Tab3Page {
       if (!this.keywords) {
         this.keywords = res.sckeywords[0];
       }
-    }).catch(err2 => {})
+    }).catch(err2 => {});
   }
-  logScrolling ($event) {
+  
+  logScrolling($event) {
     const top: number = $event.detail.scrollTop;
     // if (!this.scroolold) {
     //   this.scroolold = top;

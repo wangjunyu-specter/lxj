@@ -1,0 +1,40 @@
+.goods-box {
+  width: 100%;
+  padding: 5px;
+  background-color: #fff;
+  &.showshadow {
+    box-shadow: 0 0 5px #f2f2f2;
+  }
+  img {
+    width: 100%;
+  }
+  .title {
+    width: 100%;
+    &.one {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    &.two {
+      line-height: 20px;
+      height: 40px;
+      overflow: hidden;
+    }
+  }
+  .price {
+    text-align: left;
+    font-size: var(--ion-sm-text);
+    font-family: "PingFang";
+    color: rgb(153, 153, 153);
+    line-height: 2.5;
+    width: 100%;
+    ion-text {
+      font-size: var(--ion-title);
+      font-family: "MicrosoftYaHei";
+      margin-right: 5px;
+    }
+    span {
+      text-decoration: line-through;
+    }
+  }
+}

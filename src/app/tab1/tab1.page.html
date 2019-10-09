@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-23 20:09:34
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-09-25 16:47:22
+ * @LastEditTime: 2019-10-09 21:54:42
  * @Description: file content
  -->
 <ion-header [translucent]="true" mode="ios">
@@ -17,7 +17,7 @@
           <img src="/assets/fdj.svg"><span *ngIf="shopdata">{{keywords}}</span>
         </div>
       </div>
-      <div class="right">
+      <div class="right" (click)="toPage(15)">
         <img src="/assets/topnews.svg" alt="">
       </div>
     </div>
@@ -239,7 +239,7 @@
           <p  (click)="toPage(9, data.id)">{{data.des}}</p>
         </div>
         <ion-slides [options]="bztjslideOptslv">
-          <ion-slide *ngFor="let goods of data.goods">
+          <ion-slide *ngFor="let goods of data.goods" (click)="toPage(2, goods.goods_id)">
             <app-goodsupanddown [data]="goods" [src]="goods.goods_thumb | imgsrc: http.zdomain" [tag]="goods.keywords | splitarr"></app-goodsupanddown>
           </ion-slide>
         </ion-slides>

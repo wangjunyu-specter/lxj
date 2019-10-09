@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-15 22:18:06
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-09-25 10:39:48
+ * @LastEditTime: 2019-10-09 21:10:56
  * @Description: file content
  */
 import { Component, OnInit, ViewChild  } from '@angular/core';
@@ -223,7 +223,7 @@ export class Tab1Page implements OnInit {
    * @param type
    * @param id
    */
-  toPage (type, id?: string, name?: string) {
+  toPage(type, id?: string, name?: string) {
     this.topage.toPage(type, id, name);
   }
   loadData(event) {

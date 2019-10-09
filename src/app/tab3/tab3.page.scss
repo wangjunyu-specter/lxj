@@ -285,37 +285,21 @@ ion-content {
     }
   }
 }
-.xsms-content {
-  img {
-    width: 100%;
-  }
-  .title {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    width: 100%;
-  }
-  .price {
-    text-align: left;
-    font-size: var(--ion-sm-text);
-    font-family: "PingFang";
-    color: rgb(153, 153, 153);
-    line-height: 2.5;
-    width: 100%;
-    ion-text {
-      font-size: var(--ion-title);
-      font-family: "MicrosoftYaHei";
-      margin-right: 5px;
-    }
-    span {
-      text-decoration: line-through;
-    }
-  }
-}
+
 .xsms-more {
   text-align: center;
   margin-top: 0;
   font-size: var(--ion-sm-text);
   color: rgb(51, 51, 51);
   line-height: 1.75;
+}
+app-scindextjgoods {
+  width: 100%;
+}
+.tjzt-list {
+  .tjzt-item {
+    .goods-box {
+      margin-top: -40px;
+    }
+  }
 }

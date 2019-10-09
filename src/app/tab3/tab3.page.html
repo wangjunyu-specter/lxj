@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-14 22:01:42
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-09 17:55:10
+ * @LastEditTime: 2019-10-09 21:36:21
  * @Description: file content
  -->
 <ion-header [translucent]="true" mode="ios">
@@ -116,12 +116,16 @@
   <div padding class="xsms-content">
     <ion-slides [options]="xsmsOptslv" style="margin-top: 10px" *ngIf="xsms && xsms.sort_goods_arr[0].goods.length > 0">
       <ion-slide *ngFor="let item of xsms.sort_goods_arr[0].goods" (click)="toPage(2, item.goods_id)">
-        <img src="{{item.goods_thumb | imgsrc: http.zdomain}}">
+        <app-scindextjgoods
+          [src]="item.goods_thumb | imgsrc: http.zdomain"
+          [name]="item.goods_brief" [nowprice]="item.shop_price"
+          [oldPrice]="item.market_price"></app-scindextjgoods>
+        <!-- <img src="{{item.goods_thumb | imgsrc: http.zdomain}}">
         <div class="title">{{item.goods_brief}}</div>
         <div class="price">
           <ion-text color="danger">￥{{item.shop_price}}</ion-text>
           <span>￥{{item.market_price}}</span>
-        </div>
+        </div> -->
       </ion-slide>
     </ion-slides>
   </div>
@@ -145,7 +149,17 @@
       <!-- <app-pagetitle *ngIf="titleList && titleList['title2']" [nopadding]="true" [myname]="titleList['title2']" [type]="true" [des]="titleList['desc2']"></app-pagetitle> -->
     </div>
   <div *ngIf="topgoods" padding>
-    <app-productlist *ngFor="let citem of topgoods" [data]="citem"  (open)="openpage($event)" type="2"></app-productlist>
+    <!-- <app-productlist *ngFor="let citem of topgoods" [data]="citem"  (open)="openpage($event)" type="2"></app-productlist> -->
+    <ion-grid>
+        <ion-row>
+          <ion-col size="6" *ngFor="let data of topgoods" (click)="toPage(2, data.goods_id)">
+              <app-scindextjgoods
+              [src]="data.thumb | imgsrc: http.zdomain"
+              [name]="data.short_name" [nowprice]="data.shop_price"
+              [type]="2" [shadow]="2"></app-scindextjgoods>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
   </div>
   <div padding>
     <app-scnewtitle *ngIf="titleList && titleList['title3']" [title]="titleList['title3']"></app-scnewtitle>
@@ -178,8 +192,17 @@
     <!-- <app-pagetitle *ngIf="titleList && titleList['title4']" [nopadding]="true" [myname]="titleList['title4']" [type]="true" [des]="titleList['desc4']"></app-pagetitle> -->
   </div>
   <div *ngIf="tjgoods && tjgoods[0]" padding>
-    <app-productlist *ngFor="let citem of tjgoods[0].arr" [data]="citem"  (open)="openpage($event)" type="1"></app-productlist>
-
+    <!-- <app-productlist *ngFor="let citem of tjgoods[0].arr" [data]="citem"  (open)="openpage($event)" type="1"></app-productlist> -->
+    <ion-grid>
+        <ion-row>
+          <ion-col size="6" *ngFor="let data of tjgoods[0].arr" (click)="toPage(2, data.id)">
+              <app-scindextjgoods
+              [src]="data.thumb | imgsrc: http.zdomain"
+              [name]="data.short_name" [nowprice]="data.shop_price"
+              [oldPrice]="data.market_price" [type]="2" [shadow]="2"></app-scindextjgoods>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
   </div>
   <div padding>
     <app-scnewtitle *ngIf="titleList && titleList['title5']" [title]="titleList['title5']"></app-scnewtitle>
@@ -188,15 +211,13 @@
   <div class="tjzt-list">
     <div class="tjzt-item" *ngFor="let item of tjzt">
       <img [src]="item.topic_img | imgsrc: http.zdomain " alt="">
-      <div class="goods-box">
+      <div class="goods-box" padding-start>
           <ion-slides [options]="xsmsOptslv" style="margin-top: 10px" *ngIf="item.sort_goods_arr[0] && item.sort_goods_arr[0].goods.length > 0">
               <ion-slide *ngFor="let data of item.sort_goods_arr[0].goods" (click)="toPage(2, data.goods_id)">
-                <img src="{{data.goods_thumb | imgsrc: http.zdomain}}">
-                <div class="title">{{data.goods_brief}}</div>
-                <div class="price">
-                  <ion-text color="danger">￥{{data.shop_price}}</ion-text>
-                  <span>￥{{data.market_price}}</span>
-                </div>
+                  <app-scindextjgoods
+                  [src]="data.goods_thumb | imgsrc: http.zdomain"
+                  [name]="data.goods_brief" [nowprice]="data.shop_price"
+                  [oldPrice]="data.market_price"></app-scindextjgoods>
               </ion-slide>
             </ion-slides>
       </div>
@@ -214,15 +235,34 @@
     <!-- <app-pagetitle *ngIf="titleList && titleList['title6']" [nopadding]="true" [myname]="titleList['title6']" [type]="true" [des]="titleList['desc6']"></app-pagetitle> -->
   </div>
   <div *ngIf="tjgoods && tjgoods[1]" padding>
-    <app-productlist *ngFor="let citem of tjgoods[1].arr" [data]="citem"  (open)="openpage($event)" type="3"></app-productlist>
-
+    <!-- <app-productlist *ngFor="let citem of tjgoods[1].arr" [data]="citem"  (open)="openpage($event)" type="3"></app-productlist> -->
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let data of tjgoods[1].arr" (click)="toPage(2, data.id)">
+            <app-scindextjgoods
+            [src]="data.thumb | imgsrc: http.zdomain"
+            [name]="data.short_name" [nowprice]="data.shop_price"
+            [oldPrice]="data.market_price" [type]="2" [shadow]="2"></app-scindextjgoods>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
   <div padding>
     <app-scnewtitle *ngIf="titleList && titleList['title7']" [title]="titleList['title7']"></app-scnewtitle>
     <!-- <app-pagetitle *ngIf="titleList && titleList['title7']" [nopadding]="true" [myname]="titleList['title7']" [type]="true" [des]="titleList['desc7']"></app-pagetitle> -->
   </div>
   <div padding *ngIf="moreGoods">
-    <app-productlist *ngFor="let item of moreGoods" [data]="item" (open)="openpage($event)"></app-productlist>
+    <!-- <app-productlist *ngFor="let item of moreGoods" [data]="item" (open)="openpage($event)"></app-productlist> -->
+    <ion-grid>
+        <ion-row>
+          <ion-col size="6" *ngFor="let data of moreGoods" (click)="toPage(2, data.id)">
+              <app-scindextjgoods
+              [src]="data.thumb | imgsrc: http.zdomain"
+              [name]="data.short_name" [nowprice]="data.shop_price"
+              [oldPrice]="data.market_price" [type]="2" [shadow]="2"></app-scindextjgoods>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
   </div>
   <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
     <ion-infinite-scroll-content
