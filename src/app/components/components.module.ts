@@ -4,7 +4,7 @@ import { ArticlecardComponent } from './articlecard/articlecard.component';
  * @Author: wjy-mac
  * @Date: 2019-07-28 00:35:54
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-09 20:14:22
+ * @LastEditTime: 2019-10-10 15:40:55
  * @Description: file content
  */
 import { NgModule } from '@angular/core';
@@ -52,6 +52,7 @@ import { XclistComponent } from './xclist/xclist.component';
 import { RmztitemComponent } from './rmztitem/rmztitem.component';
 import { ScnewtitleComponent } from './scnewtitle/scnewtitle.component';
 import { ScindextjgoodsComponent } from './scindextjgoods/scindextjgoods.component';
+import { NomoreComponent } from './nomore/nomore.component';
 // import { SearchComponent } from './search/search.component';
 @NgModule({
   declarations: [SeletebtnComponent, PagetitleComponent, NewpagetitleComponent, ProductlistComponent, YhboxComponent,
@@ -60,7 +61,7 @@ import { ScindextjgoodsComponent } from './scindextjgoods/scindextjgoods.compone
     HwcpsortComponent, GoodssortComponent, ContactlistComponent, GwcitemComponent, PqimgboxComponent, PllistComponent,
     EmojipickComponent, ChatinputboxComponent, OrderlistComponent, OrdercontentgoodsComponent,
     XclistComponent, BztjboxComponent, RmztitemComponent, ArticlecardComponent, GoodsupanddownComponent, ScnewtitleComponent,
-    ScindextjgoodsComponent],
+    ScindextjgoodsComponent, NomoreComponent],
   imports: [
     CommonModule,
     IonicModule,
@@ -76,6 +77,6 @@ import { ScindextjgoodsComponent } from './scindextjgoods/scindextjgoods.compone
     GoodssortComponent, ContactlistComponent, TimePipe, GwcitemComponent,
     PqimgboxComponent, PllistComponent, ChatinputboxComponent, OrderlistComponent, OrdercontentgoodsComponent,
     XclistComponent, NewpagetitleComponent, BztjboxComponent, RmztitemComponent, ArticlecardComponent, GoodsupanddownComponent,
-    ScnewtitleComponent, ScindextjgoodsComponent]
+    ScnewtitleComponent, ScindextjgoodsComponent, NomoreComponent]
 })
 export class ComponentsModule { }

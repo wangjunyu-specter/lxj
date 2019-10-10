@@ -12,3 +12,25 @@
     }
   }
 }
+.my-list {
+  .item {
+    margin-bottom: 20px;
+    img {
+      width: 100%;
+    }
+    .title {
+      font-size: var(--ion-title);
+      color: var(--ion-color-dark);
+      font-weight: 600;
+      line-height: 25px;
+    }
+    .footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      ion-text {
+        font-size: var(--ion-sm-text);
+      }
+    }
+  }
+}

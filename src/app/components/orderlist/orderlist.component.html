@@ -1,3 +1,10 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-07-29 22:26:50
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-07-29 22:26:50
+ * @Description: file content
+ -->
 <div class="my-content-bg" *ngFor="let item of list; let i = index">
   <ion-list inset="true" line="none">
     <div class="shopname-box">
@@ -8,7 +15,7 @@
     </div>
     <ion-item *ngFor="let data of item.goods_list" lines="none" (click)="gotoPage(12, item.order_sn)">
       <ion-thumbnail slot="start">
-        <img [src]="data.goods_thumb | imgsrc: http.domain">
+        <img [src]="data.goods_thumb | imgsrc: http.zdomain">
       </ion-thumbnail>
       <ion-label>
         <h3 class="goods_title">{{data.goods_name | namesubstr: 25}}</h3>

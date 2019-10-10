@@ -1,9 +1,61 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>news</ion-title>
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-10-10 09:55:35
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-10-10 15:15:46
+ * @Description: file content
+ -->
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back" mode="ios"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{type === 1 ? '消息' : '通知' }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content padding>
+  <div class="type-box" margin-bottom>
+    <div [ngClass]="{active: type === 1}" (click)="type = 1">消息</div>
+    <div [ngClass]="{active: type === 2}" (click)="type = 2">通知</div>
+  </div>
+  <div [hidden]="type !== 1">
+    <ion-list>
+      <ion-item-sliding>
+          <ion-item (click)="goNews(1, '名字')">
+            <ion-avatar slot="start">
+              <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+            </ion-avatar>
+            <ion-label>
+              Item Avatar
+              <p>kjkljlkjljkl</p>
+            </ion-label>
+            <ion-note slot="end">
+              <div class="time">09:32</div>
+              <ion-badge color="danger">66</ion-badge>
+            </ion-note>
+          </ion-item>
+          <ion-item-options side="end">
+            <ion-item-option (click)="unread(item)">标为已读</ion-item-option>
+            <ion-item-option color="danger" (click)="unread(item)">删除</ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+  </div>
+  <div [hidden]="type !== 2" class="tzgg">
+    <div class="my-list">
+      <div class="my-item">
+        <div class="title"><span>平台通知</span> <ion-text color="tertiary">周二</ion-text></div>
+        <div class="tz-content">
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" alt="">
+          <div class="right">
+            <div class="name">我是标题</div>
+            <ion-text color="tertiary">来自平台</ion-text>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </ion-content>

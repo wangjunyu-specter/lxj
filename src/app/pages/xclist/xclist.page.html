@@ -1,3 +1,10 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-07-07 16:47:08
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-10-10 15:45:06
+ * @Description: file content
+ -->
 <ion-header mode="ios">
   <ion-toolbar mode="ios">
     <ion-buttons slot="start">
@@ -45,18 +52,23 @@
   </div>
   <div [hidden]="type != 1">
     <app-xclist-component [list]="list1"></app-xclist-component>
+    <app-nomore *ngIf="!list1 || list1.length === 0"></app-nomore>
   </div>
   <div [hidden]="type != 2">
     <app-xclist-component [list]="list2"></app-xclist-component>
+    <app-nomore *ngIf="!list2 || list2.length === 0"></app-nomore>
   </div>
   <div [hidden]="type != 3">
     <app-xclist-component [list]="list3"></app-xclist-component>
+    <app-nomore *ngIf="!list3 || list3.length === 0"></app-nomore>
   </div>
   <div [hidden]="type != 4">
     <app-xclist-component [list]="list4"></app-xclist-component>
+    <app-nomore *ngIf="!list4 || list4.length === 0"></app-nomore>
   </div>
   <div [hidden]="type != 5">
     <app-xclist-component [list]="list5"></app-xclist-component>
+    <app-nomore *ngIf="!list5 || list5.length === 0"></app-nomore>
   </div>
   <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
     <ion-infinite-scroll-content
