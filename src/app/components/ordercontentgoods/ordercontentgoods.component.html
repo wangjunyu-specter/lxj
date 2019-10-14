@@ -1,3 +1,10 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-10-11 22:19:34
+ * @Description: 订单详情商品模块
+ -->
 <div class="my-content-bg">
   <ion-list inset="true" line="none">
     <div class="shopname-box">
@@ -9,7 +16,7 @@
     </div>
     <ion-item *ngFor="let data of goods_list" lines="none" (click)="gotoPage(2, data.goods_id)">
       <ion-thumbnail slot="start">
-        <img [src]="data.goods_thumb | imgsrc: http.domain">
+        <img [src]="data.goods_thumb | imgsrc: http.zdomain">
       </ion-thumbnail>
       <ion-label>
         <h3 class="goods_title">{{data.goods_name | namesubstr: 25}}</h3>
