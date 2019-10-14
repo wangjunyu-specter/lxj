@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-29 22:24:48
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-07-29 22:24:48
+ * @Description: file content
+ */
 import {Component, ElementRef, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NavController} from '@ionic/angular';
@@ -40,9 +47,9 @@ export class OrdersuccessPage implements OnInit {
 
   }
   ionViewDidLeave() {
-    this.order.clearData();
   }
   goIndex() {
+    this.order.clearData();
     this.nav.navigateBack('tabs/tab1');
   }
   getContent() {

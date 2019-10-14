@@ -20,7 +20,12 @@
 .order_des {
   font-size: var(--ion-sm-text);
   color: var(--ion-color-medium);
-  text-align: right;
+  // text-align: right;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
 }
 .supper_name {
   font-size: var(--ion-title);
