@@ -1,3 +1,10 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-07-28 01:58:20
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-07-28 01:58:20
+ * @Description: file content
+ -->
 <ion-header [translucent]="true" mode="ios">
   <ion-toolbar mode="ios" [ngClass]="'show-' + toolbaropacity">
     <div class="search-bar">
@@ -75,7 +82,7 @@
     </div>
   </div>
   <div class="title-box" *ngIf="productData" [ngClass]="{'title-top': !productData.xsprice.promote_price || productData.xsprice.promote_price == '0' || !productData.xsprice.promote_end_date}">
-    <app-productlist *ngIf="productData.topData" [data]="productData.topData" [price]="productData.activestartprice"></app-productlist>
+    <app-productlist *ngIf="productData.topData" [ishw]="productData.ishw" [data]="productData.topData" [price]="productData.activestartprice"></app-productlist>
   </div>
   <div class="fwbox line-height">
     <ion-list node="ios" *ngIf="productData">

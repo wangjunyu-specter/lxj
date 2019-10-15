@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-09 21:33:12
+ * @LastEditTime: 2019-10-15 11:34:29
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -106,7 +106,7 @@ export class HttpService {
   getbonus = 'user.php?act=adduser_bonus'; // 领取优惠券 ', 'id=' + type_id + '&no_have=' + no_have
   getZtlist = 'topic.php?act=get_ztlist'; // 获取专题列表
   getZtlistbanner = 'topic.php?act=get_ztlist_banner'; // 获取专题列表banner
-
+  okgoods = 'api/okgoods.php'; // 确认订单
   // changebonus = 'flow.php?step=select_shipping'; // 使用红包 bonus suppid sel_cartgoods
   constructor(private http: HttpClient, private nhttp: HTTP, private nativeService: NativeService,
               private userfn: UserService, private nav: NavController) { }
@@ -289,7 +289,10 @@ export class HttpService {
       console.error(e);
       user = {};
     }
-    url = this.domain + url;
+    const ze = /^(HTTP)/i;
+    if (!ze.test(url)) {
+      url = this.domain + url;
+    }
     url += '&user_id=' + user['user_id'];
     let header: any;
     if (user.token) {

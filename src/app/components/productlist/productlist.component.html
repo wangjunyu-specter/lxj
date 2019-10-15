@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-08-07 23:53:13
+ * @LastEditTime: 2019-10-15 15:37:37
  * @Description: file content
  -->
 <div class="list-box" (click)="openpage()">
@@ -18,9 +18,8 @@
         <p class="text">{{data.name || data.short_name || data.goods_name}}</p>
       </div>
       <div class="bq" *ngIf="!ishw">
-        <!--<span color="success" *ngFor="let item of data.tags">{{item.tag_words}}</span>-->
-        <p *ngIf="isshowattr">{{data.goods_attr_str}}</p>
-        <p *ngIf="!isshowattr && data.keywords">{{data.keywords}}</p>
+        <!-- <p *ngIf="isshowattr">{{data.goods_attr_str}}</p> 此处先隐藏，对应值在php没找到-->
+        <!-- <p *ngIf="!isshowattr && data.keywords">{{data.keywords}}</p> -->
       </div>
       <div class="bq" *ngIf="ishw && data.tags && data.tags.length > 0">
         <span color="success" *ngFor="let item of data.tags">{{item.tag_words}}</span>

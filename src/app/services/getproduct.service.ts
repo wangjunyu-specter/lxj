@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-28 02:20:08
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-07-28 02:20:08
+ * @Description: file content
+ */
 import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
 import { ProductcontentlistService } from './productcontentlist.service';
@@ -63,9 +70,10 @@ export class GetproductService {
       topData: {},
       xsprice: {},
       bannerList: []
-    };
+    }; 
     this.data.id = data.id;
     this.data.topData.tags = data.tags;
+    this.data.topData.keywords = data.keywords;
     this.data.topData.name = data.goods.goods_name;
     this.data.topData.is_best = data.goods.is_best;
     this.data.topData.is_hot = data.goods.is_hot;

@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-10-11 22:11:12
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-11 22:23:23
+ * @LastEditTime: 2019-10-15 10:59:23
  * @Description: file content
  */
 import { Pipe, PipeTransform } from '@angular/core';
@@ -23,7 +23,7 @@ export class XcstatusPipe implements PipeTransform {
       return ' 已完成';
     } else if (value === '已取消 未付款 未发货') {
       return '已取消';
-    } else if (value === '未确认 未付款 未发货') {
+    } else if (value === '未确认 未付款 未发货' || value === '已确认 未付款 未发货') {
       return '待付款';
     } else {
       return value;

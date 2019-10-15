@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-08-04 00:05:03
+ * @LastEditTime: 2019-10-15 11:39:12
  * @Description: file content
  */
 import { NgModule } from '@angular/core';
@@ -26,6 +26,7 @@ import { AppUpdate } from '@ionic-native/app-update/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpService } from './services/http.service';
+import {OkgoodsService} from './services/okgoods.service';
 import { ShopContentService } from './services/shop-content.service';
 import { GetproductService } from './services/getproduct.service';
 import { ProductcontentlistService } from './services/productcontentlist.service';
@@ -118,6 +119,7 @@ import { ModelTimePipe } from './pipes/model-time.pipe';
     StatusBar,
     SplashScreen,
     HttpService,
+    OkgoodsService,
     ShopContentService,
     NativeService,
     GetproductService,

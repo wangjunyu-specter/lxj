@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-31 23:26:32
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-10-15 11:37:40
+ * @Description: file content
+ */
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { UserService } from '../services/user.service';
@@ -6,6 +13,7 @@ import { HttpService } from '../services/http.service';
 import {UsercenterService} from "../services/usercenter.service";
 import {TopageService} from "../services/topage.service";
 import {NativeService} from "../services/native.service";
+import { OkgoodsService } from '../services/okgoods.service';
 
 @Component({
   selector: 'app-tab4',
@@ -20,7 +28,8 @@ export class Tab4Page implements OnInit {
   centeruser: any;
   hdzxList: object[]; // 活动中心
   constructor(private route: Router, private userfn: UserService, public http: HttpService,
-              private usercenter: UsercenterService, private toPage: TopageService, private native: NativeService) { }
+              private usercenter: UsercenterService, private toPage: TopageService, private native: NativeService,
+              private okgoodsfn: OkgoodsService) { }
 
   ngOnInit() {
     this.isshow = false;
@@ -48,12 +57,14 @@ export class Tab4Page implements OnInit {
       console.log(err);
     });
     this.centeruser = this.usercenter.getUserdata();
+    this.okgoodsfn.sendOkgoods(); // 发送确自动认收货请求
     // this.userfn.getGz().then(res => {
     //   console.log(res)
     // }).catch(error => {
     //   console.log(error)
     // })
   }
+  
   // 活动做成两种类型，一种打开组件，一种打开网页
   logScrolling($event) {
     const top: number = $event.detail.scrollTop;
