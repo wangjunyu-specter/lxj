@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-08-03 14:52:31
+ * @Description: file content
+ */
 import { Component, OnInit } from '@angular/core';
 import {AlertController, NavController, PopoverController} from '@ionic/angular';
 import {HttpService} from '../../services/http.service';
@@ -119,7 +126,7 @@ export class PayPage implements OnInit {
     if (!obj) {
       obj = {
         order: {
-          order_id: this.orderId
+          order_id: this.ordersn
         }
       }
     }
