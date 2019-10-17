@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-08 22:17:50
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-07-08 22:17:50
+ * @Description: file content
+ */
 import { Component, OnInit } from '@angular/core';
 import {AlertController, NavController, PopoverController} from '@ionic/angular';
 import {HttpService} from '../../services/http.service';
