@@ -1,8 +1,8 @@
 /*
  * @Author: wjy-mac
- * @Date: 2019-07-08 22:17:50
+ * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-07-08 22:17:50
+ * @LastEditTime: 2019-10-17 11:19:35
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -126,7 +126,7 @@ export class PayPage implements OnInit {
     if (!obj) {
       obj = {
         order: {
-          order_id: this.orderId
+          order_id: this.ordersn
         }
       }
     }

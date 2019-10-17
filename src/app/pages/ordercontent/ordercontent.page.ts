@@ -1,10 +1,18 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-29 22:29:34
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-10-17 17:53:46
+ * @Description: file content
+ */
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {AlertController, NavController, PopoverController} from "@ionic/angular";
 import {HttpService} from "../../services/http.service";
 import {NativeService} from "../../services/native.service";
 import {PaymentListService} from "../../services/payment-list.service";
 import {PayboxComponent} from '../../components/paybox/paybox.component';
+import { TopageService } from '../../services/topage.service';
 
 @Component({
   selector: 'app-ordercontent',
@@ -22,7 +30,8 @@ export class OrdercontentPage implements OnInit {
   isyepayend: boolean; // 是否已使用余额  但未支付成功
   constructor(private activeroute: ActivatedRoute, private nav: NavController,
               private http: HttpService, private native: NativeService, private paymentlist: PaymentListService,
-              public alertController: AlertController, public popoverController: PopoverController) { }
+              public alertController: AlertController, public popoverController: PopoverController,
+              private topage: TopageService, private route: Router) { }
 
   ngOnInit() {
     const params = this.activeroute.snapshot.queryParams;
@@ -90,11 +99,18 @@ export class OrdercontentPage implements OnInit {
     }
 
   }
-  cancleOrder() {
-    this.http.getDataloading(this.http.cancelOrder, {order_id: this.orderId}).subscribe(res => {
-      console.log(res);
-      this.presentAlert();
-    }, error2 => {})
+  repurchase() {
+    this.topage.toPage(2, this.data.goods_list[0].goods_id);
+  }
+  cancleOrder(type?) {
+    if (type) {
+      this.http.getDataloading(this.http.cancelOrder, {order_id: this.orderId}).subscribe(res => {
+        console.log(res);
+        this.presentAlert();
+      }, error2 => {})
+    } else {
+      this.route.navigate(['/cancel-order'], {queryParams: {type: 1}});
+    }
   }
   setyechange() {
     if (this.syye < 0) {

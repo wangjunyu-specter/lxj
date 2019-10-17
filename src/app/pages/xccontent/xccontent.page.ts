@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-07 23:49:04
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-10-17 17:35:29
+ * @Description: file content
+ */
 import { Component, OnInit } from '@angular/core';
 import {AlertController, NavController, PopoverController} from "@ionic/angular";
 import {PaymentListService} from "../../services/payment-list.service";
@@ -104,11 +111,36 @@ export class XccontentPage implements OnInit {
     }
 
   }
-  cancleOrder() {
+  async cancleOrder(type = -1) {
+    if (type === -1) {
+      const alert = await this.alertController.create({
+        header: '提示',
+        message: '退款可能会产生商家损失费，详情请注意退款说明.',
+        buttons: [
+          {
+            text: '取消',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: (blah) => {
+            }
+          }, {
+            text: '坚持退款',
+            handler: () => {
+              this.cancleOrderfn();
+            }
+          }
+        ]
+      });
+      await alert.present();
+    } else {
+      this.cancleOrderfn();
+    }
+  }
+  cancleOrderfn() {
     this.http.getDataloading(this.http.cancelOrderxc, {order_id: this.orderId}).subscribe(res => {
       console.log(res);
-      this.presentAlert();
-    }, error2 => {})
+      this.presentAlert(); // TODO: 需要在php文件添加给商家打款的代码
+    }, error2 => {});
   }
   setyechange() {
     if (this.syye < 0) {

@@ -1,3 +1,10 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-07-07 02:44:20
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-10-17 17:53:14
+ * @Description: 商品订单详情
+ -->
 <ion-header>
   <ion-toolbar mode="ios">
     <ion-buttons slot="start">
@@ -19,18 +26,17 @@
     </ion-refresher-content>
   </ion-refresher>
   <div class="top" *ngIf="data">
-    <div class="status" *ngIf="data.order.order_status !== '已取消' && data.order.order_status !== '已完成'">
-      <span *ngIf="data.order.pay_status === '未付款'">等待买家付款</span>
-      <p *ngIf="data.order.pay_status === '未付款'">剩{{endtime}}自动关闭</p>
-      <span *ngIf="data.order.pay_status !== '未付款'">订单{{data.order.shipping_status}}</span>
-    </div>
-    <div class="status" *ngIf="data.order.order_status === '已取消' || data.order.order_status === '已完成'">
+    <div class="status">
+      <span *ngIf="(data.order.order_status == '0' || data.order.order_status == '1') && data.order.pay_status == '0'">等待买家付款</span>
+      <p *ngIf="(data.order.order_status == '0' || data.order.order_status == '1') && data.order.pay_status == '0'">剩{{endtime}}自动关闭</p>
       <span>
-        <img *ngIf="data.order.order_status === '已完成'" src="../../../assets/icon/gou.svg" alt="">
-        <img class="cancle" *ngIf="data.order.order_status === '已取消'" src="../../../assets/icon/cancle.svg" alt="">
-        订单{{data.order.order_status}}
+        <img *ngIf="data.order.order_status == '5' && data.order.shipping_status == '2' && data.order.pay_status == '2'" src="../../../assets/icon/gou.svg" alt="">
+        <img class="cancle" *ngIf="data.order.order_status == '2' && data.order.shipping_status == '0' && data.order.pay_status == '0'" src="../../../assets/icon/cancle.svg" alt="">
       </span>
-      <!--<span margin-top><ion-button size="small" color="secondary">再次购买</ion-button></span>-->
+      <span>订单{{data.order | orderstatus}}</span>
+      <span margin-top 
+      *ngIf="data.order.order_status == '5' && data.order.shipping_status == '2' && data.order.pay_status == '2' || 
+      data.order.order_status == '2' && data.order.shipping_status == '0' && data.order.pay_status == '0'"><ion-button size="small" color="secondary" (click)="repurchase()">再次购买</ion-button></span>
     </div>
   </div>
   <div class="address-box" padding>
@@ -133,7 +139,7 @@
       <div class="right">{{data.order.add_time | time}}</div>
     </div>
     <div class="my-item" *ngIf="data.order.postscript">
-      <div class="left">留言:</div>
+      <div class="left">订单留言:</div>
       <div class="right">{{data.order.postscript}}</div>
     </div>
     <div class="my-item" *ngIf="data.order.to_buyer">
@@ -171,11 +177,34 @@
     </ion-list>
   </div>
 </ion-content>
-<ion-footer *ngIf="data && data.handler && data.order.order_status == '未确认' && data.order.pay_status === '未付款'">
+<ion-footer *ngIf="data && (data.order.order_status == '0' || data.order.order_status == '1') && data.order.pay_status === '0'">
   <ion-toolbar>
     <div class="footer-bar">
-      <ion-button size="small" color="light" (click)="cancleOrder()">取消订单</ion-button>
+      <ion-button size="small" color="light" (click)="cancleOrder(1)">取消订单</ion-button>
       <ion-button size="small" color="danger" (click)="submit()">付款</ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>
+<ion-footer 
+*ngIf="data && data.order.order_status == '1' && (data.order.shipping_status == '0' || data.order.shipping_status == '3') && data.order.pay_status === '2' ||
+data && data.order.order_status == '2' && data.order.shipping_status == '0' && data.order.pay_status === '2'">
+  <ion-toolbar>
+    <div class="footer-bar">
+      <ion-button size="small" color="light" (click)="cancleOrder(1)">退款</ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>
+<ion-footer *ngIf="data && data.order.order_status == '5' && data.order.shipping_status == '1' && data.order.pay_status === '2'">
+  <ion-toolbar>
+    <div class="footer-bar">
+      <ion-button size="small" color="light" (click)="cancleOrder()">退换</ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>
+<ion-footer *ngIf="data && data.order.order_status == '5' && data.order.shipping_status == '2' && data.order.pay_status === '2'">
+  <ion-toolbar>
+    <div class="footer-bar">
+      <ion-button size="small" color="light" (click)="cancleOrder()">售后</ion-button>
     </div>
   </ion-toolbar>
 </ion-footer>
