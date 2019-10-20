@@ -94,6 +94,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_usercenter_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/usercenter.service */ "./src/app/services/usercenter.service.ts");
 /* harmony import */ var _services_topage_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/topage.service */ "./src/app/services/topage.service.ts");
 /* harmony import */ var _services_native_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/native.service */ "./src/app/services/native.service.ts");
+/* harmony import */ var _services_okgoods_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/okgoods.service */ "./src/app/services/okgoods.service.ts");
+
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-31 23:26:32
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-10-15 11:37:40
+ * @Description: file content
+ */
 
 
 
@@ -103,13 +112,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Tab4Page = /** @class */ (function () {
-    function Tab4Page(route, userfn, http, usercenter, toPage, native) {
+    function Tab4Page(route, userfn, http, usercenter, toPage, native, okgoodsfn) {
         this.route = route;
         this.userfn = userfn;
         this.http = http;
         this.usercenter = usercenter;
         this.toPage = toPage;
         this.native = native;
+        this.okgoodsfn = okgoodsfn;
     }
     Tab4Page.prototype.ngOnInit = function () {
         this.isshow = false;
@@ -138,6 +148,7 @@ var Tab4Page = /** @class */ (function () {
             console.log(err);
         });
         this.centeruser = this.usercenter.getUserdata();
+        this.okgoodsfn.sendOkgoods(); // 发送确自动认收货请求
         // this.userfn.getGz().then(res => {
         //   console.log(res)
         // }).catch(error => {
@@ -227,7 +238,8 @@ var Tab4Page = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./tab4.page.scss */ "./src/app/tab4/tab4.page.scss")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _services_http_service__WEBPACK_IMPORTED_MODULE_4__["HttpService"],
-            _services_usercenter_service__WEBPACK_IMPORTED_MODULE_5__["UsercenterService"], _services_topage_service__WEBPACK_IMPORTED_MODULE_6__["TopageService"], _services_native_service__WEBPACK_IMPORTED_MODULE_7__["NativeService"]])
+            _services_usercenter_service__WEBPACK_IMPORTED_MODULE_5__["UsercenterService"], _services_topage_service__WEBPACK_IMPORTED_MODULE_6__["TopageService"], _services_native_service__WEBPACK_IMPORTED_MODULE_7__["NativeService"],
+            _services_okgoods_service__WEBPACK_IMPORTED_MODULE_8__["OkgoodsService"]])
     ], Tab4Page);
     return Tab4Page;
 }());

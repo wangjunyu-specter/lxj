@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-15 11:34:29
+ * @LastEditTime: 2019-10-18 22:37:58
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -92,6 +92,7 @@ export class HttpService {
   setgz = 'article.php?act=setgz'; // 设置关注
   getpqlistsearch = 'article.php?act=getpqlistsearch'; // 获取搜索
   updateimg = 'article.php?act=updateimg'; // 上传图片
+  shupdateimg = 'includes/kindeditor/php/upload_json.php?dir=image'; // 售后上传图片
   setyepay = 'security.php?act=do_payment_password_reset'; // 设置余额支付密码  开启余额支付
   // updatevideo = 'article.php?act=updatevideo'; // 上传视频
   getcity = 'region.php?'; // 设置关注parent=0 type=2
@@ -107,6 +108,7 @@ export class HttpService {
   getZtlist = 'topic.php?act=get_ztlist'; // 获取专题列表
   getZtlistbanner = 'topic.php?act=get_ztlist_banner'; // 获取专题列表banner
   okgoods = 'api/okgoods.php'; // 确认订单
+  backorderact = 'user.php?act=back_order_act'; // 退货退款
   // changebonus = 'flow.php?step=select_shipping'; // 使用红包 bonus suppid sel_cartgoods
   constructor(private http: HttpClient, private nhttp: HTTP, private nativeService: NativeService,
               private userfn: UserService, private nav: NavController) { }

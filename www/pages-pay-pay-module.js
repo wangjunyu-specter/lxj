@@ -98,6 +98,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _services_ordersuccess_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../services/ordersuccess.service */ "./src/app/services/ordersuccess.service.ts");
 
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-10-17 11:19:35
+ * @Description: file content
+ */
 
 
 
@@ -225,7 +232,7 @@ var PayPage = /** @class */ (function () {
         if (!obj) {
             obj = {
                 order: {
-                    order_id: this.orderId
+                    order_id: this.ordersn
                 }
             };
         }

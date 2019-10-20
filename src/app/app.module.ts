@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-15 11:39:12
+ * @LastEditTime: 2019-10-18 23:01:07
  * @Description: file content
  */
 import { NgModule } from '@angular/core';
@@ -34,6 +34,7 @@ import { GoodsattrService } from './services/goodsattr.service';
 import { SearchrecodeService } from './services/searchrecode.service';
 import { SearchendgoodsService } from './services/searchendgoods.service';
 import { UserloginService } from './services/userlogin.service';
+import { ThorderService } from './services/thorder.service';
 
 import { SearchComponent } from './components/search/search.component';
 import { GoodsattrComponent } from './components/goodsattr/goodsattr.component';
@@ -170,6 +171,7 @@ import { ModelTimePipe } from './pipes/model-time.pipe';
     AppVersion,
     Market,
     AppUpdate,
+    ThorderService,
     // NavigationBar,
     // ComponentsModule,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

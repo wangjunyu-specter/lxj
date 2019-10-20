@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-08-07 23:24:08
+ * @LastEditTime: 2019-10-18 14:50:05
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -360,7 +360,7 @@ export class NativeService {
    * @param base64
    * @param name
    */
-  getImgbase64tofile(base64, name) {
+  getImgbase64tofile(base64, name, filename = 'file') {
     name = name + (new Date()).valueOf() + '.png'; // 定义文件名字（例如：abc.png ， cover.png）
     const type = 'image/png'; // 定义图片类型（canvas转的图片一般都是png，也可以指定其他类型）
     const arr = base64.split(',');
@@ -378,7 +378,7 @@ export class NativeService {
       type: mime
     });
     const oMyForm = new FormData();    // 创建一个空的FormData对象
-    oMyForm.append('file', file, name);
+    oMyForm.append(filename, file, name);
     // oMyForm.append('abc', '123');
     return oMyForm;
   }

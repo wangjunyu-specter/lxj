@@ -1,9 +1,126 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-10-17 17:47:02
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-10-19 00:50:02
+ * @Description: file content
+ -->
 <ion-header>
-  <ion-toolbar>
-    <ion-title>cancelOrder</ion-title>
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon mode="ios" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>退换/售后</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-list>
+    <ion-radio-group [(ngModel)]="data.back_type" name="back_type">
+      <ion-list-header>
+        <ion-label>服务类型:</ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-label>退款（无需退货）</ion-label>
+        <ion-radio slot="start" value="biff" checked value="4"></ion-radio>
+      </ion-item>
 
+      <ion-item>
+        <ion-label>退货退款</ion-label>
+        <ion-radio slot="start" value="griff" value="1"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>换货/维修</ion-label>
+        <ion-radio slot="start" value="buford" value="3"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+    <ion-item>
+      <ion-label position="stacked">
+        退款提示:
+      </ion-label>
+      <ion-note>
+        <ion-text>
+          <p class="tk-ts">申请退款，将取消整笔订单，并退回您该笔订单款项，如有需要请重新下单。</p>
+        </ion-text>
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">问题描述:</ion-label>
+      <ion-textarea [rows]="6" [maxlength]="500" [(ngModel)]="data.back_reason" name="back_reason" placeholder="请您如实填写申请原因及商品情况，字数在500字内。"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">图片信息</ion-label>
+      <ion-note style="width: 100%;">
+        <ion-row margin-top>
+          <ion-col size="4" (click)="addimg()">
+            <div class="img-box">
+              <img src="../../../assets/add.png" alt="">
+            </div>
+          </ion-col>
+          <ion-col size="4" *ngFor="let item of imgs; let i = index" (click)="removeImg()">
+            <div class="img-box">
+              <img [src]="item" alt="">
+              <div class="loadEffect" *ngIf="isupdate[i] === -1">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+        <p class="img-ts">
+          <ion-text color="tertiary">
+            为了帮助我们更好的解决问题，请您上传图片
+          </ion-text>
+          <br/>
+          <ion-text>
+            每张图片大小不超过2M，支持gif,jpg,png,jpeg格式文件
+          </ion-text>
+        </p>
+      </ion-note>
+    </ion-item>
+    <ion-item *ngIf="data.back_type == 3">
+      <ion-label position="stacked">收货人姓名:</ion-label>
+      <ion-input placeholder="请输入姓名" required [(ngModel)]="data.back_consignee" name="back_consignee"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="data.back_type == 3">
+      <ion-label position="stacked">收货人电话:</ion-label>
+      <ion-input placeholder="请输入有效手机号码" required [(ngModel)]="data.back_mobile" name="back_mobile"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="data.back_type == 3">
+      <ion-label position="stacked">省:</ion-label>
+      <ion-select placeholder="请选择省" (ionChange)="selteaddress(2, data.province)" required [(ngModel)]="data.province" name="province" cancelText="取消" okText="确定">
+        <ion-select-option *ngFor="let item of provincelist" [value]="item.region_id">{{item.region_name}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="data.back_type == 3">
+      <ion-label position="stacked">市:</ion-label>
+      <ion-select placeholder="请选择市" (ionChange)="selteaddress(3, data.city)" required [(ngModel)]="data.city" name="city" cancelText="取消" okText="确定">
+        <ion-select-option *ngFor="let item of citylist" [value]="item.region_id">{{item.region_name}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="data.back_type == 3">
+      <ion-label position="stacked">区:</ion-label>
+      <ion-select placeholder="请选择区" required [(ngModel)]="data.district" name="district" cancelText="取消" okText="确定">
+        <ion-select-option *ngFor="let item of arealist" [value]="item.region_id">{{item.region_name}}</ion-select-option>
+      </ion-select>
+
+    </ion-item>
+    <ion-item *ngIf="data.back_type == 3">
+      <ion-label position="stacked">详细地址:</ion-label>
+      <ion-textarea placeholder="详细地址：如道路、门牌号、小区、楼栋号、单元室等" required [(ngModel)]="data.back_address" name="back_address"></ion-textarea>
+    </ion-item>
+  </ion-list>
+  <div padding>
+    <ion-button color="success" expand="block" (click)="sub()">
+      提交
+    </ion-button>
+  </div>
 </ion-content>

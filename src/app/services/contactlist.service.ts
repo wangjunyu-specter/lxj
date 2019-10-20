@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-06-25 23:35:14
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-06-25 23:35:14
+ * @Description: file content
+ */
 import { Injectable } from '@angular/core';
 import {HttpService} from "./http.service";
 import {UserService} from './user.service';
@@ -65,6 +72,16 @@ export class ContactlistService {
     this.provinceList.push(...list);
   }
   getPro() {
+    return this.provinceList;
+  }
+  async getProasync() {
+    if (this.provinceList.length === 0) {
+      try {
+        await this.getList();
+      } catch (err) {
+        return [];
+      }
+    }
     return this.provinceList;
   }
   setMr (id) {

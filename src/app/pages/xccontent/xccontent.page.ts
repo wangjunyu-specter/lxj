@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-07 23:49:04
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-17 17:35:29
+ * @LastEditTime: 2019-10-18 10:56:17
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -112,29 +112,25 @@ export class XccontentPage implements OnInit {
 
   }
   async cancleOrder(type = -1) {
-    if (type === -1) {
-      const alert = await this.alertController.create({
-        header: '提示',
-        message: '退款可能会产生商家损失费，详情请注意退款说明.',
-        buttons: [
-          {
-            text: '取消',
-            role: 'cancel',
-            cssClass: 'secondary',
-            handler: (blah) => {
-            }
-          }, {
-            text: '坚持退款',
-            handler: () => {
-              this.cancleOrderfn();
-            }
+    const alert = await this.alertController.create({
+      header: '提示',
+      message: type === -1 ? '退款可能会产生商家损失费，详情请注意退款说明.' : '是否确认退款',
+      buttons: [
+        {
+          text: '取消',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
           }
-        ]
-      });
-      await alert.present();
-    } else {
-      this.cancleOrderfn();
-    }
+        }, {
+          text: '坚持退款',
+          handler: () => {
+            this.cancleOrderfn();
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
   cancleOrderfn() {
     this.http.getDataloading(this.http.cancelOrderxc, {order_id: this.orderId}).subscribe(res => {

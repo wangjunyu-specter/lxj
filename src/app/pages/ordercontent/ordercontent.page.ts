@@ -1,8 +1,9 @@
+import { ThorderService } from './../../services/thorder.service';
 /*
  * @Author: wjy-mac
  * @Date: 2019-07-29 22:29:34
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-17 17:53:46
+ * @LastEditTime: 2019-10-19 00:54:19
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -31,7 +32,7 @@ export class OrdercontentPage implements OnInit {
   constructor(private activeroute: ActivatedRoute, private nav: NavController,
               private http: HttpService, private native: NativeService, private paymentlist: PaymentListService,
               public alertController: AlertController, public popoverController: PopoverController,
-              private topage: TopageService, private route: Router) { }
+              private topage: TopageService, private route: Router, private thorder: ThorderService) { }
 
   ngOnInit() {
     const params = this.activeroute.snapshot.queryParams;
@@ -43,7 +44,13 @@ export class OrdercontentPage implements OnInit {
     this.nav.back();
   }
   ionViewWillEnter() {
-    this.getDatahttp();
+    if (!this.orderId) {
+      setTimeout(() => {
+        this.getDatahttp();
+      }, 1000);
+    } else {
+      this.getDatahttp();
+    }
     this.getData();
   }
   getData() {
@@ -83,7 +90,7 @@ export class OrdercontentPage implements OnInit {
           if (minutes < 10) {
             minutes = `0${minutes}`;
           }
-          this.endtime = hours + '小时' + minutes + '分钟'
+          this.endtime = hours + '小时' + minutes + '分钟';
         }
         resolve(true)
       }, error2 => {
@@ -97,20 +104,42 @@ export class OrdercontentPage implements OnInit {
       const price = Number(this.data.order.order_amount)
       this.syye = ye > price ? price : ye;
     }
-
   }
   repurchase() {
     this.topage.toPage(2, this.data.goods_list[0].goods_id);
   }
-  cancleOrder(type?) {
+  async cancleOrder(type?) {
     if (type) {
-      this.http.getDataloading(this.http.cancelOrder, {order_id: this.orderId}).subscribe(res => {
-        console.log(res);
-        this.presentAlert();
-      }, error2 => {})
+      const alert = await this.alertController.create({
+        header: '提示',
+        message: '是否确认退款',
+        buttons: [
+          {
+            text: '取消',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: (blah) => {
+            }
+          }, {
+            text: '退款',
+            handler: () => {
+              this.cancleOrderfn();
+            }
+          }
+        ]
+      });
+      await alert.present();
     } else {
-      this.route.navigate(['/cancel-order'], {queryParams: {type: 1}});
+      console.log(this.data['order'])
+      this.thorder.setData(this.data['order'], this.data['goods_list'][0]);
+      this.route.navigate(['/cancel-order']);
     }
+  }
+  cancleOrderfn() {
+    this.http.getDataloading(this.http.cancelOrder, {order_id: this.orderId}).subscribe(res => {
+      console.log(res);
+      this.presentAlert();
+    }, error2 => {})
   }
   setyechange() {
     if (this.syye < 0) {

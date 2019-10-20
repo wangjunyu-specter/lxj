@@ -58,7 +58,7 @@ var OrdersuccessPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"end\">\n      <ion-button (click)=\"goIndex()\">\n        完成\n      </ion-button>\n    </ion-buttons>\n    <ion-title>支付成功</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div class=\"nohw\" *ngIf=\"!ishw\">\n    <div class=\"top\" padding>\n      <h2>订单提交成功!</h2>\n      <p>您的包裹整装待发~~~</p>\n    </div>\n    <div class=\"content\" padding *ngFor=\"let item of data\">\n      <div class=\"title\">\n        <p>您的商品将由{{item.shipping_name}}为您配送</p>\n      </div>\n      <p>订单号：<ion-text>{{item.order_sn}}</ion-text></p>\n      <p>{{item.pay_name}}：<ion-text>{{item.order_amount_formated}}</ion-text></p>\n      <p>配送方式：<ion-text color=\"danger\">{{item.shipping_name}}</ion-text></p>\n      <ion-row>\n        <!--<ion-col>-->\n          <!--<ion-button expand=\"block\" color=\"light\" (click)=\"goIndex()\">返回首页</ion-button>-->\n        <!--</ion-col>-->\n        <ion-col>\n          <ion-button expand=\"block\" color=\"success\"  (click)=\"gotoPage(12, item.order_sn)\">查看订单</ion-button>\n        </ion-col>\n      </ion-row>\n    </div>\n  </div>\n  <div class=\"hw\" *ngIf=\"ishw\">\n    <div>\n      <div class=\"top\" padding>\n        <h2>您的订单已经提交!</h2>\n        <p>请注意出发时间及商家消息~~~</p>\n      </div>\n      <div class=\"content\" padding *ngFor=\"let item of data\">\n        <p>订单号：<ion-text>{{item.order_sn}}</ion-text></p>\n        <p>{{item.pay_name}}：<ion-text>{{item.order_amount_formated}}</ion-text></p>\n      </div>\n      <ion-row>\n        <!--<ion-col>-->\n          <!--<ion-button expand=\"block\" color=\"light\" (click)=\"goIndex()\">返回首页</ion-button>-->\n        <!--</ion-col>-->\n        <ion-col>\n          <ion-button expand=\"block\" color=\"success\" (click)=\"getContent()\" (click)=\"gotoPage(11, item.order_sn)\">查看订单</ion-button>\n        </ion-col>\n      </ion-row>\n    </div>\n    <div padding>\n      <p>户外旅行有一定的风险性，请随时注意安全，如发生任何情况，请尽快拨打救援电话或直接拨打110求救：</p>\n      <p>救援电话1：123123</p>\n      <p>救援电话1：123123</p>\n      <p>救援电话1：123123</p>\n    </div>\n  </div>\n</ion-content>\n"
+module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-07-29 22:24:48\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-10-14 10:59:55\n * @Description: file content\n -->\n<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"end\">\n      <ion-button (click)=\"goIndex()\">\n        完成\n      </ion-button>\n    </ion-buttons>\n    <ion-title>支付成功</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div class=\"nohw\" *ngIf=\"!ishw\">\n    <div class=\"top\" padding>\n      <h2>订单提交成功!</h2>\n      <p>您的包裹整装待发~~~</p>\n    </div>\n    <div class=\"content\" padding *ngFor=\"let item of data\">\n      <div class=\"title\">\n        <p>您的商品将由{{item.shipping_name}}为您配送</p>\n      </div>\n      <p>订单号：<ion-text>{{item.order_sn}}</ion-text></p>\n      <p>{{item.pay_name}}：<ion-text>{{item.order_amount_formated}}</ion-text></p>\n      <p>配送方式：<ion-text color=\"danger\">{{item.shipping_name}}</ion-text></p>\n      <ion-row>\n        <!--<ion-col>-->\n          <!--<ion-button expand=\"block\" color=\"light\" (click)=\"goIndex()\">返回首页</ion-button>-->\n        <!--</ion-col>-->\n        <ion-col>\n          <ion-button expand=\"block\" color=\"success\"  (click)=\"gotoPage(12, item.order_sn)\">查看订单</ion-button>\n        </ion-col>\n      </ion-row>\n    </div>\n  </div>\n  <div class=\"hw\" *ngIf=\"ishw\">\n    <div>\n      <div class=\"top\" padding>\n        <h2>您的订单已经提交!</h2>\n        <p>请注意出发时间及商家消息~~~</p>\n      </div>\n      <div class=\"content\" padding *ngFor=\"let item of data\">\n        <p>订单号：<ion-text>{{item.order_sn}}</ion-text></p>\n        <p>{{item.pay_name}}：<ion-text>{{item.order_amount_formated}}</ion-text></p>\n      </div>\n      <ion-row>\n        <!--<ion-col>-->\n          <!--<ion-button expand=\"block\" color=\"light\" (click)=\"goIndex()\">返回首页</ion-button>-->\n        <!--</ion-col>-->\n        <ion-col>\n          <ion-button expand=\"block\" color=\"success\" (click)=\"getContent()\" (click)=\"gotoPage(11, orderId)\">查看订单</ion-button>\n        </ion-col>\n      </ion-row>\n    </div>\n    <div padding>\n      <p>户外旅行有一定的风险性，请随时注意安全，如发生任何情况，请尽快拨打救援电话或直接拨打110求救：</p>\n      <p>救援电话1：123123</p>\n      <p>救援电话1：123123</p>\n      <p>救援电话1：123123</p>\n    </div>\n  </div>\n</ion-content>\n"
 
 /***/ }),
 
@@ -90,6 +90,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_ordersuccess_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/ordersuccess.service */ "./src/app/services/ordersuccess.service.ts");
 /* harmony import */ var _services_topage_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/topage.service */ "./src/app/services/topage.service.ts");
 
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-29 22:24:48
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-07-29 22:24:48
+ * @Description: file content
+ */
 
 
 
@@ -125,9 +132,9 @@ var OrdersuccessPage = /** @class */ (function () {
         }
     };
     OrdersuccessPage.prototype.ionViewDidLeave = function () {
-        this.order.clearData();
     };
     OrdersuccessPage.prototype.goIndex = function () {
+        this.order.clearData();
         this.nav.navigateBack('tabs/tab1');
     };
     OrdersuccessPage.prototype.getContent = function () {
