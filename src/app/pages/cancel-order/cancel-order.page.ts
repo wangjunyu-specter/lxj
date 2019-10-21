@@ -4,7 +4,7 @@ import { error } from 'selenium-webdriver';
  * @Author: wjy-mac
  * @Date: 2019-10-17 17:47:02
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-19 00:55:41
+ * @LastEditTime: 2019-10-21 17:21:07
  * @Description: 取消订单
  */
 import { Component, OnInit } from '@angular/core';
@@ -43,13 +43,8 @@ export class CancelOrderPage implements OnInit {
     this.data = {
       back_pay: 2,
       back_type: '4',
-      tui_goods_price: data['order']['goods_amount'],
       act: 'back_order_act',
       order_id: data['order']['order_id'],
-      order_sn: data['order']['order_sn'],
-      goods_id: data['goods']['goods_id'],
-      goods_name: data['goods']['goods_name'],
-      goods_sn: data['goods']['goods_sn'],
       country: data['order']['country'],
       province: data['order']['province'],
       city: data['order']['city'],
@@ -58,7 +53,21 @@ export class CancelOrderPage implements OnInit {
       back_consignee: data['order']['consignee'],
       back_mobile: data['order']['mobile'],
       back_zipcode: data['order']['zipcode'],
+      back_postscript: '', // 留言
+      tui_goods_price: data['order']['goods_amount'],
+      product_id_tui: 0,
+      goods_attr_tui: '',
+      tui_goods_number: 1,
     };
+    if (this.data['orderall']) {
+      this.data['order_all'] = 1;
+    } else {
+      this.data['order_sn'] = data['order']['order_sn'];
+      this.data['goods_id'] = data['goods']['goods_id'];
+      this.data['goods_name'] = data['goods']['goods_name'];
+      this.data['goods_sn'] = data['goods']['goods_sn'];
+      // this.data['product_id_tui'] = 0; 产品属性，暂时不给
+    }
     this.contactlist.getProasync().then(res => {
       this.provincelist = res;
       this.selteaddress(2, this.data['province']);

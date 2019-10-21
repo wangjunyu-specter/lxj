@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-18 22:37:58
+ * @LastEditTime: 2019-10-21 15:04:14
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -16,7 +16,7 @@ import {NavController} from "@ionic/angular";
 // import * as api from '../mo'
 
 
-const zdomain = 'http://192.144.168.163/';
+const zdomain = 'http://47.108.31.148/';
 // const toke: string = '15308081024-31785997575345274881558784601TABG';
 // const toke: string = '15456456456-76918544985912005121558445163FCAD';
 // const userid: string = '60';

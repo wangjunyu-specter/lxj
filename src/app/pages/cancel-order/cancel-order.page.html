@@ -51,6 +51,10 @@
       <ion-textarea [rows]="6" [maxlength]="500" [(ngModel)]="data.back_reason" name="back_reason" placeholder="请您如实填写申请原因及商品情况，字数在500字内。"></ion-textarea>
     </ion-item>
     <ion-item>
+      <ion-label position="stacked">问题描述:</ion-label>
+      <ion-input type="number" [(ngModel)]="data.tui_goods_number" name="tui_goods_number"></ion-input>
+    </ion-item>
+    <ion-item>
       <ion-label position="stacked">图片信息</ion-label>
       <ion-note style="width: 100%;">
         <ion-row margin-top>
