@@ -13,10 +13,14 @@ import { Injectable } from '@angular/core';
 export class ThorderService {
   data: object;
   goods: object;
+  orderall: boolean;
   constructor() { }
   setData(data: object, goods: object) {
     this.data = data;
     this.goods = goods;
+  }
+  setIsall() {
+    this.orderall = true;
   }
   getData(): object {
     return {
@@ -27,5 +31,6 @@ export class ThorderService {
   clearData() {
     this.data = null;
     this.goods = null;
+    this.orderall = false;
   }
 }
