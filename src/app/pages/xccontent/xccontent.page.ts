@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-07 23:49:04
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-18 10:56:17
+ * @LastEditTime: 2019-10-21 20:14:57
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -36,8 +36,6 @@ export class XccontentPage implements OnInit {
 
 
   ngOnInit() {
-    const params = this.activeroute.snapshot.queryParams;
-    this.orderId = params['id'];
     this.kysyye = false;
     console.log(this.orderId)
   }
@@ -45,6 +43,8 @@ export class XccontentPage implements OnInit {
     this.nav.back();
   }
   ionViewWillEnter() {
+    const params = this.activeroute.snapshot.queryParams;
+    this.orderId = params['id'];
     this.getDatahttp();
     this.getData();
   }

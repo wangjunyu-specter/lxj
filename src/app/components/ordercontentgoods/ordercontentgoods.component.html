@@ -1,16 +1,9 @@
 <!--
  * @Author: wjy-mac
-<<<<<<< HEAD
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-11 22:19:34
+ * @LastEditTime: 2019-10-21 22:58:30
  * @Description: 订单详情商品模块
-=======
- * @Date: 2019-07-06 23:17:30
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-07-06 23:17:30
- * @Description: file content
->>>>>>> f956491c15b997b0779882c5bc51c946036967ca
  -->
 <div class="my-content-bg">
   <ion-list inset="true" line="none">
@@ -26,7 +19,10 @@
         <img [src]="data.goods_thumb | imgsrc: http.zdomain">
       </ion-thumbnail>
       <ion-label>
-        <h3 class="goods_title">{{data.goods_name | namesubstr: 25}}</h3>
+        <h3 class="goods_title">
+          <ion-text *ngIf="data.tkend == 1" color="danger">[已退款]</ion-text>
+          <ion-text *ngIf="data.isshing == 1 && data.tkend != 1" color="success">[售后中]</ion-text>
+          {{data.goods_name | namesubstr: 25}}</h3>
         <p class="goods_title">{{data.goods_attr}}</p>
       </ion-label>
       <div slot="end" class="end-price">

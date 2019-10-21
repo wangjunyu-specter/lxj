@@ -51,6 +51,7 @@ const routes: Routes = [
   { path: 'all-zt', loadChildren: './pages/all-zt/all-zt.module#AllZtPageModule' },
   { path: 'news', loadChildren: './pages/news/news.module#NewsPageModule' },
   { path: 'cancel-order', loadChildren: './pages/cancel-order/cancel-order.module#CancelOrderPageModule' },
+  { path: 'after-sale', loadChildren: './pages/after-sale/after-sale.module#AfterSalePageModule' },
 
 ];
 @NgModule({

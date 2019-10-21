@@ -4,7 +4,7 @@ import { error } from 'selenium-webdriver';
  * @Author: wjy-mac
  * @Date: 2019-10-17 17:47:02
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-21 17:21:07
+ * @LastEditTime: 2019-10-21 21:29:47
  * @Description: 取消订单
  */
 import { Component, OnInit } from '@angular/core';
@@ -27,6 +27,7 @@ export class CancelOrderPage implements OnInit {
   provincelist: any[];
   citylist: any[];
   arealist: any[];
+  allnum: number;
   constructor(private nav: NavController, public actionSheetController: ActionSheetController,
     private native: NativeService, private http: HttpService, private thorder: ThorderService, private contactlist: ContactlistService) { }
 
@@ -35,11 +36,11 @@ export class CancelOrderPage implements OnInit {
     this.isupdate = [];
     this.subimgs = [];
     const data = this.thorder.getData();
-    if (!data['order']) {
-      this.goBack();
-      return false;
-    }
     console.log(data);
+    if (!data['order'] || data['order'] == 'undefined') {
+      console.log('没有数据');
+      this.goBack();
+    }
     this.data = {
       back_pay: 2,
       back_type: '4',
@@ -54,20 +55,23 @@ export class CancelOrderPage implements OnInit {
       back_mobile: data['order']['mobile'],
       back_zipcode: data['order']['zipcode'],
       back_postscript: '', // 留言
-      tui_goods_price: data['order']['goods_amount'],
-      product_id_tui: 0,
+      // product_id_tui: 0,
       goods_attr_tui: '',
-      tui_goods_number: 1,
+      tui_goods_number: data['goods']['goods_number'],
     };
-    if (this.data['orderall']) {
+    this.allnum = data['goods']['goods_number'];
+    if (data['orderall']) {
       this.data['order_all'] = 1;
+      this.data['tui_goods_price'] = data['order']['goods_amount'];
     } else {
       this.data['order_sn'] = data['order']['order_sn'];
       this.data['goods_id'] = data['goods']['goods_id'];
       this.data['goods_name'] = data['goods']['goods_name'];
       this.data['goods_sn'] = data['goods']['goods_sn'];
+      this.data['tui_goods_price'] = data['goods']['goods_price'];
       // this.data['product_id_tui'] = 0; 产品属性，暂时不给
     }
+    console.log(this.data);
     this.contactlist.getProasync().then(res => {
       this.provincelist = res;
       this.selteaddress(2, this.data['province']);

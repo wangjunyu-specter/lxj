@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-10-18 22:58:52
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-18 23:30:20
+ * @LastEditTime: 2019-10-21 20:22:57
  * @Description: 退换货订单数据
  */
 import { Injectable } from '@angular/core';
@@ -25,7 +25,8 @@ export class ThorderService {
   getData(): object {
     return {
       order: this.data,
-      goods: this.goods
+      goods: this.goods,
+      orderall: this.orderall
     };
   }
   clearData() {

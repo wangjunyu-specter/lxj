@@ -1,9 +1,10 @@
+import { CancelOrderPage } from './../cancel-order/cancel-order.page';
 import { ThorderService } from './../../services/thorder.service';
 /*
  * @Author: wjy-mac
  * @Date: 2019-07-29 22:29:34
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-19 00:54:19
+ * @LastEditTime: 2019-10-21 23:16:44
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -29,21 +30,21 @@ export class OrdercontentPage implements OnInit {
   syye: any; // 使用余额
   kysyye: boolean; // 是否使用余额
   isyepayend: boolean; // 是否已使用余额  但未支付成功
+  isshing: boolean; // 订单所有商品是否正在售后或已退款
   constructor(private activeroute: ActivatedRoute, private nav: NavController,
               private http: HttpService, private native: NativeService, private paymentlist: PaymentListService,
               public alertController: AlertController, public popoverController: PopoverController,
               private topage: TopageService, private route: Router, private thorder: ThorderService) { }
 
   ngOnInit() {
-    const params = this.activeroute.snapshot.queryParams;
-    this.orderId = params['id'];
     this.kysyye = false;
-    console.log(this.orderId)
   }
   goBack(): void {
     this.nav.back();
   }
   ionViewWillEnter() {
+    const params = this.activeroute.snapshot.queryParams;
+    this.orderId = params['id'];
     if (!this.orderId) {
       setTimeout(() => {
         this.getDatahttp();
@@ -51,6 +52,7 @@ export class OrdercontentPage implements OnInit {
     } else {
       this.getDatahttp();
     }
+    this.isshing = true;
     this.getData();
   }
   getData() {
@@ -75,7 +77,13 @@ export class OrdercontentPage implements OnInit {
         console.log(res)
         this.data = res.data;
         console.log(this.data)
-        if (res.data.order.order_status !== '已取消' && res.data.order.order_status !== '已完成') {
+        for (let i = 0; i < this.data['goods_list'].length; i++) {
+          const goods = this.data['goods_list'][i];
+          if (goods['tkend'] != 1 && goods['isshing'] != 1) {
+            this.isshing = false;
+          }
+        }
+        if ((res.data.order.order_status == '0' || res.data.order.order_status == '1') && res.data.order.pay_status == '0') {
           const endDate = res.data['order'].add_time;
           const nowDate = Date.parse((new Date()).toString()) / 1000;
           const totalSeconds = parseInt(((Number(nowDate) - Number(endDate))).toString(), 10);
@@ -95,7 +103,7 @@ export class OrdercontentPage implements OnInit {
         resolve(true)
       }, error2 => {
         reject(false)
-      })
+      });
     });
   }
   setyenum() {
@@ -108,8 +116,8 @@ export class OrdercontentPage implements OnInit {
   repurchase() {
     this.topage.toPage(2, this.data.goods_list[0].goods_id);
   }
-  async cancleOrder(type?) {
-    if (type) {
+  async cancleOrder(type = 3) {
+    if (type === 1) {
       const alert = await this.alertController.create({
         header: '提示',
         message: '是否确认退款',
@@ -129,11 +137,75 @@ export class OrdercontentPage implements OnInit {
         ]
       });
       await alert.present();
-    } else {
-      console.log(this.data['order'])
-      this.thorder.setData(this.data['order'], this.data['goods_list'][0]);
-      this.route.navigate(['/cancel-order']);
+    } else if (type === 2) {
+      this.thorder.setIsall();
+      this.CancelOrderdata();
+    } else if (type === 3) {
+      if (this.data['goods_list'].length === 1) {
+        this.CancelOrderdata();
+      } else {
+        this.seleteCancelorder();
+      }
     }
+  }
+  async seleteCancelorder() {
+    console.log(this.data['goods_list'])
+    const obj = {
+      header: '提示!',
+      message: '请选择需要处理的商品！',
+      inputs: [],
+      buttons: [
+        {
+          text: '取消',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: '确定',
+          handler: (e) => {
+            if (e) {
+              this.CancelOrderdata(this.data['goods_list'][e - 1]);
+            }
+          }
+        }
+      ]
+    }
+    const arr: object[] = [];
+    let ischecked = false;
+    this.data['goods_list'].map((item, index) => {
+      const obj = {
+        name: item['goods_name'],
+        type: 'radio',
+        label: item['goods_name'],
+        value: index + 1,
+        checked: false,
+        disabled: item.tkend == 1 || item.isshing == 1
+      };
+      let name: string = '';
+      if (item.tkend == 1) {
+        name = '[已退款]';
+      } else if (item.isshing == 1) {
+        name = '[售后中]';
+      }
+      name += item['goods_name'];
+      obj.name = name;
+      obj.label = name;
+      if (!ischecked && item.tkend != 1 && item.isshing != 1) {
+        obj.checked = true;
+        ischecked = true;
+      }
+      arr.push(obj);
+    });
+    obj['inputs'] = arr;
+    const alert = await this.alertController.create(obj);
+    await alert.present();
+  }
+  CancelOrderdata(goods?: object) {
+    this.route.navigate(['/cancel-order']);
+    this.thorder.setData(this.data['order'], goods || this.data['goods_list'][0]);
+
   }
   cancleOrderfn() {
     this.http.getDataloading(this.http.cancelOrder, {order_id: this.orderId}).subscribe(res => {
