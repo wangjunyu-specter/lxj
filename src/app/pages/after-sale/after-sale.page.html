@@ -1,9 +1,247 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-10-22 09:40:41
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-10-22 17:41:44
+ * @Description: 售后详情
+ -->
 <ion-header>
-  <ion-toolbar>
-    <ion-title>afterSale</ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-toolbar mode="ios">
+      <ion-buttons slot="start">
+        <ion-button (click)="goBack()">
+          <ion-icon mode="ios" name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>退款/退换详情</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
 <ion-content>
-
+  <ion-list *ngIf="backShipping">
+    <ion-item>
+      <ion-label>
+        订单号
+      </ion-label>
+      <ion-note>
+        {{backShipping.order_sn}}
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        商品名称
+        <p *ngFor="let item of backShipping.goods_list">
+          {{item.goods_name}}
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        售后类型
+      </ion-label>
+      <ion-note>
+        <span *ngIf="backShipping.back_type == 1">
+          退货
+        </span>
+        <span *ngIf="backShipping.back_type == 2 || backShipping.back_type == 3">
+          换货
+        </span>
+        <span *ngIf="backShipping.back_type == 4">
+          退款（无需退货）
+        </span>
+      </ion-note>
+    </ion-item>
+  </ion-list>
+  <div *ngIf="listBackgoods && listBackgoods['0']">
+    <ion-list>
+      <ion-list-header>
+        <ion-label>退回商品</ion-label>
+      </ion-list-header>
+      <ion-item *ngFor="let bgoods of listBackgoods['0'].goods_list">
+        <ion-label>
+          <div class="thconent">
+            <p>
+              {{bgoods.goods_name}}
+            </p>
+            <div class="attr" *ngIf="bgoods.goods_attr">{{bgoods.goods_attr}}</div>
+            <div class="more">
+              <span>类型</span>
+              <span>退货</span>
+            </div>
+            <div class="more">
+              <span>数量</span>
+              <span>{{bgoods.back_goods_number}}</span>
+            </div>
+            <div class="more">
+              <span>退款金额</span>
+              <span>{{bgoods.back_goods_money}}</span>
+            </div>
+            <div class="more">
+              <span>处理状态</span>
+              <span>{{bgoods.status_back}}</span>
+            </div>
+            <div class="more">
+              <span>退款状态</span>
+              <span>{{bgoods.status_refund}}</span>
+            </div>
+          </div>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div *ngIf="listBackgoods && listBackgoods['3']">
+    <ion-list>
+      <ion-list-header>
+        <ion-label>退回商品</ion-label>
+      </ion-list-header>
+      <ion-item *ngFor="let bgoods of listBackgoods['3'].goods_list">
+        <ion-label>
+          <div class="thconent">
+            <p>
+              {{bgoods.goods_name}}
+            </p>
+            <div class="attr" *ngIf="bgoods.goods_attr">{{bgoods.goods_attr}}</div>
+            <div class="more">
+              <span>类型</span>
+              <span>申请返修</span>
+            </div>
+            <div class="more">
+              <span>数量</span>
+              <span>{{bgoods.back_goods_number}}</span>
+            </div>
+            <div class="more">
+              <span>处理状态</span>
+              <span>{{bgoods.status_back}}</span>
+            </div>
+          </div>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div *ngIf="listBackgoods && listBackgoods['4']">
+      <ion-list>
+        <ion-list-header>
+          <ion-label>退回商品</ion-label>
+        </ion-list-header>
+        <ion-item *ngFor="let bgoods of listBackgoods['4'].goods_list">
+          <ion-label>
+            <div class="thconent">
+              <p>
+                {{bgoods.goods_name}}
+              </p>
+              <div class="attr" *ngIf="bgoods.goods_attr">{{bgoods.goods_attr}}</div>
+              <div class="more">
+                <span>类型</span>
+                <span>退款（无需退货）</span>
+              </div>
+              <div class="more">
+                <span>数量</span>
+                <span>{{bgoods.back_goods_number}}</span>
+              </div>
+              <div class="more">
+                <span>退款金额</span>
+                <span>{{bgoods.back_goods_money}}</span>
+              </div>
+              <div class="more">
+                <span>处理状态</span>
+                <span>{{bgoods.status_back}}</span>
+              </div>
+            </div>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            退款金额
+          </ion-label>
+          <ion-note>{{backShipping.refund_money_1}}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+              处理状态
+          </ion-label>
+          <ion-note>{{backShipping.status_back}}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+              退款状态
+          </ion-label>
+          <ion-note>{{backShipping.status_refund}}</ion-note>
+        </ion-item>
+      </ion-list>
+    </div>
+    <!-- <div *ngIf="listBackgoods && listBackgoods['1']">
+        <ion-list>
+          <ion-list-header>
+            <ion-label>退回商品</ion-label>
+          </ion-list-header>
+          <ion-item *ngFor="let bgoods of listBackgoods['1'].goods_list">
+            <ion-label>
+              <div>
+                <div class="ts"></div>
+                <p>
+                  {{bgoods.goods_name}}
+                </p>
+                <div class="attr" *ngIf="bgoods.goods_attr">{{bgoods.goods_attr}}</div>
+                <div class="footer">
+                  <div>
+                    类型:<ion-text color="danger">退货</ion-text>
+                  </div>
+                  <div>
+                    数量:<ion-text color="danger">{{bgoods.back_goods_number}}</ion-text>
+                  </div>
+                </div>
+                <div class="more">
+                  <span>退款金额</span>
+                  <span>{{bgoods.back_goods_money}}</span>
+                </div>
+                <div class="more">
+                  <span>处理状态</span>
+                  <span>{{bgoods.status_back}}</span>
+                </div>
+              </div>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>
+              退款金额
+            </ion-label>
+            <ion-note>{{backShipping.refund_money_1}}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>
+                处理状态
+            </ion-label>
+            <ion-note>{{backShipping.status_back}}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>
+                退款状态
+            </ion-label>
+            <ion-note>{{backShipping.status_refund}}</ion-note>
+          </ion-item>
+        </ion-list>
+      </div> -->
+  <div *ngIf="backShipping && backShipping.back_type != 4 && (backShipping.status_back_1 < 1 || (backShipping.status_back_1 > 3 && backShipping.status_back_1 < 6))">
+    <ion-list>
+      <ion-list-header>
+        <ion-label>快递信息（请填写您寄回商品的快递信息）</ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-label position="fixed">快递公司</ion-label>
+        <ion-select placeholder="请选择快递公司">
+          <ion-select-option 
+          *ngFor="let shipping of shippingList" 
+          value="{{shipping.shipping_id}}" [selected]="backShipping.shipping_id == shipping.shipping_id">
+            {{shipping.shipping_name}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="fixed">快递运单号</ion-label>
+        <ion-input value="{{backShipping.invoice_no}}" placeholder="请输入快递单号"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div padding>
+      <ion-button expand="block" color="success" [disabled]="backShipping.status_back > 0 && backShipping.status_back < 5">确定</ion-button>
+    </div>
+  </div>
 </ion-content>

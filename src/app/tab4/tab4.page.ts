@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-31 23:26:32
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-15 11:37:40
+ * @LastEditTime: 2019-10-22 11:53:06
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -90,6 +90,13 @@ export class Tab4Page implements OnInit {
   setNavstatus(num: number) {
     this.toolbaropacity = (parseInt((num * 100).toString(), 10)).toString() as string;
   }
+  /**
+   * @Author: wjy-mac
+   * @description: 跳转页面方法
+   * @Date: 2019-10-22 11:52:55
+   * @param {type} 
+   * @return: 
+   */  
   openPage(type) {
     if (type === 9) {
       this.route.navigate(['/browse-records']);
@@ -121,7 +128,9 @@ export class Tab4Page implements OnInit {
         this.route.navigate(['/fbyj'], {queryParams: {type: res.type - 1, iscg: 1}});
       }).catch(error => {
         this.native.presentAlert('没有草稿!')
-      })
+      });
+    } else if (type === 16) {
+      this.route.navigate(['/after-salelist']);
     }
   }
   openOtherpage(item) {

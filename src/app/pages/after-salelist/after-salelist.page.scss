@@ -1,0 +1,25 @@
+ion-content {
+  --background: var(--ion-color-light);
+}
+.item-content {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  .head, .footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--ion-text);
+  }
+  .name {
+    margin: 5px 0;
+    font-size: var(--ion-title);
+  }
+}
+ion-list {
+  margin-bottom: 10px !important;
+}

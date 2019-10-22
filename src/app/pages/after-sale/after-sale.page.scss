@@ -1,0 +1,15 @@
+.thconent {
+  p {
+    font-size: var(--ion-title);
+  }
+  div {
+    font-size: var(--ion-text);
+  }
+  .more {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--ion-color-medium);
+  }
+}
