@@ -4,7 +4,7 @@ import { error } from 'selenium-webdriver';
  * @Author: wjy-mac
  * @Date: 2019-10-22 11:51:17
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-22 16:00:56
+ * @LastEditTime: 2019-10-22 20:17:56
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -20,12 +20,15 @@ import { Router } from '@angular/router';
 export class AfterSalelistPage implements OnInit {
   page: object;
   list: object[];
+  nolist: boolean;
   constructor(private nav: NavController, private http: HttpService, private native: NativeService, private route: Router) { }
 
   ngOnInit() {
+    this.list = [];
   }
 
   ionViewWillEnter() {
+    this.nolist = false;
     this.page = {
       page: 0,
       size: 10
@@ -34,13 +37,29 @@ export class AfterSalelistPage implements OnInit {
   }
 
   goBack(): void {
+    this.list = [];
     this.nav.back();
   }
-  getList() {
+  getList(event?) {
     this.http.getDataloading(this.http.zdomain + this.http.backList, this.page).subscribe(res => {
       console.log(res)
-      this.list = res['data'];
-    }, error2 => {});
+      if (event) {
+        event.target.complete();
+      }
+      if (res['data'].length > 0) {
+        this.list.push(...res['data']);
+      } else {
+        event.target.disabled = true;
+        this.native.presentToast('没有了！');
+        if (this.page['page'] == 0) {
+          this.nolist = true;
+        }
+      }
+    }, error2 => {
+      if (event) {
+        event.target.complete();
+      }
+    });
   }
   cancle(item) {
     this.http.getDataloading(this.http.zdomain + this.http.delbackorder, {id: item.back_id}).subscribe(res => {
@@ -52,5 +71,9 @@ export class AfterSalelistPage implements OnInit {
   }
   openContent(id) {
    this.route.navigate(['/after-sale'], {queryParams: {id}});
+  }
+  loadData(event) {
+   this.page['page']++;
+   this.getList(event);
   }
 }

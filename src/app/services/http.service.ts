@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-22 16:07:17
+ * @LastEditTime: 2019-10-22 20:22:01
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -112,6 +112,7 @@ export class HttpService {
   backList = 'user.php?act=back_list_ajax'; // 退货退款列表
   delbackorder = 'user.php?act=del_back_order_ajax'; // 取消退货退款申请
   backorderdetail = 'user.php?act=back_order_detail_ajax'; // 退货退款详情
+  backorderdetailedit = 'user.php?act=back_order_detail_edit_ajax'; // 退货退款详情
   // changebonus = 'flow.php?step=select_shipping'; // 使用红包 bonus suppid sel_cartgoods
   constructor(private http: HttpClient, private nhttp: HTTP, private nativeService: NativeService,
               private userfn: UserService, private nav: NavController) { }

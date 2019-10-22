@@ -4,7 +4,7 @@ import { ThorderService } from './../../services/thorder.service';
  * @Author: wjy-mac
  * @Date: 2019-07-29 22:29:34
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-21 23:16:44
+ * @LastEditTime: 2019-10-22 22:19:45
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -31,6 +31,7 @@ export class OrdercontentPage implements OnInit {
   kysyye: boolean; // 是否使用余额
   isyepayend: boolean; // 是否已使用余额  但未支付成功
   isshing: boolean; // 订单所有商品是否正在售后或已退款
+  istkend: boolean; // 订单取消状态下是否已全部退款
   constructor(private activeroute: ActivatedRoute, private nav: NavController,
               private http: HttpService, private native: NativeService, private paymentlist: PaymentListService,
               public alertController: AlertController, public popoverController: PopoverController,
@@ -77,11 +78,18 @@ export class OrdercontentPage implements OnInit {
         console.log(res)
         this.data = res.data;
         console.log(this.data)
+        let istk = false;
         for (let i = 0; i < this.data['goods_list'].length; i++) {
           const goods = this.data['goods_list'][i];
           if (goods['tkend'] != 1 && goods['isshing'] != 1) {
             this.isshing = false;
           }
+          if (goods['tkend'] != 1) {
+            istk = true;
+          }
+        }
+        if (!istk) {
+          this.istkend = true;
         }
         if ((res.data.order.order_status == '0' || res.data.order.order_status == '1') && res.data.order.pay_status == '0') {
           const endDate = res.data['order'].add_time;

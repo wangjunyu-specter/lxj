@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-10-17 15:00:01
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-21 23:17:56
+ * @LastEditTime: 2019-10-22 22:20:19
  * @Description: 订单最终状态
  */
 import { Pipe, PipeTransform } from '@angular/core';

@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-10-22 09:40:41
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-22 17:41:44
+ * @LastEditTime: 2019-10-22 20:42:48
  * @Description: 售后详情
  -->
 <ion-header>
@@ -220,28 +220,28 @@
           </ion-item>
         </ion-list>
       </div> -->
-  <div *ngIf="backShipping && backShipping.back_type != 4 && (backShipping.status_back_1 < 1 || (backShipping.status_back_1 > 3 && backShipping.status_back_1 < 6))">
+  <div *ngIf="backShipping && backShipping.back_type != 4 && backShipping.status_back_1 < 1">
     <ion-list>
       <ion-list-header>
         <ion-label>快递信息（请填写您寄回商品的快递信息）</ion-label>
       </ion-list-header>
       <ion-item>
         <ion-label position="fixed">快递公司</ion-label>
-        <ion-select placeholder="请选择快递公司">
+        <ion-select placeholder="请选择快递公司" [(ngModel)]="kddata.shipping_id" cancelText="取消" okText="确定">
           <ion-select-option 
-          *ngFor="let shipping of shippingList" 
-          value="{{shipping.shipping_id}}" [selected]="backShipping.shipping_id == shipping.shipping_id">
+          *ngFor="let shipping of shippingList"
+          value="{{shipping.shipping_id}}">
             {{shipping.shipping_name}}
           </ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label position="fixed">快递运单号</ion-label>
-        <ion-input value="{{backShipping.invoice_no}}" placeholder="请输入快递单号"></ion-input>
+        <ion-input  [(ngModel)]="kddata.invoice_no" placeholder="请输入快递单号"></ion-input>
       </ion-item>
     </ion-list>
     <div padding>
-      <ion-button expand="block" color="success" [disabled]="backShipping.status_back > 0 && backShipping.status_back < 5">确定</ion-button>
+      <ion-button expand="block" color="success" [disabled]="backShipping.status_back > 0 && backShipping.status_back < 5" (click)="subKd()">确定</ion-button>
     </div>
   </div>
 </ion-content>

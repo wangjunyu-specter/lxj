@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-10-17 17:47:02
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-22 16:55:43
+ * @LastEditTime: 2019-10-22 23:42:04
  * @Description: file content
  -->
 <ion-header>
@@ -50,7 +50,7 @@
       <ion-input [min]="0" [max]="allnum" [(ngModel)]="data.tui_goods_number" name="tui_goods_number"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked">问题描述:</ion-label>
+      <ion-label position="stacked">问题描述<ion-text color="danger">*</ion-text>:</ion-label>
       <ion-textarea [rows]="6" [maxlength]="500" [(ngModel)]="data.back_reason" name="back_reason" placeholder="请您如实填写申请原因及商品情况，字数在500字内。"></ion-textarea>
     </ion-item>
     <ion-item>
