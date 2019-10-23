@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-21 22:58:30
+ * @LastEditTime: 2019-10-23 15:04:33
  * @Description: 订单详情商品模块
  -->
 <div class="my-content-bg">
@@ -20,10 +20,12 @@
       </ion-thumbnail>
       <ion-label>
         <h3 class="goods_title">
-          <ion-text *ngIf="data.tkend == 1" color="danger">[已退款]</ion-text>
-          <ion-text *ngIf="data.isshing == 1 && data.tkend != 1" color="success">[售后中]</ion-text>
           {{data.goods_name | namesubstr: 25}}</h3>
-        <p class="goods_title">{{data.goods_attr}}</p>
+        <p *ngIf="data.tkend != 1 && data.isshing != 1" class="goods_title">{{data.goods_attr}}</p>
+        <p *ngIf="data.tkend == 1 || data.isshing == 1">
+          <ion-text *ngIf="data.tkend == 1" color="danger">[<span *ngIf="data.backnum != data.goods_number">部分</span>已退款]</ion-text>
+          <ion-text *ngIf="data.isshing == 1 && data.tkend != 1" color="success">[售后中]</ion-text>
+        </p>
       </ion-label>
       <div slot="end" class="end-price">
         <span>{{data.goods_price}}</span>

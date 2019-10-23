@@ -4,7 +4,7 @@ import { ThorderService } from './../../services/thorder.service';
  * @Author: wjy-mac
  * @Date: 2019-07-29 22:29:34
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-22 22:19:45
+ * @LastEditTime: 2019-10-23 15:01:17
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -84,7 +84,7 @@ export class OrdercontentPage implements OnInit {
           if (goods['tkend'] != 1 && goods['isshing'] != 1) {
             this.isshing = false;
           }
-          if (goods['tkend'] != 1) {
+          if (goods['tkend'] != 1 || goods['backnum'] != goods['goods_number']) {
             istk = true;
           }
         }
@@ -148,7 +148,10 @@ export class OrdercontentPage implements OnInit {
     } else if (type === 2) {
       this.thorder.setIsall();
       this.CancelOrderdata();
-    } else if (type === 3) {
+    } else if (type === 3 || type === 4) {
+      if (type === 4) {
+        this.thorder.setIssh();
+      }
       if (this.data['goods_list'].length === 1) {
         this.CancelOrderdata();
       } else {

@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-10-17 15:00:01
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-22 22:20:19
+ * @LastEditTime: 2019-10-23 15:18:07
  * @Description: 订单最终状态
  */
 import { Pipe, PipeTransform } from '@angular/core';
@@ -45,6 +45,8 @@ export class OrderstatusPipe implements PipeTransform {
       return '已退货';
     } else if (orderStatus === '2' && shippingStatus === '0' && payStatus === '0') {
       return '已取消';
+    } else if (orderStatus === '2' && shippingStatus === '1' && payStatus === '2') {
+      return '已全部退款';
     } else if (orderStatus === '2' && shippingStatus === '0' && payStatus === '2') {
       return '已取消,待退款';
     }

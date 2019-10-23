@@ -4,7 +4,7 @@ import { error } from 'selenium-webdriver';
  * @Author: wjy-mac
  * @Date: 2019-10-17 17:47:02
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-21 21:29:47
+ * @LastEditTime: 2019-10-23 17:05:29
  * @Description: 取消订单
  */
 import { Component, OnInit } from '@angular/core';
@@ -28,6 +28,7 @@ export class CancelOrderPage implements OnInit {
   citylist: any[];
   arealist: any[];
   allnum: number;
+  issh: boolean; // 是否售后
   constructor(private nav: NavController, public actionSheetController: ActionSheetController,
     private native: NativeService, private http: HttpService, private thorder: ThorderService, private contactlist: ContactlistService) { }
 
@@ -59,6 +60,10 @@ export class CancelOrderPage implements OnInit {
       goods_attr_tui: '',
       tui_goods_number: data['goods']['goods_number'],
     };
+    if (data['issh']) {
+      this.issh = true;
+      this.data['back_type'] = '3';
+    }
     this.allnum = data['goods']['goods_number'];
     if (data['orderall']) {
       this.data['order_all'] = 1;
@@ -161,6 +166,9 @@ export class CancelOrderPage implements OnInit {
   sub() {
     if (!this.data['back_reason']) {
       this.native.presentAlert('请输入问题描述');
+      return false;
+    } else if (this.data['order_all'] < 0 || this.data['order_all'] > this.allnum) {
+      this.native.presentAlert('请输入正确的数量');
       return false;
     }
     this.issub = true;
