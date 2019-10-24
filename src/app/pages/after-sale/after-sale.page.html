@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-10-22 09:40:41
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-22 20:42:48
+ * @LastEditTime: 2019-10-24 21:45:25
  * @Description: 售后详情
  -->
 <ion-header>
@@ -22,7 +22,7 @@
       <ion-label>
         订单号
       </ion-label>
-      <ion-note>
+      <ion-note slot="end">
         {{backShipping.order_sn}}
       </ion-note>
     </ion-item>
@@ -38,7 +38,7 @@
       <ion-label>
         售后类型
       </ion-label>
-      <ion-note>
+      <ion-note slot="end">
         <span *ngIf="backShipping.back_type == 1">
           退货
         </span>
@@ -152,19 +152,19 @@
           <ion-label>
             退款金额
           </ion-label>
-          <ion-note>{{backShipping.refund_money_1}}</ion-note>
+          <ion-note slot="end">{{backShipping.refund_money_1}}</ion-note>
         </ion-item>
         <ion-item>
           <ion-label>
               处理状态
           </ion-label>
-          <ion-note>{{backShipping.status_back}}</ion-note>
+          <ion-note slot="end">{{backShipping.status_back}}</ion-note>
         </ion-item>
         <ion-item>
           <ion-label>
               退款状态
           </ion-label>
-          <ion-note>{{backShipping.status_refund}}</ion-note>
+          <ion-note slot="end">{{backShipping.status_refund}}</ion-note>
         </ion-item>
       </ion-list>
     </div>
