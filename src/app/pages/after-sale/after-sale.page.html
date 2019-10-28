@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-10-22 09:40:41
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-24 21:45:25
+ * @LastEditTime: 2019-10-28 21:58:22
  * @Description: 售后详情
  -->
 <ion-header>
@@ -72,9 +72,25 @@
               <span>{{bgoods.back_goods_number}}</span>
             </div>
             <div class="more">
-              <span>退款金额</span>
+              <span> 付款金额</span>
               <span>{{bgoods.back_goods_money}}</span>
             </div>
+            <div class="more">
+              <span>退款金额</span>
+              <span>{{bgoods.refund_money_2}}</span>
+            </div>
+            <ion-item>
+              <ion-label>
+                  支付运费
+              </ion-label>
+              <ion-note slot="end">{{backShipping.shipping_fee}}</ion-note>
+            </ion-item>
+            <ion-item>
+              <ion-label>
+                  已退运费
+              </ion-label>
+              <ion-note slot="end">{{backShipping.refund_shipping_fee}}</ion-note>
+            </ion-item>
             <div class="more">
               <span>处理状态</span>
               <span>{{bgoods.status_back}}</span>
@@ -102,7 +118,7 @@
             <div class="attr" *ngIf="bgoods.goods_attr">{{bgoods.goods_attr}}</div>
             <div class="more">
               <span>类型</span>
-              <span>申请返修</span>
+              <span>申请换货/返修</span>
             </div>
             <div class="more">
               <span>数量</span>
@@ -138,7 +154,7 @@
                 <span>{{bgoods.back_goods_number}}</span>
               </div>
               <div class="more">
-                <span>退款金额</span>
+                <span>商品金额</span>
                 <span>{{bgoods.back_goods_money}}</span>
               </div>
               <div class="more">
@@ -150,9 +166,27 @@
         </ion-item>
         <ion-item>
           <ion-label>
-            退款金额
+            付款金额
           </ion-label>
           <ion-note slot="end">{{backShipping.refund_money_1}}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            退款金额
+          </ion-label>
+          <ion-note slot="end">{{backShipping.refund_money_2}}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+              支付运费
+          </ion-label>
+          <ion-note slot="end">{{backShipping.shipping_fee}}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+              已退运费
+          </ion-label>
+          <ion-note slot="end">{{backShipping.refund_shipping_fee}}</ion-note>
         </ion-item>
         <ion-item>
           <ion-label>
@@ -168,6 +202,7 @@
         </ion-item>
       </ion-list>
     </div>
+    <p padding-start padding-end *ngIf="backShipping && backShipping.refund_desc">退款说明：{{backShipping.refund_desc}}</p>
     <!-- <div *ngIf="listBackgoods && listBackgoods['1']">
         <ion-list>
           <ion-list-header>

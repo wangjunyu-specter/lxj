@@ -4,7 +4,7 @@ import { ThorderService } from './../../services/thorder.service';
  * @Author: wjy-mac
  * @Date: 2019-07-29 22:29:34
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-23 15:01:17
+ * @LastEditTime: 2019-10-28 22:32:11
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -38,14 +38,17 @@ export class OrdercontentPage implements OnInit {
               private topage: TopageService, private route: Router, private thorder: ThorderService) { }
 
   ngOnInit() {
+    console.log('进入1')
     this.kysyye = false;
   }
   goBack(): void {
     this.nav.back();
   }
   ionViewWillEnter() {
+    console.log('进入2')
     const params = this.activeroute.snapshot.queryParams;
     this.orderId = params['id'];
+    console.log(this.orderId);
     if (!this.orderId) {
       setTimeout(() => {
         this.getDatahttp();

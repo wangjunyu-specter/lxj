@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-10-28 22:30:59
+ * @Description: 所有订单
+ */
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {IonInfiniteScroll, NavController} from '@ionic/angular';
 import {Router} from '@angular/router';
@@ -23,11 +30,11 @@ export class AllorderPage implements OnInit {
     this.type = 1;
   }
   ionViewWillEnter() {
-    console.log('即将进入')
-    // this.list1 = this.orderlist.getList(this.type);
-    // console.log(this.infiniteScroll.disabled)
+    // if (this['list' + this.type]) { // 进入次页面就更新数据，暂时不用
+    //   console.log('有数据')
+    //   this.doRefresh();
+    // }
     this.segmentChanged();
-    // this.infiniteScroll.disabled = false;
   }
   goBack(): void {
     this.nav.back();
@@ -38,11 +45,15 @@ export class AllorderPage implements OnInit {
   search() {
     this.route.navigate(['/searchorder'], {queryParams: {type: 1}});
   }
-  doRefresh(event) {
+  doRefresh(event?) {
     this.orderlist.reget(this.type).then(res => {
-      event.target.complete();
+      if (event) {
+        event.target.complete();
+      }
     }).catch(err2 => {
-      event.target.complete();
+      if (event) {
+        event.target.complete();
+      }
     });
   }
   loadData(event) {
@@ -56,7 +67,7 @@ export class AllorderPage implements OnInit {
   segmentChanged() {
     console.log(this.type)
     if (!this['list' + this.type]) {
-       this.orderlist.getList(this.type).then(res =>{
+       this.orderlist.getList(this.type).then(res => {
          this['list' + this.type] = res;
        }).catch(err2 => {
 
