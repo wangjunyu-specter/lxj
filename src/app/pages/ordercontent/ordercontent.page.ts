@@ -4,7 +4,7 @@ import { ThorderService } from './../../services/thorder.service';
  * @Author: wjy-mac
  * @Date: 2019-07-29 22:29:34
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-28 22:32:11
+ * @LastEditTime: 2019-10-29 17:11:33
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -322,8 +322,7 @@ export class OrdercontentPage implements OnInit {
         return false;
       }
       return res.data;
-    })
-
+    });
     return pwd;
   }
   payfn() {
@@ -333,5 +332,32 @@ export class OrdercontentPage implements OnInit {
 
     }, error2 => {
     });
+  }
+  confirmReceipt() {
+    this.http.getDataloading(this.http.zdomain + this.http.affirmReceived, {order_id: this.data.order.order_id}).subscribe(res => {
+      this.data.order.shipping_status = 2;
+      this.presentAlertConfirm();
+    }, err2 => {});
+  }
+  async presentAlertConfirm() {
+    const alert = await this.alertController.create({
+      header: '交易成功!',
+      message: '去评价一下本次的购物体验吧~',
+      buttons: [
+        {
+          text: '取消',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+          }
+        }, {
+          text: '评价',
+          handler: () => {
+            console.log('Confirm Okay');
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
 }

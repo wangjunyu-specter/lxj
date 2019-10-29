@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-07 02:44:20
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-23 11:22:20
+ * @LastEditTime: 2019-10-29 14:22:47
  * @Description: 商品订单详情
  -->
 <ion-header>
@@ -198,6 +198,7 @@ data && data.order.order_status == '2' && data.order.shipping_status == '0' && d
 <ion-footer *ngIf="data && !isshing && data.order.order_status == '5' && data.order.shipping_status == '1' && data.order.pay_status === '2'">
   <ion-toolbar>
     <div class="footer-bar">
+      <ion-button size="small" color="success" (click)="confirmReceipt()">确认收货</ion-button>
       <ion-button size="small" color="light" (click)="cancleOrder()">退换</ion-button>
     </div>
   </ion-toolbar>

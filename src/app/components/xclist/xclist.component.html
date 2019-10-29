@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-29 22:26:10
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-11 22:16:45
+ * @LastEditTime: 2019-10-29 17:20:07
  * @Description: 行程列表商品模块
  -->
 <div class="my-content-bg" *ngFor="let item of list; let i = index">
@@ -11,7 +11,7 @@
       <div class="left">
         <img src="../../../assets/icon/dianpu.png" alt=""><h3 class="supper_name" (click)="gotoPage(7, item.supplier_id)">{{item.shopname}}</h3>
       </div>
-      <div class="right">{{item.order_status | xcstatus}}</div>
+      <div class="right">{{item.order_status | xcstatus: 1}}</div>
     </div>
     <ion-item *ngFor="let data of item.goods_list" lines="none" (click)="gotoPage(11, item.order_sn)">
       <ion-thumbnail slot="start">
