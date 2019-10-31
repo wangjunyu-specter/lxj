@@ -28,7 +28,7 @@
     </ion-item>
     <div class="order_des">
       <ion-text color="danger">
-        <span *ngIf="item.handler.includes('自动收货')">{{item.handler}}</span>
+        <span>{{item.handler | autoshdes}}</span>
       </ion-text>
       <span>共{{item.count}}件商品&nbsp;&nbsp;¥:{{item.total_fee}}</span>
     </div>
