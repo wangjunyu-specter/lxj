@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-07 02:44:20
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-29 14:22:47
+ * @LastEditTime: 2019-11-01 17:00:56
  * @Description: 商品订单详情
  -->
 <ion-header>
@@ -37,7 +37,7 @@
       <span *ngIf="istkend">订单已取消，已退款</span>
       <span margin-top 
       *ngIf="data.order.order_status == '5' && data.order.shipping_status == '2' && data.order.pay_status == '2' || 
-      data.order.order_status == '2' && data.order.shipping_status == '0' && data.order.pay_status == '0'"><ion-button size="small" color="secondary" (click)="repurchase()">再次购买</ion-button></span>
+      data.order.order_status == '2' && data.order.shipping_status == '0' && data.order.pay_status == '0'"><ion-button size="small" color="secondary" (click)="toPagefn(2, data.goods_list[0].goods_id)">再次购买</ion-button></span>
     </div>
   </div>
   <div class="address-box" padding>
@@ -203,10 +203,11 @@ data && data.order.order_status == '2' && data.order.shipping_status == '0' && d
     </div>
   </ion-toolbar>
 </ion-footer>
-<ion-footer *ngIf="data && !isshing && data.order.order_status == '5' && data.order.shipping_status == '2' && data.order.pay_status === '2'">
+<ion-footer *ngIf="data && data.order.order_status == '5' && data.order.shipping_status == '2' && data.order.pay_status === '2'">
   <ion-toolbar>
     <div class="footer-bar">
-      <ion-button size="small" color="light" (click)="cancleOrder(4)">售后</ion-button>
+      <ion-button size="small" color="danger" *ngIf="comment > 0" (click)="toPagefn(16, data.order.order_id)">评价</ion-button>
+      <ion-button size="small" *ngIf="!isshing" color="light" (click)="cancleOrder(4)">售后</ion-button>
     </div>
   </ion-toolbar>
 </ion-footer>

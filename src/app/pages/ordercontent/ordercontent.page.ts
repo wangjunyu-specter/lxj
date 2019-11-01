@@ -4,7 +4,7 @@ import { ThorderService } from './../../services/thorder.service';
  * @Author: wjy-mac
  * @Date: 2019-07-29 22:29:34
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-29 17:11:33
+ * @LastEditTime: 2019-11-01 15:55:05
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -32,6 +32,7 @@ export class OrdercontentPage implements OnInit {
   isyepayend: boolean; // 是否已使用余额  但未支付成功
   isshing: boolean; // 订单所有商品是否正在售后或已退款
   istkend: boolean; // 订单取消状态下是否已全部退款
+  comment: number; // 评论id 大于0表示未评论
   constructor(private activeroute: ActivatedRoute, private nav: NavController,
               private http: HttpService, private native: NativeService, private paymentlist: PaymentListService,
               public alertController: AlertController, public popoverController: PopoverController,
@@ -48,6 +49,7 @@ export class OrdercontentPage implements OnInit {
     console.log('进入2')
     const params = this.activeroute.snapshot.queryParams;
     this.orderId = params['id'];
+    this.comment = params['comment'] ? Number(params['comment']) : 0;
     console.log(this.orderId);
     if (!this.orderId) {
       setTimeout(() => {
@@ -124,8 +126,11 @@ export class OrdercontentPage implements OnInit {
       this.syye = ye > price ? price : ye;
     }
   }
-  repurchase() {
-    this.topage.toPage(2, this.data.goods_list[0].goods_id);
+  // repurchase() {
+  //   this.topage.toPage(2, this.data.goods_list[0].goods_id);
+  // }
+  toPagefn(type, id) {
+    this.topage.toPage(type, id);
   }
   async cancleOrder(type = 3) {
     if (type === 1) {
