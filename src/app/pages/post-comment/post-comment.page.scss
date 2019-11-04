@@ -1,6 +1,6 @@
 .my-list {
   .my-item {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     .top {
       display: flex;
       flex-direction: row;
@@ -8,6 +8,7 @@
       align-items: center;
       .left {
         width: 40px;
+        font-size: var(--ion-text);
       }
       .right {
         flex: 1;
@@ -16,17 +17,20 @@
         justify-content: flex-start;
         align-items: center;
         img {
-          width: 20%;
+          width: 20px;
+          margin-right: 5px;
         }
       }
     }
     .des {
       font-size: var(--ion-sm-text);
       color:  var(--ion-color-medium);
+      margin-top: 5px;
     }
   }
 }
 .addbq-box {
+  font-size: var(--ion-text);
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -45,8 +49,51 @@
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
+  &.noTop {
+    padding-top: 0;
+  }
 }
 .goods_list {
-  border-top: 1px solid #ccc;
-  margin-top: 15px;
+  margin-bottom: 10px;
+  .pl-item {
+    border-bottom: 10px solid var(--ion-gray-background-color);
+  }
+  .goods_name {
+    font-size: var(--ion-title);
+    p {
+      margin-bottom: 5px;
+    }
+  }
+}
+.hasbq {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.nmbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  ion-text {
+    margin-left: 10px;
+  }
+}
+.line {
+  height: 10px;
+  background-color: var(--ion-gray-background-color);
+}
+.img-box {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+  img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }

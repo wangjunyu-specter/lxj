@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-11-01 15:49:39
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-04 17:52:48
+ * @LastEditTime: 2019-11-05 01:15:16
  * @Description: 发布评论
  -->
 <ion-header>
@@ -44,6 +44,7 @@
       </div>
     </div>
   </div>
+  <div class="line"></div>
   <div class="goods_list">
     <div class="pl-item" *ngFor="let item of goodsObjarr">
       <div class="goods_name"><p>{{item.goodsName}}</p></div>
@@ -69,31 +70,43 @@
           </div>
         </div>
       </div>
+      <div class="hasbq">
+        <ion-chip *ngFor="let tag of item.tags; let i = index" [color]="tag.active ? 'success' : ''" (click)="setChangebq(item, i)">
+          <ion-label>{{tag.tag_name}}</ion-label>
+        </ion-chip>
+      </div>
+      <div class="my-row" [ngClass]="{noTop: item.tags.length === 0}">
+          <div class="my-item" *ngFor="let data of item['tags_zi']; let i = index" (click)="removeBq(i, item)">
+            <ion-chip color="success">
+              <ion-label>{{data}}</ion-label>
+              <ion-icon name="close-circle"></ion-icon>
+            </ion-chip>
+          </div>
+        </div>
       <div class="addbq-box">
         <div class="left">
           <ion-item>
-            <ion-label position="floating">自定义标签</ion-label>
-            <ion-input [(ngModel)]="item.newbq"></ion-input>
+            <ion-label>标签</ion-label>
+            <ion-input [(ngModel)]="item.newbq" placeholder="请输入自定义标签名称"></ion-input>
           </ion-item>
         </div>
         <div class="right" *ngIf="item.newbq">
           <ion-button color="success" size="small" (click)="addBq(item)">确定</ion-button>
         </div>
       </div>
-      <div class="my-row">
-        <div class="my-item" *ngFor="let data of item['tags_zi']; let i = index" (click)="removeBq(i, item)">
-          <ion-chip color="success">
-            <ion-label>{{data}}</ion-label>
-            <ion-icon name="close-circle"></ion-icon>
-          </ion-chip>
-        </div>
-      </div>
-      <ion-list>
-        <ion-item>
-          <ion-label position="floating">评价内容</ion-label>
-          <ion-textarea [(ngModel)]="item.content"></ion-textarea>
-        </ion-item>
-      </ion-list>
+      <ion-item>
+        <ion-textarea [(ngModel)]="item.content" placeholder="说说你的看法吧"></ion-textarea>
+      </ion-item>
+      <ion-row>
+        <ion-col size="3">
+          <div class="img-box">
+            <img src="../../../assets/add2.png" alt="">
+          </div>
+        </ion-col>
+      </ion-row>
     </div>
+  </div>
+  <div class="nmbox">
+    <ion-toggle color="success" size="small" [(ngModel)]="isNm"></ion-toggle><ion-text>匿名</ion-text>
   </div>
 </ion-content>

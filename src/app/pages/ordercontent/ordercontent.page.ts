@@ -4,7 +4,7 @@ import { ThorderService } from './../../services/thorder.service';
  * @Author: wjy-mac
  * @Date: 2019-07-29 22:29:34
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-01 15:55:05
+ * @LastEditTime: 2019-11-05 01:07:50
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -15,6 +15,7 @@ import {NativeService} from "../../services/native.service";
 import {PaymentListService} from "../../services/payment-list.service";
 import {PayboxComponent} from '../../components/paybox/paybox.component';
 import { TopageService } from '../../services/topage.service';
+import { OrderlistService } from 'src/app/services/orderlist.service';
 
 @Component({
   selector: 'app-ordercontent',
@@ -36,7 +37,8 @@ export class OrdercontentPage implements OnInit {
   constructor(private activeroute: ActivatedRoute, private nav: NavController,
               private http: HttpService, private native: NativeService, private paymentlist: PaymentListService,
               public alertController: AlertController, public popoverController: PopoverController,
-              private topage: TopageService, private route: Router, private thorder: ThorderService) { }
+              private topage: TopageService, private route: Router, private thorder: ThorderService,
+              private orderList: OrderlistService) { }
 
   ngOnInit() {
     console.log('进入1')
@@ -50,7 +52,10 @@ export class OrdercontentPage implements OnInit {
     const params = this.activeroute.snapshot.queryParams;
     this.orderId = params['id'];
     this.comment = params['comment'] ? Number(params['comment']) : 0;
-    console.log(this.orderId);
+    const plid = this.orderList.getPlorderid(); // 获取上一次评论的订单id
+    if (plid && plid == this.orderId && this.comment != 0) {
+      this.comment = 0;
+    }
     if (!this.orderId) {
       setTimeout(() => {
         this.getDatahttp();
@@ -86,7 +91,7 @@ export class OrdercontentPage implements OnInit {
         let istk = false;
         for (let i = 0; i < this.data['goods_list'].length; i++) {
           const goods = this.data['goods_list'][i];
-          if (goods['tkend'] != 1 && goods['isshing'] != 1) {
+          if (goods['tkend'] != 1 && goods['isshing'] != 1 || goods['backnum'] != goods['goods_number']) {
             this.isshing = false;
           }
           if (goods['tkend'] != 1 || goods['backnum'] != goods['goods_number']) {
@@ -358,7 +363,7 @@ export class OrdercontentPage implements OnInit {
         }, {
           text: '评价',
           handler: () => {
-            console.log('Confirm Okay');
+            this.toPagefn(16, this.data.order.order_id);
           }
         }
       ]

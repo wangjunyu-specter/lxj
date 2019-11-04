@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-04 23:48:50
+ * @Description: file content
+ */
 import { Injectable } from '@angular/core';
 import {HttpService} from './http.service';
 
@@ -6,20 +13,11 @@ import {HttpService} from './http.service';
 })
 export class OrderlistService {
   listObj: object;
-  // allList: any[]; // 全部
-  // dfkList: any[]; // 待付款
-  // dfhList: any[]; // 待发货
-  // dshList: any[]; // 待收货
-  // ywcList: any[]; // 已完成
   amount: number; // 每页条数
   pageObj: number[]; // 页数对象
   isallarry: boolean[]; // 是否取完
+  isplorderid: string; // 评论完成后跳转详情页时用次id判断是否这个订单已评论
   constructor(private http: HttpService) {
-    // this.allList = [];
-    // this.dfkList = [];
-    // this.dfhList = [];
-    // this.dshList = [];
-    // this.ywcList = [];
     this.listObj = [];
     this.amount = 10;
     this.pageObj = [0, 0, 0, 0, 0];
@@ -27,6 +25,9 @@ export class OrderlistService {
   }
   setList(list: any[], type = 1) {
     this.listObj[type - 1].push(...list);
+  }
+  getPlorderid() {
+    return this.isplorderid;
   }
   async getList(type: number) {
     console.log('执行力')
@@ -42,7 +43,7 @@ export class OrderlistService {
     } catch (e) {
       console.error(e);
     }
-    return true;
+    return true; 
   }
   async reget(type: number) {
     this.pageObj[type - 1] = 0;
@@ -103,5 +104,28 @@ export class OrderlistService {
         reject(false);
       });
     });
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 设置已有列表中已评价
+   * @Date: 2019-11-04 23:32:52
+   * @param {type} id 订单ID
+   * @param {type} orderSn 订单sn.
+   * @return: 
+   */  
+  setOrderispj(id, orderSn) {
+    this.isplorderid = orderSn;
+    out:
+    for (const key in this.listObj) {
+      if (this.listObj[key] && this.listObj[key].length > 0) {
+        for (let index = 0; index < this.listObj[key].length; index++) {
+          const res = this.listObj[key][index];
+          if (res.order_id == id) {
+            res['comment_s'] = 0;
+            continue out;
+          }
+        }
+      }
+    }
   }
 }
