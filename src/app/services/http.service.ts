@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-29 14:19:39
+ * @LastEditTime: 2019-11-04 16:43:32
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -98,6 +98,7 @@ export class HttpService {
   getcity = 'region.php?'; // 设置关注parent=0 type=2
   orderDetail = 'user.php?act=order_detail'; // 获取订单详情&order_id=206
   cancelOrder = 'user.php?act=cancel_order'; // 取消订单&order_id=219
+  getGoodsTag = 'user.php?act=getGoods_tag'; // 获取商品评论标签&order_id=219
   cancelOrderxc = 'user.php?act=cancel_order_xc'; // 取消行程&order_id=219
   getGzlist = 'user.php?act=getGzlist'; // 获取关注的人
   editprofile = 'user.php?act=act_edit_profile'; // 获取关注的人

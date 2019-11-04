@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-11-01 15:49:39
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-01 17:45:46
+ * @LastEditTime: 2019-11-04 17:52:48
  * @Description: 发布评论
  -->
 <ion-header>
@@ -13,80 +13,87 @@
       </ion-button>
     </ion-buttons>
     <ion-title>发布评论</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="sub()">
+        发布
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <div class="my-list">
-    <div class="my-item">
-      <div class="left">
-        描述
-      </div>
-      <div class="right">
-        <img src="../../../assets/icon/branch.png" alt="">
-        <img src="../../../assets/icon/branch.png" alt="">
-        <img src="../../../assets/icon/branch.png" alt="">
-        <img src="../../../assets/icon/branch.png" alt="">
-        <img src="../../../assets/icon/branch.png" alt="">
-      </div>
-      <div class="des">
-        4分,满意
-      </div>
-    </div>
-    <div class="my-item">
-      <div class="left">
-        服务
-      </div>
-      <div class="right">
-        <img src="../../../assets/icon/branch.png" alt="">
-        <img src="../../../assets/icon/branch.png" alt="">
-        <img src="../../../assets/icon/branch.png" alt="">
-        <img src="../../../assets/icon/branch.png" alt="">
-        <img src="../../../assets/icon/branch.png" alt="">
+    <div class="my-item" *ngFor="let item of pflist; let key = index">
+      <div class="top">
+        <div class="left">
+          {{item.name}}
+        </div>
+        <div class="right">
+          <img *ngFor="let data of imglist; let i = index" 
+          [src]="item.val >= i + 1 ? '../../../assets/icon/branch_active.png' : '../../../assets/icon/branch.png'"
+          (click)="setPf(key, i + 1)"
+          alt="">
+        </div>
       </div>
       <div class="des">
-        4分,满意
-      </div>
-    </div>
-    <div class="my-item">
-      <div class="left">
-        发货
-      </div>
-      <div class="right">
-        <img src="../../../assets/icon/branch.png" alt="">
-        <img src="../../../assets/icon/branch.png" alt="">
-        <img src="../../../assets/icon/branch.png" alt="">
-        <img src="../../../assets/icon/branch.png" alt="">
-        <img src="../../../assets/icon/branch.png" alt="">
-      </div>
-      <div class="des">
-        4分,满意
-      </div>
-    </div>
-    <div class="my-item">
-      <div class="left">
-        物流
-      </div>
-      <div class="right">
-        <img src="../../../assets/icon/branch.png" alt="">
-        <img src="../../../assets/icon/branch.png" alt="">
-        <img src="../../../assets/icon/branch.png" alt="">
-        <img src="../../../assets/icon/branch.png" alt="">
-        <img src="../../../assets/icon/branch.png" alt="">
-      </div>
-      <div class="des">
-        4分,满意
+        <span *ngIf="item.val == 5">5分,非常满意</span>
+        <span *ngIf="item.val == 4">4分,满意</span>
+        <span *ngIf="item.val == 3">3分,一般</span>
+        <span *ngIf="item.val == 2">2分,不满意</span>
+        <span *ngIf="item.val == 1">1分,非常不满意</span>
       </div>
     </div>
   </div>
-  <ion-list>
-    <ion-item>
-      <ion-label position="floating">自定义标签</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">评价内容</ion-label>
-      <ion-textarea></ion-textarea>
-    </ion-item>
-  </ion-list>
+  <div class="goods_list">
+    <div class="pl-item" *ngFor="let item of goodsObjarr">
+      <div class="goods_name"><p>{{item.goodsName}}</p></div>
+      <div class="my-list">
+        <div class="my-item">
+          <div class="top">
+            <div class="left">
+              描述
+            </div>
+            <div class="right">
+              <img *ngFor="let data of imglist; let i = index" 
+              [src]="item.comment_rank >= i + 1 ? '../../../assets/icon/branch_active.png' : '../../../assets/icon/branch.png'"
+              (click)="setitemPf(item, i + 1)"
+              alt="">
+            </div>
+          </div>
+          <div class="des">
+            <span *ngIf="item.comment_rank == 5">5分,非常满意</span>
+            <span *ngIf="item.comment_rank == 4">4分,满意</span>
+            <span *ngIf="item.comment_rank == 3">3分,一般</span>
+            <span *ngIf="item.comment_rank == 2">2分,不满意</span>
+            <span *ngIf="item.comment_rank == 1">1分,非常不满意</span>
+          </div>
+        </div>
+      </div>
+      <div class="addbq-box">
+        <div class="left">
+          <ion-item>
+            <ion-label position="floating">自定义标签</ion-label>
+            <ion-input [(ngModel)]="item.newbq"></ion-input>
+          </ion-item>
+        </div>
+        <div class="right" *ngIf="item.newbq">
+          <ion-button color="success" size="small" (click)="addBq(item)">确定</ion-button>
+        </div>
+      </div>
+      <div class="my-row">
+        <div class="my-item" *ngFor="let data of item['tags_zi']; let i = index" (click)="removeBq(i, item)">
+          <ion-chip color="success">
+            <ion-label>{{data}}</ion-label>
+            <ion-icon name="close-circle"></ion-icon>
+          </ion-chip>
+        </div>
+      </div>
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">评价内容</ion-label>
+          <ion-textarea [(ngModel)]="item.content"></ion-textarea>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
 </ion-content>
