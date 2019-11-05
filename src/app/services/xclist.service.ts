@@ -9,16 +9,18 @@ export class XclistService {
   amount: number; // 每页条数
   pageObj: number[]; // 页数对象 // 每条对应页数
   isallarry: boolean[]; // 是否取完
+  isplorderid: string; // 评论完成后跳转详情页时用次id判断是否这个订单已评论
+
   constructor(private http: HttpService) {
     this.clear();
   }
   setList(list: any[], type = 1) {
-    console.log(list)
     this.listObj[type - 1].push(...list);
-    console.log(this.listObj)
+  }
+  getPlorderid() {
+    return this.isplorderid;
   }
   getList(type: number) {
-    console.log('执行力')
     if (!this.listObj[type - 1]) {
       this.listObj[type - 1] = [];
       this.getMoregoodshttp(type).then(res => {}).catch(err => {});
@@ -92,6 +94,29 @@ export class XclistService {
         reject(false);
       });
     });
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 设置已有列表中已评价
+   * @Date: 2019-11-04 23:32:52
+   * @param {type} id 订单ID
+   * @param {type} orderSn 订单sn.
+   * @return: 
+   */  
+  setOrderispj(id, orderSn) {
+    this.isplorderid = orderSn;
+    out:
+    for (const key in this.listObj) {
+      if (this.listObj[key] && this.listObj[key].length > 0) {
+        for (let index = 0; index < this.listObj[key].length; index++) {
+          const res = this.listObj[key][index];
+          if (res.order_id == id) {
+            res['comment_s'] = 0;
+            continue out;
+          }
+        }
+      }
+    }
   }
   clear() {
     this.listObj = [];

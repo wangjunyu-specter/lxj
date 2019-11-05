@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-11-01 15:49:39
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-05 01:15:16
+ * @LastEditTime: 2019-11-05 17:41:15
  * @Description: 发布评论
  -->
 <ion-header>
@@ -14,7 +14,7 @@
     </ion-buttons>
     <ion-title>发布评论</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="sub()">
+      <ion-button (click)="sub()" [disabled]="isupdate && isupdate.length > 0">
         发布
       </ion-button>
     </ion-buttons>
@@ -23,7 +23,7 @@
 
 <ion-content padding>
   <div class="my-list">
-    <div class="my-item" *ngFor="let item of pflist; let key = index">
+    <div class="my-item" *ngFor="let item of pflist; let key = index" [ngClass]="{hidden: isxc && key > 0}">
       <div class="top">
         <div class="left">
           {{item.name}}
@@ -46,7 +46,7 @@
   </div>
   <div class="line"></div>
   <div class="goods_list">
-    <div class="pl-item" *ngFor="let item of goodsObjarr">
+    <div class="pl-item" *ngFor="let item of goodsObjarr; let goodsindex = index">
       <div class="goods_name"><p>{{item.goodsName}}</p></div>
       <div class="my-list">
         <div class="my-item">
@@ -95,12 +95,25 @@
         </div>
       </div>
       <ion-item>
-        <ion-textarea [(ngModel)]="item.content" placeholder="说说你的看法吧"></ion-textarea>
+        <ion-textarea rows="4" [(ngModel)]="item.content" placeholder="说说你的看法吧"></ion-textarea>
       </ion-item>
-      <ion-row>
+      <ion-row margin-top margin-bottom>
         <ion-col size="3">
-          <div class="img-box">
+          <div class="img-box" (click)="selecteImgs(goodsindex, 6 - (imgs[goodsindex] ? imgs[goodsindex].length : 0))" *ngIf="!(imgs[goodsindex] && imgs[goodsindex].length === 6)">
             <img src="../../../assets/add2.png" alt="">
+          </div>
+          <div class="img-box" *ngFor="let src of imgs[goodsindex]; let imgindex = index;">
+            <img [src]="src" alt="">
+            <div class="loadEffect" *ngIf="!item.imgs[imgindex]">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </div>
         </ion-col>
       </ion-row>

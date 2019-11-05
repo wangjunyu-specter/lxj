@@ -1,0 +1,37 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-11-05 11:32:10
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-05 14:52:10
+ * @Description: file content
+ -->
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon mode="ios" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>评论列表</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <app-nomore *ngIf="commentList && commentList.length === 0"></app-nomore>
+  <ion-row *ngIf="tags">
+    <ion-col *ngFor="let item of tags">
+      <ion-chip color="secondary">
+        <ion-label color="dark">{{item.tag_name}}({{item.tag_num}})</ion-label>
+      </ion-chip>
+    </ion-col>
+  </ion-row>
+  <div *ngFor="let item of commentList">
+    <app-pjcontent [data]="item"></app-pjcontent>
+  </div>
+  <ion-infinite-scroll (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

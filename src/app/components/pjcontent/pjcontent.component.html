@@ -1,14 +1,21 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-03-29 03:26:56
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-05 16:03:02
+ * @Description: file content
+ -->
 <ion-list lines="none">
   <ion-item>
     <ion-avatar slot="start">
       <img src="{{data.headimg || 'https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y'}}">
     </ion-avatar>
-    <ion-label>{{data.user_name}}</ion-label>
+    <ion-label>{{data.user_name | namenm: data.hide_username}}</ion-label>
     <span>{{data.add_time | time: [1, '/']}}</span>
   </ion-item>
 </ion-list>
-<div padding class="text-content">{{data.content}}</div>
-<div padding class="swiper-content">
+<div padding class="text-content" [ngStyle]="{marginBottom: !data.images || data.images.length == 0 ? '15px' : 0}">{{data.content}}</div>
+<div padding class="swiper-content" *ngIf="data.images && data.images.length > 0">
   <ion-slides [options]="slideOpts">
     <ion-slide *ngFor="let src of data.images">
       <img src="{{http.zdomain + src.images}}">

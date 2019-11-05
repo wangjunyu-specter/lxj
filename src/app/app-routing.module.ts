@@ -54,6 +54,7 @@ const routes: Routes = [
   { path: 'after-sale', loadChildren: './pages/after-sale/after-sale.module#AfterSalePageModule' },
   { path: 'after-salelist', loadChildren: './pages/after-salelist/after-salelist.module#AfterSalelistPageModule' },
   { path: 'post-comment', loadChildren: './pages/post-comment/post-comment.module#PostCommentPageModule' },
+  { path: 'comments-list', loadChildren: './pages/comments-list/comments-list.module#CommentsListPageModule' },
 
 ];
 @NgModule({

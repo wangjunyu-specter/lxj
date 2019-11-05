@@ -60,7 +60,7 @@
       <span>{{data.order | orderstatus: 1}}</span>
       <span margin-top 
       *ngIf="data.order.order_status == '5' && data.order.shipping_status == '2' && data.order.pay_status == '2' || 
-      data.order.order_status == '2' && data.order.shipping_status == '0' && data.order.pay_status == '0'"><ion-button size="small" color="secondary" (click)="repurchase()">再次购买</ion-button></span>
+      data.order.order_status == '2' && data.order.shipping_status == '0' && data.order.pay_status == '0'"><ion-button size="small" color="secondary" (click)="toPagefn(2, data.goods_list[0].goods_id)">再次购买</ion-button></span>
     </div>
   </div>
 <div *ngIf="data" class="goods-content" padding-bottom>
@@ -250,6 +250,7 @@
   <ion-footer *ngIf="data && data.order.order_status == '5' && data.order.shipping_status == '2' && data.order.pay_status === '2'">
     <ion-toolbar>
       <div class="footer-bar">
+        <ion-button size="small" color="danger" *ngIf="comment > 0" (click)="toPagefn(16, data.order.order_id, 1)">评价</ion-button>
         <ion-button size="small" color="light" (click)="cancleOrder()">售后</ion-button>
       </div>
     </ion-toolbar>

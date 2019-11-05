@@ -2,15 +2,16 @@
  * @Author: wjy-mac
  * @Date: 2019-11-01 15:49:39
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-04 23:48:37
+ * @LastEditTime: 2019-11-05 17:41:50
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { NavController, ActionSheetController } from '@ionic/angular';
 import { HttpService } from 'src/app/services/http.service';
 import { NativeService } from 'src/app/services/native.service';
 import { OrderlistService } from 'src/app/services/orderlist.service';
+import { XclistService } from 'src/app/services/xclist.service';
 
 @Component({
   selector: 'app-post-comment',
@@ -18,15 +19,19 @@ import { OrderlistService } from 'src/app/services/orderlist.service';
   styleUrls: ['./post-comment.page.scss'],
 })
 export class PostCommentPage implements OnInit {
-  imglist: number[]; // 平分图标循环，只是为了要一个5个值得数组
+  imglist: number[]; // 评分图标循环，只是为了要一个5个值得数组
   pflist: any[]; // 平分对象列表
   newbq: string;
   orderId: string; // 订单id
   goodsObjarr: object[]; // 评论商品对象列表
   isNm: boolean; // 是否匿名
   orderSn: string;
+  isxc: boolean;
+  imgs: any[]; // 评论图片列表，二维数组，第一层表示哪个商品对象
+  isupdate: number[]; // 上传对象，有数据表示还在上传
   constructor(private activeroute: ActivatedRoute, private nav: NavController,
-    private http: HttpService, private native: NativeService, private orderlist: OrderlistService) { }
+    private http: HttpService, private native: NativeService, private orderlist: OrderlistService,
+    private xcxllist: XclistService, public actionSheetController: ActionSheetController) { }
 
   ngOnInit() {
     this.pflist = [{name: '服务', val: 5, key: 'server'},
@@ -34,26 +39,37 @@ export class PostCommentPage implements OnInit {
                     {name: '物流', val: 5, key: 'shipping'}];
                     // {name: '描述', val: 5, key: 'comment_rank'},
     this.imglist = [1, 1, 1, 1, 1];
-    this.isNm = false;
+    this.isNm = true;
+    this.imgs = [];
   }
   ionViewWillEnter() {
     console.log('进入2')
     const params = this.activeroute.snapshot.queryParams;
     this.orderId = params['id'];
+    this.isxc = params['type'] ? true : false;
     this.getBq();
   }
+  /**
+   * @Author: wjy-mac
+   * @description: 获取订单商品对象
+   * @Date: 2019-11-05 17:00:01
+   * @param {type} 
+   * @return: 
+   */  
   getBq() {
     this.goodsObjarr = [];
     this.http.getData(this.http.getGoodsTag, {order_id: this.orderId}).subscribe(res => {
       console.log(res);
       this.orderSn = res['order_sn'];
       if (res['data'] && res['data'].length > 0) {
+        this.imgs.fill([], 0, res['data'].length - 1);
         res['data'].map(data => {
           let obj = {
             content: '', // 内容
             tags_zi: [], // 自定义标签
             comment_tag: [], // 已选标签
-            comment_rank: 5 // 描述分
+            comment_rank: 5, // 描述分
+            imgs: [] // 图片列表
           };
           obj = Object.assign(obj, data);
           this.goodsObjarr.push(obj);
@@ -136,30 +152,116 @@ export class PostCommentPage implements OnInit {
       }
     }
   }
+  /**
+   * @Author: wjy-mac
+   * @description: 获取图片
+   * @Date: 2019-11-05 17:00:29
+   * @param {type} index 评论商品对象序号
+   * @param {type} length 还可以添加几张
+   * @return: 
+   */  
+  async selecteImgs(index: number, length: number) {
+    const actionSheet = await this.actionSheetController.create({
+      header: '请选择来源',
+      buttons: [{
+        text: '相机',
+        role: 'destructive',
+        handler: () => {
+          this.native.getPictureByCamera().then(res => {
+            this.basezfile(res, index);
+          });
+        }
+      }, {
+        text: '相册',
+        handler: () => {
+          this.native.getPictures(length).then((res: any) => {
+            res.map(img => {
+              this.basezfile(img, index);
+            });
+          }, err => {
+
+          });
+        }
+      }, {
+        text: '取消',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      }]
+    });
+    await actionSheet.present();
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 将上传图片改为异步结合,获取图片上传完成后的事件
+   * @Date: 2019-11-05 17:11:59
+   * @param {type} 
+   * @return: 
+   */  
+  basezfile(base64, index) {
+    if (!this.imgs[index]) {
+      this.imgs[index] = [];
+    }
+    this.imgs[index].push(base64);
+    const nowimgindex = this.imgs[index].length - 1;
+    const file = this.native.getImgbase64tofile(base64, 'comment' + index, 'imgFile');
+    if (!this.isupdate) {
+      this.isupdate = [];
+    }
+    this.isupdate.push(1);
+    this.imgupload(file).then(res => {
+      this.isupdate.splice(0, 1);
+      this.goodsObjarr[index]['imgs'][nowimgindex] = res;
+    }).catch(err3 => {
+      this.isupdate.splice(0, 1);
+      this.imgs[index].splice(nowimgindex, 1);
+    });
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 上传图片方法
+   * @Date: 2019-11-05 17:12:29
+   * @param {type} file 图片对象
+   * @return: 
+   */  
+  imgupload(file) {
+    return new Promise((resolve, reject) => {
+      const oReq = new XMLHttpRequest();
+      oReq.open('POST', this.http.domain + this.http.updateimg);
+      oReq.onreadystatechange = (oEvent) => {
+        if (oReq.readyState == 4 && oReq.status == 200) {
+          const res = JSON.parse(oReq.response)
+          resolve(res.result);
+        }
+      };
+      oReq.onerror = (err) => {
+        reject(err);
+      };
+      oReq.send(file);
+    });
+  }
   goBack(): void {
     this.nav.back();
   }
   sub() {
-    // const obj = Object.assign({}, this.commentObj);
     const obj = {};
     this.pflist.map(item => {
       obj[item.key] = item.val;
     });
     obj['pjarr'] = JSON.stringify(Array.from(this.goodsObjarr));
     obj['o_id'] = this.orderId;
-    console.log(this.isNm)
     if (this.isNm) {
       obj['hide_username'] = 1;
     }
     console.log(obj);
-    // if (obj['comment_tag'].length > 0) {
-    //   obj['comment_tag'] = obj['comment_tag'].join(',');
-    // }
-    // console.log(obj);
     this.http.postformdataloading(this.http.commentSend, obj).subscribe(res => {
-      console.log(res);
       this.native.presentToast(res.msg);
-      this.orderlist.setOrderispj(this.orderId, this.orderSn);
+      if (this.isxc) {
+        this.xcxllist.setOrderispj(this.orderId, this.orderSn);
+      } else {
+        this.orderlist.setOrderispj(this.orderId, this.orderSn);
+      }
       this.goBack();
     }, err2 => {
 

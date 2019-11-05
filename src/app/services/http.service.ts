@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-04 22:49:06
+ * @LastEditTime: 2019-11-05 14:32:04
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -16,7 +16,7 @@ import {NavController} from "@ionic/angular";
 // import * as api from '../mo'
 
 
-const zdomain = 'http://47.108.31.148/';
+const zdomain = 'https://sc.cdlxj.cn/';
 // const toke: string = '15308081024-31785997575345274881558784601TABG';
 // const toke: string = '15456456456-76918544985912005121558445163FCAD';
 // const userid: string = '60';
@@ -47,6 +47,7 @@ export class HttpService {
   getGoods = 'goods.php?act=getgoods'; // 获取产品详情
   getsupplier = 'goods.php?act=getgoodssupplier'; // 获取产品店铺
   getGoodcomment = 'goods_comment.php?act=getgcontentc'; // 获取评论
+  getGoodcommentList = 'goods_comment.php?act=getcommentslist'; // 获取评论列表
   getProductprice = 'goods.php?act=price'; // 改变属性后获取价格
   getZt = 'topic.php?act=get_zt'; // 获取对应专题 topic_id
   getindexmore = 'index_bestgoods.php?act=ajax'; // 获取首页更多商品

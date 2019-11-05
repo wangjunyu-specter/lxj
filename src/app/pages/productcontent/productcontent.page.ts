@@ -3,7 +3,7 @@ import { NativeService } from './../../services/native.service';
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-08-06 23:03:41
+ * @LastEditTime: 2019-11-05 11:38:49
  * @Description: file content
  */
 import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
@@ -511,7 +511,17 @@ export class ProductcontentPage implements OnInit {
     this.content.scrollToPoint(0, 0, 0);
   }
   gototc() {
-    this.route.navigate(['/moreyhtc'], {queryParams: {id: this.pid}})
+    this.route.navigate(['/moreyhtc'], {queryParams: {id: this.pid}});
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 跳转所有评论页面
+   * @Date: 2019-11-05 11:38:17
+   * @param {type} 
+   * @return: 
+   */  
+  openAllcomment() {
+    this.route.navigate(['/comments-list'], {queryParams: {id: this.pid}});
   }
   async toprightmore(ev: any) {
     const popover = await this.popoverController.create({

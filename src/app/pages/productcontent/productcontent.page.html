@@ -145,7 +145,7 @@
     <ion-list mode="ios" lines="none">
       <ion-item button>
         <ion-label>用户评价({{productData.pinglunnum | setnum}})</ion-label>
-        <span>全部评价</span>
+        <span (click)="openAllcomment()">全部评价</span>
       </ion-item>
     </ion-list>
     <ion-row>

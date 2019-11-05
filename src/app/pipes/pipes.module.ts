@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-31 16:07:03
+ * @LastEditTime: 2019-11-05 16:02:04
  * @Description: file content
  */
 import { NgModule } from '@angular/core';
@@ -23,6 +23,7 @@ import { SplitarrPipe } from './splitarr.pipe';
 import { XcstatusPipe } from './xcstatus.pipe';
 import { OrderstatusPipe } from './orderstatus.pipe';
 import { AutoshdesPipe } from './autoshdes.pipe';
+import { NamenmPipe } from './namenm.pipe';
 
 // import { YhqtitlePipe } from './yhqtitle.pipe';
 
@@ -34,12 +35,14 @@ import { AutoshdesPipe } from './autoshdes.pipe';
     SplitarrPipe,
     XcstatusPipe,
     OrderstatusPipe,
-    AutoshdesPipe],
+    AutoshdesPipe,
+    NamenmPipe],
   imports: [
     CommonModule
   ],
   exports: [DatecontentPipe, GoodsattrPipe, OldtonowPipe, IsgzPipe, ImgsrcPipe,
     DecodeuriPipe, SetnumPipe, TelhidePipe, IsvideoPipe, NamesubstrPipe,
-    XclistattrPipe, XccontentsplitPipe, SplitarrPipe, XcstatusPipe, OrderstatusPipe, AutoshdesPipe]
+    XclistattrPipe, XccontentsplitPipe, SplitarrPipe, XcstatusPipe, OrderstatusPipe, AutoshdesPipe,
+    NamenmPipe]
 })
 export class PipesModule { }

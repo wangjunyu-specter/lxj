@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-07 23:49:04
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-31 16:16:59
+ * @LastEditTime: 2019-11-05 15:41:13
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -13,6 +13,7 @@ import {ActivatedRoute} from "@angular/router";
 import {HttpService} from "../../services/http.service";
 import {PayboxComponent} from '../../components/paybox/paybox.component';
 import {TopageService} from "../../services/topage.service";
+import { XclistService } from 'src/app/services/xclist.service';
 
 @Component({
   selector: 'app-xccontent',
@@ -30,10 +31,13 @@ export class XccontentPage implements OnInit {
   isyepayend: boolean; // 是否已使用余额  但未支付成功
   setouttime: string; // 出发时间
   nowistimeout: boolean; // 当前是否已到出发日期
+  comment: number; // 评论id 大于0表示未评论
+
   constructor(private activeroute: ActivatedRoute, private nav: NavController,
               private http: HttpService, private native: NativeService, private paymentlist: PaymentListService,
-              public alertController: AlertController, public popoverController: PopoverController, private topage: TopageService) { }
-
+              public alertController: AlertController, public popoverController: PopoverController, private topage: TopageService,
+              private xcxllist: XclistService) { }
+ 
 
   ngOnInit() {
     this.kysyye = false;
@@ -45,6 +49,11 @@ export class XccontentPage implements OnInit {
   ionViewWillEnter() {
     const params = this.activeroute.snapshot.queryParams;
     this.orderId = params['id'];
+    this.comment = params['comment'] ? Number(params['comment']) : 0;
+    const plid = this.xcxllist.getPlorderid(); // 获取上一次评论的订单id
+    if (plid && plid == this.orderId && this.comment != 0) {
+      this.comment = 0;
+    }
     this.getDatahttp();
     this.getData();
   }
@@ -245,8 +254,11 @@ export class XccontentPage implements OnInit {
     }, error2 => {
     });
   }
-  repurchase() {
-    this.topage.toPage(2, this.data.goods_list[0].goods_id);
+  // repurchase() {
+  //   this.topage.toPage(2, this.data.goods_list[0].goods_id);
+  // }
+  toPagefn(type, id, ...args) {
+    this.topage.toPage(type, id, ...args);
   }
 }
 

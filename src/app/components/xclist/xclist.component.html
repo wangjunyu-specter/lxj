@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-29 22:26:10
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-29 17:20:07
+ * @LastEditTime: 2019-11-05 15:33:16
  * @Description: 行程列表商品模块
  -->
 <div class="my-content-bg" *ngFor="let item of list; let i = index">
@@ -13,7 +13,7 @@
       </div>
       <div class="right">{{item.order_status | xcstatus: 1}}</div>
     </div>
-    <ion-item *ngFor="let data of item.goods_list" lines="none" (click)="gotoPage(11, item.order_sn)">
+    <ion-item *ngFor="let data of item.goods_list" lines="none" (click)="gotoPage(11, item.order_sn, item.comment_s)">
       <ion-thumbnail slot="start">
         <img [src]="data.goods_thumb | imgsrc: http.zdomain">
       </ion-thumbnail>
@@ -25,7 +25,11 @@
         <span>{{data.formated_goods_price}}</span>
         <span>×{{data.goods_number}}</span>
       </div>
-    </ion-item>
-    <p class="order_des">共{{item.count}}件商品&nbsp;&nbsp;¥:{{item.total_fee}}</p>
+    </ion-item> 
+    <div class="order_des">
+      <ion-button *ngIf="item.shipping_status == 2 && item.comment_s != 0" fill="outline" size="small" color="danger" (click)="goComment(item.order_id)">评价</ion-button>
+      <span *ngIf="!(item.shipping_status == 2 && item.comment_s != 0)"></span>
+      <span>共{{item.count}}件商品&nbsp;&nbsp;¥:{{item.total_fee}}</span>
+    </div>
   </ion-list>
 </div>
