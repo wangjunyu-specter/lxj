@@ -4,7 +4,7 @@ import { error } from 'selenium-webdriver';
  * @Author: wjy-mac
  * @Date: 2019-10-17 17:47:02
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-23 17:05:29
+ * @LastEditTime: 2019-11-05 22:25:36
  * @Description: 取消订单
  */
 import { Component, OnInit } from '@angular/core';
@@ -153,7 +153,7 @@ export class CancelOrderPage implements OnInit {
     this.isupdate.push(-1);
     const file = this.native.getImgbase64tofile(base64, 'sh' + index, 'imgFile');
     this.imgupload(file).then(res => {
-      this.subimgs[index] = res as any;
+      this.subimgs[index] = res['url'];
       this.isupdate[index] = 1;
       if (this.issub) {
         this.issubfn();
@@ -184,7 +184,7 @@ export class CancelOrderPage implements OnInit {
     this.uploadEnd();
   }
   uploadEnd() {
-    const obj = Object.assign({imgs: this.imgs}, this.data);
+    const obj = Object.assign({imgs: this.subimgs}, this.data);
     this.http.postformdataloading(this.http.zdomain + this.http.backorderact, obj).subscribe(res => {
       this.native.presentToast('申请成功，请等待商家审核');
       this.goBack();

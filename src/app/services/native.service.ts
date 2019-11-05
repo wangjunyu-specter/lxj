@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-18 14:50:05
+ * @LastEditTime: 2019-11-05 22:35:50
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -361,10 +361,11 @@ export class NativeService {
    * @param name
    */
   getImgbase64tofile(base64, name, filename = 'file') {
-    name = name + (new Date()).valueOf() + '.png'; // 定义文件名字（例如：abc.png ， cover.png）
     const type = 'image/png'; // 定义图片类型（canvas转的图片一般都是png，也可以指定其他类型）
     const arr = base64.split(',');
     const mime = arr[0].match(/:(.*?);/)[1] || type;
+    const nametype = mime.substring(5);
+    name = name + (new Date()).valueOf() + '.' + nametype; // 定义文件名字（例如：abc.png ， cover.png）
 // 去掉url的头，并转化为byte
     const bytes = window.atob(arr[1]);
 // 处理异常,将ascii码小于0的转换为大于0

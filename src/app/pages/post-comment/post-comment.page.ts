@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-11-01 15:49:39
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-05 17:41:50
+ * @LastEditTime: 2019-11-05 22:40:53
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -205,7 +205,7 @@ export class PostCommentPage implements OnInit {
     }
     this.imgs[index].push(base64);
     const nowimgindex = this.imgs[index].length - 1;
-    const file = this.native.getImgbase64tofile(base64, 'comment' + index, 'imgFile');
+    const file = this.native.getImgbase64tofile(base64, 'comment' + index, 'file');
     if (!this.isupdate) {
       this.isupdate = [];
     }
