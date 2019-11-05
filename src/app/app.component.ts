@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-05 23:12:10
+ * @Description: file content
+ */
 import { Component } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
