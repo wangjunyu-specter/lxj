@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-05 22:48:55
+ * @Description: file content
+ */
 import { Component, OnInit } from '@angular/core';
 import {HttpService} from "../../services/http.service";
 import {NavController} from "@ionic/angular";
@@ -25,7 +32,8 @@ export class XclistPage implements OnInit {
   }
   goBack(): void {
     this.xcxllist.clear();
-    this.nav.back();
+    // this.nav.back();
+    this.nav.navigateForward('/tabs/tab4');
   }
   goContent(id) {
     // this.route.navigate(['/fbyjmore'], {queryParams: {type: this.type + 1, num: res.result.num}});

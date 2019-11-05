@@ -20,10 +20,12 @@
     .title {
       font-size: var(--ion-title);
       font-weight: 600;
-      line-height: 18px;
       position: relative;
+      .text {
+        line-height: 20px;
+      }
       &.wrap {
-        height: 36px;
+        max-height: 40px;
         overflow: hidden;
       }
       &.hasimg {
@@ -43,7 +45,6 @@
         float: left;
         width: 5px;
         content: '';
-        height: 40px;
       }
 
       &.wrap::after {

@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-11-01 15:49:39
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-05 17:41:15
+ * @LastEditTime: 2019-11-05 22:45:11
  * @Description: 发布评论
  -->
 <ion-header>
@@ -102,7 +102,9 @@
           <div class="img-box" (click)="selecteImgs(goodsindex, 6 - (imgs[goodsindex] ? imgs[goodsindex].length : 0))" *ngIf="!(imgs[goodsindex] && imgs[goodsindex].length === 6)">
             <img src="../../../assets/add2.png" alt="">
           </div>
-          <div class="img-box" *ngFor="let src of imgs[goodsindex]; let imgindex = index;">
+        </ion-col>
+        <ion-col *ngFor="let src of imgs[goodsindex]; let imgindex = index;" size="3">
+          <div class="img-box">
             <img [src]="src" alt="">
             <div class="loadEffect" *ngIf="!item.imgs[imgindex]">
               <span></span>
