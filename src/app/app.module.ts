@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-18 23:01:07
+ * @LastEditTime: 2019-11-06 20:47:43
  * @Description: file content
  */
 import { NgModule } from '@angular/core';
@@ -67,6 +67,7 @@ import { OrdersuccessService } from './services/ordersuccess.service';
 import { XclistService } from './services/xclist.service';
 import {PaymentListService} from './services/payment-list.service';
 import {PayorderService} from './services/payorder.service';
+import {WebsocketService} from './services/websocket.service';
 
 
 import {NativeStorage} from '@ionic-native/native-storage/ngx';
@@ -172,6 +173,7 @@ import { ModelTimePipe } from './pipes/model-time.pipe';
     Market,
     AppUpdate,
     ThorderService,
+    WebsocketService,
     // NavigationBar,
     // ComponentsModule,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
