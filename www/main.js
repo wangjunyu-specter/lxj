@@ -835,31 +835,31 @@ module.exports = webpackAsyncContext;
 var map = {
 	"../tab1/tab1.module": [
 		"./src/app/tab1/tab1.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"tab1-tab1-module"
 	],
 	"../tab2/tab2.module": [
 		"./src/app/tab2/tab2.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"tab2-tab2-module"
 	],
 	"../tab3/tab3.module": [
 		"./src/app/tab3/tab3.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"tab3-tab3-module"
 	],
 	"../tab4/tab4.module": [
 		"./src/app/tab4/tab4.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
 		"common",
 		"tab4-tab4-module"
 	],
@@ -867,27 +867,39 @@ var map = {
 		"./src/app/pages/about-us/about-us.module.ts",
 		"pages-about-us-about-us-module"
 	],
+	"./pages/after-sale/after-sale.module": [
+		"./src/app/pages/after-sale/after-sale.module.ts",
+		"pages-after-sale-after-sale-module"
+	],
+	"./pages/after-salelist/after-salelist.module": [
+		"./src/app/pages/after-salelist/after-salelist.module.ts",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
+		"common",
+		"pages-after-salelist-after-salelist-module"
+	],
 	"./pages/all-zt/all-zt.module": [
 		"./src/app/pages/all-zt/all-zt.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-all-zt-all-zt-module"
 	],
 	"./pages/allorder/allorder.module": [
 		"./src/app/pages/allorder/allorder.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-allorder-allorder-module"
 	],
 	"./pages/articlecontent/articlecontent.module": [
 		"./src/app/pages/articlecontent/articlecontent.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-articlecontent-articlecontent-module"
 	],
@@ -901,21 +913,23 @@ var map = {
 	],
 	"./pages/browse-records/browse-records.module": [
 		"./src/app/pages/browse-records/browse-records.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-browse-records-browse-records-module"
 	],
 	"./pages/cancel-order/cancel-order.module": [
 		"./src/app/pages/cancel-order/cancel-order.module.ts",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"common",
 		"pages-cancel-order-cancel-order-module"
 	],
 	"./pages/cart/cart.module": [
 		"./src/app/pages/cart/cart.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-cart-cart-module"
 	],
@@ -925,45 +939,53 @@ var map = {
 	],
 	"./pages/collelist/collelist.module": [
 		"./src/app/pages/collelist/collelist.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-collelist-collelist-module"
 	],
+	"./pages/comments-list/comments-list.module": [
+		"./src/app/pages/comments-list/comments-list.module.ts",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
+		"common",
+		"pages-comments-list-comments-list-module"
+	],
 	"./pages/confirmationorder/confirmationorder.module": [
 		"./src/app/pages/confirmationorder/confirmationorder.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-confirmationorder-confirmationorder-module"
 	],
 	"./pages/contactdata/contactdata.module": [
 		"./src/app/pages/contactdata/contactdata.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
 		"common",
 		"pages-contactdata-contactdata-module"
 	],
 	"./pages/contactlist/contactlist.module": [
 		"./src/app/pages/contactlist/contactlist.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-contactlist-contactlist-module"
 	],
 	"./pages/edmit-user/edmit-user.module": [
 		"./src/app/pages/edmit-user/edmit-user.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
 		"common",
 		"pages-edmit-user-edmit-user-module"
 	],
 	"./pages/fbpqimg/fbpqimg.module": [
 		"./src/app/pages/fbpqimg/fbpqimg.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-fbpqimg-fbpqimg-module"
 	],
@@ -977,25 +999,25 @@ var map = {
 	],
 	"./pages/login/login.module": [
 		"./src/app/pages/login/login.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-login-login-module"
 	],
 	"./pages/moreyhtc/moreyhtc.module": [
 		"./src/app/pages/moreyhtc/moreyhtc.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-moreyhtc-moreyhtc-module"
 	],
 	"./pages/myrelease/myrelease.module": [
 		"./src/app/pages/myrelease/myrelease.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-myrelease-myrelease-module"
 	],
@@ -1009,9 +1031,9 @@ var map = {
 	],
 	"./pages/ordercontent/ordercontent.module": [
 		"./src/app/pages/ordercontent/ordercontent.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-ordercontent-ordercontent-module"
 	],
@@ -1021,171 +1043,175 @@ var map = {
 	],
 	"./pages/pay/pay.module": [
 		"./src/app/pages/pay/pay.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-pay-pay-module"
 	],
+	"./pages/post-comment/post-comment.module": [
+		"./src/app/pages/post-comment/post-comment.module.ts",
+		"pages-post-comment-post-comment-module"
+	],
 	"./pages/pqcontent/pqcontent.module": [
 		"./src/app/pages/pqcontent/pqcontent.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-pqcontent-pqcontent-module"
 	],
 	"./pages/productcontent/productcontent.module": [
 		"./src/app/pages/productcontent/productcontent.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-productcontent-productcontent-module"
 	],
 	"./pages/products/products.module": [
 		"./src/app/pages/products/products.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-products-products-module"
 	],
 	"./pages/scindex/scindex.module": [
 		"./src/app/pages/scindex/scindex.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-scindex-scindex-module"
 	],
 	"./pages/searchendgoods/searchendgoods.module": [
 		"./src/app/pages/searchendgoods/searchendgoods.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-searchendgoods-searchendgoods-module"
 	],
 	"./pages/searchorder/searchorder.module": [
 		"./src/app/pages/searchorder/searchorder.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
 		"common",
 		"pages-searchorder-searchorder-module"
 	],
 	"./pages/select-address/select-address.module": [
 		"./src/app/pages/select-address/select-address.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-select-address-select-address-module"
 	],
 	"./pages/selete-content/selete-content.module": [
 		"./src/app/pages/selete-content/selete-content.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-selete-content-selete-content-module"
 	],
 	"./pages/setpaypwd/setpaypwd.module": [
 		"./src/app/pages/setpaypwd/setpaypwd.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
 		"common",
 		"pages-setpaypwd-setpaypwd-module"
 	],
 	"./pages/sharesearch/sharesearch.module": [
 		"./src/app/pages/sharesearch/sharesearch.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-sharesearch-sharesearch-module"
 	],
 	"./pages/sj-index/sj-index.module": [
 		"./src/app/pages/sj-index/sj-index.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-sj-index-sj-index-module"
 	],
 	"./pages/sj-productnav/sj-productnav.module": [
 		"./src/app/pages/sj-productnav/sj-productnav.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-sj-productnav-sj-productnav-module"
 	],
 	"./pages/sjdpyx/sjdpyx.module": [
 		"./src/app/pages/sjdpyx/sjdpyx.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-sjdpyx-sjdpyx-module"
 	],
 	"./pages/sjsearch/sjsearch.module": [
 		"./src/app/pages/sjsearch/sjsearch.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-sjsearch-sjsearch-module"
 	],
 	"./pages/spgoods-confirmation/spgoods-confirmation.module": [
 		"./src/app/pages/spgoods-confirmation/spgoods-confirmation.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-spgoods-confirmation-spgoods-confirmation-module"
 	],
 	"./pages/userlist/userlist.module": [
 		"./src/app/pages/userlist/userlist.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
 		"common",
 		"pages-userlist-userlist-module"
 	],
 	"./pages/xccontent/xccontent.module": [
 		"./src/app/pages/xccontent/xccontent.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-xccontent-xccontent-module"
 	],
 	"./pages/xclist/xclist.module": [
 		"./src/app/pages/xclist/xclist.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-xclist-xclist-module"
 	],
 	"./pages/xcsclist/xcsclist.module": [
 		"./src/app/pages/xcsclist/xcsclist.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-xcsclist-xcsclist-module"
 	],
 	"./pages/yjcontent/yjcontent.module": [
 		"./src/app/pages/yjcontent/yjcontent.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-yjcontent-yjcontent-module"
 	],
 	"./pages/zt/zt.module": [
 		"./src/app/pages/zt/zt.module.ts",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~f8ece40a",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~87165c6f",
-		"default~pages-all-zt-all-zt-module~pages-allorder-allorder-module~pages-articlecontent-articleconten~d02da4b6",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dfacf6eb",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~713ed475",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~dbdb52b7",
 		"common",
 		"pages-zt-zt-module"
 	],
@@ -1283,6 +1309,10 @@ var routes = [
     { path: 'all-zt', loadChildren: './pages/all-zt/all-zt.module#AllZtPageModule' },
     { path: 'news', loadChildren: './pages/news/news.module#NewsPageModule' },
     { path: 'cancel-order', loadChildren: './pages/cancel-order/cancel-order.module#CancelOrderPageModule' },
+    { path: 'after-sale', loadChildren: './pages/after-sale/after-sale.module#AfterSalePageModule' },
+    { path: 'after-salelist', loadChildren: './pages/after-salelist/after-salelist.module#AfterSalelistPageModule' },
+    { path: 'post-comment', loadChildren: './pages/post-comment/post-comment.module#PostCommentPageModule' },
+    { path: 'comments-list', loadChildren: './pages/comments-list/comments-list.module#CommentsListPageModule' },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -1411,66 +1441,68 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_searchrecode_service__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./services/searchrecode.service */ "./src/app/services/searchrecode.service.ts");
 /* harmony import */ var _services_searchendgoods_service__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./services/searchendgoods.service */ "./src/app/services/searchendgoods.service.ts");
 /* harmony import */ var _services_userlogin_service__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./services/userlogin.service */ "./src/app/services/userlogin.service.ts");
-/* harmony import */ var _components_search_search_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/search/search.component */ "./src/app/components/search/search.component.ts");
-/* harmony import */ var _components_goodsattr_goodsattr_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/goodsattr/goodsattr.component */ "./src/app/components/goodsattr/goodsattr.component.ts");
-/* harmony import */ var _components_available_bonus_available_bonus_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/available-bonus/available-bonus.component */ "./src/app/components/available-bonus/available-bonus.component.ts");
-/* harmony import */ var _components_goods_contentnav_goods_contentnav_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/goods-contentnav/goods-contentnav.component */ "./src/app/components/goods-contentnav/goods-contentnav.component.ts");
-/* harmony import */ var _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/paybox/paybox.component */ "./src/app/components/paybox/paybox.component.ts");
-/* harmony import */ var _components_topnavlist_topnavlist_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/topnavlist/topnavlist.component */ "./src/app/components/topnavlist/topnavlist.component.ts");
-/* harmony import */ var _services_native_service__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./services/native.service */ "./src/app/services/native.service.ts");
-/* harmony import */ var _services_sjindextjgoods_service__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./services/sjindextjgoods.service */ "./src/app/services/sjindextjgoods.service.ts");
-/* harmony import */ var _services_products_list_service__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./services/products-list.service */ "./src/app/services/products-list.service.ts");
-/* harmony import */ var _services_scindex_service__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./services/scindex.service */ "./src/app/services/scindex.service.ts");
-/* harmony import */ var _services_topage_service__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./services/topage.service */ "./src/app/services/topage.service.ts");
-/* harmony import */ var _services_zt_list_service__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./services/zt-list.service */ "./src/app/services/zt-list.service.ts");
-/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./services/user.service */ "./src/app/services/user.service.ts");
-/* harmony import */ var _services_usercenter_service__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./services/usercenter.service */ "./src/app/services/usercenter.service.ts");
-/* harmony import */ var _services_yhtclist_service__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./services/yhtclist.service */ "./src/app/services/yhtclist.service.ts");
-/* harmony import */ var _services_gwc_service__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./services/gwc.service */ "./src/app/services/gwc.service.ts");
-/* harmony import */ var _services_bounslist_service__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./services/bounslist.service */ "./src/app/services/bounslist.service.ts");
-/* harmony import */ var _services_collelist_service__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./services/collelist.service */ "./src/app/services/collelist.service.ts");
-/* harmony import */ var _services_xcsclist_service__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./services/xcsclist.service */ "./src/app/services/xcsclist.service.ts");
-/* harmony import */ var _services_articelist_service__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./services/articelist.service */ "./src/app/services/articelist.service.ts");
-/* harmony import */ var _services_gzlist_service__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./services/gzlist.service */ "./src/app/services/gzlist.service.ts");
-/* harmony import */ var _services_emojiishow_service__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./services/emojiishow.service */ "./src/app/services/emojiishow.service.ts");
-/* harmony import */ var _services_plitemclick_service__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./services/plitemclick.service */ "./src/app/services/plitemclick.service.ts");
-/* harmony import */ var _services_selete_media_service__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./services/selete-media.service */ "./src/app/services/selete-media.service.ts");
-/* harmony import */ var _services_ordersuccess_service__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./services/ordersuccess.service */ "./src/app/services/ordersuccess.service.ts");
-/* harmony import */ var _services_xclist_service__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./services/xclist.service */ "./src/app/services/xclist.service.ts");
-/* harmony import */ var _services_payment_list_service__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./services/payment-list.service */ "./src/app/services/payment-list.service.ts");
-/* harmony import */ var _services_payorder_service__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./services/payorder.service */ "./src/app/services/payorder.service.ts");
-/* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
-/* harmony import */ var _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! @ionic-native/http/ngx */ "./node_modules/@ionic-native/http/ngx/index.js");
-/* harmony import */ var _ionic_native_keyboard_ngx__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! @ionic-native/keyboard/ngx */ "./node_modules/@ionic-native/keyboard/ngx/index.js");
-/* harmony import */ var _ionic_native_android_full_screen_ngx__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! @ionic-native/android-full-screen/ngx */ "./node_modules/@ionic-native/android-full-screen/ngx/index.js");
-/* harmony import */ var _components_fbselete_fbselete_component__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./components/fbselete/fbselete.component */ "./src/app/components/fbselete/fbselete.component.ts");
-/* harmony import */ var _ionic_native_media_capture_ngx__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! @ionic-native/media-capture/ngx */ "./node_modules/@ionic-native/media-capture/ngx/index.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
-/* harmony import */ var _ionic_native_photo_viewer_ngx__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! @ionic-native/photo-viewer/ngx */ "./node_modules/@ionic-native/photo-viewer/ngx/index.js");
-/* harmony import */ var _services_orderlist_service__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./services/orderlist.service */ "./src/app/services/orderlist.service.ts");
-/* harmony import */ var _services_hworderlist_service__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./services/hworderlist.service */ "./src/app/services/hworderlist.service.ts");
-/* harmony import */ var videogular2_core__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! videogular2/core */ "./node_modules/videogular2/core.js");
-/* harmony import */ var videogular2_core__WEBPACK_IMPORTED_MODULE_68___default = /*#__PURE__*/__webpack_require__.n(videogular2_core__WEBPACK_IMPORTED_MODULE_68__);
-/* harmony import */ var videogular2_controls__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! videogular2/controls */ "./node_modules/videogular2/controls.js");
-/* harmony import */ var videogular2_controls__WEBPACK_IMPORTED_MODULE_69___default = /*#__PURE__*/__webpack_require__.n(videogular2_controls__WEBPACK_IMPORTED_MODULE_69__);
-/* harmony import */ var videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! videogular2/overlay-play */ "./node_modules/videogular2/overlay-play.js");
-/* harmony import */ var videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_70___default = /*#__PURE__*/__webpack_require__.n(videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_70__);
-/* harmony import */ var videogular2_buffering__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! videogular2/buffering */ "./node_modules/videogular2/buffering.js");
-/* harmony import */ var videogular2_buffering__WEBPACK_IMPORTED_MODULE_71___default = /*#__PURE__*/__webpack_require__.n(videogular2_buffering__WEBPACK_IMPORTED_MODULE_71__);
-/* harmony import */ var _components_video_video_component__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! ./components/video/video.component */ "./src/app/components/video/video.component.ts");
-/* harmony import */ var _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! ./components/upload/upload.component */ "./src/app/components/upload/upload.component.ts");
-/* harmony import */ var _ionic_native_gao_de_location_ngx__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! @ionic-native/gao-de-location/ngx */ "./node_modules/@ionic-native/gao-de-location/ngx/index.js");
-/* harmony import */ var _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! @ionic-native/in-app-browser/ngx */ "./node_modules/@ionic-native/in-app-browser/ngx/index.js");
-/* harmony import */ var _pipes_model_time_pipe__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! ./pipes/model-time.pipe */ "./src/app/pipes/model-time.pipe.ts");
+/* harmony import */ var _services_thorder_service__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./services/thorder.service */ "./src/app/services/thorder.service.ts");
+/* harmony import */ var _components_search_search_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/search/search.component */ "./src/app/components/search/search.component.ts");
+/* harmony import */ var _components_goodsattr_goodsattr_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/goodsattr/goodsattr.component */ "./src/app/components/goodsattr/goodsattr.component.ts");
+/* harmony import */ var _components_available_bonus_available_bonus_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/available-bonus/available-bonus.component */ "./src/app/components/available-bonus/available-bonus.component.ts");
+/* harmony import */ var _components_goods_contentnav_goods_contentnav_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/goods-contentnav/goods-contentnav.component */ "./src/app/components/goods-contentnav/goods-contentnav.component.ts");
+/* harmony import */ var _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/paybox/paybox.component */ "./src/app/components/paybox/paybox.component.ts");
+/* harmony import */ var _components_topnavlist_topnavlist_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/topnavlist/topnavlist.component */ "./src/app/components/topnavlist/topnavlist.component.ts");
+/* harmony import */ var _services_native_service__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./services/native.service */ "./src/app/services/native.service.ts");
+/* harmony import */ var _services_sjindextjgoods_service__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./services/sjindextjgoods.service */ "./src/app/services/sjindextjgoods.service.ts");
+/* harmony import */ var _services_products_list_service__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./services/products-list.service */ "./src/app/services/products-list.service.ts");
+/* harmony import */ var _services_scindex_service__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./services/scindex.service */ "./src/app/services/scindex.service.ts");
+/* harmony import */ var _services_topage_service__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./services/topage.service */ "./src/app/services/topage.service.ts");
+/* harmony import */ var _services_zt_list_service__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./services/zt-list.service */ "./src/app/services/zt-list.service.ts");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _services_usercenter_service__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./services/usercenter.service */ "./src/app/services/usercenter.service.ts");
+/* harmony import */ var _services_yhtclist_service__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./services/yhtclist.service */ "./src/app/services/yhtclist.service.ts");
+/* harmony import */ var _services_gwc_service__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./services/gwc.service */ "./src/app/services/gwc.service.ts");
+/* harmony import */ var _services_bounslist_service__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./services/bounslist.service */ "./src/app/services/bounslist.service.ts");
+/* harmony import */ var _services_collelist_service__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./services/collelist.service */ "./src/app/services/collelist.service.ts");
+/* harmony import */ var _services_xcsclist_service__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./services/xcsclist.service */ "./src/app/services/xcsclist.service.ts");
+/* harmony import */ var _services_articelist_service__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./services/articelist.service */ "./src/app/services/articelist.service.ts");
+/* harmony import */ var _services_gzlist_service__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./services/gzlist.service */ "./src/app/services/gzlist.service.ts");
+/* harmony import */ var _services_emojiishow_service__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./services/emojiishow.service */ "./src/app/services/emojiishow.service.ts");
+/* harmony import */ var _services_plitemclick_service__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./services/plitemclick.service */ "./src/app/services/plitemclick.service.ts");
+/* harmony import */ var _services_selete_media_service__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./services/selete-media.service */ "./src/app/services/selete-media.service.ts");
+/* harmony import */ var _services_ordersuccess_service__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./services/ordersuccess.service */ "./src/app/services/ordersuccess.service.ts");
+/* harmony import */ var _services_xclist_service__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./services/xclist.service */ "./src/app/services/xclist.service.ts");
+/* harmony import */ var _services_payment_list_service__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./services/payment-list.service */ "./src/app/services/payment-list.service.ts");
+/* harmony import */ var _services_payorder_service__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./services/payorder.service */ "./src/app/services/payorder.service.ts");
+/* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
+/* harmony import */ var _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! @ionic-native/http/ngx */ "./node_modules/@ionic-native/http/ngx/index.js");
+/* harmony import */ var _ionic_native_keyboard_ngx__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! @ionic-native/keyboard/ngx */ "./node_modules/@ionic-native/keyboard/ngx/index.js");
+/* harmony import */ var _ionic_native_android_full_screen_ngx__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! @ionic-native/android-full-screen/ngx */ "./node_modules/@ionic-native/android-full-screen/ngx/index.js");
+/* harmony import */ var _components_fbselete_fbselete_component__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./components/fbselete/fbselete.component */ "./src/app/components/fbselete/fbselete.component.ts");
+/* harmony import */ var _ionic_native_media_capture_ngx__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! @ionic-native/media-capture/ngx */ "./node_modules/@ionic-native/media-capture/ngx/index.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _ionic_native_photo_viewer_ngx__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! @ionic-native/photo-viewer/ngx */ "./node_modules/@ionic-native/photo-viewer/ngx/index.js");
+/* harmony import */ var _services_orderlist_service__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./services/orderlist.service */ "./src/app/services/orderlist.service.ts");
+/* harmony import */ var _services_hworderlist_service__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./services/hworderlist.service */ "./src/app/services/hworderlist.service.ts");
+/* harmony import */ var videogular2_core__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! videogular2/core */ "./node_modules/videogular2/core.js");
+/* harmony import */ var videogular2_core__WEBPACK_IMPORTED_MODULE_69___default = /*#__PURE__*/__webpack_require__.n(videogular2_core__WEBPACK_IMPORTED_MODULE_69__);
+/* harmony import */ var videogular2_controls__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! videogular2/controls */ "./node_modules/videogular2/controls.js");
+/* harmony import */ var videogular2_controls__WEBPACK_IMPORTED_MODULE_70___default = /*#__PURE__*/__webpack_require__.n(videogular2_controls__WEBPACK_IMPORTED_MODULE_70__);
+/* harmony import */ var videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! videogular2/overlay-play */ "./node_modules/videogular2/overlay-play.js");
+/* harmony import */ var videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_71___default = /*#__PURE__*/__webpack_require__.n(videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_71__);
+/* harmony import */ var videogular2_buffering__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! videogular2/buffering */ "./node_modules/videogular2/buffering.js");
+/* harmony import */ var videogular2_buffering__WEBPACK_IMPORTED_MODULE_72___default = /*#__PURE__*/__webpack_require__.n(videogular2_buffering__WEBPACK_IMPORTED_MODULE_72__);
+/* harmony import */ var _components_video_video_component__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! ./components/video/video.component */ "./src/app/components/video/video.component.ts");
+/* harmony import */ var _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ./components/upload/upload.component */ "./src/app/components/upload/upload.component.ts");
+/* harmony import */ var _ionic_native_gao_de_location_ngx__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! @ionic-native/gao-de-location/ngx */ "./node_modules/@ionic-native/gao-de-location/ngx/index.js");
+/* harmony import */ var _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! @ionic-native/in-app-browser/ngx */ "./node_modules/@ionic-native/in-app-browser/ngx/index.js");
+/* harmony import */ var _pipes_model_time_pipe__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! ./pipes/model-time.pipe */ "./src/app/pipes/model-time.pipe.ts");
 
 /*
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-15 11:39:12
+ * @LastEditTime: 2019-10-18 23:01:07
  * @Description: file content
  */
+
 
 
 
@@ -1553,25 +1585,25 @@ var AppModule = /** @class */ (function () {
     }
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_19__["AppComponent"], _components_search_search_component__WEBPACK_IMPORTED_MODULE_29__["SearchComponent"], _components_topnavlist_topnavlist_component__WEBPACK_IMPORTED_MODULE_34__["TopnavlistComponent"], _components_goodsattr_goodsattr_component__WEBPACK_IMPORTED_MODULE_30__["GoodsattrComponent"],
-                _components_goods_contentnav_goods_contentnav_component__WEBPACK_IMPORTED_MODULE_32__["GoodsContentnavComponent"], _components_fbselete_fbselete_component__WEBPACK_IMPORTED_MODULE_61__["FbseleteComponent"], _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_33__["PayboxComponent"], _components_video_video_component__WEBPACK_IMPORTED_MODULE_72__["VideoComponent"], _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_73__["UploadComponent"],
-                _components_available_bonus_available_bonus_component__WEBPACK_IMPORTED_MODULE_31__["AvailableBonusComponent"], _pipes_model_time_pipe__WEBPACK_IMPORTED_MODULE_76__["ModelTimePipe"]],
-            entryComponents: [_components_search_search_component__WEBPACK_IMPORTED_MODULE_29__["SearchComponent"], _components_topnavlist_topnavlist_component__WEBPACK_IMPORTED_MODULE_34__["TopnavlistComponent"], _components_goodsattr_goodsattr_component__WEBPACK_IMPORTED_MODULE_30__["GoodsattrComponent"],
-                _components_goods_contentnav_goods_contentnav_component__WEBPACK_IMPORTED_MODULE_32__["GoodsContentnavComponent"], _components_fbselete_fbselete_component__WEBPACK_IMPORTED_MODULE_61__["FbseleteComponent"], _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_33__["PayboxComponent"], _components_video_video_component__WEBPACK_IMPORTED_MODULE_72__["VideoComponent"], _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_73__["UploadComponent"],
-                _components_available_bonus_available_bonus_component__WEBPACK_IMPORTED_MODULE_31__["AvailableBonusComponent"]],
+            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_19__["AppComponent"], _components_search_search_component__WEBPACK_IMPORTED_MODULE_30__["SearchComponent"], _components_topnavlist_topnavlist_component__WEBPACK_IMPORTED_MODULE_35__["TopnavlistComponent"], _components_goodsattr_goodsattr_component__WEBPACK_IMPORTED_MODULE_31__["GoodsattrComponent"],
+                _components_goods_contentnav_goods_contentnav_component__WEBPACK_IMPORTED_MODULE_33__["GoodsContentnavComponent"], _components_fbselete_fbselete_component__WEBPACK_IMPORTED_MODULE_62__["FbseleteComponent"], _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_34__["PayboxComponent"], _components_video_video_component__WEBPACK_IMPORTED_MODULE_73__["VideoComponent"], _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_74__["UploadComponent"],
+                _components_available_bonus_available_bonus_component__WEBPACK_IMPORTED_MODULE_32__["AvailableBonusComponent"], _pipes_model_time_pipe__WEBPACK_IMPORTED_MODULE_77__["ModelTimePipe"]],
+            entryComponents: [_components_search_search_component__WEBPACK_IMPORTED_MODULE_30__["SearchComponent"], _components_topnavlist_topnavlist_component__WEBPACK_IMPORTED_MODULE_35__["TopnavlistComponent"], _components_goodsattr_goodsattr_component__WEBPACK_IMPORTED_MODULE_31__["GoodsattrComponent"],
+                _components_goods_contentnav_goods_contentnav_component__WEBPACK_IMPORTED_MODULE_33__["GoodsContentnavComponent"], _components_fbselete_fbselete_component__WEBPACK_IMPORTED_MODULE_62__["FbseleteComponent"], _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_34__["PayboxComponent"], _components_video_video_component__WEBPACK_IMPORTED_MODULE_73__["VideoComponent"], _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_74__["UploadComponent"],
+                _components_available_bonus_available_bonus_component__WEBPACK_IMPORTED_MODULE_32__["AvailableBonusComponent"]],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
                 _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["IonicModule"].forRoot(),
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_18__["AppRoutingModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
                 ng2_ckeditor__WEBPACK_IMPORTED_MODULE_5__["CKEditorModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_63__["FormsModule"],
-                videogular2_core__WEBPACK_IMPORTED_MODULE_68__["VgCoreModule"],
-                videogular2_controls__WEBPACK_IMPORTED_MODULE_69__["VgControlsModule"],
-                videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_70__["VgOverlayPlayModule"],
-                videogular2_buffering__WEBPACK_IMPORTED_MODULE_71__["VgBufferingModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_64__["FormsModule"],
+                videogular2_core__WEBPACK_IMPORTED_MODULE_69__["VgCoreModule"],
+                videogular2_controls__WEBPACK_IMPORTED_MODULE_70__["VgControlsModule"],
+                videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_71__["VgOverlayPlayModule"],
+                videogular2_buffering__WEBPACK_IMPORTED_MODULE_72__["VgBufferingModule"],
                 // CalendarModule,
-                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_64__["BrowserAnimationsModule"],
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_65__["BrowserAnimationsModule"],
             ],
             providers: [
                 _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_8__["StatusBar"],
@@ -1579,55 +1611,56 @@ var AppModule = /** @class */ (function () {
                 _services_http_service__WEBPACK_IMPORTED_MODULE_20__["HttpService"],
                 _services_okgoods_service__WEBPACK_IMPORTED_MODULE_21__["OkgoodsService"],
                 _services_shop_content_service__WEBPACK_IMPORTED_MODULE_22__["ShopContentService"],
-                _services_native_service__WEBPACK_IMPORTED_MODULE_35__["NativeService"],
+                _services_native_service__WEBPACK_IMPORTED_MODULE_36__["NativeService"],
                 _services_getproduct_service__WEBPACK_IMPORTED_MODULE_23__["GetproductService"],
                 _services_productcontentlist_service__WEBPACK_IMPORTED_MODULE_24__["ProductcontentlistService"],
-                _services_sjindextjgoods_service__WEBPACK_IMPORTED_MODULE_36__["SjindextjgoodsService"],
-                _services_products_list_service__WEBPACK_IMPORTED_MODULE_37__["ProductsListService"],
-                _services_scindex_service__WEBPACK_IMPORTED_MODULE_38__["ScindexService"],
-                _services_topage_service__WEBPACK_IMPORTED_MODULE_39__["TopageService"],
-                _services_zt_list_service__WEBPACK_IMPORTED_MODULE_40__["ZtListService"],
-                _services_user_service__WEBPACK_IMPORTED_MODULE_41__["UserService"],
-                _services_usercenter_service__WEBPACK_IMPORTED_MODULE_42__["UsercenterService"],
+                _services_sjindextjgoods_service__WEBPACK_IMPORTED_MODULE_37__["SjindextjgoodsService"],
+                _services_products_list_service__WEBPACK_IMPORTED_MODULE_38__["ProductsListService"],
+                _services_scindex_service__WEBPACK_IMPORTED_MODULE_39__["ScindexService"],
+                _services_topage_service__WEBPACK_IMPORTED_MODULE_40__["TopageService"],
+                _services_zt_list_service__WEBPACK_IMPORTED_MODULE_41__["ZtListService"],
+                _services_user_service__WEBPACK_IMPORTED_MODULE_42__["UserService"],
+                _services_usercenter_service__WEBPACK_IMPORTED_MODULE_43__["UsercenterService"],
                 _services_goodsattr_service__WEBPACK_IMPORTED_MODULE_25__["GoodsattrService"],
-                _services_yhtclist_service__WEBPACK_IMPORTED_MODULE_43__["YhtclistService"],
-                _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_57__["NativeStorage"],
-                _services_gwc_service__WEBPACK_IMPORTED_MODULE_44__["GwcService"],
-                _services_articelist_service__WEBPACK_IMPORTED_MODULE_48__["ArticelistService"],
+                _services_yhtclist_service__WEBPACK_IMPORTED_MODULE_44__["YhtclistService"],
+                _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_58__["NativeStorage"],
+                _services_gwc_service__WEBPACK_IMPORTED_MODULE_45__["GwcService"],
+                _services_articelist_service__WEBPACK_IMPORTED_MODULE_49__["ArticelistService"],
                 // Device,
-                _services_bounslist_service__WEBPACK_IMPORTED_MODULE_45__["BounslistService"],
-                _services_collelist_service__WEBPACK_IMPORTED_MODULE_46__["CollelistService"],
-                _services_xcsclist_service__WEBPACK_IMPORTED_MODULE_47__["XcsclistService"],
-                _services_gzlist_service__WEBPACK_IMPORTED_MODULE_49__["GzlistService"],
-                _services_emojiishow_service__WEBPACK_IMPORTED_MODULE_50__["EmojiishowService"],
-                _services_plitemclick_service__WEBPACK_IMPORTED_MODULE_51__["PlitemclickService"],
+                _services_bounslist_service__WEBPACK_IMPORTED_MODULE_46__["BounslistService"],
+                _services_collelist_service__WEBPACK_IMPORTED_MODULE_47__["CollelistService"],
+                _services_xcsclist_service__WEBPACK_IMPORTED_MODULE_48__["XcsclistService"],
+                _services_gzlist_service__WEBPACK_IMPORTED_MODULE_50__["GzlistService"],
+                _services_emojiishow_service__WEBPACK_IMPORTED_MODULE_51__["EmojiishowService"],
+                _services_plitemclick_service__WEBPACK_IMPORTED_MODULE_52__["PlitemclickService"],
                 // ProvincesService,
-                _services_selete_media_service__WEBPACK_IMPORTED_MODULE_52__["SeleteMediaService"],
+                _services_selete_media_service__WEBPACK_IMPORTED_MODULE_53__["SeleteMediaService"],
                 _services_userlogin_service__WEBPACK_IMPORTED_MODULE_28__["UserloginService"],
-                _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_58__["HTTP"],
-                _ionic_native_media_capture_ngx__WEBPACK_IMPORTED_MODULE_62__["MediaCapture"],
-                _ionic_native_keyboard_ngx__WEBPACK_IMPORTED_MODULE_59__["Keyboard"],
+                _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_59__["HTTP"],
+                _ionic_native_media_capture_ngx__WEBPACK_IMPORTED_MODULE_63__["MediaCapture"],
+                _ionic_native_keyboard_ngx__WEBPACK_IMPORTED_MODULE_60__["Keyboard"],
                 _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_9__["File"],
                 _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_11__["Camera"],
                 _ionic_native_image_picker_ngx__WEBPACK_IMPORTED_MODULE_10__["ImagePicker"],
                 _ionic_native_video_player_ngx__WEBPACK_IMPORTED_MODULE_12__["VideoPlayer"],
                 _ionic_native_file_transfer_ngx__WEBPACK_IMPORTED_MODULE_13__["FileTransfer"],
-                _ionic_native_photo_viewer_ngx__WEBPACK_IMPORTED_MODULE_65__["PhotoViewer"],
-                _ionic_native_android_full_screen_ngx__WEBPACK_IMPORTED_MODULE_60__["AndroidFullScreen"],
-                _services_ordersuccess_service__WEBPACK_IMPORTED_MODULE_53__["OrdersuccessService"],
-                _services_hworderlist_service__WEBPACK_IMPORTED_MODULE_67__["HworderlistService"],
-                _services_orderlist_service__WEBPACK_IMPORTED_MODULE_66__["OrderlistService"],
-                _services_xclist_service__WEBPACK_IMPORTED_MODULE_54__["XclistService"],
-                _services_payment_list_service__WEBPACK_IMPORTED_MODULE_55__["PaymentListService"],
-                _services_payorder_service__WEBPACK_IMPORTED_MODULE_56__["PayorderService"],
+                _ionic_native_photo_viewer_ngx__WEBPACK_IMPORTED_MODULE_66__["PhotoViewer"],
+                _ionic_native_android_full_screen_ngx__WEBPACK_IMPORTED_MODULE_61__["AndroidFullScreen"],
+                _services_ordersuccess_service__WEBPACK_IMPORTED_MODULE_54__["OrdersuccessService"],
+                _services_hworderlist_service__WEBPACK_IMPORTED_MODULE_68__["HworderlistService"],
+                _services_orderlist_service__WEBPACK_IMPORTED_MODULE_67__["OrderlistService"],
+                _services_xclist_service__WEBPACK_IMPORTED_MODULE_55__["XclistService"],
+                _services_payment_list_service__WEBPACK_IMPORTED_MODULE_56__["PaymentListService"],
+                _services_payorder_service__WEBPACK_IMPORTED_MODULE_57__["PayorderService"],
                 _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_14__["Network"],
                 _services_searchrecode_service__WEBPACK_IMPORTED_MODULE_26__["SearchrecodeService"],
                 _services_searchendgoods_service__WEBPACK_IMPORTED_MODULE_27__["SearchendgoodsService"],
-                _ionic_native_gao_de_location_ngx__WEBPACK_IMPORTED_MODULE_74__["GaoDeLocation"],
-                _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_75__["InAppBrowser"],
+                _ionic_native_gao_de_location_ngx__WEBPACK_IMPORTED_MODULE_75__["GaoDeLocation"],
+                _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_76__["InAppBrowser"],
                 _ionic_native_app_version_ngx__WEBPACK_IMPORTED_MODULE_15__["AppVersion"],
                 _ionic_native_market_ngx__WEBPACK_IMPORTED_MODULE_16__["Market"],
                 _ionic_native_app_update_ngx__WEBPACK_IMPORTED_MODULE_17__["AppUpdate"],
+                _services_thorder_service__WEBPACK_IMPORTED_MODULE_29__["ThorderService"],
                 // NavigationBar,
                 // ComponentsModule,
                 { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["IonicRouteStrategy"] }
@@ -4568,7 +4601,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-18 15:27:30
+ * @LastEditTime: 2019-11-05 14:32:04
  * @Description: file content
  */
 
@@ -4579,7 +4612,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // import * as api from '../mo'
-var zdomain = 'http://192.144.168.163/';
+var zdomain = 'https://sc.cdlxj.cn/';
 // const toke: string = '15308081024-31785997575345274881558784601TABG';
 // const toke: string = '15456456456-76918544985912005121558445163FCAD';
 // const userid: string = '60';
@@ -4614,6 +4647,7 @@ var HttpService = /** @class */ (function () {
         this.getGoods = 'goods.php?act=getgoods'; // 获取产品详情
         this.getsupplier = 'goods.php?act=getgoodssupplier'; // 获取产品店铺
         this.getGoodcomment = 'goods_comment.php?act=getgcontentc'; // 获取评论
+        this.getGoodcommentList = 'goods_comment.php?act=getcommentslist'; // 获取评论列表
         this.getProductprice = 'goods.php?act=price'; // 改变属性后获取价格
         this.getZt = 'topic.php?act=get_zt'; // 获取对应专题 topic_id
         this.getindexmore = 'index_bestgoods.php?act=ajax'; // 获取首页更多商品
@@ -4665,6 +4699,7 @@ var HttpService = /** @class */ (function () {
         this.getcity = 'region.php?'; // 设置关注parent=0 type=2
         this.orderDetail = 'user.php?act=order_detail'; // 获取订单详情&order_id=206
         this.cancelOrder = 'user.php?act=cancel_order'; // 取消订单&order_id=219
+        this.getGoodsTag = 'user.php?act=getGoods_tag'; // 获取商品评论标签&order_id=219
         this.cancelOrderxc = 'user.php?act=cancel_order_xc'; // 取消行程&order_id=219
         this.getGzlist = 'user.php?act=getGzlist'; // 获取关注的人
         this.editprofile = 'user.php?act=act_edit_profile'; // 获取关注的人
@@ -4675,6 +4710,13 @@ var HttpService = /** @class */ (function () {
         this.getZtlist = 'topic.php?act=get_ztlist'; // 获取专题列表
         this.getZtlistbanner = 'topic.php?act=get_ztlist_banner'; // 获取专题列表banner
         this.okgoods = 'api/okgoods.php'; // 确认订单
+        this.backorderact = 'user.php?act=back_order_act'; // 退货退款
+        this.backList = 'user.php?act=back_list_ajax'; // 退货退款列表
+        this.delbackorder = 'user.php?act=del_back_order_ajax'; // 取消退货退款申请
+        this.backorderdetail = 'user.php?act=back_order_detail_ajax'; // 退货退款详情
+        this.backorderdetailedit = 'user.php?act=back_order_detail_edit_ajax'; // 退货退款详情
+        this.affirmReceived = 'user.php?act=affirm_received'; // 确认收货 order_id=457
+        this.commentSend = 'user.php?act=comment_send'; // 发送评论
     }
     HttpService.prototype.postformdata = function (url, params) {
         var _this = this;
@@ -5663,16 +5705,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./http.service */ "./src/app/services/http.service.ts");
 
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-04 23:48:50
+ * @Description: file content
+ */
 
 
 var OrderlistService = /** @class */ (function () {
     function OrderlistService(http) {
         this.http = http;
-        // this.allList = [];
-        // this.dfkList = [];
-        // this.dfhList = [];
-        // this.dshList = [];
-        // this.ywcList = [];
         this.listObj = [];
         this.amount = 10;
         this.pageObj = [0, 0, 0, 0, 0];
@@ -5682,6 +5726,9 @@ var OrderlistService = /** @class */ (function () {
         if (type === void 0) { type = 1; }
         var _a;
         (_a = this.listObj[type - 1]).push.apply(_a, list);
+    };
+    OrderlistService.prototype.getPlorderid = function () {
+        return this.isplorderid;
     };
     OrderlistService.prototype.getList = function (type) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
@@ -5799,6 +5846,28 @@ var OrderlistService = /** @class */ (function () {
                     })];
             });
         });
+    };
+    /**
+     * @Author: wjy-mac
+     * @description: 设置已有列表中已评价
+     * @Date: 2019-11-04 23:32:52
+     * @param {type} id 订单ID
+     * @param {type} orderSn 订单sn.
+     * @return:
+     */
+    OrderlistService.prototype.setOrderispj = function (id, orderSn) {
+        this.isplorderid = orderSn;
+        out: for (var key in this.listObj) {
+            if (this.listObj[key] && this.listObj[key].length > 0) {
+                for (var index = 0; index < this.listObj[key].length; index++) {
+                    var res = this.listObj[key][index];
+                    if (res.order_id == id) {
+                        res['comment_s'] = 0;
+                        continue out;
+                    }
+                }
+            }
+        }
     };
     OrderlistService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
@@ -6980,6 +7049,67 @@ var SjindextjgoodsService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/thorder.service.ts":
+/*!*********************************************!*\
+  !*** ./src/app/services/thorder.service.ts ***!
+  \*********************************************/
+/*! exports provided: ThorderService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ThorderService", function() { return ThorderService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-10-18 22:58:52
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-10-23 11:23:26
+ * @Description: 退换货订单数据
+ */
+
+var ThorderService = /** @class */ (function () {
+    function ThorderService() {
+    }
+    ThorderService.prototype.setData = function (data, goods) {
+        this.data = data;
+        this.goods = goods;
+    };
+    ThorderService.prototype.setIsall = function () {
+        this.orderall = true;
+    };
+    ThorderService.prototype.setIssh = function () {
+        this.issh = true;
+    };
+    ThorderService.prototype.getData = function () {
+        return {
+            order: this.data,
+            goods: this.goods,
+            orderall: this.orderall,
+            issh: this.issh
+        };
+    };
+    ThorderService.prototype.clearData = function () {
+        this.data = null;
+        this.goods = null;
+        this.orderall = false;
+        this.issh = false;
+    };
+    ThorderService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], ThorderService);
+    return ThorderService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/topage.service.ts":
 /*!********************************************!*\
   !*** ./src/app/services/topage.service.ts ***!
@@ -7000,7 +7130,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-09 21:50:46
+ * @LastEditTime: 2019-11-05 15:33:35
  * @Description: 所有跳转页面类型服务
  */
 
@@ -7015,12 +7145,18 @@ var TopageService = /** @class */ (function () {
     }
     /**
      * type 1 商品分类列表 2 商品详情 3 主题 4 选择选择地址 5 搜索 6 商城首页 7 店铺首页 8 品牌馆 9 新闻详情
-     * 10 跳转网页, 11 跳转行程 12跳转订单详情 13专题列表 14商城专题列表 15消息
+     * 10 跳转网页, 11 跳转行程 12跳转订单详情 13专题列表 14商城专题列表 15消息 16 发布评论
      * @param type
      * @param id
+     * @param args 更多参数
      */
-    TopageService.prototype.toPage = function (type, id, name) {
+    TopageService.prototype.toPage = function (type, id) {
         var _this = this;
+        var args = [];
+        for (var _i = 2; _i < arguments.length; _i++) {
+            args[_i - 2] = arguments[_i];
+        }
+        console.log(args);
         if (typeof type === 'string') {
             type = Number(type);
         }
@@ -7083,10 +7219,10 @@ var TopageService = /** @class */ (function () {
             });
         }
         else if (type === 11) {
-            this.router.navigate(['/xccontent'], { queryParams: { id: id } });
+            this.router.navigate(['/xccontent'], { queryParams: { id: id, comment: args[0] } });
         }
         else if (type === 12) {
-            this.router.navigate(['/ordercontent'], { queryParams: { id: id } });
+            this.router.navigate(['/ordercontent'], { queryParams: { id: id, comment: args[0] } });
         }
         else if (type === 13) {
             this.router.navigate(['/all-zt'], { queryParams: { type: 0 } });
@@ -7096,6 +7232,13 @@ var TopageService = /** @class */ (function () {
         }
         else if (type === 15) {
             this.router.navigate(['/news']);
+        }
+        else if (type === 16) {
+            var obj = { id: id };
+            if (args) {
+                obj['type'] = 1;
+            }
+            this.router.navigate(['/post-comment'], { queryParams: obj });
         }
         else {
             this.router.navigate(['/tabs/tab1']);
@@ -7492,12 +7635,12 @@ var XclistService = /** @class */ (function () {
     XclistService.prototype.setList = function (list, type) {
         if (type === void 0) { type = 1; }
         var _a;
-        console.log(list);
         (_a = this.listObj[type - 1]).push.apply(_a, list);
-        console.log(this.listObj);
+    };
+    XclistService.prototype.getPlorderid = function () {
+        return this.isplorderid;
     };
     XclistService.prototype.getList = function (type) {
-        console.log('执行力');
         if (!this.listObj[type - 1]) {
             this.listObj[type - 1] = [];
             this.getMoregoodshttp(type).then(function (res) { }).catch(function (err) { });
@@ -7603,6 +7746,28 @@ var XclistService = /** @class */ (function () {
                     })];
             });
         });
+    };
+    /**
+     * @Author: wjy-mac
+     * @description: 设置已有列表中已评价
+     * @Date: 2019-11-04 23:32:52
+     * @param {type} id 订单ID
+     * @param {type} orderSn 订单sn.
+     * @return:
+     */
+    XclistService.prototype.setOrderispj = function (id, orderSn) {
+        this.isplorderid = orderSn;
+        out: for (var key in this.listObj) {
+            if (this.listObj[key] && this.listObj[key].length > 0) {
+                for (var index = 0; index < this.listObj[key].length; index++) {
+                    var res = this.listObj[key][index];
+                    if (res.order_id == id) {
+                        res['comment_s'] = 0;
+                        continue out;
+                    }
+                }
+            }
+        }
     };
     XclistService.prototype.clear = function () {
         this.listObj = [];

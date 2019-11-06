@@ -93,6 +93,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _services_orderlist_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/orderlist.service */ "./src/app/services/orderlist.service.ts");
 
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-10-28 22:30:59
+ * @Description: 所有订单
+ */
 
 
 
@@ -109,11 +116,11 @@ var AllorderPage = /** @class */ (function () {
         this.type = 1;
     };
     AllorderPage.prototype.ionViewWillEnter = function () {
-        console.log('即将进入');
-        // this.list1 = this.orderlist.getList(this.type);
-        // console.log(this.infiniteScroll.disabled)
+        // if (this['list' + this.type]) { // 进入次页面就更新数据，暂时不用
+        //   console.log('有数据')
+        //   this.doRefresh();
+        // }
         this.segmentChanged();
-        // this.infiniteScroll.disabled = false;
     };
     AllorderPage.prototype.goBack = function () {
         this.nav.back();
@@ -126,9 +133,13 @@ var AllorderPage = /** @class */ (function () {
     };
     AllorderPage.prototype.doRefresh = function (event) {
         this.orderlist.reget(this.type).then(function (res) {
-            event.target.complete();
+            if (event) {
+                event.target.complete();
+            }
         }).catch(function (err2) {
-            event.target.complete();
+            if (event) {
+                event.target.complete();
+            }
         });
     };
     AllorderPage.prototype.loadData = function (event) {

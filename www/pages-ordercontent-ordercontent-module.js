@@ -71,7 +71,7 @@ var OrdercontentPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-07-07 02:44:20\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-10-17 17:53:14\n * @Description: 商品订单详情\n -->\n<ion-header>\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>我的订单</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-refresher slot=\"fixed\" pullFactor=\"0.5\" pullMin=\"100\" pullMax=\"200\" (ionRefresh)=\"doRefresh($event)\">\n    <ion-refresher-content\n       pullingIcon=\"arrow-dropdown\"\n       pullingText=\"Pull to refresh\"\n       refreshingSpinner=\"circles\"\n       refreshingText=\"Refreshing...\">\n    </ion-refresher-content>\n  </ion-refresher>\n  <div class=\"top\" *ngIf=\"data\">\n    <div class=\"status\">\n      <span *ngIf=\"(data.order.order_status == '0' || data.order.order_status == '1') && data.order.pay_status == '0'\">等待买家付款</span>\n      <p *ngIf=\"(data.order.order_status == '0' || data.order.order_status == '1') && data.order.pay_status == '0'\">剩{{endtime}}自动关闭</p>\n      <span>\n        <img *ngIf=\"data.order.order_status == '5' && data.order.shipping_status == '2' && data.order.pay_status == '2'\" src=\"../../../assets/icon/gou.svg\" alt=\"\">\n        <img class=\"cancle\" *ngIf=\"data.order.order_status == '2' && data.order.shipping_status == '0' && data.order.pay_status == '0'\" src=\"../../../assets/icon/cancle.svg\" alt=\"\">\n      </span>\n      <span>订单{{data.order | orderstatus}}</span>\n      <span margin-top \n      *ngIf=\"data.order.order_status == '5' && data.order.shipping_status == '2' && data.order.pay_status == '2' || \n      data.order.order_status == '2' && data.order.shipping_status == '0' && data.order.pay_status == '0'\"><ion-button size=\"small\" color=\"secondary\" (click)=\"repurchase()\">再次购买</ion-button></span>\n    </div>\n  </div>\n  <div class=\"address-box\" padding>\n    <div class=\"icon\">\n      <span>\n        <img src=\"../../../assets/icon/address2.svg\" alt=\"\">\n      </span>\n    </div>\n    <div class=\"right\" *ngIf=\"data\">\n      <div class=\"box\">{{data.order.consignee}} <ion-text color=\"medium\">{{data.order.mobile}}</ion-text></div>\n      <div class=\"box\">{{data.order.address}}</div>\n    </div>\n  </div>\n  <div *ngIf=\"data\" class=\"goods-content\" padding-bottom>\n    <app-ordercontentgoods [goods_list]=\"data.goods_list\" [shopname]=\"data.order.referer\" [supplier_id]=\"data.order.supplier_id\"></app-ordercontentgoods>\n    <ion-list lines=\"none\" no-padding no-margin>\n      <ion-item lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">商品总价</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.formated_goods_amount}}</ion-note>\n      </ion-item>\n      <ion-item *ngIf=\"data.order.extension_code === 'group_buy'\" lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">保证金</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.formated_goods_amount}}</ion-note>\n      </ion-item>\n      <ion-item *ngIf=\"data.order.discount != 0\" lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">折扣</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.discount}}</ion-note>\n      </ion-item>\n      <ion-item *ngIf=\"data.order.tax != 0\" lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">发票税额</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.tax}}</ion-note>\n      </ion-item>\n      <ion-item lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">运费</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.formated_shipping_fee}}</ion-note>\n      </ion-item>\n      <ion-item *ngIf=\"data.order.insure_fee > 0\" lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">保价费用</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.insure_fee}}</ion-note>\n      </ion-item>\n      <ion-item *ngIf=\"data.order.pay_fee > 0\" lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">手续费</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.pay_fee}}</ion-note>\n      </ion-item>\n      <ion-item *ngIf=\"data.order.pack_fee > 0\" lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">包装费用</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.pack_fee}}</ion-note>\n      </ion-item>\n      <ion-item *ngIf=\"data.order.card_fee > 0\" lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">贺卡费用</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.card_fee}}</ion-note>\n      </ion-item>\n      <ion-item *ngIf=\"data.order.card_fee > 0\" lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">贺卡费用</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.card_fee}}</ion-note>\n      </ion-item>\n      <ion-item *ngIf=\"data.order.money_paid > 0\" lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">已付金额</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.formated_money_paid}}</ion-note>\n      </ion-item>\n      <ion-item *ngIf=\"data.order.surplus > 0\" lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">使用余额</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.formated_surplus}}</ion-note>\n      </ion-item>\n      <ion-item *ngIf=\"data.order.integral_money > 0\" lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">使用积分</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.formated_integral_money}}</ion-note>\n      </ion-item>\n      <ion-item *ngIf=\"data.order.bonus > 0\" lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">使用红包</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.formated_bonus}}</ion-note>\n      </ion-item>\n      <ion-item lines=\"none\" *ngIf=\"data.order.formated_order_amount != '0.00'\">\n        <ion-label><p><ion-text color=\"dark\">应付款总价</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.formated_order_amount}}</ion-note>\n      </ion-item>\n      <p *ngIf=\"data.order.extension_code == 'group_buy'\"><ion-text color=\"medum\">（备注：团购如果有保证金，第一次只需支付保证金和相应的支付费用）</ion-text></p>\n    </ion-list>\n  </div>\n  <div class=\"order-content\" *ngIf=\"data\" padding margin-top>\n    <div class=\"title\" margin-bottom>订单信息</div>\n    <div class=\"my-item\">\n      <div class=\"left\">订单编号:</div>\n      <div class=\"right\">{{data.order.order_sn}}</div>\n    </div>\n    <div class=\"my-item\" *ngIf=\"data.order.pay_name\">\n      <div class=\"left\">支付方式:</div>\n      <div class=\"right\">{{data.order.pay_name}}</div>\n    </div>\n    <div class=\"my-item\" *ngIf=\"data.order.shipping_id > 0\">\n      <div class=\"left\">配送方式:</div>\n      <div class=\"right\">{{data.order.shipping_name || '请咨询商家'}}</div>\n    </div>\n    <div class=\"my-item\" *ngIf=\"data.order.shipping_id > 0\">\n      <div class=\"left\">快递单号:</div>\n      <div class=\"right\">{{data.nu || '请咨询商家'}}</div>\n    </div>\n    <div class=\"my-item\">\n      <div class=\"left\">创建时间:</div>\n      <div class=\"right\">{{data.order.add_time | time}}</div>\n    </div>\n    <div class=\"my-item\" *ngIf=\"data.order.postscript\">\n      <div class=\"left\">订单留言:</div>\n      <div class=\"right\">{{data.order.postscript}}</div>\n    </div>\n    <div class=\"my-item\" *ngIf=\"data.order.to_buyer\">\n      <div class=\"left\">商家留言:</div>\n      <div class=\"right\">{{data.order.to_buyer}}</div>\n    </div>\n  </div>\n  <div class=\"yepay-box\" *ngIf=\"data && data.allow_edit_surplus == 1 && data.canchangepay  && data.order.order_status == '未确认' && data.order.pay_status === '未付款'\" margin-top>\n    <ion-list inset=\"true\" lines=\"none\">\n      <ion-item lines=\"none\">\n        <ion-label>使用余额</ion-label>\n        <ion-toggle [(ngModel)]=\"kysyye\" (ionChange)=\"setyenum()\" color=\"success\" [disabled]=\"isyepayend\"></ion-toggle>\n      </ion-item>\n      <ion-item lines=\"none\" *ngIf=\"kysyye\">\n        <ion-label>输入金额</ion-label>\n        <ion-input type=\"number\" mode=\"ios\" (ionChange)=\"setyechange()\"  [disabled]=\"isyepayend\" min=\"0\" [(ngModel)]=\"syye\" color=\"success\"></ion-input>\n        <ion-note>元</ion-note>\n      </ion-item>\n      <ion-item lines=\"none\">\n        <ion-label><p>您当前的可用余额为{{data.max_surplus}}</p></ion-label>\n      </ion-item>\n    </ion-list>\n  </div>\n  <div class=\"zftype\" padding-end margin-top *ngIf=\"data && data.order.order_status == '未确认' && data.order.pay_status === '未付款'\">\n    <ion-list>\n      <ion-radio-group [(ngModel)]=\"payType\">\n        <ion-list-header>\n          支付方式\n        </ion-list-header>\n        <ion-item *ngFor=\"let item of payList\" lines=\"none\">\n          <ion-label><img [src]=\"item.pay_code == 'alipay' ? './assets/zfb.svg' : './assets/wechartpay.svg'\" alt=\"\">{{item.pay_name}}</ion-label>\n          <ion-radio color=\"success\" value=\"{{item.pay_code}}\" mode=\"md\"></ion-radio>\n        </ion-item>\n      </ion-radio-group>\n    </ion-list>\n  </div>\n</ion-content>\n<ion-footer *ngIf=\"data && (data.order.order_status == '0' || data.order.order_status == '1') && data.order.pay_status === '0'\">\n  <ion-toolbar>\n    <div class=\"footer-bar\">\n      <ion-button size=\"small\" color=\"light\" (click)=\"cancleOrder(1)\">取消订单</ion-button>\n      <ion-button size=\"small\" color=\"danger\" (click)=\"submit()\">付款</ion-button>\n    </div>\n  </ion-toolbar>\n</ion-footer>\n<ion-footer \n*ngIf=\"data && data.order.order_status == '1' && (data.order.shipping_status == '0' || data.order.shipping_status == '3') && data.order.pay_status === '2' ||\ndata && data.order.order_status == '2' && data.order.shipping_status == '0' && data.order.pay_status === '2'\">\n  <ion-toolbar>\n    <div class=\"footer-bar\">\n      <ion-button size=\"small\" color=\"light\" (click)=\"cancleOrder(1)\">退款</ion-button>\n    </div>\n  </ion-toolbar>\n</ion-footer>\n<ion-footer *ngIf=\"data && data.order.order_status == '5' && data.order.shipping_status == '1' && data.order.pay_status === '2'\">\n  <ion-toolbar>\n    <div class=\"footer-bar\">\n      <ion-button size=\"small\" color=\"light\" (click)=\"cancleOrder()\">退换</ion-button>\n    </div>\n  </ion-toolbar>\n</ion-footer>\n<ion-footer *ngIf=\"data && data.order.order_status == '5' && data.order.shipping_status == '2' && data.order.pay_status === '2'\">\n  <ion-toolbar>\n    <div class=\"footer-bar\">\n      <ion-button size=\"small\" color=\"light\" (click)=\"cancleOrder()\">售后</ion-button>\n    </div>\n  </ion-toolbar>\n</ion-footer>"
+module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-07-07 02:44:20\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-11-01 17:00:56\n * @Description: 商品订单详情\n -->\n<ion-header>\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>我的订单</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-refresher slot=\"fixed\" pullFactor=\"0.5\" pullMin=\"100\" pullMax=\"200\" (ionRefresh)=\"doRefresh($event)\">\n    <ion-refresher-content\n       pullingIcon=\"arrow-dropdown\"\n       pullingText=\"Pull to refresh\"\n       refreshingSpinner=\"circles\"\n       refreshingText=\"Refreshing...\">\n    </ion-refresher-content>\n  </ion-refresher>\n  <div class=\"top\" *ngIf=\"data\">\n    <div class=\"status\">\n      <span *ngIf=\"(data.order.order_status == '0' || data.order.order_status == '1') && data.order.pay_status == '0'\">等待买家付款</span>\n      <p *ngIf=\"(data.order.order_status == '0' || data.order.order_status == '1') && data.order.pay_status == '0'\">剩{{endtime}}自动关闭</p>\n      <span>\n        <img *ngIf=\"data.order.order_status == '5' && data.order.shipping_status == '2' && data.order.pay_status == '2'\" src=\"../../../assets/icon/gou.svg\" alt=\"\">\n        <img class=\"cancle\" *ngIf=\"data.order.order_status == '2' && data.order.shipping_status == '0' && data.order.pay_status == '0'\" src=\"../../../assets/icon/cancle.svg\" alt=\"\">\n      </span>\n      <span *ngIf=\"!istkend\">订单{{data.order | orderstatus}}</span>\n      <span *ngIf=\"istkend\">订单已取消，已退款</span>\n      <span margin-top \n      *ngIf=\"data.order.order_status == '5' && data.order.shipping_status == '2' && data.order.pay_status == '2' || \n      data.order.order_status == '2' && data.order.shipping_status == '0' && data.order.pay_status == '0'\"><ion-button size=\"small\" color=\"secondary\" (click)=\"toPagefn(2, data.goods_list[0].goods_id)\">再次购买</ion-button></span>\n    </div>\n  </div>\n  <div class=\"address-box\" padding>\n    <div class=\"icon\">\n      <span>\n        <img src=\"../../../assets/icon/address2.svg\" alt=\"\">\n      </span>\n    </div>\n    <div class=\"right\" *ngIf=\"data\">\n      <div class=\"box\">{{data.order.consignee}} <ion-text color=\"medium\">{{data.order.mobile}}</ion-text></div>\n      <div class=\"box\">{{data.order.address}}</div>\n    </div>\n  </div>\n  <div *ngIf=\"data\" class=\"goods-content\" padding-bottom>\n    <app-ordercontentgoods [goods_list]=\"data.goods_list\" [shopname]=\"data.order.referer\" [supplier_id]=\"data.order.supplier_id\"></app-ordercontentgoods>\n    <ion-list lines=\"none\" no-padding no-margin>\n      <ion-item lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">商品总价</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.formated_goods_amount}}</ion-note>\n      </ion-item>\n      <ion-item *ngIf=\"data.order.extension_code === 'group_buy'\" lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">保证金</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.formated_goods_amount}}</ion-note>\n      </ion-item>\n      <ion-item *ngIf=\"data.order.discount != 0\" lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">折扣</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.discount}}</ion-note>\n      </ion-item>\n      <ion-item *ngIf=\"data.order.tax != 0\" lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">发票税额</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.tax}}</ion-note>\n      </ion-item>\n      <ion-item lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">运费</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.formated_shipping_fee}}</ion-note>\n      </ion-item>\n      <ion-item *ngIf=\"data.order.insure_fee > 0\" lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">保价费用</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.insure_fee}}</ion-note>\n      </ion-item>\n      <ion-item *ngIf=\"data.order.pay_fee > 0\" lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">手续费</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.pay_fee}}</ion-note>\n      </ion-item>\n      <ion-item *ngIf=\"data.order.pack_fee > 0\" lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">包装费用</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.pack_fee}}</ion-note>\n      </ion-item>\n      <ion-item *ngIf=\"data.order.card_fee > 0\" lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">贺卡费用</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.card_fee}}</ion-note>\n      </ion-item>\n      <ion-item *ngIf=\"data.order.card_fee > 0\" lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">贺卡费用</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.card_fee}}</ion-note>\n      </ion-item>\n      <ion-item *ngIf=\"data.order.money_paid > 0\" lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">已付金额</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.formated_money_paid}}</ion-note>\n      </ion-item>\n      <ion-item *ngIf=\"data.order.surplus > 0\" lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">使用余额</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.formated_surplus}}</ion-note>\n      </ion-item>\n      <ion-item *ngIf=\"data.order.integral_money > 0\" lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">使用积分</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.formated_integral_money}}</ion-note>\n      </ion-item>\n      <ion-item *ngIf=\"data.order.bonus > 0\" lines=\"none\">\n        <ion-label><p><ion-text color=\"dark\">使用红包</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.formated_bonus}}</ion-note>\n      </ion-item>\n      <ion-item lines=\"none\" *ngIf=\"data.order.formated_order_amount != '0.00'\">\n        <ion-label><p><ion-text color=\"dark\">应付款总价</ion-text></p></ion-label>\n        <ion-note slot=\"end\">{{data.order.formated_order_amount}}</ion-note>\n      </ion-item>\n      <p *ngIf=\"data.order.extension_code == 'group_buy'\"><ion-text color=\"medum\">（备注：团购如果有保证金，第一次只需支付保证金和相应的支付费用）</ion-text></p>\n    </ion-list>\n  </div>\n  <div class=\"order-content\" *ngIf=\"data\" padding margin-top>\n    <div class=\"title\" margin-bottom>订单信息</div>\n    <div class=\"my-item\">\n      <div class=\"left\">订单编号:</div>\n      <div class=\"right\">{{data.order.order_sn}}</div>\n    </div>\n    <div class=\"my-item\" *ngIf=\"data.order.pay_name\">\n      <div class=\"left\">支付方式:</div>\n      <div class=\"right\">{{data.order.pay_name}}</div>\n    </div>\n    <div class=\"my-item\" *ngIf=\"data.order.shipping_id > 0\">\n      <div class=\"left\">配送方式:</div>\n      <div class=\"right\">{{data.order.shipping_name || '请咨询商家'}}</div>\n    </div>\n    <div class=\"my-item\" *ngIf=\"data.order.shipping_id > 0\">\n      <div class=\"left\">快递单号:</div>\n      <div class=\"right\">{{data.nu || '请咨询商家'}}</div>\n    </div>\n    <div class=\"my-item\">\n      <div class=\"left\">创建时间:</div>\n      <div class=\"right\">{{data.order.add_time | time}}</div>\n    </div>\n    <div class=\"my-item\" *ngIf=\"data.order.postscript\">\n      <div class=\"left\">订单留言:</div>\n      <div class=\"right\">{{data.order.postscript}}</div>\n    </div>\n    <div class=\"my-item\" *ngIf=\"data.order.to_buyer\">\n      <div class=\"left\">商家留言:</div>\n      <div class=\"right\">{{data.order.to_buyer}}</div>\n    </div>\n  </div>\n  <div class=\"yepay-box\" *ngIf=\"data && data.allow_edit_surplus == 1 && data.canchangepay  && data.order.order_status == '未确认' && data.order.pay_status === '未付款'\" margin-top>\n    <ion-list inset=\"true\" lines=\"none\">\n      <ion-item lines=\"none\">\n        <ion-label>使用余额</ion-label>\n        <ion-toggle [(ngModel)]=\"kysyye\" (ionChange)=\"setyenum()\" color=\"success\" [disabled]=\"isyepayend\"></ion-toggle>\n      </ion-item>\n      <ion-item lines=\"none\" *ngIf=\"kysyye\">\n        <ion-label>输入金额</ion-label>\n        <ion-input type=\"number\" mode=\"ios\" (ionChange)=\"setyechange()\"  [disabled]=\"isyepayend\" min=\"0\" [(ngModel)]=\"syye\" color=\"success\"></ion-input>\n        <ion-note>元</ion-note>\n      </ion-item>\n      <ion-item lines=\"none\">\n        <ion-label><p>您当前的可用余额为{{data.max_surplus}}</p></ion-label>\n      </ion-item>\n    </ion-list>\n  </div>\n  <div class=\"zftype\" padding-end margin-top *ngIf=\"data && data.order.order_status == '未确认' && data.order.pay_status === '未付款'\">\n    <ion-list>\n      <ion-radio-group [(ngModel)]=\"payType\">\n        <ion-list-header>\n          支付方式\n        </ion-list-header>\n        <ion-item *ngFor=\"let item of payList\" lines=\"none\">\n          <ion-label><img [src]=\"item.pay_code == 'alipay' ? './assets/zfb.svg' : './assets/wechartpay.svg'\" alt=\"\">{{item.pay_name}}</ion-label>\n          <ion-radio color=\"success\" value=\"{{item.pay_code}}\" mode=\"md\"></ion-radio>\n        </ion-item>\n      </ion-radio-group>\n    </ion-list>\n  </div>\n</ion-content>\n<ion-footer *ngIf=\"data && (data.order.order_status == '0' || data.order.order_status == '1') && data.order.pay_status === '0'\">\n  <ion-toolbar>\n    <div class=\"footer-bar\">\n      <ion-button size=\"small\" color=\"light\" (click)=\"cancleOrder(1)\">取消订单</ion-button>\n      <ion-button size=\"small\" color=\"danger\" (click)=\"submit()\">付款</ion-button>\n    </div>\n  </ion-toolbar>\n</ion-footer>\n<ion-footer \n*ngIf=\"data && !isshing && data.order.order_status == '1' && (data.order.shipping_status == '0' || data.order.shipping_status == '3') && data.order.pay_status === '2' ||\ndata && data.order.order_status == '2' && data.order.shipping_status == '0' && data.order.pay_status === '2' && !istkend\">\n  <ion-toolbar>\n    <div class=\"footer-bar\">\n      <ion-button size=\"small\" color=\"light\" (click)=\"cancleOrder(2)\">退款</ion-button>\n    </div>\n  </ion-toolbar>\n</ion-footer>\n<ion-footer *ngIf=\"data && !isshing && data.order.order_status == '5' && data.order.shipping_status == '1' && data.order.pay_status === '2'\">\n  <ion-toolbar>\n    <div class=\"footer-bar\">\n      <ion-button size=\"small\" color=\"success\" (click)=\"confirmReceipt()\">确认收货</ion-button>\n      <ion-button size=\"small\" color=\"light\" (click)=\"cancleOrder()\">退换</ion-button>\n    </div>\n  </ion-toolbar>\n</ion-footer>\n<ion-footer *ngIf=\"data && data.order.order_status == '5' && data.order.shipping_status == '2' && data.order.pay_status === '2'\">\n  <ion-toolbar>\n    <div class=\"footer-bar\">\n      <ion-button size=\"small\" color=\"danger\" *ngIf=\"comment > 0\" (click)=\"toPagefn(16, data.order.order_id)\">评价</ion-button>\n      <ion-button size=\"small\" *ngIf=\"!isshing\" color=\"light\" (click)=\"cancleOrder(4)\">售后</ion-button>\n    </div>\n  </ion-toolbar>\n</ion-footer>"
 
 /***/ }),
 
@@ -97,20 +97,23 @@ module.exports = ".top {\n  height: 120px;\n  background: var(--ion-color-linegr
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OrdercontentPage", function() { return OrdercontentPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/http.service */ "./src/app/services/http.service.ts");
-/* harmony import */ var _services_native_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/native.service */ "./src/app/services/native.service.ts");
-/* harmony import */ var _services_payment_list_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/payment-list.service */ "./src/app/services/payment-list.service.ts");
-/* harmony import */ var _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/paybox/paybox.component */ "./src/app/components/paybox/paybox.component.ts");
-/* harmony import */ var _services_topage_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/topage.service */ "./src/app/services/topage.service.ts");
+/* harmony import */ var _services_thorder_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../services/thorder.service */ "./src/app/services/thorder.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/http.service */ "./src/app/services/http.service.ts");
+/* harmony import */ var _services_native_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/native.service */ "./src/app/services/native.service.ts");
+/* harmony import */ var _services_payment_list_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/payment-list.service */ "./src/app/services/payment-list.service.ts");
+/* harmony import */ var _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/paybox/paybox.component */ "./src/app/components/paybox/paybox.component.ts");
+/* harmony import */ var _services_topage_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../services/topage.service */ "./src/app/services/topage.service.ts");
+/* harmony import */ var src_app_services_orderlist_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/services/orderlist.service */ "./src/app/services/orderlist.service.ts");
+
 
 /*
  * @Author: wjy-mac
  * @Date: 2019-07-29 22:29:34
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-18 10:59:45
+ * @LastEditTime: 2019-11-05 01:07:50
  * @Description: file content
  */
 
@@ -121,8 +124,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var OrdercontentPage = /** @class */ (function () {
-    function OrdercontentPage(activeroute, nav, http, native, paymentlist, alertController, popoverController, topage, route) {
+    function OrdercontentPage(activeroute, nav, http, native, paymentlist, alertController, popoverController, topage, route, thorder, orderList) {
         this.activeroute = activeroute;
         this.nav = nav;
         this.http = http;
@@ -132,18 +136,35 @@ var OrdercontentPage = /** @class */ (function () {
         this.popoverController = popoverController;
         this.topage = topage;
         this.route = route;
+        this.thorder = thorder;
+        this.orderList = orderList;
     }
     OrdercontentPage.prototype.ngOnInit = function () {
-        var params = this.activeroute.snapshot.queryParams;
-        this.orderId = params['id'];
+        console.log('进入1');
         this.kysyye = false;
-        console.log(this.orderId);
     };
     OrdercontentPage.prototype.goBack = function () {
         this.nav.back();
     };
     OrdercontentPage.prototype.ionViewWillEnter = function () {
-        this.getDatahttp();
+        var _this = this;
+        console.log('进入2');
+        var params = this.activeroute.snapshot.queryParams;
+        this.orderId = params['id'];
+        this.comment = params['comment'] ? Number(params['comment']) : 0;
+        var plid = this.orderList.getPlorderid(); // 获取上一次评论的订单id
+        if (plid && plid == this.orderId && this.comment != 0) {
+            this.comment = 0;
+        }
+        if (!this.orderId) {
+            setTimeout(function () {
+                _this.getDatahttp();
+            }, 1000);
+        }
+        else {
+            this.getDatahttp();
+        }
+        this.isshing = true;
         this.getData();
     };
     OrdercontentPage.prototype.getData = function () {
@@ -171,7 +192,20 @@ var OrdercontentPage = /** @class */ (function () {
                             console.log(res);
                             _this.data = res.data;
                             console.log(_this.data);
-                            if (res.data.order.order_status !== '已取消' && res.data.order.order_status !== '已完成') {
+                            var istk = false;
+                            for (var i = 0; i < _this.data['goods_list'].length; i++) {
+                                var goods = _this.data['goods_list'][i];
+                                if (goods['tkend'] != 1 && goods['isshing'] != 1 || goods['backnum'] != goods['goods_number']) {
+                                    _this.isshing = false;
+                                }
+                                if (goods['tkend'] != 1 || goods['backnum'] != goods['goods_number']) {
+                                    istk = true;
+                                }
+                            }
+                            if (!istk) {
+                                _this.istkend = true;
+                            }
+                            if ((res.data.order.order_status == '0' || res.data.order.order_status == '1') && res.data.order.pay_status == '0') {
                                 var endDate = res.data['order'].add_time;
                                 var nowDate = Date.parse((new Date()).toString()) / 1000;
                                 var totalSeconds = parseInt(((Number(nowDate) - Number(endDate))).toString(), 10);
@@ -203,17 +237,21 @@ var OrdercontentPage = /** @class */ (function () {
             this.syye = ye > price ? price : ye;
         }
     };
-    OrdercontentPage.prototype.repurchase = function () {
-        this.topage.toPage(2, this.data.goods_list[0].goods_id);
+    // repurchase() {
+    //   this.topage.toPage(2, this.data.goods_list[0].goods_id);
+    // }
+    OrdercontentPage.prototype.toPagefn = function (type, id) {
+        this.topage.toPage(type, id);
     };
     OrdercontentPage.prototype.cancleOrder = function (type) {
+        if (type === void 0) { type = 3; }
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
             var alert_1;
             var _this = this;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        if (!type) return [3 /*break*/, 3];
+                        if (!(type === 1)) return [3 /*break*/, 3];
                         return [4 /*yield*/, this.alertController.create({
                                 header: '提示',
                                 message: '是否确认退款',
@@ -239,12 +277,99 @@ var OrdercontentPage = /** @class */ (function () {
                         _a.sent();
                         return [3 /*break*/, 4];
                     case 3:
-                        this.route.navigate(['/cancel-order'], { queryParams: { type: 1 } });
+                        if (type === 2) {
+                            this.thorder.setIsall();
+                            this.CancelOrderdata();
+                        }
+                        else if (type === 3 || type === 4) {
+                            if (type === 4) {
+                                this.thorder.setIssh();
+                            }
+                            if (this.data['goods_list'].length === 1) {
+                                this.CancelOrderdata();
+                            }
+                            else {
+                                this.seleteCancelorder();
+                            }
+                        }
                         _a.label = 4;
                     case 4: return [2 /*return*/];
                 }
             });
         });
+    };
+    OrdercontentPage.prototype.seleteCancelorder = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var obj, arr, ischecked, alert;
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        console.log(this.data['goods_list']);
+                        obj = {
+                            header: '提示!',
+                            message: '请选择需要处理的商品！',
+                            inputs: [],
+                            buttons: [
+                                {
+                                    text: '取消',
+                                    role: 'cancel',
+                                    cssClass: 'secondary',
+                                    handler: function () {
+                                        console.log('Confirm Cancel');
+                                    }
+                                }, {
+                                    text: '确定',
+                                    handler: function (e) {
+                                        if (e) {
+                                            _this.CancelOrderdata(_this.data['goods_list'][e - 1]);
+                                        }
+                                    }
+                                }
+                            ]
+                        };
+                        arr = [];
+                        ischecked = false;
+                        this.data['goods_list'].map(function (item, index) {
+                            var obj = {
+                                name: item['goods_name'],
+                                type: 'radio',
+                                label: item['goods_name'],
+                                value: index + 1,
+                                checked: false,
+                                disabled: item.tkend == 1 || item.isshing == 1
+                            };
+                            var name = '';
+                            if (item.tkend == 1) {
+                                name = '[已退款]';
+                            }
+                            else if (item.isshing == 1) {
+                                name = '[售后中]';
+                            }
+                            name += item['goods_name'];
+                            obj.name = name;
+                            obj.label = name;
+                            if (!ischecked && item.tkend != 1 && item.isshing != 1) {
+                                obj.checked = true;
+                                ischecked = true;
+                            }
+                            arr.push(obj);
+                        });
+                        obj['inputs'] = arr;
+                        return [4 /*yield*/, this.alertController.create(obj)];
+                    case 1:
+                        alert = _a.sent();
+                        return [4 /*yield*/, alert.present()];
+                    case 2:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    OrdercontentPage.prototype.CancelOrderdata = function (goods) {
+        this.route.navigate(['/cancel-order']);
+        this.thorder.setData(this.data['order'], goods || this.data['goods_list'][0]);
     };
     OrdercontentPage.prototype.cancleOrderfn = function () {
         var _this = this;
@@ -371,7 +496,7 @@ var OrdercontentPage = /** @class */ (function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.popoverController.create({
-                            component: _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_7__["PayboxComponent"],
+                            component: _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_8__["PayboxComponent"],
                             translucent: false,
                             cssClass: 'payboxcontent',
                             componentProps: {
@@ -405,16 +530,58 @@ var OrdercontentPage = /** @class */ (function () {
         }, function (error2) {
         });
     };
+    OrdercontentPage.prototype.confirmReceipt = function () {
+        var _this = this;
+        this.http.getDataloading(this.http.zdomain + this.http.affirmReceived, { order_id: this.data.order.order_id }).subscribe(function (res) {
+            _this.data.order.shipping_status = 2;
+            _this.presentAlertConfirm();
+        }, function (err2) { });
+    };
+    OrdercontentPage.prototype.presentAlertConfirm = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var alert;
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.alertController.create({
+                            header: '交易成功!',
+                            message: '去评价一下本次的购物体验吧~',
+                            buttons: [
+                                {
+                                    text: '取消',
+                                    role: 'cancel',
+                                    cssClass: 'secondary',
+                                    handler: function (blah) {
+                                    }
+                                }, {
+                                    text: '评价',
+                                    handler: function () {
+                                        _this.toPagefn(16, _this.data.order.order_id);
+                                    }
+                                }
+                            ]
+                        })];
+                    case 1:
+                        alert = _a.sent();
+                        return [4 /*yield*/, alert.present()];
+                    case 2:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     OrdercontentPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
             selector: 'app-ordercontent',
             template: __webpack_require__(/*! ./ordercontent.page.html */ "./src/app/pages/ordercontent/ordercontent.page.html"),
             styles: [__webpack_require__(/*! ./ordercontent.page.scss */ "./src/app/pages/ordercontent/ordercontent.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"],
-            _services_http_service__WEBPACK_IMPORTED_MODULE_4__["HttpService"], _services_native_service__WEBPACK_IMPORTED_MODULE_5__["NativeService"], _services_payment_list_service__WEBPACK_IMPORTED_MODULE_6__["PaymentListService"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["PopoverController"],
-            _services_topage_service__WEBPACK_IMPORTED_MODULE_8__["TopageService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"],
+            _services_http_service__WEBPACK_IMPORTED_MODULE_5__["HttpService"], _services_native_service__WEBPACK_IMPORTED_MODULE_6__["NativeService"], _services_payment_list_service__WEBPACK_IMPORTED_MODULE_7__["PaymentListService"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["AlertController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["PopoverController"],
+            _services_topage_service__WEBPACK_IMPORTED_MODULE_9__["TopageService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _services_thorder_service__WEBPACK_IMPORTED_MODULE_1__["ThorderService"],
+            src_app_services_orderlist_service__WEBPACK_IMPORTED_MODULE_10__["OrderlistService"]])
     ], OrdercontentPage);
     return OrdercontentPage;
 }());

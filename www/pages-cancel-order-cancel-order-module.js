@@ -58,7 +58,7 @@ var CancelOrderPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-10-17 17:47:02\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-10-18 15:11:13\n * @Description: file content\n -->\n<ion-header>\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>退换/售后</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-radio-group>\n      <ion-list-header>\n        <ion-label>服务类型:</ion-label>\n      </ion-list-header>\n\n      <ion-item>\n        <ion-label>退款（无需退货）</ion-label>\n        <ion-radio slot=\"start\" value=\"biff\" checked></ion-radio>\n      </ion-item>\n\n      <ion-item>\n        <ion-label>退货退款</ion-label>\n        <ion-radio slot=\"start\" value=\"griff\"></ion-radio>\n      </ion-item>\n\n      <ion-item>\n        <ion-label>换货/维修</ion-label>\n        <ion-radio slot=\"start\" value=\"buford\"></ion-radio>\n      </ion-item>\n    </ion-radio-group>\n    <ion-item>\n      <ion-label position=\"stacked\">\n        退款提示:\n      </ion-label>\n      <ion-note>\n        <ion-text>\n          <p class=\"tk-ts\">申请退款，将取消整笔订单，并退回您该笔订单款项，如有需要请重新下单。</p>\n        </ion-text>\n      </ion-note>\n    </ion-item>\n    <ion-item>\n      <ion-label position=\"stacked\">问题描述:</ion-label>\n      <ion-textarea placeholder=\"请您如实填写申请原因及商品情况，字数在500字内。\"></ion-textarea>\n    </ion-item>\n    <ion-item>\n      <ion-label position=\"stacked\">图片信息</ion-label>\n      <ion-note style=\"width: 100%;\">\n        <ion-row margin-top>\n          <ion-col size=\"4\" (click)=\"addimg()\">\n            <div class=\"img-box\">\n              <img src=\"../../../assets/add.png\" alt=\"\">\n            </div>\n          </ion-col>\n          <ion-col size=\"4\" *ngFor=\"let item of imgs; let i = index\" (click)=\"removeImg()\">\n            <div class=\"img-box\">\n              <img [src]=\"item\" alt=\"\">\n              <div class=\"loadEffect\" *ngIf=\"isupdate[i] === -1\">\n                <span></span>\n                <span></span>\n                <span></span>\n                <span></span>\n                <span></span>\n                <span></span>\n                <span></span>\n                <span></span>\n              </div>\n            </div>\n          </ion-col>\n        </ion-row>\n        <p class=\"img-ts\">\n          <ion-text color=\"tertiary\">\n            为了帮助我们更好的解决问题，请您上传图片\n          </ion-text>\n          <br/>\n          <ion-text>\n            每张图片大小不超过2M，支持gif,jpg,png,jpeg格式文件\n          </ion-text>\n        </p>\n      </ion-note>\n    </ion-item>\n\n  </ion-list>\n</ion-content>\n"
+module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-10-17 17:47:02\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-10-23 11:38:39\n * @Description: file content\n -->\n<ion-header>\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>退换/售后</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-radio-group [(ngModel)]=\"data.back_type\" name=\"back_type\">\n      <ion-list-header>\n        <ion-label>服务类型:</ion-label>\n      </ion-list-header>\n      <ion-item *ngIf=\"!issh\">\n        <ion-label>退款（无需退货）</ion-label>\n        <ion-radio slot=\"start\" value=\"biff\" value=\"4\"></ion-radio>\n      </ion-item>\n      <ion-item *ngIf=\"data['order_all'] != 1 && !issh\">\n        <ion-label>退货退款</ion-label>\n        <ion-radio slot=\"start\" value=\"griff\" value=\"1\"></ion-radio>\n      </ion-item>\n      <ion-item *ngIf=\"data['order_all'] != 1\">\n        <ion-label>换货/维修</ion-label>\n        <ion-radio slot=\"start\" value=\"buford\" value=\"3\"></ion-radio>\n      </ion-item>\n    </ion-radio-group>\n    <ion-item>\n      <ion-label position=\"stacked\">\n        退款提示:\n      </ion-label>\n      <ion-note>\n        <ion-text>\n          <p class=\"tk-ts\">申请退款，将取消整笔订单，并退回您该笔订单款项，如有需要请重新下单。</p>\n        </ion-text>\n      </ion-note>\n    </ion-item>\n    <ion-item *ngIf=\"allnum > 1\">\n      <ion-label position=\"stacked\">提交数量:</ion-label>\n      <ion-input [disabled]=\"data.order_all == 1\" [min]=\"0\" [max]=\"allnum\" [(ngModel)]=\"data.tui_goods_number\" name=\"tui_goods_number\"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label position=\"stacked\">问题描述<ion-text color=\"danger\">*</ion-text>:</ion-label>\n      <ion-textarea [rows]=\"6\" [maxlength]=\"500\" [(ngModel)]=\"data.back_reason\" name=\"back_reason\" placeholder=\"请您如实填写申请原因及商品情况，字数在500字内。\"></ion-textarea>\n    </ion-item>\n    <ion-item>\n      <ion-label position=\"stacked\">图片信息</ion-label>\n      <ion-note style=\"width: 100%;\">\n        <ion-row margin-top>\n          <ion-col size=\"4\" (click)=\"addimg()\">\n            <div class=\"img-box\">\n              <img src=\"../../../assets/add.png\" alt=\"\">\n            </div>\n          </ion-col>\n          <ion-col size=\"4\" *ngFor=\"let item of imgs; let i = index\" (click)=\"removeImg()\">\n            <div class=\"img-box\">\n              <img [src]=\"item\" alt=\"\">\n              <div class=\"loadEffect\" *ngIf=\"isupdate[i] === -1\">\n                <span></span>\n                <span></span>\n                <span></span>\n                <span></span>\n                <span></span>\n                <span></span>\n                <span></span>\n                <span></span>\n              </div>\n            </div>\n          </ion-col>\n        </ion-row>\n        <p class=\"img-ts\">\n          <ion-text color=\"tertiary\">\n            为了帮助我们更好的解决问题，请您上传图片\n          </ion-text>\n          <br/>\n          <ion-text>\n            每张图片大小不超过2M，支持gif,jpg,png,jpeg格式文件\n          </ion-text>\n        </p>\n      </ion-note>\n    </ion-item>\n    <ion-item *ngIf=\"data.back_type == 3\">\n      <ion-label position=\"stacked\">收货人姓名:</ion-label>\n      <ion-input placeholder=\"请输入姓名\" required [(ngModel)]=\"data.back_consignee\" name=\"back_consignee\"></ion-input>\n    </ion-item>\n    <ion-item *ngIf=\"data.back_type == 3\">\n      <ion-label position=\"stacked\">收货人电话:</ion-label>\n      <ion-input placeholder=\"请输入有效手机号码\" required [(ngModel)]=\"data.back_mobile\" name=\"back_mobile\"></ion-input>\n    </ion-item>\n    <ion-item *ngIf=\"data.back_type == 3\">\n      <ion-label position=\"stacked\">省:</ion-label>\n      <ion-select placeholder=\"请选择省\" (ionChange)=\"selteaddress(2, data.province)\" required [(ngModel)]=\"data.province\" name=\"province\" cancelText=\"取消\" okText=\"确定\">\n        <ion-select-option *ngFor=\"let item of provincelist\" [value]=\"item.region_id\">{{item.region_name}}</ion-select-option>\n      </ion-select>\n    </ion-item>\n    <ion-item *ngIf=\"data.back_type == 3\">\n      <ion-label position=\"stacked\">市:</ion-label>\n      <ion-select placeholder=\"请选择市\" (ionChange)=\"selteaddress(3, data.city)\" required [(ngModel)]=\"data.city\" name=\"city\" cancelText=\"取消\" okText=\"确定\">\n        <ion-select-option *ngFor=\"let item of citylist\" [value]=\"item.region_id\">{{item.region_name}}</ion-select-option>\n      </ion-select>\n    </ion-item>\n    <ion-item *ngIf=\"data.back_type == 3\">\n      <ion-label position=\"stacked\">区:</ion-label>\n      <ion-select placeholder=\"请选择区\" required [(ngModel)]=\"data.district\" name=\"district\" cancelText=\"取消\" okText=\"确定\">\n        <ion-select-option *ngFor=\"let item of arealist\" [value]=\"item.region_id\">{{item.region_name}}</ion-select-option>\n      </ion-select>\n\n    </ion-item>\n    <ion-item *ngIf=\"data.back_type == 3\">\n      <ion-label position=\"stacked\">详细地址:</ion-label>\n      <ion-textarea placeholder=\"详细地址：如道路、门牌号、小区、楼栋号、单元室等\" required [(ngModel)]=\"data.back_address\" name=\"back_address\"></ion-textarea>\n    </ion-item>\n  </ion-list>\n  <div padding>\n    <ion-button color=\"success\" expand=\"block\" (click)=\"sub()\">\n      提交\n    </ion-button>\n  </div>\n</ion-content>\n"
 
 /***/ }),
 
@@ -84,33 +84,88 @@ module.exports = ".img-box {\n  width: 100%;\n  position: relative;\n  padding-t
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CancelOrderPage", function() { return CancelOrderPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_native_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../services/native.service */ "./src/app/services/native.service.ts");
-/* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../services/http.service */ "./src/app/services/http.service.ts");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _services_thorder_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../services/thorder.service */ "./src/app/services/thorder.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_native_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../services/native.service */ "./src/app/services/native.service.ts");
+/* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../services/http.service */ "./src/app/services/http.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _services_contactlist_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../../services/contactlist.service */ "./src/app/services/contactlist.service.ts");
+
 
 /*
  * @Author: wjy-mac
  * @Date: 2019-10-17 17:47:02
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-18 18:40:48
+ * @LastEditTime: 2019-10-23 17:05:29
  * @Description: 取消订单
  */
 
 
 
 
+
 var CancelOrderPage = /** @class */ (function () {
-    function CancelOrderPage(nav, actionSheetController, native, http) {
+    function CancelOrderPage(nav, actionSheetController, native, http, thorder, contactlist) {
         this.nav = nav;
         this.actionSheetController = actionSheetController;
         this.native = native;
         this.http = http;
+        this.thorder = thorder;
+        this.contactlist = contactlist;
     }
     CancelOrderPage.prototype.ngOnInit = function () {
+        var _this = this;
         this.imgs = [];
         this.isupdate = [];
         this.subimgs = [];
+        var data = this.thorder.getData();
+        console.log(data);
+        if (!data['order'] || data['order'] == 'undefined') {
+            console.log('没有数据');
+            this.goBack();
+        }
+        this.data = {
+            back_pay: 2,
+            back_type: '4',
+            act: 'back_order_act',
+            order_id: data['order']['order_id'],
+            country: data['order']['country'],
+            province: data['order']['province'],
+            city: data['order']['city'],
+            district: data['order']['district'],
+            back_address: data['order']['address'],
+            back_consignee: data['order']['consignee'],
+            back_mobile: data['order']['mobile'],
+            back_zipcode: data['order']['zipcode'],
+            back_postscript: '',
+            // product_id_tui: 0,
+            goods_attr_tui: '',
+            tui_goods_number: data['goods']['goods_number'],
+        };
+        if (data['issh']) {
+            this.issh = true;
+            this.data['back_type'] = '3';
+        }
+        this.allnum = data['goods']['goods_number'];
+        if (data['orderall']) {
+            this.data['order_all'] = 1;
+            this.data['tui_goods_price'] = data['order']['goods_amount'];
+        }
+        else {
+            this.data['order_sn'] = data['order']['order_sn'];
+            this.data['goods_id'] = data['goods']['goods_id'];
+            this.data['goods_name'] = data['goods']['goods_name'];
+            this.data['goods_sn'] = data['goods']['goods_sn'];
+            this.data['tui_goods_price'] = data['goods']['goods_price'];
+            // this.data['product_id_tui'] = 0; 产品属性，暂时不给
+        }
+        console.log(this.data);
+        this.contactlist.getProasync().then(function (res) {
+            _this.provincelist = res;
+            _this.selteaddress(2, _this.data['province']);
+            _this.selteaddress(3, _this.data['city']);
+        }).catch(function (err2) { });
+        // TODO: 状态还差2， 还差状态页面，差补快递单号页面
     };
     CancelOrderPage.prototype.addimg = function () {
         this.presentActionSheet();
@@ -219,6 +274,14 @@ var CancelOrderPage = /** @class */ (function () {
         });
     };
     CancelOrderPage.prototype.sub = function () {
+        if (!this.data['back_reason']) {
+            this.native.presentAlert('请输入问题描述');
+            return false;
+        }
+        else if (this.data['order_all'] < 0 || this.data['order_all'] > this.allnum) {
+            this.native.presentAlert('请输入正确的数量');
+            return false;
+        }
         this.issub = true;
         this.issubfn();
     };
@@ -232,6 +295,12 @@ var CancelOrderPage = /** @class */ (function () {
         this.uploadEnd();
     };
     CancelOrderPage.prototype.uploadEnd = function () {
+        var _this = this;
+        var obj = Object.assign({ imgs: this.imgs }, this.data);
+        this.http.postformdataloading(this.http.zdomain + this.http.backorderact, obj).subscribe(function (res) {
+            _this.native.presentToast('申请成功，请等待商家审核');
+            _this.goBack();
+        }, function (error2) { });
     };
     CancelOrderPage.prototype.imgupload = function (file) {
         var _this = this;
@@ -256,16 +325,34 @@ var CancelOrderPage = /** @class */ (function () {
         });
     };
     CancelOrderPage.prototype.goBack = function () {
+        this.thorder.clearData();
         this.nav.back();
     };
+    CancelOrderPage.prototype.selteaddress = function (type, id) {
+        var _this = this;
+        if (id === void 0) { id = '1'; }
+        console.log('进来了');
+        this.http.getData(this.http.getcity, { parent: id, type: type }).subscribe(function (res) {
+            console.log(res);
+            if (type === 1) {
+                _this.contactlist.setPro(res['regions']);
+            }
+            else if (type === 2) {
+                _this.citylist = res['regions'];
+            }
+            else {
+                _this.arealist = res['regions'];
+            }
+        });
+    };
     CancelOrderPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
             selector: 'app-cancel-order',
             template: __webpack_require__(/*! ./cancel-order.page.html */ "./src/app/pages/cancel-order/cancel-order.page.html"),
             styles: [__webpack_require__(/*! ./cancel-order.page.scss */ "./src/app/pages/cancel-order/cancel-order.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ActionSheetController"],
-            _services_native_service__WEBPACK_IMPORTED_MODULE_2__["NativeService"], _services_http_service__WEBPACK_IMPORTED_MODULE_3__["HttpService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_5__["NavController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["ActionSheetController"],
+            _services_native_service__WEBPACK_IMPORTED_MODULE_3__["NativeService"], _services_http_service__WEBPACK_IMPORTED_MODULE_4__["HttpService"], _services_thorder_service__WEBPACK_IMPORTED_MODULE_1__["ThorderService"], _services_contactlist_service__WEBPACK_IMPORTED_MODULE_6__["ContactlistService"]])
     ], CancelOrderPage);
     return CancelOrderPage;
 }());
