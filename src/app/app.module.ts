@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-07 16:10:30
+ * @LastEditTime: 2019-11-07 22:36:05
  * @Description: file content
  */
 import { NgModule } from '@angular/core';
@@ -91,6 +91,7 @@ import {VideoComponent} from './components/video/video.component';
 import {UploadComponent} from './components/upload/upload.component';
 import { GaoDeLocation } from '@ionic-native/gao-de-location/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { CallNumber } from '@ionic-native/call-number/ngx';
 import { ModelTimePipe } from './pipes/model-time.pipe';
 
 @NgModule({
@@ -176,6 +177,7 @@ import { ModelTimePipe } from './pipes/model-time.pipe';
     ThorderService,
     WebsocketService,
     NewsListService,
+    CallNumber,
     // NavigationBar,
     // ComponentsModule,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

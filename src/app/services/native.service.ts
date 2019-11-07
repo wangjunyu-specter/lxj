@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-05 22:35:50
+ * @LastEditTime: 2019-11-07 22:53:17
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -17,6 +17,7 @@ import {VideoPlayer} from '@ionic-native/video-player/ngx';
 import { Network } from '@ionic-native/network/ngx';
 import { AppVersion } from '@ionic-native/app-version/ngx';
 import { Market } from '@ionic-native/market/ngx';
+import { CallNumber } from '@ionic-native/call-number/ngx';
 // import { Device } from '@ionic-native/device/ngx';
 
 @Injectable({
@@ -31,7 +32,7 @@ export class NativeService {
               private imagePicker: ImagePicker, private camera: Camera,
               private androidFullScreen: AndroidFullScreen, private statusbar: StatusBar,
               private videoPlayer: VideoPlayer, private network: Network, private appVersion: AppVersion,
-              private market: Market) { }
+              private market: Market, private callNumber: CallNumber) { }
   public async getAppversion() {
     const version = await this.appVersion.getVersionNumber();
     return version;
@@ -151,6 +152,9 @@ export class NativeService {
    */
   openStore() {
     this.market.open('io.lxj.wjy');
+  }
+  callTel(tel: string) {
+    this.callNumber.callNumber(tel, true);
   }
   /**
    * 获取网络类型 如`unknown`, `ethernet`, `wifi`, `2g`, `3g`, `4g`, `cellular`, `none`

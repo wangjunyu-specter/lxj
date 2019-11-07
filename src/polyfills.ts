@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-07 20:28:16
+ * @Description: file content
+ */
 /**
  * This file includes polyfills needed by Angular and is loaded before the app.
  * You can add your own extra polyfills to this file.
@@ -57,7 +64,7 @@ import './zone-flags.ts';
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
-
+(window as any).global = window;
 import 'zone.js/dist/zone';  // Included with Angular CLI.
 
 

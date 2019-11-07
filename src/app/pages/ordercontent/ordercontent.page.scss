@@ -124,3 +124,11 @@ ion-content {
 .footer-bar {
   text-align: right;
 }
+.contact-box {
+  background-color: #fff;
+  img {
+    width: 26px;
+    margin-right: 5px;
+  }
+  font-size: var(--ion-text);
+}

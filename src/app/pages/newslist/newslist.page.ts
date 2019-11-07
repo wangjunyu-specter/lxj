@@ -1,11 +1,9 @@
-import { HttpService } from './../../services/http.service';
-import { UserService } from './../../services/user.service';
-import { NewsListService } from './../../services/news-list.service';
+
 /*
  * @Author: wjy-mac
  * @Date: 2019-06-16 01:51:24
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-07 17:48:47
+ * @LastEditTime: 2019-11-07 22:22:53
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -15,6 +13,9 @@ import { WebsocketService } from 'src/app/services/websocket.service';
 import { EmojiishowService } from 'src/app/services/emojiishow.service';
 import { PlitemclickService } from 'src/app/services/plitemclick.service';
 import { NewsData } from 'src/app/interface/news-data';
+import { HttpService } from './../../services/http.service';
+import { UserService } from './../../services/user.service';
+import { NewsListService } from './../../services/news-list.service';
 
 @Component({
   selector: 'app-newslist',
@@ -28,6 +29,7 @@ export class NewslistPage implements OnInit {
   isshowDrop: boolean; // 是否显示灰色背景;
   list: NewsData[];
   uid: string;
+  userhead: string;
   constructor(private nav: NavController, private activeroute: ActivatedRoute,
     private ws: WebsocketService, private emojiishow: EmojiishowService, private itemclickfn: PlitemclickService,
     private newslist: NewsListService, private userfn: UserService, private http: HttpService) { }
@@ -43,9 +45,11 @@ export class NewslistPage implements OnInit {
     console.log(this.list);
     this.userfn.getUser().then(res => {
       this.uid = res['user_id'];
+      this.userhead = res['headimg'];
     }).catch(() => {});
   }
   sendMsg(msg) {
+    console.log(msg);
     if (!this.targetId && this.list.length > 0) {
       for (let index = 0; index < this.list.length; index++) {
         const element = this.list[index];
@@ -58,11 +62,12 @@ export class NewslistPage implements OnInit {
     const obj: NewsData = {
       uid: this.uid,
       tid: this.targetId || -1,
-      content: msg,
+      content: decodeURIComponent(msg),
       time: Date.parse(new Date() as any),
       type: 1,
       name: '',
-      shopId: this.shopId
+      shopId: this.shopId,
+      shopName: this.shopName
     };
     this.newslist.setList(this.shopId, [obj]);
     this.ws.sendMessage({uid: this.targetId || -1, shopId: this.shopId, msg}, 'chat message');

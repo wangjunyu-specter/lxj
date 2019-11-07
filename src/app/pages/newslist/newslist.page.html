@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-06-16 01:50:44
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-07 16:50:19
+ * @LastEditTime: 2019-11-07 20:50:29
  * @Description: file content
  -->
 <ion-header mode="ios">
@@ -18,7 +18,7 @@
 
 <ion-content padding>
   <div class="box" *ngFor="let item of list">
-    <div class="time">{{item.time}}</div>
+    <div class="time">{{item.time | newstime: list}}</div>
     <div class="item" *ngIf="item.uid != uid">
       <div class="left">
         <img class="header" [src]="item.header | imgsrc: http.zdomain" alt="">
@@ -37,7 +37,7 @@
         </span>
       </div>
       <div class="right">
-        <img [src]="item.header | imgsrc: http.zdomain" alt="">
+        <img [src]="userhead | imgsrc: http.zdomain" alt="">
       </div>
     </div>
   </div>

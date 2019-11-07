@@ -4,7 +4,7 @@ import { ThorderService } from './../../services/thorder.service';
  * @Author: wjy-mac
  * @Date: 2019-07-29 22:29:34
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-05 01:07:50
+ * @LastEditTime: 2019-11-07 23:00:29
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -136,6 +136,12 @@ export class OrdercontentPage implements OnInit {
   // }
   toPagefn(type, id) {
     this.topage.toPage(type, id);
+  }
+  toMessage() {
+    this.topage.toPage(17, this.data.order.supplier_id, this.data.order.referer);
+  }
+  call() {
+    this.native.callTel(this.data.order.supplier_tel);
   }
   async cancleOrder(type = 3) {
     if (type === 1) {

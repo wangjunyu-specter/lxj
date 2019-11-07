@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-11-07 15:56:16
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-07 17:47:57
+ * @LastEditTime: 2019-11-07 21:36:51
  * @Description: 消息列表表现
  */
 import { Injectable } from '@angular/core';
@@ -41,8 +41,8 @@ export class NewsListService {
       this.list.push({id, arr: [arr]});
     }
   }
-  getList() {
-
+  getList(): {id: string, arr: NewsData[]}[] {
+    return this.list;
   }
   /**
    * @Author: wjy-mac

@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-07 23:49:04
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-05 15:41:13
+ * @LastEditTime: 2019-11-07 23:01:22
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -259,6 +259,12 @@ export class XccontentPage implements OnInit {
   // }
   toPagefn(type, id, ...args) {
     this.topage.toPage(type, id, ...args);
+  }
+  toMessage() {
+    this.topage.toPage(17, this.data.order.supplier_id, this.data.order.referer);
+  }
+  call() {
+    this.native.callTel(this.data.order.supplier_tel);
   }
 }
 

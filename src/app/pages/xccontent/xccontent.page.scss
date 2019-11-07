@@ -154,3 +154,11 @@ ion-content {
     padding-left: 5px;
   }
 }
+.contact-box {
+  background-color: #fff;
+  img {
+    width: 26px;
+    margin-right: 5px;
+  }
+  font-size: var(--ion-text);
+}

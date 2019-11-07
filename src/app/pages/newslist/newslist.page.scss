@@ -25,10 +25,13 @@ $width: 35px;
     }
     .right {
       flex: 1;
+      max-width: calc(100% - 50px);
       .name {
         line-height: 30px;
         font-size: var(--ion-sm-text);
         color: var(--ion-color-medium);
+        max-width: 100%;
+        overflow: hidden;
       }
       .content {
         display: inline-block;
@@ -39,6 +42,7 @@ $width: 35px;
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
         border-top-right-radius: 20px;
+        max-width: 100%;
       }
     }
   }
@@ -67,13 +71,14 @@ $width: 35px;
       justify-content: flex-end;
       flex-wrap: wrap;
       max-width: calc(100% - 50px);
+      margin-top: 3px;;
       .content {
         min-height: 30px;
         padding: 5px 15px;
         font-size: var(--ion-title);
         background: linear-gradient(var(--ion-color-secondary, red), var(--ion-color-success, blue));
         display: inline-block;
-        width: 100%;
+        max-width: 100%;
         border-bottom-left-radius: 20px;
         border-top-left-radius: 20px;
         border-bottom-right-radius: 20px;

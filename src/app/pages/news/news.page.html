@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-10-10 09:55:35
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-07 15:08:56
+ * @LastEditTime: 2019-11-07 22:32:17
  * @Description: file content
  -->
 <ion-header mode="ios">
@@ -22,18 +22,19 @@
     <div [ngClass]="{active: type === 2}" (click)="type = 2">通知</div>
   </div>
   <div [hidden]="type !== 1">
+    <app-nomore *ngIf="list.length === 0"></app-nomore>
     <ion-list>
-      <ion-item-sliding>
-          <ion-item (click)="goNews(1, '名字', '旅行社')">
+      <ion-item-sliding *ngFor="let item of list">
+          <ion-item (click)="goNews(item)">
             <ion-avatar slot="start">
-              <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+              <img class="header" [src]="item['arr'][0].header | imgsrc: http.zdomain" alt="">
             </ion-avatar>
             <ion-label>
-              Item Avatar
-              <p>kjkljlkjljkl</p>
+              {{item['arr'][0].shopName || item['arr'][item['arr'].length - 1].name}}
+              <p>{{item['arr'][item['arr'].length - 1].content}}</p>
             </ion-label>
             <ion-note slot="end">
-              <div class="time">09:32</div>
+              <div class="time">{{item['arr'][item['arr'].length - 1].time  | newslisttime: item['arr']}}</div>
               <ion-badge color="danger">66</ion-badge>
             </ion-note>
           </ion-item>
@@ -45,6 +46,7 @@
     </ion-list>
   </div>
   <div [hidden]="type !== 2" class="tzgg">
+    <app-nomore *ngIf="list.length === 0"></app-nomore>
     <div class="my-list">
       <div class="my-item">
         <div class="title"><span>平台通知</span> <ion-text color="tertiary">周二</ion-text></div>
