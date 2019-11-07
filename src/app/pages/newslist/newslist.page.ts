@@ -3,7 +3,7 @@
  * @Author: wjy-mac
  * @Date: 2019-06-16 01:51:24
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-07 22:22:53
+ * @LastEditTime: 2019-11-07 23:27:28
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -42,14 +42,19 @@ export class NewslistPage implements OnInit {
     this.shopId = params['id'];
     this.shopName = params['name'];
     this.list = this.newslist.getOnelist(this.shopId);
-    console.log(this.list);
     this.userfn.getUser().then(res => {
       this.uid = res['user_id'];
       this.userhead = res['headimg'];
     }).catch(() => {});
   }
+  ionViewWillLeave() {
+    this.newslist.clearShopid();
+    this.setListyd();
+  }
+  setListyd() {
+    // 此处写此聊天对象都已读
+  }
   sendMsg(msg) {
-    console.log(msg);
     if (!this.targetId && this.list.length > 0) {
       for (let index = 0; index < this.list.length; index++) {
         const element = this.list[index];
@@ -67,7 +72,8 @@ export class NewslistPage implements OnInit {
       type: 1,
       name: '',
       shopId: this.shopId,
-      shopName: this.shopName
+      shopName: this.shopName,
+      wd: 1
     };
     this.newslist.setList(this.shopId, [obj]);
     this.ws.sendMessage({uid: this.targetId || -1, shopId: this.shopId, msg}, 'chat message');

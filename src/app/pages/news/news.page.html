@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-10-10 09:55:35
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-07 22:32:17
+ * @LastEditTime: 2019-11-07 23:32:11
  * @Description: file content
  -->
 <ion-header mode="ios">
@@ -35,7 +35,7 @@
             </ion-label>
             <ion-note slot="end">
               <div class="time">{{item['arr'][item['arr'].length - 1].time  | newslisttime: item['arr']}}</div>
-              <ion-badge color="danger">66</ion-badge>
+              <ion-badge color="danger" *ngIf="item.num && item.num > 0">{{item['num']}}</ion-badge>
             </ion-note>
           </ion-item>
           <ion-item-options side="end">

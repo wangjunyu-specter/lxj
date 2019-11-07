@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-06-16 01:50:44
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-07 20:50:29
+ * @LastEditTime: 2019-11-07 23:35:26
  * @Description: file content
  -->
 <ion-header mode="ios">
@@ -25,16 +25,20 @@
       </div>
       <div class="right">
         <div class="name">{{item.name}}</div>
-        <div class="content">
+        <div class="content" *ngIf="item.type === 1">
           {{item.content}}
+        </div>
+        <div class="img-content" *ngIf="item.type === 2">
+          <img [src]="item.content | imgsrc: http.zdomain" alt="">
         </div>
       </div>
     </div>
     <div class="me" *ngIf="item.uid == uid">
       <div class="left">
-        <span class="content">
+        <span class="content" *ngIf="item.type === 1">
             {{item.content}}
         </span>
+        <img class="img-content" *ngIf="item.type === 2" [src]="item.content | imgsrc: http.zdomain" alt="">
       </div>
       <div class="right">
         <img [src]="userhead | imgsrc: http.zdomain" alt="">
@@ -43,19 +47,6 @@
   </div>
   <ion-backdrop *ngIf="isshowDrop" (ionBackdropTap)="clickdrop()"></ion-backdrop>
 </ion-content>
-<!-- <ion-footer mode="ios">
-  <ion-toolbar mode="ios">
-    <ion-searchbar searchIcon="create" mode="ios" placeholder="请输入消息"></ion-searchbar>
-    <ion-buttons slot="end" mode="ios">
-      <ion-button color="dark" (click)="close()">
-        <img class="happyface" src="./assets/hanpyface.svg" alt="">
-      </ion-button>
-      <ion-button color="dark" (click)="close()">
-        <img src="./assets/imgk.svg" alt="">
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-footer> -->
 <ion-footer>
   <ion-toolbar no-padding>
     <app-chatinputbox (sub)="sendMsg($event)" (myfous)="monfous()" (mybulr)="monblur()"></app-chatinputbox>

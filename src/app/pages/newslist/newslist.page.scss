@@ -87,6 +87,14 @@ $width: 35px;
     }
   }
 }
+.img-content {
+  width: 100px;
+  border-radius: 5px;
+  overflow: hidden;
+  img {
+    width: 100%;
+  }
+}
 ion-footer {
   padding: 0;
   color: var(--ion-color-dark);

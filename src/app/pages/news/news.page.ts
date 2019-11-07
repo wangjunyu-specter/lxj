@@ -44,4 +44,7 @@ export class NewsPage implements OnInit {
     this.topage.toPage(17, id, name);
     // this.route.navigate(['/newslist'], {queryParams: {id, name}});
   }
+  unread(id: string) {
+    this.newslist.clearShopid(id);
+  }
 }

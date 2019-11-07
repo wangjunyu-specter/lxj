@@ -2,9 +2,10 @@
  * @Author: wjy-mac
  * @Date: 2019-11-07 16:25:09
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-07 17:06:29
+ * @LastEditTime: 2019-11-07 23:09:42
  * @Description: 及时消息类型
  */
+
 export interface NewsData {
   type: number; // 1表示 文字消息 2 图片
   content: string; // 消息内容
@@ -15,4 +16,5 @@ export interface NewsData {
   name: string;
   shopId?: string; // 店铺id
   shopName?: string; // 店铺名
+  wd: number; // 1已读 -1未读
 }
