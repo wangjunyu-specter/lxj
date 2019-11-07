@@ -97,6 +97,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_xclist_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/xclist.service */ "./src/app/services/xclist.service.ts");
 /* harmony import */ var _services_topage_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/topage.service */ "./src/app/services/topage.service.ts");
 
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-05 22:48:55
+ * @Description: file content
+ */
 
 
 
@@ -116,7 +123,8 @@ var XclistPage = /** @class */ (function () {
     };
     XclistPage.prototype.goBack = function () {
         this.xcxllist.clear();
-        this.nav.back();
+        // this.nav.back();
+        this.nav.navigateForward('/tabs/tab4');
     };
     XclistPage.prototype.goContent = function (id) {
         // this.route.navigate(['/fbyjmore'], {queryParams: {type: this.type + 1, num: res.result.num}});

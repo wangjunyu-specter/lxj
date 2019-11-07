@@ -1,3 +1,4 @@
+$width: 35px;
 .box {
   .time {
     text-align: center;
@@ -11,15 +12,15 @@
     align-items: flex-start;
     margin-top: 20px;
     .left {
-      width: 30px;
-      height: 30px;
+      width: $width;
+      height: $width;
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
       border-radius: 50%;
       margin-right: 8px;
       overflow: hidden;
       img {
-        width: 30px;
+        width: $width;
       }
     }
     .right {
@@ -48,15 +49,15 @@
     justify-content: flex-end;
     align-items: flex-start;
     .right {
-      width: 30px;
-      height: 30px;
+      width: $width;
+      height: $width;
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
       border-radius: 50%;
       margin-left: 8px;
       overflow: hidden;
       img {
-        width: 30px;
+        width: $width;
       }
     }
     .left {
@@ -64,12 +65,15 @@
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
+      flex-wrap: wrap;
+      max-width: calc(100% - 50px);
       .content {
         min-height: 30px;
         padding: 5px 15px;
         font-size: var(--ion-title);
         background: linear-gradient(var(--ion-color-secondary, red), var(--ion-color-success, blue));
         display: inline-block;
+        width: 100%;
         border-bottom-left-radius: 20px;
         border-top-left-radius: 20px;
         border-bottom-right-radius: 20px;

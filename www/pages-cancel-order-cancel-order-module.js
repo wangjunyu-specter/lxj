@@ -96,7 +96,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy-mac
  * @Date: 2019-10-17 17:47:02
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-23 17:05:29
+ * @LastEditTime: 2019-11-05 22:25:36
  * @Description: 取消订单
  */
 
@@ -263,7 +263,7 @@ var CancelOrderPage = /** @class */ (function () {
         this.isupdate.push(-1);
         var file = this.native.getImgbase64tofile(base64, 'sh' + index, 'imgFile');
         this.imgupload(file).then(function (res) {
-            _this.subimgs[index] = res;
+            _this.subimgs[index] = res['url'];
             _this.isupdate[index] = 1;
             if (_this.issub) {
                 _this.issubfn();
@@ -296,7 +296,7 @@ var CancelOrderPage = /** @class */ (function () {
     };
     CancelOrderPage.prototype.uploadEnd = function () {
         var _this = this;
-        var obj = Object.assign({ imgs: this.imgs }, this.data);
+        var obj = Object.assign({ imgs: this.subimgs }, this.data);
         this.http.postformdataloading(this.http.zdomain + this.http.backorderact, obj).subscribe(function (res) {
             _this.native.presentToast('申请成功，请等待商家审核');
             _this.goBack();

@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-05 14:32:04
+ * @LastEditTime: 2019-11-07 14:50:02
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -28,6 +28,7 @@ const zdomain = 'https://sc.cdlxj.cn/';
 export class HttpService {
   public zdomain = zdomain;
   public domain = zdomain + 'mobile/';
+  wslink = 'ws://news.cdlxj.cn';
   login = 'user.php?act=signin'; // 登录
   yzpwd = 'user.php?act=yzpwd'; // 验证密码
   editsurplus = 'user.php?act=act_edit_surplus'; // 余额支付

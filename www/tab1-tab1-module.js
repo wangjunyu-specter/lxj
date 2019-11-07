@@ -204,12 +204,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/user.service */ "./src/app/services/user.service.ts");
 /* harmony import */ var _ionic_native_app_update_ngx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic-native/app-update/ngx */ "./node_modules/@ionic-native/app-update/ngx/index.js");
 /* harmony import */ var _services_native_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/native.service */ "./src/app/services/native.service.ts");
+/* harmony import */ var _services_websocket_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../services/websocket.service */ "./src/app/services/websocket.service.ts");
 
 /*
  * @Author: wjy-mac
  * @Date: 2019-07-15 22:18:06
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-09 21:10:56
+ * @LastEditTime: 2019-11-07 14:51:55
  * @Description: file content
  */
 
@@ -226,8 +227,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var Tab1Page = /** @class */ (function () {
-    function Tab1Page(modalController, http, shop, topage, user, route, appUpdate, native, alertController) {
+    function Tab1Page(modalController, http, shop, topage, user, route, appUpdate, native, alertController, ws) {
         this.modalController = modalController;
         this.http = http;
         this.shop = shop;
@@ -237,6 +239,7 @@ var Tab1Page = /** @class */ (function () {
         this.appUpdate = appUpdate;
         this.native = native;
         this.alertController = alertController;
+        this.ws = ws;
     }
     Tab1Page.prototype.ngOnInit = function () {
         // this.shopdata = {}
@@ -277,9 +280,12 @@ var Tab1Page = /** @class */ (function () {
     };
     Tab1Page.prototype.ionViewDidEnter = function () {
         this.moreGoods = this.shop.getMoregoods();
-        console.log(this.moreGoods);
         this.getShopcontent();
         this.location = this.user.getLocation();
+        // this.wsfn();
+    };
+    Tab1Page.prototype.wsfn = function () {
+        this.ws.createObservableSocket(this.http.wslink);
     };
     Tab1Page.prototype.getShopcontent = function () {
         var _this = this;
@@ -452,7 +458,8 @@ var Tab1Page = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"],
             _services_http_service__WEBPACK_IMPORTED_MODULE_5__["HttpService"], _services_shop_content_service__WEBPACK_IMPORTED_MODULE_6__["ShopContentService"],
             _services_topage_service__WEBPACK_IMPORTED_MODULE_7__["TopageService"], _services_user_service__WEBPACK_IMPORTED_MODULE_8__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            _ionic_native_app_update_ngx__WEBPACK_IMPORTED_MODULE_9__["AppUpdate"], _services_native_service__WEBPACK_IMPORTED_MODULE_10__["NativeService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"]])
+            _ionic_native_app_update_ngx__WEBPACK_IMPORTED_MODULE_9__["AppUpdate"], _services_native_service__WEBPACK_IMPORTED_MODULE_10__["NativeService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"],
+            _services_websocket_service__WEBPACK_IMPORTED_MODULE_11__["WebsocketService"]])
     ], Tab1Page);
     return Tab1Page;
 }());

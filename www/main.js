@@ -1359,6 +1359,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "./node_modules/@ionic-native/splash-screen/ngx/index.js");
 /* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
 
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-07 14:49:02
+ * @Description: file content
+ */
 
 
 
@@ -1470,38 +1477,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_xclist_service__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./services/xclist.service */ "./src/app/services/xclist.service.ts");
 /* harmony import */ var _services_payment_list_service__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./services/payment-list.service */ "./src/app/services/payment-list.service.ts");
 /* harmony import */ var _services_payorder_service__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./services/payorder.service */ "./src/app/services/payorder.service.ts");
-/* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
-/* harmony import */ var _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! @ionic-native/http/ngx */ "./node_modules/@ionic-native/http/ngx/index.js");
-/* harmony import */ var _ionic_native_keyboard_ngx__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! @ionic-native/keyboard/ngx */ "./node_modules/@ionic-native/keyboard/ngx/index.js");
-/* harmony import */ var _ionic_native_android_full_screen_ngx__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! @ionic-native/android-full-screen/ngx */ "./node_modules/@ionic-native/android-full-screen/ngx/index.js");
-/* harmony import */ var _components_fbselete_fbselete_component__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./components/fbselete/fbselete.component */ "./src/app/components/fbselete/fbselete.component.ts");
-/* harmony import */ var _ionic_native_media_capture_ngx__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! @ionic-native/media-capture/ngx */ "./node_modules/@ionic-native/media-capture/ngx/index.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
-/* harmony import */ var _ionic_native_photo_viewer_ngx__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! @ionic-native/photo-viewer/ngx */ "./node_modules/@ionic-native/photo-viewer/ngx/index.js");
-/* harmony import */ var _services_orderlist_service__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./services/orderlist.service */ "./src/app/services/orderlist.service.ts");
-/* harmony import */ var _services_hworderlist_service__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./services/hworderlist.service */ "./src/app/services/hworderlist.service.ts");
-/* harmony import */ var videogular2_core__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! videogular2/core */ "./node_modules/videogular2/core.js");
-/* harmony import */ var videogular2_core__WEBPACK_IMPORTED_MODULE_69___default = /*#__PURE__*/__webpack_require__.n(videogular2_core__WEBPACK_IMPORTED_MODULE_69__);
-/* harmony import */ var videogular2_controls__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! videogular2/controls */ "./node_modules/videogular2/controls.js");
-/* harmony import */ var videogular2_controls__WEBPACK_IMPORTED_MODULE_70___default = /*#__PURE__*/__webpack_require__.n(videogular2_controls__WEBPACK_IMPORTED_MODULE_70__);
-/* harmony import */ var videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! videogular2/overlay-play */ "./node_modules/videogular2/overlay-play.js");
-/* harmony import */ var videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_71___default = /*#__PURE__*/__webpack_require__.n(videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_71__);
-/* harmony import */ var videogular2_buffering__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! videogular2/buffering */ "./node_modules/videogular2/buffering.js");
-/* harmony import */ var videogular2_buffering__WEBPACK_IMPORTED_MODULE_72___default = /*#__PURE__*/__webpack_require__.n(videogular2_buffering__WEBPACK_IMPORTED_MODULE_72__);
-/* harmony import */ var _components_video_video_component__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! ./components/video/video.component */ "./src/app/components/video/video.component.ts");
-/* harmony import */ var _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ./components/upload/upload.component */ "./src/app/components/upload/upload.component.ts");
-/* harmony import */ var _ionic_native_gao_de_location_ngx__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! @ionic-native/gao-de-location/ngx */ "./node_modules/@ionic-native/gao-de-location/ngx/index.js");
-/* harmony import */ var _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! @ionic-native/in-app-browser/ngx */ "./node_modules/@ionic-native/in-app-browser/ngx/index.js");
-/* harmony import */ var _pipes_model_time_pipe__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! ./pipes/model-time.pipe */ "./src/app/pipes/model-time.pipe.ts");
+/* harmony import */ var _services_websocket_service__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./services/websocket.service */ "./src/app/services/websocket.service.ts");
+/* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
+/* harmony import */ var _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! @ionic-native/http/ngx */ "./node_modules/@ionic-native/http/ngx/index.js");
+/* harmony import */ var _ionic_native_keyboard_ngx__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! @ionic-native/keyboard/ngx */ "./node_modules/@ionic-native/keyboard/ngx/index.js");
+/* harmony import */ var _ionic_native_android_full_screen_ngx__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! @ionic-native/android-full-screen/ngx */ "./node_modules/@ionic-native/android-full-screen/ngx/index.js");
+/* harmony import */ var _components_fbselete_fbselete_component__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./components/fbselete/fbselete.component */ "./src/app/components/fbselete/fbselete.component.ts");
+/* harmony import */ var _ionic_native_media_capture_ngx__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! @ionic-native/media-capture/ngx */ "./node_modules/@ionic-native/media-capture/ngx/index.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _ionic_native_photo_viewer_ngx__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! @ionic-native/photo-viewer/ngx */ "./node_modules/@ionic-native/photo-viewer/ngx/index.js");
+/* harmony import */ var _services_orderlist_service__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./services/orderlist.service */ "./src/app/services/orderlist.service.ts");
+/* harmony import */ var _services_hworderlist_service__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./services/hworderlist.service */ "./src/app/services/hworderlist.service.ts");
+/* harmony import */ var videogular2_core__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! videogular2/core */ "./node_modules/videogular2/core.js");
+/* harmony import */ var videogular2_core__WEBPACK_IMPORTED_MODULE_70___default = /*#__PURE__*/__webpack_require__.n(videogular2_core__WEBPACK_IMPORTED_MODULE_70__);
+/* harmony import */ var videogular2_controls__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! videogular2/controls */ "./node_modules/videogular2/controls.js");
+/* harmony import */ var videogular2_controls__WEBPACK_IMPORTED_MODULE_71___default = /*#__PURE__*/__webpack_require__.n(videogular2_controls__WEBPACK_IMPORTED_MODULE_71__);
+/* harmony import */ var videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! videogular2/overlay-play */ "./node_modules/videogular2/overlay-play.js");
+/* harmony import */ var videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_72___default = /*#__PURE__*/__webpack_require__.n(videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_72__);
+/* harmony import */ var videogular2_buffering__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! videogular2/buffering */ "./node_modules/videogular2/buffering.js");
+/* harmony import */ var videogular2_buffering__WEBPACK_IMPORTED_MODULE_73___default = /*#__PURE__*/__webpack_require__.n(videogular2_buffering__WEBPACK_IMPORTED_MODULE_73__);
+/* harmony import */ var _components_video_video_component__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ./components/video/video.component */ "./src/app/components/video/video.component.ts");
+/* harmony import */ var _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! ./components/upload/upload.component */ "./src/app/components/upload/upload.component.ts");
+/* harmony import */ var _ionic_native_gao_de_location_ngx__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! @ionic-native/gao-de-location/ngx */ "./node_modules/@ionic-native/gao-de-location/ngx/index.js");
+/* harmony import */ var _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! @ionic-native/in-app-browser/ngx */ "./node_modules/@ionic-native/in-app-browser/ngx/index.js");
+/* harmony import */ var _pipes_model_time_pipe__WEBPACK_IMPORTED_MODULE_78__ = __webpack_require__(/*! ./pipes/model-time.pipe */ "./src/app/pipes/model-time.pipe.ts");
 
 /*
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-18 23:01:07
+ * @LastEditTime: 2019-11-06 20:47:43
  * @Description: file content
  */
+
 
 
 
@@ -1586,10 +1595,10 @@ var AppModule = /** @class */ (function () {
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [_app_component__WEBPACK_IMPORTED_MODULE_19__["AppComponent"], _components_search_search_component__WEBPACK_IMPORTED_MODULE_30__["SearchComponent"], _components_topnavlist_topnavlist_component__WEBPACK_IMPORTED_MODULE_35__["TopnavlistComponent"], _components_goodsattr_goodsattr_component__WEBPACK_IMPORTED_MODULE_31__["GoodsattrComponent"],
-                _components_goods_contentnav_goods_contentnav_component__WEBPACK_IMPORTED_MODULE_33__["GoodsContentnavComponent"], _components_fbselete_fbselete_component__WEBPACK_IMPORTED_MODULE_62__["FbseleteComponent"], _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_34__["PayboxComponent"], _components_video_video_component__WEBPACK_IMPORTED_MODULE_73__["VideoComponent"], _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_74__["UploadComponent"],
-                _components_available_bonus_available_bonus_component__WEBPACK_IMPORTED_MODULE_32__["AvailableBonusComponent"], _pipes_model_time_pipe__WEBPACK_IMPORTED_MODULE_77__["ModelTimePipe"]],
+                _components_goods_contentnav_goods_contentnav_component__WEBPACK_IMPORTED_MODULE_33__["GoodsContentnavComponent"], _components_fbselete_fbselete_component__WEBPACK_IMPORTED_MODULE_63__["FbseleteComponent"], _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_34__["PayboxComponent"], _components_video_video_component__WEBPACK_IMPORTED_MODULE_74__["VideoComponent"], _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_75__["UploadComponent"],
+                _components_available_bonus_available_bonus_component__WEBPACK_IMPORTED_MODULE_32__["AvailableBonusComponent"], _pipes_model_time_pipe__WEBPACK_IMPORTED_MODULE_78__["ModelTimePipe"]],
             entryComponents: [_components_search_search_component__WEBPACK_IMPORTED_MODULE_30__["SearchComponent"], _components_topnavlist_topnavlist_component__WEBPACK_IMPORTED_MODULE_35__["TopnavlistComponent"], _components_goodsattr_goodsattr_component__WEBPACK_IMPORTED_MODULE_31__["GoodsattrComponent"],
-                _components_goods_contentnav_goods_contentnav_component__WEBPACK_IMPORTED_MODULE_33__["GoodsContentnavComponent"], _components_fbselete_fbselete_component__WEBPACK_IMPORTED_MODULE_62__["FbseleteComponent"], _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_34__["PayboxComponent"], _components_video_video_component__WEBPACK_IMPORTED_MODULE_73__["VideoComponent"], _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_74__["UploadComponent"],
+                _components_goods_contentnav_goods_contentnav_component__WEBPACK_IMPORTED_MODULE_33__["GoodsContentnavComponent"], _components_fbselete_fbselete_component__WEBPACK_IMPORTED_MODULE_63__["FbseleteComponent"], _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_34__["PayboxComponent"], _components_video_video_component__WEBPACK_IMPORTED_MODULE_74__["VideoComponent"], _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_75__["UploadComponent"],
                 _components_available_bonus_available_bonus_component__WEBPACK_IMPORTED_MODULE_32__["AvailableBonusComponent"]],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
@@ -1597,13 +1606,13 @@ var AppModule = /** @class */ (function () {
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_18__["AppRoutingModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
                 ng2_ckeditor__WEBPACK_IMPORTED_MODULE_5__["CKEditorModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_64__["FormsModule"],
-                videogular2_core__WEBPACK_IMPORTED_MODULE_69__["VgCoreModule"],
-                videogular2_controls__WEBPACK_IMPORTED_MODULE_70__["VgControlsModule"],
-                videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_71__["VgOverlayPlayModule"],
-                videogular2_buffering__WEBPACK_IMPORTED_MODULE_72__["VgBufferingModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_65__["FormsModule"],
+                videogular2_core__WEBPACK_IMPORTED_MODULE_70__["VgCoreModule"],
+                videogular2_controls__WEBPACK_IMPORTED_MODULE_71__["VgControlsModule"],
+                videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_72__["VgOverlayPlayModule"],
+                videogular2_buffering__WEBPACK_IMPORTED_MODULE_73__["VgBufferingModule"],
                 // CalendarModule,
-                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_65__["BrowserAnimationsModule"],
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_66__["BrowserAnimationsModule"],
             ],
             providers: [
                 _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_8__["StatusBar"],
@@ -1623,7 +1632,7 @@ var AppModule = /** @class */ (function () {
                 _services_usercenter_service__WEBPACK_IMPORTED_MODULE_43__["UsercenterService"],
                 _services_goodsattr_service__WEBPACK_IMPORTED_MODULE_25__["GoodsattrService"],
                 _services_yhtclist_service__WEBPACK_IMPORTED_MODULE_44__["YhtclistService"],
-                _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_58__["NativeStorage"],
+                _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_59__["NativeStorage"],
                 _services_gwc_service__WEBPACK_IMPORTED_MODULE_45__["GwcService"],
                 _services_articelist_service__WEBPACK_IMPORTED_MODULE_49__["ArticelistService"],
                 // Device,
@@ -1636,31 +1645,32 @@ var AppModule = /** @class */ (function () {
                 // ProvincesService,
                 _services_selete_media_service__WEBPACK_IMPORTED_MODULE_53__["SeleteMediaService"],
                 _services_userlogin_service__WEBPACK_IMPORTED_MODULE_28__["UserloginService"],
-                _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_59__["HTTP"],
-                _ionic_native_media_capture_ngx__WEBPACK_IMPORTED_MODULE_63__["MediaCapture"],
-                _ionic_native_keyboard_ngx__WEBPACK_IMPORTED_MODULE_60__["Keyboard"],
+                _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_60__["HTTP"],
+                _ionic_native_media_capture_ngx__WEBPACK_IMPORTED_MODULE_64__["MediaCapture"],
+                _ionic_native_keyboard_ngx__WEBPACK_IMPORTED_MODULE_61__["Keyboard"],
                 _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_9__["File"],
                 _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_11__["Camera"],
                 _ionic_native_image_picker_ngx__WEBPACK_IMPORTED_MODULE_10__["ImagePicker"],
                 _ionic_native_video_player_ngx__WEBPACK_IMPORTED_MODULE_12__["VideoPlayer"],
                 _ionic_native_file_transfer_ngx__WEBPACK_IMPORTED_MODULE_13__["FileTransfer"],
-                _ionic_native_photo_viewer_ngx__WEBPACK_IMPORTED_MODULE_66__["PhotoViewer"],
-                _ionic_native_android_full_screen_ngx__WEBPACK_IMPORTED_MODULE_61__["AndroidFullScreen"],
+                _ionic_native_photo_viewer_ngx__WEBPACK_IMPORTED_MODULE_67__["PhotoViewer"],
+                _ionic_native_android_full_screen_ngx__WEBPACK_IMPORTED_MODULE_62__["AndroidFullScreen"],
                 _services_ordersuccess_service__WEBPACK_IMPORTED_MODULE_54__["OrdersuccessService"],
-                _services_hworderlist_service__WEBPACK_IMPORTED_MODULE_68__["HworderlistService"],
-                _services_orderlist_service__WEBPACK_IMPORTED_MODULE_67__["OrderlistService"],
+                _services_hworderlist_service__WEBPACK_IMPORTED_MODULE_69__["HworderlistService"],
+                _services_orderlist_service__WEBPACK_IMPORTED_MODULE_68__["OrderlistService"],
                 _services_xclist_service__WEBPACK_IMPORTED_MODULE_55__["XclistService"],
                 _services_payment_list_service__WEBPACK_IMPORTED_MODULE_56__["PaymentListService"],
                 _services_payorder_service__WEBPACK_IMPORTED_MODULE_57__["PayorderService"],
                 _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_14__["Network"],
                 _services_searchrecode_service__WEBPACK_IMPORTED_MODULE_26__["SearchrecodeService"],
                 _services_searchendgoods_service__WEBPACK_IMPORTED_MODULE_27__["SearchendgoodsService"],
-                _ionic_native_gao_de_location_ngx__WEBPACK_IMPORTED_MODULE_75__["GaoDeLocation"],
-                _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_76__["InAppBrowser"],
+                _ionic_native_gao_de_location_ngx__WEBPACK_IMPORTED_MODULE_76__["GaoDeLocation"],
+                _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_77__["InAppBrowser"],
                 _ionic_native_app_version_ngx__WEBPACK_IMPORTED_MODULE_15__["AppVersion"],
                 _ionic_native_market_ngx__WEBPACK_IMPORTED_MODULE_16__["Market"],
                 _ionic_native_app_update_ngx__WEBPACK_IMPORTED_MODULE_17__["AppUpdate"],
                 _services_thorder_service__WEBPACK_IMPORTED_MODULE_29__["ThorderService"],
+                _services_websocket_service__WEBPACK_IMPORTED_MODULE_58__["WebsocketService"],
                 // NavigationBar,
                 // ComponentsModule,
                 { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["IonicRouteStrategy"] }
@@ -4601,7 +4611,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-05 14:32:04
+ * @LastEditTime: 2019-11-07 14:50:02
  * @Description: file content
  */
 
@@ -4628,6 +4638,7 @@ var HttpService = /** @class */ (function () {
         this.nav = nav;
         this.zdomain = zdomain;
         this.domain = zdomain + 'mobile/';
+        this.wslink = 'ws://news.cdlxj.cn';
         this.login = 'user.php?act=signin'; // 登录
         this.yzpwd = 'user.php?act=yzpwd'; // 验证密码
         this.editsurplus = 'user.php?act=act_edit_surplus'; // 余额支付
@@ -5097,7 +5108,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-18 14:50:05
+ * @LastEditTime: 2019-11-05 22:35:50
  * @Description: file content
  */
 
@@ -5557,10 +5568,11 @@ var NativeService = /** @class */ (function () {
      */
     NativeService.prototype.getImgbase64tofile = function (base64, name, filename) {
         if (filename === void 0) { filename = 'file'; }
-        name = name + (new Date()).valueOf() + '.png'; // 定义文件名字（例如：abc.png ， cover.png）
         var type = 'image/png'; // 定义图片类型（canvas转的图片一般都是png，也可以指定其他类型）
         var arr = base64.split(',');
         var mime = arr[0].match(/:(.*?);/)[1] || type;
+        var nametype = mime.substring(5);
+        name = name + (new Date()).valueOf() + '.' + nametype; // 定义文件名字（例如：abc.png ， cover.png）
         // 去掉url的头，并转化为byte
         var bytes = window.atob(arr[1]);
         // 处理异常,将ascii码小于0的转换为大于0
@@ -7611,6 +7623,72 @@ var UserloginService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/websocket.service.ts":
+/*!***********************************************!*\
+  !*** ./src/app/services/websocket.service.ts ***!
+  \***********************************************/
+/*! exports provided: WebsocketService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WebsocketService", function() { return WebsocketService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! socket.io-client */ "./node_modules/socket.io-client/lib/index.js");
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_2__);
+
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-11-06 20:43:10
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-07 11:27:15
+ * @Description: websocket文件
+ */
+
+
+var WebsocketService = /** @class */ (function () {
+    function WebsocketService() {
+        this.ws = null; //定义websocket对象
+    }
+    WebsocketService.prototype.createObservableSocket = function (url) {
+        var _this = this;
+        // this.ws = new WebSocket(url);
+        // return new Observable(
+        //   observer => {
+        //     this.ws.onmessage = (event) => observer.next(event.data);
+        //     this.ws.onerror = (event) => observer.error(event);
+        //     this.ws.onclose = (event) => observer.complete();
+        //   }
+        // );
+        this.ws = socket_io_client__WEBPACK_IMPORTED_MODULE_2__(url);
+        this.ws.on('disconnect', function () {
+            _this.ws.open();
+        });
+        this.ws.on('news', this.news);
+    };
+    WebsocketService.prototype.news = function (data) {
+        console.log(data);
+    };
+    WebsocketService.prototype.sendMessage = function (msg, key) {
+        this.ws.emit(key, msg);
+    };
+    WebsocketService.prototype.disconnet = function () {
+        this.ws.disconnect(true);
+    };
+    WebsocketService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], WebsocketService);
+    return WebsocketService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/xclist.service.ts":
 /*!********************************************!*\
   !*** ./src/app/services/xclist.service.ts ***!
@@ -8137,6 +8215,17 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 
 module.exports = __webpack_require__(/*! /Users/wjy/Desktop/lxj/src/main.ts */"./src/main.ts");
 
+
+/***/ }),
+
+/***/ 1:
+/*!********************!*\
+  !*** ws (ignored) ***!
+  \********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
 
 /***/ })
 

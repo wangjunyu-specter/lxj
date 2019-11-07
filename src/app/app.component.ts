@@ -1,9 +1,8 @@
-import { WebsocketService } from './services/websocket.service';
 /*
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-06 21:45:02
+ * @LastEditTime: 2019-11-07 14:49:02
  * @Description: file content
  */
 import { Component } from '@angular/core';
@@ -22,7 +21,7 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private ws: WebsocketService
+    
     // private androidfullscreen: AndroidFullScreen
   ) {
     this.initializeApp();
@@ -33,7 +32,6 @@ export class AppComponent {
       // this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.statusBar.overlaysWebView(true);
-      this.wsfn();
       // alert(this.platform.is('android'))
       // this.statusBar.backgroundColorByHexString('#00f1f1f1');
       // if (this.platform.is('android')) {
@@ -43,17 +41,5 @@ export class AppComponent {
       // }
     });
   }
-  wsfn() {
-    this.ws.createObservableSocket('ws://news.cdlxj.cn').subscribe(
-      onmessage => {
-        console.log(onmessage);
-      },
-      onerror => {
-        console.error(onerror);
-      },
-      onclose => {
-        console.warn('关闭了');
-      }
-    );
-  }
+  
 }

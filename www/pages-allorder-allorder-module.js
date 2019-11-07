@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-28 22:30:59
+ * @LastEditTime: 2019-11-05 22:48:21
  * @Description: 所有订单
  */
 
@@ -123,7 +123,8 @@ var AllorderPage = /** @class */ (function () {
         this.segmentChanged();
     };
     AllorderPage.prototype.goBack = function () {
-        this.nav.back();
+        // this.nav.back();
+        this.nav.navigateForward('/tabs/tab4');
     };
     // goContent(id) {
     //   // this.route.navigate(['/fbyjmore'], {queryParams: {type: this.type + 1, num: res.result.num}});

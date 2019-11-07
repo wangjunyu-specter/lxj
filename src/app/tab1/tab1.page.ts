@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-15 22:18:06
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-09 21:10:56
+ * @LastEditTime: 2019-11-07 15:29:25
  * @Description: file content
  */
 import { Component, OnInit, ViewChild  } from '@angular/core';
@@ -20,6 +20,7 @@ import { UserService } from '../services/user.service';
 import { GaoDeLocation, PositionOptions } from '@ionic-native/gao-de-location/ngx';
 import { AppUpdate } from '@ionic-native/app-update/ngx';
 import { NativeService } from '../services/native.service';
+import { WebsocketService } from '../services/websocket.service';
 
 @Component({
   selector: 'app-tab1',
@@ -55,7 +56,8 @@ export class Tab1Page implements OnInit {
   constructor(public modalController: ModalController,
               private http: HttpService, private shop: ShopContentService,
               private topage: TopageService, private user: UserService, private route: Router,
-              private appUpdate: AppUpdate, private native: NativeService, public alertController: AlertController) {
+              private appUpdate: AppUpdate, private native: NativeService, public alertController: AlertController,
+              private ws: WebsocketService) {
   }
   ngOnInit() {
     // this.shopdata = {}
@@ -84,7 +86,7 @@ export class Tab1Page implements OnInit {
       slidesPerView : 2.2,
       slidesPerGroup : 1,
       spaceBetween : 10,
-    }
+    };
     this.bannerslideopts = {
       // pagination: {
       //   el: '.swiper-pagination',
@@ -94,13 +96,16 @@ export class Tab1Page implements OnInit {
       //     return '<span class="' + className + '" style="margin: 0 5px;">&nbsp;</span>';
       //   }
       // },
-    }
+    };
   }
   ionViewDidEnter() {
     this.moreGoods = this.shop.getMoregoods();
-    console.log(this.moreGoods)
     this.getShopcontent();
     this.location = this.user.getLocation();
+    this.wsfn();
+  }
+  wsfn() {
+    this.ws.createObservableSocket(this.http.wslink);
   }
   getShopcontent() {
     this.shop.getShop().then(res => {

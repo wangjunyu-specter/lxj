@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-06 20:47:43
+ * @LastEditTime: 2019-11-07 16:10:30
  * @Description: file content
  */
 import { NgModule } from '@angular/core';
@@ -68,6 +68,7 @@ import { XclistService } from './services/xclist.service';
 import {PaymentListService} from './services/payment-list.service';
 import {PayorderService} from './services/payorder.service';
 import {WebsocketService} from './services/websocket.service';
+import {NewsListService} from './services/news-list.service';
 
 
 import {NativeStorage} from '@ionic-native/native-storage/ngx';
@@ -174,6 +175,7 @@ import { ModelTimePipe } from './pipes/model-time.pipe';
     AppUpdate,
     ThorderService,
     WebsocketService,
+    NewsListService,
     // NavigationBar,
     // ComponentsModule,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

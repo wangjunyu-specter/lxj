@@ -1,3 +1,10 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-06-16 01:50:44
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-07 16:50:19
+ * @Description: file content
+ -->
 <ion-header mode="ios">
   <ion-toolbar mode="ios">
     <ion-buttons slot="start">
@@ -5,37 +12,38 @@
         <ion-icon name="arrow-back" mode="ios"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>四川知行逸旅行社</ion-title>
+    <ion-title>{{shopName}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <div class="box">
-    <div class="time">上午 09:32</div>
-    <div class="item">
+  <div class="box" *ngFor="let item of list">
+    <div class="time">{{item.time}}</div>
+    <div class="item" *ngIf="item.uid != uid">
       <div class="left">
-        <img class="header" src="./assets/icon/favicon.png" alt="">
+        <img class="header" [src]="item.header | imgsrc: http.zdomain" alt="">
       </div>
       <div class="right">
-        <div class="name">凌妹子</div>
+        <div class="name">{{item.name}}</div>
         <div class="content">
-          您好，请问需要什么帮助啊
+          {{item.content}}
         </div>
       </div>
     </div>
-    <div class="me">
+    <div class="me" *ngIf="item.uid == uid">
       <div class="left">
         <span class="content">
-          这次去苏梅岛你们
+            {{item.content}}
         </span>
       </div>
       <div class="right">
-        <img src="./assets/icon/favicon.png" alt="">
+        <img [src]="item.header | imgsrc: http.zdomain" alt="">
       </div>
     </div>
   </div>
+  <ion-backdrop *ngIf="isshowDrop" (ionBackdropTap)="clickdrop()"></ion-backdrop>
 </ion-content>
-<ion-footer mode="ios">
+<!-- <ion-footer mode="ios">
   <ion-toolbar mode="ios">
     <ion-searchbar searchIcon="create" mode="ios" placeholder="请输入消息"></ion-searchbar>
     <ion-buttons slot="end" mode="ios">
@@ -46,5 +54,10 @@
         <img src="./assets/imgk.svg" alt="">
       </ion-button>
     </ion-buttons>
+  </ion-toolbar>
+</ion-footer> -->
+<ion-footer>
+  <ion-toolbar no-padding>
+    <app-chatinputbox (sub)="sendMsg($event)" (myfous)="monfous()" (mybulr)="monblur()"></app-chatinputbox>
   </ion-toolbar>
 </ion-footer>

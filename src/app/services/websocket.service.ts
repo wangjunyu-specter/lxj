@@ -2,29 +2,44 @@
  * @Author: wjy-mac
  * @Date: 2019-11-06 20:43:10
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-06 21:46:12
+ * @LastEditTime: 2019-11-07 17:53:33
  * @Description: websocket文件
  */
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import * as io from 'socket.io-client';
+import { NewsListService } from './news-list.service';
+import { NewsData } from '../interface/news-data';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WebsocketService {
-  ws: WebSocket = null; //定义websocket对象
-  constructor() { }
-  createObservableSocket(url: string): Observable<any> {
-    this.ws = new WebSocket(url);
-    return new Observable(
-      observer => {
-        this.ws.onmessage = (event) => observer.next(event.data);
-        this.ws.onerror = (event) => observer.error(event);
-        this.ws.onclose = (event) => observer.complete();
-      }
-    );
+  ws: any = null; //定义websocket对象
+  link: string;
+  constructor(public newslist: NewsListService) { }
+  createObservableSocket(url: string) {
+    this.link = url;
+    this.ws = io(url);
+    this.ws.on('disconnect', () => {
+      this.ws.open();
+    });
+    this.ws.on('chat message', (res) => {
+      this.news(res);
+    });
   }
-  sendMessage(msg: string) {
-    this.ws.send(msg);
+  testOnline() {
+    if (!this.link) {
+      this.createObservableSocket('ws://news.cdlxj.cn');
+    }
+  }
+  news(data: NewsData) {
+    this.newslist.setList(data.shopId || data.uid, [data]);
+  }
+  sendMessage(msg: object, key: string) {
+    this.ws.emit(key, msg);
+  }
+  disconnet() {
+    this.ws.disconnect(true);
   }
 }

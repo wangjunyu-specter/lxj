@@ -144,6 +144,9 @@ export class PqcontentPage implements OnInit {
         for (let i = 0, j = this.pllist.length; i < j; i++) {
           console.log(this.pllist[i].id)
           if (this.pllist[i].id == obj.pid) {
+            if (!this.pllist[i].chrild) {
+              this.pllist[i].chrild = [];
+            }
             this.pllist[i].chrild.unshift(obj);
             this.pllist[i].plnum += 1;
             return false;

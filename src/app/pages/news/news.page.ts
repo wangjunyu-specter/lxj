@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-10-10 09:55:35
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-10 15:16:27
+ * @LastEditTime: 2019-11-07 16:58:07
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -24,7 +24,16 @@ export class NewsPage implements OnInit {
   goBack() {
     this.nav.back();
   }
-  goNews(id: string, name: string) {
+  /**
+   * @Author: wjy-mac
+   * @description: 跳转消息详情
+   * @Date: 2019-11-07 15:07:40
+   * @param {type} id 聊天对象id 如店铺/好友id // 客户不会出现在此
+   * @param {type} name 聊天对象名字 如店铺/好友名 // 客户不会出现在此
+   * @param {type} shopname 店名
+   * @return: 
+   */
+  goNews(id: string, name: string, shopname?: string) {
     this.route.navigate(['/newslist'], {queryParams: {id, name}});
   }
 }
