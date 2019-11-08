@@ -114,3 +114,17 @@ ion-footer {
     }
   }
 }
+
+.footer-news-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  .left {
+    width: 34px;
+    padding-left: 10px;
+  }
+  .right {
+    flex: 1;
+  }
+}

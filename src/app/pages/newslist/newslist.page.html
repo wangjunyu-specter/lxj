@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-06-16 01:50:44
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-07 23:35:26
+ * @LastEditTime: 2019-11-08 17:12:31
  * @Description: file content
  -->
 <ion-header mode="ios">
@@ -21,15 +21,15 @@
     <div class="time">{{item.time | newstime: list}}</div>
     <div class="item" *ngIf="item.uid != uid">
       <div class="left">
-        <img class="header" [src]="item.header | imgsrc: http.zdomain" alt="">
+        <img class="header" [src]="item.theader | imgsrc: http.zdomain" alt="">
       </div>
       <div class="right">
-        <div class="name">{{item.name}}</div>
+        <div class="name">{{item.tname || item.shopName}}</div>
         <div class="content" *ngIf="item.type === 1">
           {{item.content}}
         </div>
         <div class="img-content" *ngIf="item.type === 2">
-          <img [src]="item.content | imgsrc: http.zdomain" alt="">
+          <img (click)="scanImg(item.content)" [src]="item.content | imgsrc: http.zdomain" alt="">
         </div>
       </div>
     </div>
@@ -41,7 +41,7 @@
         <img class="img-content" *ngIf="item.type === 2" [src]="item.content | imgsrc: http.zdomain" alt="">
       </div>
       <div class="right">
-        <img [src]="userhead | imgsrc: http.zdomain" alt="">
+        <img (click)="scanImg(item.content)" [src]="userhead | imgsrc: http.zdomain" alt="">
       </div>
     </div>
   </div>
@@ -49,6 +49,13 @@
 </ion-content>
 <ion-footer>
   <ion-toolbar no-padding>
-    <app-chatinputbox (sub)="sendMsg($event)" (myfous)="monfous()" (mybulr)="monblur()"></app-chatinputbox>
+    <div class="footer-news-box">
+      <div class="left" (click)="choiceImg()">
+        <img src="../../../assets/imgk.svg" alt="">
+      </div>
+      <div class="right">
+        <app-chatinputbox (sub)="sendMsg($event)" (myfous)="monfous()" (mybulr)="monblur()"></app-chatinputbox>
+      </div>
+    </div>
   </ion-toolbar>
 </ion-footer>

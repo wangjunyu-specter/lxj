@@ -76,6 +76,9 @@
     },
     "es.keensoft.fullscreenimage": {
       "PACKAGE_NAME": "io.lxj.wjy"
+    },
+    "mx.ferreyra.callnumber": {
+      "PACKAGE_NAME": "io.lxj.wjy"
     }
   },
   "dependent_plugins": {

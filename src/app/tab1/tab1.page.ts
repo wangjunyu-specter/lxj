@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-15 22:18:06
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-07 15:29:25
+ * @LastEditTime: 2019-11-08 15:05:15
  * @Description: file content
  */
 import { Component, OnInit, ViewChild  } from '@angular/core';
@@ -105,7 +105,7 @@ export class Tab1Page implements OnInit {
     this.wsfn();
   }
   wsfn() {
-    this.ws.createObservableSocket(this.http.wslink);
+    this.ws.createObservableSocket();
   }
   getShopcontent() {
     this.shop.getShop().then(res => {

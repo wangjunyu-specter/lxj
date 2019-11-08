@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-10-10 09:55:35
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-07 22:19:32
+ * @LastEditTime: 2019-11-08 17:36:28
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -40,7 +40,7 @@ export class NewsPage implements OnInit {
   goNews(item: {id: string, arr: NewsData[]}) {
     const id = item['id']; //聊天对象id 如店铺/好友id // 客户不会出现在此
     const data: NewsData = item['arr'][item['arr'].length - 1];
-    const name = data.shopName || data.name;
+    const name = data.shopName || data.uname;
     this.topage.toPage(17, id, name);
     // this.route.navigate(['/newslist'], {queryParams: {id, name}});
   }

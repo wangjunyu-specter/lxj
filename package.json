@@ -24,6 +24,7 @@
     "@ionic-native/android-full-screen": "^5.8.0",
     "@ionic-native/app-update": "^5.11.0",
     "@ionic-native/app-version": "^5.11.0",
+    "@ionic-native/call-number": "^5.16.0",
     "@ionic-native/camera": "^5.8.0",
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/file": "^5.8.0",
@@ -44,6 +45,7 @@
     "@ionic-native/video-player": "^5.8.0",
     "@ionic/angular": "^4.1.0",
     "@types/ws": "^6.0.3",
+    "call-number": "^1.0.1",
     "com-sarriaroman-photoviewer": "^1.2.2",
     "cordova-android": "^8.0.0",
     "cordova-plugin-advanced-http": "^2.1.1",
@@ -137,7 +139,8 @@
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-market": {},
       "cordova-plugin-app-version": {},
-      "cordova-plugin-app-update": {}
+      "cordova-plugin-app-update": {},
+      "mx.ferreyra.callnumber": {}
     },
     "platforms": [
       "android"

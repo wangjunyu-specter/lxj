@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-10-10 09:55:35
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-07 23:32:11
+ * @LastEditTime: 2019-11-08 17:36:46
  * @Description: file content
  -->
 <ion-header mode="ios">
@@ -27,10 +27,10 @@
       <ion-item-sliding *ngFor="let item of list">
           <ion-item (click)="goNews(item)">
             <ion-avatar slot="start">
-              <img class="header" [src]="item['arr'][0].header | imgsrc: http.zdomain" alt="">
+              <img class="header" [src]="item['arr'][0].theader | imgsrc: http.zdomain" alt="">
             </ion-avatar>
             <ion-label>
-              {{item['arr'][0].shopName || item['arr'][item['arr'].length - 1].name}}
+              {{item['arr'][0].shopName || item['arr'][item['arr'].length - 1].tname}}
               <p>{{item['arr'][item['arr'].length - 1].content}}</p>
             </ion-label>
             <ion-note slot="end">
