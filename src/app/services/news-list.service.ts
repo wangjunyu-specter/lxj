@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-11-07 15:56:16
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-07 23:31:06
+ * @LastEditTime: 2019-11-11 17:26:23
  * @Description: 消息列表表现
  */
 import { Injectable } from '@angular/core';
@@ -25,6 +25,7 @@ export class NewsListService {
    * @return: 
    */  
   setList(id: string, arr: NewsData[] | NewsData) {
+    console.log(arr);
     let num = 0; // 未读数量
     if (id != this.nowShopid) {
       if (arr instanceof Array) { // 查询此次添加数据的未读数量

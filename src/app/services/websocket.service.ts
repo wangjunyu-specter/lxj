@@ -4,7 +4,7 @@ import { HttpService } from 'src/app/services/http.service';
  * @Author: wjy-mac
  * @Date: 2019-11-06 20:43:10
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-08 16:46:35
+ * @LastEditTime: 2019-11-11 17:26:12
  * @Description: websocket文件
  */
 import { Injectable } from '@angular/core';
@@ -28,11 +28,7 @@ export class WebsocketService {
       this.ws.open();
     });
     this.ws.on('connect', () => {
-      console.log('本地连接成功了')
-      this.setUserdata().then(user => {
-        this.sendMessage(user, 'setData');
-      }).catch(err2 => {
-      });
+      
     });
     this.ws.on('chat message', (res) => {
       this.news(res);
@@ -40,6 +36,14 @@ export class WebsocketService {
     this.ws.on('log', (res) => {
       console.log(res);
     });
+    this.ws.on('connectSuccess', () => {
+      console.log('远程连接成功')
+      this.setUserdata().then(user => {
+        console.log('开始验证身份')
+        this.sendMessage(user, 'setData');
+      }).catch(err2 => {
+      });
+    })
   }
   async setUserdata() {
     let user: any;
@@ -61,7 +65,8 @@ export class WebsocketService {
     }
   }
   news(data: NewsData) {
-    this.newslist.setList(data.shopId || data.uid, [data]);
+    console.log(data);
+    this.newslist.setList(data.shopId || data.uid, data);
   }
   /**
    * @Author: wjy-mac

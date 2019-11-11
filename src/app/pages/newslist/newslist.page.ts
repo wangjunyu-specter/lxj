@@ -4,7 +4,7 @@ import { NativeService } from 'src/app/services/native.service';
  * @Author: wjy-mac
  * @Date: 2019-06-16 01:51:24
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-08 17:32:36
+ * @LastEditTime: 2019-11-11 17:23:23
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
