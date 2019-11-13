@@ -1,8 +1,9 @@
+import { TopageService } from './../../services/topage.service';
 /*
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-08-07 23:50:59
+ * @LastEditTime: 2019-11-13 21:33:56
  * @Description: file content
  */
 import { Component, OnInit, ViewChild  } from '@angular/core';
@@ -33,7 +34,8 @@ export class SjIndexPage implements OnInit {
   constructor(private nav: NavController, private suppliserlist: SupplierlistService,
               private activeroute: ActivatedRoute,
               private http: HttpService, private route: Router,
-              private tjlistfn: SjindextjgoodsService, private collefn: CollelistService) { }
+              private tjlistfn: SjindextjgoodsService, private collefn: CollelistService,
+              private topagefn: TopageService) { }
 
   ngOnInit() {
     this.pageObj = {
@@ -106,6 +108,9 @@ export class SjIndexPage implements OnInit {
   }
   selectepx (type: number) {
     this.isnavactive = type;
+  }
+  toOtherpage(type, id, ...tid) {
+    this.topagefn.toPage(type, id, ...tid);
   }
   toPage() {
     this.nav.navigateForward('/sjdpyx');

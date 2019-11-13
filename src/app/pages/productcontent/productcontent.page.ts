@@ -1,9 +1,10 @@
+import { TopageService } from './../../services/topage.service';
 import { NativeService } from './../../services/native.service';
 /*
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-05 11:38:49
+ * @LastEditTime: 2019-11-13 14:39:26
  * @Description: file content
  */
 import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
@@ -63,7 +64,8 @@ export class ProductcontentPage implements OnInit {
               private getProduct: GetproductService, public actionSheetController: ActionSheetController,
               private supplierlist: SupplierlistService, public modalController: ModalController,
               public popoverController: PopoverController, private lljlfn: LljlService, private gwcfn: GwcService,
-              private collefn: CollelistService, private xcxlfn: XcsclistService, private native: NativeService) {
+              private collefn: CollelistService, private xcxlfn: XcsclistService, private native: NativeService,
+              private topagefn: TopageService) {
     this.slideOptslv = {
       // slidesOffsetBefore : 50,
       slidesPerView : 3.2,
@@ -162,6 +164,7 @@ export class ProductcontentPage implements OnInit {
   getsupplier() {
     this.supplierlist.getData(this.suppid, this.pid).then(res => {
       if (this.suppid == '-1') {
+        console.log(res);
         this.suppid = res.suppid;
       }
       this.supplier = res;
@@ -181,6 +184,9 @@ export class ProductcontentPage implements OnInit {
       console.error(err);
     });
     return true;
+  }
+  toKf() {
+    this.topagefn.toPage(17, this.suppid, this.supplier.shopname, 1);
   }
   getComment(id) {
     this.http.getData(this.http.getGoodcomment, {'goods_id': id}).subscribe(res => {

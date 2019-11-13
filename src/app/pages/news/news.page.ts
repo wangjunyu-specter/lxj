@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-10-10 09:55:35
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-08 17:36:28
+ * @LastEditTime: 2019-11-13 22:37:16
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -26,6 +26,7 @@ export class NewsPage implements OnInit {
   ngOnInit() {
     this.type = 1;
     this.list = this.newslist.getList();
+    console.log(this.list);
   }
   goBack() {
     this.nav.back();

@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-07 14:50:02
+ * @LastEditTime: 2019-11-13 14:57:49
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -118,6 +118,9 @@ export class HttpService {
   backorderdetailedit = 'user.php?act=back_order_detail_edit_ajax'; // 退货退款详情
   affirmReceived = 'user.php?act=affirm_received'; // 确认收货 order_id=457
   commentSend = 'user.php?act=comment_send'; // 发送评论
+
+
+  user: any;
   // changebonus = 'flow.php?step=select_shipping'; // 使用红包 bonus suppid sel_cartgoods
   constructor(private http: HttpClient, private nhttp: HTTP, private nativeService: NativeService,
               private userfn: UserService, private nav: NavController) { }
@@ -294,17 +297,26 @@ export class HttpService {
   }
   async setHeard(url) {
     let user: any;
-    try {
-      user = await this.userfn.getUser();
-    } catch (e) {
-      console.error(e);
-      user = {};
+    if (!this.user) {
+      try {
+        this.user = await this.userfn.getUser();
+        user = this.user;
+      } catch (e) {
+        console.error(e);
+        user = {};
+      }
+    } else {
+      user = this.user;
     }
     const ze = /^(HTTP)/i;
     if (!ze.test(url)) {
       url = this.domain + url;
     }
     url += '&user_id=' + user['user_id'];
+    const uuid = this.nativeService.getUuid();
+    if (uuid) {
+      url += '&uuid=' + uuid;
+    }
     let header: any;
     if (user.token) {
       if (this.nativeService.ismobile()) {

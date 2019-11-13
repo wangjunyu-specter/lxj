@@ -1,5 +1,12 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-06-06 00:16:42
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-13 23:04:51
+ * @Description: file content
+ -->
 <ion-list>
-  <ion-item (click)="openpage(1)"><ion-icon name="chatbubbles" mode="ios" slot="start"></ion-icon>消息<ion-badge slot="start" slot="end">11</ion-badge></ion-item>
+  <ion-item (click)="openpage(1)"><ion-icon name="chatbubbles" mode="ios" slot="start"></ion-icon>消息<ion-badge slot="start" slot="end" *ngIf="newsfn.allnum > 0">{{newsfn.allnum}}</ion-badge></ion-item>
   <ion-item (click)="openpage(2)"><ion-icon name="cart" slot="start"></ion-icon>购物车</ion-item>
   <ion-item (click)="openpage(3)"><ion-icon name="heart-empty" slot="start"></ion-icon>我的关注</ion-item>
   <ion-item (click)="openpage(4)"><ion-icon name="paw" slot="start"></ion-icon>浏览记录</ion-item>

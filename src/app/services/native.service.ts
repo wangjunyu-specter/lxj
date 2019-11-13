@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-07 22:53:17
+ * @LastEditTime: 2019-11-13 15:07:12
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -18,7 +18,7 @@ import { Network } from '@ionic-native/network/ngx';
 import { AppVersion } from '@ionic-native/app-version/ngx';
 import { Market } from '@ionic-native/market/ngx';
 import { CallNumber } from '@ionic-native/call-number/ngx';
-// import { Device } from '@ionic-native/device/ngx';
+import { Device } from '@ionic-native/device/ngx';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +32,7 @@ export class NativeService {
               private imagePicker: ImagePicker, private camera: Camera,
               private androidFullScreen: AndroidFullScreen, private statusbar: StatusBar,
               private videoPlayer: VideoPlayer, private network: Network, private appVersion: AppVersion,
-              private market: Market, private callNumber: CallNumber) { }
+              private market: Market, private callNumber: CallNumber, private device: Device) { }
   public async getAppversion() {
     const version = await this.appVersion.getVersionNumber();
     return version;
@@ -129,6 +129,9 @@ export class NativeService {
     });
     toast.present();
   }
+  getUuid() {
+    return this.device.uuid;
+  }
   // 获取平台信息
   getPlatform() {
     return this.plt.is('hybrid');
@@ -154,6 +157,10 @@ export class NativeService {
     this.market.open('io.lxj.wjy');
   }
   callTel(tel: string) {
+    if (!tel) {
+      this.presentAlert('商家没有设置电话!', '提示');
+      return false;
+    }
     this.callNumber.callNumber(tel, true);
   }
   /**

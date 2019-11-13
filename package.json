@@ -27,6 +27,7 @@
     "@ionic-native/call-number": "^5.16.0",
     "@ionic-native/camera": "^5.8.0",
     "@ionic-native/core": "^5.0.0",
+    "@ionic-native/device": "^5.16.0",
     "@ionic-native/file": "^5.8.0",
     "@ionic-native/file-path": "^5.8.0",
     "@ionic-native/file-transfer": "^5.8.0",

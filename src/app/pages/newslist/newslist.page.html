@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-06-16 01:50:44
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-08 17:12:31
+ * @LastEditTime: 2019-11-13 15:23:15
  * @Description: file content
  -->
 <ion-header mode="ios">
@@ -13,15 +13,20 @@
       </ion-button>
     </ion-buttons>
     <ion-title>{{shopName}}</ion-title>
+    <ion-buttons slot="end" *ngIf="shopId != 0">
+      <ion-button (click)="goTopage(7, shopId)">
+        店铺
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding #content>
   <div class="box" *ngFor="let item of list">
     <div class="time">{{item.time | newstime: list}}</div>
     <div class="item" *ngIf="item.uid != uid">
       <div class="left">
-        <img class="header" [src]="item.theader | imgsrc: http.zdomain" alt="">
+        <img class="header" [src]="shopHead | imgsrc: http.zdomain" alt="">
       </div>
       <div class="right">
         <div class="name">{{item.tname || item.shopName}}</div>

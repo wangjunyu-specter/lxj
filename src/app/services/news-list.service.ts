@@ -2,20 +2,25 @@
  * @Author: wjy-mac
  * @Date: 2019-11-07 15:56:16
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-11 17:26:23
+ * @LastEditTime: 2019-11-13 23:02:17
  * @Description: 消息列表表现
  */
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { NewsData } from '../interface/news-data';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NewsListService {
   list: {id: string, arr: NewsData[], num: number}[];
-  nowShopid: string;
+  nowShopid: string; // 当前打开的聊天窗口对象id
+  Source: EventEmitter<number>; // 监听事件，是否有打开窗口的新消息
+  allnum: number; // 所有未读消息数
   constructor() {
     this.list = [];
+    this.Source = new EventEmitter();
+    this.allnum = 0;
   }
   /**
    * @Author: wjy-mac
@@ -31,7 +36,7 @@ export class NewsListService {
       if (arr instanceof Array) { // 查询此次添加数据的未读数量
         for (let index = arr.length - 1; index >= 0; index--) {
           const element = arr[index];
-          if (Number(element.wd) === -1) {
+          if (Number(element.wd) === 1) {
             num++;
           } else {
             break;
@@ -43,6 +48,7 @@ export class NewsListService {
         }
       }
     }
+    let bool = false; // 是否处理数据
     for (let index = 0; index < this.list.length; index++) {
       const element = this.list[index];
       if (element['id'] == id) {
@@ -52,13 +58,21 @@ export class NewsListService {
         } else {
           element['arr'].push(arr);
         }
-        return false;
+        bool = true;
+        break;
       }
     }
-    if (arr instanceof Array) {
-      this.list.push({id, arr, num});
+    if (!bool) {
+      if (arr instanceof Array) {
+        this.list.push({id, arr, num});
+      } else {
+        this.list.push({id, arr: [arr], num});
+      }
+    }
+    if (id === this.nowShopid) {
+      this.Source.emit(1);
     } else {
-      this.list.push({id, arr: [arr], num});
+      this.allnum += num;
     }
   }
   getList(): {id: string, arr: NewsData[]}[] {
@@ -76,8 +90,11 @@ export class NewsListService {
     for (let index = 0; index < this.list.length; index++) {
       const element = this.list[index];
       if (element['id'] == id) {
+        this.allnum -= element['num'];
         element['num'] = 0;
-        element['arr'][element['arr'].length - 1]['wd'] = 1;
+        if (element['arr'].length > 0) {
+          element['arr'][element['arr'].length - 1]['wd'] = 1;
+        }
         return element['arr'];
       }
     }
@@ -86,11 +103,17 @@ export class NewsListService {
   }
   clearShopid(id?: string) { // 是id目前都已读
     id = id || this.nowShopid;
+    console.log(this.list);
     for (let index = 0; index < this.list.length; index++) {
       const element = this.list[index];
-      if (element['id'] == this.nowShopid) {
+      if (element['id'] == id) {
+        if (element['arr'].length > 0) {
+          element['arr'][element['arr'].length - 1]['wd'] = 1;
+        } else {
+          this.list.splice(index, 1);
+        }
         element['num'] = 0;
-        element['arr'][element['arr'].length - 1]['wd'] = 1;
+        break;
       }
     }
     this.nowShopid = null; // 每次退出消息页面都清除上次打开的id，

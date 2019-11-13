@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-07 22:36:05
+ * @LastEditTime: 2019-11-13 14:53:07
  * @Description: file content
  */
 import { NgModule } from '@angular/core';
@@ -82,7 +82,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
 import {OrderlistService} from './services/orderlist.service';
 import {HworderlistService} from './services/hworderlist.service';
-// import { Device } from '@ionic-native/device/ngx';
+import { Device } from '@ionic-native/device/ngx';
 import {VgCoreModule} from 'videogular2/core';
 import {VgControlsModule} from 'videogular2/controls';
 import {VgOverlayPlayModule} from 'videogular2/overlay-play';
@@ -140,7 +140,7 @@ import { ModelTimePipe } from './pipes/model-time.pipe';
     NativeStorage,
     GwcService,
     ArticelistService,
-    // Device,
+    Device,
     BounslistService,
     CollelistService,
     XcsclistService,

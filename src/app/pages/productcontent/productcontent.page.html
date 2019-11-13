@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-28 01:58:20
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-07-28 01:58:20
+ * @LastEditTime: 2019-11-13 14:40:02
  * @Description: file content
  -->
 <ion-header [translucent]="true" mode="ios">
@@ -408,7 +408,7 @@
   <ion-toolbar mode="ios" *ngIf="productData">
     <div class="footer-content">
       <div class="left">
-        <div class="box"><img src="./assets/kf-icon.svg" alt=""><span>客服</span></div>
+        <div class="box" (click)="toKf()"><img src="./assets/kf-icon.svg" alt=""><span>客服</span></div>
         <div class="box" (click)="opendp(1)"><img src="./assets/dianpu-icon.svg" alt=""><span>店铺</span></div>
         <div class="box" (click)="scgoods()">
           <img *ngIf="productData.issc !== 1" src="./assets/sc-icon.svg" alt="">

@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-10-10 09:55:35
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-08 17:36:46
+ * @LastEditTime: 2019-11-13 23:19:51
  * @Description: file content
  -->
 <ion-header mode="ios">
@@ -31,7 +31,9 @@
             </ion-avatar>
             <ion-label>
               {{item['arr'][0].shopName || item['arr'][item['arr'].length - 1].tname}}
-              <p>{{item['arr'][item['arr'].length - 1].content}}</p>
+              <p *ngIf="item['arr'][item['arr'].length - 1].type == 1">{{item['arr'][item['arr'].length - 1].content}}</p>
+              <p *ngIf="item['arr'][item['arr'].length - 1].type == 2">[图片]</p>
+              <p *ngIf="item['arr'][item['arr'].length - 1].type == 3">[商品]</p>
             </ion-label>
             <ion-note slot="end">
               <div class="time">{{item['arr'][item['arr'].length - 1].time  | newslisttime: item['arr']}}</div>

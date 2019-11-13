@@ -4,7 +4,7 @@ import { HttpService } from 'src/app/services/http.service';
  * @Author: wjy-mac
  * @Date: 2019-11-06 20:43:10
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-11 17:26:12
+ * @LastEditTime: 2019-11-13 21:40:12
  * @Description: websocket文件
  */
 import { Injectable } from '@angular/core';
@@ -30,7 +30,7 @@ export class WebsocketService {
     this.ws.on('connect', () => {
       
     });
-    this.ws.on('chat message', (res) => {
+    this.ws.on('usermsg', (res) => {
       this.news(res);
     });
     this.ws.on('log', (res) => {
