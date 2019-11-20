@@ -10,6 +10,9 @@ export class XcsclistService {
   page: number; // 商品
   limit: number;
   constructor(private http: HttpService) {
+    this.clear();
+  }
+  clear() {
     this.page = 0;
     this.list = [];
     this.limit = 20;

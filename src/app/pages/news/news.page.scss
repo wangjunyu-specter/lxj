@@ -6,7 +6,8 @@
   &>div {
     font-size: var(--ion-text);
     color: #333;
-    margin-right: 15px;
+    margin-right: 50px;
+    position: relative;
     &.active {
       font-size: var(--ion-title);
       color: var(--ion-color-dark);
@@ -20,6 +21,10 @@
         border-radius: 1.5px;
         margin-left: 20%;
       }
+    }
+    ion-badge {
+      position: absolute;
+      left: 110%;
     }
   }
 }
@@ -58,6 +63,7 @@
     .right {
       flex: 1;
       background-color: #fff;
+      overflow: hidden;
       .name {
         font-size: var(--ion-text);
         color: var(--ion-color-dark);
@@ -65,6 +71,21 @@
         line-height: 20px;
         overflow: hidden;
         margin: 10px 10px 0;
+        width: calc(100% - 20px);
+      }
+      .ts {
+        font-size: var(--ion-sm-text);
+        color: var(--ion-color-medium);
+        margin: 0 10px 10px;
+        height: 20px;
+        line-height: 20px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: calc(100% - 20px);
+        p {
+          margin: 0 !important;
+        }
       }
       ion-text {
         margin-left: 10px;

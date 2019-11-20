@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-08 22:57:34
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-18 15:14:26
+ * @Description: file content
+ */
 import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
 @Injectable({
@@ -8,9 +15,7 @@ export class BounslistService {
   page: number;
   limit: number;
   constructor(private http: HttpService) {
-    this.list = [];
-    this.page = 0;
-    this.limit = 20;
+    this.clear();
   }
   getList(): any[] {
     if (this.list.length === 0) {
@@ -71,5 +76,10 @@ export class BounslistService {
       data.use_enddate = data.use_enddate.replace(/-/g, '.');
       this.list.push(data);
     });
+  }
+  clear() {
+    this.list = [];
+    this.page = 0;
+    this.limit = 20;
   }
 }

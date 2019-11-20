@@ -19,7 +19,7 @@
     </ion-refresher-content>
   </ion-refresher>
   <div class="center-top" *ngIf="user">
-    <div class="box" padding>
+    <div class="box ion-padding">
       <div class="header">
         <ion-avatar>
           <img [src]="user.headimg  | imgsrc: http.domain">
@@ -59,7 +59,7 @@
       </div>
     </div>
   </div>
-  <div padding>
+  <div class="ion-padding">
     <div style="background: #fff">
       <ion-segment mode="ios" (ionChange)="setType()" color="success" [(ngModel)]="pageType">
         <ion-segment-button [value]="1" mode="ios">
@@ -78,7 +78,8 @@
     </div>
     <div class="content-box content-one" [ngClass]="{show: pageType == 1}">
       <div *ngFor="let item of allList[0]">
-        <ion-card mode="ios" margin-start="0" margin-end="0" *ngIf="item.opentype == 0">
+        <ion-card mode="ios" *ngIf="item.opentype == 0">
+          <img *ngIf="item.status == 3 && userId == 0" class="wtg" src="../../../assets/wtg.svg" />
           <ion-item>
             <ion-avatar slot="start">
               <img [src]="http.headimg | imgsrc: http.zdomain">
@@ -91,7 +92,7 @@
 
           <ion-card-content>
             <div class="title" (click)="toPage(item.id)"  *ngIf="item.content && item.content != 'null'">{{item.content}}</div>
-            <div padding-top>
+            <div class="ion-padding-top">
               <app-pqimgbox [imglist]="item.thumb[0] ? item.thumb : item.imgarr" [ytimglist]="item.imgarr"></app-pqimgbox>
             </div>
             <!--<img (click)="toPage(1, 1)" class="radius-img" src="https://ionicframework.com/docs/demos/api/card/madison.jpg" alt="">-->
@@ -121,10 +122,10 @@
             <div class="pl" (click)="toPage(item.id)" *ngFor="let pl of item.plarr">
               <span>{{pl.user_name}}：</span>{{pl.content | decodeuri}}
             </div>
-            <ion-button no-padding size="small" fill="clear" (click)="toPage(item.id)" *ngIf="item.plnum > 2">查看剩余{{(item.plnum - 2) | setnum}}条回复</ion-button>
+            <ion-button class="ion-no-padding" size="small" fill="clear" (click)="toPage(item.id)" *ngIf="item.plnum > 2">查看剩余{{(item.plnum - 2) | setnum}}条回复</ion-button>
           </ion-card-content>
         </ion-card>
-        <div *ngIf="item.opentype != 0" padding>
+        <div *ngIf="item.opentype != 0" class="ion-padding">
           <div class="gg-box" (click)="toPages(item.opentype, item.url)">
             <div class="title">{{item.content}}</div>
             <ion-row>
@@ -143,8 +144,9 @@
     </div>
     <div class="content-box content-three" [ngClass]="{show: pageType == 2}">
       <ion-row *ngFor="let item of allList[1]">
-        <ion-col [size]="12" no-padding *ngIf="item.opentype == 0">
+        <ion-col [size]="12" class="ion-no-padding" *ngIf="item.opentype == 0">
           <ion-card mode="ios" margin-start="0" margin-end="0">
+              <img *ngIf="item.status == 3 && userId == 0" class="wtg" src="../../../assets/wtg.svg" />
             <ion-card-header *ngIf="item.imgarr.length > 0" (click)="toPage(item.id)">
               <img class="radius-img" [src]="item.thumb[0] || item.imgarr[0] | imgsrc: http.zdomain" alt="">
             </ion-card-header>
@@ -167,7 +169,7 @@
             </ion-card-content>
           </ion-card>
         </ion-col>
-        <div *ngIf="item.opentype != 0" padding>
+        <div *ngIf="item.opentype != 0" class="ion-padding">
           <div class="gg-box" (click)="toPages(item.opentype, item.url)">
             <div class="title">{{item.title}}</div>
             <ion-row>
@@ -185,9 +187,10 @@
       </ion-row>
     </div>
     <div class="content-box content-four" [ngClass]="{show: pageType == 3}">
-      <div  *ngFor="let item of allList[2]">
+      <div  *ngFor="let item of allList[2]" style="position: relative;">
+        <img *ngIf="item.status == 3 && userId == 0" class="wtg wtg-end" src="../../../assets/wtg.svg" />
         <ion-item (click)="toPage(item.id)" *ngIf="item.opentype == 0">
-          <ion-thumbnail slot="end" *ngIf="item.imgarr.length > 0">
+          <ion-thumbnail slot="end" *ngIf="item.imgarr.length > 0 && (userId != 0 || userId == 0 && item.status != 3) ">
             <img class="radius-img" [src]="item.thumb[0] || item.imgarr[0] | imgsrc: http.zdomain " alt="">
           </ion-thumbnail>
           <ion-label>
@@ -200,7 +203,7 @@
             </div>
           </ion-label>
         </ion-item>
-        <div *ngIf="item.opentype != 0" padding>
+        <div *ngIf="item.opentype != 0" class="ion-padding">
           <div class="gg-box" (click)="toPages(item.opentype, item.url)">
             <div class="title">{{item.title}}</div>
             <ion-row>
@@ -218,7 +221,8 @@
       </div>
     </div>
     <div class="content-box content-four" [ngClass]="{show: pageType == 4}">
-      <div *ngFor="let item of allList[3]">
+      <div *ngFor="let item of allList[3]" style="position: relative;">
+        <img *ngIf="item.status == 3 && userId == 0" class="wtg wtg-end" src="../../../assets/wtg.svg" />
         <ion-item (click)="toPage(item.id)" *ngIf="item.opentype == 0">
           <ion-thumbnail slot="start" *ngIf="item.imgarr.length > 0">
             <img class="radius-img" [src]="item.thumb[0] || item.imgarr[0] | imgsrc: http.zdomain" alt="">
@@ -233,7 +237,7 @@
             </div>
           </ion-label>
         </ion-item>
-        <div *ngIf="item.opentype != 0" padding>
+        <div *ngIf="item.opentype != 0" class="ion-padding">
           <div class="gg-box" (click)="toPages(item.opentype, item.url)">
             <div class="title">{{item.title}}</div>
             <ion-row>

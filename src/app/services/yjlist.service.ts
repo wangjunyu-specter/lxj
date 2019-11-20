@@ -13,6 +13,9 @@ export class YjlistService {
   zmpageObj: any;
 
   constructor(private http: HttpService) {
+    this.clear();
+  }
+  clear() {
     this.yjlist = [];
     this.gllist = [];
     this.zmlist = [];
@@ -50,6 +53,51 @@ export class YjlistService {
       }
     }
     return null;
+  }
+  editOne(id, type, data) {
+    let arr: any[];
+    if (type === 0) {
+      arr = this.yjlist;
+    } else if (type === 1) {
+      arr = this.gllist;
+    } else {
+      arr = this.zmlist;
+    }
+    for (let i = 0, j = arr.length; i < j; i++) {
+      if (arr[i].id === id) {
+        let obj = arr[i];
+        obj = Object.assign(obj, data);
+        arr.splice(i, 1, obj);
+        break;
+      }
+    }
+  }
+  addItem(type, data) {
+    let arr: any[];
+    if (type === 0) {
+      arr = this.yjlist;
+    } else if (type === 1) {
+      arr = this.gllist;
+    } else {
+      arr = this.zmlist;
+    }
+    arr.unshift(data);
+  }
+  deleteone(id: string, type: number) {
+    let arr: any[];
+    if (type === 0) {
+      arr = this.yjlist;
+    } else if (type === 1) {
+      arr = this.gllist;
+    } else {
+      arr = this.zmlist;
+    }
+    for (let i = 0, j = arr.length; i < j; i++) {
+      if (arr[i].id === id) {
+        arr.splice(i, 1);
+        break;
+      }
+    }
   }
   getyjList() {
     if (this.yjlist.length === 0) {

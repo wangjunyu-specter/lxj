@@ -1,8 +1,8 @@
 /*
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
- * @LastEditors: wjy
- * @LastEditTime: 2019-08-04 02:07:00
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-19 15:13:52
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -41,6 +41,7 @@ export class FbpqimgPage implements OnInit {
   videoslt: string; // 视频缩略图
   videofile: MediaFile; // 视频文件
   videofile1: any; // 视频文件
+  isseleteVedio: number; // 是否已选择视频 1 视频 2图片 0 未选择
   constructor(private nav: NavController, private http: HttpService,
               private user: UserService,
               private seletemedia: SeleteMediaService,
@@ -51,24 +52,16 @@ export class FbpqimgPage implements OnInit {
               private route: Router) { }
 
   ngOnInit() {
+    this.isseleteVedio = 0;
     // this.addimg = 'www/assets/add.png';
-    this.imgs = this.seletemedia.getList();
+    this.imgs = [];
     this.isshowend = true;
     this.address = '12323';
-    const params = this.activeroute.snapshot.queryParams;
-    this.type = (params['type']).toString();
-
   }
   ionViewDidEnter() {
+    const params = this.activeroute.snapshot.queryParams;
+    this.type = (params['type']).toString();
     this.addressObj = this.user.getLocation();
-    if (this.type == '2') {
-      // this.video = this.imgs[0];
-      this.videofile = this.seletemedia.getData();
-      this.videofile.getFormatData(data => {
-        this.videofile1 = data;
-      });
-      // this.setSlt();
-    }
     this.userdata = this.user.getUserp();
   }
   // setSlt() {
@@ -79,10 +72,13 @@ export class FbpqimgPage implements OnInit {
   //
   // }
   goBack(): void {
+    this.imgs = [];
+    this.videofile = null;
+    this.videofile1 = null;
     this.nav.back();
   }
   ionViewDidLeave() {
-    this.seletemedia.clear();
+    // this.seletemedia.clear();
   }
   addfm() {
     if (this.imgs.length === 9) {
@@ -91,24 +87,21 @@ export class FbpqimgPage implements OnInit {
     this.presentActionSheet();
   }
   remove(index: number) {
-    // this.imgs.splice(index, 1);
-    this.seletemedia.removeOne(index);
+    this.imgs.splice(index, 1);
+    // this.seletemedia.removeOne(index);
     if (this.imgs.length === 8) {
       this.isshowend = true;
     }
   }
   async presentActionSheet() {
-    const actionSheet = await this.actionSheetController.create({
-      header: '请选择来源',
-      buttons: [{
+    const buttons = [];
+    if (this.isseleteVedio != 1) {
+      buttons.push(...[{
         text: '相机',
         role: 'destructive',
         handler: () => {
-          console.log('Delete clicked');
-          // this.native.captureImage().then(res => {
-          //   this.addimgfn(res['fullPath']);
-          // });
           this.native.getPictureByCamera().then(res => {
+            this.isseleteVedio = 2;
             this.addimgfn(res);
           });
         }
@@ -117,25 +110,48 @@ export class FbpqimgPage implements OnInit {
         handler: () => {
           console.log('Share clicked');
           this.native.getPictures( 9 - this.imgs.length).then((res: any) => {
+            this.isseleteVedio = 2;
             res.map(img => {
               this.addimgfn(img);
             });
           }, err => {
-
+  
           });
         }
-      }, {
-        text: '取消',
-        role: 'cancel',
+      }]);
+    }
+    if (this.isseleteVedio != 2) {
+      buttons.push({
+        text: '拍摄视频',
+        role: '',
         handler: () => {
-          console.log('Cancel clicked');
+          this.native.captureVideo().then((filedata: MediaFile) => {
+            // this.seletemedia.setData(filedata);
+            this.isseleteVedio = 1;
+            this.videofile = filedata;
+            this.videofile.getFormatData(data => {
+              this.videofile1 = data;
+            });
+          }, err => {});
         }
-      }]
+      })
+    }
+    buttons.push({
+      text: '取消',
+      role: 'cancel',
+      handler: () => {
+        console.log('Cancel clicked');
+      }
+    })
+    const actionSheet = await this.actionSheetController.create({
+      header: '请选择来源',
+      buttons
     });
     await actionSheet.present();
   }
   addimgfn(res) {
-    this.seletemedia.addImg(res);
+    // this.seletemedia.addImg(res);
+    this.imgs.push(res);
     if (this.imgs.length === 9) {
       this.isshowend = false;
     }
@@ -151,9 +167,11 @@ export class FbpqimgPage implements OnInit {
     this.http.postformdataloading(this.http.fbpqitem, obj).subscribe(res => {
       console.log(res);
       // this.isloading = false;
+      alert(JSON.stringify(res))
       this.user.addjf(res.result.num);
       this.uploadEnd();
-      this.route.navigate(['/fbyjmore'], {queryParams: {type: 1, num: res.result.num}});
+      this.imgs.length = 0;
+      this.route.navigate(['/fbyjmore'], {queryParams: {type: 1, num: res.result.num, sendnum: res.result.sendnum}});
 
     }, err2 => {
       this.uploadEnd();
@@ -162,15 +180,14 @@ export class FbpqimgPage implements OnInit {
   sub() {
     this.isloading = true;
     this.subloading();
-    if (this.imgs.length === 0) {
-      this.contentsend();
-      return false;
-    }
-    if (this.type === '2') {
+    if (this.isseleteVedio == 1) {
       this.getVidefile();
-
     } else {
-      this.basezfile();
+      if (this.imgs.length === 0) {
+        this.contentsend();
+      } else {
+        this.basezfile();
+      }
     }
   }
   getVidefile() {
@@ -194,6 +211,9 @@ export class FbpqimgPage implements OnInit {
       }
     }
     fileTransfer.upload(this.videofile.fullPath, this.http.domain + this.http.updateimg, obj).then(res => {
+      
+      this.videofile = null;
+      this.videofile1 = null;
       const path = JSON.parse(res.response)['result'];
       this.contentsend([path]);
     }).catch(err2 => {
@@ -205,7 +225,7 @@ export class FbpqimgPage implements OnInit {
   basezfile() {
     const proarr = [];
     this.imgs.map((base64, index) => {
-      const file = this.native.getImgbase64tofile(base64, 'pq' + index)
+      const file = this.native.getImgbase64tofile(base64, 'pq' + index);
       proarr.push(this.imgupload(file));
     });
     Promise.all(proarr).then(res => {

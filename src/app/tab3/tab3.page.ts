@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-23 20:29:06
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-09 21:25:57
+ * @LastEditTime: 2019-11-14 12:09:49
  * @Description: file content
  */
 import { Component } from '@angular/core';
@@ -41,7 +41,7 @@ export class Tab3Page {
   tjgoods: any; // 推荐商品
   moreGoods: any[]; // 更多商品
   topgoods: any[]; // 热卖10
-  xsms: object; // 限时秒杀
+  xsms: any; // 限时秒杀
   tjzt: object[]; // 推荐专题
   // shopdata: any;
   keywords: string; // 首页搜索提示文字

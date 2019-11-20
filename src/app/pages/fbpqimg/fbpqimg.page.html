@@ -1,3 +1,10 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-07-15 19:35:34
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-18 23:28:11
+ * @Description: file content
+ -->
 <ion-header mode="ios">
   <ion-toolbar mode="ios">
     <ion-buttons slot="start" mode="ios">
@@ -16,9 +23,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="ion-padding">
   <ion-textarea rows="7" [maxlength]="300" [(ngModel)]="content" placeholder="此刻你在哪里,分享下你的旅行心情吧~"></ion-textarea>
-  <app-pqimgbox *ngIf="type != '2'" [imglist]="imgs" [showend]="isshowend" (clickItem)="remove($event)" (addimgitem)="addfm()"></app-pqimgbox>
+  <app-pqimgbox *ngIf="isseleteVedio != 1" [imglist]="imgs" [showend]="isshowend" (clickItem)="remove($event)" (addimgitem)="addfm()"></app-pqimgbox>
   <!--<img [src]="videoslt" alt="">-->
   <!--<video width="320" height="240" controls>-->
     <!--<source [src]="videofile" type="video/mp4">-->
@@ -30,11 +37,11 @@
     <!--<source [src]="videofile1" type="video/ogg">-->
     <!--您的浏览器不支持 video 标签。-->
   <!--</video>-->
-  <div class="bf-box" *ngIf="type == '2'" (click)="playvideo()">
+  <div class="bf-box" *ngIf="isseleteVedio == 1" (click)="playvideo()">
     <img src="../../../assets/icon/play.svg" alt="">
   </div>
-  <ion-list margin-top>
-    <ion-item button>
+  <ion-list class="ion-margin-top">
+    <ion-item button *ngIf="addressObj">
       <ion-icon name="pin" slot="start"></ion-icon>{{addressObj.address}}
     </ion-item>
   </ion-list>

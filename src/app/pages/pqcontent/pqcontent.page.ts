@@ -1,12 +1,14 @@
+import { NativeService } from 'src/app/services/native.service';
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {NavController} from "@ionic/angular";
+import {NavController, ActionSheetController, AlertController} from "@ionic/angular";
 import {PqlistService} from "../../services/pqlist.service";
 import {HttpService} from "../../services/http.service";
 import {GzlistService} from "../../services/gzlist.service";
 import {EmojiishowService} from "../../services/emojiishow.service";
 import { UserService } from '../../services/user.service';
 import {PlitemclickService} from "../../services/plitemclick.service";
+import { DeletemyreleaseService } from 'src/app/services/deletemyrelease.service';
 // import {Keyboard} from "@ionic-native/keyboard/ngx";
 
 @Component({
@@ -30,7 +32,9 @@ export class PqcontentPage implements OnInit {
   constructor(private activeroute: ActivatedRoute, private nav: NavController,
               private pqlistfn: PqlistService, private http: HttpService,
               private gzlist: GzlistService, private emojiishow: EmojiishowService,
-              private userfn: UserService, private itemclickfn: PlitemclickService) {
+              private userfn: UserService, private itemclickfn: PlitemclickService,
+              public actionSheetController: ActionSheetController, private native: NativeService,
+              private mydeletefn: DeletemyreleaseService, public alertController: AlertController) {
     this.pageObj = {
       page: 1,
       num: 20
@@ -42,6 +46,7 @@ export class PqcontentPage implements OnInit {
     this.setPlitem = {};
   }
   ionViewDidEnter() {
+    console.log('进来了')
     this.gzlist.getList().then(res => {
       this.gzlistarr = res;
     }).catch(err2 => {
@@ -175,5 +180,70 @@ export class PqcontentPage implements OnInit {
     }, 1000)
     this.seletename = '';
     this.isshowDrop = false;
+  }
+  async edmit() {
+    const buttons = [{
+      text: '分享到微信',
+      role: '',
+      handler: () => {
+        this.native.wechatShare();
+      }
+    }, {
+      text: '分享到微博',
+      handler: () => {
+        this.native.weboShare();
+      }
+    }];
+    if (this.user.user_id == this.data.userid) {
+      buttons.push({
+        text: '删除',
+        handler: () => {
+          this.sureDelete();
+        }
+      });
+    }
+    buttons.push({
+      text: '取消',
+      role: 'cancel',
+      handler: () => {
+        console.log('Cancel clicked');
+      }
+    });
+    const actionSheet = await this.actionSheetController.create({
+      header: '操作',
+      buttons
+    });
+    await actionSheet.present();
+  }
+  seleteItem() {
+    console.log(this.data);
+    this.http.getDataloading(this.http.deletepqitem, {id: this.id, type: 1}).subscribe(res => {
+      this.mydeletefn.setId(this.id, 0);
+      this.pqlistfn.deleteOne(this.id);
+      this.goBack();
+    }, err => {});
+  }
+  async sureDelete() {
+    const alert = await this.alertController.create({
+      header: '提示',
+      message: '删除后无法恢复!',
+      buttons: [
+        {
+          text: '取消',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: '确定删除',
+          handler: () => {
+            this.seleteItem();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 }

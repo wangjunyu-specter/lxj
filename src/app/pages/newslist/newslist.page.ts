@@ -5,7 +5,7 @@ import { NativeService } from 'src/app/services/native.service';
  * @Author: wjy-mac
  * @Date: 2019-06-16 01:51:24
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-13 21:41:38
+ * @LastEditTime: 2019-11-15 17:39:18
  * @Description: file content
  */
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -55,7 +55,6 @@ export class NewslistPage implements OnInit {
     this.shopName = params['name'];
     this.kftype = params['kftype'] || 1;
     this.suppliserlist.getData(this.shopId).then(res => {
-      console.log(res);
       this.shopHead = res['shoplogo'];
     }).catch(err => {});
     this.list = this.newslist.getOnelist(this.shopId);
@@ -68,13 +67,32 @@ export class NewslistPage implements OnInit {
     this.newslist.Source.subscribe(num => {
       this.scrollToBottom(1);
     });
+    if (!this.newslist.getIsshopconetnt(this.shopId)) {
+      this.getContentlist();
+    }
   }
   ionViewWillLeave() {
+    console.log('即将离开')
     this.newslist.clearShopid();
     this.setListyd();
   }
+  getContentlist() {
+    this.http.getDataloading(this.http.getMynewscontent, {shopId: this.shopId}).subscribe(res => {
+      this.newslist.setShopcontent(this.shopId);
+      console.log(res);
+      this.newslist.setShophistorynews(this.shopId, res.data);
+    }, err => {});
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 设置服务器聊天对象消息已读
+   * @Date: 2019-11-14 23:48:15
+   * @param {type} 
+   * @return: 
+   */  
   setListyd() {
-    // 此处写http此聊天对象都已读
+    this.http.getData(this.http.setMynewsList, {shopId: this.shopId}).subscribe(res => {
+    }, err => {});
   }
   async choiceImg() {
     const actionSheet = await this.actionSheetController.create({
@@ -109,8 +127,14 @@ export class NewslistPage implements OnInit {
     await actionSheet.present();
   }
   basezfile(base64) {
-    const file = this.native.getImgbase64tofile(base64, 'comment', 'file');
+    const file = this.native.getImgbase64tofile(base64, 'news', 'file');
+    this.setTargetId();
+    const news = this.addNews(base64);
+    this.newslist.setList(this.shopId, Object.assign({}, news));
+    news.wd = -1;
     this.imgupload(file).then(res => {
+      news.content = res as string;
+      this.ws.sendMessage(news, 'usersend');
     }).catch(err3 => {
     });
   }
@@ -127,7 +151,7 @@ export class NewslistPage implements OnInit {
       oReq.open('POST', this.http.domain + this.http.updateimg);
       oReq.onreadystatechange = (oEvent) => {
         if (oReq.readyState == 4 && oReq.status == 200) {
-          const res = JSON.parse(oReq.response)
+          const res = JSON.parse(oReq.response);
           resolve(res.result);
         }
       };

@@ -9,6 +9,9 @@ export class YhtclistService {
   constructor(private http: HttpService) {
     this.list = [];
   }
+  clear() {
+    this.list = [];
+  }
   setList (arr) {
     console.log(arr)
     for (let i = 0, j = this.list.length; i < j; i++) {

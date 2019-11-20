@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-06-15 21:17:04
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-18 15:13:08
+ * @Description: file content
+ */
 import { Injectable } from '@angular/core';
 import {HttpService} from "./http.service";
 
@@ -37,5 +44,8 @@ export class ArticelistService {
         reject(false)
       });
     });
+  }
+  clear(): void {
+    this.list.clear();
   }
 }

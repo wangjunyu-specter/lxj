@@ -10,6 +10,9 @@ export class SearchrecodeService {
   list3: any[]; // 分享搜索
   isget: boolean; // 是否已获取本地数据
   constructor(private native: NativeService) {
+    this.clear();
+  }
+  clear() {
     this.isget = false;
     this.list = [];
     this.list2 = [];
@@ -103,11 +106,6 @@ export class SearchrecodeService {
     list.unshift(val);
   }
 
-  clear() {
-    this.list = [];
-    this.list2 = [];
-    this.list3 = [];
-  }
 }
 
 function trim(str){ //删除左右两端的空格

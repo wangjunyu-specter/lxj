@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-23 20:09:34
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-09 21:54:42
+ * @LastEditTime: 2019-11-14 17:02:40
  * @Description: file content
  -->
 <ion-header [translucent]="true" mode="ios">
@@ -84,21 +84,18 @@
       </div>
     </div>
   </div> -->
-  <ion-grid class="xsqgs-grid">
-    <ion-row *ngIf="hdbox1 && hdbox1.length > 0">
-      <ion-col [size]="hdbox1.length === 1 ? 12 : 8" (click)="toPage(hdbox1[0].type, hdbox1[0].url)">
-        <img [src]="hdbox1[0].image | imgsrc: http.domain" alt="">
-      </ion-col>
-      <ion-col *ngIf="hdbox1[1]" size="4" (click)="toPage(hdbox1[1].type, hdbox1[1].url)">
-        <img [src]="hdbox1[1].image | imgsrc: http.domain" alt="">
-      </ion-col>
-    </ion-row>
-    <ion-row *ngIf="hdbox2 && hdbox2.length > 0">
-      <ion-col *ngFor="let item of hdbox2" (click)="toPage(item.type, item.url)">
+  <div class="xsqgs-grid-list">
+    <div class="box" [ngClass]="{two: hdbox1 && hdbox1[1]}">
+      <div class="item" *ngFor="let item of hdbox1" (click)="toPage(item.type, item.url)">
+        <img [src]="item.image  | imgsrc: http.domain" alt="">
+      </div>
+    </div>
+    <div class="box">
+      <div class="item" *ngFor="let item of hdbox2" (click)="toPage(item.type, item.url)">
         <img [src]="item.image | imgsrc: http.domain" alt="">
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+      </div>
+    </div>
+  </div>
   <ion-grid class="xsqg" *ngIf="!hdbox1 && !hdbox2">
     <ion-row>
       <ion-col size="8">
@@ -127,7 +124,7 @@
       <!--</ion-col>-->
     <!--</ion-row>-->
   <!--</ion-grid>-->
-  <div padding *ngIf="!bzjx">
+  <div class="ion-padding" *ngIf="!bzjx">
     <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
     <ion-row>
       <ion-col><ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-col>
@@ -141,7 +138,7 @@
       <ion-col><ion-skeleton-text animated style="width: 100%; height: 100px"></ion-skeleton-text></ion-col>
     </ion-row>
   </div>
-  <div padding class="my-content" *ngIf="bzjx">
+  <div class="ion-padding my-content" *ngIf="bzjx">
     <!-- <app-pagetitle [myname]="bzjx['title']" [type]="true" [des]="bzjx['desc']"></app-pagetitle> -->
     <app-newpagetitle [title]="bzjx['title']"></app-newpagetitle>
     <div class="jx-nav">
@@ -156,7 +153,7 @@
       </ion-col>
     </ion-row>
   </ion-grid> -->
-  <div class="bztj" *ngIf="bzjx" padding>
+  <div class="bztj ion-padding" *ngIf="bzjx">
     <ion-slides [options]="bztjslideOptslv">
       <ion-slide *ngFor="let goods of bztjlist">
           <app-bztjbox [id]="goods.goods_id" [price]="goods.org_price" [name]="goods.goods_brief || goods.short_name"
@@ -189,7 +186,7 @@
       <!--</ion-slide>-->
     <!--</ion-slides>-->
   <!--</div>-->
-  <div padding class="my-content">
+  <div class="ion-padding my-content">
     <app-newpagetitle *ngIf="indexTitle" [title]="indexTitle.rmzttitle"></app-newpagetitle>
     <!-- <app-pagetitle *ngIf="indexTitle" [myname]="indexTitle.rmzttitle" [des]="indexTitle.rmztdes" [type]="true"></app-pagetitle> -->
   </div>
@@ -209,7 +206,7 @@
     </ion-row>
   </ion-grid> -->
   <div class="rmztbox">
-    <div class="bjbox" padding>
+    <div class="bjbox ion-padding">
       <div class="title">高人气榜单 <ion-text>最有人气的旅行主题</ion-text></div>
     </div>
     <div class="list-box">
@@ -222,7 +219,7 @@
       </ion-grid>
     </div>
   </div>
-  <div class="wntj" padding-start padding-end>
+  <div class="wntj ion-padding-start ion-padding-end">
     <!-- <div  class="title-img">
       <img *ngIf="indexTitle" [src]="indexTitle.wntj || './assets/wntj.svg'" alt="">
     </div> -->
@@ -230,12 +227,12 @@
     <div *ngFor="let item of catcalelist">
       <!-- <div class="yjfx" *ngIf="item">{{item.name}}</div> -->
       <div *ngFor="let data of item.arr">
-        <div *ngIf="data.img" padding-top>
+        <div *ngIf="data.img" class="ion-padding-top">
           <app-articlecard [data]="data" (setclick)="setopen($event)" [src]="data.img | imgsrc: http.zdomain"></app-articlecard>
         </div>
         <div *ngIf="!data.img">
           <app-pagetitle [myname]="data.short_title" [val]="data.id" (setclick)="setopen($event)" [type]="false"></app-pagetitle>
-          <p no-padding no-margin><ion-text color="success">{{data.cat_name}}</ion-text></p>
+          <p class="ion-no-padding ion-no-margin"><ion-text color="success">{{data.cat_name}}</ion-text></p>
           <p  (click)="toPage(9, data.id)">{{data.des}}</p>
         </div>
         <ion-slides [options]="bztjslideOptslv">

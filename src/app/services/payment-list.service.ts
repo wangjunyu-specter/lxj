@@ -10,6 +10,10 @@ export class PaymentListService {
   constructor(private http: HttpService) {
     this.list = [];
   }
+  clear() {
+    this.list.length = 0;
+    this.yezf = null;
+  }
   setList(payList) {
     for (let i = 0; i < payList.length; i++) {
       if (payList[i].pay_code === 'balance') {

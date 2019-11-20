@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-22 11:52:45
+ * @LastEditTime: 2019-11-18 12:09:17
  * @Description: file content
  -->
 <ion-header [translucent]="true" mode="ios">
@@ -76,15 +76,20 @@
       </ion-card-content>
     </ion-card>
   </div>
-  <ion-card class="tis" mode="ios">
-    <ion-card-content>
-      <div class="my-title">
-        <img src="../assets/znxl.png">
-        <img src="../assets/centercha.svg">
-      </div>
-      距离行程出发还有2天，请做好安排哦！ <ion-text color="primary">去看看</ion-text>
-    </ion-card-content>
-  </ion-card>
+  <div class="xcts-box" *ngIf="centeruser">
+    <ion-card class="tis" mode="ios" *ngFor="let item of centeruser.xclist; let i = index">
+      <ion-card-content>
+        <div class="my-title">
+          <img src="../assets/znxl.png">
+          <img src="../assets/centercha.svg" (click)="closeXlts(i)">
+        </div>
+        <span *ngIf="item.timeend>0 && item.timetype == 2">距离行程[{{item.setouttime}}]出发还有<ion-text color="success">{{item.timeend}}</ion-text>天，请做好安排哦！ <ion-text color="primary" (click)="openOtherpage({type: 11, url: item.order_sn})">去看看</ion-text></span>
+        <span *ngIf="item.timeend>0 && item.timetype == 1 && item.timeend > 2">距离行程[{{item.setouttime}}]出发还有<ion-text color="success">{{item.timeend}}</ion-text>小时，请做好安排哦！ <ion-text color="primary" (click)="openOtherpage({type: 11, url: item.order_sn})">去看看</ion-text></span>
+        <span *ngIf="item.timeend>0 && item.timetype == 1 && item.timeend <= 2">行程[{{item.setouttime}}]<ion-text color="danger">即将出发</ion-text>，请做好安排哦！ <ion-text color="primary" (click)="openOtherpage({type: 11, url: item.order_sn})">去看看</ion-text></span>
+        <span *ngIf="item.timeend == 0">行程[{{item.setouttime}}]今日出发，请尽快集合哦！ <ion-text color="primary" (click)="openOtherpage({type: 11, url: item.order_sn})">去看看</ion-text></span>
+      </ion-card-content>
+    </ion-card>
+  </div>
   <ion-card mode="ios" class="cygj">
     <ion-card-header>
       <ion-card-title>常用工具</ion-card-title>

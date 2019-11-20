@@ -4,6 +4,7 @@ import { GaoDeLocation, PositionOptions } from '@ionic-native/gao-de-location/ng
 
 // import { HttpService } from './http.service';
 import {reject} from 'q';
+import { AlertController } from '@ionic/angular';
 // import {PositionOptions} from '@ionic-native/gao-de-location/ngx';
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,30 @@ export class UserService {
   user: any;
   nowlocation: any; // 当前定位地址
   togglelocation: any; // 切换的地址
-  constructor(private native: NativeService, private gaoDeLocation: GaoDeLocation) {
+  constructor(private native: NativeService, private gaoDeLocation: GaoDeLocation, public alertController: AlertController) {
+    this.nowlocation = {
+      country: '',
+      province: '',
+      city: '',
+      district: '',
+      address: '',
+      lat: '',
+      lng: ''
+    }
+    this.togglelocation = {
+      country: '',
+      province: '',
+      city: '',
+      district: '',
+      address: '',
+      regionid: '',
+      log: '',
+      lng: ''
+    };
+  }
+  clear() {
+    this.token = null;
+    this.user = null;
     this.nowlocation = {
       country: '',
       province: '',
@@ -55,9 +79,10 @@ export class UserService {
       })
       .catch((error) => {
         console.error(error)
-        // alert(error);
         if (this.native.ismobile()) {
-          alert(JSON.stringify(error));
+          // this.native
+          this.native.presentAlert('打开通知获取更多优惠！');
+          this.openQx();
         } else {
           this.nowlocation.country = '中国';
           this.nowlocation.province = '四川省';
@@ -65,10 +90,37 @@ export class UserService {
         }
       });
   }
+  async openQx() {
+    const alert = await this.alertController.create({
+      header: '提示!',
+      message: '为了能够提供精准的服务需要获取定位权限!',
+      buttons: [
+        {
+          text: '取消',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: '去设置',
+          handler: () => {
+            console.log('Confirm Okay');
+            this.native.openNativeSettingfn(2);
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
   setToken(token: string) {
     // this.native.getPlatform();
     this.token = token;
-    this.native.setStorage('token', token);
+    this.native.setStorage('token', token).then(res => {}).catch(err => {
+      alert(err);
+      alert(JSON.stringify(err));
+    });
   }
   async getToken() {
     if (!this.token) {

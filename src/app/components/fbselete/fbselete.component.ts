@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-06-25 14:27:12
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-18 20:54:16
+ * @Description: file content
+ */
 import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
@@ -14,7 +21,8 @@ export class FbseleteComponent implements OnInit {
 
   ngOnInit() {}
   createpq() {
-    this.presentActionSheet();
+    // this.presentActionSheet();
+    this.close({type: 0});
   }
   createyj(type: number) {
     this.close({type});

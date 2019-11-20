@@ -237,6 +237,9 @@ var PqcontentPage = /** @class */ (function () {
                 for (var i = 0, j = _this.pllist.length; i < j; i++) {
                     console.log(_this.pllist[i].id);
                     if (_this.pllist[i].id == obj.pid) {
+                        if (!_this.pllist[i].chrild) {
+                            _this.pllist[i].chrild = [];
+                        }
                         _this.pllist[i].chrild.unshift(obj);
                         _this.pllist[i].plnum += 1;
                         return false;

@@ -9,6 +9,9 @@ export class SjindextjgoodsService {
   constructor(public http: HttpService) {
     this.listobj = new Map();
   }
+  clear() {
+    this.listobj.clear();
+  }
   setData (id, data) {
     // this.listobj[id] = data;
     this.listobj.set(id, data);

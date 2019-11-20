@@ -1,3 +1,10 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-07-24 22:54:10
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-19 21:26:59
+ * @Description: file content
+ -->
 <ion-header mode="ios">
   <ion-toolbar mode="ios">
     <div class="search-bar">
@@ -17,14 +24,14 @@
         </div>
       </div>
       <div class="right">
-        <ion-icon name="more" mode="ios"></ion-icon>
+        <ion-icon name="more" mode="ios" (click)="edmit()"></ion-icon>
       </div>
     </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="top-content" padding *ngIf="data">
+  <div class="top-content ion-padding" *ngIf="data">
     <p *ngIf="data.content && data.content != 'null'">{{data.content}}</p>
     <app-pqimgbox [imglist]="data.thumb && data.thumb[0] ? data.thumb : data.imgarr" [ytimglist]="data.imgarr"></app-pqimgbox>
     <div class="address-box" *ngIf="data.address && data.address != 'null'">
@@ -34,14 +41,14 @@
           <span>{{data.address}}</span>
         </div>
       </div>
-      <ion-text color="medium">距你9053km</ion-text>
+      <ion-text color="medium">距你0km</ion-text>
     </div>
     <div class="img-box">
       <img *ngFor="let src of data.heads" [src]="src | imgsrc: http.zdomain" alt="">
       {{data.dznum}}人觉得很赞
     </div>
   </div>
-  <div *ngIf="data" class="app-pllist" padding-bottom margin-bottom>
+  <div *ngIf="data" class="app-pllist ion-padding-bottom ion-margin-bottom">
     <div class="hfnum">{{data.plnum}}条回复</div>
     <app-pllist *ngFor="let item of pllist" [data]="item" [tid]="id" [uid]="data.userid" (setItem)="setplItem($event)"></app-pllist>
   </div>
@@ -50,7 +57,7 @@
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar no-padding>
+  <ion-toolbar class="ion-no-padding">
     <app-chatinputbox (sub)="sub($event)" (myfous)="monfous()" (mybulr)="monblur()" [username]="seletename"></app-chatinputbox>
   </ion-toolbar>
 </ion-footer>

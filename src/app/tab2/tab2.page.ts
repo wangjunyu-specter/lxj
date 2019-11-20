@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-14 23:03:42
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-08-04 00:04:38
+ * @LastEditTime: 2019-11-19 21:41:47
  * @Description: file content
  */
 import {Component, OnInit} from '@angular/core';
@@ -20,6 +20,7 @@ import { SeleteMediaService } from '../services/selete-media.service';
 import { FbseleteComponent } from '../components/fbselete/fbselete.component';
 import { TopageService } from '../services/topage.service';
 import {error} from 'selenium-webdriver';
+// import { DeletemyreleaseService } from '../services/deletemyrelease.service';
 // import {SharesearchComponent} from "../components/sharesearch/sharesearch.component";
 // import {VideoComponent} from '../components/video/video.component';
 // import {GoodsattrComponent} from '../components/goodsattr/goodsattr.component';
@@ -32,11 +33,12 @@ export class Tab2Page implements OnInit {
   shopdata: any;
   pageType: number;
   pageArray: string[];
-  gzlist: any[];
-  pqlist: any[];
-  yjlist: any[];
-  gllist: any[];
-  zmlist: any[];
+  gzlist: any[]; //列表数据
+  pqlist: any[]; //列表数据
+  yjlist: any[]; //列表数据
+  gllist: any[]; //列表数据
+  zmlist: any[]; //列表数据
+  gzuserlist: string[]; // 关注的用户列表
   ishttp: Set<string>;
   media: any;
   searchKey: string;
@@ -46,12 +48,13 @@ export class Tab2Page implements OnInit {
               public modalController: ModalController, private topage: TopageService,
               private native: NativeService, private seletemedia: SeleteMediaService) {
     this.pageType = 0;
-    this.pageArray = ['关注', '票圈', '游记', '攻略', '招募'];
+    this.pageArray = ['关注', '票圈', '游记', '攻略', '召集'];
     this.ishttp = new Set();
   }
   ionViewDidEnter() {
     console.log('加载完了')
     this.gzlist = this.pqlistfn.getgzList();
+    this.gzuserlist = this.gzlistfn.getGzlist();
     this.shop.getShop().then(res => {
       this.shopdata = res;
       if (this.shopdata.search_keywords) {
@@ -60,11 +63,14 @@ export class Tab2Page implements OnInit {
     }).catch(err => {
 
     });
-    this.native.getAppversion().then(res => {
-      console.log(res);
-    }).catch(err2 => {
-      console.error(err2);
-    })
+    // this.native.getAppversion().then(res => {
+    //   console.log(res);
+    // }).catch(err2 => {
+    //   console.error(err2);
+    // })
+    // alert(this.native.isandroid());
+    // alert(this.native.isios());
+    // alert(this.native.ismobile2());
   }
   ngOnInit() {
     // this.gzlist = this.pqlistfn.getgzList();
@@ -187,40 +193,42 @@ export class Tab2Page implements OnInit {
     });
     modal.onDidDismiss().then(res => {
       console.log(res);
-      if (!res.data) {
+      if (!res || res && !res.data) {
         return false;
       }
       if (res.data.type === 0) {
-        if (res.data.mediatype === 1) {
-          this.native.getPictureByCamera().then(filedata => {
-            if (!filedata) {
-              return false;
-            }
-            this.seletemedia.addImg(filedata);
-            this.toFbpq(res.data.mediatype);
-          });
-          // this.native.getPictureByCamera().then((filedata: MediaFile) => {
-          //
-          // }, err => {});
-        } else if (res.data.mediatype === 2) {
-          this.native.captureVideo().then((filedata: MediaFile) => {
-            if (!filedata) {
-              return false;
-            }
-            this.seletemedia.setData(filedata);
-            this.toFbpq(res.data.mediatype);
-          }, err => {});
-        } else {
-          this.native.getPictures(9).then((path: any) => {
-            if (!path || path.length == 0) {
-              return false;
-            }
-            path.map(img => {
-              this.seletemedia.addImg(img);
-            })
-            this.toFbpq(res.data.mediatype);
-          });
-        }
+        // if (res.data.mediatype === 1) {
+        //   this.native.getPictureByCamera().then(filedata => {
+        //     if (!filedata) {
+        //       alert(1);
+        //       return false;
+        //     }
+        //     this.seletemedia.addImg(filedata);
+        //     this.toFbpq(res.data.mediatype);
+        //   });
+        //   // this.native.getPictureByCamera().then((filedata: MediaFile) => {
+        //   //
+        //   // }, err => {});
+        // } else if (res.data.mediatype === 2) {
+        //   this.native.captureVideo().then((filedata: MediaFile) => {
+        //     if (!filedata) {
+        //       return false;
+        //     }
+        //     this.seletemedia.setData(filedata);
+        //     this.toFbpq(res.data.mediatype);
+        //   }, err => {});
+        // } else {
+        //   this.native.getPictures(9).then((path: any) => {
+        //     if (!path || path.length == 0) {
+        //       return false;
+        //     }
+        //     path.map(img => {
+        //       this.seletemedia.addImg(img);
+        //     })
+        //     this.toFbpq(res.data.mediatype);
+        //   });
+        // }
+        this.toFbpq();
       } else {
         this.route.navigate(['/fbyj'], {queryParams: {type: res.data.type}});
       }
@@ -228,8 +236,8 @@ export class Tab2Page implements OnInit {
     })
     return await modal.present();
   }
-  toFbpq(type) {
-    this.route.navigate(['/fbpqimg'] , {queryParams: {type}});
+  toFbpq() {
+    this.route.navigate(['/fbpqimg'] , {queryParams: {type: 1}});
   }
   toPages(type, id?: string, name?: string) {
     this.topage.toPage(type, id, name);
@@ -297,13 +305,23 @@ export class Tab2Page implements OnInit {
     }
   }
   setgz(touid) {
+    console.log(this.gzuserlist);
     this.http.getData(this.http.setgz, {touid, type: 1}).subscribe(res => {
       console.log(res)
-      this.gzlistfn.puitem(touid);
+      // this.gzlistfn.puitem(touid);
+      this.gzuserlist.push(touid)
+      console.log(this.gzuserlist);
     });
   }
   goperson(id) {
     console.log(id)
     this.route.navigate(['/myrelease'], {queryParams: {userid: id}});
+  }
+  setIsgz(id) {
+    if (!this.gzuserlist.includes(id)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

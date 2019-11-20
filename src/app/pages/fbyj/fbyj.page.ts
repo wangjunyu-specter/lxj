@@ -1,3 +1,4 @@
+import { YjlistService } from 'src/app/services/yjlist.service';
 import { Component, OnInit } from '@angular/core';
 import {ActionSheetController, NavController, Platform, PopoverController} from '@ionic/angular';
 import {ActivatedRoute, Router} from "@angular/router";
@@ -7,6 +8,7 @@ import {UserService} from "../../services/user.service";
 import {NativeService} from '../../services/native.service';
 import { UploadComponent } from '../../components/upload/upload.component';
 import {error} from "@angular/compiler/src/util";
+import { EditmyreleaseService } from 'src/app/services/editmyrelease.service';
 @Component({
   selector: 'app-fbyj',
   templateUrl: './fbyj.page.html',
@@ -16,8 +18,9 @@ export class FbyjPage implements OnInit {
   type: number;
   title: string;
   content: string;
-  config: any;
-  head: string;
+  config: any; // 编辑器设置
+  head: string; // 封面图
+  headobj: any; // 封面对象  包含src路径 thumb 缩略图
   iscontent: boolean; // 是否是输入详情
   keyboardH: number;
   formdata: any;
@@ -28,13 +31,14 @@ export class FbyjPage implements OnInit {
   contentimgarr: boolean[]; // 内容图片是否传完
   issub: boolean; // 是否点击提交
   issave: boolean; // 是否保存
+  id: string; // 修改时的id
   constructor(private nav: NavController,
               public plt: Platform, private keyboard: Keyboard,
               private http: HttpService, private user: UserService,
               public actionSheetController: ActionSheetController,
               private activeroute: ActivatedRoute,
               private native: NativeService, public popoverController: PopoverController,
-              private route: Router) { }
+              private route: Router, private myeditdatafn: EditmyreleaseService, private yjlistfn: YjlistService) { }
 
   ngOnInit() {
     this.isloadhead = false;
@@ -108,8 +112,9 @@ export class FbyjPage implements OnInit {
         ]
       }
     ];
+  }
+  ionViewWillEnter() {
     const params = this.activeroute.snapshot.queryParams;
-
     this.type = params['type'] ? Number(params['type']) : 1;
     switch (this.type) {
       case 1:
@@ -126,7 +131,11 @@ export class FbyjPage implements OnInit {
     }
     if (params['iscg']) {
       this.getCg();
+    } else if (params['isedit']) {
+      this.setGeteditdata();
     }
+  }
+  ionViewDidEnter() {
     try {
       window.addEventListener('keyboardWillShow', (event: any) => {
         this.keyboardH = event.keyboardHeight;
@@ -137,8 +146,14 @@ export class FbyjPage implements OnInit {
     } catch (e) {
       console.log(e);
     }
-
   }
+  /**
+   * @Author: wjy-mac
+   * @description: 处理保存的草稿数据
+   * @Date: 2019-11-20 00:20:35
+   * @param {type} 
+   * @return: 
+   */  
   getCg() {
     this.native.getStorage('yjcontent').then(res => {
       this.head = res.head;
@@ -158,6 +173,48 @@ export class FbyjPage implements OnInit {
       }
     }).catch(error => {
     })
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 处理编辑数据
+   * @Date: 2019-11-20 00:20:27
+   * @param {type} 
+   * @return: 
+   */  
+  setGeteditdata() {
+    const obj = this.myeditdatafn.getData();
+    if (obj.type != this.type) {
+      this.myeditdatafn.clear();
+      return false;
+    }
+    const data = obj.data;
+    this.id = data.id;
+    this.head = data.imgarr[0];
+    this.headobj = {
+      src: data.imgarr && data.imgarr.length > 0 ? data.imgarr[0] : '',
+      thumb: data.thumb && data.thumb.length > 0 ? data.thumb[0] : '',
+    };
+    this.address = data.address;
+    this.lnglat = data.lnglat;
+    this.content = data.content;
+    this.formdata = {
+      title: data.title,
+      destination: data.destination,
+      outtime: data.outtime,
+      days: data.days,
+      money: data.money,
+      tag: data.tag,
+      des:data.des
+    };
+    if (this.formdata.outtime) {
+      console.log(this.formdata.outtime)
+      const date = new Date(this.formdata.outtime * 1000);
+      const year = date.getFullYear();
+      const month = date.getMonth() + 1;
+      const day = date.getDate();
+      this.formdata.outtime = year + '.' + month + '.' + day;
+      console.log(this.formdata.outtime)
+    }
   }
   setContent() {
     this.iscontent = !this.iscontent;
@@ -192,7 +249,7 @@ export class FbyjPage implements OnInit {
         handler: () => {
           console.log('Share clicked');
           const max = type === 1 ? 1 : 9;
-          this.native.getPictures( max).then((res: any) => {
+          this.native.getPictures(3).then((res: any) => {
             this.getimgend(type, res);
           }, err => {
 
@@ -229,33 +286,69 @@ export class FbyjPage implements OnInit {
       this.basezfile(base64, nowarr);
     }
   }
+  /**
+   * @Author: wjy-mac
+   * @description: 上传内容区域图片
+   * @Date: 2019-11-19 11:31:25
+   * @param {type} base64arr base64数组
+   * @param {type} nowarr number数组 base64对应位置
+   * @return: 
+   */  
   basezfile(base64arr: string[], nowarr) {
     base64arr.map((base64, index) => {
-      const file = this.native.getImgbase64tofile(base64, 'yjorgl' + index);
-      file.append('nothumb', '1');
       const num = nowarr[index];
+      const file = this.native.getImgbase64tofile(base64, 'yjorgl' + num);
+      file.append('nothumb', '1');
       this.imgupload(file).then(res => {
-        this.contentimgarr[num] = false;
+        // alert(JSON.stringify(res));
         base64 = null;
-        const str = `<img\\s+(alt=""\\s)*class="wjy${num}"(\\sstyle="\\s*(width:\\s*)*\\s{0,1}\\d*%;")*\\s*(src="\\S*")\\s*(\\sstyle="\\s*(width:\\s*)*\\s{0,1}\\d*%;*"\\s*)*\\s*(alt="")*\\s*(/>|>)`;
-        const regex = new RegExp(str);
-        const nstr = `<img style="max-width: 100%" src="${this.http.zdomain + res['src']}" alt="">`;
-        this.content = this.content.replace(regex, nstr);
+        this.setUpcontentimgend(num, res['src']);
         this.sub();
         this.savefn();
       }).catch(err2 => {
-        this.contentimgarr[num] = false;
+        this.setUpcontentimgend(num);
         this.suberr();
       });
     });
     base64arr = null;
   }
+  /**
+   * @Author: wjy-mac
+   * @description: 图片上传完成
+   * @Date: 2019-11-19 12:03:29
+   * @param {type} num 表示第几张图片
+   * @param {type} src 服务器返回的图片链接，如果没有则表示上传失败
+   * @return: 
+   */  
+  setUpcontentimgend(num: number, src?: string) {
+    let nstr: string;
+    if (src) {
+      nstr = `<img style="max-width: 100%" src="${this.http.zdomain + src}" alt="">`;
+    } else {
+      this.native.presentAlert('图片上传失败,已自动删除,请重试!');
+      nstr = '';
+    }
+    this.contentimgarr[num] = false;
+    const str = `<img\\s+(alt=""\\s)*class="wjy${num}"(\\sstyle="\\s*(width:\\s*)*\\s{0,1}\\d*%;")*\\s*(src="\\S*")\\s*(\\sstyle="\\s*(width:\\s*)*\\s{0,1}\\d*%;*"\\s*)*\\s*(alt="")*\\s*(/>|>)`;
+    const regex = new RegExp(str);
+    if (this.content.search(regex) > -1) {
+      this.content = this.content.replace(regex, nstr);
+    }
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 上传封面
+   * @Date: 2019-11-19 12:01:55
+   * @param {type} 
+   * @return: 
+   */  
   updateHead(base64: string) {
     this.isloadhead = true;
     const file = this.native.getImgbase64tofile(base64, 'yjorglhead');
     base64 = null;
     this.imgupload(file).then(res => {
       this.isloadhead = false;
+      this.headobj = res;
       this.head = this.http.zdomain + res['src'];
       this.sub();
       this.savefn();
@@ -359,14 +452,20 @@ export class FbyjPage implements OnInit {
     }
     for (let i = 0, j = this.contentimgarr.length; i < j; i++) {
       if (this.contentimgarr[i]) {
+        const str = `<img\\s+(alt=""\\s)*class="wjy${i}"(\\sstyle="\\s*(width:\\s*)*\\s{0,1}\\d*%;")*\\s*(src="\\S*")\\s*(\\sstyle="\\s*(width:\\s*)*\\s{0,1}\\d*%;*"\\s*)*\\s*(alt="")*\\s*(/>|>)`;
+        const regex = new RegExp(str);
+        if (this.content.search(regex) === -1) {
+          this.contentimgarr[i] = false;
+          continue;
+        }
         return false;
       }
     }
     return true;
-  }
+  } 
   subupdate() {
     let obj = {
-      img: JSON.stringify([this.head]),
+      img: JSON.stringify([this.headobj]),
       type: this.type + 1,
       address: this.address,
       lnglat: this.lnglat,
@@ -375,19 +474,77 @@ export class FbyjPage implements OnInit {
     obj = Object.assign(obj, this.formdata);
     console.log(obj);
     obj['outtime'] = obj['outtime'] ? Date.parse((new Date(obj['outtime'])).toString()) / 1000 : '';
+    if (this.id) {
+      obj['id'] = this.id;
+    }
     this.http.postformdata(this.http.fbpqitem, obj).subscribe(res => {
       console.log(res);
-      this.user.addjf(res.result.num);
-      // this.issub = false;
-      this.suberr();
-      this.route.navigate(['/fbyjmore'], {queryParams: {type: this.type + 1, num: res.result.num}});
+      if (!this.id) {
+        this.user.addjf(res.result.num);
+        const obj2 = this.setEdit(obj, res.result.createtime, res.result.id);
+        this.yjlistfn.addItem(this.type, obj2);
+        this.suberr(res.result);
+      } else {
+        const obj2 = this.setEdit(obj, res.result, this.id);
+        this.myeditdatafn.changeData(obj2);
+        this.suberr(1);
+      }
     }, error1 => {
       this.suberr();
     });
   }
-  suberr() {
+  /**
+   * @Author: wjy-mac
+   * @description: 添加完成或失败
+   * @Date: 2019-11-19 22:58:47
+   * @param {type} 
+   * @return: 
+   */  
+  suberr(num?: any) {
     this.issub = false;
-    this.popoverController.dismiss();
+    this.popoverController.dismiss().then(bool => {
+      console.log('小时了')
+      console.log(bool);
+      if (bool) {
+        if (num) {
+          if (num === 1) {
+            this.goBack();
+          } else {
+            this.route.navigate(['/fbyjmore'], {queryParams: {type: this.type + 1, num: num.num, sendnum: num.sendnum}});
+          }
+        }
+      } else {
+        setTimeout(() => {
+          this.suberr(num);
+        }, 200);
+      }
+    });
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 更新成功后
+   * @Date: 2019-11-19 22:59:04
+   * @param {type} 
+   * @return: 
+   */  
+  setEdit(data, time, id) {
+    const obj = {
+      id,
+      createtime: time,
+      imgarr: [this.headobj.src],
+      thumb: [this.headobj.thumb],
+      address: this.address,
+      lnglat: this.lnglat,
+      content: this.content,
+      title: data.title,
+      destination: data.destination,
+      outtime: data.outtime,
+      days: data.days,
+      money: data.money,
+      tag: data.tag,
+      des: data.des
+    }
+    return obj;
   }
   async subloading() {
     const popover = await this.popoverController.create({

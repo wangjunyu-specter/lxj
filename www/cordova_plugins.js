@@ -17,6 +17,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
+      "id": "cordova-open-native-settings.Settings",
+      "file": "plugins/cordova-open-native-settings/www/settings.js",
+      "pluginId": "cordova-open-native-settings",
+      "clobbers": [
+        "cordova.plugins.settings"
+      ]
+    },
+    {
       "id": "cordova-plugin-file.DirectoryEntry",
       "file": "plugins/cordova-plugin-file/www/DirectoryEntry.js",
       "pluginId": "cordova-plugin-file",
@@ -445,24 +453,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "runs": true
     },
     {
-      "id": "cordova-plugin-nativestorage.mainHandle",
-      "file": "plugins/cordova-plugin-nativestorage/www/mainHandle.js",
-      "pluginId": "cordova-plugin-nativestorage",
-      "clobbers": [
-        "NativeStorage"
-      ]
-    },
-    {
-      "id": "cordova-plugin-nativestorage.LocalStorageHandle",
-      "file": "plugins/cordova-plugin-nativestorage/www/LocalStorageHandle.js",
-      "pluginId": "cordova-plugin-nativestorage"
-    },
-    {
-      "id": "cordova-plugin-nativestorage.NativeStorageError",
-      "file": "plugins/cordova-plugin-nativestorage/www/NativeStorageError.js",
-      "pluginId": "cordova-plugin-nativestorage"
-    },
-    {
       "id": "cordova-plugin-network-information.network",
       "file": "plugins/cordova-plugin-network-information/www/network.js",
       "pluginId": "cordova-plugin-network-information",
@@ -510,11 +500,54 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "window.FullScreenImage"
       ]
+    },
+    {
+      "id": "jpush-phonegap-plugin.JPushPlugin",
+      "file": "plugins/jpush-phonegap-plugin/www/JPushPlugin.js",
+      "pluginId": "jpush-phonegap-plugin",
+      "clobbers": [
+        "JPush"
+      ]
+    },
+    {
+      "id": "mx.ferreyra.callnumber.CallNumber",
+      "file": "plugins/mx.ferreyra.callnumber/www/CallNumber.js",
+      "pluginId": "mx.ferreyra.callnumber",
+      "clobbers": [
+        "call"
+      ]
+    },
+    {
+      "id": "cordova-plugin-appminimize.AppMinimize",
+      "file": "plugins/cordova-plugin-appminimize/www/AppMinimize.js",
+      "pluginId": "cordova-plugin-appminimize",
+      "clobbers": [
+        "cordova.plugins.appMinimize"
+      ]
+    },
+    {
+      "id": "cordova-plugin-nativestorage.mainHandle",
+      "file": "plugins/cordova-plugin-nativestorage/www/mainHandle.js",
+      "pluginId": "cordova-plugin-nativestorage",
+      "clobbers": [
+        "NativeStorage"
+      ]
+    },
+    {
+      "id": "cordova-plugin-nativestorage.LocalStorageHandle",
+      "file": "plugins/cordova-plugin-nativestorage/www/LocalStorageHandle.js",
+      "pluginId": "cordova-plugin-nativestorage"
+    },
+    {
+      "id": "cordova-plugin-nativestorage.NativeStorageError",
+      "file": "plugins/cordova-plugin-nativestorage/www/NativeStorageError.js",
+      "pluginId": "cordova-plugin-nativestorage"
     }
   ];
   module.exports.metadata = {
     "com-sarriaroman-photoviewer": "1.2.2",
     "com.moust.cordova.videoplayer": "1.0.1",
+    "cordova-open-native-settings": "1.5.2",
     "cordova-plugin-file": "6.0.1",
     "cordova-plugin-advanced-http": "2.1.1",
     "cordova-plugin-appversion": "1.0.0",
@@ -528,14 +561,18 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-inappbrowser": "3.1.0",
     "cordova-plugin-ionic-keyboard": "2.1.3",
     "cordova-plugin-ionic-webview": "4.1.1",
+    "cordova-plugin-jcore": "1.3.1",
     "cordova-plugin-market": "1.2.0",
     "cordova-plugin-media-capture": "3.0.3",
-    "cordova-plugin-nativestorage": "2.3.2",
     "cordova-plugin-network-information": "2.0.2",
     "cordova-plugin-splashscreen": "5.0.3",
     "cordova-plugin-statusbar": "2.4.3",
     "cordova-plugin-telerik-imagepicker": "2.3.2",
     "cordova-plugin-whitelist": "1.3.3",
-    "es.keensoft.fullscreenimage": "1.0.1"
+    "es.keensoft.fullscreenimage": "1.0.1",
+    "jpush-phonegap-plugin": "3.7.3",
+    "mx.ferreyra.callnumber": "0.0.2",
+    "cordova-plugin-appminimize": "1.0.1",
+    "cordova-plugin-nativestorage": "2.3.2"
   };
 });

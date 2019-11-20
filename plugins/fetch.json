@@ -97,14 +97,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-nativestorage": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-nativestorage"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-splashscreen": {
     "source": {
       "type": "registry",
@@ -192,6 +184,49 @@
     "source": {
       "type": "registry",
       "id": "call-number"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "jpush-phonegap-plugin": {
+    "source": {
+      "type": "registry",
+      "id": "jpush-phonegap-plugin"
+    },
+    "is_top_level": true,
+    "variables": {
+      "APP_KEY": "8f92e5255ed3407477fb44af",
+      "CHANNEL": "developer-default"
+    }
+  },
+  "cordova-plugin-jcore": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-jcore"
+    },
+    "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-open-native-settings": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-open-native-settings@1.5.2"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-appminimize": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-appminimize"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-nativestorage": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-nativestorage"
     },
     "is_top_level": true,
     "variables": {}

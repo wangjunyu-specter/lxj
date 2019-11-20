@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-31 23:26:32
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-22 11:53:06
+ * @LastEditTime: 2019-11-18 11:29:11
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -35,20 +35,6 @@ export class Tab4Page implements OnInit {
     this.isshow = false;
     this.user = {};
     this.toolbaropacity = '0';
-    this.hdzxList = [
-      {
-        image: "data/afficheimg/1561275185704229306.png",
-        name: "出境过暖冬",
-        type: "2",
-        url: "371",
-      },
-      {
-        image: "data/afficheimg/1561275185704229306.png",
-        name: "出境过暖冬",
-        type: "2",
-        url: "371",
-      }
-    ]
   }
   ionViewDidEnter() {
     this.userfn.getUserp().then(res => {
@@ -64,7 +50,9 @@ export class Tab4Page implements OnInit {
     //   console.log(error)
     // })
   }
-  
+  closeXlts(index: number) {
+    this.centeruser.xclist.splice(index, 1);
+  }
   // 活动做成两种类型，一种打开组件，一种打开网页
   logScrolling($event) {
     const top: number = $event.detail.scrollTop;

@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-06-25 23:35:14
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-06-25 23:35:14
+ * @LastEditTime: 2019-11-18 15:18:17
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -19,10 +19,7 @@ export class ContactlistService {
   provinceList: any[]; // 省列表
   isgetdata: boolean;
   constructor(private http: HttpService, private user: UserService) {
-    this.activeList = [];
-    this.list = [];
-    this.provinceList = [];
-    this.isgetdata = false;
+    this.clear();
   }
   getContactlist () {
     if (this.list.length === 0) {
@@ -259,5 +256,10 @@ export class ContactlistService {
     this.activeList.length = 0;
     this.mrid = '';
   }
-
+  clear() {
+    this.activeList = [];
+    this.list = [];
+    this.provinceList = [];
+    this.isgetdata = false;
+  }
 }

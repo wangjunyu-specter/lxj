@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-11-07 16:25:09
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-13 15:53:10
+ * @LastEditTime: 2019-11-14 20:50:12
  * @Description: 即时消息类型
  */
 
@@ -21,4 +21,18 @@ export interface NewsData {
   wd: number; // 1已读 -1未读
   kftype?: number; // 1售前 2售后 0客服
   isyh?: number; // 1 表示用户
+}
+
+//由邮件系统修改过来
+export interface TzData {
+  id: string;
+  email: string; // uid
+  template_id: string;
+  email_content: string; // 内容
+  title: string; // 标题
+  error: string;
+  pri: string; // 重要度
+  last_send: string; // 发送时间
+  supplier_id: string;
+  isread: string; // 是否已读 0 未读 1已读
 }

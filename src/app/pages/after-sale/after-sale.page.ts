@@ -4,7 +4,7 @@ import { HttpService } from './../../services/http.service';
  * @Author: wjy-mac
  * @Date: 2019-10-22 09:40:41
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-22 20:52:46
+ * @LastEditTime: 2019-11-14 12:06:50
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -18,7 +18,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AfterSalePage implements OnInit {
   backId: string;
-  backShipping: object;
+  backShipping: any;
   shippingList: object;
   listBackgoods: object;
   kddata: object;

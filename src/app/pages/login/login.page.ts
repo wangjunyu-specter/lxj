@@ -1,13 +1,14 @@
+import { WebsocketService } from 'src/app/services/websocket.service';
 import { TopageService } from './../../services/topage.service';
 /*
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
- * @LastEditors: wjy
- * @LastEditTime: 2019-08-03 19:23:10
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-18 16:58:24
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {AlertController, NavController} from '@ionic/angular';
 import { HttpService } from '../../services/http.service';
 import { NativeService } from '../../services/native.service';
@@ -26,7 +27,8 @@ export class LoginPage implements OnInit {
   constructor(private router: ActivatedRoute, private nav: NavController,
               private http: HttpService,
               private native: NativeService, private activeroute: ActivatedRoute,
-              private alertController: AlertController, private userfn: UserService, private toPagefn: TopageService) {
+              private alertController: AlertController, private userfn: UserService, private toPagefn: TopageService,
+              private ws: WebsocketService, private route: Router) {
     this.pageType = 1;
     this.yzmText = '获取验证码';
     this.isGetyzm = false;
@@ -38,19 +40,22 @@ export class LoginPage implements OnInit {
     };
   }
   ngOnInit() {
-    console.log(this.native.getPlatform())
   }
   ionViewWillEnter() {
     const res = this.activeroute.snapshot.queryParams;
     if (res && res['type'] == 1) {
       this.pageType = res['type'];
     }
+    this.ws.disconnet();
     // this.router.queryParams.subscribe(res => {
     //   console.log(res);
     //   if (res && res['type']) {
     //     this.pageType = res['type'];
     //   }
     // });
+  }
+  goSetpwd() {
+    this.route.navigate(['/set-pd'], {queryParams: {type: 1}});
   }
   toggleType(type: number) {
     this.pageType = type;
@@ -62,7 +67,21 @@ export class LoginPage implements OnInit {
       this.login();
     } else if (this.pageType === 2) {
       this.register();
+    } else if (this.pageType === 4) {
+      this.chagePwd();
     }
+  }
+  chagePwd() {
+    const obj = {
+      mobile: this.formData.tel,
+      password: this.formData.pwd,
+      code: this.formData.yzm
+    };
+    this.http.postformdataloading(this.http.resetPwd, obj).subscribe(res => {
+      console.log(res);
+      this.native.presentAlert('密码重置成功');
+      this.pageType = 1;
+    }, err2 => {});
   }
   login() {
     const obj = {
@@ -73,6 +92,7 @@ export class LoginPage implements OnInit {
     this.isLoading = true;
     this.http.postformdata(this.http.login, obj).subscribe(res => {
       console.log(res);
+      this.http.clearUser();
       this.nav.navigateRoot('/tabs/tab1');
       this.userfn.setToken(res.token as string);
       const user = res.data;
@@ -85,7 +105,33 @@ export class LoginPage implements OnInit {
       this.isLoading = false;
     });
   }
-  register () {
+  async register() {
+    const alert = await this.alertController.create({
+      header: '温馨提示',
+      message: '点击确定表示已阅读并同意屏幕下方协议哦',
+      buttons: [
+        {
+          text: '取消',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            this.registerhttp();
+          }
+        },
+        {
+          text: '确定',
+          role: 'OK',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            this.registerhttp();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+  registerhttp() {
     const obj = {
       mobile_phone: this.formData.tel,
       password: this.formData.pwd,
@@ -127,24 +173,28 @@ export class LoginPage implements OnInit {
 
     await alert.present();
   }
-  backButton () {
+  backButton() {
     this.pageType = 1;
   }
-  getYzm () {
+  getYzm() {
     if (this.isGetyzm) {
       return false;
     }
     this.isGetyzm = true;
-    this.yzmText = '60';
-    const setInter = setInterval(() => {
-      if (this.yzmText === '0') {
-        clearInterval(setInter);
-        this.isGetyzm = false;
-        this.yzmText = '获取验证码';
-        return false;
-      }
-      this.yzmText = (Number(this.yzmText) - 1).toString();
-    }, 1000);
+    this.http.getData(this.http.sendYzm, {'mobile_phone': this.formData.tel, 'type': this.pageType - 1}).subscribe(res => {
+      this.yzmText = '60';
+      const setInter = setInterval(() => {
+        if (this.yzmText === '0') {
+          clearInterval(setInter);
+          this.isGetyzm = false;
+          this.yzmText = '获取验证码';
+          return false;
+        }
+        this.yzmText = (Number(this.yzmText) - 1).toString();
+      }, 1000);
+    }, err => {
+      this.isGetyzm = false;
+    });
   }
   openXy(type: number) {
     let link: string;

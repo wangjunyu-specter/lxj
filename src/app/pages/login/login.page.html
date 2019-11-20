@@ -1,3 +1,10 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 10:37:34
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-18 18:45:11
+ * @Description: file content
+ -->
 
 <ion-content>
   <div class="my-content">
@@ -7,7 +14,7 @@
       </div>
       <div class="title-box">
         <div class="title">旅行家</div>
-        <p>专注户外游领域，感悟旅行更多意义</p>
+        <p>专注户外旅行，领略自然之美</p>
       </div>
     </div>
 
@@ -22,12 +29,12 @@
       <ion-grid *ngIf="pageType == 1 || pageType == 3">
         <ion-row>
           <ion-col>
-            <a (click)="toggleType(4)">
+            <a (click)="goSetpwd()">
               <img src="./assets/login2.svg" alt="">
               忘记密码
             </a>
           </ion-col>
-          <ion-col text-right>
+          <ion-col class="ion-text-right">
             <a (click)="toggleType(3)" *ngIf="pageType == 1">验证码登录</a>
             <a (click)="toggleType(1)" *ngIf="pageType == 3">密码登录</a>
           </ion-col>
@@ -40,7 +47,7 @@
       <div class="or-line">
         <img src="./assets/login3.svg" alt="">
       </div>
-      <ion-button class="sbgg" fill="clear" expand="block">随便逛逛</ion-button>
+      <ion-button class="sbgg" fill="clear" expand="block">每个人都是自己人生的旅行家</ion-button>
     </div>
     <div class="login-footer" *ngIf="pageType == 2">
       <p>已阅读并同意以下协议</p>

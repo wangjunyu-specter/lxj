@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-24 22:48:58
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-19 17:40:57
+ * @Description: file content
+ */
 import { Injectable } from '@angular/core';
 import { UserService } from './user.service';
 import {NativeService} from "./native.service";
@@ -10,7 +17,11 @@ export class GzlistService {
   list: string[];
   isget: boolean; // 是否已获取关注列表
   constructor(private user: UserService, private native: NativeService, private http: HttpService) {
+    this.clear();
+  }
+  clear() {
     this.list = [];
+    this.isget = false;
   }
   async getList() {
     if (this.list.length === 0 && !this.native.ismobile() || !this.isget) {
@@ -23,6 +34,9 @@ export class GzlistService {
     return this.list;
   }
   getGzlist() {
+    if (this.list.length === 0) {
+      this.getHttp();
+    }
     return this.list;
   }
   getHttp() {

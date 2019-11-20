@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-13 14:53:07
+ * @LastEditTime: 2019-11-19 22:15:26
  * @Description: file content
  */
 import { NgModule } from '@angular/core';
@@ -22,6 +22,8 @@ import { Network } from '@ionic-native/network/ngx';
 import { AppVersion } from '@ionic-native/app-version/ngx';
 import { Market } from '@ionic-native/market/ngx';
 import { AppUpdate } from '@ionic-native/app-update/ngx';
+import { JPush } from '@jiguang-ionic/jpush/ngx';
+import { AppMinimize } from '@ionic-native/app-minimize/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -69,7 +71,8 @@ import {PaymentListService} from './services/payment-list.service';
 import {PayorderService} from './services/payorder.service';
 import {WebsocketService} from './services/websocket.service';
 import {NewsListService} from './services/news-list.service';
-
+import {DeletemyreleaseService} from './services/deletemyrelease.service';
+import {EditmyreleaseService} from './services/editmyrelease.service';
 
 import {NativeStorage} from '@ionic-native/native-storage/ngx';
 import { HTTP } from '@ionic-native/http/ngx';
@@ -92,8 +95,11 @@ import {UploadComponent} from './components/upload/upload.component';
 import { GaoDeLocation } from '@ionic-native/gao-de-location/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { CallNumber } from '@ionic-native/call-number/ngx';
+import { OpenNativeSettings } from '@ionic-native/open-native-settings/ngx';
 import { ModelTimePipe } from './pipes/model-time.pipe';
 
+
+// import {LoginGuardGuard} from './guard/login-guard.guard';
 @NgModule({
   declarations: [AppComponent, SearchComponent, TopnavlistComponent, GoodsattrComponent,
     GoodsContentnavComponent, FbseleteComponent, PayboxComponent, VideoComponent, UploadComponent,
@@ -178,6 +184,12 @@ import { ModelTimePipe } from './pipes/model-time.pipe';
     WebsocketService,
     NewsListService,
     CallNumber,
+    JPush,
+    OpenNativeSettings,
+    AppMinimize,
+    // LoginGuardGuard,
+    DeletemyreleaseService,
+    EditmyreleaseService,
     // NavigationBar,
     // ComponentsModule,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

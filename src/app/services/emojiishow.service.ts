@@ -6,9 +6,7 @@ import { Injectable } from '@angular/core';
 export class EmojiishowService {
   private ishowobj: any;
   constructor() {
-    this.ishowobj = {
-      show: false
-    };
+    this.clear();
   }
   getIsshow(): object {
     return this.ishowobj;
@@ -24,5 +22,10 @@ export class EmojiishowService {
     } else {
       this.ishowobj.show = !this.ishowobj.show;
     }
+  }
+  clear() {
+    this.ishowobj = {
+      show: false
+    };
   }
 }

@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-11-07 20:34:25
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-07 22:31:39
+ * @LastEditTime: 2019-11-15 16:19:44
  * @Description: 消息详情页时间格式处理
  */
 import { Pipe, PipeTransform } from '@angular/core';
@@ -15,9 +15,10 @@ export class NewstimePipe implements PipeTransform {
   transform(value: number, args: any[]): any {
     for (let index = 0; index < args.length; index++) {
       const element = args[index];
-      if (element.time === value && index === 0) {
+      const time2 = Number(element.time);
+      if (time2 === value && index === 0) {
         return this.timeDownItem(value);
-      } else if (index !== 0 && element.time === value && (value - args[index - 1].time) > 240000) {
+      } else if (index !== 0 && time2 === value && (value - args[index - 1].time) > 240000) {
         return this.timeDownItem(value);
       } else if (index !== 0 && this.istwoDay(value, args[index - 1].time)) {
         return this.timeDownItem(value);

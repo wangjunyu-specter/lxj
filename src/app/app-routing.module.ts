@@ -1,10 +1,18 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-10-22 09:40:41
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-18 20:07:14
+ * @Description: file content
+ */
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { LoginGuardGuard } from './guard/login-guard.guard';
 
 const routes: Routes = [
-  { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },
+  { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule'},
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/tabs/tab1', pathMatch: 'full' },
   { path: 'products', loadChildren: './pages/products/products.module#ProductsPageModule' },
   { path: 'sjproducts/:id', loadChildren: './pages/products/products.module#ProductsPageModule' },
   { path: 'productcontent', loadChildren: './pages/productcontent/productcontent.module#ProductcontentPageModule' },
@@ -45,7 +53,8 @@ const routes: Routes = [
   { path: 'searchendgoods', loadChildren: './pages/searchendgoods/searchendgoods.module#SearchendgoodsPageModule' },
   { path: 'sharesearch', loadChildren: './pages/sharesearch/sharesearch.module#SharesearchPageModule' },
   { path: 'userlist', loadChildren: './pages/userlist/userlist.module#UserlistPageModule' },
-  { path: 'edmit-user', loadChildren: './pages/edmit-user/edmit-user.module#EdmitUserPageModule' },  { path: 'bill', loadChildren: './pages/bill/bill.module#BillPageModule' },
+  { path: 'edmit-user', loadChildren: './pages/edmit-user/edmit-user.module#EdmitUserPageModule' },
+  { path: 'bill', loadChildren: './pages/bill/bill.module#BillPageModule' },
   { path: 'about-us', loadChildren: './pages/about-us/about-us.module#AboutUsPageModule' },
   { path: 'sjsearch', loadChildren: './pages/sjsearch/sjsearch.module#SjsearchPageModule' },
   { path: 'all-zt', loadChildren: './pages/all-zt/all-zt.module#AllZtPageModule' },
@@ -55,6 +64,8 @@ const routes: Routes = [
   { path: 'after-salelist', loadChildren: './pages/after-salelist/after-salelist.module#AfterSalelistPageModule' },
   { path: 'post-comment', loadChildren: './pages/post-comment/post-comment.module#PostCommentPageModule' },
   { path: 'comments-list', loadChildren: './pages/comments-list/comments-list.module#CommentsListPageModule' },
+  { path: 'notice', loadChildren: './pages/notice/notice.module#NoticePageModule' },
+  { path: 'set-pd', loadChildren: './pages/set-pd/set-pd.module#SetPdPageModule' },
 
 ];
 @NgModule({

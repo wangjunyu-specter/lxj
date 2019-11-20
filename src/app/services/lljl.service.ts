@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-06-09 12:40:56
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-18 15:26:00
+ * @Description: file content
+ */
 import { Injectable } from '@angular/core';
 // 浏览记录
 @Injectable({
@@ -27,6 +34,6 @@ export class LljlService {
     return arr2;
   }
   clear() {
-    this.idlist = new Set();
+    this.idlist.clear();
   }
 }

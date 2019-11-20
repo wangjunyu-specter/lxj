@@ -4,7 +4,7 @@ import { HttpService } from 'src/app/services/http.service';
  * @Author: wjy-mac
  * @Date: 2019-11-06 20:43:10
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-13 21:40:12
+ * @LastEditTime: 2019-11-18 15:50:45
  * @Description: websocket文件
  */
 import { Injectable } from '@angular/core';
@@ -19,16 +19,23 @@ import { NewsData } from '../interface/news-data';
 export class WebsocketService {
   ws: any = null; //定义websocket对象
   link: string;
+  islj: boolean;
   constructor(public newslist: NewsListService, private http: HttpService,
-    private userfn: UserService) { }
+    private userfn: UserService) {
+      this.islj = false;
+    }
   createObservableSocket() {
+    if (this.islj) {
+      return false;
+    }
     this.link = this.http.wslink;
     this.ws = io(this.link);
     this.ws.on('disconnect', () => {
-      this.ws.open();
+      //this.ws.open();
+      this.islj = false;
     });
     this.ws.on('connect', () => {
-      
+      this.islj = true;
     });
     this.ws.on('usermsg', (res) => {
       this.news(res);
@@ -45,7 +52,7 @@ export class WebsocketService {
       });
     })
   }
-  async setUserdata() {
+  private async setUserdata() {
     let user: any;
     try {
       user = await this.userfn.getUser();
@@ -80,6 +87,10 @@ export class WebsocketService {
     this.ws.emit(key, msg);
   }
   disconnet() {
-    this.ws.disconnect(true);
+    this.ws && this.ws.disconnect(true);
+  }
+  clear() {
+    this.disconnet();
+    this.islj = false;
   }
 }

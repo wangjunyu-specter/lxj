@@ -1,0 +1,40 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-11-18 09:52:37
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-18 16:00:29
+ * @Description: file content
+ -->
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon mode="ios" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>重置密码</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+<ion-content class="ion-padding">
+  <div class="form-center">
+    <ion-list>
+      <ion-item>
+          <ion-input placeholder="请输入手机号" type="tel" [disabled]="type === 2" [(ngModel)]="formData.tel" minlength="11" required #name="ngModel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <div class="my-input">
+          <input type="text" placeholder="请输入验证码" [disabled]="!formData.tel" [(ngModel)]="formData.yzm" #yzm="ngModel" required>
+          <button class="ion-float-right" [disabled]="isGetyzm" (click)="getYzm()">{{yzmText}}</button>
+        </div>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="请输入新密码" type="password" minlength="6" [(ngModel)]="formData.pwd" #pwd="ngModel" required></ion-input>
+      </ion-item>
+    </ion-list>
+    <app-mybutton [isdisabled]="isLoading || name.invalid || formData.pwd.length < 6 || !formData.yzm" [bname]="'提交'" minlength="6" [isblock]="true" (subClick)="sub()"></app-mybutton>
+    
+    <ion-progress-bar *ngIf="isLoading" type="indeterminate" reversed="true"></ion-progress-bar>
+  </div>
+</ion-content>

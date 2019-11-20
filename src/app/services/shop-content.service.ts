@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-30 22:58:50
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-09-25 10:34:05
+ * @LastEditTime: 2019-11-18 15:41:59
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -31,6 +31,9 @@ export class ShopContentService {
   caticallist: any[]; // 文章列表
   private indexgoodsnum: number;
   constructor(private http: HttpService, private shopnav: ShopNavService) {
+    this.clear();
+  }
+  clear() {
     this.indexNav = [];
     this.indexBanner = [];
     this.shopObj = {};

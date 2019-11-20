@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-13 14:57:49
+ * @LastEditTime: 2019-11-19 21:56:20
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -31,11 +31,19 @@ export class HttpService {
   wslink = 'ws://news.cdlxj.cn';
   login = 'user.php?act=signin'; // 登录
   yzpwd = 'user.php?act=yzpwd'; // 验证密码
+  sendYzm = 'register.php?act=send_mobile_code'; // 发送验证码 mobile_phone
+  resetPwd = 'register.php?act=resetPwd'; // 发送验证码 mobile_phone
   editsurplus = 'user.php?act=act_edit_surplus'; // 余额支付
   acteditpayment = 'user.php?act=act_edit_payment'; // 第三方支付
   getusercenter = 'user.php?act=getusercenter'; // 获取个人中心 点赞 关注等数量
   getousercenter = 'user.php?act=getousercenter'; // 获取个人中心 点赞 关注等数量
   editorupdateaddress = 'user.php?act=act_edit_address'; // 编辑添加地址
+  getMynews = 'user.php?act=getMynews'; // 获取通知公告
+  getMynewslist = 'user.php?act=getMynewslist'; // 获取聊天消息列表
+  getMynewscontent = 'user.php?act=getMynewscontent'; // 获取聊天消息详情列表
+  setMynews = 'user.php?act=setMynews'; // 设置通知公告已读
+  setMynewsList = 'user.php?act=setMynewslist'; // 设置聊天消息已读
+  DeleteMynewslist = 'user.php?act=DeleteMynewslist'; // 删除聊天消息
   deleteaddress = 'user.php?act=drop_consignee'; // 删除地址
   register = 'register.php?act=register&register_type=mobile'; // 注册
   getIndex = 'index.php?act=get_index'; // 获取首页数据
@@ -88,6 +96,7 @@ export class HttpService {
   getpchildllist = 'article.php?act=getpchildllist'; // 获取子评论
   getpqlist = 'article.php?act=getpqlist'; // 获取票圈等列表
   fbpqitem = 'article.php?act=insetItem'; // 发布游记等
+  deletepqitem = 'article.php?act=deleteitem'; // 删除票圈游记等
   setdz = 'article.php?act=setdz'; // 点赞
   setpl = 'article.php?act=setpl'; // 评论
   delpl = 'article.php?act=delpl'; // 删除评论
@@ -317,6 +326,11 @@ export class HttpService {
     if (uuid) {
       url += '&uuid=' + uuid;
     }
+    const address = this.userfn.getLocation();
+    if (address) {
+      url += ('&country=' + address.country + '&province=' + address.province +
+      '&city=' + address.city + '&lat=' + address.lat + '&lng=' + address.lng);
+    }
     let header: any;
     if (user.token) {
       if (this.nativeService.ismobile()) {
@@ -404,5 +418,8 @@ export class HttpService {
     //   subTitle: status,
     //   buttons: [{text: '确定'}]
     // }).present();
+  }
+  clearUser() {
+    this.user = null;
   }
 }

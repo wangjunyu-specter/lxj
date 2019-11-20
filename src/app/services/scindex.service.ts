@@ -11,6 +11,9 @@ export class ScindexService {
   private indexgoodsnum: number;
 
   constructor(private http: HttpService) {
+    this.clear();
+  }
+  clear() {
     this.hasData = false;
     this.indexgoodsnum = 0;
     this.moreGoods = [];

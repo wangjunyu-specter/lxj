@@ -649,7 +649,7 @@ module.exports = function (NAME, wrapper, methods, common, IS_MAP, IS_WEAK) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var core = module.exports = { version: '2.6.9' };
+var core = module.exports = { version: '2.6.10' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
@@ -5723,6 +5723,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _zone_flags_ts__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_zone_flags_ts__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var zone_js_dist_zone__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! zone.js/dist/zone */ "./node_modules/zone.js/dist/zone.js");
 /* harmony import */ var zone_js_dist_zone__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(zone_js_dist_zone__WEBPACK_IMPORTED_MODULE_1__);
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-08-03 14:52:31
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-07 20:28:16
+ * @Description: file content
+ */
 /**
  * This file includes polyfills needed by Angular and is loaded before the app.
  * You can add your own extra polyfills to this file.
@@ -5776,6 +5783,7 @@ __webpack_require__.r(__webpack_exports__);
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
+window.global = window;
  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS

@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-11-07 22:31:25
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-07 22:32:07
+ * @LastEditTime: 2019-11-15 17:00:29
  * @Description: 消息列表页时间格式处理
  */
 import { Pipe, PipeTransform } from '@angular/core';
@@ -15,9 +15,10 @@ export class NewslisttimePipe implements PipeTransform {
   transform(value: number, args: any[]): any {
     for (let index = 0; index < args.length; index++) {
       const element = args[index];
-      if (element.time === value && index === 0) {
+      const time2 = Number(element.time);
+      if (time2 === value && index === 0) {
         return this.timeDownItem(value);
-      } else if (index !== 0 && element.time === value && (value - args[index - 1].time) > 240000) {
+      } else if (index !== 0 && time2 === value && (value - args[index - 1].time) > 240000) {
         return this.timeDownItem(value);
       } else if (index !== 0 && this.istwoDay(value, args[index - 1].time)) {
         return this.timeDownItem(value);
@@ -34,6 +35,8 @@ export class NewslisttimePipe implements PipeTransform {
    */  
   getTime(num: number) {
     const date = new Date(num);
+    console.log(num)
+    console.log(date)
     const hours = date.getHours();
     const min = date.getMinutes();
     return `${hours < 10 ? '0' + hours.toString() : hours}:${min < 10 ? '0' + min.toString() : min}`;

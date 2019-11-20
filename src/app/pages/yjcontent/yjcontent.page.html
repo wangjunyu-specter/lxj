@@ -1,3 +1,10 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-06-22 21:52:44
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-19 21:32:12
+ * @Description: file content
+ -->
 <ion-header [translucent]="true" mode="ios">
   <ion-toolbar mode="ios" [ngClass]="'show-' + toolbaropacity">
     <div class="search-bar">
@@ -8,7 +15,7 @@
       </div>
       <div class="right">
         <!--<img src="/assets/wechatbg.svg" alt="">-->
-        <div class="round"><ion-icon name="share"></ion-icon></div>
+        <div class="round"><ion-icon name="more" mode="ios" (click)="edmit()"></ion-icon></div>
         <!--<div class="round" (click)="toprightmore($event)"><ion-icon name="more" mode="ios"></ion-icon></div>-->
         <!--<img src="/assets/czbg.svg" alt="">-->
       </div>

@@ -1,6 +1,8 @@
+import { EditmyreleaseService } from './../../services/editmyrelease.service';
+import { NativeService } from 'src/app/services/native.service';
 import { Component, OnInit } from '@angular/core';
 // import {ActivatedRoute} from "@angular/router";
-import {NavController} from "@ionic/angular";
+import {NavController, AlertController, ActionSheetController} from "@ionic/angular";
 import {DomSanitizer} from "@angular/platform-browser";
 import { YjlistService } from '../../services/yjlist.service';
 import {HttpService} from "../../services/http.service";
@@ -8,7 +10,8 @@ import {GzlistService} from "../../services/gzlist.service";
 import {UserService} from "../../services/user.service";
 import {EmojiishowService} from "../../services/emojiishow.service";
 import {PlitemclickService} from "../../services/plitemclick.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import { DeletemyreleaseService } from 'src/app/services/deletemyrelease.service';
 @Component({
   selector: 'app-yjcontent',
   templateUrl: './yjcontent.page.html',
@@ -28,8 +31,11 @@ export class YjcontentPage implements OnInit {
   constructor( private nav: NavController,
               public sanitizer: DomSanitizer, private yjlist: YjlistService,
               private http: HttpService, private gzlist: GzlistService, private emojiishow: EmojiishowService,
-               private activeroute: ActivatedRoute,
-               private userfn: UserService, private itemclickfn: PlitemclickService) {
+               private activeroute: ActivatedRoute, private mydeletefn: DeletemyreleaseService,
+               private userfn: UserService, private itemclickfn: PlitemclickService,
+               private native: NativeService, public alertController: AlertController,
+               public actionSheetController: ActionSheetController, private editMyrelease: EditmyreleaseService,
+               private route: Router) {
     this.pageObj = {
       page: 1,
       num: 20
@@ -40,14 +46,22 @@ export class YjcontentPage implements OnInit {
     this.isshowDrop = false;
     this.setPlitem = {};
     this.toolbaropacity = '0';
-    this.data = {};
+  }
+  ionViewDidEnter() {
+    console.log('进入新的');
     const params = this.activeroute.snapshot.queryParams;
     this.id = params['id'];
     this.type = params['type'] ? Number(params['type']) : 0;
+    const item = this.editMyrelease.getData();
+    if (item.data && item.data.id) {
+      const ischage = this.editMyrelease.getIschage();
+      if (item.data.id != this.id || !ischage || item.type - 1 != this.type) {
+        this.editMyrelease.clear();
+      } else {
+        this.yjlist.editOne(this.id, this.type, item.data);
+      }
+    }
     this.data = this.yjlist.getPqone(this.id, this.type);
-
-  }
-  ionViewDidEnter() {
     this.getContent();
     this.userfn.getUserp().then(res => {
       this.user = res;
@@ -55,7 +69,7 @@ export class YjcontentPage implements OnInit {
   }
   getContent() {
     let hasdata = 1;
-    if (!this.data) {
+    if (!this.data || this.data && !this.data.id) {
       hasdata = 2;
     }
     const obj = {
@@ -189,5 +203,83 @@ export class YjcontentPage implements OnInit {
     this.setPlitem = {};
     this.seletename = '';
     this.isshowDrop = false;
+  }
+  async edmit() {
+    const buttons = [{
+      text: '分享到微信',
+      role: '',
+      handler: () => {
+        this.native.wechatShare();
+      }
+    }, {
+      text: '分享到微博',
+      handler: () => {
+        this.native.weboShare();
+      }
+    }];
+    if (this.user.user_id == this.data.userid) {
+      buttons.push(...[{
+        text: '编辑',
+        handler: () => {
+          this.editMyrelease.setData(this.data, this.type + 1);
+          this.route.navigate(['/fbyj'], {queryParams: {type: this.type + 1, isedit: 1}});
+        }
+      }, {
+        text: '删除',
+        handler: () => {
+          this.sureDelete();
+        }
+      }]);
+    }
+    buttons.push({
+      text: '取消',
+      role: 'cancel',
+      handler: () => {
+        console.log('Cancel clicked');
+      }
+    });
+    const actionSheet = await this.actionSheetController.create({
+      header: '操作',
+      buttons
+    });
+    await actionSheet.present();
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 设置删除本条及保持删除的id
+   * @Date: 2019-11-19 21:30:50
+   * @param {type} 
+   * @return: 
+   */  
+  seleteItem() {
+    console.log(this.data);
+    this.http.getDataloading(this.http.deletepqitem, {id: this.id, type: this.type + 2}).subscribe(res => {
+      this.yjlist.deleteone(this.id, this.type);
+      this.mydeletefn.setId(this.id, this.type + 1);
+      this.goBack();
+    }, err => {});
+  }
+  async sureDelete() {
+    const alert = await this.alertController.create({
+      header: '提示',
+      message: '删除后无法恢复!',
+      buttons: [
+        {
+          text: '取消',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: '确定删除',
+          handler: () => {
+            this.seleteItem();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 }

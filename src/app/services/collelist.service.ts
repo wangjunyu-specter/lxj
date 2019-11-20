@@ -11,11 +11,7 @@ export class CollelistService {
   page1: number; // 店铺
   limit: number;
   constructor(private http: HttpService) {
-    this.page = 0;
-    this.page1 = 0;
-    this.list = [];
-    this.list1 = [];
-    this.limit = 20;
+    this.clear();
   }
   getgoodslist() {
     if (this.list.length === 0) {
@@ -141,5 +137,12 @@ export class CollelistService {
       });
     }
 
+  }
+  clear() {
+    this.page = 0;
+    this.page1 = 0;
+    this.list = [];
+    this.list1 = [];
+    this.limit = 20;
   }
 }

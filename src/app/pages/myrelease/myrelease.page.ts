@@ -4,6 +4,8 @@ import {HttpService} from "../../services/http.service";
 import {TopageService} from "../../services/topage.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {GzlistService} from "../../services/gzlist.service";
+import { DeletemyreleaseService } from 'src/app/services/deletemyrelease.service';
+import { EditmyreleaseService } from 'src/app/services/editmyrelease.service';
 
 @Component({
   selector: 'app-myrelease',
@@ -22,7 +24,8 @@ export class MyreleasePage implements OnInit {
   isgz: boolean;
   gzList: string[];
   constructor(private nav: NavController, private http: HttpService, private activeroute: ActivatedRoute,
-              private topage: TopageService, private route: Router, private gzlistfn: GzlistService) { }
+              private topage: TopageService, private route: Router, private gzlistfn: GzlistService,
+              private mydeletefn: DeletemyreleaseService, private editMyrelease: EditmyreleaseService) { }
 
   ngOnInit() {
     this.pageType = 1;
@@ -60,6 +63,31 @@ export class MyreleasePage implements OnInit {
     this.nav.back();
   }
   ionViewDidEnter() {
+    const deleteObj = this.mydeletefn.getId();
+    if (deleteObj['id']) {
+      if (this.allList.length > 0) {
+        for (let index = 0; index < this.allList[deleteObj.type].length; index++) {
+          const element = this.allList[deleteObj.type][index];
+          if (deleteObj['id'] == element['id']) {
+            this.allList[deleteObj.type].splice(index, 1);
+            this.mydeletefn.clear();
+            break;
+          }
+        }
+      } else {
+        this.mydeletefn.clear();
+      }
+    }
+    const item = this.editMyrelease.getData();
+    if (item.data && item.data.id) {
+      console.log('进入1')
+      const ischage = this.editMyrelease.getIschage();
+      if (this.allList.length > 0 && ischage) {
+        this.changeItem(item.type, item.data);
+        console.log('进入2')
+      }
+      this.editMyrelease.clear();
+    }
     this.gzlistfn.getList().then(res => {
       this.gzList = res;
       if (this.gzList.includes(this.userId) && this.userId) {
@@ -75,11 +103,38 @@ export class MyreleasePage implements OnInit {
       this.http.getData(this.http.getousercenter, {userId: this.userId}).subscribe(res => {
         console.log(res);
         this.user = res.data;
-      }, error2 => {})
+      }, error2 => {});
+    }
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 内容编辑后改变列表数据
+   * @Date: 2019-11-20 00:02:14
+   * @param {type} 
+   * @return: 
+   */  
+  changeItem(type, data) {
+    console.log(type)
+    console.log(data)
+    for (let index = 0; index < this.allList[type].length; index++) {
+      const element = this.allList[type][index];
+      if (element['id'] == data.id) {
+        const obj = Object.assign(element, data);
+        this.allList[type].splice(index, 1, obj);
+      }
     }
   }
   toPages(type, id?: string, name?: string) {
     this.topage.toPage(type, id, name);
+  }
+  toPage(id) {
+    console.log(id)
+    const type = this.pageType;
+    if (type == 1) {
+      this.route.navigate(['/pqcontent'], {queryParams: {id, type}});
+    } else {
+      this.route.navigate(['/yjcontent'], {queryParams: {id, type: type - 2}});
+    }
   }
   doRefresh(event) {
     switch (Number(this.pageType)) {
@@ -103,15 +158,7 @@ export class MyreleasePage implements OnInit {
     this.getListhttp(event, 1);
   }
 
-  toPage(id) {
-    console.log(id)
-    const type = this.pageType;
-    if (type == 1) {
-      this.route.navigate(['/pqcontent'], {queryParams: {id, type}});
-    } else {
-      this.route.navigate(['/yjcontent'], {queryParams: {id, type: type - 2}});
-    }
-  }
+  
   setType() {
     const type = Number(this.pageType);
     console.log(type)

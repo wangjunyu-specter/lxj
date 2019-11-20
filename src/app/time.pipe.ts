@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-07 02:44:54
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-14 20:32:28
+ * @Description: file content
+ */
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
@@ -5,8 +12,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TimePipe implements PipeTransform {
 
-  transform(value: any, args?: any): any {
-    const date = new Date(value * 1000);
+  transform(value: number, args?: any): any {
+    let date;;
+    const len = value.toString().length;
+    if (len === 10) {
+      date = new Date(value * 1000);
+    } else if (len === 13) {
+      date = new Date(value);
+    }
     const Y = date.getFullYear()
     const M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1)
     const D = (date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate());

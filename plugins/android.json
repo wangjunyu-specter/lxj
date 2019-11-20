@@ -8,85 +8,99 @@
   },
   "installed_plugins": {
     "com-sarriaroman-photoviewer": {
-      "PACKAGE_NAME": "io.lxj.wjy"
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "com.moust.cordova.videoplayer": {
-      "PACKAGE_NAME": "io.lxj.wjy"
+      "PACKAGE_NAME": "com.cdlxj.wjy"
+    },
+    "cordova-open-native-settings": {
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "cordova-plugin-advanced-http": {
       "OKHTTP_VERSION": "3.10.0",
-      "PACKAGE_NAME": "io.lxj.wjy"
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "cordova-plugin-app-update": {
-      "PACKAGE_NAME": "io.lxj.wjy"
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "cordova-plugin-app-version": {
-      "PACKAGE_NAME": "io.lxj.wjy"
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "cordova-plugin-device": {
-      "PACKAGE_NAME": "io.lxj.wjy"
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "cordova-plugin-file": {
-      "PACKAGE_NAME": "io.lxj.wjy"
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "cordova-plugin-file-transfer": {
-      "PACKAGE_NAME": "io.lxj.wjy"
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "cordova-plugin-filepath": {
-      "PACKAGE_NAME": "io.lxj.wjy"
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "cordova-plugin-gaodelocation-chenyu": {
       "ANDROID_API_KEY": "95d0d45ff9793050125665a1878f7196",
       "IOS_API_KEY": "7e2f24b493c9db4b0fd48c5d9240dea2",
-      "PACKAGE_NAME": "io.lxj.wjy"
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "cordova-plugin-inappbrowser": {
-      "PACKAGE_NAME": "io.lxj.wjy"
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "cordova-plugin-ionic-keyboard": {
-      "PACKAGE_NAME": "io.lxj.wjy"
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "cordova-plugin-ionic-webview": {
       "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+",
-      "PACKAGE_NAME": "io.lxj.wjy"
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "cordova-plugin-market": {
-      "PACKAGE_NAME": "io.lxj.wjy"
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "cordova-plugin-media-capture": {
-      "PACKAGE_NAME": "io.lxj.wjy"
-    },
-    "cordova-plugin-nativestorage": {
-      "PACKAGE_NAME": "io.lxj.wjy"
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "cordova-plugin-network-information": {
-      "PACKAGE_NAME": "io.lxj.wjy"
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "io.lxj.wjy"
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "cordova-plugin-statusbar": {
-      "PACKAGE_NAME": "io.lxj.wjy"
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "cordova-plugin-telerik-imagepicker": {
-      "PACKAGE_NAME": "io.lxj.wjy"
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "io.lxj.wjy"
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "es.keensoft.fullscreenimage": {
-      "PACKAGE_NAME": "io.lxj.wjy"
+      "PACKAGE_NAME": "com.cdlxj.wjy"
+    },
+    "jpush-phonegap-plugin": {
+      "APP_KEY": "8f92e5255ed3407477fb44af",
+      "CHANNEL": "developer-default",
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "mx.ferreyra.callnumber": {
-      "PACKAGE_NAME": "io.lxj.wjy"
+      "PACKAGE_NAME": "com.cdlxj.wjy"
+    },
+    "cordova-plugin-appminimize": {
+      "PACKAGE_NAME": "com.cdlxj.wjy"
+    },
+    "cordova-plugin-nativestorage": {
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     }
   },
   "dependent_plugins": {
     "cordova-plugin-appversion": {
-      "PACKAGE_NAME": "io.lxj.wjy"
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "cordova-plugin-camera": {
-      "PACKAGE_NAME": "io.lxj.wjy"
+      "PACKAGE_NAME": "com.cdlxj.wjy"
+    },
+    "cordova-plugin-jcore": {
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     }
   }
 }

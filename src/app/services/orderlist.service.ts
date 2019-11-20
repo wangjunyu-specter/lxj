@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-04 23:48:50
+ * @LastEditTime: 2019-11-18 15:30:19
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -18,6 +18,9 @@ export class OrderlistService {
   isallarry: boolean[]; // 是否取完
   isplorderid: string; // 评论完成后跳转详情页时用次id判断是否这个订单已评论
   constructor(private http: HttpService) {
+    this.clear();
+  }
+  clear() {
     this.listObj = [];
     this.amount = 10;
     this.pageObj = [0, 0, 0, 0, 0];

@@ -9,6 +9,9 @@ export class ShopNavService {
   hwnavList: any;
   activeNav: any; // 当前在哪个分类下
   constructor() {
+    this.clear();
+  }
+  clear() {
     this.navList = [];
     this.activeNav = {
       id: '',

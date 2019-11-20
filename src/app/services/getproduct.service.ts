@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-28 02:20:08
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-07-28 02:20:08
+ * @LastEditTime: 2019-11-18 15:20:45
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -34,6 +34,9 @@ export class GetproductService {
               public alertController: AlertController,
               private yhtcfn: YhtclistService,
               private nav: NavController) {
+    this.clear();
+  }
+  clear() {
     this.data = {
       topData: {},
       xsprice: {},
@@ -43,7 +46,6 @@ export class GetproductService {
     this.startTimebxg = [];
     this.tctypegxb = [];
   }
-
   /**
    * 获取产品
    * @param {string} id

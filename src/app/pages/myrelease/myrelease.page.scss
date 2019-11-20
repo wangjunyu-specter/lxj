@@ -400,3 +400,27 @@ ion-card {
     }
   }
 }
+
+ion-card-header {
+  max-height: 200px;
+  overflow: hidden;
+}
+ion-card {
+  margin-left: 0;
+  margin-bottom: 0;
+  margin-right: 0;
+  .shz, .ytg, .wtg {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 68px;
+    z-index: 100;
+  }
+}
+.wtg-end {
+  width: 50px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 200;
+}

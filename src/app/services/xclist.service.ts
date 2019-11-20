@@ -123,5 +123,6 @@ export class XclistService {
     this.amount = 20;
     this.pageObj = [0, 0, 0, 0, 0];
     this.isallarry = [false, false, false, false, false];
+    this.isplorderid = '';
   }
 }

@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-07 23:04:49
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-08-07 23:51:35
+ * @LastEditTime: 2019-11-14 12:09:28
  * @Description: file content
  -->
 <ion-header mode="ios">
@@ -19,7 +19,7 @@
 
 <ion-content padding>
   <app-productlist *ngFor="let item of list" [data]="item" (open)="goodsContent($event)"></app-productlist>
-  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)" [disabled]="isactive != 2">
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
       <ion-infinite-scroll-content
          loadingSpinner="crescent"
          loadingText="加载更多...">

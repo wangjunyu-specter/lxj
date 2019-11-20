@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-06-16 01:50:44
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-13 15:23:15
+ * @LastEditTime: 2019-11-15 17:21:17
  * @Description: file content
  -->
 <ion-header mode="ios">
@@ -13,7 +13,7 @@
       </ion-button>
     </ion-buttons>
     <ion-title>{{shopName}}</ion-title>
-    <ion-buttons slot="end" *ngIf="shopId != 0">
+    <ion-buttons slot="end" *ngIf="shopId != '0'">
       <ion-button (click)="goTopage(7, shopId)">
         店铺
       </ion-button>
@@ -21,10 +21,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding #content>
+<ion-content class="ion-padding" #content>
   <div class="box" *ngFor="let item of list">
     <div class="time">{{item.time | newstime: list}}</div>
-    <div class="item" *ngIf="item.uid != uid">
+    <div class="item" *ngIf="item.isyh != 1">
       <div class="left">
         <img class="header" [src]="shopHead | imgsrc: http.zdomain" alt="">
       </div>
@@ -38,7 +38,7 @@
         </div>
       </div>
     </div>
-    <div class="me" *ngIf="item.uid == uid">
+    <div class="me" *ngIf="item.isyh == 1">
       <div class="left">
         <span class="content" *ngIf="item.type === 1">
             {{item.content}}
@@ -53,7 +53,7 @@
   <ion-backdrop *ngIf="isshowDrop" (ionBackdropTap)="clickdrop()"></ion-backdrop>
 </ion-content>
 <ion-footer>
-  <ion-toolbar no-padding>
+  <ion-toolbar class="ion-no-padding">
     <div class="footer-news-box">
       <div class="left" (click)="choiceImg()">
         <img src="../../../assets/imgk.svg" alt="">

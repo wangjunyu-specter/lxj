@@ -1,3 +1,10 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-07-31 23:40:56
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-19 23:29:42
+ * @Description: file content
+ -->
 <ion-header>
 
   <ion-toolbar>
@@ -9,7 +16,7 @@
     <ion-title>发布{{title}}</ion-title>
     <ion-buttons slot="end">
       <!--<ion-back-button></ion-back-button>-->
-      <ion-button (click)="savefn(1)" [disabled]="!formdata.title || !content || issub || issave">
+      <ion-button *ngIf="!id" (click)="savefn(1)" [disabled]="!formdata.title || !content || issub || issave">
         <ion-icon name="paper-plane"></ion-icon>保存
       </ion-button>
       <ion-button (click)="sub(1)" [disabled]="!formdata.title || !content || issub || issave">
@@ -22,7 +29,7 @@
 <ion-content>
   <div *ngIf="!iscontent">
     <div class="top-head">
-      <img [src]="head" alt="" *ngIf="head" (click)="addfm()">
+      <img [src]="head | imgsrc: http.zdomain" alt="" *ngIf="head" (click)="addfm()">
       <div *ngIf="!head" class="ts-box" (click)="addfm()">
         添加封面
       </div>
@@ -35,7 +42,7 @@
         <ion-input [(ngModel)]="formdata.destination" clearInput placeholder="目的地"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-datetime no-padding no-margin [(ngModel)]="formdata.outtime" placeholder="出发日期" display-format="YYYY.MM.DD" [doneText]="'确定'" [cancelText]="'取消'"></ion-datetime>
+        <ion-datetime class="ion-no-padding ion-no-margin" [(ngModel)]="formdata.outtime" placeholder="出发日期" display-format="YYYY.MM.DD" [doneText]="'确定'" [cancelText]="'取消'"></ion-datetime>
       </ion-item>
       <ion-item>
         <ion-input [(ngModel)]="formdata.days" type="number" clearInput placeholder="出行天数"></ion-input>

@@ -326,3 +326,7 @@ ion-card {
     font-size: var(--ion-sm-text);
   }
 }
+ion-card-header {
+  max-height: 200px;
+  overflow: hidden;
+}

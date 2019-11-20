@@ -9,6 +9,9 @@ export class ZtListService {
   constructor(private http: HttpService) {
     this.listobj = new Map();
   }
+  clear() {
+    this.listobj.clear();
+  }
   setData (id:string, data: object) {
     this.listobj.set(id, data)
   }

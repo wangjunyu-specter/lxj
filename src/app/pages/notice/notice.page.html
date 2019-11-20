@@ -1,0 +1,26 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-11-14 20:54:57
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-14 21:43:55
+ * @Description: file content
+ -->
+<ion-header mode="ios">
+    <ion-toolbar mode="ios">
+      <ion-buttons slot="start">
+        <ion-button (click)="goBack()">
+          <ion-icon name="arrow-back" mode="ios"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>通知公告</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="data">
+      <div class="title">{{data.title}}</div>
+      <div class="time">{{data.last_send | time}}</div>
+      <div class="mycontent" [innerHTML]="assembleHTML(data.email_content)">
+      </div>
+  </div>
+</ion-content>

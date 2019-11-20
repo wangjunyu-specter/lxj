@@ -10,6 +10,9 @@ export class PqlistService {
   pageObj: any;
   gzpageObj: any;
   constructor(private http: HttpService, private gzlistfn: GzlistService) {
+    this.clear();
+  }
+  clear() {
     this.list = [];
     this.gzList = [];
     this.pageObj = {
@@ -23,6 +26,15 @@ export class PqlistService {
       num: 20,
       isall: false
     };
+  }
+  deleteOne(id: string) {
+    for (let index = 0; index < this.list.length; index++) {
+      const element = this.list[index];
+      if (element.id == id) {
+        this.list.splice(index, 1);
+        break;
+      }
+    }
   }
   getGzpageobj() {
     return this.gzpageObj;

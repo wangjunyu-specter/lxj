@@ -52,7 +52,7 @@ var TabsPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\r\n * @Author: wjy-mac\r\n * @Date: 2019-08-03 14:52:31\r\n * @LastEditors: wjy-mac\r\n * @LastEditTime: 2019-08-07 00:55:34\r\n * @Description: file content\r\n -->\r\n<ion-tabs>\r\n\r\n  <ion-tab-bar slot=\"bottom\">\r\n    <ion-tab-button tab=\"tab1\">\r\n      <ion-icon name=\"home\"></ion-icon>\r\n      <!--<ion-img src=\"./assets/indexicon.svg\"></ion-img>-->\r\n      <ion-label>首页</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"tab2\">\r\n      <ion-icon name=\"information-circle-outline\"></ion-icon>\r\n      <ion-label>发现</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"tab3\">\r\n      <ion-icon name=\"appstore\"></ion-icon>\r\n      <ion-label>装备</ion-label>\r\n    </ion-tab-button>\r\n    <ion-tab-button tab=\"tab4\">\r\n      <ion-icon name=\"happy\"></ion-icon>\r\n      <ion-label>我的</ion-label>\r\n    </ion-tab-button>\r\n  </ion-tab-bar>\r\n\r\n</ion-tabs>\r\n"
+module.exports = "<!--\r\n * @Author: wjy-mac\r\n * @Date: 2019-08-03 14:52:31\r\n * @LastEditors: wjy-mac\r\n * @LastEditTime: 2019-11-18 14:20:13\r\n * @Description: file content\r\n -->\r\n<ion-tabs #tabs>\r\n\r\n  <ion-tab-bar slot=\"bottom\">\r\n    <ion-tab-button tab=\"tab1\">\r\n      <ion-icon name=\"home\"></ion-icon>\r\n      <!--<ion-img src=\"./assets/indexicon.svg\"></ion-img>-->\r\n      <ion-label>首页</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"tab2\">\r\n      <ion-icon name=\"information-circle-outline\"></ion-icon>\r\n      <ion-label>发现</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"tab3\">\r\n      <ion-icon name=\"appstore\"></ion-icon>\r\n      <ion-label>装备</ion-label>\r\n    </ion-tab-button>\r\n    <ion-tab-button tab=\"tab4\">\r\n      <ion-icon name=\"happy\"></ion-icon>\r\n      <ion-label>我的</ion-label>\r\n    </ion-tab-button>\r\n  </ion-tab-bar>\r\n\r\n</ion-tabs>\r\n"
 
 /***/ }),
 
@@ -80,16 +80,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-06-12 20:27:18
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-07 15:31:02
+ * @Description: file content
+ */
 
 var TabsPage = /** @class */ (function () {
     function TabsPage() {
+        console.log('tabssssss');
     }
     TabsPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-tabs',
             template: __webpack_require__(/*! ./tabs.page.html */ "./src/app/tabs/tabs.page.html"),
             styles: [__webpack_require__(/*! ./tabs.page.scss */ "./src/app/tabs/tabs.page.scss")]
-        })
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], TabsPage);
     return TabsPage;
 }());

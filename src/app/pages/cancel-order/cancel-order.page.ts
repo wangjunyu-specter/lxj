@@ -4,7 +4,7 @@ import { error } from 'selenium-webdriver';
  * @Author: wjy-mac
  * @Date: 2019-10-17 17:47:02
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-05 22:25:36
+ * @LastEditTime: 2019-11-14 12:07:39
  * @Description: 取消订单
  */
 import { Component, OnInit } from '@angular/core';
@@ -23,7 +23,7 @@ export class CancelOrderPage implements OnInit {
   isupdate: number[];
   issub: boolean;
   subimgs: string[];
-  data: object;
+  data: any;
   provincelist: any[];
   citylist: any[];
   arealist: any[];

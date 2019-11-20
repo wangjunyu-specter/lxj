@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-13 15:07:12
+ * @LastEditTime: 2019-11-19 20:42:07
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -19,7 +19,7 @@ import { AppVersion } from '@ionic-native/app-version/ngx';
 import { Market } from '@ionic-native/market/ngx';
 import { CallNumber } from '@ionic-native/call-number/ngx';
 import { Device } from '@ionic-native/device/ngx';
-
+import { OpenNativeSettings } from '@ionic-native/open-native-settings/ngx';
 @Injectable({
   providedIn: 'root'
 })
@@ -32,10 +32,30 @@ export class NativeService {
               private imagePicker: ImagePicker, private camera: Camera,
               private androidFullScreen: AndroidFullScreen, private statusbar: StatusBar,
               private videoPlayer: VideoPlayer, private network: Network, private appVersion: AppVersion,
-              private market: Market, private callNumber: CallNumber, private device: Device) { }
+              private market: Market, private callNumber: CallNumber, private device: Device,
+              private openNativeSettings: OpenNativeSettings) { }
   public async getAppversion() {
     const version = await this.appVersion.getVersionNumber();
     return version;
+  }
+  wechatShare() {
+    
+  }
+  weboShare() {
+    
+  }
+  public openNativeSettingfn(type: number = 1) {
+    let setting: string;
+    if (type === 1) {
+      setting = 'settings';
+    } else if (type === 2) {
+      if (this.isandroid()) {
+        setting = 'location';
+      } else {
+        setting = 'locations';
+      }
+    }
+    this.openNativeSettings.open(setting);
   }
   async presentAlert(msg, title?) {
     const alert = await this.alertController.create({
@@ -111,7 +131,7 @@ export class NativeService {
             console.log('Confirm Cancel: blah');
           }
         }, {
-          text: 'Okay',
+          text: '确定',
           handler: () => {
             console.log('Confirm Okay');
           }
@@ -134,11 +154,14 @@ export class NativeService {
   }
   // 获取平台信息
   getPlatform() {
-    return this.plt.is('hybrid');
+    // return this.plt.is('mobile');
+    return this.plt.is('android') || this.plt.is('android');
+    // return true;
   }
   // 是否手机
   ismobile() {
-    return this.plt.is('hybrid');
+    // return this.plt.is('mobile');
+    return this.plt.is('android') || this.plt.is('android');
   }
   isandroid() {
     return this.plt.is('android');
@@ -154,7 +177,7 @@ export class NativeService {
    * @Date: 2019-08-03 17:32:35
    */
   openStore() {
-    this.market.open('io.lxj.wjy');
+    this.market.open('com.cdlxj.wjy');
   }
   callTel(tel: string) {
     if (!tel) {
@@ -211,7 +234,6 @@ export class NativeService {
           const data = await this.getStoragefn(title);
           return JSON.parse(data as any);
         } catch (e) {
-          console.log(e)
           throw null;
         }
       } else {
@@ -228,7 +250,6 @@ export class NativeService {
     }
   }
   private getStoragefn(title: string = 'my_store_user') {
-    console.log(22212)
     return new Promise((resolve, reject) => {
       this.nativeStorage.getItem(title)
         .then(
@@ -375,7 +396,7 @@ export class NativeService {
     const type = 'image/png'; // 定义图片类型（canvas转的图片一般都是png，也可以指定其他类型）
     const arr = base64.split(',');
     const mime = arr[0].match(/:(.*?);/)[1] || type;
-    const nametype = mime.substring(5);
+    const nametype = mime.split('/')[1];
     name = name + (new Date()).valueOf() + '.' + nametype; // 定义文件名字（例如：abc.png ， cover.png）
 // 去掉url的头，并转化为byte
     const bytes = window.atob(arr[1]);

@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-28 02:22:48
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-18 15:44:49
+ * @Description: file content
+ */
 import { Injectable } from '@angular/core';
 import {HttpService} from "./http.service";
 // 入驻商列表
@@ -12,6 +19,11 @@ export class SupplierlistService {
   constructor(public http: HttpService) {
     this.list = [];
     this.idlist = new Set();
+    this.gxList = {};
+  }
+  clear() {
+    this.list = [];
+    this.idlist.clear();
     this.gxList = {};
   }
   setList (data: any) {

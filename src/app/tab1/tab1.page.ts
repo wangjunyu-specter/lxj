@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-15 22:18:06
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-08 15:05:15
+ * @LastEditTime: 2019-11-18 20:23:00
  * @Description: file content
  */
 import { Component, OnInit, ViewChild  } from '@angular/core';
@@ -21,6 +21,8 @@ import { GaoDeLocation, PositionOptions } from '@ionic-native/gao-de-location/ng
 import { AppUpdate } from '@ionic-native/app-update/ngx';
 import { NativeService } from '../services/native.service';
 import { WebsocketService } from '../services/websocket.service';
+import { NewsListService } from '../services/news-list.service';
+import { JPush } from '@jiguang-ionic/jpush/ngx';
 
 @Component({
   selector: 'app-tab1',
@@ -57,7 +59,8 @@ export class Tab1Page implements OnInit {
               private http: HttpService, private shop: ShopContentService,
               private topage: TopageService, private user: UserService, private route: Router,
               private appUpdate: AppUpdate, private native: NativeService, public alertController: AlertController,
-              private ws: WebsocketService) {
+              private ws: WebsocketService, private newslist: NewsListService, private jPush: JPush,
+              private nav: NavController) {
   }
   ngOnInit() {
     // this.shopdata = {}
@@ -98,11 +101,109 @@ export class Tab1Page implements OnInit {
       // },
     };
   }
+  ionViewWillEnter() {
+    
+  }
   ionViewDidEnter() {
     this.moreGoods = this.shop.getMoregoods();
     this.getShopcontent();
     this.location = this.user.getLocation();
-    this.wsfn();
+    if (this.newslist.getList().length === 0) {
+      this.getNewslist().then(res => {
+        if (res < this.newslist.newsPageobj.limit) {
+          this.newslist.setNewsall();
+        }
+        this.wsfn();
+      }).catch(err => {
+        this.wsfn();
+      });
+    }
+    this.getJpushid();
+    this.jPush.setApplicationIconBadgeNumber(0);
+  }
+  getJpushid() {
+    this.jPush.getRegistrationID().then(res => {
+      // alert(res);
+      if (!res) {
+        setTimeout(() => {
+          this.getJpushid();
+        }, 1000);
+      } else {
+        this.zcJpush();
+      }
+    }).catch(err2 => {
+      console.error(JSON.stringify(err2));
+    });
+  }
+  zcJpush() {
+    this.user.getUser().then(res => {
+      const uid = res['user_id'];
+      this.jPush.setAlias({sequence: 1, alias: uid.toString()}).then(res => {
+        console.log(res);
+      }).catch(err2 => {
+      });
+      this.jPush.getUserNotificationSettings().then((res) => {
+        if (res == 0) {
+          // this.native.presentAlert('打开通知获取更多优惠！');
+          this.openQx();
+        }
+      }).catch(err2 => {
+        // this.presentModal
+        this.native.presentAlert('打开通知获取更多优惠！!');
+      });
+    }).catch(err => {});
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 是否打开推送设置
+   * @Date: 2019-11-16 23:29:23
+   * @param {type} 
+   * @return: 
+   */  
+  async openQx() {
+    const alert = await this.alertController.create({
+      header: '提示!',
+      message: '打开通知获取更多优惠！!!!',
+      buttons: [
+        {
+          text: '取消',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: '去设置',
+          handler: () => {
+            console.log('Confirm Okay');
+            this.native.openNativeSettingfn(1);
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 获取聊天消息列表
+   * @Date: 2019-11-14 23:44:54
+   * @param {type} 
+   * @return: 
+   */  
+  getNewslist() {
+    return new Promise((resolve, reject) => {
+      const obj = this.newslist.getNewspage();
+      this.http.getData(this.http.getMynewslist, obj).subscribe(res => {
+        if (obj.page === 0) {
+          this.newslist.setNewsnum(Number(res.num));
+        }
+        this.newslist.setNewslist(res.data);
+        resolve(res.data.length);
+      }, err => {
+        reject();
+      });
+    });
   }
   wsfn() {
     this.ws.createObservableSocket();

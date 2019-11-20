@@ -8,6 +8,9 @@ export class ProvincesService {
   constructor() {
     this.list = [];
   }
+  clear() {
+    this.list = [];
+  }
   getList() {
     return this.list;
   }

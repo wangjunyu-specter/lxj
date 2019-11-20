@@ -11,6 +11,10 @@ export class ProductsListService {
     this.bannerobj = new Map();
     this.navlist = new Map();
   }
+  clear() {
+    this.bannerobj.clear();
+    this.navlist.clear();
+  }
   setBanner (id, data) {
     this.bannerobj.set(id, data);
   }

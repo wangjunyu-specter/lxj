@@ -61,7 +61,7 @@ var SjIndexPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\r\n * @Author: wjy-mac\r\n * @Date: 2019-08-03 14:52:31\r\n * @LastEditors: wjy-mac\r\n * @LastEditTime: 2019-08-07 23:50:12\r\n * @Description: file content\r\n -->\r\n<ion-header mode=\"ios\">\r\n  <ion-toolbar mode=\"ios\">\r\n    <!--<img src=\"./assets/sjtop.png\" alt=\"\">-->\r\n    <app-sj-top (close)=\"goBack()\" (topage)=\"toPage()\"\r\n                [active]=\"isactive\" [supplier]=\"supplier\"\r\n                (toggle)=\"setNav($event)\" (setGz)=\"setGz()\" (tosearch)=\"toSearch()\"></app-sj-top>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <div class=\"isindex\" *ngIf=\"isactive == 1\">\r\n    <ion-slides pager=\"true\" *ngIf=\"supplier\">\r\n      <ion-slide *ngFor=\"let item of supplier.banner\" (click)=\"open(item.url)\">\r\n        <img class=\"dplogo\" [src]=\"http.zdomain + item.src\">\r\n      </ion-slide>\r\n    </ion-slides>\r\n    <div class=\"content\" padding *ngIf=\"supplier\">\r\n      <app-productlist  *ngFor=\"let item of supplier.best_goods\" [type]=\"1\" [data]=\"item\" (open)=\"goodsContent($event)\"></app-productlist>\r\n      <div>\r\n        <app-pagetitle [myname]=\"'精品推荐'\"></app-pagetitle>\r\n        <app-productlist *ngFor=\"let item of tjlist1\" [data]=\"item\" (open)=\"goodsContent($event)\"></app-productlist>\r\n      </div>\r\n      <div>\r\n        <app-pagetitle [myname]=\"'热销推荐'\"></app-pagetitle>\r\n        <app-productlist *ngFor=\"let item of tjlist2\" [data]=\"item\" (open)=\"goodsContent($event)\"></app-productlist>\r\n      </div>\r\n      <div>\r\n        <app-pagetitle [myname]=\"'新品推荐'\"></app-pagetitle>\r\n        <app-productlist *ngFor=\"let item of tjlist3\" [data]=\"item\" (open)=\"goodsContent($event)\"></app-productlist>\r\n      </div>\r\n      <div *ngFor=\"let item of tjlist\">\r\n        <app-pagetitle [myname]=\"item['cat_name']\"></app-pagetitle>\r\n        <app-productlist  *ngFor=\"let item of item['goods']\" [data]=\"item\" (open)=\"goodsContent($event)\"></app-productlist>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"isindex\" *ngIf=\"isactive == 2\">\r\n    <div class=\"content\" padding>\r\n      <!-- <ion-grid>\r\n        <ion-row>\r\n          <ion-col [ngClass]=\"{active: isnavactive == 1}\" (click)=\"selectepx(1)\">综合</ion-col>\r\n          <ion-col [ngClass]=\"{active: isnavactive == 2}\" (click)=\"selectepx(2)\">销量</ion-col>\r\n          <ion-col [ngClass]=\"{active: isnavactive == 3}\" (click)=\"selectepx(3)\">价格</ion-col>\r\n          <ion-col [ngClass]=\"{active: isnavactive == 4}\" (click)=\"selectepx(4)\">新品</ion-col>\r\n        </ion-row>\r\n      </ion-grid> -->\r\n      <app-productlist *ngFor=\"let item of all\" [data]=\"item\" (open)=\"goodsContent($event)\"></app-productlist>\r\n    </div>\r\n  </div>\r\n  <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadData($event)\" [disabled]=\"isactive != 2\">\r\n      <ion-infinite-scroll-content\r\n         loadingSpinner=\"crescent\"\r\n         loadingText=\"加载更多...\">\r\n      </ion-infinite-scroll-content>\r\n    </ion-infinite-scroll>\r\n</ion-content>\r\n\r\n<ion-footer mode=\"ios\">\r\n  <ion-toolbar mode=\"ios\">\r\n    <ion-row>\r\n      <ion-col class=\"border\">\r\n        <ion-button *ngIf=\"supplier\" [routerLink]=\"['/sj-productnav', supplier.suppid]\" expand=\"full\">商品分类</ion-button>\r\n      </ion-col>\r\n      <ion-col>\r\n        <ion-button expand=\"full\">\r\n          <ion-icon name=\"happy\" color=\"primary\"></ion-icon>\r\n          联系客服\r\n        </ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-toolbar>\r\n</ion-footer>\r\n"
+module.exports = "<!--\r\n * @Author: wjy-mac\r\n * @Date: 2019-08-03 14:52:31\r\n * @LastEditors: wjy-mac\r\n * @LastEditTime: 2019-11-13 14:31:39\r\n * @Description: file content\r\n -->\r\n<ion-header mode=\"ios\">\r\n  <ion-toolbar mode=\"ios\">\r\n    <!--<img src=\"./assets/sjtop.png\" alt=\"\">-->\r\n    <app-sj-top (close)=\"goBack()\" (topage)=\"toPage()\"\r\n                [active]=\"isactive\" [supplier]=\"supplier\"\r\n                (toggle)=\"setNav($event)\" (setGz)=\"setGz()\" (tosearch)=\"toSearch()\"></app-sj-top>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <div class=\"isindex\" *ngIf=\"isactive == 1\">\r\n    <ion-slides pager=\"true\" *ngIf=\"supplier\">\r\n      <ion-slide *ngFor=\"let item of supplier.banner\" (click)=\"open(item.url)\">\r\n        <img class=\"dplogo\" [src]=\"http.zdomain + item.src\">\r\n      </ion-slide>\r\n    </ion-slides>\r\n    <div class=\"content\" padding *ngIf=\"supplier\">\r\n      <app-productlist  *ngFor=\"let item of supplier.best_goods\" [type]=\"1\" [data]=\"item\" (open)=\"goodsContent($event)\"></app-productlist>\r\n      <div>\r\n        <app-pagetitle [myname]=\"'精品推荐'\"></app-pagetitle>\r\n        <app-productlist *ngFor=\"let item of tjlist1\" [data]=\"item\" (open)=\"goodsContent($event)\"></app-productlist>\r\n      </div>\r\n      <div>\r\n        <app-pagetitle [myname]=\"'热销推荐'\"></app-pagetitle>\r\n        <app-productlist *ngFor=\"let item of tjlist2\" [data]=\"item\" (open)=\"goodsContent($event)\"></app-productlist>\r\n      </div>\r\n      <div>\r\n        <app-pagetitle [myname]=\"'新品推荐'\"></app-pagetitle>\r\n        <app-productlist *ngFor=\"let item of tjlist3\" [data]=\"item\" (open)=\"goodsContent($event)\"></app-productlist>\r\n      </div>\r\n      <div *ngFor=\"let item of tjlist\">\r\n        <app-pagetitle [myname]=\"item['cat_name']\"></app-pagetitle>\r\n        <app-productlist  *ngFor=\"let item of item['goods']\" [data]=\"item\" (open)=\"goodsContent($event)\"></app-productlist>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"isindex\" *ngIf=\"isactive == 2\">\r\n    <div class=\"content\" padding>\r\n      <!-- <ion-grid>\r\n        <ion-row>\r\n          <ion-col [ngClass]=\"{active: isnavactive == 1}\" (click)=\"selectepx(1)\">综合</ion-col>\r\n          <ion-col [ngClass]=\"{active: isnavactive == 2}\" (click)=\"selectepx(2)\">销量</ion-col>\r\n          <ion-col [ngClass]=\"{active: isnavactive == 3}\" (click)=\"selectepx(3)\">价格</ion-col>\r\n          <ion-col [ngClass]=\"{active: isnavactive == 4}\" (click)=\"selectepx(4)\">新品</ion-col>\r\n        </ion-row>\r\n      </ion-grid> -->\r\n      <app-productlist *ngFor=\"let item of all\" [data]=\"item\" (open)=\"goodsContent($event)\"></app-productlist>\r\n    </div>\r\n  </div>\r\n  <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadData($event)\" [disabled]=\"isactive != 2\">\r\n      <ion-infinite-scroll-content\r\n         loadingSpinner=\"crescent\"\r\n         loadingText=\"加载更多...\">\r\n      </ion-infinite-scroll-content>\r\n    </ion-infinite-scroll>\r\n</ion-content>\r\n\r\n<ion-footer mode=\"ios\">\r\n  <ion-toolbar mode=\"ios\">\r\n    <ion-row>\r\n      <ion-col class=\"border\">\r\n        <ion-button *ngIf=\"supplier\" [routerLink]=\"['/sj-productnav', supplier.suppid]\" expand=\"full\">商品分类</ion-button>\r\n      </ion-col>\r\n      <ion-col>\r\n        <ion-button expand=\"full\" (click)=\"toOtherpage(17, supplier.suppid, supplier.shopname, 1)\">\r\n          <ion-icon name=\"happy\" color=\"primary\"></ion-icon>\r\n          联系客服\r\n        </ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-toolbar>\r\n</ion-footer>\r\n"
 
 /***/ }),
 
@@ -87,19 +87,21 @@ module.exports = "ion-header ion-toolbar {\n  --background: url('sjtop.png');\n 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SjIndexPage", function() { return SjIndexPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _services_supplierlist_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/supplierlist.service */ "./src/app/services/supplierlist.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/http.service */ "./src/app/services/http.service.ts");
-/* harmony import */ var _services_sjindextjgoods_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/sjindextjgoods.service */ "./src/app/services/sjindextjgoods.service.ts");
-/* harmony import */ var _services_collelist_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/collelist.service */ "./src/app/services/collelist.service.ts");
+/* harmony import */ var _services_topage_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../services/topage.service */ "./src/app/services/topage.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _services_supplierlist_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/supplierlist.service */ "./src/app/services/supplierlist.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/http.service */ "./src/app/services/http.service.ts");
+/* harmony import */ var _services_sjindextjgoods_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/sjindextjgoods.service */ "./src/app/services/sjindextjgoods.service.ts");
+/* harmony import */ var _services_collelist_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/collelist.service */ "./src/app/services/collelist.service.ts");
+
 
 /*
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-08-07 23:50:59
+ * @LastEditTime: 2019-11-13 21:33:56
  * @Description: file content
  */
 
@@ -110,7 +112,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var SjIndexPage = /** @class */ (function () {
-    function SjIndexPage(nav, suppliserlist, activeroute, http, route, tjlistfn, collefn) {
+    function SjIndexPage(nav, suppliserlist, activeroute, http, route, tjlistfn, collefn, topagefn) {
         this.nav = nav;
         this.suppliserlist = suppliserlist;
         this.activeroute = activeroute;
@@ -118,6 +120,7 @@ var SjIndexPage = /** @class */ (function () {
         this.route = route;
         this.tjlistfn = tjlistfn;
         this.collefn = collefn;
+        this.topagefn = topagefn;
     }
     SjIndexPage.prototype.ngOnInit = function () {
         this.pageObj = {
@@ -194,6 +197,14 @@ var SjIndexPage = /** @class */ (function () {
     SjIndexPage.prototype.selectepx = function (type) {
         this.isnavactive = type;
     };
+    SjIndexPage.prototype.toOtherpage = function (type, id) {
+        var tid = [];
+        for (var _i = 2; _i < arguments.length; _i++) {
+            tid[_i - 2] = arguments[_i];
+        }
+        var _a;
+        (_a = this.topagefn).toPage.apply(_a, [type, id].concat(tid));
+    };
     SjIndexPage.prototype.toPage = function () {
         this.nav.navigateForward('/sjdpyx');
     };
@@ -221,19 +232,20 @@ var SjIndexPage = /** @class */ (function () {
         this.route.navigate(['/productcontent'], { queryParams: { id: id, suppid: this.supplier.suppid } });
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonInfiniteScroll"]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonInfiniteScroll"])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"])(_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonInfiniteScroll"]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonInfiniteScroll"])
     ], SjIndexPage.prototype, "infiniteScroll", void 0);
     SjIndexPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
             selector: 'app-sj-index',
             template: __webpack_require__(/*! ./sj-index.page.html */ "./src/app/pages/sj-index/sj-index.page.html"),
             styles: [__webpack_require__(/*! ./sj-index.page.scss */ "./src/app/pages/sj-index/sj-index.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _services_supplierlist_service__WEBPACK_IMPORTED_MODULE_3__["SupplierlistService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"],
-            _services_http_service__WEBPACK_IMPORTED_MODULE_5__["HttpService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
-            _services_sjindextjgoods_service__WEBPACK_IMPORTED_MODULE_6__["SjindextjgoodsService"], _services_collelist_service__WEBPACK_IMPORTED_MODULE_7__["CollelistService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"], _services_supplierlist_service__WEBPACK_IMPORTED_MODULE_4__["SupplierlistService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"],
+            _services_http_service__WEBPACK_IMPORTED_MODULE_6__["HttpService"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"],
+            _services_sjindextjgoods_service__WEBPACK_IMPORTED_MODULE_7__["SjindextjgoodsService"], _services_collelist_service__WEBPACK_IMPORTED_MODULE_8__["CollelistService"],
+            _services_topage_service__WEBPACK_IMPORTED_MODULE_1__["TopageService"]])
     ], SjIndexPage);
     return SjIndexPage;
 }());

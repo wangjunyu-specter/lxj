@@ -12,6 +12,9 @@ export class GwcService {
   // des: string;
   options: any;
   constructor(private http: HttpService) {
+    this.clear();
+  }
+  clear() {
     this.options = {
       yxnum: 0,
       isall: false,
