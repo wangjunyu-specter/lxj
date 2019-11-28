@@ -4,7 +4,7 @@ import { TopageService } from './../../services/topage.service';
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-18 16:58:24
+ * @LastEditTime: 2019-11-21 00:29:49
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -13,6 +13,7 @@ import {AlertController, NavController} from '@ionic/angular';
 import { HttpService } from '../../services/http.service';
 import { NativeService } from '../../services/native.service';
 import { UserService } from '../../services/user.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -60,13 +61,14 @@ export class LoginPage implements OnInit {
   toggleType(type: number) {
     this.pageType = type;
     this.formData.pwd = '';
+    this.formData.yzm = '';
   }
   sub() {
     console.log(this.formData);
     if (this.pageType === 1 || this.pageType == 3) {
       this.login();
     } else if (this.pageType === 2) {
-      this.register();
+      this.registerhttp();
     } else if (this.pageType === 4) {
       this.chagePwd();
     }
@@ -132,6 +134,16 @@ export class LoginPage implements OnInit {
     await alert.present();
   }
   registerhttp() {
+    const zz1 = /\d+/;
+    const zz2 = /[a-z]+/i;
+    if (!zz1.test(this.formData.pwd)) {
+      this.native.presentAlert('密码需要包含字母和数字!');
+      return false;
+    }
+    if (!zz2.test(this.formData.pwd)) {
+      this.native.presentAlert('密码需要包含字母和数字!');
+      return false;
+    }
     const obj = {
       mobile_phone: this.formData.tel,
       password: this.formData.pwd,

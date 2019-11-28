@@ -2,7 +2,7 @@
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-14 20:55:40
+ * @LastEditTime: 2019-11-23 21:30:21
  * @Description: 所有跳转页面类型服务
  */
 import { Injectable } from '@angular/core';
@@ -71,9 +71,10 @@ export class TopageService {
         } else {
           href += '?user_id=' + res['user_id'];
         }
+        console.log(href);
         this.openBrowser(href);
       }).catch(err2 => {
-        this.openBrowser(href);
+        // this.openBrowser(href);
       });
     } else if (type === 11) {
       this.router.navigate(['/xccontent'], {queryParams: {id, comment: args[0]}});
@@ -109,7 +110,7 @@ export class TopageService {
    */
   private openBrowser(link: string) {
     const options: InAppBrowserOptions = { // : todo 需要设置ios配置
-      location: 'yes',
+      location: 'no',
       // closebuttoncaption: '关闭',
       toolbarcolor: '#f1f1f1',
       closebuttoncolor: '#333333',
@@ -118,6 +119,45 @@ export class TopageService {
       // hidenavigationbuttons: 'yes'
       hideurlbar: 'yes'
     };
+    // if (href == ${link2}) {
+
+    // }
+    if (link.includes('xiebao18')) {
+      let link2 = link.split('?');
+      link = link2[0];
+    }
     const browser = this.iab.create(link, '', options);
+    browser.on('loadstop').subscribe(res => {
+      if (link.includes('xiebao18')) {
+        const code = `(function() {
+          var href = window.location.href;
+          if (href == 'https://cpsh5.xiebao18.com/wjy2055506') {
+            var div = document.createElement('div');
+            div.innerText = '返回';
+            div.style.cssText = 'position: absolute;width: 50px;padding-left: 10px;color: #fff;font-size: .32rem;height: 1.08rem;line-height: 1.08rem;z-index: 100;top: 0; left: 0;';
+            document.body.appendChild(div);
+            div.onclick = function () {
+              var msg = JSON.stringify({name: 'exitWeb'});
+              webkit.messageHandlers.cordova_iab.postMessage(msg);
+            }
+          }
+        })()`;
+        browser.executeScript({code});
+      }
+    })
+    browser.on('loaderror').subscribe(res => {
+      console.log(2)
+      console.log(res);
+    })
+    browser.on('message').subscribe(res => {
+      const data = res['data'];
+      if (data.name === 'exitWeb') {
+        browser.close();
+      }
+    })
+    browser.on('loadstart').subscribe(res => {
+      
+    })
+    console.log(browser);
   }
 }

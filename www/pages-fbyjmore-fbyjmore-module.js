@@ -58,7 +58,7 @@ var FbyjmorePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n\n  <ion-toolbar>\n    <ion-title>发布{{title}}</ion-title>\n    <ion-buttons slot=\"end\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"goBack()\">\n        完成\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <h2>{{title}}发布成功</h2>\n  <p>这是你发表的第{{num}}篇游记 &nbsp;&nbsp;积分+32</p>\n</ion-content>\n"
+module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-07-01 17:28:24\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-11-20 11:03:24\n * @Description: file content\n -->\n<ion-header>\n\n  <ion-toolbar>\n    <ion-title>发布{{title}}</ion-title>\n    <ion-buttons slot=\"end\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"goBack()\">\n        完成\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <h2>{{title}}发布成功</h2>\n  <p>这是你发表的第{{allnum}}篇游记 &nbsp;&nbsp;积分+{{num}}</p>\n</ion-content>\n"
 
 /***/ }),
 
@@ -88,6 +88,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-06 01:40:14
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-20 12:25:24
+ * @Description: file content
+ */
 
 
 
@@ -100,7 +107,8 @@ var FbyjmorePage = /** @class */ (function () {
     FbyjmorePage.prototype.ngOnInit = function () {
         var params = this.activeroute.snapshot.queryParams;
         this.type = params['type'] ? Number(params['type']) : 1;
-        this.num = params['num'] ? Number(params['num']) : 0;
+        this.num = params['num'] || 0;
+        this.allnum = params['sendnum'] || 0;
         switch (this.type) {
             case 1:
                 this.title = '票圈';

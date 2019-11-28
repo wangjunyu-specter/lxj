@@ -1,6 +1,6 @@
 import { EditmyreleaseService } from './../../services/editmyrelease.service';
 import { NativeService } from 'src/app/services/native.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 // import {ActivatedRoute} from "@angular/router";
 import {NavController, AlertController, ActionSheetController} from "@ionic/angular";
 import {DomSanitizer} from "@angular/platform-browser";
@@ -28,6 +28,8 @@ export class YjcontentPage implements OnInit {
   seletename: string;
   isshowDrop: boolean;
   user: any;
+  @ViewChild("myBox") mybox: any;
+  // isGetcontentimg: boolean; // 是否已获取详情内图片
   constructor( private nav: NavController,
               public sanitizer: DomSanitizer, private yjlist: YjlistService,
               private http: HttpService, private gzlist: GzlistService, private emojiishow: EmojiishowService,
@@ -45,6 +47,7 @@ export class YjcontentPage implements OnInit {
   ngOnInit() {
     this.isshowDrop = false;
     this.setPlitem = {};
+    // this.isGetcontentimg = false;
     this.toolbaropacity = '0';
   }
   ionViewDidEnter() {
@@ -102,7 +105,21 @@ export class YjcontentPage implements OnInit {
     this.setNavstatus(num);
   }
   assembleHTML(strHTML: any) {
-
+    // if (!this.isGetcontentimg) {
+    //   setTimeout(() => {
+    //     const imgs = this.mybox.nativeElement.getElementsByTagName('img');
+    //     console.log(imgs.length)
+    //     for (let index = 0; index < imgs.length; index++) {
+    //       const img = imgs[index];
+    //       console.log(img)
+    //       img.addEventListener('click', () => {
+    //         console.log(index);
+    //         alert(index);
+    //       })
+    //     }
+    //   }, 3000);
+    //   this.isGetcontentimg = true;
+    // }
     return this.sanitizer.bypassSecurityTrustHtml(strHTML);
   }
   setNavstatus(num: number) {

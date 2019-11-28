@@ -72,10 +72,11 @@
           <ion-label>攻略</ion-label>
         </ion-segment-button>
         <ion-segment-button [value]="4" mode="ios">
-          <ion-label>招募</ion-label>
+          <ion-label>游记</ion-label>
         </ion-segment-button>
       </ion-segment>
     </div>
+    <app-nomore *ngIf=" allList && allList.length > 0 && (pageType == 1 && allList[0].length === 0 || pageType == 2 && allList[1].length === 0 || pageType == 3 && allList[2].length === 0 || pageType == 4 && allList[3].length === 0) "></app-nomore>
     <div class="content-box content-one" [ngClass]="{show: pageType == 1}">
       <div *ngFor="let item of allList[0]">
         <ion-card mode="ios" *ngIf="item.opentype == 0">

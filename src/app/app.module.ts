@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-19 22:15:26
+ * @LastEditTime: 2019-11-27 20:26:00
  * @Description: file content
  */
 import { NgModule } from '@angular/core';
@@ -24,6 +24,7 @@ import { Market } from '@ionic-native/market/ngx';
 import { AppUpdate } from '@ionic-native/app-update/ngx';
 import { JPush } from '@jiguang-ionic/jpush/ngx';
 import { AppMinimize } from '@ionic-native/app-minimize/ngx';
+import { Toast } from '@ionic-native/toast/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -91,22 +92,25 @@ import {VgControlsModule} from 'videogular2/controls';
 import {VgOverlayPlayModule} from 'videogular2/overlay-play';
 import {VgBufferingModule} from 'videogular2/buffering';
 import {VideoComponent} from './components/video/video.component';
+import {ScanImagesComponent} from './components/scan-images/scan-images.component';
 import {UploadComponent} from './components/upload/upload.component';
 import { GaoDeLocation } from '@ionic-native/gao-de-location/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { CallNumber } from '@ionic-native/call-number/ngx';
 import { OpenNativeSettings } from '@ionic-native/open-native-settings/ngx';
 import { ModelTimePipe } from './pipes/model-time.pipe';
+import { Alipay } from '@ionic-native/alipay/ngx';
 
+// import { Md5 } from 'ts-md5/dist/md5';
 
 // import {LoginGuardGuard} from './guard/login-guard.guard';
 @NgModule({
   declarations: [AppComponent, SearchComponent, TopnavlistComponent, GoodsattrComponent,
     GoodsContentnavComponent, FbseleteComponent, PayboxComponent, VideoComponent, UploadComponent,
-    AvailableBonusComponent, ModelTimePipe],
+    AvailableBonusComponent, ModelTimePipe, ScanImagesComponent],
   entryComponents: [SearchComponent, TopnavlistComponent, GoodsattrComponent,
     GoodsContentnavComponent, FbseleteComponent, PayboxComponent, VideoComponent, UploadComponent,
-    AvailableBonusComponent],
+    AvailableBonusComponent, ScanImagesComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
@@ -190,6 +194,9 @@ import { ModelTimePipe } from './pipes/model-time.pipe';
     // LoginGuardGuard,
     DeletemyreleaseService,
     EditmyreleaseService,
+    Toast,
+    Alipay,
+    // Md5,
     // NavigationBar,
     // ComponentsModule,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-14 22:01:42
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-18 19:15:46
+ * @LastEditTime: 2019-11-20 23:13:34
  * @Description: file content
  -->
 <ion-header [translucent]="true" mode="ios">
@@ -110,11 +110,11 @@
     </ion-row>
   </ion-grid>
   <div padding>
-    <app-scnewtitle *ngIf="xsms && xsms.sort_goods_arr.length > 0 && xsms.sort_goods_arr[0].goods.length > 0" [title]="xsms['title']"></app-scnewtitle>
+    <app-scnewtitle *ngIf="xsms && xsms.sort_goods_arr.length > 0 && xsms.sort_goods_arr[0].goods && xsms.sort_goods_arr[0].goods.length > 0" [title]="xsms['title']"></app-scnewtitle>
     <!-- <app-pagetitle *ngIf="titleList && titleList['title2']" [nopadding]="true" [myname]="titleList['title2']" [type]="true" [des]="titleList['desc2']"></app-pagetitle> -->
   </div>
   <div padding class="xsms-content">
-    <ion-slides [options]="xsmsOptslv" style="margin-top: 10px" *ngIf="xsms && xsms.sort_goods_arr[0].goods.length > 0">
+    <ion-slides [options]="xsmsOptslv" style="margin-top: 10px" *ngIf="xsms && xsms.sort_goods_arr.length>0 && xsms.sort_goods_arr[0].goods.length > 0">
       <ion-slide *ngFor="let item of xsms.sort_goods_arr[0].goods" (click)="toPage(2, item.goods_id)">
         <app-scindextjgoods
           [src]="item.goods_thumb | imgsrc: http.zdomain"

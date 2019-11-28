@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-08 12:01:15
+ * @LastEditTime: 2019-11-27 18:05:04
  * @Description: file content
  */
 import {Component, ElementRef, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
@@ -337,11 +337,49 @@ export class ProductsPage implements OnInit {
     res = Object.assign({}, res);
     console.log(res);
     this.navlist = res['banner'];
-    this.price_grade = res['price_grade'];
+    // this.price_grade = res['price_grade']; 改为下方设置 this.pricearea
     this.tjcity = res['tjcity'];
     const arr: any[] = Array.from(res['jtjy']);
     arr.unshift({'attr_value': '全部', active: true})
     this.jtjyList = arr;
+    if (res['category'] && res['category']['grade_define']) {
+      const item = res['category']['grade_define'];
+      let pricearr;
+      if (item.includes(',')) {
+        pricearr = item.split(',');
+      } else if (item.includes('，')) {
+        pricearr = item.split('，');
+      }
+      if (pricearr && pricearr.length > 0) {
+        this.pricearea = [{
+          end: 0,
+          price_range: '全部',
+          selected: 1,
+          start: 0
+        }];
+        pricearr.forEach(element => {
+          let start;
+          let end;
+          if (element.includes('-')) {
+            const arr = element.split('-');
+            start = arr[0];
+            end = arr[1];
+          } else if (element.includes('以上')) {
+            const arr = element.split('以');
+            start = arr[0];
+            end = 999999999;
+          }
+          const obj = {
+            end,
+            price_range: element,
+            selected: 0,
+            start,
+          }
+          this.pricearea.push(obj);
+        });
+      }
+    }
+    // pricearea
     // if (this.jtjyList) {
     //   this.jtjyList.unshift({'attr_value': '全部', active: true})
     // }

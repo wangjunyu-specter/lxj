@@ -72,16 +72,18 @@ export class YjlistService {
       }
     }
   }
-  addItem(type, data) {
-    let arr: any[];
-    if (type === 0) {
-      arr = this.yjlist;
-    } else if (type === 1) {
-      arr = this.gllist;
-    } else {
-      arr = this.zmlist;
-    }
-    arr.unshift(data);
+  addItem(type) {
+    // let arr: any[];
+    this.reset(type).then(res => {}).catch(err => {});
+
+    // if (type === 1) {
+    //   arr = this.yjlist;
+    // } else if (type === 2) {
+    //   arr = this.gllist;
+    // } else {
+    //   arr = this.zmlist;
+    // }
+    // arr.unshift(data);
   }
   deleteone(id: string, type: number) {
     let arr: any[];
@@ -101,19 +103,19 @@ export class YjlistService {
   }
   getyjList() {
     if (this.yjlist.length === 0) {
-      this.getListhttp(1);
+      this.getListhttp(1).then(res => {}).catch(err => {});
     }
     return this.yjlist;
   }
   getglList() {
     if (this.gllist.length === 0) {
-      this.getListhttp(2);
+      this.getListhttp(2).then(res => {}).catch(err => {});
     }
     return this.gllist;
   }
   getzmList() {
     if (this.zmlist.length === 0) {
-      this.getListhttp(3);
+      this.getListhttp(3).then(res => {}).catch(err => {});
     }
     return this.zmlist;
   }

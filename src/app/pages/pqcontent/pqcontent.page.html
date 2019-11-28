@@ -12,14 +12,14 @@
         <img src="/assets/backbg.svg" alt="">
       </div>
       <div class="center" *ngIf="data">
-        <div class="person">
+        <div class="person" (click)="goperson()">
           <img [src]="data.headimg | imgsrc: http.zdomain">
           <div class="name-box">
             <div class="name">{{data.user_name}} <app-yhbox [color]="'yellow'" [title]="data.name" [noborder]="true"></app-yhbox></div>
             <div class="des">{{data.createtime | oldtonow}}</div>
           </div>
         </div>
-        <div class="gz" *ngIf="data.userid | isgz: gzlistarr">
+        <div class="gz" *ngIf="isgz()" (click)="setgz(data.userid)">
           <span>+关注</span>
         </div>
       </div>

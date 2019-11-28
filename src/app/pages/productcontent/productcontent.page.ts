@@ -4,7 +4,7 @@ import { NativeService } from './../../services/native.service';
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-13 14:39:26
+ * @LastEditTime: 2019-11-20 23:48:31
  * @Description: file content
  */
 import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
@@ -180,8 +180,8 @@ export class ProductcontentPage implements OnInit {
         this.setXstime();
       }
     }).catch(err => {
-      // this.goBack()
-      console.error(err);
+      this.goBack()
+      // console.error(err);
     });
     return true;
   }

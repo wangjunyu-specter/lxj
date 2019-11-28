@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-06-25 14:27:12
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-18 20:54:16
+ * @LastEditTime: 2019-11-26 22:18:01
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -25,7 +25,7 @@ export class FbseleteComponent implements OnInit {
     this.close({type: 0});
   }
   createyj(type: number) {
-    this.close({type});
+    this.close({type: type - 1});
   }
   async presentActionSheet() {
     const actionSheet = await this.actionSheetController.create({

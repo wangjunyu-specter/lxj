@@ -1,4 +1,4 @@
-<div class="btn-box" [ngClass]="{'active': isactive, 'isblock': block, graybg: graybg || graybgon, small: small}" (click)="setClick()">
+<div class="btn-box" [ngClass]="{'active': isactive, 'isblock': block, graybg: graybg || graybgon, small: small, 'nopadding': nopadding}" (click)="setClick()">
   <div class="title" [ngClass]="{iscenter: iscenter}">{{name}}</div>
   <div class="price" *ngIf="price">¥{{price}}</div>
   <span class="bg" *ngIf="isactive && !isshowimg"></span>

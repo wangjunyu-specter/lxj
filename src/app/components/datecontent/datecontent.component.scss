@@ -123,3 +123,9 @@
     transform-origin: 0 0;
   }
 }
+
+.price, .num {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

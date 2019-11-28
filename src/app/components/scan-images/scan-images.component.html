@@ -1,0 +1,19 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-11-26 23:08:04
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-26 23:34:59
+ * @Description: file content
+ -->
+<div class="scanimg">
+  <ion-slides [options]="slideOpts" *ngIf="type == 1">
+    <ion-slide *ngFor="let item of src" (click)="close()">
+      <img style="width: 100%" [src]="imgsrc(item)" alt="">
+    </ion-slide>
+  </ion-slides>
+  <ion-slides [options]="slideOpts" *ngIf="type == -1">
+    <ion-slide>
+      <img style="width: 100%" [src]="imgsrc(item)" alt="" (click)="close()">
+    </ion-slide>
+  </ion-slides>
+</div>

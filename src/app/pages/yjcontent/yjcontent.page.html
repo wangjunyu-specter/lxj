@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-06-22 21:52:44
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-19 21:32:12
+ * @LastEditTime: 2019-11-26 23:59:37
  * @Description: file content
  -->
 <ion-header [translucent]="true" mode="ios">
@@ -27,7 +27,7 @@
   <div class="banner">
     <img *ngIf="data" [src]="data.imgarr[0] | imgsrc: http.zdomain" alt="">
   </div>
-  <div class="top-content" padding-top padding-start padding-end *ngIf="data">
+  <div class="top-content ion-padding-top ion-padding-start ion-padding-end" *ngIf="data">
     <div class="title">{{data.title}}</div>
     <div class="des">
       <div class="left">
@@ -57,10 +57,10 @@
     </ion-row>
     <div class="line"></div>
   </div>
-  <div class="text-content" padding>
+  <div class="text-content" padding #myBox>
     <div *ngIf="data && data.content" [innerHTML]="assembleHTML(data.content)"></div>
   </div>
-  <div *ngIf="data" class="app-pllist" padding-bottom margin-bottom>
+  <div *ngIf="data" class="app-pllist ion-padding-bottom ion-margin-bottom">
     <div class="hfnum">{{data.plnum}}条回复</div>
     <app-pllist *ngFor="let item of pllist" [data]="item" [tid]="id" (setItem)="setplItem($event)"></app-pllist>
   </div>

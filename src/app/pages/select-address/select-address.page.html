@@ -1,7 +1,16 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-03-20 21:01:10
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-21 15:56:09
+ * @Description: file content
+ -->
 <ion-header mode="ios">
   <ion-toolbar mode="ios">
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-button (click)="goBack()">
+        <ion-icon mode="ios" name="arrow-back"></ion-icon>
+      </ion-button>
     </ion-buttons>
     <ion-title>选择目的地</ion-title>
   </ion-toolbar>
@@ -9,17 +18,17 @@
 
 <ion-content padding>
   <app-pagetitle [myname]="'GPS定位'" [smpadding]="true"></app-pagetitle>
-  <div class="btn-box">
-    <app-seletebtn [name]="'成都'" (mclick)="seleteAddress($event)" [graybg]="true" [isactive]="isactive == '成都'"></app-seletebtn>
+  <div class="btn-box" *ngIf="loaction">
+    <app-seletebtn [name]="loaction.city" (mclick)="seleteAddress($event)" [graybg]="true" [isactive]="true"></app-seletebtn>
   </div>
   <div class="line"></div>
-  <app-pagetitle [myname]="'最近浏览'" [smpadding]="true"></app-pagetitle>
+  <!-- <app-pagetitle [myname]="'最近浏览'" [smpadding]="true"></app-pagetitle> 暂时隐藏 其他城市暂未开放 所以隐藏
   <div class="btn-box">
     <app-seletebtn [name]="'贵阳'" (mclick)="seleteAddress($event)" [isactive]="isactive == '贵阳'" [graybg]="true"></app-seletebtn>
     <app-seletebtn [name]="'吉林'" (mclick)="seleteAddress($event)" [isactive]="isactive == '吉林'" [graybg]="true"></app-seletebtn>
     <app-seletebtn [name]="'新疆'" (mclick)="seleteAddress($event)" [isactive]="isactive == '新疆'" [graybg]="true"></app-seletebtn>
-  </div>
-  <div class="line"></div>
+  </div> -->
+  <!-- <div class="line"></div>
   <app-pagetitle [myname]="'其他推荐'" [smpadding]="true"></app-pagetitle>
   <div class="btn-box">
     <app-seletebtn [name]="'北京'" (mclick)="seleteAddress($event)" [isactive]="isactive == '北京'" [graybg]="true"></app-seletebtn>
@@ -27,5 +36,5 @@
     <app-seletebtn [name]="'河北'" (mclick)="seleteAddress($event)" [isactive]="isactive == '河北'" [graybg]="true"></app-seletebtn>
     <app-seletebtn [name]="'苏州'" (mclick)="seleteAddress($event)" [isactive]="isactive == '苏州'" [graybg]="true"></app-seletebtn>
     <app-seletebtn [name]="'山西'" (mclick)="seleteAddress($event)" [isactive]="isactive == '山西'" [graybg]="true"></app-seletebtn>
-  </div>
+  </div> -->
 </ion-content>

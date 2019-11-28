@@ -280,6 +280,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
+      "id": "cordova-plugin-appminimize.AppMinimize",
+      "file": "plugins/cordova-plugin-appminimize/www/AppMinimize.js",
+      "pluginId": "cordova-plugin-appminimize",
+      "clobbers": [
+        "cordova.plugins.appMinimize"
+      ]
+    },
+    {
       "id": "cordova-plugin-camera.Camera",
       "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
       "pluginId": "cordova-plugin-camera",
@@ -349,6 +357,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "pluginId": "cordova-plugin-gaodelocation-chenyu",
       "clobbers": [
         "GaoDe"
+      ]
+    },
+    {
+      "id": "cordova-plugin-gubnoi-alipay.alipay",
+      "file": "plugins/cordova-plugin-gubnoi-alipay/www/alipay.js",
+      "pluginId": "cordova-plugin-gubnoi-alipay",
+      "clobbers": [
+        "cordova.plugins.alipay"
       ]
     },
     {
@@ -453,6 +469,24 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "runs": true
     },
     {
+      "id": "cordova-plugin-nativestorage.mainHandle",
+      "file": "plugins/cordova-plugin-nativestorage/www/mainHandle.js",
+      "pluginId": "cordova-plugin-nativestorage",
+      "clobbers": [
+        "NativeStorage"
+      ]
+    },
+    {
+      "id": "cordova-plugin-nativestorage.LocalStorageHandle",
+      "file": "plugins/cordova-plugin-nativestorage/www/LocalStorageHandle.js",
+      "pluginId": "cordova-plugin-nativestorage"
+    },
+    {
+      "id": "cordova-plugin-nativestorage.NativeStorageError",
+      "file": "plugins/cordova-plugin-nativestorage/www/NativeStorageError.js",
+      "pluginId": "cordova-plugin-nativestorage"
+    },
+    {
       "id": "cordova-plugin-network-information.network",
       "file": "plugins/cordova-plugin-network-information/www/network.js",
       "pluginId": "cordova-plugin-network-information",
@@ -494,6 +528,22 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
+      "id": "cordova-plugin-wechat.Wechat",
+      "file": "plugins/cordova-plugin-wechat/www/wechat.js",
+      "pluginId": "cordova-plugin-wechat",
+      "clobbers": [
+        "Wechat"
+      ]
+    },
+    {
+      "id": "cordova-plugin-x-toast.Toast",
+      "file": "plugins/cordova-plugin-x-toast/www/Toast.js",
+      "pluginId": "cordova-plugin-x-toast",
+      "clobbers": [
+        "window.plugins.toast"
+      ]
+    },
+    {
       "id": "es.keensoft.fullscreenimage.FullScreenImage",
       "file": "plugins/es.keensoft.fullscreenimage/www/fullscreenimage.js",
       "pluginId": "es.keensoft.fullscreenimage",
@@ -516,32 +566,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "call"
       ]
-    },
-    {
-      "id": "cordova-plugin-appminimize.AppMinimize",
-      "file": "plugins/cordova-plugin-appminimize/www/AppMinimize.js",
-      "pluginId": "cordova-plugin-appminimize",
-      "clobbers": [
-        "cordova.plugins.appMinimize"
-      ]
-    },
-    {
-      "id": "cordova-plugin-nativestorage.mainHandle",
-      "file": "plugins/cordova-plugin-nativestorage/www/mainHandle.js",
-      "pluginId": "cordova-plugin-nativestorage",
-      "clobbers": [
-        "NativeStorage"
-      ]
-    },
-    {
-      "id": "cordova-plugin-nativestorage.LocalStorageHandle",
-      "file": "plugins/cordova-plugin-nativestorage/www/LocalStorageHandle.js",
-      "pluginId": "cordova-plugin-nativestorage"
-    },
-    {
-      "id": "cordova-plugin-nativestorage.NativeStorageError",
-      "file": "plugins/cordova-plugin-nativestorage/www/NativeStorageError.js",
-      "pluginId": "cordova-plugin-nativestorage"
     }
   ];
   module.exports.metadata = {
@@ -553,26 +577,29 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-appversion": "1.0.0",
     "cordova-plugin-app-update": "2.0.2",
     "cordova-plugin-app-version": "0.1.9",
+    "cordova-plugin-appminimize": "1.0.1",
     "cordova-plugin-camera": "4.0.3",
     "cordova-plugin-device": "2.0.3",
     "cordova-plugin-file-transfer": "1.7.1",
     "cordova-plugin-filepath": "1.5.5",
     "cordova-plugin-gaodelocation-chenyu": "2.0.2",
+    "cordova-plugin-gubnoi-alipay": "0.0.10",
     "cordova-plugin-inappbrowser": "3.1.0",
     "cordova-plugin-ionic-keyboard": "2.1.3",
     "cordova-plugin-ionic-webview": "4.1.1",
     "cordova-plugin-jcore": "1.3.1",
     "cordova-plugin-market": "1.2.0",
     "cordova-plugin-media-capture": "3.0.3",
+    "cordova-plugin-nativestorage": "2.3.2",
     "cordova-plugin-network-information": "2.0.2",
     "cordova-plugin-splashscreen": "5.0.3",
     "cordova-plugin-statusbar": "2.4.3",
     "cordova-plugin-telerik-imagepicker": "2.3.2",
+    "cordova-plugin-wechat": "2.9.0",
     "cordova-plugin-whitelist": "1.3.3",
+    "cordova-plugin-x-toast": "2.7.2",
     "es.keensoft.fullscreenimage": "1.0.1",
     "jpush-phonegap-plugin": "3.7.3",
-    "mx.ferreyra.callnumber": "0.0.2",
-    "cordova-plugin-appminimize": "1.0.1",
-    "cordova-plugin-nativestorage": "2.3.2"
+    "mx.ferreyra.callnumber": "0.0.2"
   };
 });

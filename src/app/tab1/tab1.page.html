@@ -2,14 +2,14 @@
  * @Author: wjy-mac
  * @Date: 2019-07-23 20:09:34
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-14 17:02:40
+ * @LastEditTime: 2019-11-20 22:11:30
  * @Description: file content
  -->
 <ion-header [translucent]="true" mode="ios">
   <ion-toolbar mode="ios" [ngClass]="'show-' + toolbaropacity">
     <div class="search-bar">
       <div class="left" (click)="toPage(4)" *ngIf="location">
-        <span>{{location.city}}</span>
+        <span>{{location.city | location}}</span>
         <img src="/assets/index-arrow.svg">
       </div>
       <div class="center" (click)="presentModal()">
@@ -57,7 +57,7 @@
   <ion-slides pager="true" [options]="slideOpts" style="margin-top: 10px;"  *ngIf="navList">
     <ion-slide *ngFor="let item of navList" (click)="toPage(item.type, item.menu_url)">
       <img class="nav-img" src="{{item.menu_img | imgsrc: http.domain}}">
-      <div>{{item.menu_name}}</div>
+      <div class="index-nav-op">{{item.menu_name}}</div>
     </ion-slide>
   </ion-slides>
   <!--<div class="swiper-pagination2"></div>-->

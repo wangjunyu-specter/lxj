@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-08 15:15:24
+ * @LastEditTime: 2019-11-27 18:02:13
  * @Description: file content
  -->
 <ion-header [translucent]="true" mode="ios">
@@ -32,7 +32,7 @@
   </ion-toolbar>
   <div class="listnav2 isfixed" *ngIf="isshowtopnav">
     <app-hwcpsort *ngIf="ishw && togglelist" [togglelist]="togglelist"
-                  (sethwActivesortfn)="sethwActivesort($event)" [pricearea]="price_grade"
+                  (sethwActivesortfn)="sethwActivesort($event)" [pricearea]="pricearea"
                   (seleteend)="seleteend($event)" [allAddress]="allAddress" [changeAddress]="changeAddress"
                   (isSetshowbg)="isSetshowbg($event)" [setCloseattr]="setCloseattr" [tjcity]="tjcity"
                   [jtjyList]="jtjyList" [suppid]="suppId"></app-hwcpsort>
@@ -128,7 +128,7 @@
     <app-pagetitle *ngIf="suppId === 0 && listTitle" [myname]="listTitle" [type]="true"></app-pagetitle>
     <div class="listnav isabsolute">
       <app-hwcpsort *ngIf="ishw && togglelist" [togglelist]="togglelist"
-                    (sethwActivesortfn)="sethwActivesort($event)" [pricearea]="price_grade"
+                    (sethwActivesortfn)="sethwActivesort($event)" [pricearea]="pricearea"
                     (seleteend)="seleteend($event)" [allAddress]="allAddress" [changeAddress]="changeAddress"
                     (isSetshowbg)="isSetshowbg($event)" [setCloseattr]="setCloseattr" [tjcity]="tjcity"
                     [jtjyList]="jtjyList" [suppid]="suppId"></app-hwcpsort>

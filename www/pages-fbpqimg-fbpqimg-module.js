@@ -61,7 +61,7 @@ var FbpqimgPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\" mode=\"ios\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>发布</ion-title>\n    <ion-buttons slot=\"end\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"sub()\" [disabled]=\"!content && imgs.length === 0\">\n        <ion-icon name=\"paper-plane\"></ion-icon>发表\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-textarea rows=\"7\" [maxlength]=\"300\" [(ngModel)]=\"content\" placeholder=\"此刻你在哪里,分享下你的旅行心情吧~\"></ion-textarea>\n  <app-pqimgbox *ngIf=\"type != '2'\" [imglist]=\"imgs\" [showend]=\"isshowend\" (clickItem)=\"remove($event)\" (addimgitem)=\"addfm()\"></app-pqimgbox>\n  <!--<img [src]=\"videoslt\" alt=\"\">-->\n  <!--<video width=\"320\" height=\"240\" controls>-->\n    <!--<source [src]=\"videofile\" type=\"video/mp4\">-->\n    <!--<source [src]=\"videofile\" type=\"video/ogg\">-->\n    <!--您的浏览器不支持 video 标签。-->\n  <!--</video>-->\n  <!--<video width=\"320\" height=\"240\" controls>-->\n    <!--<source [src]=\"videofile1\" type=\"video/mp4\">-->\n    <!--<source [src]=\"videofile1\" type=\"video/ogg\">-->\n    <!--您的浏览器不支持 video 标签。-->\n  <!--</video>-->\n  <div class=\"bf-box\" *ngIf=\"type == '2'\" (click)=\"playvideo()\">\n    <img src=\"../../../assets/icon/play.svg\" alt=\"\">\n  </div>\n  <ion-list margin-top>\n    <ion-item button>\n      <ion-icon name=\"pin\" slot=\"start\"></ion-icon>{{addressObj.address}}\n    </ion-item>\n  </ion-list>\n</ion-content>\n"
+module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-07-15 19:35:34\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-11-18 23:28:11\n * @Description: file content\n -->\n<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\" mode=\"ios\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>发布</ion-title>\n    <ion-buttons slot=\"end\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"sub()\" [disabled]=\"!content && imgs.length === 0\">\n        <ion-icon name=\"paper-plane\"></ion-icon>发表\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\">\n  <ion-textarea rows=\"7\" [maxlength]=\"300\" [(ngModel)]=\"content\" placeholder=\"此刻你在哪里,分享下你的旅行心情吧~\"></ion-textarea>\n  <app-pqimgbox *ngIf=\"isseleteVedio != 1\" [imglist]=\"imgs\" [showend]=\"isshowend\" (clickItem)=\"remove($event)\" (addimgitem)=\"addfm()\"></app-pqimgbox>\n  <!--<img [src]=\"videoslt\" alt=\"\">-->\n  <!--<video width=\"320\" height=\"240\" controls>-->\n    <!--<source [src]=\"videofile\" type=\"video/mp4\">-->\n    <!--<source [src]=\"videofile\" type=\"video/ogg\">-->\n    <!--您的浏览器不支持 video 标签。-->\n  <!--</video>-->\n  <!--<video width=\"320\" height=\"240\" controls>-->\n    <!--<source [src]=\"videofile1\" type=\"video/mp4\">-->\n    <!--<source [src]=\"videofile1\" type=\"video/ogg\">-->\n    <!--您的浏览器不支持 video 标签。-->\n  <!--</video>-->\n  <div class=\"bf-box\" *ngIf=\"isseleteVedio == 1\" (click)=\"playvideo()\">\n    <img src=\"../../../assets/icon/play.svg\" alt=\"\">\n  </div>\n  <ion-list class=\"ion-margin-top\">\n    <ion-item button *ngIf=\"addressObj\">\n      <ion-icon name=\"pin\" slot=\"start\"></ion-icon>{{addressObj.address}}\n    </ion-item>\n  </ion-list>\n</ion-content>\n"
 
 /***/ }),
 
@@ -101,8 +101,8 @@ __webpack_require__.r(__webpack_exports__);
 /*
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
- * @LastEditors: wjy
- * @LastEditTime: 2019-08-04 02:07:00
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-20 14:11:34
  * @Description: file content
  */
 
@@ -132,24 +132,16 @@ var FbpqimgPage = /** @class */ (function () {
         this.route = route;
     }
     FbpqimgPage.prototype.ngOnInit = function () {
+        this.isseleteVedio = 0;
         // this.addimg = 'www/assets/add.png';
-        this.imgs = this.seletemedia.getList();
+        this.imgs = [];
         this.isshowend = true;
         this.address = '12323';
-        var params = this.activeroute.snapshot.queryParams;
-        this.type = (params['type']).toString();
     };
     FbpqimgPage.prototype.ionViewDidEnter = function () {
-        var _this = this;
+        var params = this.activeroute.snapshot.queryParams;
+        this.type = (params['type']).toString();
         this.addressObj = this.user.getLocation();
-        if (this.type == '2') {
-            // this.video = this.imgs[0];
-            this.videofile = this.seletemedia.getData();
-            this.videofile.getFormatData(function (data) {
-                _this.videofile1 = data;
-            });
-            // this.setSlt();
-        }
         this.userdata = this.user.getUserp();
     };
     // setSlt() {
@@ -160,10 +152,13 @@ var FbpqimgPage = /** @class */ (function () {
     //
     // }
     FbpqimgPage.prototype.goBack = function () {
+        this.imgs = [];
+        this.videofile = null;
+        this.videofile1 = null;
         this.nav.back();
     };
     FbpqimgPage.prototype.ionViewDidLeave = function () {
-        this.seletemedia.clear();
+        // this.seletemedia.clear();
     };
     FbpqimgPage.prototype.addfm = function () {
         if (this.imgs.length === 9) {
@@ -172,29 +167,27 @@ var FbpqimgPage = /** @class */ (function () {
         this.presentActionSheet();
     };
     FbpqimgPage.prototype.remove = function (index) {
-        // this.imgs.splice(index, 1);
-        this.seletemedia.removeOne(index);
+        this.imgs.splice(index, 1);
+        // this.seletemedia.removeOne(index);
         if (this.imgs.length === 8) {
             this.isshowend = true;
         }
     };
     FbpqimgPage.prototype.presentActionSheet = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var actionSheet;
+            var buttons, actionSheet;
             var _this = this;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.actionSheetController.create({
-                            header: '请选择来源',
-                            buttons: [{
+                    case 0:
+                        buttons = [];
+                        if (this.isseleteVedio != 1) {
+                            buttons.push.apply(buttons, [{
                                     text: '相机',
                                     role: 'destructive',
                                     handler: function () {
-                                        console.log('Delete clicked');
-                                        // this.native.captureImage().then(res => {
-                                        //   this.addimgfn(res['fullPath']);
-                                        // });
                                         _this.native.getPictureByCamera().then(function (res) {
+                                            _this.isseleteVedio = 2;
                                             _this.addimgfn(res);
                                         });
                                     }
@@ -203,20 +196,42 @@ var FbpqimgPage = /** @class */ (function () {
                                     handler: function () {
                                         console.log('Share clicked');
                                         _this.native.getPictures(9 - _this.imgs.length).then(function (res) {
+                                            _this.isseleteVedio = 2;
                                             res.map(function (img) {
                                                 _this.addimgfn(img);
                                             });
                                         }, function (err) {
                                         });
                                     }
-                                }, {
-                                    text: '取消',
-                                    role: 'cancel',
-                                    handler: function () {
-                                        console.log('Cancel clicked');
-                                    }
-                                }]
-                        })];
+                                }]);
+                        }
+                        if (this.isseleteVedio != 2) {
+                            buttons.push({
+                                text: '拍摄视频',
+                                role: '',
+                                handler: function () {
+                                    _this.native.captureVideo().then(function (filedata) {
+                                        // this.seletemedia.setData(filedata);
+                                        _this.isseleteVedio = 1;
+                                        _this.videofile = filedata;
+                                        _this.videofile.getFormatData(function (data) {
+                                            _this.videofile1 = data;
+                                        });
+                                    }, function (err) { });
+                                }
+                            });
+                        }
+                        buttons.push({
+                            text: '取消',
+                            role: 'cancel',
+                            handler: function () {
+                                console.log('Cancel clicked');
+                            }
+                        });
+                        return [4 /*yield*/, this.actionSheetController.create({
+                                header: '请选择来源',
+                                buttons: buttons
+                            })];
                     case 1:
                         actionSheet = _a.sent();
                         return [4 /*yield*/, actionSheet.present()];
@@ -228,7 +243,8 @@ var FbpqimgPage = /** @class */ (function () {
         });
     };
     FbpqimgPage.prototype.addimgfn = function (res) {
-        this.seletemedia.addImg(res);
+        // this.seletemedia.addImg(res);
+        this.imgs.push(res);
         if (this.imgs.length === 9) {
             this.isshowend = false;
         }
@@ -247,7 +263,8 @@ var FbpqimgPage = /** @class */ (function () {
             // this.isloading = false;
             _this.user.addjf(res.result.num);
             _this.uploadEnd();
-            _this.route.navigate(['/fbyjmore'], { queryParams: { type: 1, num: res.result.num } });
+            _this.imgs.length = 0;
+            _this.route.navigate(['/fbyjmore'], { queryParams: { type: 1, num: res.result.num, sendnum: res.result.sendnum } });
         }, function (err2) {
             _this.uploadEnd();
         });
@@ -255,15 +272,16 @@ var FbpqimgPage = /** @class */ (function () {
     FbpqimgPage.prototype.sub = function () {
         this.isloading = true;
         this.subloading();
-        if (this.imgs.length === 0) {
-            this.contentsend();
-            return false;
-        }
-        if (this.type === '2') {
+        if (this.isseleteVedio == 1) {
             this.getVidefile();
         }
         else {
-            this.basezfile();
+            if (this.imgs.length === 0) {
+                this.contentsend();
+            }
+            else {
+                this.basezfile();
+            }
         }
     };
     FbpqimgPage.prototype.getVidefile = function () {
@@ -288,6 +306,8 @@ var FbpqimgPage = /** @class */ (function () {
             }
         };
         fileTransfer.upload(this.videofile.fullPath, this.http.domain + this.http.updateimg, obj).then(function (res) {
+            _this.videofile = null;
+            _this.videofile1 = null;
             var path = JSON.parse(res.response)['result'];
             _this.contentsend([path]);
         }).catch(function (err2) {

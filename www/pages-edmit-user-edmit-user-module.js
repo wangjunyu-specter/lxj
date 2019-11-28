@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-08-05 00:22:27
+ * @LastEditTime: 2019-11-26 21:39:24
  * @Description: file content
  */
 
@@ -191,7 +191,7 @@ var EdmitUserPage = /** @class */ (function () {
             oReq.onreadystatechange = function (oEvent) {
                 if (oReq.readyState == 4 && oReq.status == 200) {
                     var res = JSON.parse(oReq.response);
-                    resolve(res.result['thumb']);
+                    resolve(res.result['src']);
                 }
             };
             oReq.onerror = function (err) {
@@ -269,7 +269,9 @@ var EdmitUserPage = /** @class */ (function () {
                         _a.label = 1;
                     case 1:
                         _a.trys.push([1, 3, , 4]);
-                        file = this.native.getImgbase64tofile(this.userData.headimg, this.userData.username + 'userhead' + this.userid);
+                        file = this.native.getImgbase64tofile(this.userData.headimg, 'userheaduid_' + this.userid);
+                        file.append('nothumb', '1');
+                        file.append('ishead', '1');
                         console.log(file);
                         return [4 /*yield*/, this.imgupload(file)];
                     case 2:

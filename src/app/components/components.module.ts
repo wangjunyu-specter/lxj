@@ -4,7 +4,7 @@ import { ArticlecardComponent } from './articlecard/articlecard.component';
  * @Author: wjy-mac
  * @Date: 2019-07-28 00:35:54
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-10 15:40:55
+ * @LastEditTime: 2019-11-26 23:33:28
  * @Description: file content
  */
 import { NgModule } from '@angular/core';
@@ -53,6 +53,7 @@ import { RmztitemComponent } from './rmztitem/rmztitem.component';
 import { ScnewtitleComponent } from './scnewtitle/scnewtitle.component';
 import { ScindextjgoodsComponent } from './scindextjgoods/scindextjgoods.component';
 import { NomoreComponent } from './nomore/nomore.component';
+// import { ScanImagesComponent } from './scan-images/scan-images.component';
 // import { SearchComponent } from './search/search.component';
 @NgModule({
   declarations: [SeletebtnComponent, PagetitleComponent, NewpagetitleComponent, ProductlistComponent, YhboxComponent,

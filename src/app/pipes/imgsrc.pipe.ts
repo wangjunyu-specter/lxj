@@ -2,7 +2,7 @@
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-09 16:24:11
+ * @LastEditTime: 2019-11-26 23:35:41
  * @Description: file content
  */
 import { Pipe, PipeTransform } from '@angular/core';
@@ -18,7 +18,6 @@ export class ImgsrcPipe implements PipeTransform {
     if (!value) {
       return '../../assets/mrtx.jpg';
     }
-    // value = '/mobile/images/201908/thumbyyuserhead161564935022041.jpg'
     if (value.startsWith('http') || value.startsWith('data:image') || value.startsWith('file:///') || value.startsWith('cdvfile://')) {
       return value;
     } else if (value.startsWith('/mobile') && args && args.endsWith('mobile/')) {

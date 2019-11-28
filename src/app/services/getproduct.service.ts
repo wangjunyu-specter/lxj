@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-28 02:20:08
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-18 15:20:45
+ * @LastEditTime: 2019-11-28 15:38:20
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -140,7 +140,7 @@ export class GetproductService {
     // this.data.attribute = data.specification;
     if (this.data['ishw']) {
       this.data.hbxx = data.hbxx;
-      this.data.xclx = data.jtjy;
+      this.data.xclx = data.jtjy; 
       this.data.fybh = data.goods.fybh;
       this.data.fybbh = data.goods.fybbh;
       this.data.gmsm = data.goods.gwsm;
@@ -226,7 +226,7 @@ export class GetproductService {
         resolve(res);
       }, err => {
         console.error(err)
-        this.presentAlertConfirm(err['msg'])
+        // this.presentAlertConfirm(err['msg'])
         // this.nav.back();
         // this.alertController.getTop().
 
@@ -325,14 +325,20 @@ export class GetproductService {
    * @param timearr
    */
   setYMD (res) {
+    console.log(res);
     const ndate = new Date;
     const nyear = ndate.getFullYear();
     const nmonth = ndate.getMonth() + 1;
     const nday = ndate.getDate();
+    const nhour = ndate.getHours();
+    const nmin = ndate.getMinutes();
     let label, date;
     let isnow: boolean = true;
     const bq: string = getDatebq(res.label);
     const arr = res.label.split(bq);
+    if (arr[arr.length - 1].includes(' ')) {
+      arr[arr.length - 1] = arr[arr.length - 1].split(' ')[0];
+    }
     let year: string;
     let month: string;
     let day: string;
@@ -346,7 +352,7 @@ export class GetproductService {
       day = setDate(arr[1]);
     }
     label = year + '-' + month + '-' + day;
-    if (!this.ratiosize(label, nyear + '-' + nmonth + '-' + nday)) {
+    if (!this.ratiosize(label, `${nyear}/${nmonth}/${nday} ${nhour}:${nmin}`)) {
       isnow = false;
     }
     date = Number(year) + '-' + Number(month) + '-' + Number(day);
@@ -477,12 +483,23 @@ export class GetproductService {
    * @returns {boolean}
    */
   ratiosize (str: string, str2: string) {
+    if (str.includes(' ') && str2.includes(' ')) {
+      const time1 = this.formatTimeStamp(str);
+      const time2 = this.formatTimeStamp(str2);
+      return time1 >= time2;
+    }
     const arr1 = str.split(getDatebq(str));
     const arr2 = str2.split(getDatebq(str2));
     if (arr1.length > arr2.length) {
       return true;
     } else if (arr1.length < arr2.length) {
       return false;
+    }
+    if (arr1[arr1.length - 1].includes(' ')) {
+      arr1[arr1.length - 1] = arr1[arr1.length - 1].split(' ')[0];
+    }
+    if (arr2[arr2.length - 1].includes(' ')) {
+      arr2[arr2.length - 1] = arr2[arr2.length - 1].split(' ')[0];
     }
     for (let i = 0, j = arr1.length; i < j; i++) {
       if (Number(arr1[i]) > Number(arr2[i])) {
@@ -492,6 +509,16 @@ export class GetproductService {
       }
     }
     return true;
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 将时间转换为时间戳
+   * @Date: 2019-11-28 15:34:51
+   * @param {type} 
+   * @return: 
+   */  
+  formatTimeStamp(date){
+    return Date.parse(new Date(date).toString()) || Date.parse(new Date(date.replace(/-/g,'/')).toString());
   }
   // 点击出发时间
   clickOuttime (id) {

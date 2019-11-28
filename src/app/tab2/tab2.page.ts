@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-14 23:03:42
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-19 21:41:47
+ * @LastEditTime: 2019-11-26 23:29:13
  * @Description: file content
  */
 import {Component, OnInit} from '@angular/core';
@@ -32,7 +32,7 @@ import {error} from 'selenium-webdriver';
 export class Tab2Page implements OnInit {
   shopdata: any;
   pageType: number;
-  pageArray: string[];
+  pageArray: any[];
   gzlist: any[]; //列表数据
   pqlist: any[]; //列表数据
   yjlist: any[]; //列表数据
@@ -48,7 +48,32 @@ export class Tab2Page implements OnInit {
               public modalController: ModalController, private topage: TopageService,
               private native: NativeService, private seletemedia: SeleteMediaService) {
     this.pageType = 0;
-    this.pageArray = ['关注', '票圈', '游记', '攻略', '召集'];
+    // this.pageArray = ['关注', '票圈', '游记', '攻略', '召集'];
+    this.pageArray = [{
+      name: '关注',
+      type: 0,
+      active: 1
+    },
+    {
+      name: '票圈',
+      type: 1,
+      active: -1
+    },
+    {
+      name: '约游',
+      type: 4,
+      active: -1
+    },
+    {
+      name: '游记',
+      type: 2,
+      active: -1
+    },
+    {
+      name: '攻略',
+      type: 3,
+      active: -1
+    }];
     this.ishttp = new Set();
   }
   ionViewDidEnter() {
@@ -97,16 +122,48 @@ export class Tab2Page implements OnInit {
     // return await modal.present();
     this.route.navigate(['/sharesearch'], {queryParams: {searchKey: this.searchKey}})
   }
-  setType(type: number) {
+  setType(index: number) {
+    let type: number;
+    this.pageArray.forEach((res, i) => {
+      if (i === index) {
+        res.active = 1;
+        type = res.type;
+      } else {
+        res.active = -1;
+      }
+    })
     this.pageType = type;
-    if (type === 1 && !this.pqlist) {
-      this.pqlist = this.pqlistfn.getList();
-    } else if (type === 2 && !this.yjlist) {
-      this.yjlist = this.yjlistfn.getyjList();
-    } else if (type === 3 && !this.gllist) {
-      this.gllist = this.yjlistfn.getglList();
-    } else if (type === 4 && !this.zmlist) {
-      this.zmlist = this.yjlistfn.getzmList();
+    if (type === 0) {
+      this.gzuserlist = this.gzlistfn.getGzlist();
+      if (!this.pqlist) {
+        this.gzlist = this.pqlistfn.getgzList();
+      } else {
+        this.pqlistfn.reset(1);
+      }
+    } else if (type === 1) {
+      if (!this.pqlist) {
+        this.pqlist = this.pqlistfn.getList();
+      } else {
+        this.pqlistfn.reset(2);
+      }
+    } else if (type === 2) {
+      if (!this.yjlist) {
+        this.yjlist = this.yjlistfn.getyjList();
+      } else {
+        this.yjlistfn.reset(1).then(res => {}).catch(err => {});
+      }
+    } else if (type === 3) {
+      if (!this.gllist) {
+        this.gllist = this.yjlistfn.getglList();
+      } else {
+        this.yjlistfn.reset(2).then(res => {}).catch(err => {});
+      }
+    } else if (type === 4) {
+      if (!this.zmlist) {
+        this.zmlist = this.yjlistfn.getzmList();
+      } else {
+        this.yjlistfn.reset(3).then(res => {}).catch(err => {});
+      }
     }
   }
   doRefresh(event) {
@@ -187,6 +244,7 @@ export class Tab2Page implements OnInit {
         break;
     }
   }
+  
   async tofb() {
     const modal = await this.modalController.create({
       component: FbseleteComponent

@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-11-18 09:52:37
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-18 16:00:29
+ * @LastEditTime: 2019-11-21 00:44:35
  * @Description: file content
  -->
 <ion-header mode="ios">
@@ -26,7 +26,7 @@
       <ion-item>
         <div class="my-input">
           <input type="text" placeholder="请输入验证码" [disabled]="!formData.tel" [(ngModel)]="formData.yzm" #yzm="ngModel" required>
-          <button class="ion-float-right" [disabled]="isGetyzm" (click)="getYzm()">{{yzmText}}</button>
+          <button class="ion-float-right" [disabled]="isGetyzm || !formData.tel || formData.tel.toString().length != 11" [ngClass]="{noclick: !formData.tel || formData.tel.toString().length != 11}" (click)="getYzm()">{{yzmText}}</button>
         </div>
       </ion-item>
       <ion-item>

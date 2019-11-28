@@ -1,3 +1,11 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-06-11 19:55:24
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-21 15:59:49
+ * @Description: file content
+ */
+import { ComponentsModule } from './../../components/components.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -19,6 +27,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentsModule,
     RouterModule.forChild(routes)
   ],
   declarations: [BounsPage]

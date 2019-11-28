@@ -1202,10 +1202,11 @@ public class InAppBrowser extends CordovaPlugin {
          * @param method
          */
         public boolean shouldOverrideUrlLoading(String url, String method) {
+            LOG.e(LOG_TAG, "for: " + url);
             boolean override = false;
             boolean useBeforeload = false;
             String errorMessage = null;
-
+            errorMessage = url;
             if (beforeload.equals("yes") && method == null) {
                 useBeforeload = true;
             }else if(beforeload.equals("yes")
@@ -1240,8 +1241,16 @@ public class InAppBrowser extends CordovaPlugin {
                     LOG.e(LOG_TAG, "Error sending loaderror for " + url + ": " + e.toString());
                 }
             }
-
-            if (url.startsWith(WebView.SCHEME_TEL)) {
+            if(url.startsWith("weixin:") || url.startsWith("alipays:")){
+                try{
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse(url));
+                    cordova.getActivity().startActivity(intent);
+                    return true;
+                }catch(android.content.ActivityNotFoundException e){
+                    LOG.e(LOG_TAG, "Error sending sms " + url + ":" + e.toString());
+                }
+            } else if (url.startsWith(WebView.SCHEME_TEL)) {
                 try {
                     Intent intent = new Intent(Intent.ACTION_DIAL);
                     intent.setData(Uri.parse(url));

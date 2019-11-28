@@ -58,13 +58,14 @@ export class PqlistService {
   }
   getList() {
     if (this.list.length === 0) {
-      this.getListhttp();
+      this.getListhttp().then(res => {}).catch(err => {});
     }
     return this.list;
   }
   getgzList() {
+    console.log(this.gzList)
     if (this.gzList.length === 0) {
-      this.getgzListhttp();
+      this.getgzListhttp().then(res => {}).catch(err => {});
     }
     return this.gzList;
   }
@@ -73,7 +74,7 @@ export class PqlistService {
       this.gzpageObj.isall = false;
       this.gzpageObj.page = 1;
       try {
-        await this.getgzListhttp(1);
+        await this.getgzListhttp(1).then(res => {}).catch(err => {});
       } catch (err2) {
         return false;
       }
@@ -157,7 +158,7 @@ export class PqlistService {
       }, err => {
         // alert(JSON.stringify(err))
         console.log(err);
-        reject(false)
+        reject(err)
       });
     });
   }

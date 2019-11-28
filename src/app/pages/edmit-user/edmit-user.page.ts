@@ -2,7 +2,7 @@
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-08-05 00:22:27
+ * @LastEditTime: 2019-11-26 21:39:24
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -95,8 +95,8 @@ export class EdmitUserPage implements OnInit {
       oReq.open('POST', this.http.domain + this.http.updateimg);
       oReq.onreadystatechange = (oEvent) => {
         if (oReq.readyState == 4 && oReq.status == 200) {
-          const res = JSON.parse(oReq.response)
-          resolve(res.result['thumb']);
+          const res = JSON.parse(oReq.response);
+          resolve(res.result['src']);
         }
       }
       oReq.onerror = (err) => {
@@ -154,7 +154,9 @@ export class EdmitUserPage implements OnInit {
     this.ischangeHead = true;
     this.userData.headimg = link;
     try {
-      const file = this.native.getImgbase64tofile(this.userData.headimg, this.userData.username + 'userhead' + this.userid);
+      const file = this.native.getImgbase64tofile(this.userData.headimg, 'userheaduid_' + this.userid);
+      file.append('nothumb', '1');
+      file.append('ishead', '1');
       console.log(file);
       const filepath = await this.imgupload(file);
       console.log(filepath)

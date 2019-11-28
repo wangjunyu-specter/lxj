@@ -61,7 +61,7 @@ var Tab4PageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\r\n * @Author: wjy-mac\r\n * @Date: 2019-08-03 14:52:31\r\n * @LastEditors: wjy-mac\r\n * @LastEditTime: 2019-11-18 12:09:17\r\n * @Description: file content\r\n -->\r\n<ion-header [translucent]=\"true\" mode=\"ios\">\r\n  <ion-toolbar  mode=\"ios\" [ngClass]=\"'show-' + toolbaropacity\">\r\n    <ion-title *ngIf=\"isshow\">{{user.user_name}}</ion-title>\r\n    <ion-buttons slot=\"primary\">\r\n      <ion-button (click)=\"openPage(5)\">\r\n        <!--<ion-icon slot=\"icon-only\" name=\"cog\"></ion-icon>-->\r\n        <img src=\"./assets/center-arrow.svg\">\r\n      </ion-button>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content [scrollEvents]=\"true\" [fullscreen]=\"true\" (ionScroll)=\"logScrolling($event)\">\r\n\r\n  <div class=\"center-top\">\r\n    <!--<div class=\"top-right\">-->\r\n      <!--<ion-button fill=\"clear\">-->\r\n        <!--&lt;!&ndash;<ion-icon slot=\"icon-only\" name=\"cog\"></ion-icon>&ndash;&gt;-->\r\n        <!--<img src=\"./assets/center-arrow.svg\">-->\r\n      <!--</ion-button>-->\r\n    <!--</div>-->\r\n    <!--<img src=\"./assets/centerhead.svg\">-->\r\n    <div class=\"box\" padding>\r\n      <div class=\"header\">\r\n        <ion-avatar>\r\n          <img [src]=\"user.headimg  | imgsrc: http.domain\">\r\n        </ion-avatar>\r\n        <div class=\"right\">\r\n          <div class=\"name\">\r\n            {{user.user_name}}\r\n            <ion-button fill=\"clear\" size=\"small\" (click)=\"openPage(14)\">\r\n              修改资料\r\n              <img src=\"./assets/centerarrow.svg\">\r\n            </ion-button>\r\n          </div>\r\n          <div class=\"des\">\r\n            <span>LV.{{user.user_rank}}</span>\r\n            {{user.lxdj}}\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"footer\">\r\n        <ion-grid>\r\n          <ion-row *ngIf=\"centeruser\">\r\n            <ion-col (click)=\"openPage(12)\">\r\n              <span>{{centeruser.gznum | setnum}}</span><span>关注</span>\r\n            </ion-col>\r\n            <ion-col (click)=\"openPage(13)\">\r\n              <span>{{centeruser.fsnum | setnum}}</span><span>粉丝</span>\r\n            </ion-col>\r\n            <ion-col>\r\n              <span>{{centeruser.dznum | setnum}}</span><span>获赞</span>\r\n            </ion-col>\r\n          </ion-row>\r\n        </ion-grid>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"topnav\">\r\n    <ion-card mode=\"ios\">\r\n      <ion-card-content>\r\n        <ion-grid>\r\n          <ion-row>\r\n            <ion-col (click)=\"openPage(1)\"><img src=\"./assets/wdxc.svg\"><span>我的行程</span></ion-col>\r\n            <ion-col (click)=\"openPage(2)\"><img src=\"./assets/wdsc.svg\"><span>行程收藏</span></ion-col>\r\n            <ion-col (click)=\"openPage(3)\"><img src=\"./assets/yhq.svg\"><span>优惠券</span></ion-col>\r\n          </ion-row>\r\n        </ion-grid>\r\n      </ion-card-content>\r\n    </ion-card>\r\n  </div>\r\n  <div class=\"xcts-box\" *ngIf=\"centeruser\">\r\n    <ion-card class=\"tis\" mode=\"ios\" *ngFor=\"let item of centeruser.xclist; let i = index\">\r\n      <ion-card-content>\r\n        <div class=\"my-title\">\r\n          <img src=\"../assets/znxl.png\">\r\n          <img src=\"../assets/centercha.svg\" (click)=\"closeXlts(i)\">\r\n        </div>\r\n        <span *ngIf=\"item.timeend>0 && item.timetype == 2\">距离行程[{{item.setouttime}}]出发还有<ion-text color=\"success\">{{item.timeend}}</ion-text>天，请做好安排哦！ <ion-text color=\"primary\" (click)=\"openOtherpage({type: 11, url: item.order_sn})\">去看看</ion-text></span>\r\n        <span *ngIf=\"item.timeend>0 && item.timetype == 1 && item.timeend > 2\">距离行程[{{item.setouttime}}]出发还有<ion-text color=\"success\">{{item.timeend}}</ion-text>小时，请做好安排哦！ <ion-text color=\"primary\" (click)=\"openOtherpage({type: 11, url: item.order_sn})\">去看看</ion-text></span>\r\n        <span *ngIf=\"item.timeend>0 && item.timetype == 1 && item.timeend <= 2\">行程[{{item.setouttime}}]<ion-text color=\"danger\">即将出发</ion-text>，请做好安排哦！ <ion-text color=\"primary\" (click)=\"openOtherpage({type: 11, url: item.order_sn})\">去看看</ion-text></span>\r\n        <span *ngIf=\"item.timeend == 0\">行程[{{item.setouttime}}]今日出发，请尽快集合哦！ <ion-text color=\"primary\" (click)=\"openOtherpage({type: 11, url: item.order_sn})\">去看看</ion-text></span>\r\n      </ion-card-content>\r\n    </ion-card>\r\n  </div>\r\n  <ion-card mode=\"ios\" class=\"cygj\">\r\n    <ion-card-header>\r\n      <ion-card-title>常用工具</ion-card-title>\r\n    </ion-card-header>\r\n\r\n    <ion-card-content>\r\n      <ion-row>\r\n        <ion-col (click)=\"openPage(8)\"><img src=\"./assets/jfsc.svg\"><span>购物车</span></ion-col>\r\n        <ion-col (click)=\"openPage(10)\"><img src=\"./assets/allorder.svg\"><span>全部订单</span></ion-col>\r\n        <ion-col (click)=\"openPage(16)\"><img src=\"./assets/allorder.svg\"><span>退款/售后</span></ion-col>\r\n        <ion-col (click)=\"openPage(4)\"><img src=\"./assets/wddp.svg\"><span>我的收藏</span></ion-col>\r\n      </ion-row>\r\n      <ion-row>\r\n        <ion-col (click)=\"openPage(11)\"><img src=\"./assets/wdfb.svg\"><span>我的发布</span></ion-col>\r\n        <ion-col (click)=\"openPage(15)\"><img src=\"./assets/wdcg.svg\"><span>我的草稿</span></ion-col>\r\n        <ion-col (click)=\"openPage(9)\"><img src=\"./assets/lljl.svg\"><span>浏览记录</span></ion-col>\r\n        <ion-col><img src=\"./assets/kf.svg\"><span>客服服务</span></ion-col>\r\n      </ion-row>\r\n      <ion-row>\r\n        <ion-col size=\"3\"><img src=\"./assets/hzqt.svg\"><span>合作洽谈</span></ion-col>\r\n      </ion-row>\r\n    </ion-card-content>\r\n  </ion-card>\r\n  <ion-card mode=\"ios\" class=\"hdbox\" *ngIf=\"centeruser && centeruser['advertisement'] && centeruser['advertisement'].length > 0\">\r\n    <ion-card-header>\r\n      <ion-card-title>活动中心</ion-card-title>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n      <ion-row>\r\n        <ion-col *ngFor=\"let item of centeruser['advertisement']\" (click)=\"openOtherpage(item)\">\r\n          <!--<div class=\"box\">-->\r\n            <!--<div class=\"left\">-->\r\n              <!--<div class=\"title\">分享有礼</div>-->\r\n              <!--<div class=\"des\">邀请好友<ion-text color=\"danger\">得红包</ion-text></div>-->\r\n            <!--</div>-->\r\n            <!--<img src=\"../assets/share.svg\">-->\r\n          <!--</div>-->\r\n          <!--<div class=\"box\">-->\r\n            <!--<div class=\"left\">-->\r\n              <!--<div class=\"title\">有奖问卷</div>-->\r\n              <!--<div class=\"des\">快来参与问卷调查</div>-->\r\n            <!--</div>-->\r\n            <!--<img src=\"../assets/yjwd.svg\">-->\r\n          <!--</div>-->\r\n          <img [src]=\"item.image | imgsrc: http.domain\" alt=\"\">\r\n        </ion-col>\r\n      </ion-row>\r\n    </ion-card-content>\r\n  </ion-card>\r\n</ion-content>\r\n"
+module.exports = "<!--\r\n * @Author: wjy-mac\r\n * @Date: 2019-08-03 14:52:31\r\n * @LastEditors: wjy-mac\r\n * @LastEditTime: 2019-11-21 15:16:00\r\n * @Description: file content\r\n -->\r\n<ion-header [translucent]=\"true\" mode=\"ios\">\r\n  <ion-toolbar  mode=\"ios\" [ngClass]=\"'show-' + toolbaropacity\">\r\n    <ion-title *ngIf=\"isshow\">{{user.user_name}}</ion-title>\r\n    <ion-buttons slot=\"primary\">\r\n      <ion-button (click)=\"openPage(5)\">\r\n        <!--<ion-icon slot=\"icon-only\" name=\"cog\"></ion-icon>-->\r\n        <img src=\"./assets/center-arrow.svg\">\r\n      </ion-button>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content [scrollEvents]=\"true\" [fullscreen]=\"true\" (ionScroll)=\"logScrolling($event)\">\r\n\r\n  <div class=\"center-top\">\r\n    <!--<div class=\"top-right\">-->\r\n      <!--<ion-button fill=\"clear\">-->\r\n        <!--&lt;!&ndash;<ion-icon slot=\"icon-only\" name=\"cog\"></ion-icon>&ndash;&gt;-->\r\n        <!--<img src=\"./assets/center-arrow.svg\">-->\r\n      <!--</ion-button>-->\r\n    <!--</div>-->\r\n    <!--<img src=\"./assets/centerhead.svg\">-->\r\n    <div class=\"box\" padding>\r\n      <div class=\"header\">\r\n        <ion-avatar>\r\n          <img [src]=\"user.headimg  | imgsrc: http.domain\">\r\n        </ion-avatar>\r\n        <div class=\"right\">\r\n          <div class=\"name\">\r\n            {{user.user_name}}\r\n            <ion-button fill=\"clear\" size=\"small\" (click)=\"openPage(14)\">\r\n              修改资料\r\n              <img src=\"./assets/centerarrow.svg\">\r\n            </ion-button>\r\n          </div>\r\n          <div class=\"des\">\r\n            <span>LV.{{user.user_rank}}</span>\r\n            {{user.lxdj}}\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"footer\">\r\n        <ion-grid>\r\n          <ion-row *ngIf=\"centeruser\">\r\n            <ion-col (click)=\"openPage(12)\">\r\n              <span>{{centeruser.gznum | setnum}}</span><span>关注</span>\r\n            </ion-col>\r\n            <ion-col (click)=\"openPage(13)\">\r\n              <span>{{centeruser.fsnum | setnum}}</span><span>粉丝</span>\r\n            </ion-col>\r\n            <ion-col>\r\n              <span>{{centeruser.dznum | setnum}}</span><span>获赞</span>\r\n            </ion-col>\r\n          </ion-row>\r\n        </ion-grid>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"topnav\">\r\n    <ion-card mode=\"ios\">\r\n      <ion-card-content>\r\n        <ion-grid>\r\n          <ion-row>\r\n            <ion-col (click)=\"openPage(1)\"><img src=\"./assets/wdxc.svg\"><span>我的行程</span></ion-col>\r\n            <ion-col (click)=\"openPage(2)\"><img src=\"./assets/wdsc.svg\"><span>行程收藏</span></ion-col>\r\n            <ion-col (click)=\"openPage(3)\"><img src=\"./assets/yhq.svg\"><span>优惠券</span></ion-col>\r\n          </ion-row>\r\n        </ion-grid>\r\n      </ion-card-content>\r\n    </ion-card>\r\n  </div>\r\n  <div class=\"xcts-box\" *ngIf=\"centeruser\">\r\n    <ion-card class=\"tis\" mode=\"ios\" *ngFor=\"let item of centeruser.xclist; let i = index\">\r\n      <ion-card-content>\r\n        <div class=\"my-title\">\r\n          <img src=\"../assets/znxl.png\">\r\n          <img src=\"../assets/centercha.svg\" (click)=\"closeXlts(i)\">\r\n        </div>\r\n        <span *ngIf=\"item.timeend>0 && item.timetype == 2\">距离行程[{{item.setouttime}}]出发还有<ion-text color=\"success\">{{item.timeend}}</ion-text>天，请做好安排哦！ <ion-text color=\"primary\" (click)=\"openOtherpage({type: 11, url: item.order_sn})\">去看看</ion-text></span>\r\n        <span *ngIf=\"item.timeend>0 && item.timetype == 1 && item.timeend > 2\">距离行程[{{item.setouttime}}]出发还有<ion-text color=\"success\">{{item.timeend}}</ion-text>小时，请做好安排哦！ <ion-text color=\"primary\" (click)=\"openOtherpage({type: 11, url: item.order_sn})\">去看看</ion-text></span>\r\n        <span *ngIf=\"item.timeend>0 && item.timetype == 1 && item.timeend <= 2\">行程[{{item.setouttime}}]<ion-text color=\"danger\">即将出发</ion-text>，请做好安排哦！ <ion-text color=\"primary\" (click)=\"openOtherpage({type: 11, url: item.order_sn})\">去看看</ion-text></span>\r\n        <span *ngIf=\"item.timeend == 0\">行程[{{item.setouttime}}]今日出发，请尽快集合哦！ <ion-text color=\"primary\" (click)=\"openOtherpage({type: 11, url: item.order_sn})\">去看看</ion-text></span>\r\n      </ion-card-content>\r\n    </ion-card>\r\n  </div>\r\n  <ion-card mode=\"ios\" class=\"cygj\">\r\n    <ion-card-header>\r\n      <ion-card-title>常用工具</ion-card-title>\r\n    </ion-card-header>\r\n\r\n    <ion-card-content>\r\n      <ion-row>\r\n        <ion-col (click)=\"openPage(8)\"><img src=\"./assets/jfsc.svg\"><span>购物车</span></ion-col>\r\n        <ion-col (click)=\"openPage(10)\"><img src=\"./assets/allorder.svg\"><span>全部订单</span></ion-col>\r\n        <ion-col (click)=\"openPage(16)\"><img src=\"./assets/allorder.svg\"><span>退款/售后</span></ion-col>\r\n        <ion-col (click)=\"openPage(4)\"><img src=\"./assets/wddp.svg\"><span>我的收藏</span></ion-col>\r\n      </ion-row>\r\n      <ion-row>\r\n        <ion-col (click)=\"openPage(11)\"><img src=\"./assets/wdfb.svg\"><span>我的发布</span></ion-col>\r\n        <ion-col (click)=\"openPage(15)\"><img src=\"./assets/wdcg.svg\"><span>我的草稿</span></ion-col>\r\n        <ion-col (click)=\"openPage(9)\"><img src=\"./assets/lljl.svg\"><span>浏览记录</span></ion-col>\r\n        <ion-col><img src=\"./assets/kf.svg\"><span>客服服务</span></ion-col>\r\n      </ion-row>\r\n      <ion-row>\r\n        <ion-col size=\"3\" (click)=\"hzqt()\"><img src=\"./assets/hzqt.svg\"><span>合作洽谈</span></ion-col>\r\n      </ion-row>\r\n    </ion-card-content>\r\n  </ion-card>\r\n  <ion-card mode=\"ios\" class=\"hdbox\" *ngIf=\"centeruser && centeruser['advertisement'] && centeruser['advertisement'].length > 0\">\r\n    <ion-card-header>\r\n      <ion-card-title>活动中心</ion-card-title>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n      <ion-row>\r\n        <ion-col *ngFor=\"let item of centeruser['advertisement']\" (click)=\"openOtherpage(item)\">\r\n          <!--<div class=\"box\">-->\r\n            <!--<div class=\"left\">-->\r\n              <!--<div class=\"title\">分享有礼</div>-->\r\n              <!--<div class=\"des\">邀请好友<ion-text color=\"danger\">得红包</ion-text></div>-->\r\n            <!--</div>-->\r\n            <!--<img src=\"../assets/share.svg\">-->\r\n          <!--</div>-->\r\n          <!--<div class=\"box\">-->\r\n            <!--<div class=\"left\">-->\r\n              <!--<div class=\"title\">有奖问卷</div>-->\r\n              <!--<div class=\"des\">快来参与问卷调查</div>-->\r\n            <!--</div>-->\r\n            <!--<img src=\"../assets/yjwd.svg\">-->\r\n          <!--</div>-->\r\n          <img [src]=\"item.image | imgsrc: http.domain\" alt=\"\">\r\n        </ion-col>\r\n      </ion-row>\r\n    </ion-card-content>\r\n  </ion-card>\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -95,12 +95,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_topage_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/topage.service */ "./src/app/services/topage.service.ts");
 /* harmony import */ var _services_native_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/native.service */ "./src/app/services/native.service.ts");
 /* harmony import */ var _services_okgoods_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/okgoods.service */ "./src/app/services/okgoods.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 
 /*
  * @Author: wjy-mac
  * @Date: 2019-07-31 23:26:32
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-18 11:29:11
+ * @LastEditTime: 2019-11-21 15:27:45
  * @Description: file content
  */
 
@@ -111,8 +112,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var Tab4Page = /** @class */ (function () {
-    function Tab4Page(route, userfn, http, usercenter, toPage, native, okgoodsfn) {
+    function Tab4Page(route, userfn, http, usercenter, toPage, native, okgoodsfn, alertController) {
         this.route = route;
         this.userfn = userfn;
         this.http = http;
@@ -120,6 +122,7 @@ var Tab4Page = /** @class */ (function () {
         this.toPage = toPage;
         this.native = native;
         this.okgoodsfn = okgoodsfn;
+        this.alertController = alertController;
     }
     Tab4Page.prototype.ngOnInit = function () {
         this.isshow = false;
@@ -230,6 +233,41 @@ var Tab4Page = /** @class */ (function () {
     Tab4Page.prototype.openOtherpage = function (item) {
         this.toPage.toPage(item.type, item.url);
     };
+    Tab4Page.prototype.hzqt = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var alert;
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.alertController.create({
+                            header: '提示',
+                            message: '立即联系专属客服为您服务！',
+                            buttons: [
+                                {
+                                    text: '考虑考虑',
+                                    role: 'cancel',
+                                    cssClass: 'secondary',
+                                    handler: function (blah) {
+                                        console.log('Confirm Cancel: blah');
+                                    }
+                                }, {
+                                    text: '立即拨打',
+                                    handler: function () {
+                                        _this.native.callTel('13982152738');
+                                    }
+                                }
+                            ]
+                        })];
+                    case 1:
+                        alert = _a.sent();
+                        return [4 /*yield*/, alert.present()];
+                    case 2:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     Tab4Page = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-tab4',
@@ -238,7 +276,7 @@ var Tab4Page = /** @class */ (function () {
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _services_http_service__WEBPACK_IMPORTED_MODULE_4__["HttpService"],
             _services_usercenter_service__WEBPACK_IMPORTED_MODULE_5__["UsercenterService"], _services_topage_service__WEBPACK_IMPORTED_MODULE_6__["TopageService"], _services_native_service__WEBPACK_IMPORTED_MODULE_7__["NativeService"],
-            _services_okgoods_service__WEBPACK_IMPORTED_MODULE_8__["OkgoodsService"]])
+            _services_okgoods_service__WEBPACK_IMPORTED_MODULE_8__["OkgoodsService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_9__["AlertController"]])
     ], Tab4Page);
     return Tab4Page;
 }());

@@ -64,7 +64,7 @@ var YjcontentPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header [translucent]=\"true\" mode=\"ios\">\n  <ion-toolbar mode=\"ios\" [ngClass]=\"'show-' + toolbaropacity\">\n    <div class=\"search-bar\">\n      <div class=\"left\" (click)=\"goBack()\">\n        <img src=\"/assets/backbg.svg\" alt=\"\">\n      </div>\n      <div class=\"center\">\n      </div>\n      <div class=\"right\">\n        <!--<img src=\"/assets/wechatbg.svg\" alt=\"\">-->\n        <div class=\"round\"><ion-icon name=\"share\"></ion-icon></div>\n        <!--<div class=\"round\" (click)=\"toprightmore($event)\"><ion-icon name=\"more\" mode=\"ios\"></ion-icon></div>-->\n        <!--<img src=\"/assets/czbg.svg\" alt=\"\">-->\n      </div>\n    </div>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [scrollEvents]=\"true\" [fullscreen]=\"true\" (ionScroll)=\"logScrolling($event)\">\n  <div class=\"banner\">\n    <img *ngIf=\"data\" [src]=\"data.imgarr[0] | imgsrc: http.zdomain\" alt=\"\">\n  </div>\n  <div class=\"top-content\" padding-top padding-start padding-end *ngIf=\"data\">\n    <div class=\"title\">{{data.title}}</div>\n    <div class=\"des\">\n      <div class=\"left\">\n        <img src=\"../../../assets/tagleft.svg\" alt=\"\"><div class=\"box\" *ngIf=\"data.tag && data.tag != 'null'\">{{data.tag}}</div>\n      </div>\n      <div class=\"right\">\n        <ion-text color=\"medium\">{{data.readnum}}阅读</ion-text>\n      </div>\n    </div>\n    <ion-row>\n      <ion-col *ngIf=\"data.destination && data.destination != 'null'\">\n        <div class=\"top\">目的地</div>\n        <div class=\"footer\">{{data.destination}}</div>\n      </ion-col>\n      <ion-col *ngIf=\"data.outtime && data.outtime != 'null'\">\n        <div class=\"top\">出发时间</div>\n        <div class=\"footer\">{{data.outtime | time: '.'}}</div>\n      </ion-col>\n      <ion-col *ngIf=\"data.days && data.days != 'null'\">\n        <div class=\"top\">出行天数</div>\n        <div class=\"footer\">{{data.days}}天</div>\n      </ion-col>\n      <ion-col *ngIf=\"data.money && data.money != 'null' && data.money != '0'\">\n        <div class=\"top\">人均花费</div>\n        <div class=\"footer\">¥ {{data.money}}</div>\n      </ion-col>\n    </ion-row>\n    <div class=\"line\"></div>\n  </div>\n  <div class=\"text-content\" padding>\n    <div *ngIf=\"data && data.content\" [innerHTML]=\"assembleHTML(data.content)\"></div>\n  </div>\n  <div *ngIf=\"data\" class=\"app-pllist\" padding-bottom margin-bottom>\n    <div class=\"hfnum\">{{data.plnum}}条回复</div>\n    <app-pllist *ngFor=\"let item of pllist\" [data]=\"item\" [tid]=\"id\" (setItem)=\"setplItem($event)\"></app-pllist>\n  </div>\n  <ion-backdrop *ngIf=\"isshowDrop\" (ionBackdropTap)=\"clickdrop()\"></ion-backdrop>\n\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar>\n    <app-chatinputbox (sub)=\"sub($event)\" (myfous)=\"monfous()\" (mybulr)=\"monblur()\" [username]=\"seletename\"></app-chatinputbox>\n  </ion-toolbar>\n</ion-footer>"
+module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-06-22 21:52:44\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-11-26 23:59:37\n * @Description: file content\n -->\n<ion-header [translucent]=\"true\" mode=\"ios\">\n  <ion-toolbar mode=\"ios\" [ngClass]=\"'show-' + toolbaropacity\">\n    <div class=\"search-bar\">\n      <div class=\"left\" (click)=\"goBack()\">\n        <img src=\"/assets/backbg.svg\" alt=\"\">\n      </div>\n      <div class=\"center\">\n      </div>\n      <div class=\"right\">\n        <!--<img src=\"/assets/wechatbg.svg\" alt=\"\">-->\n        <div class=\"round\"><ion-icon name=\"more\" mode=\"ios\" (click)=\"edmit()\"></ion-icon></div>\n        <!--<div class=\"round\" (click)=\"toprightmore($event)\"><ion-icon name=\"more\" mode=\"ios\"></ion-icon></div>-->\n        <!--<img src=\"/assets/czbg.svg\" alt=\"\">-->\n      </div>\n    </div>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [scrollEvents]=\"true\" [fullscreen]=\"true\" (ionScroll)=\"logScrolling($event)\">\n  <div class=\"banner\">\n    <img *ngIf=\"data\" [src]=\"data.imgarr[0] | imgsrc: http.zdomain\" alt=\"\">\n  </div>\n  <div class=\"top-content ion-padding-top ion-padding-start ion-padding-end\" *ngIf=\"data\">\n    <div class=\"title\">{{data.title}}</div>\n    <div class=\"des\">\n      <div class=\"left\">\n        <img src=\"../../../assets/tagleft.svg\" alt=\"\"><div class=\"box\" *ngIf=\"data.tag && data.tag != 'null'\">{{data.tag}}</div>\n      </div>\n      <div class=\"right\">\n        <ion-text color=\"medium\">{{data.readnum}}阅读</ion-text>\n      </div>\n    </div>\n    <ion-row>\n      <ion-col *ngIf=\"data.destination && data.destination != 'null'\">\n        <div class=\"top\">目的地</div>\n        <div class=\"footer\">{{data.destination}}</div>\n      </ion-col>\n      <ion-col *ngIf=\"data.outtime && data.outtime != 'null'\">\n        <div class=\"top\">出发时间</div>\n        <div class=\"footer\">{{data.outtime | time: '.'}}</div>\n      </ion-col>\n      <ion-col *ngIf=\"data.days && data.days != 'null'\">\n        <div class=\"top\">出行天数</div>\n        <div class=\"footer\">{{data.days}}天</div>\n      </ion-col>\n      <ion-col *ngIf=\"data.money && data.money != 'null' && data.money != '0'\">\n        <div class=\"top\">人均花费</div>\n        <div class=\"footer\">¥ {{data.money}}</div>\n      </ion-col>\n    </ion-row>\n    <div class=\"line\"></div>\n  </div>\n  <div class=\"text-content\" padding #myBox>\n    <div *ngIf=\"data && data.content\" [innerHTML]=\"assembleHTML(data.content)\"></div>\n  </div>\n  <div *ngIf=\"data\" class=\"app-pllist ion-padding-bottom ion-margin-bottom\">\n    <div class=\"hfnum\">{{data.plnum}}条回复</div>\n    <app-pllist *ngFor=\"let item of pllist\" [data]=\"item\" [tid]=\"id\" (setItem)=\"setplItem($event)\"></app-pllist>\n  </div>\n  <ion-backdrop *ngIf=\"isshowDrop\" (ionBackdropTap)=\"clickdrop()\"></ion-backdrop>\n\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar>\n    <app-chatinputbox (sub)=\"sub($event)\" (myfous)=\"monfous()\" (mybulr)=\"monblur()\" [username]=\"seletename\"></app-chatinputbox>\n  </ion-toolbar>\n</ion-footer>"
 
 /***/ }),
 
@@ -90,16 +90,21 @@ module.exports = ".show-0 {\n  --opacity: 0; }\n\n.show-1 {\n  --opacity: 0.01; 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "YjcontentPage", function() { return YjcontentPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-/* harmony import */ var _services_yjlist_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/yjlist.service */ "./src/app/services/yjlist.service.ts");
-/* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/http.service */ "./src/app/services/http.service.ts");
-/* harmony import */ var _services_gzlist_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/gzlist.service */ "./src/app/services/gzlist.service.ts");
-/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/user.service */ "./src/app/services/user.service.ts");
-/* harmony import */ var _services_emojiishow_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/emojiishow.service */ "./src/app/services/emojiishow.service.ts");
-/* harmony import */ var _services_plitemclick_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../services/plitemclick.service */ "./src/app/services/plitemclick.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_editmyrelease_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../services/editmyrelease.service */ "./src/app/services/editmyrelease.service.ts");
+/* harmony import */ var src_app_services_native_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/native.service */ "./src/app/services/native.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var _services_yjlist_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/yjlist.service */ "./src/app/services/yjlist.service.ts");
+/* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/http.service */ "./src/app/services/http.service.ts");
+/* harmony import */ var _services_gzlist_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/gzlist.service */ "./src/app/services/gzlist.service.ts");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _services_emojiishow_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../services/emojiishow.service */ "./src/app/services/emojiishow.service.ts");
+/* harmony import */ var _services_plitemclick_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../services/plitemclick.service */ "./src/app/services/plitemclick.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var src_app_services_deletemyrelease_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/services/deletemyrelease.service */ "./src/app/services/deletemyrelease.service.ts");
+
+
 
 
 // import {ActivatedRoute} from "@angular/router";
@@ -112,8 +117,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var YjcontentPage = /** @class */ (function () {
-    function YjcontentPage(nav, sanitizer, yjlist, http, gzlist, emojiishow, activeroute, userfn, itemclickfn) {
+    function YjcontentPage(nav, sanitizer, yjlist, http, gzlist, emojiishow, activeroute, mydeletefn, userfn, itemclickfn, native, alertController, actionSheetController, editMyrelease, route) {
         this.nav = nav;
         this.sanitizer = sanitizer;
         this.yjlist = yjlist;
@@ -121,8 +127,14 @@ var YjcontentPage = /** @class */ (function () {
         this.gzlist = gzlist;
         this.emojiishow = emojiishow;
         this.activeroute = activeroute;
+        this.mydeletefn = mydeletefn;
         this.userfn = userfn;
         this.itemclickfn = itemclickfn;
+        this.native = native;
+        this.alertController = alertController;
+        this.actionSheetController = actionSheetController;
+        this.editMyrelease = editMyrelease;
+        this.route = route;
         this.pageObj = {
             page: 1,
             num: 20
@@ -131,15 +143,26 @@ var YjcontentPage = /** @class */ (function () {
     YjcontentPage.prototype.ngOnInit = function () {
         this.isshowDrop = false;
         this.setPlitem = {};
+        this.isGetcontentimg = false;
         this.toolbaropacity = '0';
-        this.data = {};
-        var params = this.activeroute.snapshot.queryParams;
-        this.id = params['id'];
-        this.type = params['type'] ? Number(params['type']) : 0;
-        this.data = this.yjlist.getPqone(this.id, this.type);
     };
     YjcontentPage.prototype.ionViewDidEnter = function () {
         var _this = this;
+        console.log('进入新的');
+        var params = this.activeroute.snapshot.queryParams;
+        this.id = params['id'];
+        this.type = params['type'] ? Number(params['type']) : 0;
+        var item = this.editMyrelease.getData();
+        if (item.data && item.data.id) {
+            var ischage = this.editMyrelease.getIschage();
+            if (item.data.id != this.id || !ischage || item.type - 1 != this.type) {
+                this.editMyrelease.clear();
+            }
+            else {
+                this.yjlist.editOne(this.id, this.type, item.data);
+            }
+        }
+        this.data = this.yjlist.getPqone(this.id, this.type);
         this.getContent();
         this.userfn.getUserp().then(function (res) {
             _this.user = res;
@@ -148,7 +171,7 @@ var YjcontentPage = /** @class */ (function () {
     YjcontentPage.prototype.getContent = function () {
         var _this = this;
         var hasdata = 1;
-        if (!this.data) {
+        if (!this.data || this.data && !this.data.id) {
             hasdata = 2;
         }
         var obj = {
@@ -182,6 +205,25 @@ var YjcontentPage = /** @class */ (function () {
         this.setNavstatus(num);
     };
     YjcontentPage.prototype.assembleHTML = function (strHTML) {
+        var _this = this;
+        if (!this.isGetcontentimg) {
+            setTimeout(function () {
+                var imgs = _this.mybox.nativeElement.getElementsByTagName('img');
+                console.log(imgs.length);
+                var _loop_1 = function (index) {
+                    var img = imgs[index];
+                    console.log(img);
+                    img.addEventListener('click', function () {
+                        console.log(index);
+                        alert(index);
+                    });
+                };
+                for (var index = 0; index < imgs.length; index++) {
+                    _loop_1(index);
+                }
+            }, 3000);
+            this.isGetcontentimg = true;
+        }
         return this.sanitizer.bypassSecurityTrustHtml(strHTML);
     };
     YjcontentPage.prototype.setNavstatus = function (num) {
@@ -286,17 +328,129 @@ var YjcontentPage = /** @class */ (function () {
         this.seletename = '';
         this.isshowDrop = false;
     };
+    YjcontentPage.prototype.edmit = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var buttons, actionSheet;
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        buttons = [{
+                                text: '分享到微信',
+                                role: '',
+                                handler: function () {
+                                    _this.native.wechatShare();
+                                }
+                            }, {
+                                text: '分享到微博',
+                                handler: function () {
+                                    _this.native.weboShare();
+                                }
+                            }];
+                        if (this.user.user_id == this.data.userid) {
+                            buttons.push.apply(buttons, [{
+                                    text: '编辑',
+                                    handler: function () {
+                                        _this.editMyrelease.setData(_this.data, _this.type + 1);
+                                        _this.route.navigate(['/fbyj'], { queryParams: { type: _this.type + 1, isedit: 1 } });
+                                    }
+                                }, {
+                                    text: '删除',
+                                    handler: function () {
+                                        _this.sureDelete();
+                                    }
+                                }]);
+                        }
+                        buttons.push({
+                            text: '取消',
+                            role: 'cancel',
+                            handler: function () {
+                                console.log('Cancel clicked');
+                            }
+                        });
+                        return [4 /*yield*/, this.actionSheetController.create({
+                                header: '操作',
+                                buttons: buttons
+                            })];
+                    case 1:
+                        actionSheet = _a.sent();
+                        return [4 /*yield*/, actionSheet.present()];
+                    case 2:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * @Author: wjy-mac
+     * @description: 设置删除本条及保持删除的id
+     * @Date: 2019-11-19 21:30:50
+     * @param {type}
+     * @return:
+     */
+    YjcontentPage.prototype.seleteItem = function () {
+        var _this = this;
+        console.log(this.data);
+        this.http.getDataloading(this.http.deletepqitem, { id: this.id, type: this.type + 2 }).subscribe(function (res) {
+            _this.yjlist.deleteone(_this.id, _this.type);
+            _this.mydeletefn.setId(_this.id, _this.type + 1);
+            _this.goBack();
+        }, function (err) { });
+    };
+    YjcontentPage.prototype.sureDelete = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var alert;
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.alertController.create({
+                            header: '提示',
+                            message: '删除后无法恢复!',
+                            buttons: [
+                                {
+                                    text: '取消',
+                                    role: 'cancel',
+                                    cssClass: 'secondary',
+                                    handler: function (blah) {
+                                        console.log('Confirm Cancel: blah');
+                                    }
+                                }, {
+                                    text: '确定删除',
+                                    handler: function () {
+                                        _this.seleteItem();
+                                    }
+                                }
+                            ]
+                        })];
+                    case 1:
+                        alert = _a.sent();
+                        return [4 /*yield*/, alert.present()];
+                    case 2:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"])("myBox"),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], YjcontentPage.prototype, "mybox", void 0);
     YjcontentPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
             selector: 'app-yjcontent',
             template: __webpack_require__(/*! ./yjcontent.page.html */ "./src/app/pages/yjcontent/yjcontent.page.html"),
             styles: [__webpack_require__(/*! ./yjcontent.page.scss */ "./src/app/pages/yjcontent/yjcontent.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"],
-            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["DomSanitizer"], _services_yjlist_service__WEBPACK_IMPORTED_MODULE_4__["YjlistService"],
-            _services_http_service__WEBPACK_IMPORTED_MODULE_5__["HttpService"], _services_gzlist_service__WEBPACK_IMPORTED_MODULE_6__["GzlistService"], _services_emojiishow_service__WEBPACK_IMPORTED_MODULE_8__["EmojiishowService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_10__["ActivatedRoute"],
-            _services_user_service__WEBPACK_IMPORTED_MODULE_7__["UserService"], _services_plitemclick_service__WEBPACK_IMPORTED_MODULE_9__["PlitemclickService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"],
+            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["DomSanitizer"], _services_yjlist_service__WEBPACK_IMPORTED_MODULE_6__["YjlistService"],
+            _services_http_service__WEBPACK_IMPORTED_MODULE_7__["HttpService"], _services_gzlist_service__WEBPACK_IMPORTED_MODULE_8__["GzlistService"], _services_emojiishow_service__WEBPACK_IMPORTED_MODULE_10__["EmojiishowService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_12__["ActivatedRoute"], src_app_services_deletemyrelease_service__WEBPACK_IMPORTED_MODULE_13__["DeletemyreleaseService"],
+            _services_user_service__WEBPACK_IMPORTED_MODULE_9__["UserService"], _services_plitemclick_service__WEBPACK_IMPORTED_MODULE_11__["PlitemclickService"],
+            src_app_services_native_service__WEBPACK_IMPORTED_MODULE_2__["NativeService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["AlertController"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ActionSheetController"], _services_editmyrelease_service__WEBPACK_IMPORTED_MODULE_1__["EditmyreleaseService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_12__["Router"]])
     ], YjcontentPage);
     return YjcontentPage;
 }());

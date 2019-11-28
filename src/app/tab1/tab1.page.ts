@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-15 22:18:06
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-18 20:23:00
+ * @LastEditTime: 2019-11-26 20:30:34
  * @Description: file content
  */
 import { Component, OnInit, ViewChild  } from '@angular/core';
@@ -23,7 +23,9 @@ import { NativeService } from '../services/native.service';
 import { WebsocketService } from '../services/websocket.service';
 import { NewsListService } from '../services/news-list.service';
 import { JPush } from '@jiguang-ionic/jpush/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
+// declare var mycheckAppUpdate;
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -60,7 +62,7 @@ export class Tab1Page implements OnInit {
               private topage: TopageService, private user: UserService, private route: Router,
               private appUpdate: AppUpdate, private native: NativeService, public alertController: AlertController,
               private ws: WebsocketService, private newslist: NewsListService, private jPush: JPush,
-              private nav: NavController) {
+              private nav: NavController, private statusBar: StatusBar) {
   }
   ngOnInit() {
     // this.shopdata = {}
@@ -100,14 +102,19 @@ export class Tab1Page implements OnInit {
       //   }
       // },
     };
+    if (this.native.isandroid()) {
+      this.statusBar.overlaysWebView(true);
+    }
+    this.getJpushid();
+    this.location = this.user.getLocation();
+    this.jPush.setApplicationIconBadgeNumber(0);
+    console.log(123);
   }
   ionViewWillEnter() {
-    
   }
   ionViewDidEnter() {
     this.moreGoods = this.shop.getMoregoods();
     this.getShopcontent();
-    this.location = this.user.getLocation();
     if (this.newslist.getList().length === 0) {
       this.getNewslist().then(res => {
         if (res < this.newslist.newsPageobj.limit) {
@@ -118,8 +125,7 @@ export class Tab1Page implements OnInit {
         this.wsfn();
       });
     }
-    this.getJpushid();
-    this.jPush.setApplicationIconBadgeNumber(0);
+
   }
   getJpushid() {
     this.jPush.getRegistrationID().then(res => {
@@ -212,8 +218,18 @@ export class Tab1Page implements OnInit {
     this.shop.getShop().then(res => {
       this.shopdata = res;
       if (this.native.isandroid()) { // 安卓版本更新
+        // this.native.getAppversioncode();
         const updateUrl = this.http.zdomain + 'update.xml';
-        this.appUpdate.checkAppUpdate(updateUrl).then(() => { console.log('Update available') }).catch(err2 => {
+        // mycheckAppUpdate((data) => {
+        //   alert(1);
+        //   alert(data)
+        //   alert(JSON.stringify(data));
+        // }, (err) => {
+        //   alert(2)
+        //   alert(err);
+        //   alert(JSON.stringify(err));
+        // }, updateUrl);
+        this.appUpdate.checkAppUpdate(updateUrl).then(() => { console.log('Update available'); }).catch(err2 => {
           console.error(2);
         });
       } else if (this.native.isios()) { // ios 版本更新
@@ -225,9 +241,8 @@ export class Tab1Page implements OnInit {
       }
       this.navList = this.shop.getIndexnav();
       this.bannerList = this.shop.getIndexbanner();
-      console.log(this.bannerList);
       this.bzjx = this.shop.getBzjx();
-      if (this.bzjx) {
+      if (this.bzjx && this.bzjx['sort_goods_arr'].length > 0) {
         this.bztjlist = this.bzjx['sort_goods_arr'][0]['goods'];
         console.log(this.bztjlist);
       }

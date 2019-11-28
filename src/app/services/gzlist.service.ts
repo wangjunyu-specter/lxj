@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-24 22:48:58
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-19 17:40:57
+ * @LastEditTime: 2019-11-26 20:02:12
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -35,7 +35,7 @@ export class GzlistService {
   }
   getGzlist() {
     if (this.list.length === 0) {
-      this.getHttp();
+      this.getHttp().then(res => {}).catch(err => {});
     }
     return this.list;
   }

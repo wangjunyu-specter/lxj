@@ -266,7 +266,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-13 14:39:26
+ * @LastEditTime: 2019-11-20 23:48:31
  * @Description: file content
  */
 
@@ -427,8 +427,8 @@ var ProductcontentPage = /** @class */ (function () {
                                 _this.setXstime();
                             }
                         }).catch(function (err) {
-                            // this.goBack()
-                            console.error(err);
+                            _this.goBack();
+                            // console.error(err);
                         })];
                     case 1:
                         _a.sent();

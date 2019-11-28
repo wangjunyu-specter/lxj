@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-19 20:42:07
+ * @LastEditTime: 2019-11-28 22:49:26
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -20,6 +20,11 @@ import { Market } from '@ionic-native/market/ngx';
 import { CallNumber } from '@ionic-native/call-number/ngx';
 import { Device } from '@ionic-native/device/ngx';
 import { OpenNativeSettings } from '@ionic-native/open-native-settings/ngx';
+import { Toast } from '@ionic-native/toast/ngx';
+import { Alipay } from '@ionic-native/alipay/ngx';
+
+declare var Wechat;
+
 @Injectable({
   providedIn: 'root'
 })
@@ -33,16 +38,22 @@ export class NativeService {
               private androidFullScreen: AndroidFullScreen, private statusbar: StatusBar,
               private videoPlayer: VideoPlayer, private network: Network, private appVersion: AppVersion,
               private market: Market, private callNumber: CallNumber, private device: Device,
-              private openNativeSettings: OpenNativeSettings) { }
+              private openNativeSettings: OpenNativeSettings, private toast: Toast,
+              private alipay: Alipay) { }
   public async getAppversion() {
     const version = await this.appVersion.getVersionNumber();
     return version;
   }
-  wechatShare() {
-    
-  }
   weboShare() {
     
+  }
+  getAppversioncode() {
+    return this.appVersion.getVersionCode().then(res => {
+      alert(res);
+      alert(JSON.stringify(res))
+    }).catch(err => {
+
+    });
   }
   public openNativeSettingfn(type: number = 1) {
     let setting: string;
@@ -141,13 +152,26 @@ export class NativeService {
 
     await alert.present();
   }
-  async presentToast(msg: string) {
+  presentToast(msg: string) {
+    if(this.ismobile()) {
+      this.mobileToast(msg);
+    } else {
+      this.webToast(msg);
+    }
+  }
+  async webToast(msg: string) {
     const toast = await this.toastController.create({
       message: msg,
       duration: 2000,
-      position: 'middle'
+      position: 'bottom'
     });
     toast.present();
+  }
+  mobileToast(msg: string) {
+    this.toast.show(msg, '2000', 'bottom').subscribe(
+      toast => {
+      }
+    );
   }
   getUuid() {
     return this.device.uuid;
@@ -155,13 +179,13 @@ export class NativeService {
   // 获取平台信息
   getPlatform() {
     // return this.plt.is('mobile');
-    return this.plt.is('android') || this.plt.is('android');
+    return this.plt.is('android') || this.plt.is('ios');
     // return true;
   }
   // 是否手机
   ismobile() {
-    // return this.plt.is('mobile');
-    return this.plt.is('android') || this.plt.is('android');
+    return this.plt.is('cordova');
+    // return this.plt.is('android') || this.plt.is('ios');
   }
   isandroid() {
     return this.plt.is('android');
@@ -207,7 +231,7 @@ export class NativeService {
   async setStorage(title: string, val: any) {
     val = JSON.stringify(val);
     try {
-      if (this.getPlatform()) {
+      if (this.ismobile()) {
         const data = await this.storage(title, val);
         return data;
       } else {
@@ -229,7 +253,7 @@ export class NativeService {
   }
   async getStorage(title: string) {
     try {
-      if (this.getPlatform()) {
+      if (this.ismobile()) {
         try {
           const data = await this.getStoragefn(title);
           return JSON.parse(data as any);
@@ -259,14 +283,14 @@ export class NativeService {
     });
   }
   removeStorage(title: string = 'my_store_user') {
-      if (this.getPlatform()) {
+      if (this.ismobile()) {
           this.nativeStorage.remove(title);
       } else {
           window.sessionStorage.removeItem(title);
       }
   }
   clearStorage() {
-      if (this.getPlatform()) {
+      if (this.ismobile()) {
           this.nativeStorage.clear();
       } else {
           window.sessionStorage.clear();
@@ -460,5 +484,69 @@ export class NativeService {
     } else {
       alert('ios暂未实现');
     }
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 支付宝支付
+   * @Date: 2019-11-27 20:27:16
+   * @param {type} 
+   * @return: 
+   */  
+  async alipayment(alipayOrder) {
+    try {
+      await this.alipay.pay(alipayOrder);
+      return true;
+    } catch(err) {
+      throw new Error(err);
+    }
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 微信支付
+   * @Date: 2019-11-27 20:31:50
+   * @param {type} 
+   * var params = {
+          partnerid: '10000100', // merchant id
+          prepayid: 'wx201411101639507cbf6ffd8b0779950874', // prepay id
+          noncestr: '1add1a30ac87aa2db72f57a2375d8fec', // nonce
+          timestamp: '1439531364', // timestamp
+          sign: '0CB01533B8C1EF103065174F50BCA001', // signed string
+      };
+   * @return: 
+   */  
+  wechatpayment(params) {
+    return new Promise((resolve, reject) => {
+      Wechat.sendPaymentRequest(params, function () {
+        resolve();
+      }, function (reason) {
+          console.log("Failed: " + reason);
+          reject(reason);
+      });
+    })
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 微信多媒体分享
+   * @Date: 2019-11-27 20:35:49
+   * @param {type} 
+   * @return: 
+   */  
+  wechatShare() {
+    Wechat.share({
+      message: {
+          title: "Hi, there",
+          description: "This is description.",
+          thumb: "www/img/thumbnail.png",
+          mediaTagName: "TEST-TAG-001",
+          messageExt: "这是第三方带的测试字段",
+          messageAction: "<action>dotalist</action>",
+          media: "YOUR_MEDIA_OBJECT_HERE"
+      },
+      scene: Wechat.Scene.TIMELINE   // share to Timeline
+  }, () => {
+      alert("Success");
+  }, (reason) => {
+      alert("Failed: " + reason);
+  });
   }
 }

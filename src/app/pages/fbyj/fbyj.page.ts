@@ -42,7 +42,7 @@ export class FbyjPage implements OnInit {
 
   ngOnInit() {
     this.isloadhead = false;
-    this.contentimgnum = 0;
+    this.contentimgnum = -1;
     this.contentimgarr = [];
     // this.subloading();
     this.formdata = {
@@ -74,7 +74,7 @@ export class FbyjPage implements OnInit {
       },
       {
         name: 'editing', items: [
-          'Find', '-', 'SelectAll', '-', 'SpellChecker'
+          'Find', '-', 'SpellChecker'
         ]
       },
       // {
@@ -84,23 +84,20 @@ export class FbyjPage implements OnInit {
       // },
       {
         name: 'basicstyles', items: [
-          'Bold', 'Italic', 'Underline', 'Strike',
+          'Bold', 'Italic', 'Underline',
         ]
       },
       {
         name: 'paragraph', items:
-          ['NumberedList', 'BulletedList',  '-', 'Blockquote',
+          [
             '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-'
           ]
       },
-      // todo 在这里设定需要的插件 ...
-      // ,'Flash','Smiley','Video' Video是用得国产插件
       {
         name: 'insert', items: [
-          'Image', 'Html5video', 'Table', 'HorizontalRule', 'Emojione',
+          'Image', 'Table', 'HorizontalRule', 'Emojione',
         ]
       },
-      '/',
       {
         name: 'styles', items: [
            'Format', 'FontSize'
@@ -124,7 +121,7 @@ export class FbyjPage implements OnInit {
         this.title = '攻略';
         break;
       case 3:
-        this.title = '招募';
+        this.title = '约游';
         break;
       default:
         this.title = '游记';
@@ -224,6 +221,7 @@ export class FbyjPage implements OnInit {
   }
   addimg() {
     this.presentActionSheet(2);
+    // this.getimgend(2, ['123']);
   }
   addfm() {
     this.presentActionSheet(1);
@@ -249,7 +247,7 @@ export class FbyjPage implements OnInit {
         handler: () => {
           console.log('Share clicked');
           const max = type === 1 ? 1 : 9;
-          this.native.getPictures(3).then((res: any) => {
+          this.native.getPictures(1).then((res: any) => {
             this.getimgend(type, res);
           }, err => {
 
@@ -272,14 +270,13 @@ export class FbyjPage implements OnInit {
       this.updateHead(this.head);
     } else {
       // http://192.144.168.163/loading.gif
-      const num = this.contentimgnum;
       const nowarr: number[] = [];
       const len = base64.length;
       for (let i = 0; i < len; i++) {
-        const nownum = num + i;
-        this.contentimgarr[nownum] = true;
-        nowarr.push(nownum);
-        this.content += `<img class="wjy${nownum}" style="width: 100%;" src="${this.http.zdomain}loading.gif" alt=""><p></p>`;
+        this.contentimgnum++;
+        this.contentimgarr[this.contentimgnum] = true;
+        nowarr.push(this.contentimgnum);
+        this.content += `<img class="wjy${this.contentimgnum}" style="width: 100%;" src="${this.http.zdomain}loading.gif" alt=""><p></p>`;
       }
       console.log(this.content);
       this.contentimgnum += len;
@@ -414,13 +411,14 @@ export class FbyjPage implements OnInit {
   sub(type?) {
     if (type) {
       this.issub = true;
-      this.subloading();
     }
     const canupdate = this.iscansub(1);
     if (!canupdate) {
       return false;
     }
-    this.subupdate();
+    this.getpopover(1).then(res => {
+      this.subupdate();
+    });
   }
 
   /**
@@ -448,6 +446,7 @@ export class FbyjPage implements OnInit {
       return false;
     }
     if (this.isloadhead) {
+      this.getpopover(1);
       return false;
     }
     for (let i = 0, j = this.contentimgarr.length; i < j; i++) {
@@ -458,11 +457,49 @@ export class FbyjPage implements OnInit {
           this.contentimgarr[i] = false;
           continue;
         }
+        this.getpopover(1);
         return false;
       }
     }
     return true;
   } 
+  /**
+   * @Author: wjy-mac
+   * @description: 判断是否有弹窗并根据type跳转
+   * @Date: 2019-11-20 16:16:41
+   * @param {type} type 1 表示显示 2隐藏
+   * @return: 
+   */  
+  async getpopover(type = 1) {
+    try {
+      const res = await this.popoverController.getTop();
+      if (res) {
+        if (type === 1) {
+          return true;
+        }  else {
+          const bool = await this.popoverController.dismiss();
+          if (bool) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      } else {
+        if (type === 1) {
+          await this.subloading();
+          return true;
+        }
+      }
+      return true;
+    } catch(err) {
+      if (type === 1) {
+        await this.subloading();
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
   subupdate() {
     let obj = {
       img: JSON.stringify([this.headobj]),
@@ -482,7 +519,7 @@ export class FbyjPage implements OnInit {
       if (!this.id) {
         this.user.addjf(res.result.num);
         const obj2 = this.setEdit(obj, res.result.createtime, res.result.id);
-        this.yjlistfn.addItem(this.type, obj2);
+        this.yjlistfn.addItem(this.type);
         this.suberr(res.result);
       } else {
         const obj2 = this.setEdit(obj, res.result, this.id);
@@ -501,11 +538,9 @@ export class FbyjPage implements OnInit {
    * @return: 
    */  
   suberr(num?: any) {
-    this.issub = false;
-    this.popoverController.dismiss().then(bool => {
-      console.log('小时了')
-      console.log(bool);
-      if (bool) {
+    this.getpopover(2).then(res => {
+      if (res) {
+        this.issub = false;
         if (num) {
           if (num === 1) {
             this.goBack();
@@ -514,10 +549,10 @@ export class FbyjPage implements OnInit {
           }
         }
       } else {
-        setTimeout(() => {
-          this.suberr(num);
-        }, 200);
+        setTimeout(() => {this.suberr(num); }, 300);
       }
+    }).catch(() => {
+      setTimeout(() => {this.suberr(num); }, 300);
     });
   }
   /**
@@ -531,8 +566,8 @@ export class FbyjPage implements OnInit {
     const obj = {
       id,
       createtime: time,
-      imgarr: [this.headobj.src],
-      thumb: [this.headobj.thumb],
+      imgarr: this.headobj ? [this.headobj.src] : [],
+      thumb: this.headobj ? [this.headobj.thumb] : [],
       address: this.address,
       lnglat: this.lnglat,
       content: this.content,

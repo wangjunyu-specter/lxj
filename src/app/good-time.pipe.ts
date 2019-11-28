@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-04-01 21:16:38
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-28 14:55:29
+ * @Description: file content
+ */
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
@@ -8,6 +15,9 @@ export class GoodTimePipe implements PipeTransform {
   transform(value: any, args?: any): any {
     console.log(value)
     let arr = [];
+    if (value.indexOf(' ') > -1) {
+      value = value.split(' ')[0];
+    }
     if (value.indexOf('/') > -1) {
       arr = value.split('/');
     } else if (value.indexOf('-') > -1) {

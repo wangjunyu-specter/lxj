@@ -92,7 +92,7 @@
     p {
       color: var(--ion-color-light, #fff);
     }
-    a {
+    span {
       font-size: var(--ion-sm-text, 12px);
       color: var(--ion-color-secondary);
     }
@@ -102,4 +102,7 @@
       width: 17px;
     }
   }
+}
+.noclick {
+  color: rgba(0,0,0,.3) !important;
 }

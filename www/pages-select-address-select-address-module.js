@@ -61,7 +61,7 @@ var SelectAddressPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header mode=\"ios\">\r\n  <ion-toolbar mode=\"ios\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>选择目的地</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content padding>\r\n  <app-pagetitle [myname]=\"'GPS定位'\" [smpadding]=\"true\"></app-pagetitle>\r\n  <div class=\"btn-box\">\r\n    <app-seletebtn [name]=\"'成都'\" (mclick)=\"seleteAddress($event)\" [graybg]=\"true\" [isactive]=\"isactive == '成都'\"></app-seletebtn>\r\n  </div>\r\n  <div class=\"line\"></div>\r\n  <app-pagetitle [myname]=\"'最近浏览'\" [smpadding]=\"true\"></app-pagetitle>\r\n  <div class=\"btn-box\">\r\n    <app-seletebtn [name]=\"'贵阳'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '贵阳'\" [graybg]=\"true\"></app-seletebtn>\r\n    <app-seletebtn [name]=\"'吉林'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '吉林'\" [graybg]=\"true\"></app-seletebtn>\r\n    <app-seletebtn [name]=\"'新疆'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '新疆'\" [graybg]=\"true\"></app-seletebtn>\r\n  </div>\r\n  <div class=\"line\"></div>\r\n  <app-pagetitle [myname]=\"'其他推荐'\" [smpadding]=\"true\"></app-pagetitle>\r\n  <div class=\"btn-box\">\r\n    <app-seletebtn [name]=\"'北京'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '北京'\" [graybg]=\"true\"></app-seletebtn>\r\n    <app-seletebtn [name]=\"'广东'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '广东'\" [graybg]=\"true\"></app-seletebtn>\r\n    <app-seletebtn [name]=\"'河北'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '河北'\" [graybg]=\"true\"></app-seletebtn>\r\n    <app-seletebtn [name]=\"'苏州'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '苏州'\" [graybg]=\"true\"></app-seletebtn>\r\n    <app-seletebtn [name]=\"'山西'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '山西'\" [graybg]=\"true\"></app-seletebtn>\r\n  </div>\r\n</ion-content>\r\n"
+module.exports = "<!--\r\n * @Author: wjy-mac\r\n * @Date: 2019-03-20 21:01:10\r\n * @LastEditors: wjy-mac\r\n * @LastEditTime: 2019-11-21 15:56:09\r\n * @Description: file content\r\n -->\r\n<ion-header mode=\"ios\">\r\n  <ion-toolbar mode=\"ios\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-button (click)=\"goBack()\">\r\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\r\n      </ion-button>\r\n    </ion-buttons>\r\n    <ion-title>选择目的地</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content padding>\r\n  <app-pagetitle [myname]=\"'GPS定位'\" [smpadding]=\"true\"></app-pagetitle>\r\n  <div class=\"btn-box\" *ngIf=\"loaction\">\r\n    <app-seletebtn [name]=\"loaction.city\" (mclick)=\"seleteAddress($event)\" [graybg]=\"true\" [isactive]=\"true\"></app-seletebtn>\r\n  </div>\r\n  <div class=\"line\"></div>\r\n  <!-- <app-pagetitle [myname]=\"'最近浏览'\" [smpadding]=\"true\"></app-pagetitle> 暂时隐藏 其他城市暂未开放 所以隐藏\r\n  <div class=\"btn-box\">\r\n    <app-seletebtn [name]=\"'贵阳'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '贵阳'\" [graybg]=\"true\"></app-seletebtn>\r\n    <app-seletebtn [name]=\"'吉林'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '吉林'\" [graybg]=\"true\"></app-seletebtn>\r\n    <app-seletebtn [name]=\"'新疆'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '新疆'\" [graybg]=\"true\"></app-seletebtn>\r\n  </div> -->\r\n  <!-- <div class=\"line\"></div>\r\n  <app-pagetitle [myname]=\"'其他推荐'\" [smpadding]=\"true\"></app-pagetitle>\r\n  <div class=\"btn-box\">\r\n    <app-seletebtn [name]=\"'北京'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '北京'\" [graybg]=\"true\"></app-seletebtn>\r\n    <app-seletebtn [name]=\"'广东'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '广东'\" [graybg]=\"true\"></app-seletebtn>\r\n    <app-seletebtn [name]=\"'河北'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '河北'\" [graybg]=\"true\"></app-seletebtn>\r\n    <app-seletebtn [name]=\"'苏州'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '苏州'\" [graybg]=\"true\"></app-seletebtn>\r\n    <app-seletebtn [name]=\"'山西'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '山西'\" [graybg]=\"true\"></app-seletebtn>\r\n  </div> -->\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -89,18 +89,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var src_app_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/user.service */ "./src/app/services/user.service.ts");
+
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-03-21 23:15:28
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-21 15:57:52
+ * @Description: file content
+ */
 
 
 
 var SelectAddressPage = /** @class */ (function () {
-    function SelectAddressPage(nav) {
+    function SelectAddressPage(nav, userfn) {
         this.nav = nav;
+        this.userfn = userfn;
     }
     SelectAddressPage.prototype.ngOnInit = function () {
         this.isactive = '成都';
+        this.loaction = this.userfn.getLocation();
     };
     SelectAddressPage.prototype.seleteAddress = function ($event) {
         this.isactive = $event.name;
+        this.nav.back();
+    };
+    SelectAddressPage.prototype.goBack = function () {
         this.nav.back();
     };
     SelectAddressPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -109,7 +123,7 @@ var SelectAddressPage = /** @class */ (function () {
             template: __webpack_require__(/*! ./select-address.page.html */ "./src/app/pages/select-address/select-address.page.html"),
             styles: [__webpack_require__(/*! ./select-address.page.scss */ "./src/app/pages/select-address/select-address.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], src_app_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]])
     ], SelectAddressPage);
     return SelectAddressPage;
 }());

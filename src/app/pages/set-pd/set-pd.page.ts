@@ -1,3 +1,4 @@
+import { NativeService } from 'src/app/services/native.service';
 import { HttpService } from './../../services/http.service';
 import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
@@ -16,7 +17,7 @@ export class SetPdPage implements OnInit {
   isGetyzm: boolean; // 是否正在请求验证码
   type: number; // 1 登录处过来 2 个人中心过来
   constructor(private nav: NavController, private userfn: UserService, private activeroute: ActivatedRoute,
-    private http: HttpService, public alertController: AlertController) { }
+    private http: HttpService, public alertController: AlertController, private native: NativeService) { }
 
   ngOnInit() {
     this.isLoading = false;
@@ -65,6 +66,16 @@ export class SetPdPage implements OnInit {
     });
   }
   sub() {
+    const zz1 = /\d+/;
+    const zz2 = /[a-z]+/i;
+    if (!zz1.test(this.formData.pwd)) {
+      this.native.presentAlert('密码需要包含字母和数字!');
+      return false;
+    }
+    if (!zz2.test(this.formData.pwd)) {
+      this.native.presentAlert('密码需要包含字母和数字!');
+      return false;
+    }
     this.isLoading = true;
     const obj = {
       mobile: this.formData.tel,

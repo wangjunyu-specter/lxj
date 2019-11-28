@@ -66,11 +66,17 @@ export class UserService {
   }
   private getLocationfn() {
     this.gaoDeLocation.getCurrentPosition()
-      .then((res: PositionOptions) => { // : todo 需要设置浏览器定位 或 获取地址
+      .then((res: PositionOptions) => {
         console.log(res);
+        let province;
+        let city;
+        if(res.province) {
+          province = res.province.substring(0, res.province.length - 1);
+          city = res.city.substring(0, res.city.length - 1);
+        }
         this.nowlocation.country = res.country;
-        this.nowlocation.province = res.province;
-        this.nowlocation.city = res.city;
+        this.nowlocation.province = province;
+        this.nowlocation.city = city;
         this.nowlocation.district = res.district;
         this.nowlocation.address = res.address;
         this.nowlocation.lat = res.latitude;
@@ -79,14 +85,25 @@ export class UserService {
       })
       .catch((error) => {
         console.error(error)
-        if (this.native.ismobile()) {
-          // this.native
-          this.native.presentAlert('打开通知获取更多优惠！');
-          this.openQx();
-        } else {
+        if (error == 'plugin_not_installed') {
+          setTimeout(() => {
+            this.getLocationfn();
+          }, 1000);
+        } else if (error == 'cordova_not_available') {
           this.nowlocation.country = '中国';
           this.nowlocation.province = '四川省';
           this.nowlocation.city = '成都市';
+        } else {
+          if (this.native.ismobile()) {
+            console.log(this.native.ismobile())
+            // this.native
+            // this.native.presentAlert('请在设置中打开定位权限!');
+            this.openQx();
+          } else {
+            this.nowlocation.country = '中国';
+            this.nowlocation.province = '四川省';
+            this.nowlocation.city = '成都市';
+          }
         }
       });
   }
@@ -118,8 +135,8 @@ export class UserService {
     // this.native.getPlatform();
     this.token = token;
     this.native.setStorage('token', token).then(res => {}).catch(err => {
-      alert(err);
-      alert(JSON.stringify(err));
+      // alert(err);
+      // alert(JSON.stringify(err));
     });
   }
   async getToken() {

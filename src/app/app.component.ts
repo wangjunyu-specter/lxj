@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-18 14:40:20
+ * @LastEditTime: 2019-11-25 19:49:34
  * @Description: file content
  */
 import { Component } from '@angular/core';
@@ -43,7 +43,8 @@ export class AppComponent {
     this.platform.ready().then(() => {
       // this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.statusBar.overlaysWebView(true);
+      
+      // this.statusBar.overlaysWebView(true);
       // alert(this.platform.is('android'))
       // this.statusBar.backgroundColorByHexString('#00f1f1f1');
       // if (this.platform.is('android')) {

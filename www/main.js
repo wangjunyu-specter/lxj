@@ -428,31 +428,32 @@ module.exports = webpackAsyncContext;
 var map = {
 	"../tab1/tab1.module": [
 		"./src/app/tab1/tab1.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"tab1-tab1-module"
 	],
 	"../tab2/tab2.module": [
 		"./src/app/tab2/tab2.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
+		"default~pages-center-more-center-more-module~pages-fbyj-fbyj-module~pages-yjcontent-yjcontent-module~66357f15",
 		"common",
 		"tab2-tab2-module"
 	],
 	"../tab3/tab3.module": [
 		"./src/app/tab3/tab3.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"tab3-tab3-module"
 	],
 	"../tab4/tab4.module": [
 		"./src/app/tab4/tab4.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
 		"common",
 		"tab4-tab4-module"
 	],
@@ -466,33 +467,33 @@ var map = {
 	],
 	"./pages/after-salelist/after-salelist.module": [
 		"./src/app/pages/after-salelist/after-salelist.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-after-salelist-after-salelist-module"
 	],
 	"./pages/all-zt/all-zt.module": [
 		"./src/app/pages/all-zt/all-zt.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-all-zt-all-zt-module"
 	],
 	"./pages/allorder/allorder.module": [
 		"./src/app/pages/allorder/allorder.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-allorder-allorder-module"
 	],
 	"./pages/articlecontent/articlecontent.module": [
 		"./src/app/pages/articlecontent/articlecontent.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-articlecontent-articlecontent-module"
 	],
@@ -502,90 +503,98 @@ var map = {
 	],
 	"./pages/bouns/bouns.module": [
 		"./src/app/pages/bouns/bouns.module.ts",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
+		"common",
 		"pages-bouns-bouns-module"
 	],
 	"./pages/browse-records/browse-records.module": [
 		"./src/app/pages/browse-records/browse-records.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-browse-records-browse-records-module"
 	],
 	"./pages/cancel-order/cancel-order.module": [
 		"./src/app/pages/cancel-order/cancel-order.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
 		"common",
 		"pages-cancel-order-cancel-order-module"
 	],
 	"./pages/cart/cart.module": [
 		"./src/app/pages/cart/cart.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-cart-cart-module"
 	],
 	"./pages/center-more/center-more.module": [
 		"./src/app/pages/center-more/center-more.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-center-more-center-more-module~pages-fbyj-fbyj-module~pages-yjcontent-yjcontent-module~66357f15",
 		"common",
 		"pages-center-more-center-more-module"
 	],
 	"./pages/collelist/collelist.module": [
 		"./src/app/pages/collelist/collelist.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-collelist-collelist-module"
 	],
 	"./pages/comments-list/comments-list.module": [
 		"./src/app/pages/comments-list/comments-list.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-comments-list-comments-list-module"
 	],
 	"./pages/confirmationorder/confirmationorder.module": [
 		"./src/app/pages/confirmationorder/confirmationorder.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-confirmationorder-confirmationorder-module"
 	],
 	"./pages/contactdata/contactdata.module": [
 		"./src/app/pages/contactdata/contactdata.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
 		"common",
 		"pages-contactdata-contactdata-module"
 	],
 	"./pages/contactlist/contactlist.module": [
 		"./src/app/pages/contactlist/contactlist.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-contactlist-contactlist-module"
 	],
 	"./pages/edmit-user/edmit-user.module": [
 		"./src/app/pages/edmit-user/edmit-user.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
 		"common",
 		"pages-edmit-user-edmit-user-module"
 	],
 	"./pages/fbpqimg/fbpqimg.module": [
 		"./src/app/pages/fbpqimg/fbpqimg.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-fbpqimg-fbpqimg-module"
 	],
 	"./pages/fbyj/fbyj.module": [
 		"./src/app/pages/fbyj/fbyj.module.ts",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-center-more-center-more-module~pages-fbyj-fbyj-module~pages-yjcontent-yjcontent-module~66357f15",
+		"common",
 		"pages-fbyj-fbyj-module"
 	],
 	"./pages/fbyjmore/fbyjmore.module": [
@@ -594,57 +603,57 @@ var map = {
 	],
 	"./pages/login/login.module": [
 		"./src/app/pages/login/login.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-login-login-module"
 	],
 	"./pages/moreyhtc/moreyhtc.module": [
 		"./src/app/pages/moreyhtc/moreyhtc.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-moreyhtc-moreyhtc-module"
 	],
 	"./pages/myrelease/myrelease.module": [
 		"./src/app/pages/myrelease/myrelease.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-myrelease-myrelease-module"
 	],
 	"./pages/news/news.module": [
 		"./src/app/pages/news/news.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-news-news-module"
 	],
 	"./pages/newslist/newslist.module": [
 		"./src/app/pages/newslist/newslist.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-newslist-newslist-module"
 	],
 	"./pages/notice/notice.module": [
 		"./src/app/pages/notice/notice.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-notice-notice-module"
 	],
 	"./pages/ordercontent/ordercontent.module": [
 		"./src/app/pages/ordercontent/ordercontent.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-ordercontent-ordercontent-module"
 	],
@@ -654,9 +663,9 @@ var map = {
 	],
 	"./pages/pay/pay.module": [
 		"./src/app/pages/pay/pay.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-pay-pay-module"
 	],
@@ -666,171 +675,172 @@ var map = {
 	],
 	"./pages/pqcontent/pqcontent.module": [
 		"./src/app/pages/pqcontent/pqcontent.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-pqcontent-pqcontent-module"
 	],
 	"./pages/productcontent/productcontent.module": [
 		"./src/app/pages/productcontent/productcontent.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-productcontent-productcontent-module"
 	],
 	"./pages/products/products.module": [
 		"./src/app/pages/products/products.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-products-products-module"
 	],
 	"./pages/scindex/scindex.module": [
 		"./src/app/pages/scindex/scindex.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-scindex-scindex-module"
 	],
 	"./pages/searchendgoods/searchendgoods.module": [
 		"./src/app/pages/searchendgoods/searchendgoods.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-searchendgoods-searchendgoods-module"
 	],
 	"./pages/searchorder/searchorder.module": [
 		"./src/app/pages/searchorder/searchorder.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
 		"common",
 		"pages-searchorder-searchorder-module"
 	],
 	"./pages/select-address/select-address.module": [
 		"./src/app/pages/select-address/select-address.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-select-address-select-address-module"
 	],
 	"./pages/selete-content/selete-content.module": [
 		"./src/app/pages/selete-content/selete-content.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-selete-content-selete-content-module"
 	],
 	"./pages/set-pd/set-pd.module": [
 		"./src/app/pages/set-pd/set-pd.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-set-pd-set-pd-module"
 	],
 	"./pages/setpaypwd/setpaypwd.module": [
 		"./src/app/pages/setpaypwd/setpaypwd.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
 		"common",
 		"pages-setpaypwd-setpaypwd-module"
 	],
 	"./pages/sharesearch/sharesearch.module": [
 		"./src/app/pages/sharesearch/sharesearch.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-sharesearch-sharesearch-module"
 	],
 	"./pages/sj-index/sj-index.module": [
 		"./src/app/pages/sj-index/sj-index.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-sj-index-sj-index-module"
 	],
 	"./pages/sj-productnav/sj-productnav.module": [
 		"./src/app/pages/sj-productnav/sj-productnav.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-sj-productnav-sj-productnav-module"
 	],
 	"./pages/sjdpyx/sjdpyx.module": [
 		"./src/app/pages/sjdpyx/sjdpyx.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-sjdpyx-sjdpyx-module"
 	],
 	"./pages/sjsearch/sjsearch.module": [
 		"./src/app/pages/sjsearch/sjsearch.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-sjsearch-sjsearch-module"
 	],
 	"./pages/spgoods-confirmation/spgoods-confirmation.module": [
 		"./src/app/pages/spgoods-confirmation/spgoods-confirmation.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-spgoods-confirmation-spgoods-confirmation-module"
 	],
 	"./pages/userlist/userlist.module": [
 		"./src/app/pages/userlist/userlist.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
 		"common",
 		"pages-userlist-userlist-module"
 	],
 	"./pages/xccontent/xccontent.module": [
 		"./src/app/pages/xccontent/xccontent.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-xccontent-xccontent-module"
 	],
 	"./pages/xclist/xclist.module": [
 		"./src/app/pages/xclist/xclist.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-xclist-xclist-module"
 	],
 	"./pages/xcsclist/xcsclist.module": [
 		"./src/app/pages/xcsclist/xcsclist.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-xcsclist-xcsclist-module"
 	],
 	"./pages/yjcontent/yjcontent.module": [
 		"./src/app/pages/yjcontent/yjcontent.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
+		"default~pages-center-more-center-more-module~pages-fbyj-fbyj-module~pages-yjcontent-yjcontent-module~66357f15",
 		"common",
 		"pages-yjcontent-yjcontent-module"
 	],
 	"./pages/zt/zt.module": [
 		"./src/app/pages/zt/zt.module.ts",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~2aec4ee5",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~b0f1fb63",
-		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~f5076c9d",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~abab8b3e",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~12213322",
+		"default~pages-after-salelist-after-salelist-module~pages-all-zt-all-zt-module~pages-allorder-allorde~04250ed7",
 		"common",
 		"pages-zt-zt-module"
 	],
@@ -874,20 +884,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _guard_login_guard_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./guard/login-guard.guard */ "./src/app/guard/login-guard.guard.ts");
 
 /*
  * @Author: wjy-mac
  * @Date: 2019-10-22 09:40:41
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-18 15:06:39
+ * @LastEditTime: 2019-11-18 20:07:14
  * @Description: file content
  */
 
 
-
 var routes = [
-    { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule', canActivate: [_guard_login_guard_guard__WEBPACK_IMPORTED_MODULE_3__["LoginGuardGuard"]] },
+    { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },
     { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
     { path: '', redirectTo: '/tabs/tab1', pathMatch: 'full' },
     { path: 'products', loadChildren: './pages/products/products.module#ProductsPageModule' },
@@ -996,7 +1004,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-18 14:40:20
+ * @LastEditTime: 2019-11-25 19:49:34
  * @Description: file content
  */
 
@@ -1028,7 +1036,7 @@ var AppComponent = /** @class */ (function () {
         this.platform.ready().then(function () {
             // this.statusBar.styleDefault();
             _this.splashScreen.hide();
-            _this.statusBar.overlaysWebView(true);
+            // this.statusBar.overlaysWebView(true);
             // alert(this.platform.is('android'))
             // this.statusBar.backgroundColorByHexString('#00f1f1f1');
             // if (this.platform.is('android')) {
@@ -1160,82 +1168,85 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_app_update_ngx__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @ionic-native/app-update/ngx */ "./node_modules/@ionic-native/app-update/ngx/index.js");
 /* harmony import */ var _jiguang_ionic_jpush_ngx__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @jiguang-ionic/jpush/ngx */ "./node_modules/@jiguang-ionic/jpush/ngx/index.js");
 /* harmony import */ var _ionic_native_app_minimize_ngx__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @ionic-native/app-minimize/ngx */ "./node_modules/@ionic-native/app-minimize/ngx/index.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./services/http.service */ "./src/app/services/http.service.ts");
-/* harmony import */ var _services_okgoods_service__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./services/okgoods.service */ "./src/app/services/okgoods.service.ts");
-/* harmony import */ var _services_shop_content_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./services/shop-content.service */ "./src/app/services/shop-content.service.ts");
-/* harmony import */ var _services_getproduct_service__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./services/getproduct.service */ "./src/app/services/getproduct.service.ts");
-/* harmony import */ var _services_productcontentlist_service__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./services/productcontentlist.service */ "./src/app/services/productcontentlist.service.ts");
-/* harmony import */ var _services_goodsattr_service__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./services/goodsattr.service */ "./src/app/services/goodsattr.service.ts");
-/* harmony import */ var _services_searchrecode_service__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./services/searchrecode.service */ "./src/app/services/searchrecode.service.ts");
-/* harmony import */ var _services_searchendgoods_service__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./services/searchendgoods.service */ "./src/app/services/searchendgoods.service.ts");
-/* harmony import */ var _services_userlogin_service__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./services/userlogin.service */ "./src/app/services/userlogin.service.ts");
-/* harmony import */ var _services_thorder_service__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./services/thorder.service */ "./src/app/services/thorder.service.ts");
-/* harmony import */ var _components_search_search_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/search/search.component */ "./src/app/components/search/search.component.ts");
-/* harmony import */ var _components_goodsattr_goodsattr_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/goodsattr/goodsattr.component */ "./src/app/components/goodsattr/goodsattr.component.ts");
-/* harmony import */ var _components_available_bonus_available_bonus_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/available-bonus/available-bonus.component */ "./src/app/components/available-bonus/available-bonus.component.ts");
-/* harmony import */ var _components_goods_contentnav_goods_contentnav_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/goods-contentnav/goods-contentnav.component */ "./src/app/components/goods-contentnav/goods-contentnav.component.ts");
-/* harmony import */ var _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/paybox/paybox.component */ "./src/app/components/paybox/paybox.component.ts");
-/* harmony import */ var _components_topnavlist_topnavlist_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/topnavlist/topnavlist.component */ "./src/app/components/topnavlist/topnavlist.component.ts");
-/* harmony import */ var _services_native_service__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./services/native.service */ "./src/app/services/native.service.ts");
-/* harmony import */ var _services_sjindextjgoods_service__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./services/sjindextjgoods.service */ "./src/app/services/sjindextjgoods.service.ts");
-/* harmony import */ var _services_products_list_service__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./services/products-list.service */ "./src/app/services/products-list.service.ts");
-/* harmony import */ var _services_scindex_service__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./services/scindex.service */ "./src/app/services/scindex.service.ts");
-/* harmony import */ var _services_topage_service__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./services/topage.service */ "./src/app/services/topage.service.ts");
-/* harmony import */ var _services_zt_list_service__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./services/zt-list.service */ "./src/app/services/zt-list.service.ts");
-/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./services/user.service */ "./src/app/services/user.service.ts");
-/* harmony import */ var _services_usercenter_service__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./services/usercenter.service */ "./src/app/services/usercenter.service.ts");
-/* harmony import */ var _services_yhtclist_service__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./services/yhtclist.service */ "./src/app/services/yhtclist.service.ts");
-/* harmony import */ var _services_gwc_service__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./services/gwc.service */ "./src/app/services/gwc.service.ts");
-/* harmony import */ var _services_bounslist_service__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./services/bounslist.service */ "./src/app/services/bounslist.service.ts");
-/* harmony import */ var _services_collelist_service__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./services/collelist.service */ "./src/app/services/collelist.service.ts");
-/* harmony import */ var _services_xcsclist_service__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./services/xcsclist.service */ "./src/app/services/xcsclist.service.ts");
-/* harmony import */ var _services_articelist_service__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./services/articelist.service */ "./src/app/services/articelist.service.ts");
-/* harmony import */ var _services_gzlist_service__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./services/gzlist.service */ "./src/app/services/gzlist.service.ts");
-/* harmony import */ var _services_emojiishow_service__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./services/emojiishow.service */ "./src/app/services/emojiishow.service.ts");
-/* harmony import */ var _services_plitemclick_service__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./services/plitemclick.service */ "./src/app/services/plitemclick.service.ts");
-/* harmony import */ var _services_selete_media_service__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./services/selete-media.service */ "./src/app/services/selete-media.service.ts");
-/* harmony import */ var _services_ordersuccess_service__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./services/ordersuccess.service */ "./src/app/services/ordersuccess.service.ts");
-/* harmony import */ var _services_xclist_service__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./services/xclist.service */ "./src/app/services/xclist.service.ts");
-/* harmony import */ var _services_payment_list_service__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./services/payment-list.service */ "./src/app/services/payment-list.service.ts");
-/* harmony import */ var _services_payorder_service__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./services/payorder.service */ "./src/app/services/payorder.service.ts");
-/* harmony import */ var _services_websocket_service__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./services/websocket.service */ "./src/app/services/websocket.service.ts");
-/* harmony import */ var _services_news_list_service__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./services/news-list.service */ "./src/app/services/news-list.service.ts");
-/* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
-/* harmony import */ var _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! @ionic-native/http/ngx */ "./node_modules/@ionic-native/http/ngx/index.js");
-/* harmony import */ var _ionic_native_keyboard_ngx__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! @ionic-native/keyboard/ngx */ "./node_modules/@ionic-native/keyboard/ngx/index.js");
-/* harmony import */ var _ionic_native_android_full_screen_ngx__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! @ionic-native/android-full-screen/ngx */ "./node_modules/@ionic-native/android-full-screen/ngx/index.js");
-/* harmony import */ var _components_fbselete_fbselete_component__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./components/fbselete/fbselete.component */ "./src/app/components/fbselete/fbselete.component.ts");
-/* harmony import */ var _ionic_native_media_capture_ngx__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! @ionic-native/media-capture/ngx */ "./node_modules/@ionic-native/media-capture/ngx/index.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
-/* harmony import */ var _ionic_native_photo_viewer_ngx__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! @ionic-native/photo-viewer/ngx */ "./node_modules/@ionic-native/photo-viewer/ngx/index.js");
-/* harmony import */ var _services_orderlist_service__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! ./services/orderlist.service */ "./src/app/services/orderlist.service.ts");
-/* harmony import */ var _services_hworderlist_service__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! ./services/hworderlist.service */ "./src/app/services/hworderlist.service.ts");
-/* harmony import */ var _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! @ionic-native/device/ngx */ "./node_modules/@ionic-native/device/ngx/index.js");
-/* harmony import */ var videogular2_core__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! videogular2/core */ "./node_modules/videogular2/core.js");
-/* harmony import */ var videogular2_core__WEBPACK_IMPORTED_MODULE_74___default = /*#__PURE__*/__webpack_require__.n(videogular2_core__WEBPACK_IMPORTED_MODULE_74__);
-/* harmony import */ var videogular2_controls__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! videogular2/controls */ "./node_modules/videogular2/controls.js");
-/* harmony import */ var videogular2_controls__WEBPACK_IMPORTED_MODULE_75___default = /*#__PURE__*/__webpack_require__.n(videogular2_controls__WEBPACK_IMPORTED_MODULE_75__);
-/* harmony import */ var videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! videogular2/overlay-play */ "./node_modules/videogular2/overlay-play.js");
-/* harmony import */ var videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_76___default = /*#__PURE__*/__webpack_require__.n(videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_76__);
-/* harmony import */ var videogular2_buffering__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! videogular2/buffering */ "./node_modules/videogular2/buffering.js");
-/* harmony import */ var videogular2_buffering__WEBPACK_IMPORTED_MODULE_77___default = /*#__PURE__*/__webpack_require__.n(videogular2_buffering__WEBPACK_IMPORTED_MODULE_77__);
-/* harmony import */ var _components_video_video_component__WEBPACK_IMPORTED_MODULE_78__ = __webpack_require__(/*! ./components/video/video.component */ "./src/app/components/video/video.component.ts");
-/* harmony import */ var _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_79__ = __webpack_require__(/*! ./components/upload/upload.component */ "./src/app/components/upload/upload.component.ts");
-/* harmony import */ var _ionic_native_gao_de_location_ngx__WEBPACK_IMPORTED_MODULE_80__ = __webpack_require__(/*! @ionic-native/gao-de-location/ngx */ "./node_modules/@ionic-native/gao-de-location/ngx/index.js");
-/* harmony import */ var _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_81__ = __webpack_require__(/*! @ionic-native/in-app-browser/ngx */ "./node_modules/@ionic-native/in-app-browser/ngx/index.js");
-/* harmony import */ var _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_82__ = __webpack_require__(/*! @ionic-native/call-number/ngx */ "./node_modules/@ionic-native/call-number/ngx/index.js");
-/* harmony import */ var _ionic_native_open_native_settings_ngx__WEBPACK_IMPORTED_MODULE_83__ = __webpack_require__(/*! @ionic-native/open-native-settings/ngx */ "./node_modules/@ionic-native/open-native-settings/ngx/index.js");
-/* harmony import */ var _pipes_model_time_pipe__WEBPACK_IMPORTED_MODULE_84__ = __webpack_require__(/*! ./pipes/model-time.pipe */ "./src/app/pipes/model-time.pipe.ts");
-/* harmony import */ var _guard_login_guard_guard__WEBPACK_IMPORTED_MODULE_85__ = __webpack_require__(/*! ./guard/login-guard.guard */ "./src/app/guard/login-guard.guard.ts");
+/* harmony import */ var _ionic_native_toast_ngx__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @ionic-native/toast/ngx */ "./node_modules/@ionic-native/toast/ngx/index.js");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./services/http.service */ "./src/app/services/http.service.ts");
+/* harmony import */ var _services_okgoods_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./services/okgoods.service */ "./src/app/services/okgoods.service.ts");
+/* harmony import */ var _services_shop_content_service__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./services/shop-content.service */ "./src/app/services/shop-content.service.ts");
+/* harmony import */ var _services_getproduct_service__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./services/getproduct.service */ "./src/app/services/getproduct.service.ts");
+/* harmony import */ var _services_productcontentlist_service__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./services/productcontentlist.service */ "./src/app/services/productcontentlist.service.ts");
+/* harmony import */ var _services_goodsattr_service__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./services/goodsattr.service */ "./src/app/services/goodsattr.service.ts");
+/* harmony import */ var _services_searchrecode_service__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./services/searchrecode.service */ "./src/app/services/searchrecode.service.ts");
+/* harmony import */ var _services_searchendgoods_service__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./services/searchendgoods.service */ "./src/app/services/searchendgoods.service.ts");
+/* harmony import */ var _services_userlogin_service__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./services/userlogin.service */ "./src/app/services/userlogin.service.ts");
+/* harmony import */ var _services_thorder_service__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./services/thorder.service */ "./src/app/services/thorder.service.ts");
+/* harmony import */ var _components_search_search_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/search/search.component */ "./src/app/components/search/search.component.ts");
+/* harmony import */ var _components_goodsattr_goodsattr_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/goodsattr/goodsattr.component */ "./src/app/components/goodsattr/goodsattr.component.ts");
+/* harmony import */ var _components_available_bonus_available_bonus_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/available-bonus/available-bonus.component */ "./src/app/components/available-bonus/available-bonus.component.ts");
+/* harmony import */ var _components_goods_contentnav_goods_contentnav_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/goods-contentnav/goods-contentnav.component */ "./src/app/components/goods-contentnav/goods-contentnav.component.ts");
+/* harmony import */ var _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/paybox/paybox.component */ "./src/app/components/paybox/paybox.component.ts");
+/* harmony import */ var _components_topnavlist_topnavlist_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./components/topnavlist/topnavlist.component */ "./src/app/components/topnavlist/topnavlist.component.ts");
+/* harmony import */ var _services_native_service__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./services/native.service */ "./src/app/services/native.service.ts");
+/* harmony import */ var _services_sjindextjgoods_service__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./services/sjindextjgoods.service */ "./src/app/services/sjindextjgoods.service.ts");
+/* harmony import */ var _services_products_list_service__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./services/products-list.service */ "./src/app/services/products-list.service.ts");
+/* harmony import */ var _services_scindex_service__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./services/scindex.service */ "./src/app/services/scindex.service.ts");
+/* harmony import */ var _services_topage_service__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./services/topage.service */ "./src/app/services/topage.service.ts");
+/* harmony import */ var _services_zt_list_service__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./services/zt-list.service */ "./src/app/services/zt-list.service.ts");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _services_usercenter_service__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./services/usercenter.service */ "./src/app/services/usercenter.service.ts");
+/* harmony import */ var _services_yhtclist_service__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./services/yhtclist.service */ "./src/app/services/yhtclist.service.ts");
+/* harmony import */ var _services_gwc_service__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./services/gwc.service */ "./src/app/services/gwc.service.ts");
+/* harmony import */ var _services_bounslist_service__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./services/bounslist.service */ "./src/app/services/bounslist.service.ts");
+/* harmony import */ var _services_collelist_service__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./services/collelist.service */ "./src/app/services/collelist.service.ts");
+/* harmony import */ var _services_xcsclist_service__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./services/xcsclist.service */ "./src/app/services/xcsclist.service.ts");
+/* harmony import */ var _services_articelist_service__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./services/articelist.service */ "./src/app/services/articelist.service.ts");
+/* harmony import */ var _services_gzlist_service__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./services/gzlist.service */ "./src/app/services/gzlist.service.ts");
+/* harmony import */ var _services_emojiishow_service__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./services/emojiishow.service */ "./src/app/services/emojiishow.service.ts");
+/* harmony import */ var _services_plitemclick_service__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./services/plitemclick.service */ "./src/app/services/plitemclick.service.ts");
+/* harmony import */ var _services_selete_media_service__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./services/selete-media.service */ "./src/app/services/selete-media.service.ts");
+/* harmony import */ var _services_ordersuccess_service__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./services/ordersuccess.service */ "./src/app/services/ordersuccess.service.ts");
+/* harmony import */ var _services_xclist_service__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./services/xclist.service */ "./src/app/services/xclist.service.ts");
+/* harmony import */ var _services_payment_list_service__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./services/payment-list.service */ "./src/app/services/payment-list.service.ts");
+/* harmony import */ var _services_payorder_service__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./services/payorder.service */ "./src/app/services/payorder.service.ts");
+/* harmony import */ var _services_websocket_service__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./services/websocket.service */ "./src/app/services/websocket.service.ts");
+/* harmony import */ var _services_news_list_service__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./services/news-list.service */ "./src/app/services/news-list.service.ts");
+/* harmony import */ var _services_deletemyrelease_service__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./services/deletemyrelease.service */ "./src/app/services/deletemyrelease.service.ts");
+/* harmony import */ var _services_editmyrelease_service__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./services/editmyrelease.service */ "./src/app/services/editmyrelease.service.ts");
+/* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
+/* harmony import */ var _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! @ionic-native/http/ngx */ "./node_modules/@ionic-native/http/ngx/index.js");
+/* harmony import */ var _ionic_native_keyboard_ngx__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! @ionic-native/keyboard/ngx */ "./node_modules/@ionic-native/keyboard/ngx/index.js");
+/* harmony import */ var _ionic_native_android_full_screen_ngx__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! @ionic-native/android-full-screen/ngx */ "./node_modules/@ionic-native/android-full-screen/ngx/index.js");
+/* harmony import */ var _components_fbselete_fbselete_component__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./components/fbselete/fbselete.component */ "./src/app/components/fbselete/fbselete.component.ts");
+/* harmony import */ var _ionic_native_media_capture_ngx__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! @ionic-native/media-capture/ngx */ "./node_modules/@ionic-native/media-capture/ngx/index.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _ionic_native_photo_viewer_ngx__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! @ionic-native/photo-viewer/ngx */ "./node_modules/@ionic-native/photo-viewer/ngx/index.js");
+/* harmony import */ var _services_orderlist_service__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ./services/orderlist.service */ "./src/app/services/orderlist.service.ts");
+/* harmony import */ var _services_hworderlist_service__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! ./services/hworderlist.service */ "./src/app/services/hworderlist.service.ts");
+/* harmony import */ var _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! @ionic-native/device/ngx */ "./node_modules/@ionic-native/device/ngx/index.js");
+/* harmony import */ var videogular2_core__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! videogular2/core */ "./node_modules/videogular2/core.js");
+/* harmony import */ var videogular2_core__WEBPACK_IMPORTED_MODULE_77___default = /*#__PURE__*/__webpack_require__.n(videogular2_core__WEBPACK_IMPORTED_MODULE_77__);
+/* harmony import */ var videogular2_controls__WEBPACK_IMPORTED_MODULE_78__ = __webpack_require__(/*! videogular2/controls */ "./node_modules/videogular2/controls.js");
+/* harmony import */ var videogular2_controls__WEBPACK_IMPORTED_MODULE_78___default = /*#__PURE__*/__webpack_require__.n(videogular2_controls__WEBPACK_IMPORTED_MODULE_78__);
+/* harmony import */ var videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_79__ = __webpack_require__(/*! videogular2/overlay-play */ "./node_modules/videogular2/overlay-play.js");
+/* harmony import */ var videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_79___default = /*#__PURE__*/__webpack_require__.n(videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_79__);
+/* harmony import */ var videogular2_buffering__WEBPACK_IMPORTED_MODULE_80__ = __webpack_require__(/*! videogular2/buffering */ "./node_modules/videogular2/buffering.js");
+/* harmony import */ var videogular2_buffering__WEBPACK_IMPORTED_MODULE_80___default = /*#__PURE__*/__webpack_require__.n(videogular2_buffering__WEBPACK_IMPORTED_MODULE_80__);
+/* harmony import */ var _components_video_video_component__WEBPACK_IMPORTED_MODULE_81__ = __webpack_require__(/*! ./components/video/video.component */ "./src/app/components/video/video.component.ts");
+/* harmony import */ var _components_scan_images_scan_images_component__WEBPACK_IMPORTED_MODULE_82__ = __webpack_require__(/*! ./components/scan-images/scan-images.component */ "./src/app/components/scan-images/scan-images.component.ts");
+/* harmony import */ var _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_83__ = __webpack_require__(/*! ./components/upload/upload.component */ "./src/app/components/upload/upload.component.ts");
+/* harmony import */ var _ionic_native_gao_de_location_ngx__WEBPACK_IMPORTED_MODULE_84__ = __webpack_require__(/*! @ionic-native/gao-de-location/ngx */ "./node_modules/@ionic-native/gao-de-location/ngx/index.js");
+/* harmony import */ var _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_85__ = __webpack_require__(/*! @ionic-native/in-app-browser/ngx */ "./node_modules/@ionic-native/in-app-browser/ngx/index.js");
+/* harmony import */ var _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_86__ = __webpack_require__(/*! @ionic-native/call-number/ngx */ "./node_modules/@ionic-native/call-number/ngx/index.js");
+/* harmony import */ var _ionic_native_open_native_settings_ngx__WEBPACK_IMPORTED_MODULE_87__ = __webpack_require__(/*! @ionic-native/open-native-settings/ngx */ "./node_modules/@ionic-native/open-native-settings/ngx/index.js");
+/* harmony import */ var _pipes_model_time_pipe__WEBPACK_IMPORTED_MODULE_88__ = __webpack_require__(/*! ./pipes/model-time.pipe */ "./src/app/pipes/model-time.pipe.ts");
 
 /*
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-18 14:58:43
+ * @LastEditTime: 2019-11-26 23:33:13
  * @Description: file content
  */
 
@@ -1323,99 +1334,108 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+// import { Md5 } from 'ts-md5/dist/md5';
+// import {LoginGuardGuard} from './guard/login-guard.guard';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_21__["AppComponent"], _components_search_search_component__WEBPACK_IMPORTED_MODULE_32__["SearchComponent"], _components_topnavlist_topnavlist_component__WEBPACK_IMPORTED_MODULE_37__["TopnavlistComponent"], _components_goodsattr_goodsattr_component__WEBPACK_IMPORTED_MODULE_33__["GoodsattrComponent"],
-                _components_goods_contentnav_goods_contentnav_component__WEBPACK_IMPORTED_MODULE_35__["GoodsContentnavComponent"], _components_fbselete_fbselete_component__WEBPACK_IMPORTED_MODULE_66__["FbseleteComponent"], _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_36__["PayboxComponent"], _components_video_video_component__WEBPACK_IMPORTED_MODULE_78__["VideoComponent"], _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_79__["UploadComponent"],
-                _components_available_bonus_available_bonus_component__WEBPACK_IMPORTED_MODULE_34__["AvailableBonusComponent"], _pipes_model_time_pipe__WEBPACK_IMPORTED_MODULE_84__["ModelTimePipe"]],
-            entryComponents: [_components_search_search_component__WEBPACK_IMPORTED_MODULE_32__["SearchComponent"], _components_topnavlist_topnavlist_component__WEBPACK_IMPORTED_MODULE_37__["TopnavlistComponent"], _components_goodsattr_goodsattr_component__WEBPACK_IMPORTED_MODULE_33__["GoodsattrComponent"],
-                _components_goods_contentnav_goods_contentnav_component__WEBPACK_IMPORTED_MODULE_35__["GoodsContentnavComponent"], _components_fbselete_fbselete_component__WEBPACK_IMPORTED_MODULE_66__["FbseleteComponent"], _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_36__["PayboxComponent"], _components_video_video_component__WEBPACK_IMPORTED_MODULE_78__["VideoComponent"], _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_79__["UploadComponent"],
-                _components_available_bonus_available_bonus_component__WEBPACK_IMPORTED_MODULE_34__["AvailableBonusComponent"]],
+            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_22__["AppComponent"], _components_search_search_component__WEBPACK_IMPORTED_MODULE_33__["SearchComponent"], _components_topnavlist_topnavlist_component__WEBPACK_IMPORTED_MODULE_38__["TopnavlistComponent"], _components_goodsattr_goodsattr_component__WEBPACK_IMPORTED_MODULE_34__["GoodsattrComponent"],
+                _components_goods_contentnav_goods_contentnav_component__WEBPACK_IMPORTED_MODULE_36__["GoodsContentnavComponent"], _components_fbselete_fbselete_component__WEBPACK_IMPORTED_MODULE_69__["FbseleteComponent"], _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_37__["PayboxComponent"], _components_video_video_component__WEBPACK_IMPORTED_MODULE_81__["VideoComponent"], _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_83__["UploadComponent"],
+                _components_available_bonus_available_bonus_component__WEBPACK_IMPORTED_MODULE_35__["AvailableBonusComponent"], _pipes_model_time_pipe__WEBPACK_IMPORTED_MODULE_88__["ModelTimePipe"], _components_scan_images_scan_images_component__WEBPACK_IMPORTED_MODULE_82__["ScanImagesComponent"]],
+            entryComponents: [_components_search_search_component__WEBPACK_IMPORTED_MODULE_33__["SearchComponent"], _components_topnavlist_topnavlist_component__WEBPACK_IMPORTED_MODULE_38__["TopnavlistComponent"], _components_goodsattr_goodsattr_component__WEBPACK_IMPORTED_MODULE_34__["GoodsattrComponent"],
+                _components_goods_contentnav_goods_contentnav_component__WEBPACK_IMPORTED_MODULE_36__["GoodsContentnavComponent"], _components_fbselete_fbselete_component__WEBPACK_IMPORTED_MODULE_69__["FbseleteComponent"], _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_37__["PayboxComponent"], _components_video_video_component__WEBPACK_IMPORTED_MODULE_81__["VideoComponent"], _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_83__["UploadComponent"],
+                _components_available_bonus_available_bonus_component__WEBPACK_IMPORTED_MODULE_35__["AvailableBonusComponent"], _components_scan_images_scan_images_component__WEBPACK_IMPORTED_MODULE_82__["ScanImagesComponent"]],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
                 _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["IonicModule"].forRoot(),
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_20__["AppRoutingModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_21__["AppRoutingModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
                 ng2_ckeditor__WEBPACK_IMPORTED_MODULE_5__["CKEditorModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_68__["FormsModule"],
-                videogular2_core__WEBPACK_IMPORTED_MODULE_74__["VgCoreModule"],
-                videogular2_controls__WEBPACK_IMPORTED_MODULE_75__["VgControlsModule"],
-                videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_76__["VgOverlayPlayModule"],
-                videogular2_buffering__WEBPACK_IMPORTED_MODULE_77__["VgBufferingModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_71__["FormsModule"],
+                videogular2_core__WEBPACK_IMPORTED_MODULE_77__["VgCoreModule"],
+                videogular2_controls__WEBPACK_IMPORTED_MODULE_78__["VgControlsModule"],
+                videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_79__["VgOverlayPlayModule"],
+                videogular2_buffering__WEBPACK_IMPORTED_MODULE_80__["VgBufferingModule"],
                 // CalendarModule,
-                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_69__["BrowserAnimationsModule"],
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_72__["BrowserAnimationsModule"],
             ],
             providers: [
                 _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_8__["StatusBar"],
                 _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_7__["SplashScreen"],
-                _services_http_service__WEBPACK_IMPORTED_MODULE_22__["HttpService"],
-                _services_okgoods_service__WEBPACK_IMPORTED_MODULE_23__["OkgoodsService"],
-                _services_shop_content_service__WEBPACK_IMPORTED_MODULE_24__["ShopContentService"],
-                _services_native_service__WEBPACK_IMPORTED_MODULE_38__["NativeService"],
-                _services_getproduct_service__WEBPACK_IMPORTED_MODULE_25__["GetproductService"],
-                _services_productcontentlist_service__WEBPACK_IMPORTED_MODULE_26__["ProductcontentlistService"],
-                _services_sjindextjgoods_service__WEBPACK_IMPORTED_MODULE_39__["SjindextjgoodsService"],
-                _services_products_list_service__WEBPACK_IMPORTED_MODULE_40__["ProductsListService"],
-                _services_scindex_service__WEBPACK_IMPORTED_MODULE_41__["ScindexService"],
-                _services_topage_service__WEBPACK_IMPORTED_MODULE_42__["TopageService"],
-                _services_zt_list_service__WEBPACK_IMPORTED_MODULE_43__["ZtListService"],
-                _services_user_service__WEBPACK_IMPORTED_MODULE_44__["UserService"],
-                _services_usercenter_service__WEBPACK_IMPORTED_MODULE_45__["UsercenterService"],
-                _services_goodsattr_service__WEBPACK_IMPORTED_MODULE_27__["GoodsattrService"],
-                _services_yhtclist_service__WEBPACK_IMPORTED_MODULE_46__["YhtclistService"],
-                _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_62__["NativeStorage"],
-                _services_gwc_service__WEBPACK_IMPORTED_MODULE_47__["GwcService"],
-                _services_articelist_service__WEBPACK_IMPORTED_MODULE_51__["ArticelistService"],
-                _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_73__["Device"],
-                _services_bounslist_service__WEBPACK_IMPORTED_MODULE_48__["BounslistService"],
-                _services_collelist_service__WEBPACK_IMPORTED_MODULE_49__["CollelistService"],
-                _services_xcsclist_service__WEBPACK_IMPORTED_MODULE_50__["XcsclistService"],
-                _services_gzlist_service__WEBPACK_IMPORTED_MODULE_52__["GzlistService"],
-                _services_emojiishow_service__WEBPACK_IMPORTED_MODULE_53__["EmojiishowService"],
-                _services_plitemclick_service__WEBPACK_IMPORTED_MODULE_54__["PlitemclickService"],
+                _services_http_service__WEBPACK_IMPORTED_MODULE_23__["HttpService"],
+                _services_okgoods_service__WEBPACK_IMPORTED_MODULE_24__["OkgoodsService"],
+                _services_shop_content_service__WEBPACK_IMPORTED_MODULE_25__["ShopContentService"],
+                _services_native_service__WEBPACK_IMPORTED_MODULE_39__["NativeService"],
+                _services_getproduct_service__WEBPACK_IMPORTED_MODULE_26__["GetproductService"],
+                _services_productcontentlist_service__WEBPACK_IMPORTED_MODULE_27__["ProductcontentlistService"],
+                _services_sjindextjgoods_service__WEBPACK_IMPORTED_MODULE_40__["SjindextjgoodsService"],
+                _services_products_list_service__WEBPACK_IMPORTED_MODULE_41__["ProductsListService"],
+                _services_scindex_service__WEBPACK_IMPORTED_MODULE_42__["ScindexService"],
+                _services_topage_service__WEBPACK_IMPORTED_MODULE_43__["TopageService"],
+                _services_zt_list_service__WEBPACK_IMPORTED_MODULE_44__["ZtListService"],
+                _services_user_service__WEBPACK_IMPORTED_MODULE_45__["UserService"],
+                _services_usercenter_service__WEBPACK_IMPORTED_MODULE_46__["UsercenterService"],
+                _services_goodsattr_service__WEBPACK_IMPORTED_MODULE_28__["GoodsattrService"],
+                _services_yhtclist_service__WEBPACK_IMPORTED_MODULE_47__["YhtclistService"],
+                _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_65__["NativeStorage"],
+                _services_gwc_service__WEBPACK_IMPORTED_MODULE_48__["GwcService"],
+                _services_articelist_service__WEBPACK_IMPORTED_MODULE_52__["ArticelistService"],
+                _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_76__["Device"],
+                _services_bounslist_service__WEBPACK_IMPORTED_MODULE_49__["BounslistService"],
+                _services_collelist_service__WEBPACK_IMPORTED_MODULE_50__["CollelistService"],
+                _services_xcsclist_service__WEBPACK_IMPORTED_MODULE_51__["XcsclistService"],
+                _services_gzlist_service__WEBPACK_IMPORTED_MODULE_53__["GzlistService"],
+                _services_emojiishow_service__WEBPACK_IMPORTED_MODULE_54__["EmojiishowService"],
+                _services_plitemclick_service__WEBPACK_IMPORTED_MODULE_55__["PlitemclickService"],
                 // ProvincesService,
-                _services_selete_media_service__WEBPACK_IMPORTED_MODULE_55__["SeleteMediaService"],
-                _services_userlogin_service__WEBPACK_IMPORTED_MODULE_30__["UserloginService"],
-                _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_63__["HTTP"],
-                _ionic_native_media_capture_ngx__WEBPACK_IMPORTED_MODULE_67__["MediaCapture"],
-                _ionic_native_keyboard_ngx__WEBPACK_IMPORTED_MODULE_64__["Keyboard"],
+                _services_selete_media_service__WEBPACK_IMPORTED_MODULE_56__["SeleteMediaService"],
+                _services_userlogin_service__WEBPACK_IMPORTED_MODULE_31__["UserloginService"],
+                _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_66__["HTTP"],
+                _ionic_native_media_capture_ngx__WEBPACK_IMPORTED_MODULE_70__["MediaCapture"],
+                _ionic_native_keyboard_ngx__WEBPACK_IMPORTED_MODULE_67__["Keyboard"],
                 _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_9__["File"],
                 _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_11__["Camera"],
                 _ionic_native_image_picker_ngx__WEBPACK_IMPORTED_MODULE_10__["ImagePicker"],
                 _ionic_native_video_player_ngx__WEBPACK_IMPORTED_MODULE_12__["VideoPlayer"],
                 _ionic_native_file_transfer_ngx__WEBPACK_IMPORTED_MODULE_13__["FileTransfer"],
-                _ionic_native_photo_viewer_ngx__WEBPACK_IMPORTED_MODULE_70__["PhotoViewer"],
-                _ionic_native_android_full_screen_ngx__WEBPACK_IMPORTED_MODULE_65__["AndroidFullScreen"],
-                _services_ordersuccess_service__WEBPACK_IMPORTED_MODULE_56__["OrdersuccessService"],
-                _services_hworderlist_service__WEBPACK_IMPORTED_MODULE_72__["HworderlistService"],
-                _services_orderlist_service__WEBPACK_IMPORTED_MODULE_71__["OrderlistService"],
-                _services_xclist_service__WEBPACK_IMPORTED_MODULE_57__["XclistService"],
-                _services_payment_list_service__WEBPACK_IMPORTED_MODULE_58__["PaymentListService"],
-                _services_payorder_service__WEBPACK_IMPORTED_MODULE_59__["PayorderService"],
+                _ionic_native_photo_viewer_ngx__WEBPACK_IMPORTED_MODULE_73__["PhotoViewer"],
+                _ionic_native_android_full_screen_ngx__WEBPACK_IMPORTED_MODULE_68__["AndroidFullScreen"],
+                _services_ordersuccess_service__WEBPACK_IMPORTED_MODULE_57__["OrdersuccessService"],
+                _services_hworderlist_service__WEBPACK_IMPORTED_MODULE_75__["HworderlistService"],
+                _services_orderlist_service__WEBPACK_IMPORTED_MODULE_74__["OrderlistService"],
+                _services_xclist_service__WEBPACK_IMPORTED_MODULE_58__["XclistService"],
+                _services_payment_list_service__WEBPACK_IMPORTED_MODULE_59__["PaymentListService"],
+                _services_payorder_service__WEBPACK_IMPORTED_MODULE_60__["PayorderService"],
                 _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_14__["Network"],
-                _services_searchrecode_service__WEBPACK_IMPORTED_MODULE_28__["SearchrecodeService"],
-                _services_searchendgoods_service__WEBPACK_IMPORTED_MODULE_29__["SearchendgoodsService"],
-                _ionic_native_gao_de_location_ngx__WEBPACK_IMPORTED_MODULE_80__["GaoDeLocation"],
-                _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_81__["InAppBrowser"],
+                _services_searchrecode_service__WEBPACK_IMPORTED_MODULE_29__["SearchrecodeService"],
+                _services_searchendgoods_service__WEBPACK_IMPORTED_MODULE_30__["SearchendgoodsService"],
+                _ionic_native_gao_de_location_ngx__WEBPACK_IMPORTED_MODULE_84__["GaoDeLocation"],
+                _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_85__["InAppBrowser"],
                 _ionic_native_app_version_ngx__WEBPACK_IMPORTED_MODULE_15__["AppVersion"],
                 _ionic_native_market_ngx__WEBPACK_IMPORTED_MODULE_16__["Market"],
                 _ionic_native_app_update_ngx__WEBPACK_IMPORTED_MODULE_17__["AppUpdate"],
-                _services_thorder_service__WEBPACK_IMPORTED_MODULE_31__["ThorderService"],
-                _services_websocket_service__WEBPACK_IMPORTED_MODULE_60__["WebsocketService"],
-                _services_news_list_service__WEBPACK_IMPORTED_MODULE_61__["NewsListService"],
-                _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_82__["CallNumber"],
+                _services_thorder_service__WEBPACK_IMPORTED_MODULE_32__["ThorderService"],
+                _services_websocket_service__WEBPACK_IMPORTED_MODULE_61__["WebsocketService"],
+                _services_news_list_service__WEBPACK_IMPORTED_MODULE_62__["NewsListService"],
+                _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_86__["CallNumber"],
                 _jiguang_ionic_jpush_ngx__WEBPACK_IMPORTED_MODULE_18__["JPush"],
-                _ionic_native_open_native_settings_ngx__WEBPACK_IMPORTED_MODULE_83__["OpenNativeSettings"],
+                _ionic_native_open_native_settings_ngx__WEBPACK_IMPORTED_MODULE_87__["OpenNativeSettings"],
                 _ionic_native_app_minimize_ngx__WEBPACK_IMPORTED_MODULE_19__["AppMinimize"],
-                _guard_login_guard_guard__WEBPACK_IMPORTED_MODULE_85__["LoginGuardGuard"],
+                // LoginGuardGuard,
+                _services_deletemyrelease_service__WEBPACK_IMPORTED_MODULE_63__["DeletemyreleaseService"],
+                _services_editmyrelease_service__WEBPACK_IMPORTED_MODULE_64__["EditmyreleaseService"],
+                _ionic_native_toast_ngx__WEBPACK_IMPORTED_MODULE_20__["Toast"],
+                // Md5,
                 // NavigationBar,
                 // ComponentsModule,
                 { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["IonicRouteStrategy"] }
             ],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_21__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_22__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -1511,7 +1531,7 @@ var AvailableBonusComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"fbselete\">\n  <div class=\"title\">分享我的旅行</div>\n  <div class=\"box-two\" style=\"margin-bottom: -10px\">\n    <div class=\"item\" (click)=\"createyj(2)\">\n      <img src=\"../../../assets/gl.svg\" alt=\"\">\n      <div class=\"name\">攻略</div>\n      <div class=\"des\">经典玩法</div>\n    </div>\n  </div>\n  <div class=\"box-one\">\n    <div class=\"item\" (click)=\"createpq()\">\n      <img src=\"../../../assets/pq.svg\" alt=\"\">\n      <div class=\"name\">票圈</div>\n      <div class=\"des\">此刻心情</div>\n    </div>\n    <div class=\"item\" (click)=\"createyj(1)\">\n      <img src=\"../../../assets/yj.svg\" alt=\"\">\n      <div class=\"name\">游记</div>\n      <div class=\"des\">旅行故事</div>\n    </div>\n  </div>\n  <div class=\"box-two\" style=\"margin-top: -10px\">\n    <div class=\"item\" (click)=\"createyj(3)\">\n      <img src=\"../../../assets/zm.svg\" alt=\"\">\n      <div class=\"name\">招募</div>\n      <div class=\"des\">经典玩法</div>\n    </div>\n  </div>\n  <div class=\"footer\">\n    <ion-button fill=\"clear\" (click)=\"close()\">\n      <ion-icon name=\"close\"></ion-icon>\n    </ion-button>\n  </div>\n</div>\n"
+module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-06-19 17:38:54\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-11-26 22:13:51\n * @Description: file content\n -->\n<div class=\"fbselete\">\n  <div class=\"title\">分享我的旅行</div>\n  <div class=\"box-two\" style=\"margin-bottom: -10px\">\n    <div class=\"item\" (click)=\"createyj(3)\">\n      <img src=\"../../../assets/gl.svg\" alt=\"\">\n      <div class=\"name\">攻略</div>\n      <div class=\"des\">经典玩法</div>\n    </div>\n  </div>\n  <div class=\"box-one\">\n    <div class=\"item\" (click)=\"createpq()\">\n      <img src=\"../../../assets/pq.svg\" alt=\"\">\n      <div class=\"name\">票圈</div>\n      <div class=\"des\">此刻心情</div>\n    </div>\n    <div class=\"item\" (click)=\"createyj(2)\">\n      <img src=\"../../../assets/yj.svg\" alt=\"\">\n      <div class=\"name\">游记</div>\n      <div class=\"des\">旅行故事</div>\n    </div>\n  </div>\n  <div class=\"box-two\" style=\"margin-top: -10px\">\n    <div class=\"item\" (click)=\"createyj(4)\">\n      <img src=\"../../../assets/zm.svg\" alt=\"\">\n      <div class=\"name\">约游</div>\n      <div class=\"des\">活动召集</div>\n    </div>\n  </div>\n  <div class=\"footer\">\n    <ion-button fill=\"clear\" (click)=\"close()\">\n      <ion-icon name=\"close\"></ion-icon>\n    </ion-button>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1540,6 +1560,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-06-25 14:27:12
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-26 22:18:01
+ * @Description: file content
+ */
 
 
 
@@ -1551,10 +1578,11 @@ var FbseleteComponent = /** @class */ (function () {
     }
     FbseleteComponent.prototype.ngOnInit = function () { };
     FbseleteComponent.prototype.createpq = function () {
-        this.presentActionSheet();
+        // this.presentActionSheet();
+        this.close({ type: 0 });
     };
     FbseleteComponent.prototype.createyj = function (type) {
-        this.close({ type: type });
+        this.close({ type: type - 1 });
     };
     FbseleteComponent.prototype.presentActionSheet = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
@@ -2049,6 +2077,121 @@ var PayboxComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/components/scan-images/scan-images.component.html":
+/*!*******************************************************************!*\
+  !*** ./src/app/components/scan-images/scan-images.component.html ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-11-26 23:08:04\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-11-26 23:34:59\n * @Description: file content\n -->\n<div class=\"scanimg\">\n  <ion-slides [options]=\"slideOpts\" *ngIf=\"type == 1\">\n    <ion-slide *ngFor=\"let item of src\" (click)=\"close()\">\n      <img style=\"width: 100%\" [src]=\"imgsrc(item)\" alt=\"\">\n    </ion-slide>\n  </ion-slides>\n  <ion-slides [options]=\"slideOpts\" *ngIf=\"type == -1\">\n    <ion-slide>\n      <img style=\"width: 100%\" [src]=\"imgsrc(item)\" alt=\"\" (click)=\"close()\">\n    </ion-slide>\n  </ion-slides>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/scan-images/scan-images.component.scss":
+/*!*******************************************************************!*\
+  !*** ./src/app/components/scan-images/scan-images.component.scss ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".scanimg {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  background-color: #000;\n  top: 0;\n  left: 0; }\n\nion-slides {\n  height: 100%; }\n\nion-slides img {\n    max-width: 100%;\n    max-height: 100%; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC9jb21wb25lbnRzL3NjYW4taW1hZ2VzL3NjYW4taW1hZ2VzLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usa0JBQWtCO0VBQ2xCLFdBQVc7RUFDWCxZQUFZO0VBQ1osc0JBQXNCO0VBQ3RCLE1BQU07RUFDTixPQUFPLEVBQUE7O0FBRVQ7RUFDRSxZQUFZLEVBQUE7O0FBRGQ7SUFHSSxlQUFlO0lBQ2YsZ0JBQWdCLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL3NjYW4taW1hZ2VzL3NjYW4taW1hZ2VzLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnNjYW5pbWcge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIGJhY2tncm91bmQtY29sb3I6ICMwMDA7XG4gIHRvcDogMDtcbiAgbGVmdDogMDtcbn1cbmlvbi1zbGlkZXMge1xuICBoZWlnaHQ6IDEwMCU7XG4gIGltZyB7XG4gICAgbWF4LXdpZHRoOiAxMDAlO1xuICAgIG1heC1oZWlnaHQ6IDEwMCU7XG4gIH1cbn0iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/components/scan-images/scan-images.component.ts":
+/*!*****************************************************************!*\
+  !*** ./src/app/components/scan-images/scan-images.component.ts ***!
+  \*****************************************************************/
+/*! exports provided: ScanImagesComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScanImagesComponent", function() { return ScanImagesComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _services_native_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../services/native.service */ "./src/app/services/native.service.ts");
+/* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../services/http.service */ "./src/app/services/http.service.ts");
+
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-11-26 23:08:04
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-26 23:36:27
+ * @Description: file content
+ */
+
+
+
+
+var ScanImagesComponent = /** @class */ (function () {
+    function ScanImagesComponent(modalController, http, native) {
+        this.modalController = modalController;
+        this.http = http;
+        this.native = native;
+    }
+    ScanImagesComponent.prototype.ngOnInit = function () {
+        this.slideOpts = {
+            initialSlide: this.index || 0,
+            pager: false,
+            zoom: {
+                maxRatio: 5,
+            }
+        };
+    };
+    ScanImagesComponent.prototype.ionViewWillEnter = function () {
+        this.native.setFullscreen();
+    };
+    ScanImagesComponent.prototype.close = function () {
+        this.modalController.dismiss();
+    };
+    ScanImagesComponent.prototype.imgsrc = function (value) {
+        if (!value) {
+            return '../../assets/mrtx.jpg';
+        }
+        var args = this.http.zdomain;
+        if (value.startsWith('http') || value.startsWith('data:image') || value.startsWith('file:///') || value.startsWith('cdvfile://')) {
+            return value;
+        }
+        else if (value.startsWith('/mobile') && args && args.endsWith('mobile/')) {
+            return args + value.substring(7);
+        }
+        else if (value.startsWith('./../')) {
+            return args + value.substring(5);
+        }
+        else {
+            return args + value;
+        }
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], ScanImagesComponent.prototype, "src", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
+    ], ScanImagesComponent.prototype, "type", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
+    ], ScanImagesComponent.prototype, "index", void 0);
+    ScanImagesComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-scan-images',
+            template: __webpack_require__(/*! ./scan-images.component.html */ "./src/app/components/scan-images/scan-images.component.html"),
+            styles: [__webpack_require__(/*! ./scan-images.component.scss */ "./src/app/components/scan-images/scan-images.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"], _services_http_service__WEBPACK_IMPORTED_MODULE_4__["HttpService"], _services_native_service__WEBPACK_IMPORTED_MODULE_3__["NativeService"]])
+    ], ScanImagesComponent);
+    return ScanImagesComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/search/search.component.html":
 /*!*********************************************************!*\
   !*** ./src/app/components/search/search.component.html ***!
@@ -2337,7 +2480,7 @@ module.exports = "<div padding>\n  <h3>正在上传,请稍等...</h3>\n  <p>\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "h3 {\n  font-size: var(--ion-title);\n  color: var(--ion-color-dark); }\n\np {\n  font-size: var(--ion-sm-text);\n  color: var(--ion-color-medium); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC9jb21wb25lbnRzL3VwbG9hZC91cGxvYWQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSwyQkFBMkI7RUFDM0IsNEJBQTRCLEVBQUE7O0FBRTlCO0VBQ0UsNkJBQTZCO0VBQzdCLDhCQUE4QixFQUFBIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy91cGxvYWQvdXBsb2FkLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaDMge1xuICBmb250LXNpemU6IHZhcigtLWlvbi10aXRsZSk7XG4gIGNvbG9yOiB2YXIoLS1pb24tY29sb3ItZGFyayk7XG59XG5wIHtcbiAgZm9udC1zaXplOiB2YXIoLS1pb24tc20tdGV4dCk7XG4gIGNvbG9yOiB2YXIoLS1pb24tY29sb3ItbWVkaXVtKTtcbn1cbiJdfQ== */"
+module.exports = "h3 {\n  font-size: var(--ion-title);\n  color: var(--ion-color-dark); }\n\np {\n  font-size: var(--ion-sm-text);\n  color: var(--ion-color-medium); }\n\ndiv {\n  width: 100%;\n  background: #fff; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC9jb21wb25lbnRzL3VwbG9hZC91cGxvYWQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSwyQkFBMkI7RUFDM0IsNEJBQTRCLEVBQUE7O0FBRTlCO0VBQ0UsNkJBQTZCO0VBQzdCLDhCQUE4QixFQUFBOztBQUVoQztFQUNFLFdBQVc7RUFDWCxnQkFBZ0IsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvdXBsb2FkL3VwbG9hZC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImgzIHtcbiAgZm9udC1zaXplOiB2YXIoLS1pb24tdGl0bGUpO1xuICBjb2xvcjogdmFyKC0taW9uLWNvbG9yLWRhcmspO1xufVxucCB7XG4gIGZvbnQtc2l6ZTogdmFyKC0taW9uLXNtLXRleHQpO1xuICBjb2xvcjogdmFyKC0taW9uLWNvbG9yLW1lZGl1bSk7XG59XG5kaXYge1xuICB3aWR0aDogMTAwJTtcbiAgYmFja2dyb3VuZDogI2ZmZjtcbn0iXX0= */"
 
 /***/ }),
 
@@ -2441,63 +2584,6 @@ var VideoComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"], _services_native_service__WEBPACK_IMPORTED_MODULE_3__["NativeService"]])
     ], VideoComponent);
     return VideoComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/guard/login-guard.guard.ts":
-/*!********************************************!*\
-  !*** ./src/app/guard/login-guard.guard.ts ***!
-  \********************************************/
-/*! exports provided: LoginGuardGuard */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginGuardGuard", function() { return LoginGuardGuard; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var src_app_services_native_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/native.service */ "./src/app/services/native.service.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-
-/*
- * @Author: wjy-mac
- * @Date: 2019-11-18 14:47:41
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-18 16:41:21
- * @Description: file content
- */
-
-
-
-var LoginGuardGuard = /** @class */ (function () {
-    function LoginGuardGuard(nav, native) {
-        this.nav = nav;
-        this.native = native;
-    }
-    LoginGuardGuard.prototype.canActivate = function (next, state) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.native.getStorage('token').then(function (res) {
-                console.log(res);
-                alert(1);
-                resolve(true);
-            }).catch(function (err) {
-                alert(2);
-                _this.nav.navigateForward('login');
-                reject(false);
-            });
-        });
-    };
-    LoginGuardGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])({
-            providedIn: 'root'
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"], src_app_services_native_service__WEBPACK_IMPORTED_MODULE_1__["NativeService"]])
-    ], LoginGuardGuard);
-    return LoginGuardGuard;
 }());
 
 
@@ -2949,6 +3035,145 @@ var CollelistService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/deletemyrelease.service.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/services/deletemyrelease.service.ts ***!
+  \*****************************************************/
+/*! exports provided: DeletemyreleaseService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeletemyreleaseService", function() { return DeletemyreleaseService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-11-19 21:08:24
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-19 21:33:12
+ * @Description: 记录已删除的票圈等id 返回我的发布时使用
+ */
+
+var DeletemyreleaseService = /** @class */ (function () {
+    function DeletemyreleaseService() {
+    }
+    DeletemyreleaseService.prototype.setId = function (id, type) {
+        this.id = id;
+        this.type = type;
+    };
+    DeletemyreleaseService.prototype.getId = function () {
+        return {
+            id: this.id,
+            type: this.type
+        };
+    };
+    DeletemyreleaseService.prototype.clear = function () {
+        this.id = null;
+        this.type = null;
+    };
+    DeletemyreleaseService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], DeletemyreleaseService);
+    return DeletemyreleaseService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/editmyrelease.service.ts":
+/*!***************************************************!*\
+  !*** ./src/app/services/editmyrelease.service.ts ***!
+  \***************************************************/
+/*! exports provided: EditmyreleaseService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditmyreleaseService", function() { return EditmyreleaseService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-11-19 22:14:35
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-19 23:26:36
+ * @Description: file content
+ */
+
+var EditmyreleaseService = /** @class */ (function () {
+    function EditmyreleaseService() {
+    }
+    /**
+     * @Author: wjy-mac
+     * @description: 初始化被修改数据
+     * @Date: 2019-11-19 22:18:58
+     * @param {type}
+     * @return:
+     */
+    EditmyreleaseService.prototype.setData = function (data, type) {
+        this.data = data;
+        this.type = type;
+        this.ischage = false;
+    };
+    /**
+     * @Author: wjy-mac
+     * @description: 修改被修改数据
+     * @Date: 2019-11-19 22:19:15
+     * @param {type}
+     * @return:
+     */
+    EditmyreleaseService.prototype.changeData = function (data) {
+        this.data = Object.assign(this.data, data);
+        this.ischage = true;
+    };
+    /**
+     * @Author: wjy-mac
+     * @description: 获取被修改数据
+     * @Date: 2019-11-19 22:19:23
+     * @param {type}
+     * @return:
+     */
+    EditmyreleaseService.prototype.getData = function () {
+        return {
+            type: this.type,
+            data: this.data
+        };
+    };
+    /**
+     * @Author: wjy-mac
+     * @description: 是否被修改
+     * @Date: 2019-11-19 22:19:35
+     * @param {type}
+     * @return:
+     */
+    EditmyreleaseService.prototype.getIschage = function () {
+        return this.ischage;
+    };
+    EditmyreleaseService.prototype.clear = function () {
+        this.data = null;
+        this.ischage = false;
+        this.type = null;
+    };
+    EditmyreleaseService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], EditmyreleaseService);
+    return EditmyreleaseService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/emojiishow.service.ts":
 /*!************************************************!*\
   !*** ./src/app/services/emojiishow.service.ts ***!
@@ -3023,7 +3248,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy-mac
  * @Date: 2019-07-28 02:20:08
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-18 15:20:45
+ * @LastEditTime: 2019-11-20 23:46:29
  * @Description: file content
  */
 
@@ -3253,7 +3478,7 @@ var GetproductService = /** @class */ (function () {
                             resolve(res);
                         }, function (err) {
                             console.error(err);
-                            _this.presentAlertConfirm(err['msg']);
+                            // this.presentAlertConfirm(err['msg'])
                             // this.nav.back();
                             // this.alertController.getTop().
                             reject(false);
@@ -4339,7 +4564,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy-mac
  * @Date: 2019-07-24 22:48:58
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-18 15:24:13
+ * @LastEditTime: 2019-11-26 20:02:12
  * @Description: file content
  */
 
@@ -4380,6 +4605,9 @@ var GzlistService = /** @class */ (function () {
         });
     };
     GzlistService.prototype.getGzlist = function () {
+        if (this.list.length === 0) {
+            this.getHttp().then(function (res) { }).catch(function (err) { });
+        }
         return this.list;
     };
     GzlistService.prototype.getHttp = function () {
@@ -4454,7 +4682,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-17 23:02:42
+ * @LastEditTime: 2019-11-21 00:11:11
  * @Description: file content
  */
 
@@ -4549,6 +4777,7 @@ var HttpService = /** @class */ (function () {
         this.getpchildllist = 'article.php?act=getpchildllist'; // 获取子评论
         this.getpqlist = 'article.php?act=getpqlist'; // 获取票圈等列表
         this.fbpqitem = 'article.php?act=insetItem'; // 发布游记等
+        this.deletepqitem = 'article.php?act=deleteitem'; // 删除票圈游记等
         this.setdz = 'article.php?act=setdz'; // 点赞
         this.setpl = 'article.php?act=setpl'; // 评论
         this.delpl = 'article.php?act=delpl'; // 删除评论
@@ -4770,7 +4999,7 @@ var HttpService = /** @class */ (function () {
     };
     HttpService.prototype.setHeard = function (url) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var user, _a, e_1, ze, uuid, header;
+            var user, _a, e_1, ze, uuid, address, header;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_b) {
                 switch (_b.label) {
                     case 0:
@@ -4802,6 +5031,11 @@ var HttpService = /** @class */ (function () {
                         uuid = this.nativeService.getUuid();
                         if (uuid) {
                             url += '&uuid=' + uuid;
+                        }
+                        address = this.userfn.getLocation();
+                        if (address) {
+                            url += ('&country=' + address.country + '&province=' + address.province +
+                                '&city=' + address.city + '&lat=' + address.lat + '&lng=' + address.lng);
                         }
                         if (user.token) {
                             if (this.nativeService.ismobile()) {
@@ -4866,7 +5100,7 @@ var HttpService = /** @class */ (function () {
     };
     HttpService.prototype.requestFailed = function (url, err, rmsg) {
         this.nativeService.hideLoading();
-        var msg = url ? url : '';
+        var msg = '';
         if (!err) {
             msg += rmsg;
         }
@@ -4973,12 +5207,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ionic-native/call-number/ngx */ "./node_modules/@ionic-native/call-number/ngx/index.js");
 /* harmony import */ var _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ionic-native/device/ngx */ "./node_modules/@ionic-native/device/ngx/index.js");
 /* harmony import */ var _ionic_native_open_native_settings_ngx__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @ionic-native/open-native-settings/ngx */ "./node_modules/@ionic-native/open-native-settings/ngx/index.js");
+/* harmony import */ var _ionic_native_toast_ngx__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ionic-native/toast/ngx */ "./node_modules/@ionic-native/toast/ngx/index.js");
 
 /*
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-18 16:55:00
+ * @LastEditTime: 2019-11-26 20:32:41
  * @Description: file content
  */
 
@@ -4996,8 +5231,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var NativeService = /** @class */ (function () {
-    function NativeService(alertController, loadingController, toastController, nativeStorage, plt, mediaCapture, imagePicker, camera, androidFullScreen, statusbar, videoPlayer, network, appVersion, market, callNumber, device, openNativeSettings) {
+    function NativeService(alertController, loadingController, toastController, nativeStorage, plt, mediaCapture, imagePicker, camera, androidFullScreen, statusbar, videoPlayer, network, appVersion, market, callNumber, device, openNativeSettings, toast) {
         this.alertController = alertController;
         this.loadingController = loadingController;
         this.toastController = toastController;
@@ -5015,6 +5251,7 @@ var NativeService = /** @class */ (function () {
         this.callNumber = callNumber;
         this.device = device;
         this.openNativeSettings = openNativeSettings;
+        this.toast = toast;
     }
     NativeService.prototype.getAppversion = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
@@ -5027,6 +5264,17 @@ var NativeService = /** @class */ (function () {
                         return [2 /*return*/, version];
                 }
             });
+        });
+    };
+    NativeService.prototype.wechatShare = function () {
+    };
+    NativeService.prototype.weboShare = function () {
+    };
+    NativeService.prototype.getAppversioncode = function () {
+        return this.appVersion.getVersionCode().then(function (res) {
+            alert(res);
+            alert(JSON.stringify(res));
+        }).catch(function (err) {
         });
     };
     NativeService.prototype.openNativeSettingfn = function (type) {
@@ -5161,6 +5409,14 @@ var NativeService = /** @class */ (function () {
         });
     };
     NativeService.prototype.presentToast = function (msg) {
+        if (this.ismobile()) {
+            this.mobileToast(msg);
+        }
+        else {
+            this.webToast(msg);
+        }
+    };
+    NativeService.prototype.webToast = function (msg) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
             var toast;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
@@ -5168,7 +5424,7 @@ var NativeService = /** @class */ (function () {
                     case 0: return [4 /*yield*/, this.toastController.create({
                             message: msg,
                             duration: 2000,
-                            position: 'middle'
+                            position: 'bottom'
                         })];
                     case 1:
                         toast = _a.sent();
@@ -5178,16 +5434,23 @@ var NativeService = /** @class */ (function () {
             });
         });
     };
+    NativeService.prototype.mobileToast = function (msg) {
+        this.toast.show(msg, '2000', 'bottom').subscribe(function (toast) {
+        });
+    };
     NativeService.prototype.getUuid = function () {
         return this.device.uuid;
     };
     // 获取平台信息
     NativeService.prototype.getPlatform = function () {
-        return this.plt.is('hybrid');
+        // return this.plt.is('mobile');
+        return this.plt.is('android') || this.plt.is('ios');
+        // return true;
     };
     // 是否手机
     NativeService.prototype.ismobile = function () {
-        return this.plt.is('hybrid');
+        return this.plt.is('cordova');
+        // return this.plt.is('android') || this.plt.is('ios');
     };
     NativeService.prototype.isandroid = function () {
         return this.plt.is('android');
@@ -5239,7 +5502,7 @@ var NativeService = /** @class */ (function () {
                         _a.label = 1;
                     case 1:
                         _a.trys.push([1, 5, , 6]);
-                        if (!this.getPlatform()) return [3 /*break*/, 3];
+                        if (!this.ismobile()) return [3 /*break*/, 3];
                         return [4 /*yield*/, this.storage(title, val)];
                     case 2:
                         data = _a.sent();
@@ -5271,8 +5534,7 @@ var NativeService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 7, , 8]);
-                        alert(this.getPlatform());
-                        if (!this.getPlatform()) return [3 /*break*/, 5];
+                        if (!this.ismobile()) return [3 /*break*/, 5];
                         _a.label = 1;
                     case 1:
                         _a.trys.push([1, 3, , 4]);
@@ -5282,7 +5544,6 @@ var NativeService = /** @class */ (function () {
                         return [2 /*return*/, JSON.parse(data)];
                     case 3:
                         e_1 = _a.sent();
-                        console.log(e_1);
                         throw null;
                     case 4: return [3 /*break*/, 6];
                     case 5:
@@ -5314,7 +5575,7 @@ var NativeService = /** @class */ (function () {
     };
     NativeService.prototype.removeStorage = function (title) {
         if (title === void 0) { title = 'my_store_user'; }
-        if (this.getPlatform()) {
+        if (this.ismobile()) {
             this.nativeStorage.remove(title);
         }
         else {
@@ -5322,7 +5583,7 @@ var NativeService = /** @class */ (function () {
         }
     };
     NativeService.prototype.clearStorage = function () {
-        if (this.getPlatform()) {
+        if (this.ismobile()) {
             this.nativeStorage.clear();
         }
         else {
@@ -5472,7 +5733,7 @@ var NativeService = /** @class */ (function () {
         var type = 'image/png'; // 定义图片类型（canvas转的图片一般都是png，也可以指定其他类型）
         var arr = base64.split(',');
         var mime = arr[0].match(/:(.*?);/)[1] || type;
-        var nametype = mime.substring(5);
+        var nametype = mime.split('/')[1];
         name = name + (new Date()).valueOf() + '.' + nametype; // 定义文件名字（例如：abc.png ， cover.png）
         // 去掉url的头，并转化为byte
         var bytes = window.atob(arr[1]);
@@ -5551,7 +5812,7 @@ var NativeService = /** @class */ (function () {
             _ionic_native_android_full_screen_ngx__WEBPACK_IMPORTED_MODULE_7__["AndroidFullScreen"], _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_8__["StatusBar"],
             _ionic_native_video_player_ngx__WEBPACK_IMPORTED_MODULE_9__["VideoPlayer"], _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_10__["Network"], _ionic_native_app_version_ngx__WEBPACK_IMPORTED_MODULE_11__["AppVersion"],
             _ionic_native_market_ngx__WEBPACK_IMPORTED_MODULE_12__["Market"], _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_13__["CallNumber"], _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_14__["Device"],
-            _ionic_native_open_native_settings_ngx__WEBPACK_IMPORTED_MODULE_15__["OpenNativeSettings"]])
+            _ionic_native_open_native_settings_ngx__WEBPACK_IMPORTED_MODULE_15__["OpenNativeSettings"], _ionic_native_toast_ngx__WEBPACK_IMPORTED_MODULE_16__["Toast"]])
     ], NativeService);
     return NativeService;
 }());
@@ -7525,7 +7786,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-14 20:55:40
+ * @LastEditTime: 2019-11-23 21:30:21
  * @Description: 所有跳转页面类型服务
  */
 
@@ -7608,9 +7869,10 @@ var TopageService = /** @class */ (function () {
                 else {
                     href_1 += '?user_id=' + res['user_id'];
                 }
+                console.log(href_1);
                 _this.openBrowser(href_1);
             }).catch(function (err2) {
-                _this.openBrowser(href_1);
+                // this.openBrowser(href);
             });
         }
         else if (type === 11) {
@@ -7655,7 +7917,7 @@ var TopageService = /** @class */ (function () {
      */
     TopageService.prototype.openBrowser = function (link) {
         var options = {
-            location: 'yes',
+            location: 'no',
             // closebuttoncaption: '关闭',
             toolbarcolor: '#f1f1f1',
             closebuttoncolor: '#333333',
@@ -7664,7 +7926,32 @@ var TopageService = /** @class */ (function () {
             // hidenavigationbuttons: 'yes'
             hideurlbar: 'yes'
         };
+        // if (href == ${link2}) {
+        // }
+        if (link.includes('xiebao18')) {
+            var link2 = link.split('?');
+            link = link2[0];
+        }
         var browser = this.iab.create(link, '', options);
+        browser.on('loadstop').subscribe(function (res) {
+            if (link.includes('xiebao18')) {
+                var code = "(function() {\n          var href = window.location.href;\n          if (href == 'https://cpsh5.xiebao18.com/wjy2055506') {\n            var div = document.createElement('div');\n            div.innerText = '\u8FD4\u56DE';\n            div.style.cssText = 'position: absolute;width: 50px;padding-left: 10px;color: #fff;font-size: .32rem;height: 1.08rem;line-height: 1.08rem;z-index: 100;top: 0; left: 0;';\n            document.body.appendChild(div);\n            div.onclick = function () {\n              var msg = JSON.stringify({name: 'exitWeb'});\n              webkit.messageHandlers.cordova_iab.postMessage(msg);\n            }\n          }\n        })()";
+                browser.executeScript({ code: code });
+            }
+        });
+        browser.on('loaderror').subscribe(function (res) {
+            console.log(2);
+            console.log(res);
+        });
+        browser.on('message').subscribe(function (res) {
+            var data = res['data'];
+            if (data.name === 'exitWeb') {
+                browser.close();
+            }
+        });
+        browser.on('loadstart').subscribe(function (res) {
+        });
+        console.log(browser);
     };
     TopageService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
@@ -7759,9 +8046,15 @@ var UserService = /** @class */ (function () {
         this.gaoDeLocation.getCurrentPosition()
             .then(function (res) {
             console.log(res);
+            var province;
+            var city;
+            if (res.province) {
+                province = res.province.substring(0, res.province.length - 1);
+                city = res.city.substring(0, res.city.length - 1);
+            }
             _this.nowlocation.country = res.country;
-            _this.nowlocation.province = res.province;
-            _this.nowlocation.city = res.city;
+            _this.nowlocation.province = province;
+            _this.nowlocation.city = city;
             _this.nowlocation.district = res.district;
             _this.nowlocation.address = res.address;
             _this.nowlocation.lat = res.latitude;
@@ -7770,15 +8063,28 @@ var UserService = /** @class */ (function () {
         })
             .catch(function (error) {
             console.error(error);
-            if (_this.native.ismobile()) {
-                // this.native
-                _this.native.presentAlert('打开通知获取更多优惠！');
-                _this.openQx();
+            if (error == 'plugin_not_installed') {
+                setTimeout(function () {
+                    _this.getLocationfn();
+                }, 1000);
             }
-            else {
+            else if (error == 'cordova_not_available') {
                 _this.nowlocation.country = '中国';
                 _this.nowlocation.province = '四川省';
                 _this.nowlocation.city = '成都市';
+            }
+            else {
+                if (_this.native.ismobile()) {
+                    console.log(_this.native.ismobile());
+                    // this.native
+                    // this.native.presentAlert('请在设置中打开定位权限!');
+                    _this.openQx();
+                }
+                else {
+                    _this.nowlocation.country = '中国';
+                    _this.nowlocation.province = '四川省';
+                    _this.nowlocation.city = '成都市';
+                }
             }
         });
     };
@@ -7821,7 +8127,10 @@ var UserService = /** @class */ (function () {
     UserService.prototype.setToken = function (token) {
         // this.native.getPlatform();
         this.token = token;
-        this.native.setStorage('token', token);
+        this.native.setStorage('token', token).then(function (res) { }).catch(function (err) {
+            // alert(err);
+            // alert(JSON.stringify(err));
+        });
     };
     UserService.prototype.getToken = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {

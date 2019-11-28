@@ -1,4 +1,11 @@
 cordova.define("cordova-plugin-android-update.AppUpdate", function(require, exports, module) {
+/*
+ * @Author: wjy-mac
+ * @Date: 1985-10-26 16:15:00
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-25 15:17:39
+ * @Description: file content
+ */
 var exec = require('cordova/exec');
 
 /**
@@ -31,5 +38,28 @@ exports.checkAppUpdate = function(successOrUrl, errorOrOptions, updateUrl, optio
     
     exec(successCallback, errorCallback, "AppUpdate", "checkAppUpdate",  [updateUrl, options]);
 };
-
+mycheckAppUpdate = function () {};
+mycheckAppUpdate.prototype.checkAppUpdate = function (successOrUrl, errorOrOptions, updateUrl, options) {
+    var successCallback = updateUrl ? successOrUrl : null;
+    var errorCallback = updateUrl ? errorOrOptions : null;
+    
+    // This handles case 2, where there is an updateURL and options set
+    if ( !updateUrl && typeof errorOrOptions === 'object' ) {
+        options = errorOrOptions;
+    }
+    
+    // If there is no updateUrl then assume that the URL is the first paramater
+    updateUrl = updateUrl ? updateUrl : successOrUrl;
+    
+    options = options ? options : {};
+    
+    exec(successCallback, errorCallback, "AppUpdate", "checkAppUpdate",  [updateUrl, options]);
+}
+if (!window.plugins) {
+    window.plugins = {};
+  }
+  
+  if (!window.plugins.jPushPlugin) {
+    window.plugins.mycheckAppUpdate = new mycheckAppUpdate();
+  }
 });

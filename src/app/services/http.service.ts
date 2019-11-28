@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-19 21:56:20
+ * @LastEditTime: 2019-11-21 00:11:11
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -389,7 +389,7 @@ export class HttpService {
   }
   private requestFailed(url: string, err, rmsg ?: string) {
     this.nativeService.hideLoading();
-    let msg = url ? url : '';
+    let msg = '';
     if (!err) {
       msg += rmsg;
     } else {

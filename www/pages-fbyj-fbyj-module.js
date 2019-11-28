@@ -11,13 +11,22 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FbyjPageModule", function() { return FbyjPageModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var ng2_ckeditor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ng2-ckeditor */ "./node_modules/ng2-ckeditor/fesm5/ng2-ckeditor.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _fbyj_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./fbyj.page */ "./src/app/pages/fbyj/fbyj.page.ts");
+/* harmony import */ var src_app_pipes_pipes_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/pipes/pipes.module */ "./src/app/pipes/pipes.module.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var ng2_ckeditor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ng2-ckeditor */ "./node_modules/ng2-ckeditor/fesm5/ng2-ckeditor.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _fbyj_page__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./fbyj.page */ "./src/app/pages/fbyj/fbyj.page.ts");
+
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-06-19 00:16:16
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-19 23:21:13
+ * @Description: file content
+ */
 
 
 
@@ -29,22 +38,23 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [
     {
         path: '',
-        component: _fbyj_page__WEBPACK_IMPORTED_MODULE_7__["FbyjPage"]
+        component: _fbyj_page__WEBPACK_IMPORTED_MODULE_8__["FbyjPage"]
     }
 ];
 var FbyjPageModule = /** @class */ (function () {
     function FbyjPageModule() {
     }
     FbyjPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             imports: [
-                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
-                _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["IonicModule"],
-                ng2_ckeditor__WEBPACK_IMPORTED_MODULE_5__["CKEditorModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
+                _angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonicModule"],
+                ng2_ckeditor__WEBPACK_IMPORTED_MODULE_6__["CKEditorModule"],
+                src_app_pipes_pipes_module__WEBPACK_IMPORTED_MODULE_1__["PipesModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forChild(routes)
             ],
-            declarations: [_fbyj_page__WEBPACK_IMPORTED_MODULE_7__["FbyjPage"]]
+            declarations: [_fbyj_page__WEBPACK_IMPORTED_MODULE_8__["FbyjPage"]]
         })
     ], FbyjPageModule);
     return FbyjPageModule;
@@ -61,7 +71,7 @@ var FbyjPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>发布{{title}}</ion-title>\n    <ion-buttons slot=\"end\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"savefn(1)\" [disabled]=\"!formdata.title || !content || issub || issave\">\n        <ion-icon name=\"paper-plane\"></ion-icon>保存\n      </ion-button>\n      <ion-button (click)=\"sub(1)\" [disabled]=\"!formdata.title || !content || issub || issave\">\n        <ion-icon name=\"paper-plane\"></ion-icon>发表\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div *ngIf=\"!iscontent\">\n    <div class=\"top-head\">\n      <img [src]=\"head\" alt=\"\" *ngIf=\"head\" (click)=\"addfm()\">\n      <div *ngIf=\"!head\" class=\"ts-box\" (click)=\"addfm()\">\n        添加封面\n      </div>\n    </div>\n    <ion-list>\n      <ion-item>\n        <ion-input [(ngModel)]=\"formdata.title\" clearInput placeholder=\"添加标题\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input [(ngModel)]=\"formdata.destination\" clearInput placeholder=\"目的地\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-datetime no-padding no-margin [(ngModel)]=\"formdata.outtime\" placeholder=\"出发日期\" display-format=\"YYYY.MM.DD\" [doneText]=\"'确定'\" [cancelText]=\"'取消'\"></ion-datetime>\n      </ion-item>\n      <ion-item>\n        <ion-input [(ngModel)]=\"formdata.days\" type=\"number\" clearInput placeholder=\"出行天数\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input [(ngModel)]=\"formdata.money\" clearInput type=\"number\" placeholder=\"人均花费\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input [(ngModel)]=\"formdata.tag\" clearInput placeholder=\"添加标签\"></ion-input>\n      </ion-item>\n      <ion-item lines=\"none\">\n        <ion-textarea [(ngModel)]=\"formdata.des\" rows=\"3\" placeholder=\"一句话描述...\"></ion-textarea>\n      </ion-item>\n    </ion-list>\n  </div>\n  <div *ngIf=\"iscontent\">\n    <ckeditor [(ngModel)]=\"content\" [config]=\"config\" debounce=\"500\">  </ckeditor>\n  </div>\n  <div class=\"keyboard-height\" [ngStyle]=\"{height: keyboardH + 'px'}\"></div>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"setContent()\" [disabled]=\"issub\">\n        {{iscontent ? '标题' : '正文'}}\n      </ion-button>\n    </ion-buttons>\n    <ion-buttons slot=\"end\" *ngIf=\"iscontent\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"addimg()\" [disabled]=\"issub\">\n        <ion-icon name=\"images\"></ion-icon>插入图片\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-footer>\n"
+module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-07-31 23:40:56\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-11-19 23:29:42\n * @Description: file content\n -->\n<ion-header>\n\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>发布{{title}}</ion-title>\n    <ion-buttons slot=\"end\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button *ngIf=\"!id\" (click)=\"savefn(1)\" [disabled]=\"!formdata.title || !content || issub || issave\">\n        <ion-icon name=\"paper-plane\"></ion-icon>保存\n      </ion-button>\n      <ion-button (click)=\"sub(1)\" [disabled]=\"!formdata.title || !content || issub || issave\">\n        <ion-icon name=\"paper-plane\"></ion-icon>发表\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div *ngIf=\"!iscontent\">\n    <div class=\"top-head\">\n      <img [src]=\"head | imgsrc: http.zdomain\" alt=\"\" *ngIf=\"head\" (click)=\"addfm()\">\n      <div *ngIf=\"!head\" class=\"ts-box\" (click)=\"addfm()\">\n        添加封面\n      </div>\n    </div>\n    <ion-list>\n      <ion-item>\n        <ion-input [(ngModel)]=\"formdata.title\" clearInput placeholder=\"添加标题\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input [(ngModel)]=\"formdata.destination\" clearInput placeholder=\"目的地\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-datetime class=\"ion-no-padding ion-no-margin\" [(ngModel)]=\"formdata.outtime\" placeholder=\"出发日期\" display-format=\"YYYY.MM.DD\" [doneText]=\"'确定'\" [cancelText]=\"'取消'\"></ion-datetime>\n      </ion-item>\n      <ion-item>\n        <ion-input [(ngModel)]=\"formdata.days\" type=\"number\" clearInput placeholder=\"出行天数\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input [(ngModel)]=\"formdata.money\" clearInput type=\"number\" placeholder=\"人均花费\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input [(ngModel)]=\"formdata.tag\" clearInput placeholder=\"添加标签\"></ion-input>\n      </ion-item>\n      <ion-item lines=\"none\">\n        <ion-textarea [(ngModel)]=\"formdata.des\" rows=\"3\" placeholder=\"一句话描述...\"></ion-textarea>\n      </ion-item>\n    </ion-list>\n  </div>\n  <div *ngIf=\"iscontent\">\n    <ckeditor [(ngModel)]=\"content\" [config]=\"config\" debounce=\"500\">  </ckeditor>\n  </div>\n  <div class=\"keyboard-height\" [ngStyle]=\"{height: keyboardH + 'px'}\"></div>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"setContent()\" [disabled]=\"issub\">\n        {{iscontent ? '标题' : '正文'}}\n      </ion-button>\n    </ion-buttons>\n    <ion-buttons slot=\"end\" *ngIf=\"iscontent\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"addimg()\" [disabled]=\"issub\">\n        <ion-icon name=\"images\"></ion-icon>插入图片\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-footer>\n"
 
 /***/ }),
 
@@ -87,14 +97,18 @@ module.exports = ".top-head .ts-box {\n  min-height: 200px;\n  background-color:
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FbyjPage", function() { return FbyjPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _ionic_native_keyboard_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/keyboard/ngx */ "./node_modules/@ionic-native/keyboard/ngx/index.js");
-/* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/http.service */ "./src/app/services/http.service.ts");
-/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/user.service */ "./src/app/services/user.service.ts");
-/* harmony import */ var _services_native_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/native.service */ "./src/app/services/native.service.ts");
-/* harmony import */ var _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/upload/upload.component */ "./src/app/components/upload/upload.component.ts");
+/* harmony import */ var src_app_services_yjlist_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/yjlist.service */ "./src/app/services/yjlist.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_native_keyboard_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/keyboard/ngx */ "./node_modules/@ionic-native/keyboard/ngx/index.js");
+/* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/http.service */ "./src/app/services/http.service.ts");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _services_native_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/native.service */ "./src/app/services/native.service.ts");
+/* harmony import */ var _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../components/upload/upload.component */ "./src/app/components/upload/upload.component.ts");
+/* harmony import */ var src_app_services_editmyrelease_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/services/editmyrelease.service */ "./src/app/services/editmyrelease.service.ts");
+
+
 
 
 
@@ -105,7 +119,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var FbyjPage = /** @class */ (function () {
-    function FbyjPage(nav, plt, keyboard, http, user, actionSheetController, activeroute, native, popoverController, route) {
+    function FbyjPage(nav, plt, keyboard, http, user, actionSheetController, activeroute, native, popoverController, route, myeditdatafn, yjlistfn) {
         this.nav = nav;
         this.plt = plt;
         this.keyboard = keyboard;
@@ -116,11 +130,12 @@ var FbyjPage = /** @class */ (function () {
         this.native = native;
         this.popoverController = popoverController;
         this.route = route;
+        this.myeditdatafn = myeditdatafn;
+        this.yjlistfn = yjlistfn;
     }
     FbyjPage.prototype.ngOnInit = function () {
-        var _this = this;
         this.isloadhead = false;
-        this.contentimgnum = 0;
+        this.contentimgnum = -1;
         this.contentimgarr = [];
         // this.subloading();
         this.formdata = {
@@ -152,7 +167,7 @@ var FbyjPage = /** @class */ (function () {
             },
             {
                 name: 'editing', items: [
-                    'Find', '-', 'SelectAll', '-', 'SpellChecker'
+                    'Find', '-', 'SpellChecker'
                 ]
             },
             // {
@@ -162,22 +177,19 @@ var FbyjPage = /** @class */ (function () {
             // },
             {
                 name: 'basicstyles', items: [
-                    'Bold', 'Italic', 'Underline', 'Strike',
+                    'Bold', 'Italic', 'Underline',
                 ]
             },
             {
-                name: 'paragraph', items: ['NumberedList', 'BulletedList', '-', 'Blockquote',
+                name: 'paragraph', items: [
                     '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-'
                 ]
             },
-            // todo 在这里设定需要的插件 ...
-            // ,'Flash','Smiley','Video' Video是用得国产插件
             {
                 name: 'insert', items: [
-                    'Image', 'Html5video', 'Table', 'HorizontalRule', 'Emojione',
+                    'Image', 'Table', 'HorizontalRule', 'Emojione',
                 ]
             },
-            '/',
             {
                 name: 'styles', items: [
                     'Format', 'FontSize'
@@ -189,6 +201,8 @@ var FbyjPage = /** @class */ (function () {
                 ]
             }
         ];
+    };
+    FbyjPage.prototype.ionViewWillEnter = function () {
         var params = this.activeroute.snapshot.queryParams;
         this.type = params['type'] ? Number(params['type']) : 1;
         switch (this.type) {
@@ -199,7 +213,7 @@ var FbyjPage = /** @class */ (function () {
                 this.title = '攻略';
                 break;
             case 3:
-                this.title = '招募';
+                this.title = '约游';
                 break;
             default:
                 this.title = '游记';
@@ -207,6 +221,12 @@ var FbyjPage = /** @class */ (function () {
         if (params['iscg']) {
             this.getCg();
         }
+        else if (params['isedit']) {
+            this.setGeteditdata();
+        }
+    };
+    FbyjPage.prototype.ionViewDidEnter = function () {
+        var _this = this;
         try {
             window.addEventListener('keyboardWillShow', function (event) {
                 _this.keyboardH = event.keyboardHeight;
@@ -219,6 +239,13 @@ var FbyjPage = /** @class */ (function () {
             console.log(e);
         }
     };
+    /**
+     * @Author: wjy-mac
+     * @description: 处理保存的草稿数据
+     * @Date: 2019-11-20 00:20:35
+     * @param {type}
+     * @return:
+     */
     FbyjPage.prototype.getCg = function () {
         var _this = this;
         this.native.getStorage('yjcontent').then(function (res) {
@@ -240,6 +267,48 @@ var FbyjPage = /** @class */ (function () {
         }).catch(function (error) {
         });
     };
+    /**
+     * @Author: wjy-mac
+     * @description: 处理编辑数据
+     * @Date: 2019-11-20 00:20:27
+     * @param {type}
+     * @return:
+     */
+    FbyjPage.prototype.setGeteditdata = function () {
+        var obj = this.myeditdatafn.getData();
+        if (obj.type != this.type) {
+            this.myeditdatafn.clear();
+            return false;
+        }
+        var data = obj.data;
+        this.id = data.id;
+        this.head = data.imgarr[0];
+        this.headobj = {
+            src: data.imgarr && data.imgarr.length > 0 ? data.imgarr[0] : '',
+            thumb: data.thumb && data.thumb.length > 0 ? data.thumb[0] : '',
+        };
+        this.address = data.address;
+        this.lnglat = data.lnglat;
+        this.content = data.content;
+        this.formdata = {
+            title: data.title,
+            destination: data.destination,
+            outtime: data.outtime,
+            days: data.days,
+            money: data.money,
+            tag: data.tag,
+            des: data.des
+        };
+        if (this.formdata.outtime) {
+            console.log(this.formdata.outtime);
+            var date = new Date(this.formdata.outtime * 1000);
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            this.formdata.outtime = year + '.' + month + '.' + day;
+            console.log(this.formdata.outtime);
+        }
+    };
     FbyjPage.prototype.setContent = function () {
         this.iscontent = !this.iscontent;
     };
@@ -248,6 +317,7 @@ var FbyjPage = /** @class */ (function () {
     };
     FbyjPage.prototype.addimg = function () {
         this.presentActionSheet(2);
+        // this.getimgend(2, ['123']);
     };
     FbyjPage.prototype.addfm = function () {
         this.presentActionSheet(1);
@@ -278,7 +348,7 @@ var FbyjPage = /** @class */ (function () {
                                     handler: function () {
                                         console.log('Share clicked');
                                         var max = type === 1 ? 1 : 9;
-                                        _this.native.getPictures(max).then(function (res) {
+                                        _this.native.getPictures(1).then(function (res) {
                                             _this.getimgend(type, res);
                                         }, function (err) {
                                         });
@@ -309,42 +379,77 @@ var FbyjPage = /** @class */ (function () {
         }
         else {
             // http://192.144.168.163/loading.gif
-            var num = this.contentimgnum;
             var nowarr = [];
             var len = base64.length;
             for (var i = 0; i < len; i++) {
-                var nownum = num + i;
-                this.contentimgarr[nownum] = true;
-                nowarr.push(nownum);
-                this.content += "<img class=\"wjy" + nownum + "\" style=\"width: 100%;\" src=\"" + this.http.zdomain + "loading.gif\" alt=\"\"><p></p>";
+                this.contentimgnum++;
+                this.contentimgarr[this.contentimgnum] = true;
+                nowarr.push(this.contentimgnum);
+                this.content += "<img class=\"wjy" + this.contentimgnum + "\" style=\"width: 100%;\" src=\"" + this.http.zdomain + "loading.gif\" alt=\"\"><p></p>";
             }
             console.log(this.content);
             this.contentimgnum += len;
             this.basezfile(base64, nowarr);
         }
     };
+    /**
+     * @Author: wjy-mac
+     * @description: 上传内容区域图片
+     * @Date: 2019-11-19 11:31:25
+     * @param {type} base64arr base64数组
+     * @param {type} nowarr number数组 base64对应位置
+     * @return:
+     */
     FbyjPage.prototype.basezfile = function (base64arr, nowarr) {
         var _this = this;
         base64arr.map(function (base64, index) {
-            var file = _this.native.getImgbase64tofile(base64, 'yjorgl' + index);
-            file.append('nothumb', '1');
             var num = nowarr[index];
+            var file = _this.native.getImgbase64tofile(base64, 'yjorgl' + num);
+            file.append('nothumb', '1');
             _this.imgupload(file).then(function (res) {
-                _this.contentimgarr[num] = false;
+                // alert(JSON.stringify(res));
                 base64 = null;
-                var str = "<img\\s+(alt=\"\"\\s)*class=\"wjy" + num + "\"(\\sstyle=\"\\s*(width:\\s*)*\\s{0,1}\\d*%;\")*\\s*(src=\"\\S*\")\\s*(\\sstyle=\"\\s*(width:\\s*)*\\s{0,1}\\d*%;*\"\\s*)*\\s*(alt=\"\")*\\s*(/>|>)";
-                var regex = new RegExp(str);
-                var nstr = "<img style=\"max-width: 100%\" src=\"" + (_this.http.zdomain + res['src']) + "\" alt=\"\">";
-                _this.content = _this.content.replace(regex, nstr);
+                _this.setUpcontentimgend(num, res['src']);
                 _this.sub();
                 _this.savefn();
             }).catch(function (err2) {
-                _this.contentimgarr[num] = false;
+                _this.setUpcontentimgend(num);
                 _this.suberr();
             });
         });
         base64arr = null;
     };
+    /**
+     * @Author: wjy-mac
+     * @description: 图片上传完成
+     * @Date: 2019-11-19 12:03:29
+     * @param {type} num 表示第几张图片
+     * @param {type} src 服务器返回的图片链接，如果没有则表示上传失败
+     * @return:
+     */
+    FbyjPage.prototype.setUpcontentimgend = function (num, src) {
+        var nstr;
+        if (src) {
+            nstr = "<img style=\"max-width: 100%\" src=\"" + (this.http.zdomain + src) + "\" alt=\"\">";
+        }
+        else {
+            this.native.presentAlert('图片上传失败,已自动删除,请重试!');
+            nstr = '';
+        }
+        this.contentimgarr[num] = false;
+        var str = "<img\\s+(alt=\"\"\\s)*class=\"wjy" + num + "\"(\\sstyle=\"\\s*(width:\\s*)*\\s{0,1}\\d*%;\")*\\s*(src=\"\\S*\")\\s*(\\sstyle=\"\\s*(width:\\s*)*\\s{0,1}\\d*%;*\"\\s*)*\\s*(alt=\"\")*\\s*(/>|>)";
+        var regex = new RegExp(str);
+        if (this.content.search(regex) > -1) {
+            this.content = this.content.replace(regex, nstr);
+        }
+    };
+    /**
+     * @Author: wjy-mac
+     * @description: 上传封面
+     * @Date: 2019-11-19 12:01:55
+     * @param {type}
+     * @return:
+     */
     FbyjPage.prototype.updateHead = function (base64) {
         var _this = this;
         this.isloadhead = true;
@@ -352,6 +457,7 @@ var FbyjPage = /** @class */ (function () {
         base64 = null;
         this.imgupload(file).then(function (res) {
             _this.isloadhead = false;
+            _this.headobj = res;
             _this.head = _this.http.zdomain + res['src'];
             _this.sub();
             _this.savefn();
@@ -415,15 +521,17 @@ var FbyjPage = /** @class */ (function () {
         });
     };
     FbyjPage.prototype.sub = function (type) {
+        var _this = this;
         if (type) {
             this.issub = true;
-            this.subloading();
         }
         var canupdate = this.iscansub(1);
         if (!canupdate) {
             return false;
         }
-        this.subupdate();
+        this.getpopover(1).then(function (res) {
+            _this.subupdate();
+        });
     };
     /**
      * 判断是否可以立即保存
@@ -451,19 +559,80 @@ var FbyjPage = /** @class */ (function () {
             return false;
         }
         if (this.isloadhead) {
+            this.getpopover(1);
             return false;
         }
         for (var i = 0, j = this.contentimgarr.length; i < j; i++) {
             if (this.contentimgarr[i]) {
+                var str = "<img\\s+(alt=\"\"\\s)*class=\"wjy" + i + "\"(\\sstyle=\"\\s*(width:\\s*)*\\s{0,1}\\d*%;\")*\\s*(src=\"\\S*\")\\s*(\\sstyle=\"\\s*(width:\\s*)*\\s{0,1}\\d*%;*\"\\s*)*\\s*(alt=\"\")*\\s*(/>|>)";
+                var regex = new RegExp(str);
+                if (this.content.search(regex) === -1) {
+                    this.contentimgarr[i] = false;
+                    continue;
+                }
+                this.getpopover(1);
                 return false;
             }
         }
         return true;
     };
+    /**
+     * @Author: wjy-mac
+     * @description: 判断是否有弹窗并根据type跳转
+     * @Date: 2019-11-20 16:16:41
+     * @param {type} type 1 表示显示 2隐藏
+     * @return:
+     */
+    FbyjPage.prototype.getpopover = function (type) {
+        if (type === void 0) { type = 1; }
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var res, bool, err_1;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 8, , 12]);
+                        return [4 /*yield*/, this.popoverController.getTop()];
+                    case 1:
+                        res = _a.sent();
+                        if (!res) return [3 /*break*/, 5];
+                        if (!(type === 1)) return [3 /*break*/, 2];
+                        return [2 /*return*/, true];
+                    case 2: return [4 /*yield*/, this.popoverController.dismiss()];
+                    case 3:
+                        bool = _a.sent();
+                        if (bool) {
+                            return [2 /*return*/, true];
+                        }
+                        else {
+                            return [2 /*return*/, false];
+                        }
+                        _a.label = 4;
+                    case 4: return [3 /*break*/, 7];
+                    case 5:
+                        if (!(type === 1)) return [3 /*break*/, 7];
+                        return [4 /*yield*/, this.subloading()];
+                    case 6:
+                        _a.sent();
+                        return [2 /*return*/, true];
+                    case 7: return [2 /*return*/, true];
+                    case 8:
+                        err_1 = _a.sent();
+                        if (!(type === 1)) return [3 /*break*/, 10];
+                        return [4 /*yield*/, this.subloading()];
+                    case 9:
+                        _a.sent();
+                        return [2 /*return*/, true];
+                    case 10: return [2 /*return*/, false];
+                    case 11: return [3 /*break*/, 12];
+                    case 12: return [2 /*return*/];
+                }
+            });
+        });
+    };
     FbyjPage.prototype.subupdate = function () {
         var _this = this;
         var obj = {
-            img: JSON.stringify([this.head]),
+            img: JSON.stringify([this.headobj]),
             type: this.type + 1,
             address: this.address,
             lnglat: this.lnglat,
@@ -472,19 +641,79 @@ var FbyjPage = /** @class */ (function () {
         obj = Object.assign(obj, this.formdata);
         console.log(obj);
         obj['outtime'] = obj['outtime'] ? Date.parse((new Date(obj['outtime'])).toString()) / 1000 : '';
+        if (this.id) {
+            obj['id'] = this.id;
+        }
         this.http.postformdata(this.http.fbpqitem, obj).subscribe(function (res) {
             console.log(res);
-            _this.user.addjf(res.result.num);
-            // this.issub = false;
-            _this.suberr();
-            _this.route.navigate(['/fbyjmore'], { queryParams: { type: _this.type + 1, num: res.result.num } });
+            if (!_this.id) {
+                _this.user.addjf(res.result.num);
+                var obj2 = _this.setEdit(obj, res.result.createtime, res.result.id);
+                _this.yjlistfn.addItem(_this.type);
+                _this.suberr(res.result);
+            }
+            else {
+                var obj2 = _this.setEdit(obj, res.result, _this.id);
+                _this.myeditdatafn.changeData(obj2);
+                _this.suberr(1);
+            }
         }, function (error1) {
             _this.suberr();
         });
     };
-    FbyjPage.prototype.suberr = function () {
-        this.issub = false;
-        this.popoverController.dismiss();
+    /**
+     * @Author: wjy-mac
+     * @description: 添加完成或失败
+     * @Date: 2019-11-19 22:58:47
+     * @param {type}
+     * @return:
+     */
+    FbyjPage.prototype.suberr = function (num) {
+        var _this = this;
+        this.getpopover(2).then(function (res) {
+            if (res) {
+                _this.issub = false;
+                if (num) {
+                    if (num === 1) {
+                        _this.goBack();
+                    }
+                    else {
+                        _this.route.navigate(['/fbyjmore'], { queryParams: { type: _this.type + 1, num: num.num, sendnum: num.sendnum } });
+                    }
+                }
+            }
+            else {
+                setTimeout(function () { _this.suberr(num); }, 300);
+            }
+        }).catch(function () {
+            setTimeout(function () { _this.suberr(num); }, 300);
+        });
+    };
+    /**
+     * @Author: wjy-mac
+     * @description: 更新成功后
+     * @Date: 2019-11-19 22:59:04
+     * @param {type}
+     * @return:
+     */
+    FbyjPage.prototype.setEdit = function (data, time, id) {
+        var obj = {
+            id: id,
+            createtime: time,
+            imgarr: this.headobj ? [this.headobj.src] : [],
+            thumb: this.headobj ? [this.headobj.thumb] : [],
+            address: this.address,
+            lnglat: this.lnglat,
+            content: this.content,
+            title: data.title,
+            destination: data.destination,
+            outtime: data.outtime,
+            days: data.days,
+            money: data.money,
+            tag: data.tag,
+            des: data.des
+        };
+        return obj;
     };
     FbyjPage.prototype.subloading = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
@@ -492,7 +721,7 @@ var FbyjPage = /** @class */ (function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.popoverController.create({
-                            component: _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_8__["UploadComponent"],
+                            component: _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_9__["UploadComponent"],
                             translucent: false,
                             cssClass: 'payboxcontent',
                             backdropDismiss: false
@@ -514,18 +743,18 @@ var FbyjPage = /** @class */ (function () {
         // this.blur();
     };
     FbyjPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
             selector: 'app-fbyj',
             template: __webpack_require__(/*! ./fbyj.page.html */ "./src/app/pages/fbyj/fbyj.page.html"),
             styles: [__webpack_require__(/*! ./fbyj.page.scss */ "./src/app/pages/fbyj/fbyj.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"], _ionic_native_keyboard_ngx__WEBPACK_IMPORTED_MODULE_4__["Keyboard"],
-            _services_http_service__WEBPACK_IMPORTED_MODULE_5__["HttpService"], _services_user_service__WEBPACK_IMPORTED_MODULE_6__["UserService"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ActionSheetController"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
-            _services_native_service__WEBPACK_IMPORTED_MODULE_7__["NativeService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["PopoverController"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Platform"], _ionic_native_keyboard_ngx__WEBPACK_IMPORTED_MODULE_5__["Keyboard"],
+            _services_http_service__WEBPACK_IMPORTED_MODULE_6__["HttpService"], _services_user_service__WEBPACK_IMPORTED_MODULE_7__["UserService"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ActionSheetController"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"],
+            _services_native_service__WEBPACK_IMPORTED_MODULE_8__["NativeService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["PopoverController"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], src_app_services_editmyrelease_service__WEBPACK_IMPORTED_MODULE_10__["EditmyreleaseService"], src_app_services_yjlist_service__WEBPACK_IMPORTED_MODULE_1__["YjlistService"]])
     ], FbyjPage);
     return FbyjPage;
 }());

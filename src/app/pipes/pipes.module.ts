@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-07 22:29:41
+ * @LastEditTime: 2019-11-20 22:07:03
  * @Description: file content
  */
 import { NgModule } from '@angular/core';
@@ -26,6 +26,7 @@ import { AutoshdesPipe } from './autoshdes.pipe';
 import { NamenmPipe } from './namenm.pipe';
 import { NewstimePipe } from './newstime.pipe';
 import { NewslisttimePipe } from './newslisttime.pipe';
+import { LocationPipe } from './location.pipe';
 
 // import { YhqtitlePipe } from './yhqtitle.pipe';
 
@@ -40,13 +41,14 @@ import { NewslisttimePipe } from './newslisttime.pipe';
     AutoshdesPipe,
     NamenmPipe,
     NewstimePipe,
-    NewslisttimePipe],
+    NewslisttimePipe,
+    LocationPipe],
   imports: [
     CommonModule
   ],
   exports: [DatecontentPipe, GoodsattrPipe, OldtonowPipe, IsgzPipe, ImgsrcPipe,
     DecodeuriPipe, SetnumPipe, TelhidePipe, IsvideoPipe, NamesubstrPipe,
     XclistattrPipe, XccontentsplitPipe, SplitarrPipe, XcstatusPipe, OrderstatusPipe, AutoshdesPipe,
-    NamenmPipe, NewstimePipe, NewslisttimePipe]
+    NamenmPipe, NewstimePipe, NewslisttimePipe, LocationPipe]
 })
 export class PipesModule { }

@@ -172,14 +172,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-app-update": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-app-update"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "mx.ferreyra.callnumber": {
     "source": {
       "type": "registry",
@@ -230,5 +222,41 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova-plugin-x-toast": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-x-toast"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-app-update": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-app-update"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-wechat": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-wechat@^2.9.0"
+    },
+    "is_top_level": true,
+    "variables": {
+      "WECHATAPPID": "wx27166a2a293d90cb"
+    }
+  },
+  "cordova-plugin-gubnoi-alipay": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-gubnoi-alipay"
+    },
+    "is_top_level": true,
+    "variables": {
+      "APP_ID": "2019112669413941"
+    }
   }
 }

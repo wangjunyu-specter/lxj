@@ -2,18 +2,18 @@
  * @Author: wjy-mac
  * @Date: 2019-07-31 23:26:32
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-18 11:29:11
+ * @LastEditTime: 2019-11-21 15:27:45
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { UserService } from '../services/user.service';
-import {error} from 'selenium-webdriver';
 import { HttpService } from '../services/http.service';
 import {UsercenterService} from "../services/usercenter.service";
 import {TopageService} from "../services/topage.service";
 import {NativeService} from "../services/native.service";
 import { OkgoodsService } from '../services/okgoods.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab4',
@@ -29,7 +29,7 @@ export class Tab4Page implements OnInit {
   hdzxList: object[]; // 活动中心
   constructor(private route: Router, private userfn: UserService, public http: HttpService,
               private usercenter: UsercenterService, private toPage: TopageService, private native: NativeService,
-              private okgoodsfn: OkgoodsService) { }
+              private okgoodsfn: OkgoodsService, public alertController: AlertController) { }
 
   ngOnInit() {
     this.isshow = false;
@@ -123,5 +123,29 @@ export class Tab4Page implements OnInit {
   }
   openOtherpage(item) {
     this.toPage.toPage(item.type, item.url)
+  }
+
+  async hzqt() {
+    const alert = await this.alertController.create({
+      header: '提示',
+      message: '立即联系专属客服为您服务！',
+      buttons: [
+        {
+          text: '考虑考虑',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: '立即拨打',
+          handler: () => {
+            this.native.callTel('13982152738');
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 }

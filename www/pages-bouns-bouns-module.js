@@ -11,12 +11,21 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BounsPageModule", function() { return BounsPageModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _bouns_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./bouns.page */ "./src/app/pages/bouns/bouns.page.ts");
+/* harmony import */ var _components_components_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../components/components.module */ "./src/app/components/components.module.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _bouns_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./bouns.page */ "./src/app/pages/bouns/bouns.page.ts");
+
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-06-11 19:55:24
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-21 15:59:49
+ * @Description: file content
+ */
 
 
 
@@ -27,21 +36,22 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [
     {
         path: '',
-        component: _bouns_page__WEBPACK_IMPORTED_MODULE_6__["BounsPage"]
+        component: _bouns_page__WEBPACK_IMPORTED_MODULE_7__["BounsPage"]
     }
 ];
 var BounsPageModule = /** @class */ (function () {
     function BounsPageModule() {
     }
     BounsPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             imports: [
-                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
-                _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
+                _angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["IonicModule"],
+                _components_components_module__WEBPACK_IMPORTED_MODULE_1__["ComponentsModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forChild(routes)
             ],
-            declarations: [_bouns_page__WEBPACK_IMPORTED_MODULE_6__["BounsPage"]]
+            declarations: [_bouns_page__WEBPACK_IMPORTED_MODULE_7__["BounsPage"]]
         })
     ], BounsPageModule);
     return BounsPageModule;
@@ -58,7 +68,7 @@ var BounsPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>优惠券</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n\n<ion-content padding>\n  <ion-refresher slot=\"fixed\" pullFactor=\"0.5\" pullMin=\"100\" pullMax=\"200\" (ionRefresh)=\"doRefresh($event)\">\n    <ion-refresher-content\n       pullingIcon=\"arrow-dropdown\"\n       pullingText=\"Pull to refresh\"\n       refreshingSpinner=\"circles\"\n       refreshingText=\"更新中...\">\n    </ion-refresher-content>\n  </ion-refresher>\n  <div class=\"my-list\">\n    <div class=\"item\" *ngFor=\"let item of list\">\n      <div class=\"left\">\n        <div class=\"title\">{{item.type_name}}</div>\n        <div class=\"footer\">\n          <p>{{item.supplier_name}}</p>\n          <p>{{item.use_startdate}}-{{item.use_enddate}}</p>\n        </div>\n      </div>\n      <div class=\"center\">\n        <div class=\"text\">\n          <div class=\"top\">¥<span>{{item.type_money}}</span></div>\n          <p>满{{item.min_goods_amount}}元可用</p>\n        </div>\n      </div>\n      <div class=\"right\"></div>\n      <div class=\"tag\" [ngClass]=\"{nouse: item.status == '未使用', ygq: item.status == '已过期'}\">{{item.status}}</div>\n    </div>\n  </div>\n  <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadData($event)\">\n    <ion-infinite-scroll-content\n       loadingSpinner=\"bubbles\"\n       loadingText=\"正在加载...\">\n    </ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n</ion-content>\n"
+module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-07-28 01:18:50\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-11-21 16:00:44\n * @Description: file content\n -->\n<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>优惠券</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n\n<ion-content padding>\n  <ion-refresher slot=\"fixed\" pullFactor=\"0.5\" pullMin=\"100\" pullMax=\"200\" (ionRefresh)=\"doRefresh($event)\">\n    <ion-refresher-content\n       pullingIcon=\"arrow-dropdown\"\n       pullingText=\"Pull to refresh\"\n       refreshingSpinner=\"circles\"\n       refreshingText=\"更新中...\">\n    </ion-refresher-content>\n  </ion-refresher>\n  <app-nomore *ngIf=\"list && list.length === 0\"></app-nomore>\n  <div class=\"my-list\">\n    <div class=\"item\" *ngFor=\"let item of list\">\n      <div class=\"left\">\n        <div class=\"title\">{{item.type_name}}</div>\n        <div class=\"footer\">\n          <p>{{item.supplier_name}}</p>\n          <p>{{item.use_startdate}}-{{item.use_enddate}}</p>\n        </div>\n      </div>\n      <div class=\"center\">\n        <div class=\"text\">\n          <div class=\"top\">¥<span>{{item.type_money}}</span></div>\n          <p>满{{item.min_goods_amount}}元可用</p>\n        </div>\n      </div>\n      <div class=\"right\"></div>\n      <div class=\"tag\" [ngClass]=\"{nouse: item.status == '未使用', ygq: item.status == '已过期'}\">{{item.status}}</div>\n    </div>\n  </div>\n  <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadData($event)\">\n    <ion-infinite-scroll-content\n       loadingSpinner=\"bubbles\"\n       loadingText=\"正在加载...\">\n    </ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n</ion-content>\n"
 
 /***/ }),
 

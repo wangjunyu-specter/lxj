@@ -16,6 +16,7 @@ export class SeletebtnComponent implements OnInit {
   @Input() isshowimg: boolean; // 是否不显示选中图标
   @Input() id: string;
   @Input() iscenter: boolean;
+  @Input() nopadding: boolean; // 没有左右padding
   @Output() mclick = new EventEmitter();
   constructor() { }
 

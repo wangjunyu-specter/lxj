@@ -29,7 +29,7 @@ export class ChatinputboxComponent implements OnInit {
     window.addEventListener('keyboardWillShow', (event: any) => {
       // Describe your logic which will be run each time when keyboard is about to be shown.
       this.keyboardH = event.keyboardHeight;
-      this.keyboardH = 0;
+      // this.keyboardH = 0;
       // this.emojiishow.setIsshow(2);
       // this.heightStatus = 'show';
     });

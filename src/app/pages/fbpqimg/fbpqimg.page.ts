@@ -2,7 +2,7 @@
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-19 15:13:52
+ * @LastEditTime: 2019-11-20 14:11:34
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -167,7 +167,6 @@ export class FbpqimgPage implements OnInit {
     this.http.postformdataloading(this.http.fbpqitem, obj).subscribe(res => {
       console.log(res);
       // this.isloading = false;
-      alert(JSON.stringify(res))
       this.user.addjf(res.result.num);
       this.uploadEnd();
       this.imgs.length = 0;

@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-28 01:58:20
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-13 14:40:02
+ * @LastEditTime: 2019-11-28 16:31:55
  * @Description: file content
  -->
 <ion-header [translucent]="true" mode="ios">
@@ -51,7 +51,7 @@
       <ion-skeleton-text animated style="height: 100px;margin-top: 10px;"></ion-skeleton-text>
     </ion-row>
   </div>
-  <div class="tw-content2" padding *ngIf="isshowtopnav">
+  <div class="tw-content2 ion-padding" *ngIf="isshowtopnav">
     <div class="title">
       <div class="box" [ngClass]="{'active': pageNav === 1}" (click)="gotoPoint(1)">图文介绍<span></span></div>
       <div class="box" *ngIf="productData && productData.ishw" [ngClass]="{'active': pageNav === 2}" (click)="gotoPoint(2)">行程线路<span></span></div>
@@ -88,7 +88,7 @@
     <ion-list node="ios" *ngIf="productData">
       <ion-item *ngIf="productData.yf">
         <ion-label>
-          <span margin-end>发货</span>
+          <span class="ion-margin-end">发货</span>
           <span *ngIf="productData.yf > 0">运费：{{productData.yf}}</span>
           <span *ngIf="productData.yf == -1">快递包邮</span>
         </ion-label>
@@ -96,13 +96,13 @@
       </ion-item>
       <ion-item button  (click)="showfw()">
         <ion-label *ngIf="productData && productData.fw">
-          <span margin-end>服务</span>
+          <span class="ion-margin-end">服务</span>
           <span *ngFor="let item of productData.fw" style="margin-right: 10px"><img src="./assets/gou.svg" alt="">{{item}}</span>
         </ion-label>
       </ion-item>
       <ion-item button  (click)="lqbonus()" *ngIf="productData && productData.bonusList && productData.bonusList.length > 0">
         <ion-label>
-          <span margin-end>领券</span>
+          <span class="ion-margin-end">领券</span>
           <app-yhbox [notitle]="true" [des]="'满' + productData.bonusList[0].min_goods_amount + '减' + productData.bonusList[0].type_money"></app-yhbox>
         </ion-label>
       </ion-item>
@@ -116,7 +116,7 @@
       </ion-item>
       <ion-item *ngIf="productData && !productData.ishw && productData.mrseletestr && productData.isdelete == 0 && productData.onsale == 1" button (click)="presentModal(1)">
         <ion-label>
-          <span margin-end>选择</span>
+          <span class="ion-margin-end">选择</span>
           <span>{{productData.mrseletestr}}</span>
         </ion-label>
       </ion-item>
@@ -132,11 +132,11 @@
         </div>
       </ion-item>
     </ion-list>
-    <div padding-start padding-end>
+    <div class="ion-padding-start ion-padding-end ion-padding-top">
       <ion-slides [options]="slideOpts" *ngIf="productData">
         <ion-slide *ngFor="let item of productData.timetc; let i = index;">
           <app-seletebtn [block]="true" [name]="item.label | goodTime" [price]="item.minprice" [isactive]="item.selected_key_ecshop68"
-          (mclick)="setTimetc($event)" [id]="item.id"></app-seletebtn>
+          (mclick)="setTimetc($event)" [id]="item.id" [nopadding]="true"></app-seletebtn>
         </ion-slide>
       </ion-slides>
     </div>
@@ -188,7 +188,7 @@
           <img [src]="supplier.shoplogo ? http.zdomain + supplier.shoplogo : 'https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y'">
         </ion-thumbnail>
         <ion-label>
-          <h2>{{supplier.suppliername}}</h2>
+          <h2>{{supplier.shopname}}</h2>
           <p>
             <span *ngIf="suppid == 0"><img class="kb" src="./assets/kb.svg" alt="">平台特供</span>
             <span *ngIf="supplier.yj > 0 && suppid != 0"><img class="kb" src="./assets/kb.svg" alt="">认证商家</span>
@@ -230,7 +230,7 @@
         <span>更多套餐</span>
       </ion-item>
     </ion-list>
-    <div padding>
+    <div class="ion-padding">
       <ion-slides pager="true" [options]="slideOptslv" class="lxlg"  (click)="gototc()">
         <ion-slide style="position: relative">
           <img class="tcbgimg" src="../assets/tcbj.png" alt="">
@@ -249,7 +249,7 @@
 
   </div>
 
-  <div class="tw-content line-height" padding>
+  <div class="tw-content line-height ion-padding">
     <div class="title">
       <div class="box" [ngClass]="{'active': pageNav === 1}" (click)="gotoPoint(1)">图文介绍<span></span></div>
       <div class="box" *ngIf="productData && productData.ishw" [ngClass]="{'active': pageNav === 2}" (click)="gotoPoint(2)">行程线路<span></span></div>
@@ -263,7 +263,7 @@
       <div class="car-des">{{productData.hbxx.car | carorother}}信息仅供参考，具体信息可咨询商家</div>
       <div class="information-box">
         <div class="box">
-          <div class="title"><img src="./assets/to.svg" alt="">{{productData.hbxx.start_city}}-{{productData.hbxx.forcity}} {{productData.hbxx.flight}}</div>
+          <div class="title"><img src="./assets/to.svg" alt="">{{productData.hbxx.start_city}}-{{productData.hbxx.forcity}}</div>
           <div class="footer">
             <div class="time">
               <span>{{productData.hbxx.starttime | onlytime}}</span>
@@ -280,7 +280,7 @@
           </div>
         </div>
         <div class="box">
-          <div class="title"><img src="./assets/back.svg" alt="">{{productData.hbxx.fstartCity}}-{{productData.hbxx.fforcity}} {{productData.hbxx.fflight}}</div>
+          <div class="title"><img src="./assets/back.svg" alt="">{{productData.hbxx.fstartCity}}-{{productData.hbxx.fforcity}}</div>
           <div class="footer">
             <div class="time">
               <span>{{productData.hbxx.fstarttime | onlytime}}</span>

@@ -1,6 +1,6 @@
 import { NativeService } from 'src/app/services/native.service';
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {NavController, ActionSheetController, AlertController} from "@ionic/angular";
 import {PqlistService} from "../../services/pqlist.service";
 import {HttpService} from "../../services/http.service";
@@ -34,7 +34,8 @@ export class PqcontentPage implements OnInit {
               private gzlist: GzlistService, private emojiishow: EmojiishowService,
               private userfn: UserService, private itemclickfn: PlitemclickService,
               public actionSheetController: ActionSheetController, private native: NativeService,
-              private mydeletefn: DeletemyreleaseService, public alertController: AlertController) {
+              private mydeletefn: DeletemyreleaseService, public alertController: AlertController,
+              private route: Router) {
     this.pageObj = {
       page: 1,
       num: 20
@@ -57,11 +58,28 @@ export class PqcontentPage implements OnInit {
       this.id = params['id'];
       this.type = params['type'] ? Number(params['type']) : 0;
       this.data = this.pqlistfn.getPqone(this.id, this.type);
+      console.log(this.data);
       this.getContent();
     });
     this.userfn.getUserp().then(res => {
       this.user = res;
     });
+  }
+  setgz(touid) {
+    this.http.getData(this.http.setgz, {touid, type: 1}).subscribe(res => {
+      console.log(res)
+      // this.gzlistfn.puitem(touid);
+      this.gzlistarr.push(touid)
+    });
+  }
+  isgz() {
+    if (this.gzlistarr.includes(this.data.userid)) {
+      return false;
+    }
+    return true;
+  }
+  goperson() {
+    this.route.navigate(['/myrelease'], {queryParams: {userid: this.data.userid}});
   }
   getContent() {
     let hasdata = 1;

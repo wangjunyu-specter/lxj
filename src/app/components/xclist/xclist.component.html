@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-29 22:26:10
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-05 15:33:16
+ * @LastEditTime: 2019-11-28 17:36:53
  * @Description: 行程列表商品模块
  -->
 <div class="my-content-bg" *ngFor="let item of list; let i = index">
@@ -29,7 +29,7 @@
     <div class="order_des">
       <ion-button *ngIf="item.shipping_status == 2 && item.comment_s != 0" fill="outline" size="small" color="danger" (click)="goComment(item.order_id)">评价</ion-button>
       <span *ngIf="!(item.shipping_status == 2 && item.comment_s != 0)"></span>
-      <span>共{{item.count}}件商品&nbsp;&nbsp;¥:{{item.total_fee}}</span>
+      <span>共{{item.count}}人行程&nbsp;&nbsp;¥:{{item.total_fee}}</span>
     </div>
   </ion-list>
 </div>

@@ -1,0 +1,77 @@
+{
+  "_from": "cordova-plugin-gubnoi-alipay",
+  "_id": "cordova-plugin-gubnoi-alipay@0.0.10",
+  "_inBundle": false,
+  "_integrity": "sha512-Fa/NKNxUmKHj0x1Eod4yzZ206AXRziRvhihJKArjuRbVkExPZNN/BgUU4bf8uDZfrNktLaL5kpF36lUukjerUw==",
+  "_location": "/cordova-plugin-gubnoi-alipay",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-gubnoi-alipay",
+    "name": "cordova-plugin-gubnoi-alipay",
+    "escapedName": "cordova-plugin-gubnoi-alipay",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-gubnoi-alipay/-/cordova-plugin-gubnoi-alipay-0.0.10.tgz",
+  "_shasum": "f77ea852c9727f14343f38cbc7a087b4550568cd",
+  "_spec": "cordova-plugin-gubnoi-alipay",
+  "_where": "/Users/wjy/Desktop/lxj",
+  "author": {
+    "name": "jingzhou"
+  },
+  "bugs": {
+    "url": "https://github.com/jing-zhou/cordova-plugin-alipay/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-gubnoi-alipay",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cordova Plugin Alipay",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-semistandard": "^11.0.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-node": "^5.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
+  },
+  "engines": {
+    "cordovaDependencies": {
+      ">0.0.1": {
+        "cordova": ">6.1.0"
+      }
+    }
+  },
+  "homepage": "https://github.com/jing-zhou/cordova-plugin-alipay#readme",
+  "keywords": [
+    "cordova",
+    "alipay",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "Apache-2.0",
+  "name": "cordova-plugin-gubnoi-alipay",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jing-zhou/cordova-plugin-alipay.git"
+  },
+  "scripts": {
+    "eslint": "node node_modules/eslint/bin/eslint www && node node_modules/eslint/bin/eslint src && node node_modules/eslint/bin/eslint tests",
+    "test": "npm run eslint"
+  },
+  "version": "0.0.10"
+}
