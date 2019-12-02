@@ -119,6 +119,9 @@ MIT
 @ionic-native/video-player
 MIT
 
+@ionic-native/wechat
+MIT
+
 @ionic/angular
 MIT
 

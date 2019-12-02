@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-31 23:40:56
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-19 23:29:42
+ * @LastEditTime: 2019-11-29 23:15:43
  * @Description: file content
  -->
 <ion-header>
@@ -26,7 +26,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content #contentbox>
   <div *ngIf="!iscontent">
     <div class="top-head">
       <img [src]="head | imgsrc: http.zdomain" alt="" *ngIf="head" (click)="addfm()">
@@ -36,25 +36,25 @@
     </div>
     <ion-list>
       <ion-item>
-        <ion-input [(ngModel)]="formdata.title" clearInput placeholder="添加标题"></ion-input>
+        <ion-input (ionFocus)="focusinput($event)" (ionBlur)="blurinput($event)" [(ngModel)]="formdata.title" clearInput placeholder="添加标题"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input [(ngModel)]="formdata.destination" clearInput placeholder="目的地"></ion-input>
+        <ion-input (ionFocus)="focusinput($event)" (ionBlur)="blurinput($event)" [(ngModel)]="formdata.destination" clearInput placeholder="目的地"></ion-input>
       </ion-item>
       <ion-item>
         <ion-datetime class="ion-no-padding ion-no-margin" [(ngModel)]="formdata.outtime" placeholder="出发日期" display-format="YYYY.MM.DD" [doneText]="'确定'" [cancelText]="'取消'"></ion-datetime>
       </ion-item>
       <ion-item>
-        <ion-input [(ngModel)]="formdata.days" type="number" clearInput placeholder="出行天数"></ion-input>
+        <ion-input (ionFocus)="focusinput($event)" (ionBlur)="blurinput($event)" [(ngModel)]="formdata.days" type="number" clearInput placeholder="出行天数"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input [(ngModel)]="formdata.money" clearInput type="number" placeholder="人均花费"></ion-input>
+        <ion-input (ionFocus)="focusinput($event)" (ionBlur)="blurinput($event)" [(ngModel)]="formdata.money" clearInput type="number" placeholder="人均花费"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input [(ngModel)]="formdata.tag" clearInput placeholder="添加标签"></ion-input>
+        <ion-input (ionFocus)="focusinput($event)" (ionBlur)="blurinput($event)" [(ngModel)]="formdata.tag" clearInput placeholder="添加标签"></ion-input>
       </ion-item>
       <ion-item lines="none">
-        <ion-textarea [(ngModel)]="formdata.des" rows="3" placeholder="一句话描述..."></ion-textarea>
+        <ion-textarea (ionFocus)="focusinput($event)" (ionBlur)="blurinput($event)" [(ngModel)]="formdata.des" rows="3" placeholder="一句话描述..."></ion-textarea>
       </ion-item>
     </ion-list>
   </div>
@@ -67,14 +67,14 @@
 <ion-footer>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button (click)="setContent()" [disabled]="issub">
+      <ion-button mode="ios" color="secondary" (click)="setContent()" [disabled]="issub">
         {{iscontent ? '标题' : '正文'}}
       </ion-button>
     </ion-buttons>
     <ion-buttons slot="end" *ngIf="iscontent">
       <!--<ion-back-button></ion-back-button>-->
-      <ion-button (click)="addimg()" [disabled]="issub">
-        <ion-icon name="images"></ion-icon>插入图片
+      <ion-button (click)="addimg()" color="secondary" [disabled]="issub">
+        <ion-icon name="images"></ion-icon>本地图片
       </ion-button>
     </ion-buttons>
   </ion-toolbar>

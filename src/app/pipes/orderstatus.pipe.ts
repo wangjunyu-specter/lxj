@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-10-17 15:00:01
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-23 15:18:07
+ * @LastEditTime: 2019-12-01 15:59:53
  * @Description: 订单最终状态
  */
 import { Pipe, PipeTransform } from '@angular/core';
@@ -21,7 +21,7 @@ export class OrderstatusPipe implements PipeTransform {
     const payStatus = value['pay_status'];
     if ((orderStatus === '0' || orderStatus === '1') && shippingStatus === '0' && payStatus === '0') {
       return '未支付';
-    } else if (orderStatus === '1' && shippingStatus === '0' && payStatus === '2') {
+    } else if (orderStatus === '1' && shippingStatus === '0' && payStatus === '2' || orderStatus === '0' && shippingStatus === '0' && payStatus === '2') {
       if (args) {
         return '等待商家确认';
       } else {

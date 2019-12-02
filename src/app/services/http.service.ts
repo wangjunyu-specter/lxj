@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-21 00:11:11
+ * @LastEditTime: 2019-12-01 15:09:12
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -35,6 +35,7 @@ export class HttpService {
   resetPwd = 'register.php?act=resetPwd'; // 发送验证码 mobile_phone
   editsurplus = 'user.php?act=act_edit_surplus'; // 余额支付
   acteditpayment = 'user.php?act=act_edit_payment'; // 第三方支付
+  acteditpayment2 = 'user.php?act=act_edit_payment_end'; // 获取第三方支付是否成功
   getusercenter = 'user.php?act=getusercenter'; // 获取个人中心 点赞 关注等数量
   getousercenter = 'user.php?act=getousercenter'; // 获取个人中心 点赞 关注等数量
   editorupdateaddress = 'user.php?act=act_edit_address'; // 编辑添加地址
@@ -182,7 +183,7 @@ export class HttpService {
             console.error(err);
             // alert(err);
             // alert(JSON.stringify(err))
-            this.requestFailed('httpOptions.url', err);
+            this.requestFailed(httpOptions.url, err);
             observer.error(err);
           });
         } else {
@@ -195,7 +196,7 @@ export class HttpService {
             }
           }, err => {
             console.error(err);
-            this.requestFailed('', err);
+            this.requestFailed(httpOptions.url, err);
             observer.error(err);
           });
         }
@@ -272,7 +273,7 @@ export class HttpService {
             // alert(err)
             // alert(JSON.stringify(err))
             console.error(err);
-            this.requestFailed('httpOptions.url', err);
+            this.requestFailed(httpOptions.url, err);
             observer.error(err);
           });
         } else {
@@ -285,7 +286,7 @@ export class HttpService {
             }
           }, err => {
             console.error(err);
-            this.requestFailed('', err);
+            this.requestFailed(httpOptions.url, err);
             observer.error(err);
           });
         }
@@ -407,6 +408,7 @@ export class HttpService {
         } else if (status === 500) {
           msg += '请求失败，服务器出错，请稍后再试';
         } else {
+          alert(url)
           msg += '请求发生异常';
         }
       }

@@ -163,18 +163,20 @@ module.exports = ".ts-box {\n  height: 40px;\n  line-height: 40px;\n  background
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SpgoodsConfirmationPage", function() { return SpgoodsConfirmationPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/http.service */ "./src/app/services/http.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _services_contactlist_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/contactlist.service */ "./src/app/services/contactlist.service.ts");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-/* harmony import */ var _components_selete_address_selete_address_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/selete-address/selete-address.component */ "./src/app/components/selete-address/selete-address.component.ts");
-/* harmony import */ var _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/paybox/paybox.component */ "./src/app/components/paybox/paybox.component.ts");
-/* harmony import */ var _services_native_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../services/native.service */ "./src/app/services/native.service.ts");
-/* harmony import */ var _services_ordersuccess_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../services/ordersuccess.service */ "./src/app/services/ordersuccess.service.ts");
-/* harmony import */ var _services_payment_list_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../services/payment-list.service */ "./src/app/services/payment-list.service.ts");
-/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _services_topage_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../services/topage.service */ "./src/app/services/topage.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/http.service */ "./src/app/services/http.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _services_contactlist_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/contactlist.service */ "./src/app/services/contactlist.service.ts");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var _components_selete_address_selete_address_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/selete-address/selete-address.component */ "./src/app/components/selete-address/selete-address.component.ts");
+/* harmony import */ var _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../components/paybox/paybox.component */ "./src/app/components/paybox/paybox.component.ts");
+/* harmony import */ var _services_native_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../services/native.service */ "./src/app/services/native.service.ts");
+/* harmony import */ var _services_ordersuccess_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../services/ordersuccess.service */ "./src/app/services/ordersuccess.service.ts");
+/* harmony import */ var _services_payment_list_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../services/payment-list.service */ "./src/app/services/payment-list.service.ts");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../services/user.service */ "./src/app/services/user.service.ts");
+
 
 
 
@@ -189,7 +191,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var SpgoodsConfirmationPage = /** @class */ (function () {
-    function SpgoodsConfirmationPage(http, route, nav, contactlist, sanitizer, activeroute, modalController, alertController, native, popoverController, orderdata, paylistfn, userfn) {
+    function SpgoodsConfirmationPage(http, route, nav, contactlist, sanitizer, activeroute, modalController, alertController, native, popoverController, orderdata, paylistfn, userfn, topage) {
         this.http = http;
         this.route = route;
         this.nav = nav;
@@ -203,6 +205,7 @@ var SpgoodsConfirmationPage = /** @class */ (function () {
         this.orderdata = orderdata;
         this.paylistfn = paylistfn;
         this.userfn = userfn;
+        this.topage = topage;
     }
     SpgoodsConfirmationPage.prototype.ngOnInit = function () {
         this.reset();
@@ -252,7 +255,8 @@ var SpgoodsConfirmationPage = /** @class */ (function () {
         this.http.postformdata(this.http.qrorder, obj).subscribe(function (res) {
             console.log(res);
             if (!res['data']['goods_list']) {
-                _this.alertfn();
+                // this.alertfn();
+                _this.goBack();
             }
             _this.goodsList = res['data']['goods_list'];
             _this.total = res['data']['total'];
@@ -263,7 +267,7 @@ var SpgoodsConfirmationPage = /** @class */ (function () {
             // }
             if (!type) {
                 _this.allowusebonus = res['data']['allow_use_bonus'];
-                _this.allowusesurplus = res['data']['allow_use_surplus'];
+                // this.allowusesurplus = res['data']['allow_use_surplus']
                 // this.allprice = res['data']['shopping_money'];
                 _this.config = res['data']['config'];
                 _this.yoursurplus = res.data.your_surplus;
@@ -341,7 +345,7 @@ var SpgoodsConfirmationPage = /** @class */ (function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.modalController.create({
-                            component: _components_selete_address_selete_address_component__WEBPACK_IMPORTED_MODULE_7__["SeleteAddressComponent"]
+                            component: _components_selete_address_selete_address_component__WEBPACK_IMPORTED_MODULE_8__["SeleteAddressComponent"]
                         })];
                     case 1:
                         modal = _a.sent();
@@ -418,11 +422,8 @@ var SpgoodsConfirmationPage = /** @class */ (function () {
                         }
                         console.log(this.syye);
                         _a.label = 11;
-                    case 11: return [3 /*break*/, 13];
+                    case 11: return [3 /*break*/, 12];
                     case 12:
-                        this.native.presentAlert('暂未开通支付，请选择余额支付');
-                        return [2 /*return*/, false];
-                    case 13:
                         this.paysuccess(surplus);
                         // : todo 调用支付还未做
                         // alert('调用支付还未做')
@@ -453,7 +454,7 @@ var SpgoodsConfirmationPage = /** @class */ (function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.popoverController.create({
-                            component: _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_8__["PayboxComponent"],
+                            component: _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_9__["PayboxComponent"],
                             translucent: false,
                             cssClass: 'payboxcontent',
                             componentProps: {
@@ -498,7 +499,7 @@ var SpgoodsConfirmationPage = /** @class */ (function () {
     };
     SpgoodsConfirmationPage.prototype.paysuccess = function (surplus) {
         var _this = this;
-        console.log('支付成功');
+        if (surplus === void 0) { surplus = 0; }
         var bonusarr = []; // 红包列表
         this.changebonus.map(function (res) {
             if (res) {
@@ -542,8 +543,35 @@ var SpgoodsConfirmationPage = /** @class */ (function () {
                     }
                 });
             });
-            _this.route.navigate(['/ordersuccess'], { queryParams: { type: 1 } });
+            _this.orderId = res.data.order.order_id;
+            _this.getPaymsg(res.data.order.order_id, res.data.order.order_sn);
+            // this.route.navigate(['/ordersuccess'], {queryParams: {type: 1}});
         }, function (error2) { });
+    };
+    SpgoodsConfirmationPage.prototype.getPaymsg = function (order_id, order_sn) {
+        var _this = this;
+        var pay_code;
+        for (var index = 0; index < this.payList.length; index++) {
+            var element = this.payList[index];
+            if (element.pay_id == this.payType) {
+                console.log(element);
+                pay_code = element['pay_code'];
+                break;
+            }
+        }
+        this.http.postformdataloading(this.http.acteditpayment, { order_id: order_id, pay_code: pay_code, is_pay: 1 }).subscribe(function (res) {
+            console.log('余额支付成功');
+            console.log(res);
+            _this.native.wechatpayment(res.result).then(function (res) {
+                _this.getHttpayend(order_id);
+            }).catch(function (err) {
+                console.log(err);
+                _this.topage.toPage(12, order_sn, -1);
+            });
+        }, function (error2) {
+        });
+    };
+    SpgoodsConfirmationPage.prototype.getHttpayend = function (order_id) {
     };
     SpgoodsConfirmationPage.prototype.setPrice = function (res) {
         this.total = res.total;
@@ -636,20 +664,20 @@ var SpgoodsConfirmationPage = /** @class */ (function () {
         });
     };
     SpgoodsConfirmationPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
             selector: 'app-spgoods-confirmation',
             template: __webpack_require__(/*! ./spgoods-confirmation.page.html */ "./src/app/pages/spgoods-confirmation/spgoods-confirmation.page.html"),
             styles: [__webpack_require__(/*! ./spgoods-confirmation.page.scss */ "./src/app/pages/spgoods-confirmation/spgoods-confirmation.page.scss")]
         })
         // : todo 暂未做发票
         ,
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"], _services_contactlist_service__WEBPACK_IMPORTED_MODULE_5__["ContactlistService"],
-            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__["DomSanitizer"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ModalController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["AlertController"],
-            _services_native_service__WEBPACK_IMPORTED_MODULE_9__["NativeService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["PopoverController"],
-            _services_ordersuccess_service__WEBPACK_IMPORTED_MODULE_10__["OrdersuccessService"], _services_payment_list_service__WEBPACK_IMPORTED_MODULE_11__["PaymentListService"],
-            _services_user_service__WEBPACK_IMPORTED_MODULE_12__["UserService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_http_service__WEBPACK_IMPORTED_MODULE_3__["HttpService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["NavController"], _services_contactlist_service__WEBPACK_IMPORTED_MODULE_6__["ContactlistService"],
+            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__["DomSanitizer"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["ModalController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["AlertController"],
+            _services_native_service__WEBPACK_IMPORTED_MODULE_10__["NativeService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["PopoverController"],
+            _services_ordersuccess_service__WEBPACK_IMPORTED_MODULE_11__["OrdersuccessService"], _services_payment_list_service__WEBPACK_IMPORTED_MODULE_12__["PaymentListService"],
+            _services_user_service__WEBPACK_IMPORTED_MODULE_13__["UserService"], _services_topage_service__WEBPACK_IMPORTED_MODULE_1__["TopageService"]])
     ], SpgoodsConfirmationPage);
     return SpgoodsConfirmationPage;
 }());

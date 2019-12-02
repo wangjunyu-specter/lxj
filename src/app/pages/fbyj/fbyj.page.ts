@@ -1,6 +1,6 @@
 import { YjlistService } from 'src/app/services/yjlist.service';
-import { Component, OnInit } from '@angular/core';
-import {ActionSheetController, NavController, Platform, PopoverController} from '@ionic/angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {ActionSheetController, NavController, Platform, PopoverController, IonContent} from '@ionic/angular';
 import {ActivatedRoute, Router} from "@angular/router";
 import { Keyboard } from '@ionic-native/keyboard/ngx';
 import { HttpService } from '../../services/http.service';
@@ -32,6 +32,12 @@ export class FbyjPage implements OnInit {
   issub: boolean; // 是否点击提交
   issave: boolean; // 是否保存
   id: string; // 修改时的id
+  iscg: boolean; // 是否草稿
+  target: any; // 当前选中的input
+  bfscrolltop: any; // 滚动的高度
+  @ViewChild(IonContent) contentbox: IonContent;
+  newHandle: any;
+  newHandle2: any;
   constructor(private nav: NavController,
               public plt: Platform, private keyboard: Keyboard,
               private http: HttpService, private user: UserService,
@@ -127,6 +133,7 @@ export class FbyjPage implements OnInit {
         this.title = '游记';
     }
     if (params['iscg']) {
+      this.iscg = true;
       this.getCg();
     } else if (params['isedit']) {
       this.setGeteditdata();
@@ -134,15 +141,50 @@ export class FbyjPage implements OnInit {
   }
   ionViewDidEnter() {
     try {
-      window.addEventListener('keyboardWillShow', (event: any) => {
+      this.newHandle = (event) => {
         this.keyboardH = event.keyboardHeight;
-      });
-      window.addEventListener('keyboardWillHide', (event: any) => {
+        this.keyboardWillShow();
+      }
+      this.newHandle2 = () => {
         this.keyboardH = 0;
-      });
+        if (this.bfscrolltop < 0) {
+          this.scrollToBottom(this.bfscrolltop);
+        }
+        this.bfscrolltop = 0;
+     }
+      window.addEventListener('keyboardWillShow', this.newHandle);
+      window.addEventListener('keyboardWillHide', this.newHandle2);
     } catch (e) {
-      console.log(e);
     }
+  }
+  ionViewDidLeave() {
+    window.removeEventListener('keyboardWillShow', this.newHandle);
+    window.removeEventListener('keyboardWillHide', this.newHandle2);
+  }
+  keyboardWillShow() {
+    const height = this.target.getBoundingClientRect().bottom;
+    const wheight = this.getClientHeight();
+    const y = wheight - this.keyboardH - height;
+    if (y < 0) {
+      this.bfscrolltop = y;
+      this.scrollToBottom(-this.bfscrolltop);
+    }
+  }
+  keyboardWillHide(event) {
+    
+  }
+  getClientHeight()
+  {
+    let clientHeight = 0;
+    if(document.body.clientHeight && document.documentElement.clientHeight)
+    {
+      clientHeight = (document.body.clientHeight<document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
+    }
+    else
+    {
+      clientHeight = (document.body.clientHeight>document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
+    }
+    return clientHeight;
   }
   /**
    * @Author: wjy-mac
@@ -402,7 +444,7 @@ export class FbyjPage implements OnInit {
     // arr.push(obj); 保存多个的时候使用，暂定只能保存一个
     this.native.setStorage('yjcontent', obj).then(res => {
       this.issave = false;
-      this.native.presentAlert('保存成功,如需使用请到个人中心查看');
+      this.native.presentAlert(this.iscg ? '保存成功' : '保存成功,如需使用请到个人中心我的草稿里查看');
     }).catch(err2 => {
       this.issave = false;
       this.native.presentAlert('保存失败，请重试~');
@@ -538,6 +580,9 @@ export class FbyjPage implements OnInit {
    * @return: 
    */  
   suberr(num?: any) {
+    if (this.iscg) {
+      this.native.removeStorage('yjcontent');
+    }
     this.getpopover(2).then(res => {
       if (res) {
         this.issub = false;
@@ -594,7 +639,46 @@ export class FbyjPage implements OnInit {
     this.content = '';
     this.head = '';
     this.contentimgarr = [];
+    this.keyboardH = 0;
+    this.target = null;
+    this.bfscrolltop = 0;
     // this.blur();
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 当指定输入框触发焦点，保留当前触发input
+   * @Date: 2019-11-29 20:12:20
+   * @param {type} 
+   * @return: 
+   */  
+  focusinput(e) {
+    this.target = e.target;
+    // document.body.scrollTop = document.body.scrollHeight;
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 当指定输入框失去焦点，清楚保留的input
+   * @Date: 2019-11-29 20:12:56
+   * @param {type} 
+   * @return: 
+   */  
+  blurinput(e) {
+    this.target = null;
+    // document.body.scrollTop = this.bfscrolltop;
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 滚动到底部 使用延时是为了防抖
+   * @Date: 2019-11-12 15:35:06
+   * @param {type} 
+   * @return: 
+   */  
+  scrollToBottom(y: number) {
+    // this.target.scrollIntoView(true);
+    this.contentbox.scrollByPoint(0, y, 100);
+    // setTimeout(() => {
+    //   this.contentbox.scrollToBottom(1);
+    // }, 1);
   }
   //ios关闭键盘 : todo 获取键盘
   // blur(){

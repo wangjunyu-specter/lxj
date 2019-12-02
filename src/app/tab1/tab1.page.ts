@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-15 22:18:06
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-26 20:30:34
+ * @LastEditTime: 2019-11-29 11:01:25
  * @Description: file content
  */
 import { Component, OnInit, ViewChild  } from '@angular/core';
@@ -105,16 +105,14 @@ export class Tab1Page implements OnInit {
     if (this.native.isandroid()) {
       this.statusBar.overlaysWebView(true);
     }
-    this.getJpushid();
-    this.location = this.user.getLocation();
-    this.jPush.setApplicationIconBadgeNumber(0);
-    console.log(123);
   }
   ionViewWillEnter() {
   }
   ionViewDidEnter() {
-    this.moreGoods = this.shop.getMoregoods();
-    this.getShopcontent();
+    if (!this.shopdata) {
+      this.moreGoods = this.shop.getMoregoods();
+      this.getShopcontent();
+    }
     if (this.newslist.getList().length === 0) {
       this.getNewslist().then(res => {
         if (res < this.newslist.newsPageobj.limit) {
@@ -129,7 +127,6 @@ export class Tab1Page implements OnInit {
   }
   getJpushid() {
     this.jPush.getRegistrationID().then(res => {
-      // alert(res);
       if (!res) {
         setTimeout(() => {
           this.getJpushid();
@@ -150,11 +147,9 @@ export class Tab1Page implements OnInit {
       });
       this.jPush.getUserNotificationSettings().then((res) => {
         if (res == 0) {
-          // this.native.presentAlert('打开通知获取更多优惠！');
           this.openQx();
         }
       }).catch(err2 => {
-        // this.presentModal
         this.native.presentAlert('打开通知获取更多优惠！!');
       });
     }).catch(err => {});
@@ -216,19 +211,14 @@ export class Tab1Page implements OnInit {
   }
   getShopcontent() {
     this.shop.getShop().then(res => {
-      this.shopdata = res;
+      if (!this.shopdata) {
+        this.shopdata = res;
+        this.getJpushid();
+        this.location = this.user.getLocation();
+        this.jPush.setApplicationIconBadgeNumber(0);
+      }
       if (this.native.isandroid()) { // 安卓版本更新
-        // this.native.getAppversioncode();
         const updateUrl = this.http.zdomain + 'update.xml';
-        // mycheckAppUpdate((data) => {
-        //   alert(1);
-        //   alert(data)
-        //   alert(JSON.stringify(data));
-        // }, (err) => {
-        //   alert(2)
-        //   alert(err);
-        //   alert(JSON.stringify(err));
-        // }, updateUrl);
         this.appUpdate.checkAppUpdate(updateUrl).then(() => { console.log('Update available'); }).catch(err2 => {
           console.error(2);
         });
@@ -247,7 +237,6 @@ export class Tab1Page implements OnInit {
         console.log(this.bztjlist);
       }
       this.rmzt1 = this.shop.getRmzt();
-      // this.rmzt2 = this.shop.getRmzt2();
       this.indexTitle = this.shop.getIndextitle();
       this.hdbox1 = this.shop.getHdbox1();
       this.hdbox2 = this.shop.getHdbox2();

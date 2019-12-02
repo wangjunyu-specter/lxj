@@ -87,7 +87,9 @@
       "id": "cordova-plugin-ionic-webview@4.1.1"
     },
     "is_top_level": true,
-    "variables": {}
+    "variables": {
+      "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
+    }
   },
   "cordova-plugin-media-capture": {
     "source": {
@@ -239,16 +241,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-wechat": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-wechat@^2.9.0"
-    },
-    "is_top_level": true,
-    "variables": {
-      "WECHATAPPID": "wx27166a2a293d90cb"
-    }
-  },
   "cordova-plugin-gubnoi-alipay": {
     "source": {
       "type": "registry",
@@ -257,6 +249,26 @@
     "is_top_level": true,
     "variables": {
       "APP_ID": "2019112669413941"
+    }
+  },
+  "cordova-plugin-wechat": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-wechat@2.9.0"
+    },
+    "is_top_level": true,
+    "variables": {
+      "WECHATAPPID": "wx27166a2a293d90cb"
+    }
+  },
+  "cordova-plugin-customurlscheme": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-customurlscheme"
+    },
+    "is_top_level": true,
+    "variables": {
+      "URL_SCHEME": "cdlxj"
     }
   }
 }

@@ -4,7 +4,7 @@ import { ThorderService } from './../../services/thorder.service';
  * @Author: wjy-mac
  * @Date: 2019-07-29 22:29:34
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-13 14:19:16
+ * @LastEditTime: 2019-12-01 15:15:02
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -45,7 +45,8 @@ export class OrdercontentPage implements OnInit {
     this.kysyye = false;
   }
   goBack(): void {
-    this.nav.back();
+    // this.nav.back();
+    this.route.navigateByUrl('/allorder');
   }
   ionViewWillEnter() {
     console.log('进入2')
@@ -238,7 +239,7 @@ export class OrdercontentPage implements OnInit {
 
   }
   cancleOrderfn() {
-    this.http.getDataloading(this.http.cancelOrder, {order_id: this.orderId}).subscribe(res => {
+    this.http.getDataloading(this.http.cancelOrder, {order_id: this.data.order.order_id}).subscribe(res => {
       console.log(res);
       this.presentAlert();
     }, error2 => {})
@@ -282,7 +283,7 @@ export class OrdercontentPage implements OnInit {
   async submit() {
     const surplus = this.kysyye ? this.syye : 0;
 
-    if (surplus > 0 && !this.isyepayend) {
+    if (false) { // surplus > 0 && !this.isyepayend
       const pwd = await this.syyepay(); // 获取密码
       console.log(pwd)
       if (!pwd) {
@@ -342,12 +343,22 @@ export class OrdercontentPage implements OnInit {
     return pwd;
   }
   payfn() {
-    this.http.postformdataloading(this.http.acteditpayment, {order_id: this.orderId, pay_code: this.payType, is_pay: 1}).subscribe(res => {
-      console.log('余额支付成功')
-      console.log(res)
-
+    this.http.postformdataloading(this.http.acteditpayment, {order_id: this.data.order.order_id, pay_code: this.payType, is_pay: 1}).subscribe(res => {
+      this.native.wechatpayment(res.result).then(res => {
+        this.getHttpayend(this.data.order.order_id);
+      }).catch(err => {
+        // this.getDatahttp();
+        this.native.presentToast('支付失败!');
+      })
     }, error2 => {
     });
+  }
+  getHttpayend(order_id) {
+    this.http.postformdataloading(this.http.acteditpayment2, {order_id}).subscribe(res => {
+      this.getDatahttp();
+    }, err => {
+      // this.getDatahttp();
+    })
   }
   confirmReceipt() {
     this.http.getDataloading(this.http.zdomain + this.http.affirmReceived, {order_id: this.data.order.order_id}).subscribe(res => {

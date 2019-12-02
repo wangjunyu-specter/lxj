@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-05 22:48:21
+ * @LastEditTime: 2019-12-01 13:30:06
  * @Description: 所有订单
  */
 import {Component, OnInit, ViewChild} from '@angular/core';
@@ -38,7 +38,7 @@ export class AllorderPage implements OnInit {
   }
   goBack(): void {
     // this.nav.back();
-    this.nav.navigateForward('/tabs/tab4');
+    this.nav.navigateBack('/tabs/tab4');
   }
   // goContent(id) {
   //   // this.route.navigate(['/fbyjmore'], {queryParams: {type: this.type + 1, num: res.result.num}});

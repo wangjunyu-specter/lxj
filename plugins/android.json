@@ -101,6 +101,13 @@
     },
     "mx.ferreyra.callnumber": {
       "PACKAGE_NAME": "com.cdlxj.wjy"
+    },
+    "cordova-plugin-customurlscheme": {
+      "URL_SCHEME": "cdlxj",
+      "ANDROID_SCHEME": " ",
+      "ANDROID_HOST": " ",
+      "ANDROID_PATHPREFIX": "/",
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     }
   },
   "dependent_plugins": {

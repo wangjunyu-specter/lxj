@@ -46,16 +46,6 @@ export class ChatinputboxComponent implements OnInit {
         this.keyboardH = 150;
       }
     });
-    // window.addEventListener('keyboardDidHide', (event: any) => {
-    //   // Describe your logic which will be run each time when keyboard is about to be shown.
-    //   if (!this.emojiishow.getIsshows()) {
-    //     this.myInput.getInputElement().then(res => {
-    //       // this.heightStatus = 'close';
-    //       res.blur();
-    //       // this.ionBlur();
-    //     });
-    //   }
-    // });
     this.itemclickfn.Source.subscribe(type => {
       console.log(type)
       if (type == 1) {

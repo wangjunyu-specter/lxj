@@ -1,3 +1,4 @@
+import { TopageService } from './../../services/topage.service';
 import { Component, OnInit } from '@angular/core';
 import {HttpService} from '../../services/http.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -41,13 +42,14 @@ export class SpgoodsConfirmationPage implements OnInit {
   syyeset: any; // 定时器
   id: string; // 路由来的id
   bzarr: string[];
+  orderId: string;
   constructor(private http: HttpService, private route: Router,
               private nav: NavController, public contactlist: ContactlistService,
               public sanitizer: DomSanitizer, private activeroute: ActivatedRoute,
               public modalController: ModalController, public alertController: AlertController,
               private native: NativeService, public popoverController: PopoverController,
               private orderdata: OrdersuccessService, private paylistfn: PaymentListService,
-              private userfn: UserService) {
+              private userfn: UserService, private topage: TopageService) {
   }
 
   ngOnInit() {
@@ -96,7 +98,8 @@ export class SpgoodsConfirmationPage implements OnInit {
     this.http.postformdata(this.http.qrorder, obj).subscribe(res => {
       console.log(res)
       if (!res['data']['goods_list']) {
-        this.alertfn();
+        // this.alertfn();
+        this.goBack();
       }
       this.goodsList = res['data']['goods_list'];
       this.total = res['data']['total'];
@@ -107,7 +110,7 @@ export class SpgoodsConfirmationPage implements OnInit {
       // }
       if (!type) {
         this.allowusebonus = res['data']['allow_use_bonus'];
-        this.allowusesurplus = res['data']['allow_use_surplus']
+        // this.allowusesurplus = res['data']['allow_use_surplus']
         // this.allprice = res['data']['shopping_money'];
         this.config = res['data']['config'];
         this.yoursurplus = res.data.your_surplus;
@@ -240,8 +243,8 @@ export class SpgoodsConfirmationPage implements OnInit {
         // }
       }
     } else {
-      this.native.presentAlert('暂未开通支付，请选择余额支付');
-      return false;
+      // this.native.presentAlert('暂未开通支付，请选择余额支付');
+      // return false;
     }
 
     this.paysuccess(surplus);
@@ -291,8 +294,7 @@ export class SpgoodsConfirmationPage implements OnInit {
       });
     });
   }
-  paysuccess(surplus) {
-    console.log('支付成功')
+  paysuccess(surplus = 0) {
     const bonusarr = []; // 红包列表
     this.changebonus.map(res => { // 过滤已选红包id内空值
       if (res) {
@@ -335,10 +337,43 @@ export class SpgoodsConfirmationPage implements OnInit {
             }
           }
         })
-
-      })
-      this.route.navigate(['/ordersuccess'], {queryParams: {type: 1}});
+      });
+      this.orderId = res.data.order.order_id;
+      this.getPaymsg(res.data.order.order_id, res.data.order.order_sn);
+      // this.route.navigate(['/ordersuccess'], {queryParams: {type: 1}});
     }, error2 => {});
+  }
+  getPaymsg(order_id, order_sn) {
+    let pay_code;
+    for (let index = 0; index < this.payList.length; index++) {
+      const element = this.payList[index];
+      if (element.pay_id == this.payType) {
+        console.log(element);
+        pay_code = element['pay_code'];
+        break;
+      }
+      
+    }
+    this.http.postformdataloading(this.http.acteditpayment, {order_id: order_id, pay_code: pay_code, is_pay: 1}).subscribe(res => {
+      console.log('余额支付成功')
+      console.log(res)
+      this.native.wechatpayment(res.result).then(res => {
+        this.getHttpayend(order_id, order_sn);
+      }).catch(err => {
+        console.log(err);
+        this.topage.toPage(12, order_sn, -1);
+      })
+    }, error2 => {
+    });
+  }
+  getHttpayend(order_id, order_sn) {
+    alert(123)
+    this.http.postformdataloading(this.http.acteditpayment2, {order_id}).subscribe(res => {
+      // this.topage.toPage(12, order_sn, -1);
+      this.route.navigate(['/ordersuccess'], {queryParams: {type: 1}});
+    }, err => {
+      this.topage.toPage(12, order_sn, -1);
+    })
   }
   setPrice(res) {
     this.total = res.total;
@@ -399,6 +434,7 @@ export class SpgoodsConfirmationPage implements OnInit {
 
     }, error2 => {});
   }
+  
   async alertfn() {
     const alert = await this.alertController.create({
       header: '提示!',

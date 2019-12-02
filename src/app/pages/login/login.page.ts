@@ -4,7 +4,7 @@ import { TopageService } from './../../services/topage.service';
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-21 00:29:49
+ * @LastEditTime: 2019-12-01 14:01:37
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -218,5 +218,8 @@ export class LoginPage implements OnInit {
       link = this.http.zdomain + 'flsm.html';
     }
     this.toPagefn.toPage(10, link);
+  }
+  openxy(link) {
+    this.toPagefn.toPage(10, this.http.zdomain + link);
   }
 }

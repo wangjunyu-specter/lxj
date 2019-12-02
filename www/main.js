@@ -1004,7 +1004,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-25 19:49:34
+ * @LastEditTime: 2019-12-01 13:16:23
  * @Description: file content
  */
 
@@ -1015,7 +1015,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent(platform, splashScreen, statusBar, jPush, router, appMinimize, toastController
+    function AppComponent(platform, splashScreen, statusBar, jPush, router, appMinimize, toastController, actionSheetController, alertController, modalController, nav
     // private androidfullscreen: AndroidFullScreen
     ) {
         this.platform = platform;
@@ -1025,6 +1025,10 @@ var AppComponent = /** @class */ (function () {
         this.router = router;
         this.appMinimize = appMinimize;
         this.toastController = toastController;
+        this.actionSheetController = actionSheetController;
+        this.alertController = alertController;
+        this.modalController = modalController;
+        this.nav = nav;
         this.backButtonPressed = false;
         this.keyValue = false;
         this.keyboardEvent();
@@ -1044,7 +1048,7 @@ var AppComponent = /** @class */ (function () {
             //   this.statusBar.overlaysWebView(true);
             //   this.statusBar.backgroundColorByHexString('');
             // }
-            _this.registerBackButtonAction(); //注册返回按键事件
+            // this.registerBackButtonAction();//注册返回按键事件
             _this.initJpush();
         });
     };
@@ -1078,15 +1082,19 @@ var AppComponent = /** @class */ (function () {
                     setTimeout(function () { return _this.backButtonPressed = false; }, 2000);
                 }
             }
+            else if (_this.url.includes('ordercontent')) {
+                // this.router.navigateByUrl('/allorder');
+            }
         });
     };
     AppComponent.prototype.keyboardEvent = function () {
-        var that = this;
+        var _this = this;
+        // let that = this;
         window.addEventListener('native.keyboardshow', function () {
-            that.keyValue = true; //键盘开启改变属性
+            _this.keyValue = true; //键盘开启改变属性
         });
         window.addEventListener('native.keyboardhide', function () {
-            setTimeout(function () { that.keyValue = false; }, 200); //延时器
+            setTimeout(function () { _this.keyValue = false; }, 200); //延时器
         });
     };
     AppComponent.prototype.initRouterListen = function () {
@@ -1116,6 +1124,102 @@ var AppComponent = /** @class */ (function () {
             });
         });
     };
+    AppComponent.prototype.overrideHardwareBackAction = function ($event) {
+        var _this = this;
+        $event.detail.register(100, function () { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
+            var element, err_1, element, err_2, element, err_3;
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        try {
+                            if (this.keyValue) { //如果键盘开启则隐藏键盘
+                                this.keyValue = false;
+                                return [2 /*return*/];
+                            }
+                        }
+                        catch (err) { }
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 4]);
+                        return [4 /*yield*/, this.actionSheetController.getTop()];
+                    case 2:
+                        element = _a.sent();
+                        if (element) {
+                            element.dismiss();
+                            return [2 /*return*/];
+                        }
+                        return [3 /*break*/, 4];
+                    case 3:
+                        err_1 = _a.sent();
+                        return [3 /*break*/, 4];
+                    case 4:
+                        ;
+                        _a.label = 5;
+                    case 5:
+                        _a.trys.push([5, 7, , 8]);
+                        return [4 /*yield*/, this.alertController.getTop()];
+                    case 6:
+                        element = _a.sent();
+                        if (element) {
+                            element.dismiss();
+                            return [2 /*return*/];
+                        }
+                        return [3 /*break*/, 8];
+                    case 7:
+                        err_2 = _a.sent();
+                        return [3 /*break*/, 8];
+                    case 8:
+                        ;
+                        _a.label = 9;
+                    case 9:
+                        _a.trys.push([9, 11, , 12]);
+                        return [4 /*yield*/, this.modalController.getTop()];
+                    case 10:
+                        element = _a.sent();
+                        if (element) {
+                            element.dismiss();
+                            return [2 /*return*/];
+                        }
+                        return [3 /*break*/, 12];
+                    case 11:
+                        err_3 = _a.sent();
+                        return [3 /*break*/, 12];
+                    case 12:
+                        ;
+                        if (this.url === '/tabs/tab1' || this.url === '/tabs/tab2' ||
+                            this.url === '/tabs/tab3' || this.url === '/tabs/tab4' || this.url === '/login') {
+                            if (this.backButtonPressed) {
+                                this.appMinimize.minimize();
+                                this.backButtonPressed = false;
+                            }
+                            else {
+                                this.presentToast();
+                                this.backButtonPressed = true;
+                                setTimeout(function () { return _this.backButtonPressed = false; }, 2000);
+                            }
+                        }
+                        else if (this.url.includes('ordercontent')) {
+                            this.router.navigateByUrl('/allorder');
+                            return [2 /*return*/];
+                        }
+                        else if (this.url === '/allorder' || this.url === '/xclist') {
+                            this.nav.navigateForward('/tabs/tab4');
+                        }
+                        else {
+                            this.nav.back();
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        }); });
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('document:ionBackButton', ['$event']),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Function),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [Object]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:returntype", void 0)
+    ], AppComponent.prototype, "overrideHardwareBackAction", null);
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-root',
@@ -1127,7 +1231,11 @@ var AppComponent = /** @class */ (function () {
             _jiguang_ionic_jpush_ngx__WEBPACK_IMPORTED_MODULE_6__["JPush"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
             _ionic_native_app_minimize_ngx__WEBPACK_IMPORTED_MODULE_7__["AppMinimize"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ToastController"]
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ToastController"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ActionSheetController"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"]
             // private androidfullscreen: AndroidFullScreen
         ])
     ], AppComponent);
@@ -1241,14 +1349,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_86__ = __webpack_require__(/*! @ionic-native/call-number/ngx */ "./node_modules/@ionic-native/call-number/ngx/index.js");
 /* harmony import */ var _ionic_native_open_native_settings_ngx__WEBPACK_IMPORTED_MODULE_87__ = __webpack_require__(/*! @ionic-native/open-native-settings/ngx */ "./node_modules/@ionic-native/open-native-settings/ngx/index.js");
 /* harmony import */ var _pipes_model_time_pipe__WEBPACK_IMPORTED_MODULE_88__ = __webpack_require__(/*! ./pipes/model-time.pipe */ "./src/app/pipes/model-time.pipe.ts");
+/* harmony import */ var _ionic_native_alipay_ngx__WEBPACK_IMPORTED_MODULE_89__ = __webpack_require__(/*! @ionic-native/alipay/ngx */ "./node_modules/@ionic-native/alipay/ngx/index.js");
+/* harmony import */ var _ionic_native_wechat_ngx__WEBPACK_IMPORTED_MODULE_90__ = __webpack_require__(/*! @ionic-native/wechat/ngx */ "./node_modules/@ionic-native/wechat/ngx/index.js");
 
 /*
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-26 23:33:13
+ * @LastEditTime: 2019-11-29 14:59:51
  * @Description: file content
  */
+
+
 
 
 
@@ -1430,6 +1542,8 @@ var AppModule = /** @class */ (function () {
                 _services_deletemyrelease_service__WEBPACK_IMPORTED_MODULE_63__["DeletemyreleaseService"],
                 _services_editmyrelease_service__WEBPACK_IMPORTED_MODULE_64__["EditmyreleaseService"],
                 _ionic_native_toast_ngx__WEBPACK_IMPORTED_MODULE_20__["Toast"],
+                _ionic_native_alipay_ngx__WEBPACK_IMPORTED_MODULE_89__["Alipay"],
+                _ionic_native_wechat_ngx__WEBPACK_IMPORTED_MODULE_90__["Wechat"],
                 // Md5,
                 // NavigationBar,
                 // ComponentsModule,
@@ -3248,7 +3362,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy-mac
  * @Date: 2019-07-28 02:20:08
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-20 23:46:29
+ * @LastEditTime: 2019-11-28 15:38:20
  * @Description: file content
  */
 
@@ -3591,14 +3705,20 @@ var GetproductService = /** @class */ (function () {
      * @param timearr
      */
     GetproductService.prototype.setYMD = function (res) {
+        console.log(res);
         var ndate = new Date;
         var nyear = ndate.getFullYear();
         var nmonth = ndate.getMonth() + 1;
         var nday = ndate.getDate();
+        var nhour = ndate.getHours();
+        var nmin = ndate.getMinutes();
         var label, date;
         var isnow = true;
         var bq = getDatebq(res.label);
         var arr = res.label.split(bq);
+        if (arr[arr.length - 1].includes(' ')) {
+            arr[arr.length - 1] = arr[arr.length - 1].split(' ')[0];
+        }
         var year;
         var month;
         var day;
@@ -3613,7 +3733,7 @@ var GetproductService = /** @class */ (function () {
             day = setDate(arr[1]);
         }
         label = year + '-' + month + '-' + day;
-        if (!this.ratiosize(label, nyear + '-' + nmonth + '-' + nday)) {
+        if (!this.ratiosize(label, nyear + "/" + nmonth + "/" + nday + " " + nhour + ":" + nmin)) {
             isnow = false;
         }
         date = Number(year) + '-' + Number(month) + '-' + Number(day);
@@ -3745,6 +3865,11 @@ var GetproductService = /** @class */ (function () {
      * @returns {boolean}
      */
     GetproductService.prototype.ratiosize = function (str, str2) {
+        if (str.includes(' ') && str2.includes(' ')) {
+            var time1 = this.formatTimeStamp(str);
+            var time2 = this.formatTimeStamp(str2);
+            return time1 >= time2;
+        }
         var arr1 = str.split(getDatebq(str));
         var arr2 = str2.split(getDatebq(str2));
         if (arr1.length > arr2.length) {
@@ -3752,6 +3877,12 @@ var GetproductService = /** @class */ (function () {
         }
         else if (arr1.length < arr2.length) {
             return false;
+        }
+        if (arr1[arr1.length - 1].includes(' ')) {
+            arr1[arr1.length - 1] = arr1[arr1.length - 1].split(' ')[0];
+        }
+        if (arr2[arr2.length - 1].includes(' ')) {
+            arr2[arr2.length - 1] = arr2[arr2.length - 1].split(' ')[0];
         }
         for (var i = 0, j = arr1.length; i < j; i++) {
             if (Number(arr1[i]) > Number(arr2[i])) {
@@ -3762,6 +3893,16 @@ var GetproductService = /** @class */ (function () {
             }
         }
         return true;
+    };
+    /**
+     * @Author: wjy-mac
+     * @description: 将时间转换为时间戳
+     * @Date: 2019-11-28 15:34:51
+     * @param {type}
+     * @return:
+     */
+    GetproductService.prototype.formatTimeStamp = function (date) {
+        return Date.parse(new Date(date).toString()) || Date.parse(new Date(date.replace(/-/g, '/')).toString());
     };
     // 点击出发时间
     GetproductService.prototype.clickOuttime = function (id) {
@@ -4682,7 +4823,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-21 00:11:11
+ * @LastEditTime: 2019-11-30 21:53:20
  * @Description: file content
  */
 
@@ -4865,7 +5006,7 @@ var HttpService = /** @class */ (function () {
                         console.error(err);
                         // alert(err);
                         // alert(JSON.stringify(err))
-                        _this.requestFailed('httpOptions.url', err);
+                        _this.requestFailed(httpOptions.url, err);
                         observer.error(err);
                     });
                 }
@@ -4880,7 +5021,7 @@ var HttpService = /** @class */ (function () {
                         }
                     }, function (err) {
                         console.error(err);
-                        _this.requestFailed('', err);
+                        _this.requestFailed(httpOptions.url, err);
                         observer.error(err);
                     });
                 }
@@ -4962,7 +5103,7 @@ var HttpService = /** @class */ (function () {
                         // alert(err)
                         // alert(JSON.stringify(err))
                         console.error(err);
-                        _this.requestFailed('httpOptions.url', err);
+                        _this.requestFailed(httpOptions.url, err);
                         observer.error(err);
                     });
                 }
@@ -4977,7 +5118,7 @@ var HttpService = /** @class */ (function () {
                         }
                     }, function (err) {
                         console.error(err);
-                        _this.requestFailed('', err);
+                        _this.requestFailed(httpOptions.url, err);
                         observer.error(err);
                     });
                 }
@@ -5123,6 +5264,7 @@ var HttpService = /** @class */ (function () {
                     msg += '请求失败，服务器出错，请稍后再试';
                 }
                 else {
+                    alert(url);
                     msg += '请求发生异常';
                 }
             }
@@ -5208,12 +5350,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ionic-native/device/ngx */ "./node_modules/@ionic-native/device/ngx/index.js");
 /* harmony import */ var _ionic_native_open_native_settings_ngx__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @ionic-native/open-native-settings/ngx */ "./node_modules/@ionic-native/open-native-settings/ngx/index.js");
 /* harmony import */ var _ionic_native_toast_ngx__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ionic-native/toast/ngx */ "./node_modules/@ionic-native/toast/ngx/index.js");
+/* harmony import */ var _ionic_native_alipay_ngx__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @ionic-native/alipay/ngx */ "./node_modules/@ionic-native/alipay/ngx/index.js");
 
 /*
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-26 20:32:41
+ * @LastEditTime: 2019-12-01 11:53:26
  * @Description: file content
  */
 
@@ -5232,8 +5375,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var NativeService = /** @class */ (function () {
-    function NativeService(alertController, loadingController, toastController, nativeStorage, plt, mediaCapture, imagePicker, camera, androidFullScreen, statusbar, videoPlayer, network, appVersion, market, callNumber, device, openNativeSettings, toast) {
+    function NativeService(alertController, loadingController, toastController, nativeStorage, plt, mediaCapture, imagePicker, camera, androidFullScreen, statusbar, videoPlayer, network, appVersion, market, callNumber, device, openNativeSettings, toast, alipay) {
         this.alertController = alertController;
         this.loadingController = loadingController;
         this.toastController = toastController;
@@ -5252,6 +5396,7 @@ var NativeService = /** @class */ (function () {
         this.device = device;
         this.openNativeSettings = openNativeSettings;
         this.toast = toast;
+        this.alipay = alipay;
     }
     NativeService.prototype.getAppversion = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
@@ -5265,8 +5410,6 @@ var NativeService = /** @class */ (function () {
                 }
             });
         });
-    };
-    NativeService.prototype.wechatShare = function () {
     };
     NativeService.prototype.weboShare = function () {
     };
@@ -5801,6 +5944,95 @@ var NativeService = /** @class */ (function () {
             alert('ios暂未实现');
         }
     };
+    /**
+     * @Author: wjy-mac
+     * @description: 支付宝支付
+     * @Date: 2019-11-27 20:27:16
+     * @param {type}
+     * @return:
+     */
+    NativeService.prototype.alipayment = function (alipayOrder) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var err_1;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.alipay.pay(alipayOrder)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/, true];
+                    case 2:
+                        err_1 = _a.sent();
+                        throw new Error(err_1);
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * @Author: wjy-mac
+     * @description: 微信支付
+     * @Date: 2019-11-27 20:31:50
+     * @param {type}
+     * var params = {
+            partnerid: '10000100', // merchant id
+            prepayid: 'wx201411101639507cbf6ffd8b0779950874', // prepay id
+            noncestr: '1add1a30ac87aa2db72f57a2375d8fec', // nonce
+            timestamp: '1439531364', // timestamp
+            sign: '0CB01533B8C1EF103065174F50BCA001', // signed string
+        };
+     * @return:
+     */
+    NativeService.prototype.wechatpayment = function (params) {
+        // { appid: "wx27166a2a293d90cb", mch_id:  string(10) "" ["nonce_str"]=> string(16) "QSKTTBv07z4PnJXs" ["prepay_id"]=> string(36) "wx3014015133795699b4b86e871733438500" ["result_code"]=> string(7) "SUCCESS" ["return_code"]=> string(7) "SUCCESS" ["return_msg"]=> string(2) "OK" ["sign"]=> string(64) "4AE52BFBD266756CDB253CC4C0CCC2A7DA464E142C1E6E515FAAF19E0BF57BF3" ["trade_type"]=> string(3) "APP" }
+        var obj = {
+            partnerid: params['mch_id'],
+            appid: params['appid'],
+            prepayid: params['prepay_id'],
+            noncestr: params['nonce_str'],
+            timestamp: params['timestamp'].toString(),
+            sign: params['sign']
+        };
+        console.log(obj);
+        return new Promise(function (resolve, reject) {
+            Wechat.sendPaymentRequest(obj, function (data) {
+                resolve(data);
+            }, function (err) {
+                alert(JSON.stringify(err));
+                reject(err);
+            });
+        });
+    };
+    /**
+     * @Author: wjy-mac
+     * @description: 微信多媒体分享
+     * @Date: 2019-11-27 20:35:49
+     * @param {type} type 1 朋友圈 2 好友
+     * @return:
+     */
+    NativeService.prototype.wechatShare = function (title, des, src, type) {
+        if (type === void 0) { type = 1; }
+        Wechat.share({
+            message: {
+                title: title,
+                description: des || title,
+                thumb: src,
+                mediaTagName: "TEST-TAG-001",
+                messageExt: "这是第三方带的测试字段",
+                messageAction: "<action>dotalist</action>",
+                media: {
+                    type: Wechat.Type.WEBPAGE,
+                    webpageUrl: "https://baidu.com" // webpage
+                }
+            },
+            scene: type === 1 ? Wechat.Scene.TIMELINE : Wechat.Scene.SESSION // share to Timeline
+        }, function () {
+            // alert("Success");
+        }, function (reason) {
+            // alert("Failed: " + reason);
+        });
+    };
     NativeService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
@@ -5812,7 +6044,8 @@ var NativeService = /** @class */ (function () {
             _ionic_native_android_full_screen_ngx__WEBPACK_IMPORTED_MODULE_7__["AndroidFullScreen"], _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_8__["StatusBar"],
             _ionic_native_video_player_ngx__WEBPACK_IMPORTED_MODULE_9__["VideoPlayer"], _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_10__["Network"], _ionic_native_app_version_ngx__WEBPACK_IMPORTED_MODULE_11__["AppVersion"],
             _ionic_native_market_ngx__WEBPACK_IMPORTED_MODULE_12__["Market"], _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_13__["CallNumber"], _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_14__["Device"],
-            _ionic_native_open_native_settings_ngx__WEBPACK_IMPORTED_MODULE_15__["OpenNativeSettings"], _ionic_native_toast_ngx__WEBPACK_IMPORTED_MODULE_16__["Toast"]])
+            _ionic_native_open_native_settings_ngx__WEBPACK_IMPORTED_MODULE_15__["OpenNativeSettings"], _ionic_native_toast_ngx__WEBPACK_IMPORTED_MODULE_16__["Toast"],
+            _ionic_native_alipay_ngx__WEBPACK_IMPORTED_MODULE_17__["Alipay"]])
     ], NativeService);
     return NativeService;
 }());

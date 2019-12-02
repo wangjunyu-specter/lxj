@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-17 11:19:35
+ * @LastEditTime: 2019-12-01 15:19:24
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -86,7 +86,7 @@ export class PayPage implements OnInit {
   async submit($event) {
     const surplus = this.kysyye ? this.syye : 0;
 
-    if (surplus > 0 && !this.isyepayend) {
+    if (false) { // surplus > 0 && !this.isyepayend
       const pwd = await this.syyepay(); // 获取密码
       console.log(pwd)
       if (!pwd) {
@@ -111,14 +111,25 @@ export class PayPage implements OnInit {
         }
       }
     }
-    this.payfn()
+    this.payfn();
   }
   payfn() {
     this.http.postformdataloading(this.http.acteditpayment, {order_id: this.orderId, pay_code: this.dataObj.payType, is_pay: 1}).subscribe(res => {
       console.log('余额支付成功')
       console.log(res)
-      this.gotosucess();
+      this.native.wechatpayment(res.result).then(res => {
+        this.getHttpayend(this.orderId)
+      }).catch(err => {
+        this.native.presentToast('支付失败!');
+      });
+      // this.gotosucess();
     }, error2 => {
+    });
+  }
+  getHttpayend(order_id) {
+    this.http.postformdataloading(this.http.acteditpayment2, {order_id}).subscribe(res => {
+      this.gotosucess();
+    }, err => {
     });
   }
   gotosucess(res?:object) {
@@ -128,7 +139,7 @@ export class PayPage implements OnInit {
         order: {
           order_id: this.ordersn
         }
-      }
+      };
     }
     this.orderdatafn.setData(obj);
     this.route.navigate(['/ordersuccess'], {queryParams: {type: 2}});

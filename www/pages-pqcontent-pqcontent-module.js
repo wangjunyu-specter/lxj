@@ -300,23 +300,31 @@ var PqcontentPage = /** @class */ (function () {
     };
     PqcontentPage.prototype.edmit = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var buttons, actionSheet;
+            var img, buttons, actionSheet;
             var _this = this;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        img = "";
+                        if (this.data && this.data.thumb && this.data.thumb.length > 0) {
+                            img = this.data.thumb[0];
+                        }
                         buttons = [{
-                                text: '分享到微信',
+                                text: '分享微信好友',
                                 role: '',
                                 handler: function () {
-                                    _this.native.wechatShare();
+                                    _this.native.wechatShare(_this.data.content, '', img || _this.http.zdomain + 'logo108.png', 2);
                                 }
-                            }, {
-                                text: '分享到微博',
+                            },
+                            {
+                                text: '分享到朋友圈',
+                                role: '',
                                 handler: function () {
-                                    _this.native.weboShare();
+                                    _this.native.wechatShare(_this.data.content, '', img || _this.http.zdomain + 'logo108.png', 1);
                                 }
-                            }];
+                            }
+                        ];
+                        // this.native.weboShare();
                         if (this.user.user_id == this.data.userid) {
                             buttons.push({
                                 text: '删除',

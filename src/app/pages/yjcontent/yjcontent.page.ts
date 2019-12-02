@@ -222,18 +222,25 @@ export class YjcontentPage implements OnInit {
     this.isshowDrop = false;
   }
   async edmit() {
-    const buttons = [{
-      text: '分享到微信',
+    let img = "";
+    if (this.data && this.data.thumb && this.data.thumb.length > 0) {
+      img =  this.data.thumb[0];
+    }
+    const buttons: any = [{
+      text: '分享微信好友',
       role: '',
       handler: () => {
-        this.native.wechatShare();
+        this.native.wechatShare(this.data.title, this.data.des, img || this.http.zdomain + 'logo108.png', 2);
       }
-    }, {
-      text: '分享到微博',
+    },
+    {
+      text: '分享到朋友圈',
+      role: '',
       handler: () => {
-        this.native.weboShare();
+        this.native.wechatShare(this.data.title, this.data.des, img || this.http.zdomain + 'logo108.png', 1);
       }
-    }];
+    }
+  ];
     if (this.user.user_id == this.data.userid) {
       buttons.push(...[{
         text: '编辑',

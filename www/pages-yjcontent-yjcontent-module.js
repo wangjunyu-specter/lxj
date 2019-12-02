@@ -119,6 +119,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var YjcontentPage = /** @class */ (function () {
+    // isGetcontentimg: boolean; // 是否已获取详情内图片
     function YjcontentPage(nav, sanitizer, yjlist, http, gzlist, emojiishow, activeroute, mydeletefn, userfn, itemclickfn, native, alertController, actionSheetController, editMyrelease, route) {
         this.nav = nav;
         this.sanitizer = sanitizer;
@@ -143,7 +144,7 @@ var YjcontentPage = /** @class */ (function () {
     YjcontentPage.prototype.ngOnInit = function () {
         this.isshowDrop = false;
         this.setPlitem = {};
-        this.isGetcontentimg = false;
+        // this.isGetcontentimg = false;
         this.toolbaropacity = '0';
     };
     YjcontentPage.prototype.ionViewDidEnter = function () {
@@ -205,25 +206,21 @@ var YjcontentPage = /** @class */ (function () {
         this.setNavstatus(num);
     };
     YjcontentPage.prototype.assembleHTML = function (strHTML) {
-        var _this = this;
-        if (!this.isGetcontentimg) {
-            setTimeout(function () {
-                var imgs = _this.mybox.nativeElement.getElementsByTagName('img');
-                console.log(imgs.length);
-                var _loop_1 = function (index) {
-                    var img = imgs[index];
-                    console.log(img);
-                    img.addEventListener('click', function () {
-                        console.log(index);
-                        alert(index);
-                    });
-                };
-                for (var index = 0; index < imgs.length; index++) {
-                    _loop_1(index);
-                }
-            }, 3000);
-            this.isGetcontentimg = true;
-        }
+        // if (!this.isGetcontentimg) {
+        //   setTimeout(() => {
+        //     const imgs = this.mybox.nativeElement.getElementsByTagName('img');
+        //     console.log(imgs.length)
+        //     for (let index = 0; index < imgs.length; index++) {
+        //       const img = imgs[index];
+        //       console.log(img)
+        //       img.addEventListener('click', () => {
+        //         console.log(index);
+        //         alert(index);
+        //       })
+        //     }
+        //   }, 3000);
+        //   this.isGetcontentimg = true;
+        // }
         return this.sanitizer.bypassSecurityTrustHtml(strHTML);
     };
     YjcontentPage.prototype.setNavstatus = function (num) {
@@ -330,23 +327,30 @@ var YjcontentPage = /** @class */ (function () {
     };
     YjcontentPage.prototype.edmit = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var buttons, actionSheet;
+            var img, buttons, actionSheet;
             var _this = this;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        img = "";
+                        if (this.data && this.data.thumb && this.data.thumb.length > 0) {
+                            img = this.data.thumb[0];
+                        }
                         buttons = [{
-                                text: '分享到微信',
+                                text: '分享微信好友',
                                 role: '',
                                 handler: function () {
-                                    _this.native.wechatShare();
+                                    _this.native.wechatShare(_this.data.title, _this.data.des, img || _this.http.zdomain + 'logo108.png', 2);
                                 }
-                            }, {
-                                text: '分享到微博',
+                            },
+                            {
+                                text: '分享到朋友圈',
+                                role: '',
                                 handler: function () {
-                                    _this.native.weboShare();
+                                    _this.native.wechatShare(_this.data.title, _this.data.des, img || _this.http.zdomain + 'logo108.png', 1);
                                 }
-                            }];
+                            }
+                        ];
                         if (this.user.user_id == this.data.userid) {
                             buttons.push.apply(buttons, [{
                                     text: '编辑',

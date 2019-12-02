@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-07 23:49:04
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-13 15:02:40
+ * @LastEditTime: 2019-12-01 15:15:12
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -186,7 +186,7 @@ export class XccontentPage implements OnInit {
   async submit() {
     const surplus = this.kysyye ? this.syye : 0;
 
-    if (surplus > 0 && !this.isyepayend) {
+    if (false) { // surplus > 0 && !this.isyepayend
       const pwd = await this.syyepay(); // 获取密码
       console.log(pwd)
       if (!pwd) {
@@ -243,16 +243,24 @@ export class XccontentPage implements OnInit {
       }
       return res.data;
     })
-
     return pwd;
   }
   payfn() {
-    this.http.postformdataloading(this.http.acteditpayment, {order_id: this.orderId, pay_code: this.payType, is_pay: 1}).subscribe(res => {
-      console.log('余额支付成功')
-      console.log(res)
-
+    this.http.postformdataloading(this.http.acteditpayment, {order_id: this.data.order.order_id, pay_code: this.payType, is_pay: 1}).subscribe(res => {
+      this.native.wechatpayment(res.result).then(res => {
+        this.getHttpayend(this.data.order.order_id);
+      }).catch(err => {
+        this.native.presentToast('支付失败!');
+      });
     }, error2 => {
     });
+  }
+  getHttpayend(order_id) {
+    this.http.postformdataloading(this.http.acteditpayment2, {order_id}).subscribe(res => {
+      this.getDatahttp();
+    }, err => {
+      // this.getDatahttp();
+    })
   }
   // repurchase() {
   //   this.topage.toPage(2, this.data.goods_list[0].goods_id);

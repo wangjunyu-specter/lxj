@@ -51,7 +51,10 @@
     </div>
     <div class="login-footer" *ngIf="pageType == 2">
       <p>已阅读并同意以下协议</p>
-      <div><span>《旅行家平台服务协议》</span><span>《隐私权政策》</span><span>《法律声明》</span></div>
+      <div>
+        <span (click)="openxy('ptxy.html')">《旅行家平台服务协议》</span>
+        <span (click)="openxy('yszc.html')">《隐私权政策》</span>
+        <span (click)="openxy('flsm.html')">《法律声明》</span></div>
     </div>
     <div class="login-footer" *ngIf="pageType !== 1 && pageType !== 3 && pageType !== 2"></div>
   </div>

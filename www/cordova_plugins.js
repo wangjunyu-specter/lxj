@@ -566,6 +566,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "call"
       ]
+    },
+    {
+      "id": "cordova-plugin-customurlscheme.LaunchMyApp",
+      "file": "plugins/cordova-plugin-customurlscheme/www/android/LaunchMyApp.js",
+      "pluginId": "cordova-plugin-customurlscheme",
+      "clobbers": [
+        "window.plugins.launchmyapp"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -600,6 +608,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-x-toast": "2.7.2",
     "es.keensoft.fullscreenimage": "1.0.1",
     "jpush-phonegap-plugin": "3.7.3",
-    "mx.ferreyra.callnumber": "0.0.2"
+    "mx.ferreyra.callnumber": "0.0.2",
+    "cordova-plugin-customurlscheme": "4.4.0"
   };
 });

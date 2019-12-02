@@ -40,6 +40,8 @@
         margin-left: -5px;
         width: 100%;
         word-break: break-all;
+        height: 38px;
+        overflow: hidden;
       }
       &.wrap::before {
         float: left;

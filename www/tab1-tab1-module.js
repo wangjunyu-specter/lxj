@@ -213,7 +213,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy-mac
  * @Date: 2019-07-15 22:18:06
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-26 20:30:34
+ * @LastEditTime: 2019-11-29 11:01:25
  * @Description: file content
  */
 
@@ -291,17 +291,15 @@ var Tab1Page = /** @class */ (function () {
         if (this.native.isandroid()) {
             this.statusBar.overlaysWebView(true);
         }
-        this.getJpushid();
-        this.location = this.user.getLocation();
-        this.jPush.setApplicationIconBadgeNumber(0);
-        console.log(123);
     };
     Tab1Page.prototype.ionViewWillEnter = function () {
     };
     Tab1Page.prototype.ionViewDidEnter = function () {
         var _this = this;
-        this.moreGoods = this.shop.getMoregoods();
-        this.getShopcontent();
+        if (!this.shopdata) {
+            this.moreGoods = this.shop.getMoregoods();
+            this.getShopcontent();
+        }
         if (this.newslist.getList().length === 0) {
             this.getNewslist().then(function (res) {
                 if (res < _this.newslist.newsPageobj.limit) {
@@ -316,7 +314,6 @@ var Tab1Page = /** @class */ (function () {
     Tab1Page.prototype.getJpushid = function () {
         var _this = this;
         this.jPush.getRegistrationID().then(function (res) {
-            // alert(res);
             if (!res) {
                 setTimeout(function () {
                     _this.getJpushid();
@@ -339,11 +336,9 @@ var Tab1Page = /** @class */ (function () {
             });
             _this.jPush.getUserNotificationSettings().then(function (res) {
                 if (res == 0) {
-                    // this.native.presentAlert('打开通知获取更多优惠！');
                     _this.openQx();
                 }
             }).catch(function (err2) {
-                // this.presentModal
                 _this.native.presentAlert('打开通知获取更多优惠！!');
             });
         }).catch(function (err) { });
@@ -419,19 +414,14 @@ var Tab1Page = /** @class */ (function () {
     Tab1Page.prototype.getShopcontent = function () {
         var _this = this;
         this.shop.getShop().then(function (res) {
-            _this.shopdata = res;
+            if (!_this.shopdata) {
+                _this.shopdata = res;
+                _this.getJpushid();
+                _this.location = _this.user.getLocation();
+                _this.jPush.setApplicationIconBadgeNumber(0);
+            }
             if (_this.native.isandroid()) { // 安卓版本更新
-                // this.native.getAppversioncode();
                 var updateUrl = _this.http.zdomain + 'update.xml';
-                // mycheckAppUpdate((data) => {
-                //   alert(1);
-                //   alert(data)
-                //   alert(JSON.stringify(data));
-                // }, (err) => {
-                //   alert(2)
-                //   alert(err);
-                //   alert(JSON.stringify(err));
-                // }, updateUrl);
                 _this.appUpdate.checkAppUpdate(updateUrl).then(function () { console.log('Update available'); }).catch(function (err2) {
                     console.error(2);
                 });
@@ -451,7 +441,6 @@ var Tab1Page = /** @class */ (function () {
                 console.log(_this.bztjlist);
             }
             _this.rmzt1 = _this.shop.getRmzt();
-            // this.rmzt2 = this.shop.getRmzt2();
             _this.indexTitle = _this.shop.getIndextitle();
             _this.hdbox1 = _this.shop.getHdbox1();
             _this.hdbox2 = _this.shop.getHdbox2();

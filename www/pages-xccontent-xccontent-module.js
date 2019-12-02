@@ -104,7 +104,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy-mac
  * @Date: 2019-07-07 23:49:04
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-13 15:02:40
+ * @LastEditTime: 2019-11-30 14:21:22
  * @Description: file content
  */
 
@@ -312,7 +312,7 @@ var XccontentPage = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         surplus = this.kysyye ? this.syye : 0;
-                        if (!(surplus > 0 && !this.isyepayend)) return [3 /*break*/, 7];
+                        if (true) return [3 /*break*/, 7];
                         return [4 /*yield*/, this.syyepay()];
                     case 1:
                         pwd = _a.sent();
@@ -402,9 +402,15 @@ var XccontentPage = /** @class */ (function () {
         });
     };
     XccontentPage.prototype.payfn = function () {
-        this.http.postformdataloading(this.http.acteditpayment, { order_id: this.orderId, pay_code: this.payType, is_pay: 1 }).subscribe(function (res) {
+        var _this = this;
+        this.http.postformdataloading(this.http.acteditpayment, { order_id: this.data.order.order_id, pay_code: this.payType, is_pay: 1 }).subscribe(function (res) {
             console.log('余额支付成功');
             console.log(res);
+            _this.native.wechatpayment(res.result).then(function (res) {
+                _this.getDatahttp();
+            }).catch(function (err) {
+                _this.getDatahttp();
+            });
         }, function (error2) {
         });
     };

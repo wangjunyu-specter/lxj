@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-27 20:26:00
+ * @LastEditTime: 2019-11-29 14:59:51
  * @Description: file content
  */
 import { NgModule } from '@angular/core';
@@ -100,6 +100,7 @@ import { CallNumber } from '@ionic-native/call-number/ngx';
 import { OpenNativeSettings } from '@ionic-native/open-native-settings/ngx';
 import { ModelTimePipe } from './pipes/model-time.pipe';
 import { Alipay } from '@ionic-native/alipay/ngx';
+import { Wechat } from '@ionic-native/wechat/ngx';
 
 // import { Md5 } from 'ts-md5/dist/md5';
 
@@ -196,6 +197,7 @@ import { Alipay } from '@ionic-native/alipay/ngx';
     EditmyreleaseService,
     Toast,
     Alipay,
+    Wechat,
     // Md5,
     // NavigationBar,
     // ComponentsModule,

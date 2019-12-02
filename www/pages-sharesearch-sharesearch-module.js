@@ -96,6 +96,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _services_gzlist_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/gzlist.service */ "./src/app/services/gzlist.service.ts");
 
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-15 15:12:56
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-29 11:29:13
+ * @Description: file content
+ */
 
 
 
@@ -110,7 +117,7 @@ var SharesearchPage = /** @class */ (function () {
         this.route = route;
     }
     SharesearchPage.prototype.ngOnInit = function () {
-        this.pageArray = ['票圈', '游记', '攻略', '招募']; // 搜索页面暂不支持关注
+        this.pageArray = ['票圈', '游记', '攻略', '约游']; // 搜索页面暂不支持关注
         this.pageType = 0;
         this.page = 1;
         this.limit = 20;

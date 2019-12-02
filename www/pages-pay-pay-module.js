@@ -61,7 +61,7 @@ var PayPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <!--<ion-back-button></ion-back-button>-->\r\n      <ion-button (click)=\"goBack()\">\r\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\r\n      </ion-button>\r\n    </ion-buttons>\r\n    <ion-title>收银台</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <div class=\"pay-box\">\r\n    <div class=\"title\">支付剩余时间</div>\r\n    <div class=\"time\">\r\n      <div class=\"box\">0</div>\r\n      <div class=\"box\">0</div>:\r\n      <div class=\"box\">4</div>\r\n      <div class=\"box\">7</div>:\r\n      <div class=\"box\">3</div>\r\n      <div class=\"box\">2</div>\r\n    </div>\r\n    <div class=\"des\">支付成功后客服会与您取得联系</div>\r\n  </div>\r\n  <div class=\"order\" padding>\r\n    <div>\r\n      <div class=\"box\">订单号：</div>\r\n      <div class=\"box\">{{ordersn}}</div>\r\n    </div>\r\n    <div>\r\n      <div class=\"box\">应付金额:</div>\r\n      <div class=\"box\"><ion-text color=\"danger\">¥ {{price}}</ion-text></div>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"yepay\" class=\"line\"></div>\r\n  <ion-list *ngIf=\"yepay\" inset=\"true\" line=\"none\">\r\n    <ion-item>\r\n      <ion-label>使用余额</ion-label>\r\n      <ion-toggle [(ngModel)]=\"kysyye\" (ionChange)=\"setyenum()\" color=\"success\" [disabled]=\"isyepayend\"></ion-toggle>\r\n    </ion-item>\r\n    <ion-item lines=\"none\" *ngIf=\"kysyye\">\r\n      <ion-label>输入金额</ion-label>\r\n      <ion-input type=\"number\" mode=\"ios\" (ionChange)=\"setyechange()\" [disabled]=\"isyepayend\" [max]=\"yoursurplus\" min=\"0\" [(ngModel)]=\"syye\" color=\"success\"></ion-input>\r\n      <ion-note>元</ion-note>\r\n    </ion-item>\r\n    <ion-item>\r\n      <small>您当前的可用余额为{{yoursurplus}}</small>\r\n    </ion-item>\r\n  </ion-list>\r\n  <div class=\"line\"></div>\r\n  <div class=\"zftype\">\r\n    <ion-list>\r\n      <ion-radio-group [(ngModel)]=\"dataObj.payType\" (ionChange)=\"toggle()\">\r\n        <ion-list-header>\r\n          支付方式\r\n        </ion-list-header>\r\n        <ion-item *ngFor=\"let item of payList\">\r\n          <ion-label><img [src]=\"item.pay_code == 'alipay' ? './assets/zfb.svg' : './assets/wechartpay.svg'\" alt=\"\">{{item.pay_name}}</ion-label>\r\n          <ion-radio color=\"success\" value=\"{{item.pay_code}}\" mode=\"md\" checked></ion-radio>\r\n        </ion-item>\r\n      </ion-radio-group>\r\n    </ion-list>\r\n  </div>\r\n</ion-content>\r\n<ion-footer mode=\"ios\">\r\n  <ion-toolbar mode=\"ios\">\r\n    <app-footer [type]=\"2\" [allprice]=\"price\" (sub)=\"submit($event)\"></app-footer>\r\n  </ion-toolbar>\r\n</ion-footer>\r\n"
+module.exports = "<!--\r\n * @Author: wjy-mac\r\n * @Date: 2019-07-07 02:05:04\r\n * @LastEditors: wjy-mac\r\n * @LastEditTime: 2019-11-28 22:44:16\r\n * @Description: 支付页面\r\n -->\r\n<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <!--<ion-back-button></ion-back-button>-->\r\n      <ion-button (click)=\"goBack()\">\r\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\r\n      </ion-button>\r\n    </ion-buttons>\r\n    <ion-title>收银台</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <div class=\"pay-box\">\r\n    <div class=\"title\">支付剩余时间</div>\r\n    <div class=\"time\">\r\n      <div class=\"box\">0</div>\r\n      <div class=\"box\">0</div>:\r\n      <div class=\"box\">4</div>\r\n      <div class=\"box\">7</div>:\r\n      <div class=\"box\">3</div>\r\n      <div class=\"box\">2</div>\r\n    </div>\r\n    <div class=\"des\">支付成功后客服会与您取得联系</div>\r\n  </div>\r\n  <div class=\"order\" padding>\r\n    <div>\r\n      <div class=\"box\">订单号：</div>\r\n      <div class=\"box\">{{ordersn}}</div>\r\n    </div>\r\n    <div>\r\n      <div class=\"box\">应付金额:</div>\r\n      <div class=\"box\"><ion-text color=\"danger\">¥ {{price}}</ion-text></div>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"yepay\" class=\"line\"></div>\r\n  <ion-list *ngIf=\"yepay\" inset=\"true\" line=\"none\" style=\"display: none;\">\r\n    <ion-item>\r\n      <ion-label>使用余额</ion-label>\r\n      <ion-toggle [(ngModel)]=\"kysyye\" (ionChange)=\"setyenum()\" color=\"success\" [disabled]=\"isyepayend\"></ion-toggle>\r\n    </ion-item>\r\n    <ion-item lines=\"none\" *ngIf=\"kysyye\">\r\n      <ion-label>输入金额</ion-label>\r\n      <ion-input type=\"number\" mode=\"ios\" (ionChange)=\"setyechange()\" [disabled]=\"isyepayend\" [max]=\"yoursurplus\" min=\"0\" [(ngModel)]=\"syye\" color=\"success\"></ion-input>\r\n      <ion-note>元</ion-note>\r\n    </ion-item>\r\n    <ion-item>\r\n      <small>您当前的可用余额为{{yoursurplus}}</small>\r\n    </ion-item>\r\n  </ion-list>\r\n  <div class=\"line\"></div>\r\n  <div class=\"zftype\">\r\n    <ion-list>\r\n      <ion-radio-group [(ngModel)]=\"dataObj.payType\" (ionChange)=\"toggle()\">\r\n        <ion-list-header>\r\n          支付方式\r\n        </ion-list-header>\r\n        <ion-item *ngFor=\"let item of payList\">\r\n          <ion-label><img [src]=\"item.pay_code == 'alipay' ? './assets/zfb.svg' : './assets/wechartpay.svg'\" alt=\"\">{{item.pay_name}}</ion-label>\r\n          <ion-radio color=\"success\" value=\"{{item.pay_code}}\" mode=\"md\" checked></ion-radio>\r\n        </ion-item>\r\n      </ion-radio-group>\r\n    </ion-list>\r\n  </div>\r\n</ion-content>\r\n<ion-footer mode=\"ios\">\r\n  <ion-toolbar mode=\"ios\">\r\n    <app-footer [type]=\"2\" [allprice]=\"price\" (sub)=\"submit($event)\"></app-footer>\r\n  </ion-toolbar>\r\n</ion-footer>\r\n"
 
 /***/ }),
 
@@ -102,7 +102,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-17 11:19:35
+ * @LastEditTime: 2019-11-30 14:42:14
  * @Description: file content
  */
 
@@ -179,7 +179,7 @@ var PayPage = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         surplus = this.kysyye ? this.syye : 0;
-                        if (!(surplus > 0 && !this.isyepayend)) return [3 /*break*/, 7];
+                        if (true) return [3 /*break*/, 7];
                         return [4 /*yield*/, this.syyepay()];
                     case 1:
                         pwd = _a.sent();
@@ -223,7 +223,10 @@ var PayPage = /** @class */ (function () {
         this.http.postformdataloading(this.http.acteditpayment, { order_id: this.orderId, pay_code: this.dataObj.payType, is_pay: 1 }).subscribe(function (res) {
             console.log('余额支付成功');
             console.log(res);
-            _this.gotosucess();
+            _this.native.wechatpayment(res.result).then(function (res) {
+            }).catch(function (err) {
+            });
+            // this.gotosucess();
         }, function (error2) {
         });
     };

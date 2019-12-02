@@ -97,8 +97,8 @@
       "APP_ID": "2019112669413941",
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
-    "cordova-plugin-wechat": {
-      "WECHATAPPID": "wx27166a2a293d90cb",
+    "cordova-plugin-customurlscheme": {
+      "URL_SCHEME": "cdlxj",
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     }
   },

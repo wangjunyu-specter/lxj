@@ -1,8 +1,9 @@
+
 /*
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-28 22:49:26
+ * @LastEditTime: 2019-12-01 13:57:21
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -22,6 +23,7 @@ import { Device } from '@ionic-native/device/ngx';
 import { OpenNativeSettings } from '@ionic-native/open-native-settings/ngx';
 import { Toast } from '@ionic-native/toast/ngx';
 import { Alipay } from '@ionic-native/alipay/ngx';
+// import { Wechat } from '@ionic-native/wechat/ngx';
 
 declare var Wechat;
 
@@ -39,7 +41,9 @@ export class NativeService {
               private videoPlayer: VideoPlayer, private network: Network, private appVersion: AppVersion,
               private market: Market, private callNumber: CallNumber, private device: Device,
               private openNativeSettings: OpenNativeSettings, private toast: Toast,
-              private alipay: Alipay) { }
+              private alipay: Alipay,
+              // private wechat: Wechat
+              ) { }
   public async getAppversion() {
     const version = await this.appVersion.getVersionNumber();
     return version;
@@ -515,12 +519,22 @@ export class NativeService {
    * @return: 
    */  
   wechatpayment(params) {
+    // { appid: "wx27166a2a293d90cb", mch_id:  string(10) "" ["nonce_str"]=> string(16) "QSKTTBv07z4PnJXs" ["prepay_id"]=> string(36) "wx3014015133795699b4b86e871733438500" ["result_code"]=> string(7) "SUCCESS" ["return_code"]=> string(7) "SUCCESS" ["return_msg"]=> string(2) "OK" ["sign"]=> string(64) "4AE52BFBD266756CDB253CC4C0CCC2A7DA464E142C1E6E515FAAF19E0BF57BF3" ["trade_type"]=> string(3) "APP" }
+    const obj = {
+      partnerid: params['mch_id'],
+      appid: params['appid'],
+      prepayid: params['prepay_id'],
+      noncestr: params['nonce_str'],
+      timestamp: params['timestamp'].toString(),
+      sign: params['sign']
+    };
+    console.log(obj);
     return new Promise((resolve, reject) => {
-      Wechat.sendPaymentRequest(params, function () {
-        resolve();
-      }, function (reason) {
-          console.log("Failed: " + reason);
-          reject(reason);
+      Wechat.sendPaymentRequest(obj, data => {
+        resolve(data);
+      }, err => {
+        alert(JSON.stringify(err));
+        reject(err);
       });
     })
   }
@@ -528,25 +542,28 @@ export class NativeService {
    * @Author: wjy-mac
    * @description: 微信多媒体分享
    * @Date: 2019-11-27 20:35:49
-   * @param {type} 
+   * @param {type} type 1 朋友圈 2 好友
    * @return: 
    */  
-  wechatShare() {
+  wechatShare(title: string, des: string, src: string, type: number = 1) {
     Wechat.share({
       message: {
-          title: "Hi, there",
-          description: "This is description.",
-          thumb: "www/img/thumbnail.png",
+          title,
+          description: des || title,
+          thumb: src,
           mediaTagName: "TEST-TAG-001",
           messageExt: "这是第三方带的测试字段",
           messageAction: "<action>dotalist</action>",
-          media: "YOUR_MEDIA_OBJECT_HERE"
+          media: {
+            type: Wechat.Type.WEBPAGE,   // webpage
+            webpageUrl: "https://cdlxj.cn/test.html"  // webpage
+          }
       },
-      scene: Wechat.Scene.TIMELINE   // share to Timeline
-  }, () => {
-      alert("Success");
-  }, (reason) => {
-      alert("Failed: " + reason);
-  });
+      scene: type === 1 ? Wechat.Scene.TIMELINE :  Wechat.Scene.SESSION  // share to Timeline
+    }, () => {
+        // alert("Success");
+    }, (reason) => {
+        // alert("Failed: " + reason);
+    });
   }
 }

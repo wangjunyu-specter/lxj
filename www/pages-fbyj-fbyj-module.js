@@ -71,7 +71,7 @@ var FbyjPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-07-31 23:40:56\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-11-19 23:29:42\n * @Description: file content\n -->\n<ion-header>\n\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>发布{{title}}</ion-title>\n    <ion-buttons slot=\"end\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button *ngIf=\"!id\" (click)=\"savefn(1)\" [disabled]=\"!formdata.title || !content || issub || issave\">\n        <ion-icon name=\"paper-plane\"></ion-icon>保存\n      </ion-button>\n      <ion-button (click)=\"sub(1)\" [disabled]=\"!formdata.title || !content || issub || issave\">\n        <ion-icon name=\"paper-plane\"></ion-icon>发表\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div *ngIf=\"!iscontent\">\n    <div class=\"top-head\">\n      <img [src]=\"head | imgsrc: http.zdomain\" alt=\"\" *ngIf=\"head\" (click)=\"addfm()\">\n      <div *ngIf=\"!head\" class=\"ts-box\" (click)=\"addfm()\">\n        添加封面\n      </div>\n    </div>\n    <ion-list>\n      <ion-item>\n        <ion-input [(ngModel)]=\"formdata.title\" clearInput placeholder=\"添加标题\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input [(ngModel)]=\"formdata.destination\" clearInput placeholder=\"目的地\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-datetime class=\"ion-no-padding ion-no-margin\" [(ngModel)]=\"formdata.outtime\" placeholder=\"出发日期\" display-format=\"YYYY.MM.DD\" [doneText]=\"'确定'\" [cancelText]=\"'取消'\"></ion-datetime>\n      </ion-item>\n      <ion-item>\n        <ion-input [(ngModel)]=\"formdata.days\" type=\"number\" clearInput placeholder=\"出行天数\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input [(ngModel)]=\"formdata.money\" clearInput type=\"number\" placeholder=\"人均花费\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input [(ngModel)]=\"formdata.tag\" clearInput placeholder=\"添加标签\"></ion-input>\n      </ion-item>\n      <ion-item lines=\"none\">\n        <ion-textarea [(ngModel)]=\"formdata.des\" rows=\"3\" placeholder=\"一句话描述...\"></ion-textarea>\n      </ion-item>\n    </ion-list>\n  </div>\n  <div *ngIf=\"iscontent\">\n    <ckeditor [(ngModel)]=\"content\" [config]=\"config\" debounce=\"500\">  </ckeditor>\n  </div>\n  <div class=\"keyboard-height\" [ngStyle]=\"{height: keyboardH + 'px'}\"></div>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"setContent()\" [disabled]=\"issub\">\n        {{iscontent ? '标题' : '正文'}}\n      </ion-button>\n    </ion-buttons>\n    <ion-buttons slot=\"end\" *ngIf=\"iscontent\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"addimg()\" [disabled]=\"issub\">\n        <ion-icon name=\"images\"></ion-icon>插入图片\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-footer>\n"
+module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-07-31 23:40:56\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-11-29 23:15:43\n * @Description: file content\n -->\n<ion-header>\n\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>发布{{title}}</ion-title>\n    <ion-buttons slot=\"end\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button *ngIf=\"!id\" (click)=\"savefn(1)\" [disabled]=\"!formdata.title || !content || issub || issave\">\n        <ion-icon name=\"paper-plane\"></ion-icon>保存\n      </ion-button>\n      <ion-button (click)=\"sub(1)\" [disabled]=\"!formdata.title || !content || issub || issave\">\n        <ion-icon name=\"paper-plane\"></ion-icon>发表\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content #contentbox>\n  <div *ngIf=\"!iscontent\">\n    <div class=\"top-head\">\n      <img [src]=\"head | imgsrc: http.zdomain\" alt=\"\" *ngIf=\"head\" (click)=\"addfm()\">\n      <div *ngIf=\"!head\" class=\"ts-box\" (click)=\"addfm()\">\n        添加封面\n      </div>\n    </div>\n    <ion-list>\n      <ion-item>\n        <ion-input (ionFocus)=\"focusinput($event)\" (ionBlur)=\"blurinput($event)\" [(ngModel)]=\"formdata.title\" clearInput placeholder=\"添加标题\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input (ionFocus)=\"focusinput($event)\" (ionBlur)=\"blurinput($event)\" [(ngModel)]=\"formdata.destination\" clearInput placeholder=\"目的地\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-datetime class=\"ion-no-padding ion-no-margin\" [(ngModel)]=\"formdata.outtime\" placeholder=\"出发日期\" display-format=\"YYYY.MM.DD\" [doneText]=\"'确定'\" [cancelText]=\"'取消'\"></ion-datetime>\n      </ion-item>\n      <ion-item>\n        <ion-input (ionFocus)=\"focusinput($event)\" (ionBlur)=\"blurinput($event)\" [(ngModel)]=\"formdata.days\" type=\"number\" clearInput placeholder=\"出行天数\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input (ionFocus)=\"focusinput($event)\" (ionBlur)=\"blurinput($event)\" [(ngModel)]=\"formdata.money\" clearInput type=\"number\" placeholder=\"人均花费\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input (ionFocus)=\"focusinput($event)\" (ionBlur)=\"blurinput($event)\" [(ngModel)]=\"formdata.tag\" clearInput placeholder=\"添加标签\"></ion-input>\n      </ion-item>\n      <ion-item lines=\"none\">\n        <ion-textarea (ionFocus)=\"focusinput($event)\" (ionBlur)=\"blurinput($event)\" [(ngModel)]=\"formdata.des\" rows=\"3\" placeholder=\"一句话描述...\"></ion-textarea>\n      </ion-item>\n    </ion-list>\n  </div>\n  <div *ngIf=\"iscontent\">\n    <ckeditor [(ngModel)]=\"content\" [config]=\"config\" debounce=\"500\">  </ckeditor>\n  </div>\n  <div class=\"keyboard-height\" [ngStyle]=\"{height: keyboardH + 'px'}\"></div>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-button mode=\"ios\" color=\"secondary\" (click)=\"setContent()\" [disabled]=\"issub\">\n        {{iscontent ? '标题' : '正文'}}\n      </ion-button>\n    </ion-buttons>\n    <ion-buttons slot=\"end\" *ngIf=\"iscontent\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"addimg()\" color=\"secondary\" [disabled]=\"issub\">\n        <ion-icon name=\"images\"></ion-icon>本地图片\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-footer>\n"
 
 /***/ }),
 
@@ -219,6 +219,7 @@ var FbyjPage = /** @class */ (function () {
                 this.title = '游记';
         }
         if (params['iscg']) {
+            this.iscg = true;
             this.getCg();
         }
         else if (params['isedit']) {
@@ -228,16 +229,47 @@ var FbyjPage = /** @class */ (function () {
     FbyjPage.prototype.ionViewDidEnter = function () {
         var _this = this;
         try {
-            window.addEventListener('keyboardWillShow', function (event) {
+            this.newHandle = function (event) {
                 _this.keyboardH = event.keyboardHeight;
-            });
-            window.addEventListener('keyboardWillHide', function (event) {
+                _this.keyboardWillShow();
+            };
+            this.newHandle2 = function () {
                 _this.keyboardH = 0;
-            });
+                if (_this.bfscrolltop < 0) {
+                    _this.scrollToBottom(_this.bfscrolltop);
+                }
+                _this.bfscrolltop = 0;
+            };
+            window.addEventListener('keyboardWillShow', this.newHandle);
+            window.addEventListener('keyboardWillHide', this.newHandle2);
         }
         catch (e) {
-            console.log(e);
         }
+    };
+    FbyjPage.prototype.ionViewDidLeave = function () {
+        window.removeEventListener('keyboardWillShow', this.newHandle);
+        window.removeEventListener('keyboardWillHide', this.newHandle2);
+    };
+    FbyjPage.prototype.keyboardWillShow = function () {
+        var height = this.target.getBoundingClientRect().bottom;
+        var wheight = this.getClientHeight();
+        var y = wheight - this.keyboardH - height;
+        if (y < 0) {
+            this.bfscrolltop = y;
+            this.scrollToBottom(-this.bfscrolltop);
+        }
+    };
+    FbyjPage.prototype.keyboardWillHide = function (event) {
+    };
+    FbyjPage.prototype.getClientHeight = function () {
+        var clientHeight = 0;
+        if (document.body.clientHeight && document.documentElement.clientHeight) {
+            clientHeight = (document.body.clientHeight < document.documentElement.clientHeight) ? document.body.clientHeight : document.documentElement.clientHeight;
+        }
+        else {
+            clientHeight = (document.body.clientHeight > document.documentElement.clientHeight) ? document.body.clientHeight : document.documentElement.clientHeight;
+        }
+        return clientHeight;
     };
     /**
      * @Author: wjy-mac
@@ -514,7 +546,7 @@ var FbyjPage = /** @class */ (function () {
         // arr.push(obj); 保存多个的时候使用，暂定只能保存一个
         this.native.setStorage('yjcontent', obj).then(function (res) {
             _this.issave = false;
-            _this.native.presentAlert('保存成功,如需使用请到个人中心查看');
+            _this.native.presentAlert(_this.iscg ? '保存成功' : '保存成功,如需使用请到个人中心我的草稿里查看');
         }).catch(function (err2) {
             _this.issave = false;
             _this.native.presentAlert('保存失败，请重试~');
@@ -670,6 +702,9 @@ var FbyjPage = /** @class */ (function () {
      */
     FbyjPage.prototype.suberr = function (num) {
         var _this = this;
+        if (this.iscg) {
+            this.native.removeStorage('yjcontent');
+        }
         this.getpopover(2).then(function (res) {
             if (res) {
                 _this.issub = false;
@@ -740,8 +775,51 @@ var FbyjPage = /** @class */ (function () {
         this.content = '';
         this.head = '';
         this.contentimgarr = [];
+        this.keyboardH = 0;
+        this.target = null;
+        this.bfscrolltop = 0;
         // this.blur();
     };
+    /**
+     * @Author: wjy-mac
+     * @description: 当指定输入框触发焦点，保留当前触发input
+     * @Date: 2019-11-29 20:12:20
+     * @param {type}
+     * @return:
+     */
+    FbyjPage.prototype.focusinput = function (e) {
+        this.target = e.target;
+        // document.body.scrollTop = document.body.scrollHeight;
+    };
+    /**
+     * @Author: wjy-mac
+     * @description: 当指定输入框失去焦点，清楚保留的input
+     * @Date: 2019-11-29 20:12:56
+     * @param {type}
+     * @return:
+     */
+    FbyjPage.prototype.blurinput = function (e) {
+        this.target = null;
+        // document.body.scrollTop = this.bfscrolltop;
+    };
+    /**
+     * @Author: wjy-mac
+     * @description: 滚动到底部 使用延时是为了防抖
+     * @Date: 2019-11-12 15:35:06
+     * @param {type}
+     * @return:
+     */
+    FbyjPage.prototype.scrollToBottom = function (y) {
+        // this.target.scrollIntoView(true);
+        this.contentbox.scrollByPoint(0, y, 100);
+        // setTimeout(() => {
+        //   this.contentbox.scrollToBottom(1);
+        // }, 1);
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"])(_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonContent"]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonContent"])
+    ], FbyjPage.prototype, "contentbox", void 0);
     FbyjPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
             selector: 'app-fbyj',

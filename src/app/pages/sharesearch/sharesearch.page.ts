@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-15 15:12:56
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-11-29 11:29:13
+ * @Description: file content
+ */
 import { Component, OnInit } from '@angular/core';
 import {HttpService} from "../../services/http.service";
 import {NavController} from "@ionic/angular";
@@ -21,7 +28,7 @@ export class SharesearchPage implements OnInit {
               private nav: NavController, private gzlistfn: GzlistService, private route: Router) { }
 
   ngOnInit() {
-    this.pageArray = ['票圈', '游记', '攻略', '招募']; // 搜索页面暂不支持关注
+    this.pageArray = ['票圈', '游记', '攻略', '约游']; // 搜索页面暂不支持关注
     this.pageType = 0;
     this.page = 1;
     this.limit = 20;
