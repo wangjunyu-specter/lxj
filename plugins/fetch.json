@@ -241,16 +241,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-gubnoi-alipay": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-gubnoi-alipay"
-    },
-    "is_top_level": true,
-    "variables": {
-      "APP_ID": "2019112669413941"
-    }
-  },
   "cordova-plugin-wechat": {
     "source": {
       "type": "registry",
@@ -269,6 +259,16 @@
     "is_top_level": true,
     "variables": {
       "URL_SCHEME": "cdlxj"
+    }
+  },
+  "cordova-plugin-alipay-v2": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-alipay-v2@^2.0.0"
+    },
+    "is_top_level": true,
+    "variables": {
+      "APP_ID": "2019112969522431"
     }
   }
 }

@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-02 00:26:42
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-12-05 20:55:34
+ * @Description: file content
+ */
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {PopoverController} from "@ionic/angular";
 
@@ -7,7 +14,7 @@ import {PopoverController} from "@ionic/angular";
   styleUrls: ['./paybox.component.scss'],
 })
 export class PayboxComponent implements OnInit {
-  @ViewChild('pwdbox') pwdbox: any;
+  @ViewChild('pwdbox', {static: true}) pwdbox: any;
   @Input() price: string;
   pwd: string;
   isfous: boolean;

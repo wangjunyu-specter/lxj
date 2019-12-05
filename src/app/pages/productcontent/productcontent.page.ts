@@ -4,7 +4,7 @@ import { NativeService } from './../../services/native.service';
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-20 23:48:31
+ * @LastEditTime: 2019-12-05 21:01:29
  * @Description: file content
  */
 import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
@@ -33,7 +33,7 @@ import { AvailableBonusComponent } from '../../components/available-bonus/availa
 export class ProductcontentPage implements OnInit {
   scroolold: number;
   slideOpts: any; // swiper 参数
-  @ViewChild(IonContent) content: IonContent;
+  @ViewChild(IonContent, {static: true}) content: IonContent;
   pageNav: number;
   isshowtopnav: boolean;
   xclx: any[];

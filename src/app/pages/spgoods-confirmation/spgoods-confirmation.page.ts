@@ -352,28 +352,54 @@ export class SpgoodsConfirmationPage implements OnInit {
         pay_code = element['pay_code'];
         break;
       }
-      
     }
-    this.http.postformdataloading(this.http.acteditpayment, {order_id: order_id, pay_code: pay_code, is_pay: 1}).subscribe(res => {
-      console.log('余额支付成功')
-      console.log(res)
-      this.native.wechatpayment(res.result).then(res => {
-        this.getHttpayend(order_id, order_sn);
-      }).catch(err => {
-        console.log(err);
-        this.topage.toPage(12, order_sn, -1);
-      })
+    this.http.postformdataloading(this.http.acteditpayment, {order_id, pay_code, is_pay: 1}).subscribe(res => {
+      console.log(pay_code)
+      let gopay = true;
+      const ispay = () => {
+        setTimeout(() => {
+          if (gopay) {
+            this.http.postformdataloading(this.http.acteditpayment2, {order_id}).subscribe(res => {
+              this.route.navigate(['/ordersuccess'], {queryParams: {type: 1}});
+            }, err => {
+              // alert(JSON.stringify(err));
+              this.closeOrder(order_id, order_sn);
+            });
+          }
+          document.removeEventListener("resume", ispay, false);
+        }, 1500);
+      };
+      document.addEventListener("resume", ispay, false);
+      if (pay_code == 'alipay'){
+        this.native.alipayment(res.result).then(res => {
+          this.getHttpayend(order_id, order_sn);
+        }).catch(err => {
+          this.closeOrder(order_id, order_sn);
+        }).finally(() => {
+          gopay = false;
+        });
+      } else {
+        this.native.wechatpayment(res.result).then(res => {
+          this.getHttpayend(order_id, order_sn);
+        }).catch(err => {
+          this.closeOrder(order_id, order_sn);
+        }).finally(() => {
+          gopay = false;
+        })
+      }
     }, error2 => {
     });
   }
+  closeOrder(order_id, order_sn) {
+    this.topage.toPage(12, order_sn, -1);
+    // this.http.postformdata(this.http.actionacteditpaymentclose, {order_id}).subscribe(res => {}, err => {});
+  }
   getHttpayend(order_id, order_sn) {
-    alert(123)
+    this.route.navigate(['/ordersuccess'], {queryParams: {type: 1}});
     this.http.postformdataloading(this.http.acteditpayment2, {order_id}).subscribe(res => {
-      // this.topage.toPage(12, order_sn, -1);
-      this.route.navigate(['/ordersuccess'], {queryParams: {type: 1}});
     }, err => {
-      this.topage.toPage(12, order_sn, -1);
-    })
+      // this.topage.toPage(12, order_sn, -1);
+    });
   }
   setPrice(res) {
     this.total = res.total;

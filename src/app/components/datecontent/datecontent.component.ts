@@ -14,7 +14,7 @@ export class DatecontentComponent implements OnInit {
   settings: any;
   allDate: any;
   isactiveobj: string; // 当前选中日期
-  @ViewChild(IonSlides) slide: IonSlides;
+  @ViewChild(IonSlides, {static: true}) slide: IonSlides;
   montharr: any[];
   monthactive: number;
   @Output() setDate = new EventEmitter();

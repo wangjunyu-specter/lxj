@@ -41,9 +41,6 @@ MIT
 @angular/router
 MIT
 
-@ionic-native/alipay
-MIT
-
 @ionic-native/android-full-screen
 MIT
 

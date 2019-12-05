@@ -96,7 +96,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy-mac
  * @Date: 2019-10-17 17:47:02
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-14 12:07:39
+ * @LastEditTime: 2019-12-04 21:23:50
  * @Description: 取消订单
  */
 
@@ -263,7 +263,9 @@ var CancelOrderPage = /** @class */ (function () {
         this.isupdate.push(-1);
         var file = this.native.getImgbase64tofile(base64, 'sh' + index, 'imgFile');
         this.imgupload(file).then(function (res) {
-            _this.subimgs[index] = res['url'];
+            //alert(res)
+            //alert(JSON.stringify(res));
+            _this.subimgs[index] = res;
             _this.isupdate[index] = 1;
             if (_this.issub) {
                 _this.issubfn();

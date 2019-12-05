@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-15 22:18:06
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-29 11:01:25
+ * @LastEditTime: 2019-12-05 21:02:42
  * @Description: file content
  */
 import { Component, OnInit, ViewChild  } from '@angular/core';
@@ -54,7 +54,7 @@ export class Tab1Page implements OnInit {
   toolbaropacity: string;
   bannerslideopts: any; // banner 配置
   bztjlist: object[]; // 本周推荐当前选中列表
-  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
+  @ViewChild(IonInfiniteScroll, {static: true}) infiniteScroll: IonInfiniteScroll;
   keywords: string;
   location: any;
   constructor(public modalController: ModalController,

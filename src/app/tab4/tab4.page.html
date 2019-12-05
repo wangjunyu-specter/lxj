@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-21 15:16:00
+ * @LastEditTime: 2019-12-04 19:20:32
  * @Description: file content
  -->
 <ion-header [translucent]="true" mode="ios">
@@ -19,7 +19,7 @@
 
 <ion-content [scrollEvents]="true" [fullscreen]="true" (ionScroll)="logScrolling($event)">
 
-  <div class="center-top">
+  <div class="center-top" [ngClass]="{'android-center-top': isandroid}">
     <!--<div class="top-right">-->
       <!--<ion-button fill="clear">-->
         <!--&lt;!&ndash;<ion-icon slot="icon-only" name="cog"></ion-icon>&ndash;&gt;-->
@@ -27,6 +27,7 @@
       <!--</ion-button>-->
     <!--</div>-->
     <!--<img src="./assets/centerhead.svg">-->
+    <!-- <img src="../../assets/centerhead.svg" class="top-bg" alt=""> -->
     <div class="box" padding>
       <div class="header">
         <ion-avatar>

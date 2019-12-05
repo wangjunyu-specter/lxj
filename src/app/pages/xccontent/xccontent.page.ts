@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-07 23:49:04
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-01 15:15:12
+ * @LastEditTime: 2019-12-05 11:26:03
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -144,7 +144,7 @@ export class XccontentPage implements OnInit {
   cancleOrderfn() {
     this.http.getDataloading(this.http.cancelOrderxc, {order_id: this.orderId}).subscribe(res => {
       console.log(res);
-      this.presentAlert(); // TODO: 需要在php文件添加给商家打款的代码
+      this.presentAlert();
     }, error2 => {});
   }
   setyechange() {
@@ -212,7 +212,7 @@ export class XccontentPage implements OnInit {
         }
       }
     }
-    this.payfn()
+    this.payfn();
   }
   async checksurplus(pwd) {
     return new Promise((resolve, reject) => {
@@ -247,11 +247,33 @@ export class XccontentPage implements OnInit {
   }
   payfn() {
     this.http.postformdataloading(this.http.acteditpayment, {order_id: this.data.order.order_id, pay_code: this.payType, is_pay: 1}).subscribe(res => {
-      this.native.wechatpayment(res.result).then(res => {
-        this.getHttpayend(this.data.order.order_id);
-      }).catch(err => {
-        this.native.presentToast('支付失败!');
-      });
+      let gopay = true;
+      const ispay = () => {
+        setTimeout(() => {
+          if (gopay) {
+            this.getHttpayend(this.data.order.order_id);
+          }
+          document.removeEventListener("resume", ispay, false);
+        }, 1500);
+      };
+      if (this.payType == 'alipay'){
+        this.native.alipayment(res.result).then(res => {
+          this.getHttpayend(this.data.order.order_id);
+        }).catch(err => {
+          this.native.presentToast('支付失败!');
+        }).finally(() => {
+          gopay = false;
+        });
+      } else {
+        this.native.wechatpayment(res.result).then(res => {
+          this.getHttpayend(this.data.order.order_id);
+        }).catch(err => {
+          // this.getDatahttp();
+          this.native.presentToast('支付失败!');
+        }).finally(() => {
+          gopay = false;
+        });
+      }
     }, error2 => {
     });
   }
@@ -259,8 +281,8 @@ export class XccontentPage implements OnInit {
     this.http.postformdataloading(this.http.acteditpayment2, {order_id}).subscribe(res => {
       this.getDatahttp();
     }, err => {
-      // this.getDatahttp();
-    })
+      this.native.presentToast('支付失败!');
+    });
   }
   // repurchase() {
   //   this.topage.toPage(2, this.data.goods_list[0].goods_id);

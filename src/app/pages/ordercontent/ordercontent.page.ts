@@ -4,7 +4,7 @@ import { ThorderService } from './../../services/thorder.service';
  * @Author: wjy-mac
  * @Date: 2019-07-29 22:29:34
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-01 15:15:02
+ * @LastEditTime: 2019-12-05 11:27:10
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -88,6 +88,11 @@ export class OrdercontentPage implements OnInit {
       this.http.getDataloading(this.http.orderDetail, {order_sn: this.orderId}).subscribe(res => {
         console.log(res)
         this.data = res.data;
+        if (this.data.order.pay_name == '支付宝') {
+          this.payType = 'alipay';
+        } else if (this.data.order.pay_name == '微信支付') {
+          this.payType = 'weixin';
+        }
         console.log(this.data)
         let istk = false;
         for (let i = 0; i < this.data['goods_list'].length; i++) {
@@ -309,7 +314,7 @@ export class OrdercontentPage implements OnInit {
         }
       }
     }
-    this.payfn()
+    this.payfn();
   }
   async checksurplus(pwd) {
     return new Promise((resolve, reject) => {
@@ -343,13 +348,34 @@ export class OrdercontentPage implements OnInit {
     return pwd;
   }
   payfn() {
-    this.http.postformdataloading(this.http.acteditpayment, {order_id: this.data.order.order_id, pay_code: this.payType, is_pay: 1}).subscribe(res => {
-      this.native.wechatpayment(res.result).then(res => {
-        this.getHttpayend(this.data.order.order_id);
-      }).catch(err => {
-        // this.getDatahttp();
-        this.native.presentToast('支付失败!');
-      })
+    this.http.postformdataloading(this.http.acteditpayment, {order_id: this.data.order.order_id, pay_code: this.payType, is_pay: 1, repay: 1}).subscribe(res => {
+      let gopay = true;
+      const ispay = () => {
+        setTimeout(() => {
+          if (gopay) {
+            this.getHttpayend(this.data.order.order_id);
+          }
+          document.removeEventListener("resume", ispay, false);
+        }, 1500);
+      };
+      if (this.payType == 'alipay'){
+        this.native.alipayment(res.result).then(res => {
+          this.getHttpayend(this.data.order.order_id);
+        }).catch(err => {
+          this.native.presentToast('支付失败!');
+        }).finally(() => {
+          gopay = false;
+        });
+      } else {
+        this.native.wechatpayment(res.result).then(res => {
+          this.getHttpayend(this.data.order.order_id);
+        }).catch(err => {
+          // this.getDatahttp();
+          this.native.presentToast('支付失败!');
+        }).finally(() => {
+          gopay = false;
+        });
+      }
     }, error2 => {
     });
   }
@@ -357,8 +383,8 @@ export class OrdercontentPage implements OnInit {
     this.http.postformdataloading(this.http.acteditpayment2, {order_id}).subscribe(res => {
       this.getDatahttp();
     }, err => {
-      // this.getDatahttp();
-    })
+      this.native.presentToast('支付失败!');
+    });
   }
   confirmReceipt() {
     this.http.getDataloading(this.http.zdomain + this.http.affirmReceived, {order_id: this.data.order.order_id}).subscribe(res => {

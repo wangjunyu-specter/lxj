@@ -5,7 +5,7 @@ import { NativeService } from 'src/app/services/native.service';
  * @Author: wjy-mac
  * @Date: 2019-06-16 01:51:24
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-15 17:39:18
+ * @LastEditTime: 2019-12-05 21:00:48
  * @Description: file content
  */
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -39,7 +39,7 @@ export class NewslistPage implements OnInit {
   username: string; // 用户名
   kftype: number; // 当前页面进入方式  1表示商品页|未支付订单页进入 联系售前客服 2已支付订单页进入 联系售后客服
   // supplier: object; // 商家
-  @ViewChild(IonContent) content: IonContent;
+  @ViewChild(IonContent, {static: true}) content: IonContent;
   constructor(private nav: NavController, private activeroute: ActivatedRoute,
     private ws: WebsocketService, private emojiishow: EmojiishowService, private itemclickfn: PlitemclickService,
     private newslist: NewsListService, private userfn: UserService, private http: HttpService,

@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-29 14:59:51
+ * @LastEditTime: 2019-12-05 14:49:24
  * @Description: file content
  */
 import { NgModule } from '@angular/core';
@@ -91,6 +91,7 @@ import {VgCoreModule} from 'videogular2/core';
 import {VgControlsModule} from 'videogular2/controls';
 import {VgOverlayPlayModule} from 'videogular2/overlay-play';
 import {VgBufferingModule} from 'videogular2/buffering';
+import { VgStreamingModule } from 'videogular2/streaming';
 import {VideoComponent} from './components/video/video.component';
 import {ScanImagesComponent} from './components/scan-images/scan-images.component';
 import {UploadComponent} from './components/upload/upload.component';
@@ -99,7 +100,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { CallNumber } from '@ionic-native/call-number/ngx';
 import { OpenNativeSettings } from '@ionic-native/open-native-settings/ngx';
 import { ModelTimePipe } from './pipes/model-time.pipe';
-import { Alipay } from '@ionic-native/alipay/ngx';
+// import { Alipay } from '@ionic-native/alipay/ngx';
 import { Wechat } from '@ionic-native/wechat/ngx';
 
 // import { Md5 } from 'ts-md5/dist/md5';
@@ -123,6 +124,7 @@ import { Wechat } from '@ionic-native/wechat/ngx';
     VgControlsModule,
     VgOverlayPlayModule,
     VgBufferingModule,
+    VgStreamingModule,
     // CalendarModule,
     BrowserAnimationsModule,
     // CalendarModule.forRoot({
@@ -196,7 +198,7 @@ import { Wechat } from '@ionic-native/wechat/ngx';
     DeletemyreleaseService,
     EditmyreleaseService,
     Toast,
-    Alipay,
+    // Alipay,
     Wechat,
     // Md5,
     // NavigationBar,

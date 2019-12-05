@@ -17,7 +17,7 @@ export class ChatinputboxComponent implements OnInit {
   @Output() mybulr = new EventEmitter();
   @Output() sub = new EventEmitter();
   isandroid: boolean;
-  @ViewChild('myInput') myInput: any;
+  @ViewChild('myInput', {static: true}) myInput: any;
   // heightStatus: string;
   keyboardH: number;
   constructor(private emojiishow: EmojiishowService, private native: NativeService, private itemclickfn: PlitemclickService) { }
@@ -28,7 +28,12 @@ export class ChatinputboxComponent implements OnInit {
     this.isandroid = this.native.isandroid();
     window.addEventListener('keyboardWillShow', (event: any) => {
       // Describe your logic which will be run each time when keyboard is about to be shown.
-      this.keyboardH = event.keyboardHeight;
+      if (this.isandroid) {
+        this.keyboardH = event.keyboardHeight;
+      } else {
+        this.keyboardH = 0;
+      }
+      
       // this.keyboardH = 0;
       // this.emojiishow.setIsshow(2);
       // this.heightStatus = 'show';

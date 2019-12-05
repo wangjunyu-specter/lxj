@@ -16,7 +16,7 @@ export class SetpaypwdPage implements OnInit {
   time: number;
   pwd: string;
   npwd: string;
-  @ViewChild('pwdbox') pwdbox: any;
+  @ViewChild('pwdbox', {static: true}) pwdbox: any;
   isfous: boolean;
   constructor(private nav: NavController, private userfn: UserService,
               public alertController: AlertController, private http: HttpService) { }

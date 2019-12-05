@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-07 23:04:49
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-08-07 23:51:49
+ * @LastEditTime: 2019-12-05 21:02:16
  * @Description: file content
  */
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -21,7 +21,7 @@ export class SjsearchPage implements OnInit {
   suppId: string; // 商家id
   pageObj: object;
   keywords: string; // 搜索关键词
-  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
+  @ViewChild(IonInfiniteScroll, {static: true}) infiniteScroll: IonInfiniteScroll;
   constructor(private nav: NavController, private route: Router,
     private http: HttpService, private activeroute: ActivatedRoute, private native: NativeService) { }
 

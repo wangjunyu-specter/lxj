@@ -35,7 +35,7 @@ export class FbyjPage implements OnInit {
   iscg: boolean; // 是否草稿
   target: any; // 当前选中的input
   bfscrolltop: any; // 滚动的高度
-  @ViewChild(IonContent) contentbox: IonContent;
+  @ViewChild(IonContent, {static: true}) contentbox: IonContent;
   newHandle: any;
   newHandle2: any;
   constructor(private nav: NavController,

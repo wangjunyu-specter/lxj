@@ -61,7 +61,7 @@ var FbpqimgPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-07-15 19:35:34\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-11-18 23:28:11\n * @Description: file content\n -->\n<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\" mode=\"ios\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>发布</ion-title>\n    <ion-buttons slot=\"end\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"sub()\" [disabled]=\"!content && imgs.length === 0\">\n        <ion-icon name=\"paper-plane\"></ion-icon>发表\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\">\n  <ion-textarea rows=\"7\" [maxlength]=\"300\" [(ngModel)]=\"content\" placeholder=\"此刻你在哪里,分享下你的旅行心情吧~\"></ion-textarea>\n  <app-pqimgbox *ngIf=\"isseleteVedio != 1\" [imglist]=\"imgs\" [showend]=\"isshowend\" (clickItem)=\"remove($event)\" (addimgitem)=\"addfm()\"></app-pqimgbox>\n  <!--<img [src]=\"videoslt\" alt=\"\">-->\n  <!--<video width=\"320\" height=\"240\" controls>-->\n    <!--<source [src]=\"videofile\" type=\"video/mp4\">-->\n    <!--<source [src]=\"videofile\" type=\"video/ogg\">-->\n    <!--您的浏览器不支持 video 标签。-->\n  <!--</video>-->\n  <!--<video width=\"320\" height=\"240\" controls>-->\n    <!--<source [src]=\"videofile1\" type=\"video/mp4\">-->\n    <!--<source [src]=\"videofile1\" type=\"video/ogg\">-->\n    <!--您的浏览器不支持 video 标签。-->\n  <!--</video>-->\n  <div class=\"bf-box\" *ngIf=\"isseleteVedio == 1\" (click)=\"playvideo()\">\n    <img src=\"../../../assets/icon/play.svg\" alt=\"\">\n  </div>\n  <ion-list class=\"ion-margin-top\">\n    <ion-item button *ngIf=\"addressObj\">\n      <ion-icon name=\"pin\" slot=\"start\"></ion-icon>{{addressObj.address}}\n    </ion-item>\n  </ion-list>\n</ion-content>\n"
+module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-07-15 19:35:34\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-12-05 12:47:19\n * @Description: file content\n -->\n<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\" mode=\"ios\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>发布</ion-title>\n    <ion-buttons slot=\"end\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"sub()\" [disabled]=\"!content && imgs.length === 0 && !videofile1\">\n        <ion-icon name=\"paper-plane\"></ion-icon>发表\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\">\n  <ion-textarea rows=\"7\" [maxlength]=\"300\" [(ngModel)]=\"content\" placeholder=\"此刻你在哪里,分享下你的旅行心情吧~\"></ion-textarea>\n  <app-pqimgbox *ngIf=\"isseleteVedio != 1\" [imglist]=\"imgs\" [showend]=\"isshowend\" (clickItem)=\"remove($event)\" (addimgitem)=\"addfm()\"></app-pqimgbox>\n  <!--<img [src]=\"videoslt\" alt=\"\">-->\n  <!--<video width=\"320\" height=\"240\" controls>-->\n    <!--<source [src]=\"videofile\" type=\"video/mp4\">-->\n    <!--<source [src]=\"videofile\" type=\"video/ogg\">-->\n    <!--您的浏览器不支持 video 标签。-->\n  <!--</video>-->\n  <!--<video width=\"320\" height=\"240\" controls>-->\n    <!--<source [src]=\"videofile1\" type=\"video/mp4\">-->\n    <!--<source [src]=\"videofile1\" type=\"video/ogg\">-->\n    <!--您的浏览器不支持 video 标签。-->\n  <!--</video>-->\n  <div class=\"bf-box\" *ngIf=\"isseleteVedio == 1\" (click)=\"videoSet()\">\n    <img src=\"../../../assets/icon/play.svg\" alt=\"\">\n  </div>\n  <ion-list class=\"ion-margin-top\">\n    <ion-item button *ngIf=\"addressObj\">\n      <ion-icon name=\"pin\" slot=\"start\"></ion-icon><span class=\"address-box\">{{addressObj.address}}</span>\n    </ion-item>\n  </ion-list>\n</ion-content>\n"
 
 /***/ }),
 
@@ -72,7 +72,7 @@ module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-07-15 19:35:34\n * @
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".img-box {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 10px; }\n\n.box {\n  display: inline-block;\n  position: relative;\n  width: 100%;\n  float: left;\n  font-size: 12px;\n  background-color: var(--ion-gray-background-color);\n  border-radius: 5px;\n  overflow: hidden; }\n\n.box img {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%; }\n\n.box:before {\n  /* Other ratios */\n  content: \"\";\n  display: block;\n  padding-top: 100%; }\n\n.bf-box {\n  width: 100px;\n  height: 100px;\n  border: 1px solid var(--ion-color-light);\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n\n.bf-box img {\n    width: 40%; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC9wYWdlcy9mYnBxaW1nL2ZicHFpbWcucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsYUFBYTtFQUNiLHFDQUFxQztFQUNyQyxTQUFTLEVBQUE7O0FBRVg7RUFDRSxxQkFBcUI7RUFDckIsa0JBQWtCO0VBQ2xCLFdBQVc7RUFFWCxXQUFXO0VBQ1gsZUFBZTtFQUNmLGtEQUFrRDtFQUdsRCxrQkFBa0I7RUFDbEIsZ0JBQWdCLEVBQUE7O0FBWGxCO0lBYUksa0JBQWtCO0lBQ2xCLE1BQU07SUFDTixPQUFPO0lBQ1AsV0FBVztJQUNYLFlBQVksRUFBQTs7QUFHaEI7RUFDRSxpQkFBQTtFQUVBLFdBQVc7RUFDWCxjQUFjO0VBQ2QsaUJBQWlCLEVBQUE7O0FBRW5CO0VBQ0UsWUFBWTtFQUNaLGFBQWE7RUFDYix3Q0FBd0M7RUFDeEMsYUFBYTtFQUNiLG1CQUFtQjtFQUNuQix1QkFBdUIsRUFBQTs7QUFOekI7SUFRSSxVQUFVLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9mYnBxaW1nL2ZicHFpbWcucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmltZy1ib3gge1xuICBkaXNwbGF5OiBncmlkO1xuICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IHJlcGVhdCgzLCAxZnIpO1xuICBnYXA6IDEwcHg7XG59XG4uYm94IHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHdpZHRoOiAxMDAlO1xuICAvL21hcmdpbjogNSUgNSUgMCAwO1xuICBmbG9hdDogbGVmdDtcbiAgZm9udC1zaXplOiAxMnB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1pb24tZ3JheS1iYWNrZ3JvdW5kLWNvbG9yKTtcbiAgLXdlYmtpdC1ib3JkZXItcmFkaXVzOiA1cHg7XG4gIC1tb3otYm9yZGVyLXJhZGl1czogNXB4O1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGltZyB7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogMDtcbiAgICBsZWZ0OiAwO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGhlaWdodDogMTAwJTtcbiAgfVxufVxuLmJveDpiZWZvcmUge1xuICAvKiBPdGhlciByYXRpb3MgKi9cblxuICBjb250ZW50OiBcIlwiO1xuICBkaXNwbGF5OiBibG9jaztcbiAgcGFkZGluZy10b3A6IDEwMCU7XG59XG4uYmYtYm94IHtcbiAgd2lkdGg6IDEwMHB4O1xuICBoZWlnaHQ6IDEwMHB4O1xuICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1pb24tY29sb3ItbGlnaHQpO1xuICBkaXNwbGF5OiBmbGV4O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgaW1nIHtcbiAgICB3aWR0aDogNDAlO1xuICB9XG59XG4iXX0= */"
+module.exports = ".img-box {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 10px; }\n\n.box {\n  display: inline-block;\n  position: relative;\n  width: 100%;\n  float: left;\n  font-size: 12px;\n  background-color: var(--ion-gray-background-color);\n  border-radius: 5px;\n  overflow: hidden; }\n\n.box img {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%; }\n\n.box:before {\n  /* Other ratios */\n  content: \"\";\n  display: block;\n  padding-top: 100%; }\n\n.bf-box {\n  width: 100px;\n  height: 100px;\n  border: 1px solid var(--ion-color-light);\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n\n.bf-box img {\n    width: 40%; }\n\n.address-box {\n  font-size: var(--ion-sm-text);\n  color: var(--ion-color-medium); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC9wYWdlcy9mYnBxaW1nL2ZicHFpbWcucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsYUFBYTtFQUNiLHFDQUFxQztFQUNyQyxTQUFTLEVBQUE7O0FBRVg7RUFDRSxxQkFBcUI7RUFDckIsa0JBQWtCO0VBQ2xCLFdBQVc7RUFFWCxXQUFXO0VBQ1gsZUFBZTtFQUNmLGtEQUFrRDtFQUdsRCxrQkFBa0I7RUFDbEIsZ0JBQWdCLEVBQUE7O0FBWGxCO0lBYUksa0JBQWtCO0lBQ2xCLE1BQU07SUFDTixPQUFPO0lBQ1AsV0FBVztJQUNYLFlBQVksRUFBQTs7QUFHaEI7RUFDRSxpQkFBQTtFQUVBLFdBQVc7RUFDWCxjQUFjO0VBQ2QsaUJBQWlCLEVBQUE7O0FBRW5CO0VBQ0UsWUFBWTtFQUNaLGFBQWE7RUFDYix3Q0FBd0M7RUFDeEMsYUFBYTtFQUNiLG1CQUFtQjtFQUNuQix1QkFBdUIsRUFBQTs7QUFOekI7SUFRSSxVQUFVLEVBQUE7O0FBR2Q7RUFDRSw2QkFBNkI7RUFDN0IsOEJBQThCLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9mYnBxaW1nL2ZicHFpbWcucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmltZy1ib3gge1xuICBkaXNwbGF5OiBncmlkO1xuICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IHJlcGVhdCgzLCAxZnIpO1xuICBnYXA6IDEwcHg7XG59XG4uYm94IHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHdpZHRoOiAxMDAlO1xuICAvL21hcmdpbjogNSUgNSUgMCAwO1xuICBmbG9hdDogbGVmdDtcbiAgZm9udC1zaXplOiAxMnB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1pb24tZ3JheS1iYWNrZ3JvdW5kLWNvbG9yKTtcbiAgLXdlYmtpdC1ib3JkZXItcmFkaXVzOiA1cHg7XG4gIC1tb3otYm9yZGVyLXJhZGl1czogNXB4O1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGltZyB7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogMDtcbiAgICBsZWZ0OiAwO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGhlaWdodDogMTAwJTtcbiAgfVxufVxuLmJveDpiZWZvcmUge1xuICAvKiBPdGhlciByYXRpb3MgKi9cblxuICBjb250ZW50OiBcIlwiO1xuICBkaXNwbGF5OiBibG9jaztcbiAgcGFkZGluZy10b3A6IDEwMCU7XG59XG4uYmYtYm94IHtcbiAgd2lkdGg6IDEwMHB4O1xuICBoZWlnaHQ6IDEwMHB4O1xuICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1pb24tY29sb3ItbGlnaHQpO1xuICBkaXNwbGF5OiBmbGV4O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgaW1nIHtcbiAgICB3aWR0aDogNDAlO1xuICB9XG59XG4uYWRkcmVzcy1ib3gge1xuICBmb250LXNpemU6IHZhcigtLWlvbi1zbS10ZXh0KTtcbiAgY29sb3I6IHZhcigtLWlvbi1jb2xvci1tZWRpdW0pO1xufVxuIl19 */"
 
 /***/ }),
 
@@ -102,7 +102,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-20 14:11:34
+ * @LastEditTime: 2019-12-05 16:18:15
  * @Description: file content
  */
 
@@ -172,6 +172,9 @@ var FbpqimgPage = /** @class */ (function () {
         if (this.imgs.length === 8) {
             this.isshowend = true;
         }
+        else if (this.imgs.length === 0) {
+            this.isseleteVedio = 0;
+        }
     };
     FbpqimgPage.prototype.presentActionSheet = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
@@ -184,10 +187,8 @@ var FbpqimgPage = /** @class */ (function () {
                         if (this.isseleteVedio != 1) {
                             buttons.push.apply(buttons, [{
                                     text: '相机',
-                                    role: 'destructive',
                                     handler: function () {
                                         _this.native.getPictureByCamera().then(function (res) {
-                                            _this.isseleteVedio = 2;
                                             _this.addimgfn(res);
                                         });
                                     }
@@ -196,7 +197,6 @@ var FbpqimgPage = /** @class */ (function () {
                                     handler: function () {
                                         console.log('Share clicked');
                                         _this.native.getPictures(9 - _this.imgs.length).then(function (res) {
-                                            _this.isseleteVedio = 2;
                                             res.map(function (img) {
                                                 _this.addimgfn(img);
                                             });
@@ -216,6 +216,7 @@ var FbpqimgPage = /** @class */ (function () {
                                         _this.videofile = filedata;
                                         _this.videofile.getFormatData(function (data) {
                                             _this.videofile1 = data;
+                                            // this.getVidefile();
                                         });
                                     }, function (err) { });
                                 }
@@ -245,6 +246,9 @@ var FbpqimgPage = /** @class */ (function () {
     FbpqimgPage.prototype.addimgfn = function (res) {
         // this.seletemedia.addImg(res);
         this.imgs.push(res);
+        if (this.imgs.length > 0) {
+            this.isseleteVedio = 2;
+        }
         if (this.imgs.length === 9) {
             this.isshowend = false;
         }
@@ -305,11 +309,19 @@ var FbpqimgPage = /** @class */ (function () {
                 height: height
             }
         };
+        // alert(JSON.stringify(this.videofile))
         fileTransfer.upload(this.videofile.fullPath, this.http.domain + this.http.updateimg, obj).then(function (res) {
             _this.videofile = null;
             _this.videofile1 = null;
-            var path = JSON.parse(res.response)['result'];
-            _this.contentsend([path]);
+            var result = JSON.parse(res.response);
+            if (result['status'] == 1) {
+                var path = result['result'];
+                _this.contentsend([path]);
+            }
+            else {
+                alert(res.response);
+                _this.uploadEnd();
+            }
         }).catch(function (err2) {
             console.log('错了我');
             console.error(err2);
@@ -350,6 +362,47 @@ var FbpqimgPage = /** @class */ (function () {
     FbpqimgPage.prototype.playvideo = function () {
         // : todo 此处未实现ios和浏览器播放
         this.native.nativeVideoplay(this.videofile.fullPath);
+    };
+    FbpqimgPage.prototype.videoSet = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var buttons, actionSheet;
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        buttons = [];
+                        buttons.push.apply(buttons, [{
+                                text: '播放',
+                                role: 'destructive',
+                                handler: function () {
+                                    _this.playvideo();
+                                }
+                            }, {
+                                text: '删除',
+                                handler: function () {
+                                    _this.videofile = null;
+                                    _this.isseleteVedio = 0;
+                                }
+                            }, {
+                                text: '取消',
+                                role: 'cancel',
+                                handler: function () {
+                                    console.log('Cancel clicked');
+                                }
+                            }]);
+                        return [4 /*yield*/, this.actionSheetController.create({
+                                header: '请选择操作',
+                                buttons: buttons
+                            })];
+                    case 1:
+                        actionSheet = _a.sent();
+                        return [4 /*yield*/, actionSheet.present()];
+                    case 2:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
     };
     FbpqimgPage.prototype.uploadEnd = function () {
         this.isloading = false;

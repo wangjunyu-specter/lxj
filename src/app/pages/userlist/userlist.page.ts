@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-16 21:59:38
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-12-05 21:02:23
+ * @Description: file content
+ */
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {NavController, IonInfiniteScroll} from "@ionic/angular";
 import {HttpService} from "../../services/http.service";
@@ -14,7 +21,7 @@ export class UserlistPage implements OnInit {
   page: number;
   limit: number;
   list: object[];
-  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
+  @ViewChild(IonInfiniteScroll, {static: true}) infiniteScroll: IonInfiniteScroll;
   constructor(private nav: NavController, private http: HttpService,
               private activeroute: ActivatedRoute, private route: Router) { }
 

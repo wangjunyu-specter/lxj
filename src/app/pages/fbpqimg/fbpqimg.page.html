@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-15 19:35:34
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-18 23:28:11
+ * @LastEditTime: 2019-12-05 12:47:19
  * @Description: file content
  -->
 <ion-header mode="ios">
@@ -16,7 +16,7 @@
     <ion-title>发布</ion-title>
     <ion-buttons slot="end">
       <!--<ion-back-button></ion-back-button>-->
-      <ion-button (click)="sub()" [disabled]="!content && imgs.length === 0">
+      <ion-button (click)="sub()" [disabled]="!content && imgs.length === 0 && !videofile1">
         <ion-icon name="paper-plane"></ion-icon>发表
       </ion-button>
     </ion-buttons>
@@ -37,12 +37,12 @@
     <!--<source [src]="videofile1" type="video/ogg">-->
     <!--您的浏览器不支持 video 标签。-->
   <!--</video>-->
-  <div class="bf-box" *ngIf="isseleteVedio == 1" (click)="playvideo()">
+  <div class="bf-box" *ngIf="isseleteVedio == 1" (click)="videoSet()">
     <img src="../../../assets/icon/play.svg" alt="">
   </div>
   <ion-list class="ion-margin-top">
     <ion-item button *ngIf="addressObj">
-      <ion-icon name="pin" slot="start"></ion-icon>{{addressObj.address}}
+      <ion-icon name="pin" slot="start"></ion-icon><span class="address-box">{{addressObj.address}}</span>
     </ion-item>
   </ion-list>
 </ion-content>

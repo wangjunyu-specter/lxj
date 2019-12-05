@@ -261,6 +261,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-06-30 02:34:48
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-12-05 17:16:46
+ * @Description: file content
+ */
 
 var IsvideoPipe = /** @class */ (function () {
     function IsvideoPipe() {
@@ -274,7 +281,7 @@ var IsvideoPipe = /** @class */ (function () {
             return false;
         }
         var type = value.substr(index + 1);
-        if (type === 'mp4' || type === 'ogg' || type === 'WebM') {
+        if (type === 'mp4' || type === 'ogg' || type === 'WebM' || type === 'm3u8') {
             return true;
         }
         console.error(type);
@@ -777,7 +784,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy-mac
  * @Date: 2019-10-17 15:00:01
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-23 15:18:07
+ * @LastEditTime: 2019-12-01 15:59:53
  * @Description: 订单最终状态
  */
 
@@ -794,7 +801,7 @@ var OrderstatusPipe = /** @class */ (function () {
         if ((orderStatus === '0' || orderStatus === '1') && shippingStatus === '0' && payStatus === '0') {
             return '未支付';
         }
-        else if (orderStatus === '1' && shippingStatus === '0' && payStatus === '2') {
+        else if (orderStatus === '1' && shippingStatus === '0' && payStatus === '2' || orderStatus === '0' && shippingStatus === '0' && payStatus === '2') {
             if (args) {
                 return '等待商家确认';
             }

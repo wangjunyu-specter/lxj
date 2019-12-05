@@ -1004,7 +1004,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-01 13:16:23
+ * @LastEditTime: 2019-12-01 13:29:50
  * @Description: file content
  */
 
@@ -1204,7 +1204,7 @@ var AppComponent = /** @class */ (function () {
                             return [2 /*return*/];
                         }
                         else if (this.url === '/allorder' || this.url === '/xclist') {
-                            this.nav.navigateForward('/tabs/tab4');
+                            this.nav.navigateBack('/tabs/tab4');
                         }
                         else {
                             this.nav.back();
@@ -1341,22 +1341,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_79___default = /*#__PURE__*/__webpack_require__.n(videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_79__);
 /* harmony import */ var videogular2_buffering__WEBPACK_IMPORTED_MODULE_80__ = __webpack_require__(/*! videogular2/buffering */ "./node_modules/videogular2/buffering.js");
 /* harmony import */ var videogular2_buffering__WEBPACK_IMPORTED_MODULE_80___default = /*#__PURE__*/__webpack_require__.n(videogular2_buffering__WEBPACK_IMPORTED_MODULE_80__);
-/* harmony import */ var _components_video_video_component__WEBPACK_IMPORTED_MODULE_81__ = __webpack_require__(/*! ./components/video/video.component */ "./src/app/components/video/video.component.ts");
-/* harmony import */ var _components_scan_images_scan_images_component__WEBPACK_IMPORTED_MODULE_82__ = __webpack_require__(/*! ./components/scan-images/scan-images.component */ "./src/app/components/scan-images/scan-images.component.ts");
-/* harmony import */ var _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_83__ = __webpack_require__(/*! ./components/upload/upload.component */ "./src/app/components/upload/upload.component.ts");
-/* harmony import */ var _ionic_native_gao_de_location_ngx__WEBPACK_IMPORTED_MODULE_84__ = __webpack_require__(/*! @ionic-native/gao-de-location/ngx */ "./node_modules/@ionic-native/gao-de-location/ngx/index.js");
-/* harmony import */ var _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_85__ = __webpack_require__(/*! @ionic-native/in-app-browser/ngx */ "./node_modules/@ionic-native/in-app-browser/ngx/index.js");
-/* harmony import */ var _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_86__ = __webpack_require__(/*! @ionic-native/call-number/ngx */ "./node_modules/@ionic-native/call-number/ngx/index.js");
-/* harmony import */ var _ionic_native_open_native_settings_ngx__WEBPACK_IMPORTED_MODULE_87__ = __webpack_require__(/*! @ionic-native/open-native-settings/ngx */ "./node_modules/@ionic-native/open-native-settings/ngx/index.js");
-/* harmony import */ var _pipes_model_time_pipe__WEBPACK_IMPORTED_MODULE_88__ = __webpack_require__(/*! ./pipes/model-time.pipe */ "./src/app/pipes/model-time.pipe.ts");
-/* harmony import */ var _ionic_native_alipay_ngx__WEBPACK_IMPORTED_MODULE_89__ = __webpack_require__(/*! @ionic-native/alipay/ngx */ "./node_modules/@ionic-native/alipay/ngx/index.js");
+/* harmony import */ var videogular2_streaming__WEBPACK_IMPORTED_MODULE_81__ = __webpack_require__(/*! videogular2/streaming */ "./node_modules/videogular2/streaming.js");
+/* harmony import */ var videogular2_streaming__WEBPACK_IMPORTED_MODULE_81___default = /*#__PURE__*/__webpack_require__.n(videogular2_streaming__WEBPACK_IMPORTED_MODULE_81__);
+/* harmony import */ var _components_video_video_component__WEBPACK_IMPORTED_MODULE_82__ = __webpack_require__(/*! ./components/video/video.component */ "./src/app/components/video/video.component.ts");
+/* harmony import */ var _components_scan_images_scan_images_component__WEBPACK_IMPORTED_MODULE_83__ = __webpack_require__(/*! ./components/scan-images/scan-images.component */ "./src/app/components/scan-images/scan-images.component.ts");
+/* harmony import */ var _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_84__ = __webpack_require__(/*! ./components/upload/upload.component */ "./src/app/components/upload/upload.component.ts");
+/* harmony import */ var _ionic_native_gao_de_location_ngx__WEBPACK_IMPORTED_MODULE_85__ = __webpack_require__(/*! @ionic-native/gao-de-location/ngx */ "./node_modules/@ionic-native/gao-de-location/ngx/index.js");
+/* harmony import */ var _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_86__ = __webpack_require__(/*! @ionic-native/in-app-browser/ngx */ "./node_modules/@ionic-native/in-app-browser/ngx/index.js");
+/* harmony import */ var _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_87__ = __webpack_require__(/*! @ionic-native/call-number/ngx */ "./node_modules/@ionic-native/call-number/ngx/index.js");
+/* harmony import */ var _ionic_native_open_native_settings_ngx__WEBPACK_IMPORTED_MODULE_88__ = __webpack_require__(/*! @ionic-native/open-native-settings/ngx */ "./node_modules/@ionic-native/open-native-settings/ngx/index.js");
+/* harmony import */ var _pipes_model_time_pipe__WEBPACK_IMPORTED_MODULE_89__ = __webpack_require__(/*! ./pipes/model-time.pipe */ "./src/app/pipes/model-time.pipe.ts");
 /* harmony import */ var _ionic_native_wechat_ngx__WEBPACK_IMPORTED_MODULE_90__ = __webpack_require__(/*! @ionic-native/wechat/ngx */ "./node_modules/@ionic-native/wechat/ngx/index.js");
 
 /*
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-29 14:59:51
+ * @LastEditTime: 2019-12-05 14:49:24
  * @Description: file content
  */
 
@@ -1448,6 +1449,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// import { Alipay } from '@ionic-native/alipay/ngx';
 
 // import { Md5 } from 'ts-md5/dist/md5';
 // import {LoginGuardGuard} from './guard/login-guard.guard';
@@ -1457,11 +1459,11 @@ var AppModule = /** @class */ (function () {
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [_app_component__WEBPACK_IMPORTED_MODULE_22__["AppComponent"], _components_search_search_component__WEBPACK_IMPORTED_MODULE_33__["SearchComponent"], _components_topnavlist_topnavlist_component__WEBPACK_IMPORTED_MODULE_38__["TopnavlistComponent"], _components_goodsattr_goodsattr_component__WEBPACK_IMPORTED_MODULE_34__["GoodsattrComponent"],
-                _components_goods_contentnav_goods_contentnav_component__WEBPACK_IMPORTED_MODULE_36__["GoodsContentnavComponent"], _components_fbselete_fbselete_component__WEBPACK_IMPORTED_MODULE_69__["FbseleteComponent"], _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_37__["PayboxComponent"], _components_video_video_component__WEBPACK_IMPORTED_MODULE_81__["VideoComponent"], _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_83__["UploadComponent"],
-                _components_available_bonus_available_bonus_component__WEBPACK_IMPORTED_MODULE_35__["AvailableBonusComponent"], _pipes_model_time_pipe__WEBPACK_IMPORTED_MODULE_88__["ModelTimePipe"], _components_scan_images_scan_images_component__WEBPACK_IMPORTED_MODULE_82__["ScanImagesComponent"]],
+                _components_goods_contentnav_goods_contentnav_component__WEBPACK_IMPORTED_MODULE_36__["GoodsContentnavComponent"], _components_fbselete_fbselete_component__WEBPACK_IMPORTED_MODULE_69__["FbseleteComponent"], _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_37__["PayboxComponent"], _components_video_video_component__WEBPACK_IMPORTED_MODULE_82__["VideoComponent"], _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_84__["UploadComponent"],
+                _components_available_bonus_available_bonus_component__WEBPACK_IMPORTED_MODULE_35__["AvailableBonusComponent"], _pipes_model_time_pipe__WEBPACK_IMPORTED_MODULE_89__["ModelTimePipe"], _components_scan_images_scan_images_component__WEBPACK_IMPORTED_MODULE_83__["ScanImagesComponent"]],
             entryComponents: [_components_search_search_component__WEBPACK_IMPORTED_MODULE_33__["SearchComponent"], _components_topnavlist_topnavlist_component__WEBPACK_IMPORTED_MODULE_38__["TopnavlistComponent"], _components_goodsattr_goodsattr_component__WEBPACK_IMPORTED_MODULE_34__["GoodsattrComponent"],
-                _components_goods_contentnav_goods_contentnav_component__WEBPACK_IMPORTED_MODULE_36__["GoodsContentnavComponent"], _components_fbselete_fbselete_component__WEBPACK_IMPORTED_MODULE_69__["FbseleteComponent"], _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_37__["PayboxComponent"], _components_video_video_component__WEBPACK_IMPORTED_MODULE_81__["VideoComponent"], _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_83__["UploadComponent"],
-                _components_available_bonus_available_bonus_component__WEBPACK_IMPORTED_MODULE_35__["AvailableBonusComponent"], _components_scan_images_scan_images_component__WEBPACK_IMPORTED_MODULE_82__["ScanImagesComponent"]],
+                _components_goods_contentnav_goods_contentnav_component__WEBPACK_IMPORTED_MODULE_36__["GoodsContentnavComponent"], _components_fbselete_fbselete_component__WEBPACK_IMPORTED_MODULE_69__["FbseleteComponent"], _components_paybox_paybox_component__WEBPACK_IMPORTED_MODULE_37__["PayboxComponent"], _components_video_video_component__WEBPACK_IMPORTED_MODULE_82__["VideoComponent"], _components_upload_upload_component__WEBPACK_IMPORTED_MODULE_84__["UploadComponent"],
+                _components_available_bonus_available_bonus_component__WEBPACK_IMPORTED_MODULE_35__["AvailableBonusComponent"], _components_scan_images_scan_images_component__WEBPACK_IMPORTED_MODULE_83__["ScanImagesComponent"]],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
                 _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["IonicModule"].forRoot(),
@@ -1473,6 +1475,7 @@ var AppModule = /** @class */ (function () {
                 videogular2_controls__WEBPACK_IMPORTED_MODULE_78__["VgControlsModule"],
                 videogular2_overlay_play__WEBPACK_IMPORTED_MODULE_79__["VgOverlayPlayModule"],
                 videogular2_buffering__WEBPACK_IMPORTED_MODULE_80__["VgBufferingModule"],
+                videogular2_streaming__WEBPACK_IMPORTED_MODULE_81__["VgStreamingModule"],
                 // CalendarModule,
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_72__["BrowserAnimationsModule"],
             ],
@@ -1526,23 +1529,23 @@ var AppModule = /** @class */ (function () {
                 _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_14__["Network"],
                 _services_searchrecode_service__WEBPACK_IMPORTED_MODULE_29__["SearchrecodeService"],
                 _services_searchendgoods_service__WEBPACK_IMPORTED_MODULE_30__["SearchendgoodsService"],
-                _ionic_native_gao_de_location_ngx__WEBPACK_IMPORTED_MODULE_84__["GaoDeLocation"],
-                _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_85__["InAppBrowser"],
+                _ionic_native_gao_de_location_ngx__WEBPACK_IMPORTED_MODULE_85__["GaoDeLocation"],
+                _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_86__["InAppBrowser"],
                 _ionic_native_app_version_ngx__WEBPACK_IMPORTED_MODULE_15__["AppVersion"],
                 _ionic_native_market_ngx__WEBPACK_IMPORTED_MODULE_16__["Market"],
                 _ionic_native_app_update_ngx__WEBPACK_IMPORTED_MODULE_17__["AppUpdate"],
                 _services_thorder_service__WEBPACK_IMPORTED_MODULE_32__["ThorderService"],
                 _services_websocket_service__WEBPACK_IMPORTED_MODULE_61__["WebsocketService"],
                 _services_news_list_service__WEBPACK_IMPORTED_MODULE_62__["NewsListService"],
-                _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_86__["CallNumber"],
+                _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_87__["CallNumber"],
                 _jiguang_ionic_jpush_ngx__WEBPACK_IMPORTED_MODULE_18__["JPush"],
-                _ionic_native_open_native_settings_ngx__WEBPACK_IMPORTED_MODULE_87__["OpenNativeSettings"],
+                _ionic_native_open_native_settings_ngx__WEBPACK_IMPORTED_MODULE_88__["OpenNativeSettings"],
                 _ionic_native_app_minimize_ngx__WEBPACK_IMPORTED_MODULE_19__["AppMinimize"],
                 // LoginGuardGuard,
                 _services_deletemyrelease_service__WEBPACK_IMPORTED_MODULE_63__["DeletemyreleaseService"],
                 _services_editmyrelease_service__WEBPACK_IMPORTED_MODULE_64__["EditmyreleaseService"],
                 _ionic_native_toast_ngx__WEBPACK_IMPORTED_MODULE_20__["Toast"],
-                _ionic_native_alipay_ngx__WEBPACK_IMPORTED_MODULE_89__["Alipay"],
+                // Alipay,
                 _ionic_native_wechat_ngx__WEBPACK_IMPORTED_MODULE_90__["Wechat"],
                 // Md5,
                 // NavigationBar,
@@ -2638,7 +2641,7 @@ var UploadComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<vg-player>\n  <vg-overlay-play></vg-overlay-play>\n  <vg-buffering></vg-buffering>\n  <!--<vg-controls [vgAutohide]=\"true\" [vgAutohideTime]=\"5\">-->\n  <!--<vg-play-pause></vg-play-pause>-->\n  <!--<vg-time-display [vgProperty]=\"'current'\"></vg-time-display>-->\n  <!--<vg-scrub-bar>-->\n  <!--<vg-scrub-bar-current-time [vgSlider]=\"true\"></vg-scrub-bar-current-time>-->\n  <!--<vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>-->\n  <!--</vg-scrub-bar>-->\n  <!--<vg-time-display [vgProperty]=\"'total'\"></vg-time-display>-->\n  <!--<vg-fullscreen></vg-fullscreen>-->\n  <!--</vg-controls>-->\n  <video #media playsinline webkit-playsinline [vgMedia]=\"media\" [src]=\"src\" autoplay></video>\n</vg-player>\n<div class=\"close\" (click)=\"close()\">关闭</div>\n"
+module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-07-24 23:01:08\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-12-05 17:19:17\n * @Description: 视频播放插件\n -->\n<vg-player>\n  <vg-overlay-play></vg-overlay-play>\n  <vg-buffering></vg-buffering>\n  <!--<vg-controls [vgAutohide]=\"true\" [vgAutohideTime]=\"5\">-->\n  <!--<vg-play-pause></vg-play-pause>-->\n  <!--<vg-time-display [vgProperty]=\"'current'\"></vg-time-display>-->\n  <!--<vg-scrub-bar>-->\n  <!--<vg-scrub-bar-current-time [vgSlider]=\"true\"></vg-scrub-bar-current-time>-->\n  <!--<vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>-->\n  <!--</vg-scrub-bar>-->\n  <!--<vg-time-display [vgProperty]=\"'total'\"></vg-time-display>-->\n  <!--<vg-fullscreen></vg-fullscreen>-->\n  <!--</vg-controls>-->\n  <video\n  #media\n  #vgHls=\"vgHls\"\n  playsinline\n  webkit-playsinline\n  [vgMedia]=\"media\"\n  [vgHls]=\"src\"\n  id=\"singleVideo\"\n  preload=\"auto\"\n  autoplay>\n  <!-- <video #media playsinline webkit-playsinline [vgMedia]=\"media\" id=\"singleVideo\" preload=\"auto\" autoplay> -->\n    <!-- <source src=\"http://static.videogular.com/assets/videos/videogular.mp4\" type=\"video/mp4\"> -->\n  </video>\n</vg-player>\n<div class=\"close\" (click)=\"close()\">关闭</div>\n"
 
 /***/ }),
 
@@ -4823,7 +4826,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-30 21:53:20
+ * @LastEditTime: 2019-12-04 16:42:34
  * @Description: file content
  */
 
@@ -4857,6 +4860,8 @@ var HttpService = /** @class */ (function () {
         this.resetPwd = 'register.php?act=resetPwd'; // 发送验证码 mobile_phone
         this.editsurplus = 'user.php?act=act_edit_surplus'; // 余额支付
         this.acteditpayment = 'user.php?act=act_edit_payment'; // 第三方支付
+        this.acteditpayment2 = 'user.php?act=act_edit_payment_end'; // 获取第三方支付是否成功
+        this.actionacteditpaymentclose = 'user.php?act=act_edit_payment_close'; // 未支付的第三方支付关闭第三方订单
         this.getusercenter = 'user.php?act=getusercenter'; // 获取个人中心 点赞 关注等数量
         this.getousercenter = 'user.php?act=getousercenter'; // 获取个人中心 点赞 关注等数量
         this.editorupdateaddress = 'user.php?act=act_edit_address'; // 编辑添加地址
@@ -5140,7 +5145,7 @@ var HttpService = /** @class */ (function () {
     };
     HttpService.prototype.setHeard = function (url) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var user, _a, e_1, ze, uuid, address, header;
+            var user, _a, e_1, ze, uuid, address, url2, header;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_b) {
                 switch (_b.label) {
                     case 0:
@@ -5175,8 +5180,9 @@ var HttpService = /** @class */ (function () {
                         }
                         address = this.userfn.getLocation();
                         if (address) {
-                            url += ('&country=' + address.country + '&province=' + address.province +
+                            url2 = ('&country=' + address.country + '&province=' + address.province +
                                 '&city=' + address.city + '&lat=' + address.lat + '&lng=' + address.lng);
+                            url += encodeURI(url2);
                         }
                         if (user.token) {
                             if (this.nativeService.ismobile()) {
@@ -5350,13 +5356,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ionic-native/device/ngx */ "./node_modules/@ionic-native/device/ngx/index.js");
 /* harmony import */ var _ionic_native_open_native_settings_ngx__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @ionic-native/open-native-settings/ngx */ "./node_modules/@ionic-native/open-native-settings/ngx/index.js");
 /* harmony import */ var _ionic_native_toast_ngx__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ionic-native/toast/ngx */ "./node_modules/@ionic-native/toast/ngx/index.js");
-/* harmony import */ var _ionic_native_alipay_ngx__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @ionic-native/alipay/ngx */ "./node_modules/@ionic-native/alipay/ngx/index.js");
 
 /*
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-01 11:53:26
+ * @LastEditTime: 2019-12-03 17:39:52
  * @Description: file content
  */
 
@@ -5375,9 +5380,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 var NativeService = /** @class */ (function () {
-    function NativeService(alertController, loadingController, toastController, nativeStorage, plt, mediaCapture, imagePicker, camera, androidFullScreen, statusbar, videoPlayer, network, appVersion, market, callNumber, device, openNativeSettings, toast, alipay) {
+    function NativeService(alertController, loadingController, toastController, nativeStorage, plt, mediaCapture, imagePicker, camera, androidFullScreen, statusbar, videoPlayer, network, appVersion, market, callNumber, device, openNativeSettings, toast) {
         this.alertController = alertController;
         this.loadingController = loadingController;
         this.toastController = toastController;
@@ -5396,7 +5400,6 @@ var NativeService = /** @class */ (function () {
         this.device = device;
         this.openNativeSettings = openNativeSettings;
         this.toast = toast;
-        this.alipay = alipay;
     }
     NativeService.prototype.getAppversion = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
@@ -5952,23 +5955,23 @@ var NativeService = /** @class */ (function () {
      * @return:
      */
     NativeService.prototype.alipayment = function (alipayOrder) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var err_1;
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.alipay.pay(alipayOrder)];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/, true];
-                    case 2:
-                        err_1 = _a.sent();
-                        throw new Error(err_1);
-                    case 3: return [2 /*return*/];
-                }
+        return new Promise(function (resolve, reject) {
+            cordova.plugins.alipay.payment(alipayOrder, function (data) {
+                resolve(data);
+            }, function (err) {
+                reject(err);
             });
         });
+        // try {
+        //   await this.alipay.pay(alipayOrder);
+        //   return true;
+        // } catch(err) {
+        //   throw new Error(err);
+        // }
+    };
+    NativeService.prototype.unescapeHTML = function (a) {
+        var aNew = "" + a;
+        return aNew.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&apos;/g, "'");
     };
     /**
      * @Author: wjy-mac
@@ -6023,7 +6026,7 @@ var NativeService = /** @class */ (function () {
                 messageAction: "<action>dotalist</action>",
                 media: {
                     type: Wechat.Type.WEBPAGE,
-                    webpageUrl: "https://baidu.com" // webpage
+                    webpageUrl: "https://cdlxj.cn/test.html" // webpage
                 }
             },
             scene: type === 1 ? Wechat.Scene.TIMELINE : Wechat.Scene.SESSION // share to Timeline
@@ -6044,8 +6047,7 @@ var NativeService = /** @class */ (function () {
             _ionic_native_android_full_screen_ngx__WEBPACK_IMPORTED_MODULE_7__["AndroidFullScreen"], _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_8__["StatusBar"],
             _ionic_native_video_player_ngx__WEBPACK_IMPORTED_MODULE_9__["VideoPlayer"], _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_10__["Network"], _ionic_native_app_version_ngx__WEBPACK_IMPORTED_MODULE_11__["AppVersion"],
             _ionic_native_market_ngx__WEBPACK_IMPORTED_MODULE_12__["Market"], _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_13__["CallNumber"], _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_14__["Device"],
-            _ionic_native_open_native_settings_ngx__WEBPACK_IMPORTED_MODULE_15__["OpenNativeSettings"], _ionic_native_toast_ngx__WEBPACK_IMPORTED_MODULE_16__["Toast"],
-            _ionic_native_alipay_ngx__WEBPACK_IMPORTED_MODULE_17__["Alipay"]])
+            _ionic_native_open_native_settings_ngx__WEBPACK_IMPORTED_MODULE_15__["OpenNativeSettings"], _ionic_native_toast_ngx__WEBPACK_IMPORTED_MODULE_16__["Toast"]])
     ], NativeService);
     return NativeService;
 }());
@@ -7508,7 +7510,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy-mac
  * @Date: 2019-07-30 22:58:50
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-18 15:41:59
+ * @LastEditTime: 2019-12-04 18:00:01
  * @Description: file content
  */
 
@@ -7679,6 +7681,7 @@ var ShopContentService = /** @class */ (function () {
                             }
                             obj['keywords'] = data['keywords'];
                             obj['sckeywords'] = data['sckeywords'];
+                            obj['iosapp_verson'] = data['iosapp_verson'];
                             _this.setShopObj(obj);
                             _this.shopnav.setNav(data['categories']);
                             _this.setIndexbanner(data['index_banner']);

@@ -107,6 +107,9 @@ ion-popover.payboxcontent {
 .header-ios ion-toolbar:last-child {
   --border-width: 0;
 }
+.header-translucent-ios {
+  backdrop-filter: none;
+}
   //.android {
 //  // 沉浸式状态栏，设置header留出状态栏的位置
 //  //ion-header {

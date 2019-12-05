@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-01 13:30:06
+ * @LastEditTime: 2019-12-05 20:59:05
  * @Description: 所有订单
  */
 import {Component, OnInit, ViewChild} from '@angular/core';
@@ -23,7 +23,7 @@ export class AllorderPage implements OnInit {
   list3: any[];
   list4: any[];
   list5: any[];
-  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
+  @ViewChild(IonInfiniteScroll, {static: true}) infiniteScroll: IonInfiniteScroll;
   constructor(private nav: NavController, private route: Router, private orderlist: OrderlistService) { }
 
   ngOnInit() {

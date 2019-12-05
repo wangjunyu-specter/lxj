@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-11-05 11:32:10
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-05 14:58:11
+ * @LastEditTime: 2019-12-05 20:56:24
  * @Description: file content
  */
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -20,7 +20,7 @@ export class CommentsListPage implements OnInit {
   private goodsId: string;
   tags: object[];
   private pageObj: object;
-  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
+  @ViewChild(IonInfiniteScroll, {static: true}) infiniteScroll: IonInfiniteScroll;
   constructor(private nav: NavController, private http: HttpService, private activeroute: ActivatedRoute) { }
   goBack(): void {
     this.nav.back();

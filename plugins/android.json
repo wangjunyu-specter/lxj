@@ -20,6 +20,10 @@
       "OKHTTP_VERSION": "3.10.0",
       "PACKAGE_NAME": "com.cdlxj.wjy"
     },
+    "cordova-plugin-alipay-v2": {
+      "APP_ID": "2019112969522431",
+      "PACKAGE_NAME": "com.cdlxj.wjy"
+    },
     "cordova-plugin-app-update": {
       "PACKAGE_NAME": "com.cdlxj.wjy"
     },
@@ -27,6 +31,13 @@
       "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "cordova-plugin-appminimize": {
+      "PACKAGE_NAME": "com.cdlxj.wjy"
+    },
+    "cordova-plugin-customurlscheme": {
+      "URL_SCHEME": "cdlxj",
+      "ANDROID_SCHEME": " ",
+      "ANDROID_HOST": " ",
+      "ANDROID_PATHPREFIX": "/",
       "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "cordova-plugin-device": {
@@ -44,10 +55,6 @@
     "cordova-plugin-gaodelocation-chenyu": {
       "ANDROID_API_KEY": "95d0d45ff9793050125665a1878f7196",
       "IOS_API_KEY": "7e2f24b493c9db4b0fd48c5d9240dea2",
-      "PACKAGE_NAME": "com.cdlxj.wjy"
-    },
-    "cordova-plugin-gubnoi-alipay": {
-      "APP_ID": "2019112669413941",
       "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "cordova-plugin-inappbrowser": {
@@ -100,13 +107,6 @@
       "PACKAGE_NAME": "com.cdlxj.wjy"
     },
     "mx.ferreyra.callnumber": {
-      "PACKAGE_NAME": "com.cdlxj.wjy"
-    },
-    "cordova-plugin-customurlscheme": {
-      "URL_SCHEME": "cdlxj",
-      "ANDROID_SCHEME": " ",
-      "ANDROID_HOST": " ",
-      "ANDROID_PATHPREFIX": "/",
       "PACKAGE_NAME": "com.cdlxj.wjy"
     }
   },

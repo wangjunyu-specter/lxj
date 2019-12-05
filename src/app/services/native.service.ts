@@ -3,7 +3,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-01 13:57:21
+ * @LastEditTime: 2019-12-03 17:39:52
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -22,10 +22,12 @@ import { CallNumber } from '@ionic-native/call-number/ngx';
 import { Device } from '@ionic-native/device/ngx';
 import { OpenNativeSettings } from '@ionic-native/open-native-settings/ngx';
 import { Toast } from '@ionic-native/toast/ngx';
-import { Alipay } from '@ionic-native/alipay/ngx';
+// import { Alipay } from '@ionic-native/alipay/ngx';
 // import { Wechat } from '@ionic-native/wechat/ngx';
 
 declare var Wechat;
+// declare var Alipay;
+declare let cordova
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +43,7 @@ export class NativeService {
               private videoPlayer: VideoPlayer, private network: Network, private appVersion: AppVersion,
               private market: Market, private callNumber: CallNumber, private device: Device,
               private openNativeSettings: OpenNativeSettings, private toast: Toast,
-              private alipay: Alipay,
+              // private alipay: Alipay,
               // private wechat: Wechat
               ) { }
   public async getAppversion() {
@@ -496,14 +498,25 @@ export class NativeService {
    * @param {type} 
    * @return: 
    */  
-  async alipayment(alipayOrder) {
-    try {
-      await this.alipay.pay(alipayOrder);
-      return true;
-    } catch(err) {
-      throw new Error(err);
-    }
+  alipayment(alipayOrder) {
+    return new Promise((resolve, reject) => {
+      cordova.plugins.alipay.payment(alipayOrder, data => {
+        resolve(data);
+      }, err => {
+        reject(err);
+      });
+    });
+    // try {
+    //   await this.alipay.pay(alipayOrder);
+    //   return true;
+    // } catch(err) {
+    //   throw new Error(err);
+    // }
   }
+  unescapeHTML(a){
+    let aNew = "" + a;
+       return aNew.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&apos;/g, "'");
+   }
   /**
    * @Author: wjy-mac
    * @description: 微信支付
@@ -567,3 +580,4 @@ export class NativeService {
     });
   }
 }
+

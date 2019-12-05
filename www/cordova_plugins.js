@@ -175,8 +175,8 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "runs": true
     },
     {
-      "id": "cordova-plugin-file.androidFileSystem",
-      "file": "plugins/cordova-plugin-file/www/android/FileSystem.js",
+      "id": "cordova-plugin-file.iosFileSystem",
+      "file": "plugins/cordova-plugin-file/www/ios/FileSystem.js",
       "pluginId": "cordova-plugin-file",
       "merges": [
         "FileSystem"
@@ -256,6 +256,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
+      "id": "cordova-plugin-alipay-v2.alipay",
+      "file": "plugins/cordova-plugin-alipay-v2/www/alipay.js",
+      "pluginId": "cordova-plugin-alipay-v2",
+      "clobbers": [
+        "cordova.plugins.alipay"
+      ]
+    },
+    {
       "id": "cordova-plugin-appversion.RareloopAppVersion",
       "file": "plugins/cordova-plugin-appversion/www/app-version.js",
       "pluginId": "cordova-plugin-appversion",
@@ -313,10 +321,18 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     },
     {
       "id": "cordova-plugin-camera.CameraPopoverHandle",
-      "file": "plugins/cordova-plugin-camera/www/CameraPopoverHandle.js",
+      "file": "plugins/cordova-plugin-camera/www/ios/CameraPopoverHandle.js",
       "pluginId": "cordova-plugin-camera",
       "clobbers": [
         "CameraPopoverHandle"
+      ]
+    },
+    {
+      "id": "cordova-plugin-customurlscheme.LaunchMyApp",
+      "file": "plugins/cordova-plugin-customurlscheme/www/ios/LaunchMyApp.js",
+      "pluginId": "cordova-plugin-customurlscheme",
+      "clobbers": [
+        "window.plugins.launchmyapp"
       ]
     },
     {
@@ -344,27 +360,11 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
-      "id": "cordova-plugin-filepath.FilePath",
-      "file": "plugins/cordova-plugin-filepath/www/FilePath.js",
-      "pluginId": "cordova-plugin-filepath",
-      "clobbers": [
-        "window.FilePath"
-      ]
-    },
-    {
       "id": "cordova-plugin-gaodelocation-chenyu.GaoDe",
       "file": "plugins/cordova-plugin-gaodelocation-chenyu/www/GaoDeLocation.js",
       "pluginId": "cordova-plugin-gaodelocation-chenyu",
       "clobbers": [
         "GaoDe"
-      ]
-    },
-    {
-      "id": "cordova-plugin-gubnoi-alipay.alipay",
-      "file": "plugins/cordova-plugin-gubnoi-alipay/www/alipay.js",
-      "pluginId": "cordova-plugin-gubnoi-alipay",
-      "clobbers": [
-        "cordova.plugins.alipay"
       ]
     },
     {
@@ -378,7 +378,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     },
     {
       "id": "cordova-plugin-ionic-keyboard.keyboard",
-      "file": "plugins/cordova-plugin-ionic-keyboard/www/android/keyboard.js",
+      "file": "plugins/cordova-plugin-ionic-keyboard/www/ios/keyboard.js",
       "pluginId": "cordova-plugin-ionic-keyboard",
       "clobbers": [
         "window.Keyboard"
@@ -390,6 +390,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "pluginId": "cordova-plugin-ionic-webview",
       "clobbers": [
         "Ionic.WebView"
+      ]
+    },
+    {
+      "id": "cordova-plugin-ionic-webview.ios-wkwebview-exec",
+      "file": "plugins/cordova-plugin-ionic-webview/src/www/ios/ios-wkwebview-exec.js",
+      "pluginId": "cordova-plugin-ionic-webview",
+      "clobbers": [
+        "cordova.exec"
       ]
     },
     {
@@ -461,12 +469,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "navigator.device.capture"
       ]
-    },
-    {
-      "id": "cordova-plugin-media-capture.init",
-      "file": "plugins/cordova-plugin-media-capture/www/android/init.js",
-      "pluginId": "cordova-plugin-media-capture",
-      "runs": true
     },
     {
       "id": "cordova-plugin-nativestorage.mainHandle",
@@ -566,14 +568,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "call"
       ]
-    },
-    {
-      "id": "cordova-plugin-customurlscheme.LaunchMyApp",
-      "file": "plugins/cordova-plugin-customurlscheme/www/android/LaunchMyApp.js",
-      "pluginId": "cordova-plugin-customurlscheme",
-      "clobbers": [
-        "window.plugins.launchmyapp"
-      ]
     }
   ];
   module.exports.metadata = {
@@ -582,16 +576,17 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-open-native-settings": "1.5.2",
     "cordova-plugin-file": "6.0.1",
     "cordova-plugin-advanced-http": "2.1.1",
+    "cordova-plugin-alipay-v2": "2.0.0",
     "cordova-plugin-appversion": "1.0.0",
     "cordova-plugin-app-update": "2.0.2",
     "cordova-plugin-app-version": "0.1.9",
     "cordova-plugin-appminimize": "1.0.1",
     "cordova-plugin-camera": "4.0.3",
+    "cordova-plugin-customurlscheme": "4.4.0",
     "cordova-plugin-device": "2.0.3",
     "cordova-plugin-file-transfer": "1.7.1",
     "cordova-plugin-filepath": "1.5.5",
     "cordova-plugin-gaodelocation-chenyu": "2.0.2",
-    "cordova-plugin-gubnoi-alipay": "0.0.10",
     "cordova-plugin-inappbrowser": "3.1.0",
     "cordova-plugin-ionic-keyboard": "2.1.3",
     "cordova-plugin-ionic-webview": "4.1.1",
@@ -608,7 +603,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-x-toast": "2.7.2",
     "es.keensoft.fullscreenimage": "1.0.1",
     "jpush-phonegap-plugin": "3.7.3",
-    "mx.ferreyra.callnumber": "0.0.2",
-    "cordova-plugin-customurlscheme": "4.4.0"
+    "mx.ferreyra.callnumber": "0.0.2"
   };
 });

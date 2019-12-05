@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-11 20:27:12
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-12-05 21:01:43
+ * @Description: file content
+ */
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {NavController, IonInfiniteScroll } from "@ionic/angular";
 import {ActivatedRoute} from "@angular/router";
@@ -14,7 +21,7 @@ export class SearchendgoodsPage implements OnInit {
   page: number;
   keyword: string;
   serachhttpData: object;
-  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
+  @ViewChild(IonInfiniteScroll, {static: true}) infiniteScroll: IonInfiniteScroll;
   constructor(private activeroute: ActivatedRoute, private nav: NavController,
               private serchdata: SearchendgoodsService, private http: HttpService) { }
 

@@ -87,3 +87,16 @@ ion-content {
     }
   }
 }
+
+.zftype {
+  ion-label {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  img {
+    width: 25px;
+    margin-right: 10px;
+  }
+}

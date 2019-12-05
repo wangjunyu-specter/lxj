@@ -3,7 +3,7 @@ import { TopageService } from './../../services/topage.service';
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-13 21:33:56
+ * @LastEditTime: 2019-12-05 21:02:09
  * @Description: file content
  */
 import { Component, OnInit, ViewChild  } from '@angular/core';
@@ -30,7 +30,7 @@ export class SjIndexPage implements OnInit {
   all: object[]; // 所有商品
   suppId: string; // 商家id
   pageObj: object;
-  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
+  @ViewChild(IonInfiniteScroll, {static: true}) infiniteScroll: IonInfiniteScroll;
   constructor(private nav: NavController, private suppliserlist: SupplierlistService,
               private activeroute: ActivatedRoute,
               private http: HttpService, private route: Router,

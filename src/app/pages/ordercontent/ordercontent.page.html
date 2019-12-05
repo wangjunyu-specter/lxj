@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-07 02:44:20
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-30 14:49:32
+ * @LastEditTime: 2019-12-03 22:02:00
  * @Description: 商品订单详情
  -->
 <ion-header>
@@ -28,7 +28,7 @@
   <div class="top" *ngIf="data">
     <div class="status">
       <span *ngIf="(data.order.order_status == '0' || data.order.order_status == '1') && data.order.pay_status == '0'">等待买家付款</span>
-      <p *ngIf="(data.order.order_status == '0' || data.order.order_status == '1') && data.order.pay_status == '0'">剩{{endtime}}自动关闭</p>
+      <!-- <p *ngIf="(data.order.order_status == '0' || data.order.order_status == '1') && data.order.pay_status == '0'">剩{{endtime}}自动关闭</p> -->
       <span>
         <img *ngIf="data.order.order_status == '5' && data.order.shipping_status == '2' && data.order.pay_status == '2'" src="../../../assets/icon/gou.svg" alt="">
         <img class="cancle" *ngIf="data.order.order_status == '2' && data.order.shipping_status == '0' && data.order.pay_status == '0'" src="../../../assets/icon/cancle.svg" alt="">
@@ -164,7 +164,7 @@
       </ion-item>
     </ion-list>
   </div>
-  <div class="zftype" padding-end margin-top *ngIf="data && data.order.order_status == '未确认' && data.order.pay_status === '未付款'">
+  <div class="zftype" padding-end margin-top *ngIf="data && (data.order.order_status == '0' || data.order.order_status == '1') && data.order.pay_status == '0'">
     <ion-list>
       <ion-radio-group [(ngModel)]="payType">
         <ion-list-header>
@@ -200,7 +200,7 @@
   </ion-toolbar>
 </ion-footer>
 <ion-footer 
-*ngIf="data && !isshing && data.order.order_status == '1' && (data.order.shipping_status == '0' || data.order.shipping_status == '3') && data.order.pay_status === '2' ||
+*ngIf="data && !isshing && (data.order.order_status == '1' || data.order.order_status == '0') && (data.order.shipping_status == '0' || data.order.shipping_status == '3') && data.order.pay_status === '2' ||
 data && data.order.order_status == '2' && data.order.shipping_status == '0' && data.order.pay_status === '2' && !istkend">
   <ion-toolbar>
     <div class="footer-bar">

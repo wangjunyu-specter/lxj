@@ -28,7 +28,7 @@ export class YjcontentPage implements OnInit {
   seletename: string;
   isshowDrop: boolean;
   user: any;
-  @ViewChild("myBox") mybox: any;
+  @ViewChild("myBox", {static: true}) mybox: any;
   // isGetcontentimg: boolean; // 是否已获取详情内图片
   constructor( private nav: NavController,
               public sanitizer: DomSanitizer, private yjlist: YjlistService,

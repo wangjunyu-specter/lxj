@@ -108,9 +108,9 @@
       <ion-list-header>
         支付方式
       </ion-list-header>
-      <ion-item *ngFor="let item of payList" lines="none">
-        <ion-label>{{item.pay_name}}</ion-label>
-        <ion-radio slot="start" value="{{item.pay_id}}" mode="md"></ion-radio>
+      <ion-item *ngFor="let item of payList" lines="none" class="zftype">
+        <ion-label><img [src]="item.pay_code == 'alipay' ? './assets/zfb.svg' : './assets/wechartpay.svg'" alt="">{{item.pay_name}}</ion-label>
+        <ion-radio slot="end" value="{{item.pay_id}}" color="success" mode="md"></ion-radio>
       </ion-item>
     </ion-radio-group>
   </ion-list>

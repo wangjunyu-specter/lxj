@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-01 15:09:12
+ * @LastEditTime: 2019-12-04 16:42:34
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -36,6 +36,7 @@ export class HttpService {
   editsurplus = 'user.php?act=act_edit_surplus'; // 余额支付
   acteditpayment = 'user.php?act=act_edit_payment'; // 第三方支付
   acteditpayment2 = 'user.php?act=act_edit_payment_end'; // 获取第三方支付是否成功
+  actionacteditpaymentclose = 'user.php?act=act_edit_payment_close'; // 未支付的第三方支付关闭第三方订单
   getusercenter = 'user.php?act=getusercenter'; // 获取个人中心 点赞 关注等数量
   getousercenter = 'user.php?act=getousercenter'; // 获取个人中心 点赞 关注等数量
   editorupdateaddress = 'user.php?act=act_edit_address'; // 编辑添加地址
@@ -329,8 +330,9 @@ export class HttpService {
     }
     const address = this.userfn.getLocation();
     if (address) {
-      url += ('&country=' + address.country + '&province=' + address.province +
+      let url2 = ('&country=' + address.country + '&province=' + address.province +
       '&city=' + address.city + '&lat=' + address.lat + '&lng=' + address.lng);
+      url += encodeURI(url2);
     }
     let header: any;
     if (user.token) {

@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-30 22:58:50
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-18 15:41:59
+ * @LastEditTime: 2019-12-04 18:00:01
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -158,6 +158,7 @@ export class ShopContentService {
         }
         obj['keywords'] = data['keywords'];
         obj['sckeywords'] = data['sckeywords'];
+        obj['iosapp_verson'] = data['iosapp_verson'];
         this.setShopObj(obj);
         this.shopnav.setNav(data['categories']);
         this.setIndexbanner(data['index_banner']);

@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-06 01:39:02
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-12-05 21:01:57
+ * @Description: file content
+ */
 import { Component, OnInit, ViewChild  } from '@angular/core';
 import {NavController, IonInfiniteScroll } from "@ionic/angular";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -13,7 +20,7 @@ export class SearchorderPage implements OnInit {
   amount: number;
   last: number;
   searchText: string;
-  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
+  @ViewChild(IonInfiniteScroll, {static: true}) infiniteScroll: IonInfiniteScroll;
   type: number; // 搜索类型  1是商品  2 是户外产品
   constructor(private nav: NavController, private route: Router,
               private activeroute: ActivatedRoute,

@@ -104,7 +104,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy-mac
  * @Date: 2019-07-07 23:49:04
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-30 14:21:22
+ * @LastEditTime: 2019-12-05 11:26:03
  * @Description: file content
  */
 
@@ -253,7 +253,7 @@ var XccontentPage = /** @class */ (function () {
         var _this = this;
         this.http.getDataloading(this.http.cancelOrderxc, { order_id: this.orderId }).subscribe(function (res) {
             console.log(res);
-            _this.presentAlert(); // TODO: 需要在php文件添加给商家打款的代码
+            _this.presentAlert();
         }, function (error2) { });
     };
     XccontentPage.prototype.setyechange = function () {
@@ -404,14 +404,43 @@ var XccontentPage = /** @class */ (function () {
     XccontentPage.prototype.payfn = function () {
         var _this = this;
         this.http.postformdataloading(this.http.acteditpayment, { order_id: this.data.order.order_id, pay_code: this.payType, is_pay: 1 }).subscribe(function (res) {
-            console.log('余额支付成功');
-            console.log(res);
-            _this.native.wechatpayment(res.result).then(function (res) {
-                _this.getDatahttp();
-            }).catch(function (err) {
-                _this.getDatahttp();
-            });
+            var gopay = true;
+            var ispay = function () {
+                setTimeout(function () {
+                    if (gopay) {
+                        _this.getHttpayend(_this.data.order.order_id);
+                    }
+                    document.removeEventListener("resume", ispay, false);
+                }, 1500);
+            };
+            if (_this.payType == 'alipay') {
+                _this.native.alipayment(res.result).then(function (res) {
+                    _this.getHttpayend(_this.data.order.order_id);
+                }).catch(function (err) {
+                    _this.native.presentToast('支付失败!');
+                }).finally(function () {
+                    gopay = false;
+                });
+            }
+            else {
+                _this.native.wechatpayment(res.result).then(function (res) {
+                    _this.getHttpayend(_this.data.order.order_id);
+                }).catch(function (err) {
+                    // this.getDatahttp();
+                    _this.native.presentToast('支付失败!');
+                }).finally(function () {
+                    gopay = false;
+                });
+            }
         }, function (error2) {
+        });
+    };
+    XccontentPage.prototype.getHttpayend = function (order_id) {
+        var _this = this;
+        this.http.postformdataloading(this.http.acteditpayment2, { order_id: order_id }).subscribe(function (res) {
+            _this.getDatahttp();
+        }, function (err) {
+            _this.native.presentToast('支付失败!');
         });
     };
     // repurchase() {

@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-31 23:26:32
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-21 15:27:45
+ * @LastEditTime: 2019-12-04 19:18:43
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -27,6 +27,7 @@ export class Tab4Page implements OnInit {
   isshow: boolean;
   centeruser: any;
   hdzxList: object[]; // 活动中心
+  isandroid: boolean;
   constructor(private route: Router, private userfn: UserService, public http: HttpService,
               private usercenter: UsercenterService, private toPage: TopageService, private native: NativeService,
               private okgoodsfn: OkgoodsService, public alertController: AlertController) { }
@@ -35,6 +36,7 @@ export class Tab4Page implements OnInit {
     this.isshow = false;
     this.user = {};
     this.toolbaropacity = '0';
+    this.isandroid = this.native.isandroid();
   }
   ionViewDidEnter() {
     this.userfn.getUserp().then(res => {

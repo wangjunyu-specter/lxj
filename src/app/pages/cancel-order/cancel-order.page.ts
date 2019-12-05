@@ -4,7 +4,7 @@ import { error } from 'selenium-webdriver';
  * @Author: wjy-mac
  * @Date: 2019-10-17 17:47:02
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-14 12:07:39
+ * @LastEditTime: 2019-12-04 21:23:50
  * @Description: 取消订单
  */
 import { Component, OnInit } from '@angular/core';
@@ -153,7 +153,9 @@ export class CancelOrderPage implements OnInit {
     this.isupdate.push(-1);
     const file = this.native.getImgbase64tofile(base64, 'sh' + index, 'imgFile');
     this.imgupload(file).then(res => {
-      this.subimgs[index] = res['url'];
+      //alert(res)
+      //alert(JSON.stringify(res));
+      this.subimgs[index] = res as any;
       this.isupdate[index] = 1;
       if (this.issub) {
         this.issubfn();

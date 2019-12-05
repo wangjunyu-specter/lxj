@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-01 15:19:24
+ * @LastEditTime: 2019-12-05 11:21:29
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -114,21 +114,51 @@ export class PayPage implements OnInit {
     this.payfn();
   }
   payfn() {
-    this.http.postformdataloading(this.http.acteditpayment, {order_id: this.orderId, pay_code: this.dataObj.payType, is_pay: 1}).subscribe(res => {
-      console.log('余额支付成功')
-      console.log(res)
-      this.native.wechatpayment(res.result).then(res => {
-        this.getHttpayend(this.orderId)
-      }).catch(err => {
-        this.native.presentToast('支付失败!');
-      });
+    const pay_code = this.dataObj.payType;
+    const order_sn = this.ordersn;
+    const order_id = this.orderId;
+    console.log(order_sn);
+    this.http.postformdataloading(this.http.acteditpayment, {order_id, pay_code, is_pay: 1}).subscribe(res => {
+      let gopay = true;
+      const ispay = () => {
+        setTimeout(() => {
+          if (gopay) {
+            this.http.postformdataloading(this.http.acteditpayment2, {order_id}).subscribe(res => {
+              this.gotosucess();
+            }, err => {
+              this.native.presentToast('支付失败!');
+            });
+          }
+          document.removeEventListener("resume", ispay, false);
+        }, 1500);
+      };
+      document.addEventListener("resume", ispay, false);
+
+      if (pay_code == 'alipay'){
+        this.native.alipayment(res.result).then(res => {
+          this.getHttpayend(order_id, order_sn);
+        }).catch(err => {
+          this.native.presentToast('支付失败!');
+        }).finally(() => {
+          gopay = false;
+        });
+      } else {
+        this.native.wechatpayment(res.result).then(res => {
+          this.getHttpayend(order_id, order_sn);
+        }).catch(err => {
+          this.native.presentToast('支付失败!');
+        }).finally(() => {
+          gopay = false;
+        });
+      }
+      
       // this.gotosucess();
     }, error2 => {
     });
   }
-  getHttpayend(order_id) {
+  getHttpayend(order_id, order_sn) {
+    this.gotosucess();
     this.http.postformdataloading(this.http.acteditpayment2, {order_id}).subscribe(res => {
-      this.gotosucess();
     }, err => {
     });
   }

@@ -2,7 +2,7 @@
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-20 14:11:34
+ * @LastEditTime: 2019-12-05 16:18:15
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -91,6 +91,8 @@ export class FbpqimgPage implements OnInit {
     // this.seletemedia.removeOne(index);
     if (this.imgs.length === 8) {
       this.isshowend = true;
+    } else if (this.imgs.length === 0) {
+      this.isseleteVedio = 0;
     }
   }
   async presentActionSheet() {
@@ -98,10 +100,8 @@ export class FbpqimgPage implements OnInit {
     if (this.isseleteVedio != 1) {
       buttons.push(...[{
         text: '相机',
-        role: 'destructive',
         handler: () => {
           this.native.getPictureByCamera().then(res => {
-            this.isseleteVedio = 2;
             this.addimgfn(res);
           });
         }
@@ -110,7 +110,6 @@ export class FbpqimgPage implements OnInit {
         handler: () => {
           console.log('Share clicked');
           this.native.getPictures( 9 - this.imgs.length).then((res: any) => {
-            this.isseleteVedio = 2;
             res.map(img => {
               this.addimgfn(img);
             });
@@ -131,6 +130,7 @@ export class FbpqimgPage implements OnInit {
             this.videofile = filedata;
             this.videofile.getFormatData(data => {
               this.videofile1 = data;
+              // this.getVidefile();
             });
           }, err => {});
         }
@@ -152,6 +152,9 @@ export class FbpqimgPage implements OnInit {
   addimgfn(res) {
     // this.seletemedia.addImg(res);
     this.imgs.push(res);
+    if (this.imgs.length > 0) {
+      this.isseleteVedio = 2;
+    }
     if (this.imgs.length === 9) {
       this.isshowend = false;
     }
@@ -209,12 +212,18 @@ export class FbpqimgPage implements OnInit {
         height
       }
     }
+    // alert(JSON.stringify(this.videofile))
     fileTransfer.upload(this.videofile.fullPath, this.http.domain + this.http.updateimg, obj).then(res => {
-      
       this.videofile = null;
       this.videofile1 = null;
-      const path = JSON.parse(res.response)['result'];
-      this.contentsend([path]);
+      const result = JSON.parse(res.response);
+      if (result['status'] == 1) {
+        const path = result['result'];
+        this.contentsend([path]);
+      } else {
+        alert(res.response);
+        this.uploadEnd();
+      }
     }).catch(err2 => {
       console.log('错了我')
       console.error(err2);
@@ -253,7 +262,33 @@ export class FbpqimgPage implements OnInit {
   playvideo() {
     // : todo 此处未实现ios和浏览器播放
    this.native.nativeVideoplay(this.videofile.fullPath);
-
+  }
+  async videoSet() {
+    const buttons = [];
+    buttons.push(...[{
+      text: '播放',
+      role: 'destructive',
+      handler: () => {
+        this.playvideo();
+      }
+    }, {
+      text: '删除',
+      handler: () => {
+        this.videofile = null;
+        this.isseleteVedio = 0;
+      }
+    }, {
+      text: '取消',
+      role: 'cancel',
+      handler: () => {
+        console.log('Cancel clicked');
+      }
+    }]);
+    const actionSheet = await this.actionSheetController.create({
+      header: '请选择操作',
+      buttons
+    });
+    await actionSheet.present();
   }
   uploadEnd() {
     this.isloading = false;
