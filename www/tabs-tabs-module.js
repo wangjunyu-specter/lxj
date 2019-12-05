@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["tabs-tabs-module"],{
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/tabs/tabs.page.html":
+/*!***************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/tabs/tabs.page.html ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<!--\r\n * @Author: wjy-mac\r\n * @Date: 2019-08-03 14:52:31\r\n * @LastEditors: wjy-mac\r\n * @LastEditTime: 2019-12-05 16:21:35\r\n * @Description: file content\r\n -->\r\n<ion-tabs #tabs>\r\n\r\n  <ion-tab-bar slot=\"bottom\">\r\n    <ion-tab-button tab=\"tab1\">\r\n      <ion-icon name=\"home\"></ion-icon>\r\n      <!--<ion-img src=\"./assets/indexicon.svg\"></ion-img>-->\r\n      <ion-label>首页</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"tab2\">\r\n      <ion-icon name=\"information-circle-outline\"></ion-icon>\r\n      <ion-label>发现</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"tab3\">\r\n      <ion-icon name=\"appstore\"></ion-icon>\r\n      <ion-label>商城</ion-label>\r\n    </ion-tab-button>\r\n    <ion-tab-button tab=\"tab4\">\r\n      <ion-icon name=\"happy\"></ion-icon>\r\n      <ion-label>我的</ion-label>\r\n    </ion-tab-button>\r\n  </ion-tab-bar>\r\n\r\n</ion-tabs>\r\n");
+
+/***/ }),
+
 /***/ "./src/app/tabs/tabs.module.ts":
 /*!*************************************!*\
   !*** ./src/app/tabs/tabs.module.ts ***!
@@ -45,25 +58,16 @@ var TabsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/tabs/tabs.page.html":
-/*!*************************************!*\
-  !*** ./src/app/tabs/tabs.page.html ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<!--\r\n * @Author: wjy-mac\r\n * @Date: 2019-08-03 14:52:31\r\n * @LastEditors: wjy-mac\r\n * @LastEditTime: 2019-12-05 16:21:35\r\n * @Description: file content\r\n -->\r\n<ion-tabs #tabs>\r\n\r\n  <ion-tab-bar slot=\"bottom\">\r\n    <ion-tab-button tab=\"tab1\">\r\n      <ion-icon name=\"home\"></ion-icon>\r\n      <!--<ion-img src=\"./assets/indexicon.svg\"></ion-img>-->\r\n      <ion-label>首页</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"tab2\">\r\n      <ion-icon name=\"information-circle-outline\"></ion-icon>\r\n      <ion-label>发现</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"tab3\">\r\n      <ion-icon name=\"appstore\"></ion-icon>\r\n      <ion-label>商城</ion-label>\r\n    </ion-tab-button>\r\n    <ion-tab-button tab=\"tab4\">\r\n      <ion-icon name=\"happy\"></ion-icon>\r\n      <ion-label>我的</ion-label>\r\n    </ion-tab-button>\r\n  </ion-tab-bar>\r\n\r\n</ion-tabs>\r\n"
-
-/***/ }),
-
 /***/ "./src/app/tabs/tabs.page.scss":
 /*!*************************************!*\
   !*** ./src/app/tabs/tabs.page.scss ***!
   \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "ion-img {\n  width: 30px; }\n\nion-tab-button {\n  --color-selected: var(--ion-color-success); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC90YWJzL3RhYnMucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsV0FBVyxFQUFBOztBQUViO0VBQ0UsMENBQWlCLEVBQUEiLCJmaWxlIjoic3JjL2FwcC90YWJzL3RhYnMucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLWltZyB7XHJcbiAgd2lkdGg6IDMwcHg7XHJcbn1cclxuaW9uLXRhYi1idXR0b24ge1xyXG4gIC0tY29sb3Itc2VsZWN0ZWQ6IHZhcigtLWlvbi1jb2xvci1zdWNjZXNzKTtcclxufSJdfQ== */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("ion-img {\n  width: 30px;\n}\n\nion-tab-button {\n  --color-selected: var(--ion-color-success);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC90YWJzL3RhYnMucGFnZS5zY3NzIiwic3JjL2FwcC90YWJzL3RhYnMucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsV0FBQTtBQ0NGOztBRENBO0VBQ0UsMENBQUE7QUNFRiIsImZpbGUiOiJzcmMvYXBwL3RhYnMvdGFicy5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24taW1nIHtcclxuICB3aWR0aDogMzBweDtcclxufVxyXG5pb24tdGFiLWJ1dHRvbiB7XHJcbiAgLS1jb2xvci1zZWxlY3RlZDogdmFyKC0taW9uLWNvbG9yLXN1Y2Nlc3MpO1xyXG59IiwiaW9uLWltZyB7XG4gIHdpZHRoOiAzMHB4O1xufVxuXG5pb24tdGFiLWJ1dHRvbiB7XG4gIC0tY29sb3Itc2VsZWN0ZWQ6IHZhcigtLWlvbi1jb2xvci1zdWNjZXNzKTtcbn0iXX0= */");
 
 /***/ }),
 
@@ -95,8 +99,8 @@ var TabsPage = /** @class */ (function () {
     TabsPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-tabs',
-            template: __webpack_require__(/*! ./tabs.page.html */ "./src/app/tabs/tabs.page.html"),
-            styles: [__webpack_require__(/*! ./tabs.page.scss */ "./src/app/tabs/tabs.page.scss")]
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./tabs.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/tabs/tabs.page.html")).default,
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./tabs.page.scss */ "./src/app/tabs/tabs.page.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], TabsPage);

@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-24 23:01:08
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-05 19:16:15
+ * @LastEditTime: 2019-12-05 21:26:22
  * @Description: 视频播放插件
  -->
 <vg-player>
@@ -18,14 +18,17 @@
   <!--<vg-time-display [vgProperty]="'total'"></vg-time-display>-->
   <!--<vg-fullscreen></vg-fullscreen>-->
   <!--</vg-controls>-->
-  <video #myMedia
-  [vgHls]="'http://static.videogular.com/assets/videos/videogular.m3u8'"
-  [vgHlsHeaders]="headers"
-  (onGetBitrates)="hlsBitrates = $event"
-  id="my-video"
-  type="video/mp4"
-  controls>
+  <video
+  #media
+  playsinline
+  webkit-playsinline
+  [vgMedia]="media"
+  [vgHls]="src"
+  id="singleVideo"
+  preload="auto"
+  autoplay>
+  <!-- <video #media playsinline webkit-playsinline [vgMedia]="media" id="singleVideo" preload="auto" autoplay> -->
+    <!-- <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4"> -->
   </video>
 </vg-player>
-{{src}}
 <div class="close" (click)="close()">关闭</div>

@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-notice-notice-module"],{
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/notice/notice.page.html":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/notice/notice.page.html ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<!--\n * @Author: wjy-mac\n * @Date: 2019-11-14 20:54:57\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-11-14 21:43:55\n * @Description: file content\n -->\n<ion-header mode=\"ios\">\n    <ion-toolbar mode=\"ios\">\n      <ion-buttons slot=\"start\">\n        <ion-button (click)=\"goBack()\">\n          <ion-icon name=\"arrow-back\" mode=\"ios\"></ion-icon>\n        </ion-button>\n      </ion-buttons>\n      <ion-title>通知公告</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n<ion-content class=\"ion-padding\">\n  <div *ngIf=\"data\">\n      <div class=\"title\">{{data.title}}</div>\n      <div class=\"time\">{{data.last_send | time}}</div>\n      <div class=\"mycontent\" [innerHTML]=\"assembleHTML(data.email_content)\">\n      </div>\n  </div>\n</ion-content>\n");
+
+/***/ }),
+
 /***/ "./src/app/pages/notice/notice.module.ts":
 /*!***********************************************!*\
   !*** ./src/app/pages/notice/notice.module.ts ***!
@@ -61,25 +74,16 @@ var NoticePageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/notice/notice.page.html":
-/*!***********************************************!*\
-  !*** ./src/app/pages/notice/notice.page.html ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-11-14 20:54:57\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-11-14 21:43:55\n * @Description: file content\n -->\n<ion-header mode=\"ios\">\n    <ion-toolbar mode=\"ios\">\n      <ion-buttons slot=\"start\">\n        <ion-button (click)=\"goBack()\">\n          <ion-icon name=\"arrow-back\" mode=\"ios\"></ion-icon>\n        </ion-button>\n      </ion-buttons>\n      <ion-title>通知公告</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n<ion-content class=\"ion-padding\">\n  <div *ngIf=\"data\">\n      <div class=\"title\">{{data.title}}</div>\n      <div class=\"time\">{{data.last_send | time}}</div>\n      <div class=\"mycontent\" [innerHTML]=\"assembleHTML(data.email_content)\">\n      </div>\n  </div>\n</ion-content>\n"
-
-/***/ }),
-
 /***/ "./src/app/pages/notice/notice.page.scss":
 /*!***********************************************!*\
   !*** ./src/app/pages/notice/notice.page.scss ***!
   \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = ".title {\n  font-size: var(--ion-title);\n  color: var(--ion-color-dark);\n  text-align: center; }\n\n.time {\n  font-size: var(--ion-sm-text);\n  color: var(--ion-color-medium);\n  text-align: center; }\n\n.mycontent {\n  margin-top: 20px;\n  font-size: var(--ion-text);\n  color: var(--ion-color-dark);\n  line-height: 20px;\n  text-indent: 2em; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC9wYWdlcy9ub3RpY2Uvbm90aWNlLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLDJCQUEyQjtFQUMzQiw0QkFBNEI7RUFDNUIsa0JBQWtCLEVBQUE7O0FBRXBCO0VBQ0UsNkJBQTZCO0VBQzdCLDhCQUE4QjtFQUM5QixrQkFBa0IsRUFBQTs7QUFFcEI7RUFDRSxnQkFBZ0I7RUFDaEIsMEJBQTBCO0VBQzFCLDRCQUE0QjtFQUM1QixpQkFBaUI7RUFDakIsZ0JBQWdCLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9ub3RpY2Uvbm90aWNlLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi50aXRsZSB7XG4gIGZvbnQtc2l6ZTogdmFyKC0taW9uLXRpdGxlKTtcbiAgY29sb3I6IHZhcigtLWlvbi1jb2xvci1kYXJrKTtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuLnRpbWUge1xuICBmb250LXNpemU6IHZhcigtLWlvbi1zbS10ZXh0KTtcbiAgY29sb3I6IHZhcigtLWlvbi1jb2xvci1tZWRpdW0pO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4ubXljb250ZW50IHtcbiAgbWFyZ2luLXRvcDogMjBweDtcbiAgZm9udC1zaXplOiB2YXIoLS1pb24tdGV4dCk7XG4gIGNvbG9yOiB2YXIoLS1pb24tY29sb3ItZGFyayk7XG4gIGxpbmUtaGVpZ2h0OiAyMHB4O1xuICB0ZXh0LWluZGVudDogMmVtO1xufSJdfQ== */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".title {\n  font-size: var(--ion-title);\n  color: var(--ion-color-dark);\n  text-align: center;\n}\n\n.time {\n  font-size: var(--ion-sm-text);\n  color: var(--ion-color-medium);\n  text-align: center;\n}\n\n.mycontent {\n  margin-top: 20px;\n  font-size: var(--ion-text);\n  color: var(--ion-color-dark);\n  line-height: 20px;\n  text-indent: 2em;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC9wYWdlcy9ub3RpY2Uvbm90aWNlLnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvbm90aWNlL25vdGljZS5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSwyQkFBQTtFQUNBLDRCQUFBO0VBQ0Esa0JBQUE7QUNDRjs7QURDQTtFQUNFLDZCQUFBO0VBQ0EsOEJBQUE7RUFDQSxrQkFBQTtBQ0VGOztBREFBO0VBQ0UsZ0JBQUE7RUFDQSwwQkFBQTtFQUNBLDRCQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQkFBQTtBQ0dGIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvbm90aWNlL25vdGljZS5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudGl0bGUge1xuICBmb250LXNpemU6IHZhcigtLWlvbi10aXRsZSk7XG4gIGNvbG9yOiB2YXIoLS1pb24tY29sb3ItZGFyayk7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cbi50aW1lIHtcbiAgZm9udC1zaXplOiB2YXIoLS1pb24tc20tdGV4dCk7XG4gIGNvbG9yOiB2YXIoLS1pb24tY29sb3ItbWVkaXVtKTtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuLm15Y29udGVudCB7XG4gIG1hcmdpbi10b3A6IDIwcHg7XG4gIGZvbnQtc2l6ZTogdmFyKC0taW9uLXRleHQpO1xuICBjb2xvcjogdmFyKC0taW9uLWNvbG9yLWRhcmspO1xuICBsaW5lLWhlaWdodDogMjBweDtcbiAgdGV4dC1pbmRlbnQ6IDJlbTtcbn0iLCIudGl0bGUge1xuICBmb250LXNpemU6IHZhcigtLWlvbi10aXRsZSk7XG4gIGNvbG9yOiB2YXIoLS1pb24tY29sb3ItZGFyayk7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cblxuLnRpbWUge1xuICBmb250LXNpemU6IHZhcigtLWlvbi1zbS10ZXh0KTtcbiAgY29sb3I6IHZhcigtLWlvbi1jb2xvci1tZWRpdW0pO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi5teWNvbnRlbnQge1xuICBtYXJnaW4tdG9wOiAyMHB4O1xuICBmb250LXNpemU6IHZhcigtLWlvbi10ZXh0KTtcbiAgY29sb3I6IHZhcigtLWlvbi1jb2xvci1kYXJrKTtcbiAgbGluZS1oZWlnaHQ6IDIwcHg7XG4gIHRleHQtaW5kZW50OiAyZW07XG59Il19 */");
 
 /***/ }),
 
@@ -132,11 +136,17 @@ var NoticePage = /** @class */ (function () {
     NoticePage.prototype.assembleHTML = function (strHTML) {
         return this.sanitizer.bypassSecurityTrustHtml(strHTML);
     };
+    NoticePage.ctorParameters = function () { return [
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
+        { type: _services_news_list_service__WEBPACK_IMPORTED_MODULE_1__["NewsListService"] },
+        { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["DomSanitizer"] }
+    ]; };
     NoticePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
             selector: 'app-notice',
-            template: __webpack_require__(/*! ./notice.page.html */ "./src/app/pages/notice/notice.page.html"),
-            styles: [__webpack_require__(/*! ./notice.page.scss */ "./src/app/pages/notice/notice.page.scss")]
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./notice.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/notice/notice.page.html")).default,
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./notice.page.scss */ "./src/app/pages/notice/notice.page.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"],
             _services_news_list_service__WEBPACK_IMPORTED_MODULE_1__["NewsListService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["DomSanitizer"]])

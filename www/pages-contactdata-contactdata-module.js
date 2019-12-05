@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-contactdata-contactdata-module"],{
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/contactdata/contactdata.page.html":
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/contactdata/contactdata.page.html ***!
+  \***********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>添加出行人</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n\n<ion-content padding>\n  <form #userForm=\"ngForm\" (ngSubmit)=\"onSubmit()\">\n    <ion-list>\n      <ion-item>\n        <ion-input placeholder=\"请输入姓名\" required [(ngModel)]=\"dataObj.consignee\" name=\"consignee\" #consignee=\"ngModel\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input placeholder=\"请输入有效手机号码\" required [(ngModel)]=\"dataObj.tel\" name=\"tel\" #tel=\"ngModel\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input placeholder=\"请输入18位身份证号码\" required [(ngModel)]=\"dataObj.card\" name=\"card\" #card=\"ngModel\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label>省</ion-label>\n        <ion-select placeholder=\"请选择省\" (ionChange)=\"selteaddress(2, dataObj.province)\" required [(ngModel)]=\"dataObj.province\" name=\"province\" cancelText=\"取消\" okText=\"确定\" #province=\"ngModel\">\n          <ion-select-option *ngFor=\"let item of provincelist\" [value]=\"item.region_id\">{{item.region_name}}</ion-select-option>\n        </ion-select>\n      </ion-item>\n      <ion-item>\n        <ion-label>市</ion-label>\n        <ion-select placeholder=\"请选择市\" (ionChange)=\"selteaddress(3, dataObj.city)\" required [(ngModel)]=\"dataObj.city\" name=\"city\" cancelText=\"取消\" okText=\"确定\" #city=\"ngModel\">\n          <ion-select-option *ngFor=\"let item of citylist\" [value]=\"item.region_id\">{{item.region_name}}</ion-select-option>\n        </ion-select>\n      </ion-item>\n      <ion-item>\n        <ion-label>区</ion-label>\n        <ion-select placeholder=\"请选择区\" required [(ngModel)]=\"dataObj.district\" name=\"district\" cancelText=\"取消\" okText=\"确定\" #district=\"ngModel\">\n          <ion-select-option *ngFor=\"let item of arealist\" [value]=\"item.region_id\">{{item.region_name}}</ion-select-option>\n        </ion-select>\n\n      </ion-item>\n      <ion-item>\n        <ion-textarea placeholder=\"详细地址：如道路、门牌号、小区、楼栋号、单元室等\" required [(ngModel)]=\"dataObj.address\" name=\"address\" #address=\"ngModel\"></ion-textarea>\n      </ion-item>\n    </ion-list>\n    <ion-list>\n      <ion-item>\n        <ion-label>设为默认地址</ion-label>\n        <ion-toggle color=\"success\" [(ngModel)]=\"dataObj.defalut\" name=\"defalut\"></ion-toggle>\n      </ion-item>\n    </ion-list>\n    <ion-button color=\"success\" expand=\"block\" type=\"submit\" [disabled]=\"!userForm.form.valid\">提交</ion-button>\n  </form>\n  <p class=\"des\"><ion-text color=\"danger\">身份证号码错误会导致无法购买车票及保险</ion-text></p>\n</ion-content>\n");
+
+/***/ }),
+
 /***/ "./src/app/pages/contactdata/contactdata.module.ts":
 /*!*********************************************************!*\
   !*** ./src/app/pages/contactdata/contactdata.module.ts ***!
@@ -51,25 +64,16 @@ var ContactdataPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/contactdata/contactdata.page.html":
-/*!*********************************************************!*\
-  !*** ./src/app/pages/contactdata/contactdata.page.html ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>添加出行人</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n\n<ion-content padding>\n  <form #userForm=\"ngForm\" (ngSubmit)=\"onSubmit()\">\n    <ion-list>\n      <ion-item>\n        <ion-input placeholder=\"请输入姓名\" required [(ngModel)]=\"dataObj.consignee\" name=\"consignee\" #consignee=\"ngModel\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input placeholder=\"请输入有效手机号码\" required [(ngModel)]=\"dataObj.tel\" name=\"tel\" #tel=\"ngModel\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input placeholder=\"请输入18位身份证号码\" required [(ngModel)]=\"dataObj.card\" name=\"card\" #card=\"ngModel\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label>省</ion-label>\n        <ion-select placeholder=\"请选择省\" (ionChange)=\"selteaddress(2, dataObj.province)\" required [(ngModel)]=\"dataObj.province\" name=\"province\" cancelText=\"取消\" okText=\"确定\" #province=\"ngModel\">\n          <ion-select-option *ngFor=\"let item of provincelist\" [value]=\"item.region_id\">{{item.region_name}}</ion-select-option>\n        </ion-select>\n      </ion-item>\n      <ion-item>\n        <ion-label>市</ion-label>\n        <ion-select placeholder=\"请选择市\" (ionChange)=\"selteaddress(3, dataObj.city)\" required [(ngModel)]=\"dataObj.city\" name=\"city\" cancelText=\"取消\" okText=\"确定\" #city=\"ngModel\">\n          <ion-select-option *ngFor=\"let item of citylist\" [value]=\"item.region_id\">{{item.region_name}}</ion-select-option>\n        </ion-select>\n      </ion-item>\n      <ion-item>\n        <ion-label>区</ion-label>\n        <ion-select placeholder=\"请选择区\" required [(ngModel)]=\"dataObj.district\" name=\"district\" cancelText=\"取消\" okText=\"确定\" #district=\"ngModel\">\n          <ion-select-option *ngFor=\"let item of arealist\" [value]=\"item.region_id\">{{item.region_name}}</ion-select-option>\n        </ion-select>\n\n      </ion-item>\n      <ion-item>\n        <ion-textarea placeholder=\"详细地址：如道路、门牌号、小区、楼栋号、单元室等\" required [(ngModel)]=\"dataObj.address\" name=\"address\" #address=\"ngModel\"></ion-textarea>\n      </ion-item>\n    </ion-list>\n    <ion-list>\n      <ion-item>\n        <ion-label>设为默认地址</ion-label>\n        <ion-toggle color=\"success\" [(ngModel)]=\"dataObj.defalut\" name=\"defalut\"></ion-toggle>\n      </ion-item>\n    </ion-list>\n    <ion-button color=\"success\" expand=\"block\" type=\"submit\" [disabled]=\"!userForm.form.valid\">提交</ion-button>\n  </form>\n  <p class=\"des\"><ion-text color=\"danger\">身份证号码错误会导致无法购买车票及保险</ion-text></p>\n</ion-content>\n"
-
-/***/ }),
-
 /***/ "./src/app/pages/contactdata/contactdata.page.scss":
 /*!*********************************************************!*\
   !*** ./src/app/pages/contactdata/contactdata.page.scss ***!
   \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = ".des {\n  font-size: var(--ion-sm-text); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC9wYWdlcy9jb250YWN0ZGF0YS9jb250YWN0ZGF0YS5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSw2QkFBNkIsRUFBQSIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2NvbnRhY3RkYXRhL2NvbnRhY3RkYXRhLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5kZXMge1xyXG4gIGZvbnQtc2l6ZTogdmFyKC0taW9uLXNtLXRleHQpO1xyXG59Il19 */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".des {\n  font-size: var(--ion-sm-text);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC9wYWdlcy9jb250YWN0ZGF0YS9jb250YWN0ZGF0YS5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL2NvbnRhY3RkYXRhL2NvbnRhY3RkYXRhLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLDZCQUFBO0FDQ0YiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9jb250YWN0ZGF0YS9jb250YWN0ZGF0YS5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZGVzIHtcclxuICBmb250LXNpemU6IHZhcigtLWlvbi1zbS10ZXh0KTtcclxufSIsIi5kZXMge1xuICBmb250LXNpemU6IHZhcigtLWlvbi1zbS10ZXh0KTtcbn0iXX0= */");
 
 /***/ }),
 
@@ -222,11 +226,19 @@ var ContactdataPage = /** @class */ (function () {
             });
         });
     };
+    ContactdataPage.ctorParameters = function () { return [
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
+        { type: _services_http_service__WEBPACK_IMPORTED_MODULE_3__["HttpService"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
+        { type: _services_native_service__WEBPACK_IMPORTED_MODULE_5__["NativeService"] },
+        { type: _services_contactlist_service__WEBPACK_IMPORTED_MODULE_6__["ContactlistService"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"] }
+    ]; };
     ContactdataPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-contactdata',
-            template: __webpack_require__(/*! ./contactdata.page.html */ "./src/app/pages/contactdata/contactdata.page.html"),
-            styles: [__webpack_require__(/*! ./contactdata.page.scss */ "./src/app/pages/contactdata/contactdata.page.scss")]
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./contactdata.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/contactdata/contactdata.page.html")).default,
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./contactdata.page.scss */ "./src/app/pages/contactdata/contactdata.page.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _services_http_service__WEBPACK_IMPORTED_MODULE_3__["HttpService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"],

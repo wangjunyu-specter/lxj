@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-select-address-select-address-module"],{
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/select-address/select-address.page.html":
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/select-address/select-address.page.html ***!
+  \*****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<!--\r\n * @Author: wjy-mac\r\n * @Date: 2019-03-20 21:01:10\r\n * @LastEditors: wjy-mac\r\n * @LastEditTime: 2019-11-21 15:56:09\r\n * @Description: file content\r\n -->\r\n<ion-header mode=\"ios\">\r\n  <ion-toolbar mode=\"ios\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-button (click)=\"goBack()\">\r\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\r\n      </ion-button>\r\n    </ion-buttons>\r\n    <ion-title>选择目的地</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content padding>\r\n  <app-pagetitle [myname]=\"'GPS定位'\" [smpadding]=\"true\"></app-pagetitle>\r\n  <div class=\"btn-box\" *ngIf=\"loaction\">\r\n    <app-seletebtn [name]=\"loaction.city\" (mclick)=\"seleteAddress($event)\" [graybg]=\"true\" [isactive]=\"true\"></app-seletebtn>\r\n  </div>\r\n  <div class=\"line\"></div>\r\n  <!-- <app-pagetitle [myname]=\"'最近浏览'\" [smpadding]=\"true\"></app-pagetitle> 暂时隐藏 其他城市暂未开放 所以隐藏\r\n  <div class=\"btn-box\">\r\n    <app-seletebtn [name]=\"'贵阳'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '贵阳'\" [graybg]=\"true\"></app-seletebtn>\r\n    <app-seletebtn [name]=\"'吉林'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '吉林'\" [graybg]=\"true\"></app-seletebtn>\r\n    <app-seletebtn [name]=\"'新疆'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '新疆'\" [graybg]=\"true\"></app-seletebtn>\r\n  </div> -->\r\n  <!-- <div class=\"line\"></div>\r\n  <app-pagetitle [myname]=\"'其他推荐'\" [smpadding]=\"true\"></app-pagetitle>\r\n  <div class=\"btn-box\">\r\n    <app-seletebtn [name]=\"'北京'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '北京'\" [graybg]=\"true\"></app-seletebtn>\r\n    <app-seletebtn [name]=\"'广东'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '广东'\" [graybg]=\"true\"></app-seletebtn>\r\n    <app-seletebtn [name]=\"'河北'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '河北'\" [graybg]=\"true\"></app-seletebtn>\r\n    <app-seletebtn [name]=\"'苏州'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '苏州'\" [graybg]=\"true\"></app-seletebtn>\r\n    <app-seletebtn [name]=\"'山西'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '山西'\" [graybg]=\"true\"></app-seletebtn>\r\n  </div> -->\r\n</ion-content>\r\n");
+
+/***/ }),
+
 /***/ "./src/app/pages/select-address/select-address.module.ts":
 /*!***************************************************************!*\
   !*** ./src/app/pages/select-address/select-address.module.ts ***!
@@ -54,25 +67,16 @@ var SelectAddressPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/select-address/select-address.page.html":
-/*!***************************************************************!*\
-  !*** ./src/app/pages/select-address/select-address.page.html ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<!--\r\n * @Author: wjy-mac\r\n * @Date: 2019-03-20 21:01:10\r\n * @LastEditors: wjy-mac\r\n * @LastEditTime: 2019-11-21 15:56:09\r\n * @Description: file content\r\n -->\r\n<ion-header mode=\"ios\">\r\n  <ion-toolbar mode=\"ios\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-button (click)=\"goBack()\">\r\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\r\n      </ion-button>\r\n    </ion-buttons>\r\n    <ion-title>选择目的地</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content padding>\r\n  <app-pagetitle [myname]=\"'GPS定位'\" [smpadding]=\"true\"></app-pagetitle>\r\n  <div class=\"btn-box\" *ngIf=\"loaction\">\r\n    <app-seletebtn [name]=\"loaction.city\" (mclick)=\"seleteAddress($event)\" [graybg]=\"true\" [isactive]=\"true\"></app-seletebtn>\r\n  </div>\r\n  <div class=\"line\"></div>\r\n  <!-- <app-pagetitle [myname]=\"'最近浏览'\" [smpadding]=\"true\"></app-pagetitle> 暂时隐藏 其他城市暂未开放 所以隐藏\r\n  <div class=\"btn-box\">\r\n    <app-seletebtn [name]=\"'贵阳'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '贵阳'\" [graybg]=\"true\"></app-seletebtn>\r\n    <app-seletebtn [name]=\"'吉林'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '吉林'\" [graybg]=\"true\"></app-seletebtn>\r\n    <app-seletebtn [name]=\"'新疆'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '新疆'\" [graybg]=\"true\"></app-seletebtn>\r\n  </div> -->\r\n  <!-- <div class=\"line\"></div>\r\n  <app-pagetitle [myname]=\"'其他推荐'\" [smpadding]=\"true\"></app-pagetitle>\r\n  <div class=\"btn-box\">\r\n    <app-seletebtn [name]=\"'北京'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '北京'\" [graybg]=\"true\"></app-seletebtn>\r\n    <app-seletebtn [name]=\"'广东'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '广东'\" [graybg]=\"true\"></app-seletebtn>\r\n    <app-seletebtn [name]=\"'河北'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '河北'\" [graybg]=\"true\"></app-seletebtn>\r\n    <app-seletebtn [name]=\"'苏州'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '苏州'\" [graybg]=\"true\"></app-seletebtn>\r\n    <app-seletebtn [name]=\"'山西'\" (mclick)=\"seleteAddress($event)\" [isactive]=\"isactive == '山西'\" [graybg]=\"true\"></app-seletebtn>\r\n  </div> -->\r\n</ion-content>\r\n"
-
-/***/ }),
-
 /***/ "./src/app/pages/select-address/select-address.page.scss":
 /*!***************************************************************!*\
   !*** ./src/app/pages/select-address/select-address.page.scss ***!
   \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = ".btn-box {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: center;\n  flex-wrap: wrap; }\n  .btn-box app-seletebtn {\n    margin-right: 5px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC9wYWdlcy9zZWxlY3QtYWRkcmVzcy9zZWxlY3QtYWRkcmVzcy5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFhO0VBQ2IsbUJBQW1CO0VBQ25CLDJCQUEyQjtFQUMzQixtQkFBbUI7RUFDbkIsZUFBZSxFQUFBO0VBTGpCO0lBT0ksaUJBQWlCLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9zZWxlY3QtYWRkcmVzcy9zZWxlY3QtYWRkcmVzcy5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYnRuLWJveCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogcm93O1xyXG4gIGp1c3RpZnktY29udGVudDogZmxleC1zdGFydDtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICBhcHAtc2VsZXRlYnRuIHtcclxuICAgIG1hcmdpbi1yaWdodDogNXB4O1xyXG4gIH1cclxufVxyXG4iXX0= */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".btn-box {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: center;\n  flex-wrap: wrap;\n}\n.btn-box app-seletebtn {\n  margin-right: 5px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC9wYWdlcy9zZWxlY3QtYWRkcmVzcy9zZWxlY3QtYWRkcmVzcy5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL3NlbGVjdC1hZGRyZXNzL3NlbGVjdC1hZGRyZXNzLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQUE7RUFDQSxtQkFBQTtFQUNBLDJCQUFBO0VBQ0EsbUJBQUE7RUFDQSxlQUFBO0FDQ0Y7QURBRTtFQUNFLGlCQUFBO0FDRUoiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9zZWxlY3QtYWRkcmVzcy9zZWxlY3QtYWRkcmVzcy5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYnRuLWJveCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogcm93O1xyXG4gIGp1c3RpZnktY29udGVudDogZmxleC1zdGFydDtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICBhcHAtc2VsZXRlYnRuIHtcclxuICAgIG1hcmdpbi1yaWdodDogNXB4O1xyXG4gIH1cclxufVxyXG4iLCIuYnRuLWJveCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XG4gIGp1c3RpZnktY29udGVudDogZmxleC1zdGFydDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgZmxleC13cmFwOiB3cmFwO1xufVxuLmJ0bi1ib3ggYXBwLXNlbGV0ZWJ0biB7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xufSJdfQ== */");
 
 /***/ }),
 
@@ -117,11 +121,15 @@ var SelectAddressPage = /** @class */ (function () {
     SelectAddressPage.prototype.goBack = function () {
         this.nav.back();
     };
+    SelectAddressPage.ctorParameters = function () { return [
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
+        { type: src_app_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] }
+    ]; };
     SelectAddressPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-select-address',
-            template: __webpack_require__(/*! ./select-address.page.html */ "./src/app/pages/select-address/select-address.page.html"),
-            styles: [__webpack_require__(/*! ./select-address.page.scss */ "./src/app/pages/select-address/select-address.page.scss")]
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./select-address.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/select-address/select-address.page.html")).default,
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./select-address.page.scss */ "./src/app/pages/select-address/select-address.page.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], src_app_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]])
     ], SelectAddressPage);

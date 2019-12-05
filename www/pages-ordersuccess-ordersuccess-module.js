@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-ordersuccess-ordersuccess-module"],{
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/ordersuccess/ordersuccess.page.html":
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/ordersuccess/ordersuccess.page.html ***!
+  \*************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<!--\n * @Author: wjy-mac\n * @Date: 2019-07-29 22:24:48\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-10-14 10:59:55\n * @Description: file content\n -->\n<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"end\">\n      <ion-button (click)=\"goIndex()\">\n        完成\n      </ion-button>\n    </ion-buttons>\n    <ion-title>支付成功</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div class=\"nohw\" *ngIf=\"!ishw\">\n    <div class=\"top\" padding>\n      <h2>订单提交成功!</h2>\n      <p>您的包裹整装待发~~~</p>\n    </div>\n    <div class=\"content\" padding *ngFor=\"let item of data\">\n      <div class=\"title\">\n        <p>您的商品将由{{item.shipping_name}}为您配送</p>\n      </div>\n      <p>订单号：<ion-text>{{item.order_sn}}</ion-text></p>\n      <p>{{item.pay_name}}：<ion-text>{{item.order_amount_formated}}</ion-text></p>\n      <p>配送方式：<ion-text color=\"danger\">{{item.shipping_name}}</ion-text></p>\n      <ion-row>\n        <!--<ion-col>-->\n          <!--<ion-button expand=\"block\" color=\"light\" (click)=\"goIndex()\">返回首页</ion-button>-->\n        <!--</ion-col>-->\n        <ion-col>\n          <ion-button expand=\"block\" color=\"success\"  (click)=\"gotoPage(12, item.order_sn)\">查看订单</ion-button>\n        </ion-col>\n      </ion-row>\n    </div>\n  </div>\n  <div class=\"hw\" *ngIf=\"ishw\">\n    <div>\n      <div class=\"top\" padding>\n        <h2>您的订单已经提交!</h2>\n        <p>请注意出发时间及商家消息~~~</p>\n      </div>\n      <div class=\"content\" padding *ngFor=\"let item of data\">\n        <p>订单号：<ion-text>{{item.order_sn}}</ion-text></p>\n        <p>{{item.pay_name}}：<ion-text>{{item.order_amount_formated}}</ion-text></p>\n      </div>\n      <ion-row>\n        <!--<ion-col>-->\n          <!--<ion-button expand=\"block\" color=\"light\" (click)=\"goIndex()\">返回首页</ion-button>-->\n        <!--</ion-col>-->\n        <ion-col>\n          <ion-button expand=\"block\" color=\"success\" (click)=\"getContent()\" (click)=\"gotoPage(11, orderId)\">查看订单</ion-button>\n        </ion-col>\n      </ion-row>\n    </div>\n    <div padding>\n      <p>户外旅行有一定的风险性，请随时注意安全，如发生任何情况，请尽快拨打救援电话或直接拨打110求救：</p>\n      <p>救援电话1：123123</p>\n      <p>救援电话1：123123</p>\n      <p>救援电话1：123123</p>\n    </div>\n  </div>\n</ion-content>\n");
+
+/***/ }),
+
 /***/ "./src/app/pages/ordersuccess/ordersuccess.module.ts":
 /*!***********************************************************!*\
   !*** ./src/app/pages/ordersuccess/ordersuccess.module.ts ***!
@@ -51,25 +64,16 @@ var OrdersuccessPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/ordersuccess/ordersuccess.page.html":
-/*!***********************************************************!*\
-  !*** ./src/app/pages/ordersuccess/ordersuccess.page.html ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-07-29 22:24:48\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-10-14 10:59:55\n * @Description: file content\n -->\n<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"end\">\n      <ion-button (click)=\"goIndex()\">\n        完成\n      </ion-button>\n    </ion-buttons>\n    <ion-title>支付成功</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div class=\"nohw\" *ngIf=\"!ishw\">\n    <div class=\"top\" padding>\n      <h2>订单提交成功!</h2>\n      <p>您的包裹整装待发~~~</p>\n    </div>\n    <div class=\"content\" padding *ngFor=\"let item of data\">\n      <div class=\"title\">\n        <p>您的商品将由{{item.shipping_name}}为您配送</p>\n      </div>\n      <p>订单号：<ion-text>{{item.order_sn}}</ion-text></p>\n      <p>{{item.pay_name}}：<ion-text>{{item.order_amount_formated}}</ion-text></p>\n      <p>配送方式：<ion-text color=\"danger\">{{item.shipping_name}}</ion-text></p>\n      <ion-row>\n        <!--<ion-col>-->\n          <!--<ion-button expand=\"block\" color=\"light\" (click)=\"goIndex()\">返回首页</ion-button>-->\n        <!--</ion-col>-->\n        <ion-col>\n          <ion-button expand=\"block\" color=\"success\"  (click)=\"gotoPage(12, item.order_sn)\">查看订单</ion-button>\n        </ion-col>\n      </ion-row>\n    </div>\n  </div>\n  <div class=\"hw\" *ngIf=\"ishw\">\n    <div>\n      <div class=\"top\" padding>\n        <h2>您的订单已经提交!</h2>\n        <p>请注意出发时间及商家消息~~~</p>\n      </div>\n      <div class=\"content\" padding *ngFor=\"let item of data\">\n        <p>订单号：<ion-text>{{item.order_sn}}</ion-text></p>\n        <p>{{item.pay_name}}：<ion-text>{{item.order_amount_formated}}</ion-text></p>\n      </div>\n      <ion-row>\n        <!--<ion-col>-->\n          <!--<ion-button expand=\"block\" color=\"light\" (click)=\"goIndex()\">返回首页</ion-button>-->\n        <!--</ion-col>-->\n        <ion-col>\n          <ion-button expand=\"block\" color=\"success\" (click)=\"getContent()\" (click)=\"gotoPage(11, orderId)\">查看订单</ion-button>\n        </ion-col>\n      </ion-row>\n    </div>\n    <div padding>\n      <p>户外旅行有一定的风险性，请随时注意安全，如发生任何情况，请尽快拨打救援电话或直接拨打110求救：</p>\n      <p>救援电话1：123123</p>\n      <p>救援电话1：123123</p>\n      <p>救援电话1：123123</p>\n    </div>\n  </div>\n</ion-content>\n"
-
-/***/ }),
-
 /***/ "./src/app/pages/ordersuccess/ordersuccess.page.scss":
 /*!***********************************************************!*\
   !*** ./src/app/pages/ordersuccess/ordersuccess.page.scss ***!
   \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = ".top {\n  background: url('paysuccess.jpg') left top no-repeat;\n  background-size: 100% 100%;\n  color: #fff; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC9wYWdlcy9vcmRlcnN1Y2Nlc3Mvb3JkZXJzdWNjZXNzLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLG9EQUFvRTtFQUNwRSwwQkFBMEI7RUFDMUIsV0FBVyxFQUFBIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvb3JkZXJzdWNjZXNzL29yZGVyc3VjY2Vzcy5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudG9wIHtcclxuICBiYWNrZ3JvdW5kOiB1cmwoXCIuLi8uLi8uLi9hc3NldHMvcGF5c3VjY2Vzcy5qcGdcIikgbGVmdCB0b3Agbm8tcmVwZWF0O1xyXG4gIGJhY2tncm91bmQtc2l6ZTogMTAwJSAxMDAlO1xyXG4gIGNvbG9yOiAjZmZmO1xyXG59Il19 */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".top {\n  background: url('paysuccess.jpg') left top no-repeat;\n  background-size: 100% 100%;\n  color: #fff;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC9wYWdlcy9vcmRlcnN1Y2Nlc3Mvb3JkZXJzdWNjZXNzLnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvb3JkZXJzdWNjZXNzL29yZGVyc3VjY2Vzcy5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxvREFBQTtFQUNBLDBCQUFBO0VBQ0EsV0FBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvb3JkZXJzdWNjZXNzL29yZGVyc3VjY2Vzcy5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudG9wIHtcclxuICBiYWNrZ3JvdW5kOiB1cmwoXCIuLi8uLi8uLi9hc3NldHMvcGF5c3VjY2Vzcy5qcGdcIikgbGVmdCB0b3Agbm8tcmVwZWF0O1xyXG4gIGJhY2tncm91bmQtc2l6ZTogMTAwJSAxMDAlO1xyXG4gIGNvbG9yOiAjZmZmO1xyXG59IiwiLnRvcCB7XG4gIGJhY2tncm91bmQ6IHVybChcIi4uLy4uLy4uL2Fzc2V0cy9wYXlzdWNjZXNzLmpwZ1wiKSBsZWZ0IHRvcCBuby1yZXBlYXQ7XG4gIGJhY2tncm91bmQtc2l6ZTogMTAwJSAxMDAlO1xuICBjb2xvcjogI2ZmZjtcbn0iXX0= */");
 
 /***/ }),
 
@@ -143,11 +147,18 @@ var OrdersuccessPage = /** @class */ (function () {
     OrdersuccessPage.prototype.gotoPage = function (type, sn) {
         this.topage.toPage(type, sn);
     };
+    OrdersuccessPage.ctorParameters = function () { return [
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+        { type: _services_ordersuccess_service__WEBPACK_IMPORTED_MODULE_4__["OrdersuccessService"] },
+        { type: _services_topage_service__WEBPACK_IMPORTED_MODULE_5__["TopageService"] }
+    ]; };
     OrdersuccessPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-ordersuccess',
-            template: __webpack_require__(/*! ./ordersuccess.page.html */ "./src/app/pages/ordersuccess/ordersuccess.page.html"),
-            styles: [__webpack_require__(/*! ./ordersuccess.page.scss */ "./src/app/pages/ordersuccess/ordersuccess.page.scss")]
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./ordersuccess.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/ordersuccess/ordersuccess.page.html")).default,
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./ordersuccess.page.scss */ "./src/app/pages/ordersuccess/ordersuccess.page.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],

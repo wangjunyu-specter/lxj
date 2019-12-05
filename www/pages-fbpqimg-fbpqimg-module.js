@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-fbpqimg-fbpqimg-module"],{
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/fbpqimg/fbpqimg.page.html":
+/*!***************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/fbpqimg/fbpqimg.page.html ***!
+  \***************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<!--\n * @Author: wjy-mac\n * @Date: 2019-07-15 19:35:34\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-12-05 12:47:19\n * @Description: file content\n -->\n<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\" mode=\"ios\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>发布</ion-title>\n    <ion-buttons slot=\"end\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"sub()\" [disabled]=\"!content && imgs.length === 0 && !videofile1\">\n        <ion-icon name=\"paper-plane\"></ion-icon>发表\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\">\n  <ion-textarea rows=\"7\" [maxlength]=\"300\" [(ngModel)]=\"content\" placeholder=\"此刻你在哪里,分享下你的旅行心情吧~\"></ion-textarea>\n  <app-pqimgbox *ngIf=\"isseleteVedio != 1\" [imglist]=\"imgs\" [showend]=\"isshowend\" (clickItem)=\"remove($event)\" (addimgitem)=\"addfm()\"></app-pqimgbox>\n  <!--<img [src]=\"videoslt\" alt=\"\">-->\n  <!--<video width=\"320\" height=\"240\" controls>-->\n    <!--<source [src]=\"videofile\" type=\"video/mp4\">-->\n    <!--<source [src]=\"videofile\" type=\"video/ogg\">-->\n    <!--您的浏览器不支持 video 标签。-->\n  <!--</video>-->\n  <!--<video width=\"320\" height=\"240\" controls>-->\n    <!--<source [src]=\"videofile1\" type=\"video/mp4\">-->\n    <!--<source [src]=\"videofile1\" type=\"video/ogg\">-->\n    <!--您的浏览器不支持 video 标签。-->\n  <!--</video>-->\n  <div class=\"bf-box\" *ngIf=\"isseleteVedio == 1\" (click)=\"videoSet()\">\n    <img src=\"../../../assets/icon/play.svg\" alt=\"\">\n  </div>\n  <ion-list class=\"ion-margin-top\">\n    <ion-item button *ngIf=\"addressObj\">\n      <ion-icon name=\"pin\" slot=\"start\"></ion-icon><span class=\"address-box\">{{addressObj.address}}</span>\n    </ion-item>\n  </ion-list>\n</ion-content>\n");
+
+/***/ }),
+
 /***/ "./src/app/pages/fbpqimg/fbpqimg.module.ts":
 /*!*************************************************!*\
   !*** ./src/app/pages/fbpqimg/fbpqimg.module.ts ***!
@@ -54,25 +67,16 @@ var FbpqimgPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/fbpqimg/fbpqimg.page.html":
-/*!*************************************************!*\
-  !*** ./src/app/pages/fbpqimg/fbpqimg.page.html ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-07-15 19:35:34\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-12-05 12:47:19\n * @Description: file content\n -->\n<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\" mode=\"ios\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>发布</ion-title>\n    <ion-buttons slot=\"end\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"sub()\" [disabled]=\"!content && imgs.length === 0 && !videofile1\">\n        <ion-icon name=\"paper-plane\"></ion-icon>发表\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\">\n  <ion-textarea rows=\"7\" [maxlength]=\"300\" [(ngModel)]=\"content\" placeholder=\"此刻你在哪里,分享下你的旅行心情吧~\"></ion-textarea>\n  <app-pqimgbox *ngIf=\"isseleteVedio != 1\" [imglist]=\"imgs\" [showend]=\"isshowend\" (clickItem)=\"remove($event)\" (addimgitem)=\"addfm()\"></app-pqimgbox>\n  <!--<img [src]=\"videoslt\" alt=\"\">-->\n  <!--<video width=\"320\" height=\"240\" controls>-->\n    <!--<source [src]=\"videofile\" type=\"video/mp4\">-->\n    <!--<source [src]=\"videofile\" type=\"video/ogg\">-->\n    <!--您的浏览器不支持 video 标签。-->\n  <!--</video>-->\n  <!--<video width=\"320\" height=\"240\" controls>-->\n    <!--<source [src]=\"videofile1\" type=\"video/mp4\">-->\n    <!--<source [src]=\"videofile1\" type=\"video/ogg\">-->\n    <!--您的浏览器不支持 video 标签。-->\n  <!--</video>-->\n  <div class=\"bf-box\" *ngIf=\"isseleteVedio == 1\" (click)=\"videoSet()\">\n    <img src=\"../../../assets/icon/play.svg\" alt=\"\">\n  </div>\n  <ion-list class=\"ion-margin-top\">\n    <ion-item button *ngIf=\"addressObj\">\n      <ion-icon name=\"pin\" slot=\"start\"></ion-icon><span class=\"address-box\">{{addressObj.address}}</span>\n    </ion-item>\n  </ion-list>\n</ion-content>\n"
-
-/***/ }),
-
 /***/ "./src/app/pages/fbpqimg/fbpqimg.page.scss":
 /*!*************************************************!*\
   !*** ./src/app/pages/fbpqimg/fbpqimg.page.scss ***!
   \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = ".img-box {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 10px; }\n\n.box {\n  display: inline-block;\n  position: relative;\n  width: 100%;\n  float: left;\n  font-size: 12px;\n  background-color: var(--ion-gray-background-color);\n  border-radius: 5px;\n  overflow: hidden; }\n\n.box img {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%; }\n\n.box:before {\n  /* Other ratios */\n  content: \"\";\n  display: block;\n  padding-top: 100%; }\n\n.bf-box {\n  width: 100px;\n  height: 100px;\n  border: 1px solid var(--ion-color-light);\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n\n.bf-box img {\n    width: 40%; }\n\n.address-box {\n  font-size: var(--ion-sm-text);\n  color: var(--ion-color-medium); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC9wYWdlcy9mYnBxaW1nL2ZicHFpbWcucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsYUFBYTtFQUNiLHFDQUFxQztFQUNyQyxTQUFTLEVBQUE7O0FBRVg7RUFDRSxxQkFBcUI7RUFDckIsa0JBQWtCO0VBQ2xCLFdBQVc7RUFFWCxXQUFXO0VBQ1gsZUFBZTtFQUNmLGtEQUFrRDtFQUdsRCxrQkFBa0I7RUFDbEIsZ0JBQWdCLEVBQUE7O0FBWGxCO0lBYUksa0JBQWtCO0lBQ2xCLE1BQU07SUFDTixPQUFPO0lBQ1AsV0FBVztJQUNYLFlBQVksRUFBQTs7QUFHaEI7RUFDRSxpQkFBQTtFQUVBLFdBQVc7RUFDWCxjQUFjO0VBQ2QsaUJBQWlCLEVBQUE7O0FBRW5CO0VBQ0UsWUFBWTtFQUNaLGFBQWE7RUFDYix3Q0FBd0M7RUFDeEMsYUFBYTtFQUNiLG1CQUFtQjtFQUNuQix1QkFBdUIsRUFBQTs7QUFOekI7SUFRSSxVQUFVLEVBQUE7O0FBR2Q7RUFDRSw2QkFBNkI7RUFDN0IsOEJBQThCLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9mYnBxaW1nL2ZicHFpbWcucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmltZy1ib3gge1xuICBkaXNwbGF5OiBncmlkO1xuICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IHJlcGVhdCgzLCAxZnIpO1xuICBnYXA6IDEwcHg7XG59XG4uYm94IHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHdpZHRoOiAxMDAlO1xuICAvL21hcmdpbjogNSUgNSUgMCAwO1xuICBmbG9hdDogbGVmdDtcbiAgZm9udC1zaXplOiAxMnB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1pb24tZ3JheS1iYWNrZ3JvdW5kLWNvbG9yKTtcbiAgLXdlYmtpdC1ib3JkZXItcmFkaXVzOiA1cHg7XG4gIC1tb3otYm9yZGVyLXJhZGl1czogNXB4O1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGltZyB7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogMDtcbiAgICBsZWZ0OiAwO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGhlaWdodDogMTAwJTtcbiAgfVxufVxuLmJveDpiZWZvcmUge1xuICAvKiBPdGhlciByYXRpb3MgKi9cblxuICBjb250ZW50OiBcIlwiO1xuICBkaXNwbGF5OiBibG9jaztcbiAgcGFkZGluZy10b3A6IDEwMCU7XG59XG4uYmYtYm94IHtcbiAgd2lkdGg6IDEwMHB4O1xuICBoZWlnaHQ6IDEwMHB4O1xuICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1pb24tY29sb3ItbGlnaHQpO1xuICBkaXNwbGF5OiBmbGV4O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgaW1nIHtcbiAgICB3aWR0aDogNDAlO1xuICB9XG59XG4uYWRkcmVzcy1ib3gge1xuICBmb250LXNpemU6IHZhcigtLWlvbi1zbS10ZXh0KTtcbiAgY29sb3I6IHZhcigtLWlvbi1jb2xvci1tZWRpdW0pO1xufVxuIl19 */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".img-box {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 10px;\n}\n\n.box {\n  display: inline-block;\n  position: relative;\n  width: 100%;\n  float: left;\n  font-size: 12px;\n  background-color: var(--ion-gray-background-color);\n  border-radius: 5px;\n  overflow: hidden;\n}\n\n.box img {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n\n.box:before {\n  /* Other ratios */\n  content: \"\";\n  display: block;\n  padding-top: 100%;\n}\n\n.bf-box {\n  width: 100px;\n  height: 100px;\n  border: 1px solid var(--ion-color-light);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.bf-box img {\n  width: 40%;\n}\n\n.address-box {\n  font-size: var(--ion-sm-text);\n  color: var(--ion-color-medium);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC9wYWdlcy9mYnBxaW1nL2ZicHFpbWcucGFnZS5zY3NzIiwic3JjL2FwcC9wYWdlcy9mYnBxaW1nL2ZicHFpbWcucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsYUFBQTtFQUNBLHFDQUFBO0VBQ0EsU0FBQTtBQ0NGOztBRENBO0VBQ0UscUJBQUE7RUFDQSxrQkFBQTtFQUNBLFdBQUE7RUFFQSxXQUFBO0VBQ0EsZUFBQTtFQUNBLGtEQUFBO0VBR0Esa0JBQUE7RUFDQSxnQkFBQTtBQ0NGOztBREFFO0VBQ0Usa0JBQUE7RUFDQSxNQUFBO0VBQ0EsT0FBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0FDRUo7O0FEQ0E7RUFDRSxpQkFBQTtFQUVBLFdBQUE7RUFDQSxjQUFBO0VBQ0EsaUJBQUE7QUNDRjs7QURDQTtFQUNFLFlBQUE7RUFDQSxhQUFBO0VBQ0Esd0NBQUE7RUFDQSxhQUFBO0VBQ0EsbUJBQUE7RUFDQSx1QkFBQTtBQ0VGOztBRERFO0VBQ0UsVUFBQTtBQ0dKOztBREFBO0VBQ0UsNkJBQUE7RUFDQSw4QkFBQTtBQ0dGIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvZmJwcWltZy9mYnBxaW1nLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5pbWctYm94IHtcbiAgZGlzcGxheTogZ3JpZDtcbiAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiByZXBlYXQoMywgMWZyKTtcbiAgZ2FwOiAxMHB4O1xufVxuLmJveCB7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB3aWR0aDogMTAwJTtcbiAgLy9tYXJnaW46IDUlIDUlIDAgMDtcbiAgZmxvYXQ6IGxlZnQ7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0taW9uLWdyYXktYmFja2dyb3VuZC1jb2xvcik7XG4gIC13ZWJraXQtYm9yZGVyLXJhZGl1czogNXB4O1xuICAtbW96LWJvcmRlci1yYWRpdXM6IDVweDtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBpbWcge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICB0b3A6IDA7XG4gICAgbGVmdDogMDtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDEwMCU7XG4gIH1cbn1cbi5ib3g6YmVmb3JlIHtcbiAgLyogT3RoZXIgcmF0aW9zICovXG5cbiAgY29udGVudDogXCJcIjtcbiAgZGlzcGxheTogYmxvY2s7XG4gIHBhZGRpbmctdG9wOiAxMDAlO1xufVxuLmJmLWJveCB7XG4gIHdpZHRoOiAxMDBweDtcbiAgaGVpZ2h0OiAxMDBweDtcbiAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0taW9uLWNvbG9yLWxpZ2h0KTtcbiAgZGlzcGxheTogZmxleDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIGltZyB7XG4gICAgd2lkdGg6IDQwJTtcbiAgfVxufVxuLmFkZHJlc3MtYm94IHtcbiAgZm9udC1zaXplOiB2YXIoLS1pb24tc20tdGV4dCk7XG4gIGNvbG9yOiB2YXIoLS1pb24tY29sb3ItbWVkaXVtKTtcbn1cbiIsIi5pbWctYm94IHtcbiAgZGlzcGxheTogZ3JpZDtcbiAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiByZXBlYXQoMywgMWZyKTtcbiAgZ2FwOiAxMHB4O1xufVxuXG4uYm94IHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHdpZHRoOiAxMDAlO1xuICBmbG9hdDogbGVmdDtcbiAgZm9udC1zaXplOiAxMnB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1pb24tZ3JheS1iYWNrZ3JvdW5kLWNvbG9yKTtcbiAgLXdlYmtpdC1ib3JkZXItcmFkaXVzOiA1cHg7XG4gIC1tb3otYm9yZGVyLXJhZGl1czogNXB4O1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG4uYm94IGltZyB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgdG9wOiAwO1xuICBsZWZ0OiAwO1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xufVxuXG4uYm94OmJlZm9yZSB7XG4gIC8qIE90aGVyIHJhdGlvcyAqL1xuICBjb250ZW50OiBcIlwiO1xuICBkaXNwbGF5OiBibG9jaztcbiAgcGFkZGluZy10b3A6IDEwMCU7XG59XG5cbi5iZi1ib3gge1xuICB3aWR0aDogMTAwcHg7XG4gIGhlaWdodDogMTAwcHg7XG4gIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWlvbi1jb2xvci1saWdodCk7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xufVxuLmJmLWJveCBpbWcge1xuICB3aWR0aDogNDAlO1xufVxuXG4uYWRkcmVzcy1ib3gge1xuICBmb250LXNpemU6IHZhcigtLWlvbi1zbS10ZXh0KTtcbiAgY29sb3I6IHZhcigtLWlvbi1jb2xvci1tZWRpdW0pO1xufSJdfQ== */");
 
 /***/ }),
 
@@ -429,11 +433,24 @@ var FbpqimgPage = /** @class */ (function () {
             });
         });
     };
+    FbpqimgPage.ctorParameters = function () { return [
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
+        { type: _services_http_service__WEBPACK_IMPORTED_MODULE_3__["HttpService"] },
+        { type: _services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
+        { type: _services_selete_media_service__WEBPACK_IMPORTED_MODULE_6__["SeleteMediaService"] },
+        { type: _services_native_service__WEBPACK_IMPORTED_MODULE_9__["NativeService"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ActionSheetController"] },
+        { type: _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_8__["File"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"] },
+        { type: _ionic_native_file_transfer_ngx__WEBPACK_IMPORTED_MODULE_7__["FileTransfer"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["PopoverController"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }
+    ]; };
     FbpqimgPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-fbpqimg',
-            template: __webpack_require__(/*! ./fbpqimg.page.html */ "./src/app/pages/fbpqimg/fbpqimg.page.html"),
-            styles: [__webpack_require__(/*! ./fbpqimg.page.scss */ "./src/app/pages/fbpqimg/fbpqimg.page.scss")]
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./fbpqimg.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/fbpqimg/fbpqimg.page.html")).default,
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./fbpqimg.page.scss */ "./src/app/pages/fbpqimg/fbpqimg.page.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _services_http_service__WEBPACK_IMPORTED_MODULE_3__["HttpService"],
             _services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"],

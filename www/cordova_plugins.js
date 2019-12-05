@@ -175,8 +175,8 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "runs": true
     },
     {
-      "id": "cordova-plugin-file.iosFileSystem",
-      "file": "plugins/cordova-plugin-file/www/ios/FileSystem.js",
+      "id": "cordova-plugin-file.androidFileSystem",
+      "file": "plugins/cordova-plugin-file/www/android/FileSystem.js",
       "pluginId": "cordova-plugin-file",
       "merges": [
         "FileSystem"
@@ -321,7 +321,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     },
     {
       "id": "cordova-plugin-camera.CameraPopoverHandle",
-      "file": "plugins/cordova-plugin-camera/www/ios/CameraPopoverHandle.js",
+      "file": "plugins/cordova-plugin-camera/www/CameraPopoverHandle.js",
       "pluginId": "cordova-plugin-camera",
       "clobbers": [
         "CameraPopoverHandle"
@@ -329,7 +329,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     },
     {
       "id": "cordova-plugin-customurlscheme.LaunchMyApp",
-      "file": "plugins/cordova-plugin-customurlscheme/www/ios/LaunchMyApp.js",
+      "file": "plugins/cordova-plugin-customurlscheme/www/android/LaunchMyApp.js",
       "pluginId": "cordova-plugin-customurlscheme",
       "clobbers": [
         "window.plugins.launchmyapp"
@@ -360,6 +360,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
+      "id": "cordova-plugin-filepath.FilePath",
+      "file": "plugins/cordova-plugin-filepath/www/FilePath.js",
+      "pluginId": "cordova-plugin-filepath",
+      "clobbers": [
+        "window.FilePath"
+      ]
+    },
+    {
       "id": "cordova-plugin-gaodelocation-chenyu.GaoDe",
       "file": "plugins/cordova-plugin-gaodelocation-chenyu/www/GaoDeLocation.js",
       "pluginId": "cordova-plugin-gaodelocation-chenyu",
@@ -378,7 +386,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     },
     {
       "id": "cordova-plugin-ionic-keyboard.keyboard",
-      "file": "plugins/cordova-plugin-ionic-keyboard/www/ios/keyboard.js",
+      "file": "plugins/cordova-plugin-ionic-keyboard/www/android/keyboard.js",
       "pluginId": "cordova-plugin-ionic-keyboard",
       "clobbers": [
         "window.Keyboard"
@@ -390,14 +398,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "pluginId": "cordova-plugin-ionic-webview",
       "clobbers": [
         "Ionic.WebView"
-      ]
-    },
-    {
-      "id": "cordova-plugin-ionic-webview.ios-wkwebview-exec",
-      "file": "plugins/cordova-plugin-ionic-webview/src/www/ios/ios-wkwebview-exec.js",
-      "pluginId": "cordova-plugin-ionic-webview",
-      "clobbers": [
-        "cordova.exec"
       ]
     },
     {
@@ -469,6 +469,12 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "navigator.device.capture"
       ]
+    },
+    {
+      "id": "cordova-plugin-media-capture.init",
+      "file": "plugins/cordova-plugin-media-capture/www/android/init.js",
+      "pluginId": "cordova-plugin-media-capture",
+      "runs": true
     },
     {
       "id": "cordova-plugin-nativestorage.mainHandle",

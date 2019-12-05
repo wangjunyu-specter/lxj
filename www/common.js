@@ -678,6 +678,10 @@ var PqlistService = /** @class */ (function () {
             });
         });
     };
+    PqlistService.ctorParameters = function () { return [
+        { type: _http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"] },
+        { type: _gzlist_service__WEBPACK_IMPORTED_MODULE_3__["GzlistService"] }
+    ]; };
     PqlistService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
@@ -784,6 +788,9 @@ var SupplierlistService = /** @class */ (function () {
             });
         });
     };
+    SupplierlistService.ctorParameters = function () { return [
+        { type: _http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"] }
+    ]; };
     SupplierlistService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'

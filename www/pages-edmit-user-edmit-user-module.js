@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-edmit-user-edmit-user-module"],{
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/edmit-user/edmit-user.page.html":
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/edmit-user/edmit-user.page.html ***!
+  \*********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<!--\n * @Author: wjy\n * @Date: 2019-08-03 14:52:31\n * @LastEditors: wjy\n * @LastEditTime: 2019-08-04 22:55:07\n * @Description: file content\n -->\n<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>修改资料</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <form #data=\"ngForm\" *ngIf=\"userData\" (ngSubmit)=\"onSubmit()\">\n    <ion-list>\n      <ion-item>\n        <ion-label>用户名</ion-label>\n        <ion-input text-end\n           [(ngModel)]=\"userData.username\" name=\"username\" required></ion-input>\n      </ion-item>\n      <!--<ion-item>-->\n        <!--<ion-label>手机号</ion-label>-->\n        <!--<ion-input-->\n           <!--[(ngModel)]=\"userData.mobile_phone\" name=\"mobile_phone\" required></ion-input>-->\n      <!--</ion-item>-->\n      <ion-item (click)=\"imgFrom()\" detail>\n        <ion-avatar slot=\"end\">\n          <img [src]=\"userData.headimg | imgsrc: http.domain\">\n        </ion-avatar>\n        <ion-label>头像</ion-label>\n      </ion-item>\n      <ion-item detail>\n        <ion-label>生日</ion-label>\n        <ion-datetime displayFormat=\"YYYY-MM-DD\"\n                      pickerFormat=\"YYYY-MM-DD\"\n                      Format=\"YYYY-MM-DD\" doneText=\"确定\" cancelText=\"取消\"\n                      [(ngModel)]=\"userData.birthday\" name=\"birthday\"></ion-datetime>\n      </ion-item>\n      <ion-item>\n        <ion-label>性别</ion-label>\n        <ion-select  [(ngModel)]=\"userData.sex\" name=\"sex\" interface=\"action-sheet\">\n          <ion-select-option value=\"1\">男</ion-select-option>\n          <ion-select-option value=\"0\">女</ion-select-option>\n        </ion-select>\n      </ion-item>\n      <!--<ion-radio-group [(ngModel)]=\"userData.sex\" name=\"sex\">-->\n        <!--<ion-list-header>-->\n          <!--性别-->\n        <!--</ion-list-header>-->\n        <!--<ion-item>-->\n          <!--<ion-label>男</ion-label>-->\n          <!--<ion-radio value=\"1\"></ion-radio>-->\n        <!--</ion-item>-->\n\n        <!--<ion-item>-->\n          <!--<ion-label>女</ion-label>-->\n          <!--<ion-radio value=\"0\"></ion-radio>-->\n        <!--</ion-item>-->\n      <!--</ion-radio-group>-->\n    </ion-list>\n    <ion-button type=\"submit\" color=\"success\" expand=\"block\" [disabled]=\"!data.form.valid || isloading\" *ngIf=\"!data.form.pristine && !isupdate || ischangeHeadend\">提交</ion-button>\n  </form>\n\n</ion-content>\n");
+
+/***/ }),
+
 /***/ "./src/app/pages/edmit-user/edmit-user.module.ts":
 /*!*******************************************************!*\
   !*** ./src/app/pages/edmit-user/edmit-user.module.ts ***!
@@ -54,25 +67,16 @@ var EdmitUserPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/edmit-user/edmit-user.page.html":
-/*!*******************************************************!*\
-  !*** ./src/app/pages/edmit-user/edmit-user.page.html ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<!--\n * @Author: wjy\n * @Date: 2019-08-03 14:52:31\n * @LastEditors: wjy\n * @LastEditTime: 2019-08-04 22:55:07\n * @Description: file content\n -->\n<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>修改资料</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <form #data=\"ngForm\" *ngIf=\"userData\" (ngSubmit)=\"onSubmit()\">\n    <ion-list>\n      <ion-item>\n        <ion-label>用户名</ion-label>\n        <ion-input text-end\n           [(ngModel)]=\"userData.username\" name=\"username\" required></ion-input>\n      </ion-item>\n      <!--<ion-item>-->\n        <!--<ion-label>手机号</ion-label>-->\n        <!--<ion-input-->\n           <!--[(ngModel)]=\"userData.mobile_phone\" name=\"mobile_phone\" required></ion-input>-->\n      <!--</ion-item>-->\n      <ion-item (click)=\"imgFrom()\" detail>\n        <ion-avatar slot=\"end\">\n          <img [src]=\"userData.headimg | imgsrc: http.domain\">\n        </ion-avatar>\n        <ion-label>头像</ion-label>\n      </ion-item>\n      <ion-item detail>\n        <ion-label>生日</ion-label>\n        <ion-datetime displayFormat=\"YYYY-MM-DD\"\n                      pickerFormat=\"YYYY-MM-DD\"\n                      Format=\"YYYY-MM-DD\" doneText=\"确定\" cancelText=\"取消\"\n                      [(ngModel)]=\"userData.birthday\" name=\"birthday\"></ion-datetime>\n      </ion-item>\n      <ion-item>\n        <ion-label>性别</ion-label>\n        <ion-select  [(ngModel)]=\"userData.sex\" name=\"sex\" interface=\"action-sheet\">\n          <ion-select-option value=\"1\">男</ion-select-option>\n          <ion-select-option value=\"0\">女</ion-select-option>\n        </ion-select>\n      </ion-item>\n      <!--<ion-radio-group [(ngModel)]=\"userData.sex\" name=\"sex\">-->\n        <!--<ion-list-header>-->\n          <!--性别-->\n        <!--</ion-list-header>-->\n        <!--<ion-item>-->\n          <!--<ion-label>男</ion-label>-->\n          <!--<ion-radio value=\"1\"></ion-radio>-->\n        <!--</ion-item>-->\n\n        <!--<ion-item>-->\n          <!--<ion-label>女</ion-label>-->\n          <!--<ion-radio value=\"0\"></ion-radio>-->\n        <!--</ion-item>-->\n      <!--</ion-radio-group>-->\n    </ion-list>\n    <ion-button type=\"submit\" color=\"success\" expand=\"block\" [disabled]=\"!data.form.valid || isloading\" *ngIf=\"!data.form.pristine && !isupdate || ischangeHeadend\">提交</ion-button>\n  </form>\n\n</ion-content>\n"
-
-/***/ }),
-
 /***/ "./src/app/pages/edmit-user/edmit-user.page.scss":
 /*!*******************************************************!*\
   !*** ./src/app/pages/edmit-user/edmit-user.page.scss ***!
   \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2VkbWl0LXVzZXIvZWRtaXQtdXNlci5wYWdlLnNjc3MifQ== */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2VkbWl0LXVzZXIvZWRtaXQtdXNlci5wYWdlLnNjc3MifQ== */");
 
 /***/ }),
 
@@ -297,11 +301,18 @@ var EdmitUserPage = /** @class */ (function () {
             });
         });
     };
+    EdmitUserPage.ctorParameters = function () { return [
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
+        { type: _services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+        { type: _services_native_service__WEBPACK_IMPORTED_MODULE_4__["NativeService"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ActionSheetController"] },
+        { type: _services_http_service__WEBPACK_IMPORTED_MODULE_5__["HttpService"] }
+    ]; };
     EdmitUserPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-edmit-user',
-            template: __webpack_require__(/*! ./edmit-user.page.html */ "./src/app/pages/edmit-user/edmit-user.page.html"),
-            styles: [__webpack_require__(/*! ./edmit-user.page.scss */ "./src/app/pages/edmit-user/edmit-user.page.scss")]
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./edmit-user.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/edmit-user/edmit-user.page.html")).default,
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./edmit-user.page.scss */ "./src/app/pages/edmit-user/edmit-user.page.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
             _services_native_service__WEBPACK_IMPORTED_MODULE_4__["NativeService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ActionSheetController"],

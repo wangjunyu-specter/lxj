@@ -325,6 +325,10 @@ var ContactlistService = /** @class */ (function () {
         this.provinceList = [];
         this.isgetdata = false;
     };
+    ContactlistService.ctorParameters = function () { return [
+        { type: _http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"] },
+        { type: _user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] }
+    ]; };
     ContactlistService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'

@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-browse-records-browse-records-module"],{
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/browse-records/browse-records.page.html":
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/browse-records/browse-records.page.html ***!
+  \*****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon slot=\"icon-only\" name=\"arrow-back\" mode=\"ios\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>浏览记录</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-refresher slot=\"fixed\" (ionRefresh)=\"doRefresh($event)\">\n    <ion-refresher-content\n       pullingIcon=\"arrow-dropdown\"\n       pullingText=\"旅行家\"\n       refreshingSpinner=\"crescent\"\n       refreshingText=\"更新中...\">\n    </ion-refresher-content>\n  </ion-refresher>\n  <div class=\"list-content\" padding>\n    <!--<div class=\"line\"></div>-->\n    <app-productlist *ngFor=\"let item of list\" [data]=\"item\" (open)=\"openpage($event)\"></app-productlist>\n\n  </div>\n  <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadData($event)\">\n    <ion-infinite-scroll-content\n       loadingSpinner=\"crescent\"\n       loadingText=\"加载更多...\">\n    </ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n</ion-content>\n");
+
+/***/ }),
+
 /***/ "./src/app/pages/browse-records/browse-records.module.ts":
 /*!***************************************************************!*\
   !*** ./src/app/pages/browse-records/browse-records.module.ts ***!
@@ -54,25 +67,16 @@ var BrowseRecordsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/browse-records/browse-records.page.html":
-/*!***************************************************************!*\
-  !*** ./src/app/pages/browse-records/browse-records.page.html ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon slot=\"icon-only\" name=\"arrow-back\" mode=\"ios\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>浏览记录</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-refresher slot=\"fixed\" (ionRefresh)=\"doRefresh($event)\">\n    <ion-refresher-content\n       pullingIcon=\"arrow-dropdown\"\n       pullingText=\"旅行家\"\n       refreshingSpinner=\"crescent\"\n       refreshingText=\"更新中...\">\n    </ion-refresher-content>\n  </ion-refresher>\n  <div class=\"list-content\" padding>\n    <!--<div class=\"line\"></div>-->\n    <app-productlist *ngFor=\"let item of list\" [data]=\"item\" (open)=\"openpage($event)\"></app-productlist>\n\n  </div>\n  <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadData($event)\">\n    <ion-infinite-scroll-content\n       loadingSpinner=\"crescent\"\n       loadingText=\"加载更多...\">\n    </ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n</ion-content>\n"
-
-/***/ }),
-
 /***/ "./src/app/pages/browse-records/browse-records.page.scss":
 /*!***************************************************************!*\
   !*** ./src/app/pages/browse-records/browse-records.page.scss ***!
   \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2Jyb3dzZS1yZWNvcmRzL2Jyb3dzZS1yZWNvcmRzLnBhZ2Uuc2NzcyJ9 */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2Jyb3dzZS1yZWNvcmRzL2Jyb3dzZS1yZWNvcmRzLnBhZ2Uuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -149,11 +153,17 @@ var BrowseRecordsPage = /** @class */ (function () {
         // this.nav.navigateForward(['/productcontent'], );
         this.route.navigate(['/productcontent'], { queryParams: { id: $event.goods_id, suppid: $event.supplier_id } });
     };
+    BrowseRecordsPage.ctorParameters = function () { return [
+        { type: _services_lljl_service__WEBPACK_IMPORTED_MODULE_2__["LljlService"] },
+        { type: _services_http_service__WEBPACK_IMPORTED_MODULE_3__["HttpService"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }
+    ]; };
     BrowseRecordsPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-browse-records',
-            template: __webpack_require__(/*! ./browse-records.page.html */ "./src/app/pages/browse-records/browse-records.page.html"),
-            styles: [__webpack_require__(/*! ./browse-records.page.scss */ "./src/app/pages/browse-records/browse-records.page.scss")]
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./browse-records.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/browse-records/browse-records.page.html")).default,
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./browse-records.page.scss */ "./src/app/pages/browse-records/browse-records.page.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_lljl_service__WEBPACK_IMPORTED_MODULE_2__["LljlService"], _services_http_service__WEBPACK_IMPORTED_MODULE_3__["HttpService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
     ], BrowseRecordsPage);

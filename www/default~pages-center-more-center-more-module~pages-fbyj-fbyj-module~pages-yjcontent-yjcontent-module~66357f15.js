@@ -307,6 +307,9 @@ var YjlistService = /** @class */ (function () {
             });
         });
     };
+    YjlistService.ctorParameters = function () { return [
+        { type: _http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"] }
+    ]; };
     YjlistService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'

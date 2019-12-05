@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-about-us-about-us-module"],{
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/about-us/about-us.page.html":
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/about-us/about-us.page.html ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<!--\n * @Author: wjy-home\n * @Date: 2019-08-03 14:52:31\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-11-18 10:01:34\n * @Description: file content\n -->\n<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <!--<ion-title>账单</ion-title>-->\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <div class=\"top\" *ngIf=\"data\">\n    <img [src]=\"data.shop_logo\" alt=\"\">\n    <h2>{{data.shop_name}}</h2>\n    <p no-margin *ngIf=\"appver\">Version&nbsp;&nbsp;{{appver}}</p>\n  </div>\n  <ion-list>\n    <ion-item button detial *ngIf=\"isios\" (click)=\"openStore()\">去评分</ion-item>\n    <ion-item button (click)=\"updateapp()\">版本更新</ion-item>\n  </ion-list>\n  <div class=\"footer\">\n    <ion-text *ngIf=\"data\" color=\"medium\">{{data.shop_name}}公司&nbsp;&nbsp;版本所有</ion-text>\n    <br>\n    <ion-text color=\"medium\">Copyright&nbsp;&nbsp;©2019-2029&nbsp;&nbsp;lvxingjia.All&nbsp;&nbsp;Rights&nbsp;&nbsp;Reserved</ion-text>\n  </div>\n</ion-content>\n\n");
+
+/***/ }),
+
 /***/ "./src/app/pages/about-us/about-us.module.ts":
 /*!***************************************************!*\
   !*** ./src/app/pages/about-us/about-us.module.ts ***!
@@ -51,25 +64,16 @@ var AboutUsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/about-us/about-us.page.html":
-/*!***************************************************!*\
-  !*** ./src/app/pages/about-us/about-us.page.html ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<!--\n * @Author: wjy-home\n * @Date: 2019-08-03 14:52:31\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-11-18 10:01:34\n * @Description: file content\n -->\n<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <!--<ion-title>账单</ion-title>-->\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <div class=\"top\" *ngIf=\"data\">\n    <img [src]=\"data.shop_logo\" alt=\"\">\n    <h2>{{data.shop_name}}</h2>\n    <p no-margin *ngIf=\"appver\">Version&nbsp;&nbsp;{{appver}}</p>\n  </div>\n  <ion-list>\n    <ion-item button detial *ngIf=\"isios\" (click)=\"openStore()\">去评分</ion-item>\n    <ion-item button (click)=\"updateapp()\">版本更新</ion-item>\n  </ion-list>\n  <div class=\"footer\">\n    <ion-text *ngIf=\"data\" color=\"medium\">{{data.shop_name}}公司&nbsp;&nbsp;版本所有</ion-text>\n    <br>\n    <ion-text color=\"medium\">Copyright&nbsp;&nbsp;©2019-2029&nbsp;&nbsp;lvxingjia.All&nbsp;&nbsp;Rights&nbsp;&nbsp;Reserved</ion-text>\n  </div>\n</ion-content>\n\n"
-
-/***/ }),
-
 /***/ "./src/app/pages/about-us/about-us.page.scss":
 /*!***************************************************!*\
   !*** ./src/app/pages/about-us/about-us.page.scss ***!
   \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = ".footer {\n  font-size: var(--ion-sm-text);\n  text-align: center;\n  position: absolute;\n  width: 100%;\n  bottom: 30px;\n  left: 0; }\n\n.top {\n  text-align: center;\n  margin-bottom: 50px; }\n\n.top img {\n    width: 100px;\n    height: 100px;\n    border-radius: 5px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC9wYWdlcy9hYm91dC11cy9hYm91dC11cy5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSw2QkFBNkI7RUFDN0Isa0JBQWtCO0VBQ2xCLGtCQUFrQjtFQUNsQixXQUFXO0VBQ1gsWUFBWTtFQUNaLE9BQU8sRUFBQTs7QUFFVDtFQUNFLGtCQUFrQjtFQUNsQixtQkFBbUIsRUFBQTs7QUFGckI7SUFJSSxZQUFZO0lBQ1osYUFBYTtJQUNiLGtCQUFrQixFQUFBIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvYWJvdXQtdXMvYWJvdXQtdXMucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmZvb3RlciB7XHJcbiAgZm9udC1zaXplOiB2YXIoLS1pb24tc20tdGV4dCk7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICB3aWR0aDogMTAwJTtcclxuICBib3R0b206IDMwcHg7XHJcbiAgbGVmdDogMDtcclxufVxyXG4udG9wIHtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgbWFyZ2luLWJvdHRvbTogNTBweDtcclxuICBpbWcge1xyXG4gICAgd2lkdGg6IDEwMHB4O1xyXG4gICAgaGVpZ2h0OiAxMDBweDtcclxuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcclxuICB9XHJcbn0iXX0= */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".footer {\n  font-size: var(--ion-sm-text);\n  text-align: center;\n  position: absolute;\n  width: 100%;\n  bottom: 30px;\n  left: 0;\n}\n\n.top {\n  text-align: center;\n  margin-bottom: 50px;\n}\n\n.top img {\n  width: 100px;\n  height: 100px;\n  border-radius: 5px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC9wYWdlcy9hYm91dC11cy9hYm91dC11cy5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL2Fib3V0LXVzL2Fib3V0LXVzLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLDZCQUFBO0VBQ0Esa0JBQUE7RUFDQSxrQkFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsT0FBQTtBQ0NGOztBRENBO0VBQ0Usa0JBQUE7RUFDQSxtQkFBQTtBQ0VGOztBRERFO0VBQ0UsWUFBQTtFQUNBLGFBQUE7RUFDQSxrQkFBQTtBQ0dKIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvYWJvdXQtdXMvYWJvdXQtdXMucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmZvb3RlciB7XHJcbiAgZm9udC1zaXplOiB2YXIoLS1pb24tc20tdGV4dCk7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICB3aWR0aDogMTAwJTtcclxuICBib3R0b206IDMwcHg7XHJcbiAgbGVmdDogMDtcclxufVxyXG4udG9wIHtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgbWFyZ2luLWJvdHRvbTogNTBweDtcclxuICBpbWcge1xyXG4gICAgd2lkdGg6IDEwMHB4O1xyXG4gICAgaGVpZ2h0OiAxMDBweDtcclxuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcclxuICB9XHJcbn0iLCIuZm9vdGVyIHtcbiAgZm9udC1zaXplOiB2YXIoLS1pb24tc20tdGV4dCk7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB3aWR0aDogMTAwJTtcbiAgYm90dG9tOiAzMHB4O1xuICBsZWZ0OiAwO1xufVxuXG4udG9wIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBtYXJnaW4tYm90dG9tOiA1MHB4O1xufVxuLnRvcCBpbWcge1xuICB3aWR0aDogMTAwcHg7XG4gIGhlaWdodDogMTAwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbn0iXX0= */");
 
 /***/ }),
 
@@ -148,11 +152,16 @@ var AboutUsPage = /** @class */ (function () {
         else {
         }
     };
+    AboutUsPage.ctorParameters = function () { return [
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"] },
+        { type: _services_shop_content_service__WEBPACK_IMPORTED_MODULE_1__["ShopContentService"] },
+        { type: src_app_services_native_service__WEBPACK_IMPORTED_MODULE_4__["NativeService"] }
+    ]; };
     AboutUsPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
             selector: 'app-about-us',
-            template: __webpack_require__(/*! ./about-us.page.html */ "./src/app/pages/about-us/about-us.page.html"),
-            styles: [__webpack_require__(/*! ./about-us.page.scss */ "./src/app/pages/about-us/about-us.page.scss")]
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./about-us.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/about-us/about-us.page.html")).default,
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./about-us.page.scss */ "./src/app/pages/about-us/about-us.page.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"], _services_shop_content_service__WEBPACK_IMPORTED_MODULE_1__["ShopContentService"], src_app_services_native_service__WEBPACK_IMPORTED_MODULE_4__["NativeService"]])
     ], AboutUsPage);

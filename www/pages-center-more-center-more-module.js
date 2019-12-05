@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-center-more-center-more-module"],{
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/center-more/center-more.page.html":
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/center-more/center-more.page.html ***!
+  \***********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<!--\n * @Author: wjy-mac\n * @Date: 2019-08-03 23:14:51\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-11-18 10:14:36\n * @Description: file content\n -->\n<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>更多设置</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n\n<ion-content class=\"ion-padding\">\n  <ion-list>\n    <!-- <ion-item *ngIf=\"user && user.is_surplus_open == 0\" button (click)=\"setPaypwd()\">设置支付密码</ion-item> -->\n    <!-- <ion-item *ngIf=\"user && user.is_surplus_open == 1\" button (click)=\"setPaypwd()\">修改支付密码</ion-item> -->\n    <ion-item *ngIf=\"user\" button (click)=\"gotopage(1)\">地址管理</ion-item>\n    <!-- <ion-item button (click)=\"tobill()\">账单</ion-item> 感觉无用 wjy -->\n    <ion-item button (click)=\"toSetpw()\">修改登录密码</ion-item>\n    <ion-item button (click)=\"toabout()\">关于我们</ion-item>\n  </ion-list>\n  <ion-button color=\"danger\" expand=\"block\" (click)=\"loginout()\">退出登录</ion-button>\n</ion-content>\n");
+
+/***/ }),
+
 /***/ "./src/app/pages/center-more/center-more.module.ts":
 /*!*********************************************************!*\
   !*** ./src/app/pages/center-more/center-more.module.ts ***!
@@ -53,25 +66,16 @@ var CenterMorePageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/center-more/center-more.page.html":
-/*!*********************************************************!*\
-  !*** ./src/app/pages/center-more/center-more.page.html ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-08-03 23:14:51\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-11-18 10:14:36\n * @Description: file content\n -->\n<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>更多设置</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n\n<ion-content class=\"ion-padding\">\n  <ion-list>\n    <!-- <ion-item *ngIf=\"user && user.is_surplus_open == 0\" button (click)=\"setPaypwd()\">设置支付密码</ion-item> -->\n    <!-- <ion-item *ngIf=\"user && user.is_surplus_open == 1\" button (click)=\"setPaypwd()\">修改支付密码</ion-item> -->\n    <ion-item *ngIf=\"user\" button (click)=\"gotopage(1)\">地址管理</ion-item>\n    <!-- <ion-item button (click)=\"tobill()\">账单</ion-item> 感觉无用 wjy -->\n    <ion-item button (click)=\"toSetpw()\">修改登录密码</ion-item>\n    <ion-item button (click)=\"toabout()\">关于我们</ion-item>\n  </ion-list>\n  <ion-button color=\"danger\" expand=\"block\" (click)=\"loginout()\">退出登录</ion-button>\n</ion-content>\n"
-
-/***/ }),
-
 /***/ "./src/app/pages/center-more/center-more.page.scss":
 /*!*********************************************************!*\
   !*** ./src/app/pages/center-more/center-more.page.scss ***!
   \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2NlbnRlci1tb3JlL2NlbnRlci1tb3JlLnBhZ2Uuc2NzcyJ9 */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2NlbnRlci1tb3JlL2NlbnRlci1tb3JlLnBhZ2Uuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -307,11 +311,53 @@ var CenterMorePage = /** @class */ (function () {
         this.yjlist.clear();
         this.ztlist.clear();
     };
+    CenterMorePage.ctorParameters = function () { return [
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
+        { type: _services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+        { type: src_app_services_native_service__WEBPACK_IMPORTED_MODULE_5__["NativeService"] },
+        { type: src_app_services_articelist_service__WEBPACK_IMPORTED_MODULE_6__["ArticelistService"] },
+        { type: src_app_services_bounslist_service__WEBPACK_IMPORTED_MODULE_7__["BounslistService"] },
+        { type: src_app_services_collelist_service__WEBPACK_IMPORTED_MODULE_8__["CollelistService"] },
+        { type: src_app_services_contactlist_service__WEBPACK_IMPORTED_MODULE_9__["ContactlistService"] },
+        { type: src_app_services_emojiishow_service__WEBPACK_IMPORTED_MODULE_10__["EmojiishowService"] },
+        { type: src_app_services_getproduct_service__WEBPACK_IMPORTED_MODULE_11__["GetproductService"] },
+        { type: src_app_services_goodsattr_service__WEBPACK_IMPORTED_MODULE_12__["GoodsattrService"] },
+        { type: src_app_services_gwc_service__WEBPACK_IMPORTED_MODULE_13__["GwcService"] },
+        { type: src_app_services_gzlist_service__WEBPACK_IMPORTED_MODULE_14__["GzlistService"] },
+        { type: src_app_services_http_service__WEBPACK_IMPORTED_MODULE_26__["HttpService"] },
+        { type: src_app_services_lljl_service__WEBPACK_IMPORTED_MODULE_15__["LljlService"] },
+        { type: src_app_services_news_list_service__WEBPACK_IMPORTED_MODULE_16__["NewsListService"] },
+        { type: src_app_services_orderlist_service__WEBPACK_IMPORTED_MODULE_17__["OrderlistService"] },
+        { type: src_app_services_ordersuccess_service__WEBPACK_IMPORTED_MODULE_18__["OrdersuccessService"] },
+        { type: src_app_services_payment_list_service__WEBPACK_IMPORTED_MODULE_19__["PaymentListService"] },
+        { type: src_app_services_payorder_service__WEBPACK_IMPORTED_MODULE_20__["PayorderService"] },
+        { type: src_app_services_pqlist_service__WEBPACK_IMPORTED_MODULE_21__["PqlistService"] },
+        { type: src_app_services_productcontentlist_service__WEBPACK_IMPORTED_MODULE_22__["ProductcontentlistService"] },
+        { type: src_app_services_products_list_service__WEBPACK_IMPORTED_MODULE_23__["ProductsListService"] },
+        { type: src_app_services_provinces_service__WEBPACK_IMPORTED_MODULE_24__["ProvincesService"] },
+        { type: src_app_services_scindex_service__WEBPACK_IMPORTED_MODULE_25__["ScindexService"] },
+        { type: src_app_services_searchendgoods_service__WEBPACK_IMPORTED_MODULE_27__["SearchendgoodsService"] },
+        { type: src_app_services_searchrecode_service__WEBPACK_IMPORTED_MODULE_28__["SearchrecodeService"] },
+        { type: src_app_services_selete_media_service__WEBPACK_IMPORTED_MODULE_29__["SeleteMediaService"] },
+        { type: src_app_services_shop_content_service__WEBPACK_IMPORTED_MODULE_30__["ShopContentService"] },
+        { type: src_app_services_shop_nav_service__WEBPACK_IMPORTED_MODULE_31__["ShopNavService"] },
+        { type: src_app_services_sjindextjgoods_service__WEBPACK_IMPORTED_MODULE_32__["SjindextjgoodsService"] },
+        { type: src_app_services_supplierlist_service__WEBPACK_IMPORTED_MODULE_33__["SupplierlistService"] },
+        { type: src_app_services_thorder_service__WEBPACK_IMPORTED_MODULE_34__["ThorderService"] },
+        { type: src_app_services_usercenter_service__WEBPACK_IMPORTED_MODULE_35__["UsercenterService"] },
+        { type: src_app_services_websocket_service__WEBPACK_IMPORTED_MODULE_36__["WebsocketService"] },
+        { type: src_app_services_xclist_service__WEBPACK_IMPORTED_MODULE_37__["XclistService"] },
+        { type: src_app_services_xcsclist_service__WEBPACK_IMPORTED_MODULE_38__["XcsclistService"] },
+        { type: src_app_services_yhtclist_service__WEBPACK_IMPORTED_MODULE_39__["YhtclistService"] },
+        { type: src_app_services_yjlist_service__WEBPACK_IMPORTED_MODULE_40__["YjlistService"] },
+        { type: src_app_services_zt_list_service__WEBPACK_IMPORTED_MODULE_41__["ZtListService"] }
+    ]; };
     CenterMorePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-center-more',
-            template: __webpack_require__(/*! ./center-more.page.html */ "./src/app/pages/center-more/center-more.page.html"),
-            styles: [__webpack_require__(/*! ./center-more.page.scss */ "./src/app/pages/center-more/center-more.page.scss")]
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./center-more.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/center-more/center-more.page.html")).default,
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./center-more.page.scss */ "./src/app/pages/center-more/center-more.page.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_services_native_service__WEBPACK_IMPORTED_MODULE_5__["NativeService"],
             src_app_services_articelist_service__WEBPACK_IMPORTED_MODULE_6__["ArticelistService"], src_app_services_bounslist_service__WEBPACK_IMPORTED_MODULE_7__["BounslistService"],

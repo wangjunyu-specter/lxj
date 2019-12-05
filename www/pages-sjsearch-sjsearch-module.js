@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-sjsearch-sjsearch-module"],{
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/sjsearch/sjsearch.page.html":
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/sjsearch/sjsearch.page.html ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<!--\n * @Author: wjy-mac\n * @Date: 2019-08-07 23:04:49\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-11-14 12:09:28\n * @Description: file content\n -->\n<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\" mode=\"ios\">\n      <ion-button (click)=\"goBack()\" mode=\"ios\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <!--<ion-title>账单</ion-title>-->\n    <ion-searchbar mode=\"ios\" showCancelButton=\"focus\" (ionChange)=\"searchFn($event)\" cancelButtonText=\"取消\"  placeholder=\"输入关键词搜索\"></ion-searchbar>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <app-productlist *ngFor=\"let item of list\" [data]=\"item\" (open)=\"goodsContent($event)\"></app-productlist>\n  <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadData($event)\">\n      <ion-infinite-scroll-content\n         loadingSpinner=\"crescent\"\n         loadingText=\"加载更多...\">\n      </ion-infinite-scroll-content>\n    </ion-infinite-scroll>\n</ion-content>\n");
+
+/***/ }),
+
 /***/ "./src/app/pages/sjsearch/sjsearch.module.ts":
 /*!***************************************************!*\
   !*** ./src/app/pages/sjsearch/sjsearch.module.ts ***!
@@ -61,25 +74,16 @@ var SjsearchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/sjsearch/sjsearch.page.html":
-/*!***************************************************!*\
-  !*** ./src/app/pages/sjsearch/sjsearch.page.html ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-08-07 23:04:49\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-11-14 12:09:28\n * @Description: file content\n -->\n<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\" mode=\"ios\">\n      <ion-button (click)=\"goBack()\" mode=\"ios\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <!--<ion-title>账单</ion-title>-->\n    <ion-searchbar mode=\"ios\" showCancelButton=\"focus\" (ionChange)=\"searchFn($event)\" cancelButtonText=\"取消\"  placeholder=\"输入关键词搜索\"></ion-searchbar>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <app-productlist *ngFor=\"let item of list\" [data]=\"item\" (open)=\"goodsContent($event)\"></app-productlist>\n  <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadData($event)\">\n      <ion-infinite-scroll-content\n         loadingSpinner=\"crescent\"\n         loadingText=\"加载更多...\">\n      </ion-infinite-scroll-content>\n    </ion-infinite-scroll>\n</ion-content>\n"
-
-/***/ }),
-
 /***/ "./src/app/pages/sjsearch/sjsearch.page.scss":
 /*!***************************************************!*\
   !*** ./src/app/pages/sjsearch/sjsearch.page.scss ***!
   \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "ion-searchbar {\n  --cancel-button-color: #fff;\n  --clear-button-color: #fff;\n  --placeholder-color: #f1f1f1;\n  --icon-color: #f1f1f1;\n  --color: #fff; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC9wYWdlcy9zanNlYXJjaC9zanNlYXJjaC5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSwyQkFBc0I7RUFDdEIsMEJBQXFCO0VBQ3JCLDRCQUFvQjtFQUNwQixxQkFBYTtFQUNiLGFBQVEsRUFBQSIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3Nqc2VhcmNoL3Nqc2VhcmNoLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImlvbi1zZWFyY2hiYXIge1xuICAtLWNhbmNlbC1idXR0b24tY29sb3I6ICNmZmY7XG4gIC0tY2xlYXItYnV0dG9uLWNvbG9yOiAjZmZmO1xuICAtLXBsYWNlaG9sZGVyLWNvbG9yOiAjZjFmMWYxO1xuICAtLWljb24tY29sb3I6ICNmMWYxZjE7XG4gIC0tY29sb3I6ICNmZmY7XG59Il19 */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("ion-searchbar {\n  --cancel-button-color: #fff;\n  --clear-button-color: #fff;\n  --placeholder-color: #f1f1f1;\n  --icon-color: #f1f1f1;\n  --color: #fff;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC9wYWdlcy9zanNlYXJjaC9zanNlYXJjaC5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL3Nqc2VhcmNoL3Nqc2VhcmNoLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLDJCQUFBO0VBQ0EsMEJBQUE7RUFDQSw0QkFBQTtFQUNBLHFCQUFBO0VBQ0EsYUFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvc2pzZWFyY2gvc2pzZWFyY2gucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLXNlYXJjaGJhciB7XG4gIC0tY2FuY2VsLWJ1dHRvbi1jb2xvcjogI2ZmZjtcbiAgLS1jbGVhci1idXR0b24tY29sb3I6ICNmZmY7XG4gIC0tcGxhY2Vob2xkZXItY29sb3I6ICNmMWYxZjE7XG4gIC0taWNvbi1jb2xvcjogI2YxZjFmMTtcbiAgLS1jb2xvcjogI2ZmZjtcbn0iLCJpb24tc2VhcmNoYmFyIHtcbiAgLS1jYW5jZWwtYnV0dG9uLWNvbG9yOiAjZmZmO1xuICAtLWNsZWFyLWJ1dHRvbi1jb2xvcjogI2ZmZjtcbiAgLS1wbGFjZWhvbGRlci1jb2xvcjogI2YxZjFmMTtcbiAgLS1pY29uLWNvbG9yOiAjZjFmMWYxO1xuICAtLWNvbG9yOiAjZmZmO1xufSJdfQ== */");
 
 /***/ }),
 
@@ -104,7 +108,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy-mac
  * @Date: 2019-08-07 23:04:49
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-08-07 23:51:49
+ * @LastEditTime: 2019-12-05 21:02:16
  * @Description: file content
  */
 
@@ -212,15 +216,22 @@ var SjsearchPage = /** @class */ (function () {
         }
         this.route.navigate(['/productcontent'], { queryParams: { id: id, suppid: this.suppId } });
     };
+    SjsearchPage.ctorParameters = function () { return [
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+        { type: src_app_services_http_service__WEBPACK_IMPORTED_MODULE_4__["HttpService"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
+        { type: src_app_services_native_service__WEBPACK_IMPORTED_MODULE_5__["NativeService"] }
+    ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonInfiniteScroll"]),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonInfiniteScroll"], { static: true }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonInfiniteScroll"])
     ], SjsearchPage.prototype, "infiniteScroll", void 0);
     SjsearchPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-sjsearch',
-            template: __webpack_require__(/*! ./sjsearch.page.html */ "./src/app/pages/sjsearch/sjsearch.page.html"),
-            styles: [__webpack_require__(/*! ./sjsearch.page.scss */ "./src/app/pages/sjsearch/sjsearch.page.scss")]
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./sjsearch.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/sjsearch/sjsearch.page.html")).default,
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./sjsearch.page.scss */ "./src/app/pages/sjsearch/sjsearch.page.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
             src_app_services_http_service__WEBPACK_IMPORTED_MODULE_4__["HttpService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], src_app_services_native_service__WEBPACK_IMPORTED_MODULE_5__["NativeService"]])

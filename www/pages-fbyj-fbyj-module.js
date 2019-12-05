@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-fbyj-fbyj-module"],{
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/fbyj/fbyj.page.html":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/fbyj/fbyj.page.html ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<!--\n * @Author: wjy-mac\n * @Date: 2019-07-31 23:40:56\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-11-29 23:15:43\n * @Description: file content\n -->\n<ion-header>\n\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>发布{{title}}</ion-title>\n    <ion-buttons slot=\"end\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button *ngIf=\"!id\" (click)=\"savefn(1)\" [disabled]=\"!formdata.title || !content || issub || issave\">\n        <ion-icon name=\"paper-plane\"></ion-icon>保存\n      </ion-button>\n      <ion-button (click)=\"sub(1)\" [disabled]=\"!formdata.title || !content || issub || issave\">\n        <ion-icon name=\"paper-plane\"></ion-icon>发表\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content #contentbox>\n  <div *ngIf=\"!iscontent\">\n    <div class=\"top-head\">\n      <img [src]=\"head | imgsrc: http.zdomain\" alt=\"\" *ngIf=\"head\" (click)=\"addfm()\">\n      <div *ngIf=\"!head\" class=\"ts-box\" (click)=\"addfm()\">\n        添加封面\n      </div>\n    </div>\n    <ion-list>\n      <ion-item>\n        <ion-input (ionFocus)=\"focusinput($event)\" (ionBlur)=\"blurinput($event)\" [(ngModel)]=\"formdata.title\" clearInput placeholder=\"添加标题\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input (ionFocus)=\"focusinput($event)\" (ionBlur)=\"blurinput($event)\" [(ngModel)]=\"formdata.destination\" clearInput placeholder=\"目的地\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-datetime class=\"ion-no-padding ion-no-margin\" [(ngModel)]=\"formdata.outtime\" placeholder=\"出发日期\" display-format=\"YYYY.MM.DD\" [doneText]=\"'确定'\" [cancelText]=\"'取消'\"></ion-datetime>\n      </ion-item>\n      <ion-item>\n        <ion-input (ionFocus)=\"focusinput($event)\" (ionBlur)=\"blurinput($event)\" [(ngModel)]=\"formdata.days\" type=\"number\" clearInput placeholder=\"出行天数\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input (ionFocus)=\"focusinput($event)\" (ionBlur)=\"blurinput($event)\" [(ngModel)]=\"formdata.money\" clearInput type=\"number\" placeholder=\"人均花费\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input (ionFocus)=\"focusinput($event)\" (ionBlur)=\"blurinput($event)\" [(ngModel)]=\"formdata.tag\" clearInput placeholder=\"添加标签\"></ion-input>\n      </ion-item>\n      <ion-item lines=\"none\">\n        <ion-textarea (ionFocus)=\"focusinput($event)\" (ionBlur)=\"blurinput($event)\" [(ngModel)]=\"formdata.des\" rows=\"3\" placeholder=\"一句话描述...\"></ion-textarea>\n      </ion-item>\n    </ion-list>\n  </div>\n  <div *ngIf=\"iscontent\">\n    <ckeditor [(ngModel)]=\"content\" [config]=\"config\" debounce=\"500\">  </ckeditor>\n  </div>\n  <div class=\"keyboard-height\" [ngStyle]=\"{height: keyboardH + 'px'}\"></div>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-button mode=\"ios\" color=\"secondary\" (click)=\"setContent()\" [disabled]=\"issub\">\n        {{iscontent ? '标题' : '正文'}}\n      </ion-button>\n    </ion-buttons>\n    <ion-buttons slot=\"end\" *ngIf=\"iscontent\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"addimg()\" color=\"secondary\" [disabled]=\"issub\">\n        <ion-icon name=\"images\"></ion-icon>本地图片\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-footer>\n");
+
+/***/ }),
+
 /***/ "./src/app/pages/fbyj/fbyj.module.ts":
 /*!*******************************************!*\
   !*** ./src/app/pages/fbyj/fbyj.module.ts ***!
@@ -64,25 +77,16 @@ var FbyjPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/fbyj/fbyj.page.html":
-/*!*******************************************!*\
-  !*** ./src/app/pages/fbyj/fbyj.page.html ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-07-31 23:40:56\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-11-29 23:15:43\n * @Description: file content\n -->\n<ion-header>\n\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>发布{{title}}</ion-title>\n    <ion-buttons slot=\"end\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button *ngIf=\"!id\" (click)=\"savefn(1)\" [disabled]=\"!formdata.title || !content || issub || issave\">\n        <ion-icon name=\"paper-plane\"></ion-icon>保存\n      </ion-button>\n      <ion-button (click)=\"sub(1)\" [disabled]=\"!formdata.title || !content || issub || issave\">\n        <ion-icon name=\"paper-plane\"></ion-icon>发表\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content #contentbox>\n  <div *ngIf=\"!iscontent\">\n    <div class=\"top-head\">\n      <img [src]=\"head | imgsrc: http.zdomain\" alt=\"\" *ngIf=\"head\" (click)=\"addfm()\">\n      <div *ngIf=\"!head\" class=\"ts-box\" (click)=\"addfm()\">\n        添加封面\n      </div>\n    </div>\n    <ion-list>\n      <ion-item>\n        <ion-input (ionFocus)=\"focusinput($event)\" (ionBlur)=\"blurinput($event)\" [(ngModel)]=\"formdata.title\" clearInput placeholder=\"添加标题\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input (ionFocus)=\"focusinput($event)\" (ionBlur)=\"blurinput($event)\" [(ngModel)]=\"formdata.destination\" clearInput placeholder=\"目的地\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-datetime class=\"ion-no-padding ion-no-margin\" [(ngModel)]=\"formdata.outtime\" placeholder=\"出发日期\" display-format=\"YYYY.MM.DD\" [doneText]=\"'确定'\" [cancelText]=\"'取消'\"></ion-datetime>\n      </ion-item>\n      <ion-item>\n        <ion-input (ionFocus)=\"focusinput($event)\" (ionBlur)=\"blurinput($event)\" [(ngModel)]=\"formdata.days\" type=\"number\" clearInput placeholder=\"出行天数\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input (ionFocus)=\"focusinput($event)\" (ionBlur)=\"blurinput($event)\" [(ngModel)]=\"formdata.money\" clearInput type=\"number\" placeholder=\"人均花费\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input (ionFocus)=\"focusinput($event)\" (ionBlur)=\"blurinput($event)\" [(ngModel)]=\"formdata.tag\" clearInput placeholder=\"添加标签\"></ion-input>\n      </ion-item>\n      <ion-item lines=\"none\">\n        <ion-textarea (ionFocus)=\"focusinput($event)\" (ionBlur)=\"blurinput($event)\" [(ngModel)]=\"formdata.des\" rows=\"3\" placeholder=\"一句话描述...\"></ion-textarea>\n      </ion-item>\n    </ion-list>\n  </div>\n  <div *ngIf=\"iscontent\">\n    <ckeditor [(ngModel)]=\"content\" [config]=\"config\" debounce=\"500\">  </ckeditor>\n  </div>\n  <div class=\"keyboard-height\" [ngStyle]=\"{height: keyboardH + 'px'}\"></div>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-button mode=\"ios\" color=\"secondary\" (click)=\"setContent()\" [disabled]=\"issub\">\n        {{iscontent ? '标题' : '正文'}}\n      </ion-button>\n    </ion-buttons>\n    <ion-buttons slot=\"end\" *ngIf=\"iscontent\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"addimg()\" color=\"secondary\" [disabled]=\"issub\">\n        <ion-icon name=\"images\"></ion-icon>本地图片\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-footer>\n"
-
-/***/ }),
-
 /***/ "./src/app/pages/fbyj/fbyj.page.scss":
 /*!*******************************************!*\
   !*** ./src/app/pages/fbyj/fbyj.page.scss ***!
   \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = ".top-head .ts-box {\n  min-height: 200px;\n  background-color: var(--ion-gray-background-color);\n  line-height: 200px;\n  text-align: center;\n  font-size: var(--ion-text);\n  color: var(--ion-color-medium); }\n\nion-backdrop {\n  background: blue;\n  --background: red; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC9wYWdlcy9mYnlqL2ZieWoucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBRUksaUJBQWlCO0VBQ2pCLGtEQUFrRDtFQUNsRCxrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLDBCQUEwQjtFQUMxQiw4QkFBOEIsRUFBQTs7QUFHbEM7RUFDRSxnQkFBZ0I7RUFDaEIsaUJBQWEsRUFBQSIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2ZieWovZmJ5ai5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudG9wLWhlYWQge1xuICAudHMtYm94IHtcbiAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1pb24tZ3JheS1iYWNrZ3JvdW5kLWNvbG9yKTtcbiAgICBsaW5lLWhlaWdodDogMjAwcHg7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIGZvbnQtc2l6ZTogdmFyKC0taW9uLXRleHQpO1xuICAgIGNvbG9yOiB2YXIoLS1pb24tY29sb3ItbWVkaXVtKTtcbiAgfVxufVxuaW9uLWJhY2tkcm9wIHtcbiAgYmFja2dyb3VuZDogYmx1ZTtcbiAgLS1iYWNrZ3JvdW5kOiByZWQ7XG59XG4iXX0= */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".top-head .ts-box {\n  min-height: 200px;\n  background-color: var(--ion-gray-background-color);\n  line-height: 200px;\n  text-align: center;\n  font-size: var(--ion-text);\n  color: var(--ion-color-medium);\n}\n\nion-backdrop {\n  background: blue;\n  --background: red;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC9wYWdlcy9mYnlqL2ZieWoucGFnZS5zY3NzIiwic3JjL2FwcC9wYWdlcy9mYnlqL2ZieWoucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNFO0VBQ0UsaUJBQUE7RUFDQSxrREFBQTtFQUNBLGtCQUFBO0VBQ0Esa0JBQUE7RUFDQSwwQkFBQTtFQUNBLDhCQUFBO0FDQUo7O0FER0E7RUFDRSxnQkFBQTtFQUNBLGlCQUFBO0FDQUYiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9mYnlqL2ZieWoucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnRvcC1oZWFkIHtcbiAgLnRzLWJveCB7XG4gICAgbWluLWhlaWdodDogMjAwcHg7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0taW9uLWdyYXktYmFja2dyb3VuZC1jb2xvcik7XG4gICAgbGluZS1oZWlnaHQ6IDIwMHB4O1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBmb250LXNpemU6IHZhcigtLWlvbi10ZXh0KTtcbiAgICBjb2xvcjogdmFyKC0taW9uLWNvbG9yLW1lZGl1bSk7XG4gIH1cbn1cbmlvbi1iYWNrZHJvcCB7XG4gIGJhY2tncm91bmQ6IGJsdWU7XG4gIC0tYmFja2dyb3VuZDogcmVkO1xufVxuIiwiLnRvcC1oZWFkIC50cy1ib3gge1xuICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0taW9uLWdyYXktYmFja2dyb3VuZC1jb2xvcik7XG4gIGxpbmUtaGVpZ2h0OiAyMDBweDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBmb250LXNpemU6IHZhcigtLWlvbi10ZXh0KTtcbiAgY29sb3I6IHZhcigtLWlvbi1jb2xvci1tZWRpdW0pO1xufVxuXG5pb24tYmFja2Ryb3Age1xuICBiYWNrZ3JvdW5kOiBibHVlO1xuICAtLWJhY2tncm91bmQ6IHJlZDtcbn0iXX0= */");
 
 /***/ }),
 
@@ -816,15 +820,29 @@ var FbyjPage = /** @class */ (function () {
         //   this.contentbox.scrollToBottom(1);
         // }, 1);
     };
+    FbyjPage.ctorParameters = function () { return [
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Platform"] },
+        { type: _ionic_native_keyboard_ngx__WEBPACK_IMPORTED_MODULE_5__["Keyboard"] },
+        { type: _services_http_service__WEBPACK_IMPORTED_MODULE_6__["HttpService"] },
+        { type: _services_user_service__WEBPACK_IMPORTED_MODULE_7__["UserService"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ActionSheetController"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
+        { type: _services_native_service__WEBPACK_IMPORTED_MODULE_8__["NativeService"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["PopoverController"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
+        { type: src_app_services_editmyrelease_service__WEBPACK_IMPORTED_MODULE_10__["EditmyreleaseService"] },
+        { type: src_app_services_yjlist_service__WEBPACK_IMPORTED_MODULE_1__["YjlistService"] }
+    ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"])(_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonContent"]),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"])(_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonContent"], { static: true }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonContent"])
     ], FbyjPage.prototype, "contentbox", void 0);
     FbyjPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
             selector: 'app-fbyj',
-            template: __webpack_require__(/*! ./fbyj.page.html */ "./src/app/pages/fbyj/fbyj.page.html"),
-            styles: [__webpack_require__(/*! ./fbyj.page.scss */ "./src/app/pages/fbyj/fbyj.page.scss")]
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./fbyj.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/fbyj/fbyj.page.html")).default,
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./fbyj.page.scss */ "./src/app/pages/fbyj/fbyj.page.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Platform"], _ionic_native_keyboard_ngx__WEBPACK_IMPORTED_MODULE_5__["Keyboard"],

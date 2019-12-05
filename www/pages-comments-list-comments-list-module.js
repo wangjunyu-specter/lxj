@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-comments-list-comments-list-module"],{
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/comments-list/comments-list.page.html":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/comments-list/comments-list.page.html ***!
+  \***************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<!--\n * @Author: wjy-mac\n * @Date: 2019-11-05 11:32:10\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-11-05 14:52:10\n * @Description: file content\n -->\n<ion-header>\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>评论列表</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <app-nomore *ngIf=\"commentList && commentList.length === 0\"></app-nomore>\n  <ion-row *ngIf=\"tags\">\n    <ion-col *ngFor=\"let item of tags\">\n      <ion-chip color=\"secondary\">\n        <ion-label color=\"dark\">{{item.tag_name}}({{item.tag_num}})</ion-label>\n      </ion-chip>\n    </ion-col>\n  </ion-row>\n  <div *ngFor=\"let item of commentList\">\n    <app-pjcontent [data]=\"item\"></app-pjcontent>\n  </div>\n  <ion-infinite-scroll (ionInfinite)=\"loadData($event)\">\n    <ion-infinite-scroll-content\n        loadingSpinner=\"bubbles\"\n        loadingText=\"Loading more data...\">\n    </ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n</ion-content>\n");
+
+/***/ }),
+
 /***/ "./src/app/pages/comments-list/comments-list.module.ts":
 /*!*************************************************************!*\
   !*** ./src/app/pages/comments-list/comments-list.module.ts ***!
@@ -61,25 +74,16 @@ var CommentsListPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/comments-list/comments-list.page.html":
-/*!*************************************************************!*\
-  !*** ./src/app/pages/comments-list/comments-list.page.html ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-11-05 11:32:10\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-11-05 14:52:10\n * @Description: file content\n -->\n<ion-header>\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>评论列表</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <app-nomore *ngIf=\"commentList && commentList.length === 0\"></app-nomore>\n  <ion-row *ngIf=\"tags\">\n    <ion-col *ngFor=\"let item of tags\">\n      <ion-chip color=\"secondary\">\n        <ion-label color=\"dark\">{{item.tag_name}}({{item.tag_num}})</ion-label>\n      </ion-chip>\n    </ion-col>\n  </ion-row>\n  <div *ngFor=\"let item of commentList\">\n    <app-pjcontent [data]=\"item\"></app-pjcontent>\n  </div>\n  <ion-infinite-scroll (ionInfinite)=\"loadData($event)\">\n    <ion-infinite-scroll-content\n        loadingSpinner=\"bubbles\"\n        loadingText=\"Loading more data...\">\n    </ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n</ion-content>\n"
-
-/***/ }),
-
 /***/ "./src/app/pages/comments-list/comments-list.page.scss":
 /*!*************************************************************!*\
   !*** ./src/app/pages/comments-list/comments-list.page.scss ***!
   \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2NvbW1lbnRzLWxpc3QvY29tbWVudHMtbGlzdC5wYWdlLnNjc3MifQ== */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2NvbW1lbnRzLWxpc3QvY29tbWVudHMtbGlzdC5wYWdlLnNjc3MifQ== */");
 
 /***/ }),
 
@@ -103,7 +107,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy-mac
  * @Date: 2019-11-05 11:32:10
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-05 14:58:11
+ * @LastEditTime: 2019-12-05 20:56:24
  * @Description: file content
  */
 
@@ -163,15 +167,20 @@ var CommentsListPage = /** @class */ (function () {
         this.pageObj['page']++;
         this.getList(event);
     };
+    CommentsListPage.ctorParameters = function () { return [
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
+        { type: src_app_services_http_service__WEBPACK_IMPORTED_MODULE_3__["HttpService"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] }
+    ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonInfiniteScroll"]),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonInfiniteScroll"], { static: true }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonInfiniteScroll"])
     ], CommentsListPage.prototype, "infiniteScroll", void 0);
     CommentsListPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-comments-list',
-            template: __webpack_require__(/*! ./comments-list.page.html */ "./src/app/pages/comments-list/comments-list.page.html"),
-            styles: [__webpack_require__(/*! ./comments-list.page.scss */ "./src/app/pages/comments-list/comments-list.page.scss")]
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./comments-list.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/comments-list/comments-list.page.html")).default,
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./comments-list.page.scss */ "./src/app/pages/comments-list/comments-list.page.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], src_app_services_http_service__WEBPACK_IMPORTED_MODULE_3__["HttpService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]])
     ], CommentsListPage);

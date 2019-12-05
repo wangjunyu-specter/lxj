@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-collelist-collelist-module"],{
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/collelist/collelist.page.html":
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/collelist/collelist.page.html ***!
+  \*******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>我的收藏</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n\n<ion-content padding>\n  <ion-segment (ionChange)=\"segmentChanged($event)\">\n    <ion-segment-button value=\"goods\" checked>\n      <ion-label>商品</ion-label>\n    </ion-segment-button>\n    <ion-segment-button value=\"shops\">\n      <ion-label>店铺</ion-label>\n    </ion-segment-button>\n  </ion-segment>\n  <div *ngIf=\"type === 'goods'\">\n    <app-productlist *ngFor=\"let item of goodslist\" [data]=\"item\" (open)=\"openpage($event)\"></app-productlist>\n  </div>\n  <div *ngIf=\"type === 'shops'\" style=\"margin-top: 15px\">\n    <ion-list>\n      <ion-item-sliding *ngFor=\"let item of shoplist\" (click)=\"openpage(item)\">\n\n        <ion-item>\n          <ion-thumbnail slot=\"start\">\n            <ion-img [src]=\"http.zdomain + item.shop_logo\"></ion-img>\n          </ion-thumbnail>\n          <ion-label>{{item.shop_name}}</ion-label>\n        </ion-item>\n\n        <ion-item-options side=\"end\">\n          <ion-item-option color=\"danger\" (click)=\"unread(item.id)\">取消关注</ion-item-option>\n        </ion-item-options>\n      </ion-item-sliding>\n\n    </ion-list>\n  </div>\n  <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadData($event)\">\n    <ion-infinite-scroll-content\n       loadingSpinner=\"bubbles\"\n       loadingText=\"正在加载...\">\n    </ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n</ion-content>\n");
+
+/***/ }),
+
 /***/ "./src/app/pages/collelist/collelist.module.ts":
 /*!*****************************************************!*\
   !*** ./src/app/pages/collelist/collelist.module.ts ***!
@@ -54,25 +67,16 @@ var CollelistPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/collelist/collelist.page.html":
-/*!*****************************************************!*\
-  !*** ./src/app/pages/collelist/collelist.page.html ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>我的收藏</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n\n<ion-content padding>\n  <ion-segment (ionChange)=\"segmentChanged($event)\">\n    <ion-segment-button value=\"goods\" checked>\n      <ion-label>商品</ion-label>\n    </ion-segment-button>\n    <ion-segment-button value=\"shops\">\n      <ion-label>店铺</ion-label>\n    </ion-segment-button>\n  </ion-segment>\n  <div *ngIf=\"type === 'goods'\">\n    <app-productlist *ngFor=\"let item of goodslist\" [data]=\"item\" (open)=\"openpage($event)\"></app-productlist>\n  </div>\n  <div *ngIf=\"type === 'shops'\" style=\"margin-top: 15px\">\n    <ion-list>\n      <ion-item-sliding *ngFor=\"let item of shoplist\" (click)=\"openpage(item)\">\n\n        <ion-item>\n          <ion-thumbnail slot=\"start\">\n            <ion-img [src]=\"http.zdomain + item.shop_logo\"></ion-img>\n          </ion-thumbnail>\n          <ion-label>{{item.shop_name}}</ion-label>\n        </ion-item>\n\n        <ion-item-options side=\"end\">\n          <ion-item-option color=\"danger\" (click)=\"unread(item.id)\">取消关注</ion-item-option>\n        </ion-item-options>\n      </ion-item-sliding>\n\n    </ion-list>\n  </div>\n  <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadData($event)\">\n    <ion-infinite-scroll-content\n       loadingSpinner=\"bubbles\"\n       loadingText=\"正在加载...\">\n    </ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n</ion-content>\n"
-
-/***/ }),
-
 /***/ "./src/app/pages/collelist/collelist.page.scss":
 /*!*****************************************************!*\
   !*** ./src/app/pages/collelist/collelist.page.scss ***!
   \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2NvbGxlbGlzdC9jb2xsZWxpc3QucGFnZS5zY3NzIn0= */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2NvbGxlbGlzdC9jb2xsZWxpc3QucGFnZS5zY3NzIn0= */");
 
 /***/ }),
 
@@ -170,11 +174,17 @@ var CollelistPage = /** @class */ (function () {
         }
         this.collefn.deleteitem(id, type);
     };
+    CollelistPage.ctorParameters = function () { return [
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
+        { type: _services_collelist_service__WEBPACK_IMPORTED_MODULE_3__["CollelistService"] },
+        { type: _services_http_service__WEBPACK_IMPORTED_MODULE_4__["HttpService"] },
+        { type: _services_topage_service__WEBPACK_IMPORTED_MODULE_5__["TopageService"] }
+    ]; };
     CollelistPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-collelist',
-            template: __webpack_require__(/*! ./collelist.page.html */ "./src/app/pages/collelist/collelist.page.html"),
-            styles: [__webpack_require__(/*! ./collelist.page.scss */ "./src/app/pages/collelist/collelist.page.scss")]
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./collelist.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/collelist/collelist.page.html")).default,
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./collelist.page.scss */ "./src/app/pages/collelist/collelist.page.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _services_collelist_service__WEBPACK_IMPORTED_MODULE_3__["CollelistService"],
             _services_http_service__WEBPACK_IMPORTED_MODULE_4__["HttpService"], _services_topage_service__WEBPACK_IMPORTED_MODULE_5__["TopageService"]])

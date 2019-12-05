@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-fbyjmore-fbyjmore-module"],{
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/fbyjmore/fbyjmore.page.html":
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/fbyjmore/fbyjmore.page.html ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<!--\n * @Author: wjy-mac\n * @Date: 2019-07-01 17:28:24\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-11-20 11:03:24\n * @Description: file content\n -->\n<ion-header>\n\n  <ion-toolbar>\n    <ion-title>发布{{title}}</ion-title>\n    <ion-buttons slot=\"end\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"goBack()\">\n        完成\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <h2>{{title}}发布成功</h2>\n  <p>这是你发表的第{{allnum}}篇游记 &nbsp;&nbsp;积分+{{num}}</p>\n</ion-content>\n");
+
+/***/ }),
+
 /***/ "./src/app/pages/fbyjmore/fbyjmore.module.ts":
 /*!***************************************************!*\
   !*** ./src/app/pages/fbyjmore/fbyjmore.module.ts ***!
@@ -51,25 +64,16 @@ var FbyjmorePageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/fbyjmore/fbyjmore.page.html":
-/*!***************************************************!*\
-  !*** ./src/app/pages/fbyjmore/fbyjmore.page.html ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-07-01 17:28:24\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-11-20 11:03:24\n * @Description: file content\n -->\n<ion-header>\n\n  <ion-toolbar>\n    <ion-title>发布{{title}}</ion-title>\n    <ion-buttons slot=\"end\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"goBack()\">\n        完成\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <h2>{{title}}发布成功</h2>\n  <p>这是你发表的第{{allnum}}篇游记 &nbsp;&nbsp;积分+{{num}}</p>\n</ion-content>\n"
-
-/***/ }),
-
 /***/ "./src/app/pages/fbyjmore/fbyjmore.page.scss":
 /*!***************************************************!*\
   !*** ./src/app/pages/fbyjmore/fbyjmore.page.scss ***!
   \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2ZieWptb3JlL2ZieWptb3JlLnBhZ2Uuc2NzcyJ9 */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2ZieWptb3JlL2ZieWptb3JlLnBhZ2Uuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -131,11 +135,16 @@ var FbyjmorePage = /** @class */ (function () {
     FbyjmorePage.prototype.goBack = function () {
         this.nav.navigateBack('tabs/tab2');
     };
+    FbyjmorePage.ctorParameters = function () { return [
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] }
+    ]; };
     FbyjmorePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-fbyjmore',
-            template: __webpack_require__(/*! ./fbyjmore.page.html */ "./src/app/pages/fbyjmore/fbyjmore.page.html"),
-            styles: [__webpack_require__(/*! ./fbyjmore.page.scss */ "./src/app/pages/fbyjmore/fbyjmore.page.scss")]
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./fbyjmore.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/fbyjmore/fbyjmore.page.html")).default,
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./fbyjmore.page.scss */ "./src/app/pages/fbyjmore/fbyjmore.page.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
             _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])

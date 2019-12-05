@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-contactlist-contactlist-module"],{
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/contactlist/contactlist.page.html":
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/contactlist/contactlist.page.html ***!
+  \***********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header mode=\"ios\">\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title *ngIf=\"pageType == 1\">选择出行人</ion-title>\n    <ion-title *ngIf=\"pageType == 2\">选择收货人</ion-title>\n    <ion-title *ngIf=\"pageType == 3\">查看详情</ion-title>\n    <ion-buttons slot=\"end\" *ngIf=\"pageType !== 3\">\n      <ion-button (click)=\"goBack()\" [disabled]=\"activeList.length != pernum\">\n        确定\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <app-contactlists (setItem)=\"clickitem($event)\" [pageType]=\"pageType\"></app-contactlists>\n\n</ion-content>\n");
+
+/***/ }),
+
 /***/ "./src/app/pages/contactlist/contactlist.module.ts":
 /*!*********************************************************!*\
   !*** ./src/app/pages/contactlist/contactlist.module.ts ***!
@@ -54,25 +67,16 @@ var ContactlistPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/contactlist/contactlist.page.html":
-/*!*********************************************************!*\
-  !*** ./src/app/pages/contactlist/contactlist.page.html ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ion-header mode=\"ios\">\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title *ngIf=\"pageType == 1\">选择出行人</ion-title>\n    <ion-title *ngIf=\"pageType == 2\">选择收货人</ion-title>\n    <ion-title *ngIf=\"pageType == 3\">查看详情</ion-title>\n    <ion-buttons slot=\"end\" *ngIf=\"pageType !== 3\">\n      <ion-button (click)=\"goBack()\" [disabled]=\"activeList.length != pernum\">\n        确定\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <app-contactlists (setItem)=\"clickitem($event)\" [pageType]=\"pageType\"></app-contactlists>\n\n</ion-content>\n"
-
-/***/ }),
-
 /***/ "./src/app/pages/contactlist/contactlist.page.scss":
 /*!*********************************************************!*\
   !*** ./src/app/pages/contactlist/contactlist.page.scss ***!
   \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2NvbnRhY3RsaXN0L2NvbnRhY3RsaXN0LnBhZ2Uuc2NzcyJ9 */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2NvbnRhY3RsaXN0L2NvbnRhY3RsaXN0LnBhZ2Uuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -136,11 +140,17 @@ var ContactlistPage = /** @class */ (function () {
             return false;
         }
     };
+    ContactlistPage.ctorParameters = function () { return [
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
+        { type: _services_contactlist_service__WEBPACK_IMPORTED_MODULE_3__["ContactlistService"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
+    ]; };
     ContactlistPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-contactlist',
-            template: __webpack_require__(/*! ./contactlist.page.html */ "./src/app/pages/contactlist/contactlist.page.html"),
-            styles: [__webpack_require__(/*! ./contactlist.page.scss */ "./src/app/pages/contactlist/contactlist.page.scss")]
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./contactlist.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/contactlist/contactlist.page.html")).default,
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./contactlist.page.scss */ "./src/app/pages/contactlist/contactlist.page.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _services_contactlist_service__WEBPACK_IMPORTED_MODULE_3__["ContactlistService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"],

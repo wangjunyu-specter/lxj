@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-xcsclist-xcsclist-module"],{
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/xcsclist/xcsclist.page.html":
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/xcsclist/xcsclist.page.html ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>行程收藏</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-refresher slot=\"fixed\" pullFactor=\"0.5\" pullMin=\"100\" pullMax=\"200\" (ionRefresh)=\"doRefresh($event)\">\n    <ion-refresher-content\n       pullingIcon=\"arrow-dropdown\"\n       pullingText=\"Pull to refresh\"\n       refreshingSpinner=\"circles\"\n       refreshingText=\"Refreshing...\">\n    </ion-refresher-content>\n  </ion-refresher>\n  <app-productlist *ngFor=\"let item of goodslist\" [data]=\"item\" (open)=\"openpage($event)\"></app-productlist>\n  <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadData($event)\">\n    <ion-infinite-scroll-content\n       loadingSpinner=\"bubbles\"\n       loadingText=\"正在加载...\">\n    </ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n</ion-content>\n");
+
+/***/ }),
+
 /***/ "./src/app/pages/xcsclist/xcsclist.module.ts":
 /*!***************************************************!*\
   !*** ./src/app/pages/xcsclist/xcsclist.module.ts ***!
@@ -54,25 +67,16 @@ var XcsclistPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/xcsclist/xcsclist.page.html":
-/*!***************************************************!*\
-  !*** ./src/app/pages/xcsclist/xcsclist.page.html ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>行程收藏</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-refresher slot=\"fixed\" pullFactor=\"0.5\" pullMin=\"100\" pullMax=\"200\" (ionRefresh)=\"doRefresh($event)\">\n    <ion-refresher-content\n       pullingIcon=\"arrow-dropdown\"\n       pullingText=\"Pull to refresh\"\n       refreshingSpinner=\"circles\"\n       refreshingText=\"Refreshing...\">\n    </ion-refresher-content>\n  </ion-refresher>\n  <app-productlist *ngFor=\"let item of goodslist\" [data]=\"item\" (open)=\"openpage($event)\"></app-productlist>\n  <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadData($event)\">\n    <ion-infinite-scroll-content\n       loadingSpinner=\"bubbles\"\n       loadingText=\"正在加载...\">\n    </ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n</ion-content>\n"
-
-/***/ }),
-
 /***/ "./src/app/pages/xcsclist/xcsclist.page.scss":
 /*!***************************************************!*\
   !*** ./src/app/pages/xcsclist/xcsclist.page.scss ***!
   \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3hjc2NsaXN0L3hjc2NsaXN0LnBhZ2Uuc2NzcyJ9 */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3hjc2NsaXN0L3hjc2NsaXN0LnBhZ2Uuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -134,11 +138,17 @@ var XcsclistPage = /** @class */ (function () {
         console.log(data);
         this.topage.toPage(2, data.goods_id);
     };
+    XcsclistPage.ctorParameters = function () { return [
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
+        { type: _services_xcsclist_service__WEBPACK_IMPORTED_MODULE_4__["XcsclistService"] },
+        { type: _services_http_service__WEBPACK_IMPORTED_MODULE_3__["HttpService"] },
+        { type: _services_topage_service__WEBPACK_IMPORTED_MODULE_5__["TopageService"] }
+    ]; };
     XcsclistPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-xcsclist',
-            template: __webpack_require__(/*! ./xcsclist.page.html */ "./src/app/pages/xcsclist/xcsclist.page.html"),
-            styles: [__webpack_require__(/*! ./xcsclist.page.scss */ "./src/app/pages/xcsclist/xcsclist.page.scss")]
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./xcsclist.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/xcsclist/xcsclist.page.html")).default,
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./xcsclist.page.scss */ "./src/app/pages/xcsclist/xcsclist.page.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _services_xcsclist_service__WEBPACK_IMPORTED_MODULE_4__["XcsclistService"],
             _services_http_service__WEBPACK_IMPORTED_MODULE_3__["HttpService"], _services_topage_service__WEBPACK_IMPORTED_MODULE_5__["TopageService"]])

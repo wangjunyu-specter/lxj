@@ -43,6 +43,7 @@
               }
             ],
             "scripts": [
+              "node_modules/hls.js/dist/hls.min.js"
             ],
             "es5BrowserSupport": true
           },
@@ -105,6 +106,7 @@
             "karmaConfig": "src/karma.conf.js",
             "styles": [],
             "scripts": [
+              "node_modules/hls.js/dist/hls.min.js"
             ],
             "assets": [
               {

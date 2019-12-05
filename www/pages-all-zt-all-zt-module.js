@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-all-zt-all-zt-module"],{
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/all-zt/all-zt.page.html":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/all-zt/all-zt.page.html ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<!--\n * @Author: wjy-mac\n * @Date: 2019-09-26 16:52:52\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-10-10 15:35:46\n * @Description: 专题列表\n -->\n<ion-header [translucent]=\"true\">\n    <ion-toolbar mode=\"ios\">\n      <ion-buttons slot=\"start\">\n        <ion-button (click)=\"goBack()\">\n          <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n        </ion-button>\n      </ion-buttons>\n      <ion-title>{{type == 0 ? '户外专题' : '装备专题'}}</ion-title>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n  <div class=\"top\">\n    <img src=\"./assets/listbg.svg\" alt=\"\">\n    <div class=\"banner\" padding *ngIf=\"banner\" (click)=\"goPagefn(banner.url, banner.type)\">\n      <img [src]=\"banner.image | imgsrc: http.domain\">\n    </div>\n  </div>\n  <div class=\"my-list\" padding>\n    <div class=\"item\" *ngFor=\"let item of list\" (click)=\"goPagefn(item.topic_id)\">\n      <img [src]=\"item.topic_img | imgsrc: http.zdomain\" alt=\"\">\n      <div class=\"title\">{{item.title}}</div>\n      <div class=\"footer\">\n        <ion-text color=\"tertiary\">{{item.start_time | time: '/'}}-{{item.end_time | time: '/'}}</ion-text>\n        <ion-text color=\"success\">查看详情</ion-text>\n      </div>\n    </div>\n  </div>\n</ion-content>\n");
+
+/***/ }),
+
 /***/ "./src/app/pages/all-zt/all-zt.module.ts":
 /*!***********************************************!*\
   !*** ./src/app/pages/all-zt/all-zt.module.ts ***!
@@ -64,25 +77,16 @@ var AllZtPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/all-zt/all-zt.page.html":
-/*!***********************************************!*\
-  !*** ./src/app/pages/all-zt/all-zt.page.html ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<!--\n * @Author: wjy-mac\n * @Date: 2019-09-26 16:52:52\n * @LastEditors: wjy-mac\n * @LastEditTime: 2019-10-10 15:35:46\n * @Description: 专题列表\n -->\n<ion-header [translucent]=\"true\">\n    <ion-toolbar mode=\"ios\">\n      <ion-buttons slot=\"start\">\n        <ion-button (click)=\"goBack()\">\n          <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n        </ion-button>\n      </ion-buttons>\n      <ion-title>{{type == 0 ? '户外专题' : '装备专题'}}</ion-title>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n  <div class=\"top\">\n    <img src=\"./assets/listbg.svg\" alt=\"\">\n    <div class=\"banner\" padding *ngIf=\"banner\" (click)=\"goPagefn(banner.url, banner.type)\">\n      <img [src]=\"banner.image | imgsrc: http.domain\">\n    </div>\n  </div>\n  <div class=\"my-list\" padding>\n    <div class=\"item\" *ngFor=\"let item of list\" (click)=\"goPagefn(item.topic_id)\">\n      <img [src]=\"item.topic_img | imgsrc: http.zdomain\" alt=\"\">\n      <div class=\"title\">{{item.title}}</div>\n      <div class=\"footer\">\n        <ion-text color=\"tertiary\">{{item.start_time | time: '/'}}-{{item.end_time | time: '/'}}</ion-text>\n        <ion-text color=\"success\">查看详情</ion-text>\n      </div>\n    </div>\n  </div>\n</ion-content>\n"
-
-/***/ }),
-
 /***/ "./src/app/pages/all-zt/all-zt.page.scss":
 /*!***********************************************!*\
   !*** ./src/app/pages/all-zt/all-zt.page.scss ***!
   \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = ".top {\n  margin-top: var(--ion-platform-margin-top);\n  overflow: hidden; }\n  .top .banner {\n    position: relative;\n    margin-top: -106px;\n    width: 100%; }\n  .top .banner img {\n      width: 100%; }\n  .my-list .item {\n  margin-bottom: 20px; }\n  .my-list .item img {\n    width: 100%; }\n  .my-list .item .title {\n    font-size: var(--ion-title);\n    color: var(--ion-color-dark);\n    font-weight: 600;\n    line-height: 25px; }\n  .my-list .item .footer {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between; }\n  .my-list .item .footer ion-text {\n      font-size: var(--ion-sm-text); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC9wYWdlcy9hbGwtenQvYWxsLXp0LnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUVFLDBDQUEwQztFQUMxQyxnQkFBZ0IsRUFBQTtFQUhsQjtJQUtJLGtCQUFrQjtJQUVsQixrQkFBa0I7SUFDbEIsV0FBVyxFQUFBO0VBUmY7TUFVTSxXQUFXLEVBQUE7RUFJakI7RUFFSSxtQkFBbUIsRUFBQTtFQUZ2QjtJQUlNLFdBQVcsRUFBQTtFQUpqQjtJQU9NLDJCQUEyQjtJQUMzQiw0QkFBNEI7SUFDNUIsZ0JBQWdCO0lBQ2hCLGlCQUFpQixFQUFBO0VBVnZCO0lBYU0sYUFBYTtJQUNiLG1CQUFtQjtJQUNuQiw4QkFBOEIsRUFBQTtFQWZwQztNQWlCUSw2QkFBNkIsRUFBQSIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2FsbC16dC9hbGwtenQucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnRvcCB7XG4gIC8vbWFyZ2luLXRvcDogLTQ0cHg7XG4gIG1hcmdpbi10b3A6IHZhcigtLWlvbi1wbGF0Zm9ybS1tYXJnaW4tdG9wKTtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgLmJhbm5lciB7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIC8vdG9wOiAtNjhweDtcbiAgICBtYXJnaW4tdG9wOiAtMTA2cHg7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgaW1nIHtcbiAgICAgIHdpZHRoOiAxMDAlO1xuICAgIH1cbiAgfVxufVxuLm15LWxpc3Qge1xuICAuaXRlbSB7XG4gICAgbWFyZ2luLWJvdHRvbTogMjBweDtcbiAgICBpbWcge1xuICAgICAgd2lkdGg6IDEwMCU7XG4gICAgfVxuICAgIC50aXRsZSB7XG4gICAgICBmb250LXNpemU6IHZhcigtLWlvbi10aXRsZSk7XG4gICAgICBjb2xvcjogdmFyKC0taW9uLWNvbG9yLWRhcmspO1xuICAgICAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgICAgIGxpbmUtaGVpZ2h0OiAyNXB4O1xuICAgIH1cbiAgICAuZm9vdGVyIHtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBmbGV4LWRpcmVjdGlvbjogcm93O1xuICAgICAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuICAgICAgaW9uLXRleHQge1xuICAgICAgICBmb250LXNpemU6IHZhcigtLWlvbi1zbS10ZXh0KTtcbiAgICAgIH1cbiAgICB9XG4gIH1cbn0iXX0= */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".top {\n  margin-top: var(--ion-platform-margin-top);\n  overflow: hidden;\n}\n.top .banner {\n  position: relative;\n  margin-top: -106px;\n  width: 100%;\n}\n.top .banner img {\n  width: 100%;\n}\n.my-list .item {\n  margin-bottom: 20px;\n}\n.my-list .item img {\n  width: 100%;\n}\n.my-list .item .title {\n  font-size: var(--ion-title);\n  color: var(--ion-color-dark);\n  font-weight: 600;\n  line-height: 25px;\n}\n.my-list .item .footer {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n}\n.my-list .item .footer ion-text {\n  font-size: var(--ion-sm-text);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC9wYWdlcy9hbGwtenQvYWxsLXp0LnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvYWxsLXp0L2FsbC16dC5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFFRSwwQ0FBQTtFQUNBLGdCQUFBO0FDQUY7QURDRTtFQUNFLGtCQUFBO0VBRUEsa0JBQUE7RUFDQSxXQUFBO0FDQUo7QURDSTtFQUNFLFdBQUE7QUNDTjtBRElFO0VBQ0UsbUJBQUE7QUNESjtBREVJO0VBQ0UsV0FBQTtBQ0FOO0FERUk7RUFDRSwyQkFBQTtFQUNBLDRCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxpQkFBQTtBQ0FOO0FERUk7RUFDRSxhQUFBO0VBQ0EsbUJBQUE7RUFDQSw4QkFBQTtBQ0FOO0FEQ007RUFDRSw2QkFBQTtBQ0NSIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvYWxsLXp0L2FsbC16dC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudG9wIHtcbiAgLy9tYXJnaW4tdG9wOiAtNDRweDtcbiAgbWFyZ2luLXRvcDogdmFyKC0taW9uLXBsYXRmb3JtLW1hcmdpbi10b3ApO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICAuYmFubmVyIHtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgLy90b3A6IC02OHB4O1xuICAgIG1hcmdpbi10b3A6IC0xMDZweDtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBpbWcge1xuICAgICAgd2lkdGg6IDEwMCU7XG4gICAgfVxuICB9XG59XG4ubXktbGlzdCB7XG4gIC5pdGVtIHtcbiAgICBtYXJnaW4tYm90dG9tOiAyMHB4O1xuICAgIGltZyB7XG4gICAgICB3aWR0aDogMTAwJTtcbiAgICB9XG4gICAgLnRpdGxlIHtcbiAgICAgIGZvbnQtc2l6ZTogdmFyKC0taW9uLXRpdGxlKTtcbiAgICAgIGNvbG9yOiB2YXIoLS1pb24tY29sb3ItZGFyayk7XG4gICAgICBmb250LXdlaWdodDogNjAwO1xuICAgICAgbGluZS1oZWlnaHQ6IDI1cHg7XG4gICAgfVxuICAgIC5mb290ZXIge1xuICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgIGZsZXgtZGlyZWN0aW9uOiByb3c7XG4gICAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gICAgICBpb24tdGV4dCB7XG4gICAgICAgIGZvbnQtc2l6ZTogdmFyKC0taW9uLXNtLXRleHQpO1xuICAgICAgfVxuICAgIH1cbiAgfVxufSIsIi50b3Age1xuICBtYXJnaW4tdG9wOiB2YXIoLS1pb24tcGxhdGZvcm0tbWFyZ2luLXRvcCk7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG4udG9wIC5iYW5uZXIge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIG1hcmdpbi10b3A6IC0xMDZweDtcbiAgd2lkdGg6IDEwMCU7XG59XG4udG9wIC5iYW5uZXIgaW1nIHtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbi5teS1saXN0IC5pdGVtIHtcbiAgbWFyZ2luLWJvdHRvbTogMjBweDtcbn1cbi5teS1saXN0IC5pdGVtIGltZyB7XG4gIHdpZHRoOiAxMDAlO1xufVxuLm15LWxpc3QgLml0ZW0gLnRpdGxlIHtcbiAgZm9udC1zaXplOiB2YXIoLS1pb24tdGl0bGUpO1xuICBjb2xvcjogdmFyKC0taW9uLWNvbG9yLWRhcmspO1xuICBmb250LXdlaWdodDogNjAwO1xuICBsaW5lLWhlaWdodDogMjVweDtcbn1cbi5teS1saXN0IC5pdGVtIC5mb290ZXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogcm93O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG59XG4ubXktbGlzdCAuaXRlbSAuZm9vdGVyIGlvbi10ZXh0IHtcbiAgZm9udC1zaXplOiB2YXIoLS1pb24tc20tdGV4dCk7XG59Il19 */");
 
 /***/ }),
 
@@ -149,11 +153,17 @@ var AllZtPage = /** @class */ (function () {
         if (type === void 0) { type = 3; }
         this.topage.toPage(type, id);
     };
+    AllZtPage.ctorParameters = function () { return [
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
+        { type: _services_topage_service__WEBPACK_IMPORTED_MODULE_4__["TopageService"] },
+        { type: _services_http_service__WEBPACK_IMPORTED_MODULE_5__["HttpService"] }
+    ]; };
     AllZtPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-all-zt',
-            template: __webpack_require__(/*! ./all-zt.page.html */ "./src/app/pages/all-zt/all-zt.page.html"),
-            styles: [__webpack_require__(/*! ./all-zt.page.scss */ "./src/app/pages/all-zt/all-zt.page.scss")]
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./all-zt.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/all-zt/all-zt.page.html")).default,
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./all-zt.page.scss */ "./src/app/pages/all-zt/all-zt.page.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
             _services_topage_service__WEBPACK_IMPORTED_MODULE_4__["TopageService"], _services_http_service__WEBPACK_IMPORTED_MODULE_5__["HttpService"]])

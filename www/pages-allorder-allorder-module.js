@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-allorder-allorder-module"],{
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/allorder/allorder.page.html":
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/allorder/allorder.page.html ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>我的订单</ion-title>\n    <ion-buttons slot=\"end\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"search()\">\n        <ion-icon name=\"search\"></ion-icon>搜索\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <!--<ion-refresher slot=\"fixed\" pullFactor=\"0.5\" pullMin=\"100\" pullMax=\"200\">-->\n    <!--<ion-refresher-content></ion-refresher-content>-->\n  <!--</ion-refresher>-->\n  <ion-refresher slot=\"fixed\" pullFactor=\"0.5\" pullMin=\"100\" pullMax=\"200\" (ionRefresh)=\"doRefresh($event)\">\n    <ion-refresher-content\n       pullingIcon=\"arrow-dropdown\"\n       pullingText=\"Pull to refresh\"\n       refreshingSpinner=\"circles\"\n       refreshingText=\"更新中...\">\n    </ion-refresher-content>\n  </ion-refresher>\n  <div style=\"background: #fff\">\n    <ion-segment mode=\"ios\" (ionChange)=\"segmentChanged()\" color=\"success\" [(ngModel)]=\"type\">\n      <ion-segment-button [value]=\"1\" mode=\"ios\">\n        <ion-label>全部</ion-label>\n      </ion-segment-button>\n      <ion-segment-button [value]=\"2\" mode=\"ios\">\n        <ion-label>待付款</ion-label>\n      </ion-segment-button>\n      <ion-segment-button [value]=\"3\" mode=\"ios\">\n        <ion-label>待发货</ion-label>\n      </ion-segment-button>\n      <ion-segment-button [value]=\"4\" mode=\"ios\">\n        <ion-label>待收货</ion-label>\n      </ion-segment-button>\n      <ion-segment-button [value]=\"5\" mode=\"ios\">\n        <ion-label>已完成</ion-label>\n      </ion-segment-button>\n    </ion-segment>\n  </div>\n  <div [hidden]=\"type != 1\">\n    <app-orderlist [list]=\"list1\"></app-orderlist>\n  </div>\n  <div [hidden]=\"type != 2\">\n    <app-orderlist [list]=\"list2\"></app-orderlist>\n  </div>\n  <div [hidden]=\"type != 3\">\n    <app-orderlist [list]=\"list3\"></app-orderlist>\n  </div>\n  <div [hidden]=\"type != 4\">\n    <app-orderlist [list]=\"list4\"></app-orderlist>\n  </div>\n  <div [hidden]=\"type != 5\">\n    <app-orderlist [list]=\"list5\"></app-orderlist>\n  </div>\n  <ion-infinite-scroll (ionInfinite)=\"loadData($event)\">\n    <ion-infinite-scroll-content\n       loadingSpinner=\"bubbles\"\n       loadingText=\"Loading more data...\">\n    </ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n</ion-content>\n");
+
+/***/ }),
+
 /***/ "./src/app/pages/allorder/allorder.module.ts":
 /*!***************************************************!*\
   !*** ./src/app/pages/allorder/allorder.module.ts ***!
@@ -55,25 +68,16 @@ var AllorderPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/allorder/allorder.page.html":
-/*!***************************************************!*\
-  !*** ./src/app/pages/allorder/allorder.page.html ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ion-header mode=\"ios\">\n  <ion-toolbar mode=\"ios\">\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon mode=\"ios\" name=\"arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>我的订单</ion-title>\n    <ion-buttons slot=\"end\">\n      <!--<ion-back-button></ion-back-button>-->\n      <ion-button (click)=\"search()\">\n        <ion-icon name=\"search\"></ion-icon>搜索\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <!--<ion-refresher slot=\"fixed\" pullFactor=\"0.5\" pullMin=\"100\" pullMax=\"200\">-->\n    <!--<ion-refresher-content></ion-refresher-content>-->\n  <!--</ion-refresher>-->\n  <ion-refresher slot=\"fixed\" pullFactor=\"0.5\" pullMin=\"100\" pullMax=\"200\" (ionRefresh)=\"doRefresh($event)\">\n    <ion-refresher-content\n       pullingIcon=\"arrow-dropdown\"\n       pullingText=\"Pull to refresh\"\n       refreshingSpinner=\"circles\"\n       refreshingText=\"更新中...\">\n    </ion-refresher-content>\n  </ion-refresher>\n  <div style=\"background: #fff\">\n    <ion-segment mode=\"ios\" (ionChange)=\"segmentChanged()\" color=\"success\" [(ngModel)]=\"type\">\n      <ion-segment-button [value]=\"1\" mode=\"ios\">\n        <ion-label>全部</ion-label>\n      </ion-segment-button>\n      <ion-segment-button [value]=\"2\" mode=\"ios\">\n        <ion-label>待付款</ion-label>\n      </ion-segment-button>\n      <ion-segment-button [value]=\"3\" mode=\"ios\">\n        <ion-label>待发货</ion-label>\n      </ion-segment-button>\n      <ion-segment-button [value]=\"4\" mode=\"ios\">\n        <ion-label>待收货</ion-label>\n      </ion-segment-button>\n      <ion-segment-button [value]=\"5\" mode=\"ios\">\n        <ion-label>已完成</ion-label>\n      </ion-segment-button>\n    </ion-segment>\n  </div>\n  <div [hidden]=\"type != 1\">\n    <app-orderlist [list]=\"list1\"></app-orderlist>\n  </div>\n  <div [hidden]=\"type != 2\">\n    <app-orderlist [list]=\"list2\"></app-orderlist>\n  </div>\n  <div [hidden]=\"type != 3\">\n    <app-orderlist [list]=\"list3\"></app-orderlist>\n  </div>\n  <div [hidden]=\"type != 4\">\n    <app-orderlist [list]=\"list4\"></app-orderlist>\n  </div>\n  <div [hidden]=\"type != 5\">\n    <app-orderlist [list]=\"list5\"></app-orderlist>\n  </div>\n  <ion-infinite-scroll (ionInfinite)=\"loadData($event)\">\n    <ion-infinite-scroll-content\n       loadingSpinner=\"bubbles\"\n       loadingText=\"Loading more data...\">\n    </ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n</ion-content>\n"
-
-/***/ }),
-
 /***/ "./src/app/pages/allorder/allorder.page.scss":
 /*!***************************************************!*\
   !*** ./src/app/pages/allorder/allorder.page.scss ***!
   \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "ion-content {\n  --background: var(--ion-gray-background-color); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC9wYWdlcy9hbGxvcmRlci9hbGxvcmRlci5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSw4Q0FBYSxFQUFBIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvYWxsb3JkZXIvYWxsb3JkZXIucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLWNvbnRlbnQge1xyXG4gIC0tYmFja2dyb3VuZDogdmFyKC0taW9uLWdyYXktYmFja2dyb3VuZC1jb2xvcik7XHJcbn1cclxuIl19 */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("ion-content {\n  --background: var(--ion-gray-background-color);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ankvRGVza3RvcC9seGovc3JjL2FwcC9wYWdlcy9hbGxvcmRlci9hbGxvcmRlci5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL2FsbG9yZGVyL2FsbG9yZGVyLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLDhDQUFBO0FDQ0YiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9hbGxvcmRlci9hbGxvcmRlci5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tY29udGVudCB7XHJcbiAgLS1iYWNrZ3JvdW5kOiB2YXIoLS1pb24tZ3JheS1iYWNrZ3JvdW5kLWNvbG9yKTtcclxufVxyXG4iLCJpb24tY29udGVudCB7XG4gIC0tYmFja2dyb3VuZDogdmFyKC0taW9uLWdyYXktYmFja2dyb3VuZC1jb2xvcik7XG59Il19 */");
 
 /***/ }),
 
@@ -97,7 +101,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-01 13:30:06
+ * @LastEditTime: 2019-12-05 20:59:05
  * @Description: 所有订单
  */
 
@@ -161,15 +165,20 @@ var AllorderPage = /** @class */ (function () {
             });
         }
     };
+    AllorderPage.ctorParameters = function () { return [
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+        { type: _services_orderlist_service__WEBPACK_IMPORTED_MODULE_4__["OrderlistService"] }
+    ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonInfiniteScroll"]),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonInfiniteScroll"], { static: true }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonInfiniteScroll"])
     ], AllorderPage.prototype, "infiniteScroll", void 0);
     AllorderPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-allorder',
-            template: __webpack_require__(/*! ./allorder.page.html */ "./src/app/pages/allorder/allorder.page.html"),
-            styles: [__webpack_require__(/*! ./allorder.page.scss */ "./src/app/pages/allorder/allorder.page.scss")]
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./allorder.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/allorder/allorder.page.html")).default,
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./allorder.page.scss */ "./src/app/pages/allorder/allorder.page.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _services_orderlist_service__WEBPACK_IMPORTED_MODULE_4__["OrderlistService"]])
     ], AllorderPage);
