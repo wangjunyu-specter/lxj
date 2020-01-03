@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-05 21:57:52
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2020-01-03 11:59:53
+ * @Description: file content
+ */
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 // import {NavParams} from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
@@ -79,5 +86,8 @@ export class ContactlistComponent implements OnInit {
     });
 
     await alert.present();
+  }
+  setMr (id: string) {
+    this.contactlist.setMr(id);
   }
 }

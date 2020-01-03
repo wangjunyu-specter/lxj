@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-24 22:54:10
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-19 21:26:59
+ * @LastEditTime: 2019-12-09 16:10:07
  * @Description: file content
  -->
 <ion-header mode="ios">
@@ -41,7 +41,7 @@
           <span>{{data.address}}</span>
         </div>
       </div>
-      <ion-text color="medium">距你0km</ion-text>
+      <ion-text color="medium">距你{{jl | distance}}</ion-text>
     </div>
     <div class="img-box">
       <img *ngFor="let src of data.heads" [src]="src | imgsrc: http.zdomain" alt="">

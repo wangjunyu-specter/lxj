@@ -8,6 +8,7 @@ import {HttpService} from "../../services/http.service";
 import {PayorderService} from '../../services/payorder.service';
 import {UserService} from "../../services/user.service";
 import {NativeService} from "../../services/native.service";
+import { TopageService } from 'src/app/services/topage.service';
 @Component({
   selector: 'app-confirmationorder',
   templateUrl: './confirmationorder.page.html',
@@ -39,7 +40,7 @@ export class ConfirmationorderPage implements OnInit {
               public contactlist: ContactlistService, private http: HttpService,
               private payorder: PayorderService, private userfn: UserService,
               private activeroute: ActivatedRoute,
-              private native: NativeService) { }
+              private native: NativeService, private toPagefn: TopageService) { }
 
   ngOnInit() {
     this.activePerson = [];
@@ -220,5 +221,8 @@ export class ConfirmationorderPage implements OnInit {
   }
   goBack(): void {
     this.nav.back();
+  }
+  openxy(link) {
+    this.toPagefn.toPage(10, this.http.zdomain + link);
   }
 }

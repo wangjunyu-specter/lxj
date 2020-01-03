@@ -10,7 +10,7 @@ import { UserService } from '../../services/user.service';
 import {PlitemclickService} from "../../services/plitemclick.service";
 import { DeletemyreleaseService } from 'src/app/services/deletemyrelease.service';
 // import {Keyboard} from "@ionic-native/keyboard/ngx";
-
+declare var AMap;
 @Component({
   selector: 'app-pqcontent',
   templateUrl: './pqcontent.page.html',
@@ -29,6 +29,7 @@ export class PqcontentPage implements OnInit {
   user: any;
   isclear: any; // 消除评论对象延迟
   gzlistarr: string[];
+  jl: number; // 定位距离
   constructor(private activeroute: ActivatedRoute, private nav: NavController,
               private pqlistfn: PqlistService, private http: HttpService,
               private gzlist: GzlistService, private emojiishow: EmojiishowService,
@@ -47,6 +48,7 @@ export class PqcontentPage implements OnInit {
     this.setPlitem = {};
   }
   ionViewDidEnter() {
+    this.native.setStatusbardefalt();
     console.log('进来了')
     this.gzlist.getList().then(res => {
       this.gzlistarr = res;
@@ -65,6 +67,9 @@ export class PqcontentPage implements OnInit {
       this.user = res;
     });
   }
+  ionViewWillLeave() {
+    this.native.setStatusbarlighttext();
+  }
   setgz(touid) {
     this.http.getData(this.http.setgz, {touid, type: 1}).subscribe(res => {
       console.log(res)
@@ -73,7 +78,7 @@ export class PqcontentPage implements OnInit {
     });
   }
   isgz() {
-    if (this.gzlistarr.includes(this.data.userid)) {
+    if (this.gzlistarr && this.gzlistarr.length > 0 && this.gzlistarr.includes(this.data.userid)) {
       return false;
     }
     return true;
@@ -92,12 +97,26 @@ export class PqcontentPage implements OnInit {
         this.data = res.result.data.result;
         this.gzlist.setList(res.result.data.users);
       }
+      this.setJl(this.data.lnglat);
       this.pllist = res.result.result;
     }, err => {
       console.log(err);
     });
   }
-
+  setJl(lnglat) {
+    if (!lnglat) {
+      return false;
+    }
+    this.userfn.getLocation2().then(res => {
+      const p2 = lnglat.split('|');
+      const lnglat1 = new AMap.LngLat(res.lng, res.lat);
+      const lnglat2 = new AMap.LngLat(p2[0], p2[1]);
+      console.log(lnglat2)
+      const distance = Math.round(lnglat1.distance(lnglat2));
+      console.log(distance);
+      this.jl = distance;
+    }).catch(err => {});
+  }
   goBack(): void {
     this.nav.back();
   }
@@ -160,6 +179,7 @@ export class PqcontentPage implements OnInit {
       obj.dznum = 0;
       obj.user_name = this.user.user_name;
       obj.name = res.result.user.name;
+      this.data.plnum++;
       console.log(obj.pid);
       if (obj.pid == 0) {
         this.pllist.unshift(obj);
@@ -208,14 +228,14 @@ export class PqcontentPage implements OnInit {
         text: '分享微信好友',
         role: '',
         handler: () => {
-          this.native.wechatShare(this.data.content, '', img || this.http.zdomain + 'logo108.png', 2);
+          this.wechatShare(2, img);
         }
       },
       {
         text: '分享到朋友圈',
         role: '',
         handler: () => {
-          this.native.wechatShare(this.data.content, '', img || this.http.zdomain + 'logo108.png', 1);
+          this.wechatShare(1, img);
         }
       }
     ];
@@ -240,6 +260,12 @@ export class PqcontentPage implements OnInit {
       buttons
     });
     await actionSheet.present();
+  }
+  wechatShare(type, img?) {
+    this.userfn.getUser().then(res => {
+      this.native.wechatShare(this.data.content, '', img || this.http.zdomain + 'logo108.png',
+      this.http.domain + this.http.shareLink + '&id=' + this.id + '&fuid=' + res['user_id'] + '&pagetype=1', type);
+    }).catch(err => {});
   }
   seleteItem() {
     console.log(this.data);

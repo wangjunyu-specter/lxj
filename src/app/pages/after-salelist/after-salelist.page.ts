@@ -3,8 +3,8 @@ import { error } from 'selenium-webdriver';
 /*
  * @Author: wjy-mac
  * @Date: 2019-10-22 11:51:17
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-22 20:17:56
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2020-01-03 12:08:51
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -24,16 +24,18 @@ export class AfterSalelistPage implements OnInit {
   constructor(private nav: NavController, private http: HttpService, private native: NativeService, private route: Router) { }
 
   ngOnInit() {
-    this.list = [];
-  }
-
-  ionViewWillEnter() {
     this.nolist = false;
     this.page = {
       page: 0,
       size: 10
     };
-    this.getList();
+    this.list = [];
+  }
+
+  ionViewWillEnter() {
+    if (this.list.length === 0) {
+      this.getList();
+    }
   }
 
   goBack(): void {

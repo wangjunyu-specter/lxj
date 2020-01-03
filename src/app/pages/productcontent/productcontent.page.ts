@@ -3,8 +3,8 @@ import { NativeService } from './../../services/native.service';
 /*
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-05 21:01:29
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2020-01-03 14:01:36
  * @Description: file content
  */
 import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
@@ -15,7 +15,7 @@ import { GetproductService } from '../../services/getproduct.service';
 import { DomSanitizer } from '@angular/platform-browser';
 // import {ShopContentService} from "../../services/shop-content.service";
 import { SupplierlistService } from '../../services/supplierlist.service';
-// import { UserService } from '../../services/user.service';
+import { UserService } from '../../services/user.service';
 import { GoodsattrComponent } from '../../components/goodsattr/goodsattr.component';
 import { GoodsContentnavComponent } from '../../components/goods-contentnav/goods-contentnav.component';
 import { LljlService } from '../../services/lljl.service';
@@ -65,7 +65,7 @@ export class ProductcontentPage implements OnInit {
               private supplierlist: SupplierlistService, public modalController: ModalController,
               public popoverController: PopoverController, private lljlfn: LljlService, private gwcfn: GwcService,
               private collefn: CollelistService, private xcxlfn: XcsclistService, private native: NativeService,
-              private topagefn: TopageService) {
+              private topagefn: TopageService, private userfn: UserService) {
     this.slideOptslv = {
       // slidesOffsetBefore : 50,
       slidesPerView : 3.2,
@@ -490,11 +490,6 @@ export class ProductcontentPage implements OnInit {
         this.collefn.reset();
       }
     }, error2 => {
-      if (this.productData.ishw) {
-        this.xcxlfn.reset();
-      } else {
-        this.collefn.reset();
-      }
     });
   }
   /**
@@ -534,9 +529,47 @@ export class ProductcontentPage implements OnInit {
       component: GoodsContentnavComponent,
       event: ev,
       mode: 'ios',
-      translucent: true
+      translucent: true,
+      componentProps: {
+        id: this.pid,
+        ishw: this.productData.ishw ? 1 : -1
+      }
     });
     return await popover.present();
+  }
+  async sharefn() {
+    const buttons: any = [{
+      text: '分享微信好友',
+      role: '',
+      handler: () => {
+        this.wechatShare(2);
+      }
+    },
+    {
+      text: '分享到朋友圈',
+      role: '',
+      handler: () => {
+        this.wechatShare(1);
+      }
+    }];
+    const actionSheet = await this.actionSheetController.create({
+      header: '选择分享',
+      buttons
+    });
+    await actionSheet.present();
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 微信分享
+   * @Date: 2019-12-24 14:30:37
+   * @param {type} 
+   * @return: 
+   */  
+  wechatShare(type) {
+    this.userfn.getUser().then(res => {
+      this.native.wechatShare(this.productData.topData.name, '', this.http.zdomain + this.productData.bannerList[0],
+      this.http.domain + this.http.shareLink + '&id=' + this.pid + '&fuid=' + res['user_id'] + '&pagetype=2', type);
+    }).catch(err => {});
   }
   cleardate() {
     this.scroolold = null;

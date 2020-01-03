@@ -1,8 +1,8 @@
 <!--
  * @Author: wjy-mac
  * @Date: 2019-07-01 17:28:24
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-20 11:03:24
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2019-12-31 17:28:56
  * @Description: file content
  -->
 <ion-header>
@@ -19,6 +19,8 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>{{title}}发布成功</h2>
-  <p>这是你发表的第{{allnum}}篇游记 &nbsp;&nbsp;积分+{{num}}</p>
+  <h2>{{title}}发布成功,请等待审核,审核结果可以查看个人中心-我的发布</h2>
+  <p>这是你发表的第{{allnum}}篇{{title}} &nbsp;&nbsp;积分+{{num}}</p>
+  <p>审核成功你将获得<ion-text color="success">{{lxb}}旅行币</ion-text></p>
+  <p>旅行币是旅行家平台货币，仅限旅行家平台使用，1旅行币=1元</p>
 </ion-content>

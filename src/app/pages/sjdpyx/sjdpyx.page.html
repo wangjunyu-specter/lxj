@@ -1,8 +1,15 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-03-21 22:52:42
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2019-12-12 16:46:32
+ * @Description: file content
+ -->
 <ion-header mode="ios">
   <ion-toolbar mode="ios">
     <ion-title>店铺印象</ion-title>
     <ion-buttons slot="start" color="light">
-      <ion-back-button color="light"></ion-back-button>
+      <ion-button color="light" (click)="goBack()">返回</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -11,13 +18,14 @@
   <ion-list lines="none" class="top">
     <ion-item>
       <ion-thumbnail slot="start">
-        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        <img *ngIf="supplier" [src]="supplier.shop_logo  | imgsrc: http.zdomain">
       </ion-thumbnail>
       <ion-label>
-        <h2>骆驼户外旅游旗舰店</h2>
+        <h2 *ngIf="supplier">{{supplier.shopname}}</h2>
         <p><span><img class="kb" src="./assets/kb.svg" alt="">认证商家</span><span><img src="./assets/dz.svg" alt="">金牌口碑</span></p>
       </ion-label>
-      <app-mybutton [bname]="'收藏'" slot="end"></app-mybutton>
+      <app-mybutton [bname]="'收藏'" *ngIf="supplier ? !supplier.is_guanzhu : true"  slot="end" (click)="sc()"></app-mybutton>
+      <app-mybutton [bname]="'取消收藏'" *ngIf="supplier ? supplier.is_guanzhu : true"  slot="end" (click)="qxsc()"></app-mybutton>
     </ion-item>
   </ion-list>
   <div class="line"></div>
@@ -33,16 +41,16 @@
       <ion-label class="flexlabel">
         <div>店铺标签</div>
         <h2>认证商家</h2>
-        <h2>金牌口碑</h2>
+        <h2 *ngIf="supplier">{{supplier.userrank}}</h2>
       </ion-label>
     </ion-item>
   </ion-list>
   <div class="line"></div>
   <ion-list class="list-end">
-    <ion-item>
+    <!-- <ion-item>
       <ion-label>在线咨询</ion-label>
       <p slot="end">凌妹子<img src="./assets/xb.svg" alt=""></p>
-    </ion-item>
+    </ion-item> -->
     <ion-item>
       <ion-label>资质</ion-label>
       <p slot="end"><img src="./assets/xb.svg" alt="">已签署消保协议</p>
@@ -53,7 +61,7 @@
     </ion-item>
     <ion-item>
       <ion-label>开店时间</ion-label>
-      <p slot="end">2018-10-20 17:20:34</p>
+      <p slot="end" *ngIf="supplier">{{supplier.createtime}}</p>
     </ion-item>
   </ion-list>
 </ion-content>

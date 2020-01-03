@@ -1,8 +1,8 @@
 <!--
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-04 19:20:32
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2019-12-31 18:40:20
  * @Description: file content
  -->
 <ion-header [translucent]="true" mode="ios">
@@ -35,15 +35,15 @@
         </ion-avatar>
         <div class="right">
           <div class="name">
-            {{user.user_name}}
+            <ion-text>{{user.user_name}}<span class="name-lxb" (click)="showTs()" *ngIf="centeruser">旅行币{{centeruser.yoursurplus}}<ion-icon name="help-circle" style="font-size: 14px;margin-bottom: -3px;"></ion-icon></span></ion-text>
             <ion-button fill="clear" size="small" (click)="openPage(14)">
               修改资料
               <img src="./assets/centerarrow.svg">
             </ion-button>
           </div>
           <div class="des">
-            <span>LV.{{user.user_rank}}</span>
-            {{user.lxdj}}
+            <span>LV.{{user.user_rank + 1}}</span>
+            {{user.lxdj || '户外小白'}}
           </div>
         </div>
       </div>
@@ -107,7 +107,7 @@
         <ion-col (click)="openPage(11)"><img src="./assets/wdfb.svg"><span>我的发布</span></ion-col>
         <ion-col (click)="openPage(15)"><img src="./assets/wdcg.svg"><span>我的草稿</span></ion-col>
         <ion-col (click)="openPage(9)"><img src="./assets/lljl.svg"><span>浏览记录</span></ion-col>
-        <ion-col><img src="./assets/kf.svg"><span>客服服务</span></ion-col>
+        <ion-col (click)="openPage(17)"><img src="./assets/kf.svg"><span>客服服务</span></ion-col>
       </ion-row>
       <ion-row>
         <ion-col size="3" (click)="hzqt()"><img src="./assets/hzqt.svg"><span>合作洽谈</span></ion-col>

@@ -3,8 +3,8 @@ import { ThorderService } from './../../services/thorder.service';
 /*
  * @Author: wjy-mac
  * @Date: 2019-07-29 22:29:34
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-05 11:27:10
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2020-01-03 12:04:16
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -153,16 +153,16 @@ export class OrdercontentPage implements OnInit {
     if (type === 1) {
       const alert = await this.alertController.create({
         header: '提示',
-        message: '是否确认退款',
+        message: '是否确认取消订单',
         buttons: [
           {
-            text: '取消',
+            text: '不取消',
             role: 'cancel',
             cssClass: 'secondary',
             handler: (blah) => {
             }
           }, {
-            text: '退款',
+            text: '确认取消',
             handler: () => {
               this.cancleOrderfn();
             }

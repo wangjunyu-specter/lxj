@@ -1,3 +1,4 @@
+import { NativeService } from 'src/app/services/native.service';
 import { Component, OnInit } from '@angular/core';
 import {NavController} from "@ionic/angular";
 import {HttpService} from "../../services/http.service";
@@ -23,12 +24,15 @@ export class MyreleasePage implements OnInit {
   user: any;
   isgz: boolean;
   gzList: string[];
+  isios: boolean;
   constructor(private nav: NavController, private http: HttpService, private activeroute: ActivatedRoute,
               private topage: TopageService, private route: Router, private gzlistfn: GzlistService,
-              private mydeletefn: DeletemyreleaseService, private editMyrelease: EditmyreleaseService) { }
+              private mydeletefn: DeletemyreleaseService, private editMyrelease: EditmyreleaseService,
+              private native: NativeService) { }
 
   ngOnInit() {
     this.pageType = 1;
+    this.isios = false;
     this.allList = [];
     const limit: number = 20;
     this.pqpageObj = {
@@ -63,6 +67,7 @@ export class MyreleasePage implements OnInit {
     this.nav.back();
   }
   ionViewDidEnter() {
+    this.isios = this.native.isios();
     const deleteObj = this.mydeletefn.getId();
     if (deleteObj['id']) {
       if (this.allList.length > 0) {

@@ -4,7 +4,7 @@
     <string name="update_title">软件更新</string>
     <string name="update_message">软件框架有更新啦！</string>
     <string name="update_update_btn">更新</string>
-    <string name="updating">正在更新</string>
+    <string name="updating">正在更新(请不要切换到其他APP)</string>
     <string name="update_cancel">取消</string>
     <string name="update_bg">转到后台更新</string>
     <string name="download_complete_title">下载完毕</string>

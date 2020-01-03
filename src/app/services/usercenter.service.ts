@@ -1,8 +1,8 @@
 /*
  * @Author: wjy-mac
  * @Date: 2019-07-30 22:26:24
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-18 15:49:23
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2019-12-31 18:39:23
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -20,9 +20,7 @@ export class UsercenterService {
     this.centerobj = {};
   }
   getUserdata() {
-    if (!this.centerobj.gznum) {
-      this.getGz();
-    }
+    this.getGz();
     return this.centerobj;
   }
   private getGz() {
@@ -33,6 +31,7 @@ export class UsercenterService {
       this.centerobj['dznum'] = res.data.dznum;
       this.centerobj['advertisement'] = res.data.advertisement;
       this.centerobj['xclist'] = res.data.xclist;
+      this.centerobj['yoursurplus'] = res.data.ye;
     })
   }
 }

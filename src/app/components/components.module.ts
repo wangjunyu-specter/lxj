@@ -3,8 +3,8 @@ import { ArticlecardComponent } from './articlecard/articlecard.component';
 /*
  * @Author: wjy-mac
  * @Date: 2019-07-28 00:35:54
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-26 23:33:28
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2019-12-18 15:02:22
  * @Description: file content
  */
 import { NgModule } from '@angular/core';

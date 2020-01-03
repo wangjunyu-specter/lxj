@@ -26,7 +26,8 @@ export class SetPdPage implements OnInit {
     this.formData = {
       tel: '',
       pwd: '',
-      yzm: ''
+      yzm: '',
+      yzpwd: ''
     };
   }
   ionViewWillEnter() {
@@ -66,6 +67,10 @@ export class SetPdPage implements OnInit {
     });
   }
   sub() {
+    if (this.formData.pwd != this.formData.yzpwd) {
+      this.native.presentAlert('两次密码不相等哦!');
+      return false;
+    }
     const zz1 = /\d+/;
     const zz2 = /[a-z]+/i;
     if (!zz1.test(this.formData.pwd)) {

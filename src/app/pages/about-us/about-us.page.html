@@ -2,7 +2,7 @@
  * @Author: wjy-home
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-18 10:01:34
+ * @LastEditTime: 2019-12-14 19:14:25
  * @Description: file content
  -->
 <ion-header mode="ios">
@@ -18,13 +18,13 @@
 
 <ion-content padding>
   <div class="top" *ngIf="data">
-    <img [src]="data.shop_logo" alt="">
+    <img [src]="data.shop_logo | imgsrc: http.zdomain" alt="">
     <h2>{{data.shop_name}}</h2>
     <p no-margin *ngIf="appver">Version&nbsp;&nbsp;{{appver}}</p>
   </div>
   <ion-list>
     <ion-item button detial *ngIf="isios" (click)="openStore()">去评分</ion-item>
-    <ion-item button (click)="updateapp()">版本更新</ion-item>
+    <!-- <ion-item button (click)="updateapp()">版本更新</ion-item> -->
   </ion-list>
   <div class="footer">
     <ion-text *ngIf="data" color="medium">{{data.shop_name}}公司&nbsp;&nbsp;版本所有</ion-text>

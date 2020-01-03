@@ -42,7 +42,7 @@
           </div>
         </div>
       </div>
-      <div class="footer">
+      <div class="footer" [ngClass]="{'ion-margin-top': isios}">
         <ion-grid>
           <ion-row>
             <ion-col (click)="openUsers(1)">
@@ -81,6 +81,7 @@
       <div *ngFor="let item of allList[0]">
         <ion-card mode="ios" *ngIf="item.opentype == 0">
           <img *ngIf="item.status == 3 && userId == 0" class="wtg" src="../../../assets/wtg.svg" />
+          <img *ngIf="item.status == 2 && userId == 0" class="wtg wtg-end" src="../../../assets/shz.svg" />
           <ion-item>
             <ion-avatar slot="start">
               <img [src]="http.headimg | imgsrc: http.zdomain">
@@ -148,6 +149,7 @@
         <ion-col [size]="12" class="ion-no-padding" *ngIf="item.opentype == 0">
           <ion-card mode="ios" margin-start="0" margin-end="0">
               <img *ngIf="item.status == 3 && userId == 0" class="wtg" src="../../../assets/wtg.svg" />
+              <img *ngIf="item.status == 2 && userId == 0" class="wtg wtg-end" src="../../../assets/shz.svg" />
             <ion-card-header *ngIf="item.imgarr.length > 0" (click)="toPage(item.id)">
               <img class="radius-img" [src]="item.thumb[0] || item.imgarr[0] | imgsrc: http.zdomain" alt="">
             </ion-card-header>
@@ -190,6 +192,7 @@
     <div class="content-box content-four" [ngClass]="{show: pageType == 3}">
       <div  *ngFor="let item of allList[2]" style="position: relative;">
         <img *ngIf="item.status == 3 && userId == 0" class="wtg wtg-end" src="../../../assets/wtg.svg" />
+        <img *ngIf="item.status == 2 && userId == 0" class="wtg wtg-end" src="../../../assets/shz.svg" />
         <ion-item (click)="toPage(item.id)" *ngIf="item.opentype == 0">
           <ion-thumbnail slot="end" *ngIf="item.imgarr.length > 0 && (userId != 0 || userId == 0 && item.status != 3) ">
             <img class="radius-img" [src]="item.thumb[0] || item.imgarr[0] | imgsrc: http.zdomain " alt="">
@@ -224,6 +227,7 @@
     <div class="content-box content-four" [ngClass]="{show: pageType == 4}">
       <div *ngFor="let item of allList[3]" style="position: relative;">
         <img *ngIf="item.status == 3 && userId == 0" class="wtg wtg-end" src="../../../assets/wtg.svg" />
+        <img *ngIf="item.status == 2 && userId == 0" class="wtg wtg-end" src="../../../assets/shz.svg" />
         <ion-item (click)="toPage(item.id)" *ngIf="item.opentype == 0">
           <ion-thumbnail slot="start" *ngIf="item.imgarr.length > 0">
             <img class="radius-img" [src]="item.thumb[0] || item.imgarr[0] | imgsrc: http.zdomain" alt="">

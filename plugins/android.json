@@ -108,6 +108,9 @@
     },
     "mx.ferreyra.callnumber": {
       "PACKAGE_NAME": "com.cdlxj.wjy"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     }
   },
   "dependent_plugins": {

@@ -1,8 +1,8 @@
 /*
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-05 14:49:24
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2019-12-18 15:02:44
  * @Description: file content
  */
 import { NgModule } from '@angular/core';
@@ -44,6 +44,7 @@ import { GoodsattrComponent } from './components/goodsattr/goodsattr.component';
 import { AvailableBonusComponent } from './components/available-bonus/available-bonus.component';
 import { GoodsContentnavComponent } from './components/goods-contentnav/goods-contentnav.component';
 import { PayboxComponent } from './components/paybox/paybox.component';
+import { AmapComponent } from './components/amap/amap.component';
 
 
 
@@ -102,6 +103,7 @@ import { OpenNativeSettings } from '@ionic-native/open-native-settings/ngx';
 import { ModelTimePipe } from './pipes/model-time.pipe';
 // import { Alipay } from '@ionic-native/alipay/ngx';
 import { Wechat } from '@ionic-native/wechat/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 // import { Md5 } from 'ts-md5/dist/md5';
 
@@ -109,10 +111,10 @@ import { Wechat } from '@ionic-native/wechat/ngx';
 @NgModule({
   declarations: [AppComponent, SearchComponent, TopnavlistComponent, GoodsattrComponent,
     GoodsContentnavComponent, FbseleteComponent, PayboxComponent, VideoComponent, UploadComponent,
-    AvailableBonusComponent, ModelTimePipe, ScanImagesComponent],
+    AvailableBonusComponent, ModelTimePipe, ScanImagesComponent, AmapComponent],
   entryComponents: [SearchComponent, TopnavlistComponent, GoodsattrComponent,
     GoodsContentnavComponent, FbseleteComponent, PayboxComponent, VideoComponent, UploadComponent,
-    AvailableBonusComponent, ScanImagesComponent],
+    AvailableBonusComponent, ScanImagesComponent, AmapComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
@@ -200,6 +202,7 @@ import { Wechat } from '@ionic-native/wechat/ngx';
     Toast,
     // Alipay,
     Wechat,
+    Geolocation,
     // Md5,
     // NavigationBar,
     // ComponentsModule,

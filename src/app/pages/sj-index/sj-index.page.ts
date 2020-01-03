@@ -3,7 +3,7 @@ import { TopageService } from './../../services/topage.service';
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-05 21:02:09
+ * @LastEditTime: 2019-12-12 16:30:44
  * @Description: file content
  */
 import { Component, OnInit, ViewChild  } from '@angular/core';
@@ -113,7 +113,7 @@ export class SjIndexPage implements OnInit {
     this.topagefn.toPage(type, id, ...tid);
   }
   toPage() {
-    this.nav.navigateForward('/sjdpyx');
+    this.route.navigate(['/sjdpyx'], {queryParams: {suppid: this.suppId}});
   }
   toSearch() {
     this.nav.navigateForward('/sjsearch', {queryParams: {suppid: this.suppId}});

@@ -94,7 +94,7 @@
       <ion-card mode="ios" margin-start="0" margin-end="0" *ngIf="item.opentype == 0">
         <ion-item>
           <ion-avatar slot="start" (click)="goperson(item.userid)">
-            <img [src]="http.headimg | imgsrc: http.zdomain">
+            <img [src]="item.headimg | imgsrc: http.zdomain">
           </ion-avatar>
           <ion-label>
             <h2 class="item-title" (click)="goperson(item.userid)">{{item.user_name}}<app-yhbox [color]="'yellow'" [title]="item.name" [noborder]="true"></app-yhbox></h2>
@@ -175,7 +175,7 @@
                   <div class="des">{{item.createtime | oldtonow}}</div>
                 </div>
               </div>
-              <div class="gz" *ngIf="item.userid | isgz: gzlistfn.getGzlist()" (click)="setgz(item.userid)">
+              <div class="gz" *ngIf="setIsgz(item.userid)" (click)="setgz(item.userid)">
                 <span>+关注</span>
               </div>
             </div>

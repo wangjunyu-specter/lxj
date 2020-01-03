@@ -196,7 +196,10 @@ ion-card-header {
     }
   }
 }
-
+.name-lxb {
+  font-size: var(--ion-sm-text);
+  margin-left: 10px;
+}
 @for $i from 0 through 100 {
   .show-#{$i} {   --opacity: #{$i / 100}; }
 }

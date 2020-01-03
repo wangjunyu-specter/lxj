@@ -8,6 +8,8 @@
   height:41px;
   border-radius: 20px;
   width: 100%;
+  margin-left: 0;
+  padding-left: 0;
   // margin-bottom: 15px;
   input {
     height: 41px;
@@ -20,6 +22,8 @@
     color: var(--ion-color-dark);
     outline: none;
     width: calc(100% - 100px);
+    margin-left: 0;
+    padding-left: 0;
     &::-webkit-input-placeholder {
       color: #7d7d7d;
     }

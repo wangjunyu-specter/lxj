@@ -1,8 +1,8 @@
 <!--
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-27 18:02:13
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2020-01-03 12:18:55
  * @Description: file content
  -->
 <ion-header [translucent]="true" mode="ios">
@@ -69,13 +69,13 @@
           <ion-slide *ngFor="let item of childnav" (click)="goothercate(item.id)">
             <div class="item-box">
               <img [src]="item.catimg | imgsrc: http.zdomain + 'data/catthumb/'" alt="">
-              <span>{{item.name}}</span>
+              <span class="text-shadow">{{item.name}}</span>
             </div>
           </ion-slide>
         </ion-slides>
     </div>
   </div>
-  <div class="rmtj">
+  <div class="rmtj" *ngIf="navlist && navlist.length > 0">
       <app-newpagetitle [title]="'热门推荐'"></app-newpagetitle>
       <ion-grid>
         <ion-row>
@@ -137,10 +137,10 @@
     </div>
 
     <!--<div class="line"></div>-->
-    <div *ngIf="dataList">
+    <div *ngIf="dataList && dataList.length > 0">
       <app-productlist *ngFor="let item of dataList" [data]="item" [ishw]="ishw" (open)="openpage($event)"></app-productlist>
     </div>
-
+    <app-nomore *ngIf="dataList && dataList.length == 0"></app-nomore>
     <!--<ion-virtual-scroll [items]="dataList" approxItemHeight="153px">-->
       <!--<div *virtualItem="let item">-->
         <!--<app-productlist [data]="item" (open)="openpage($event)" [imgtype]="1"></app-productlist>-->

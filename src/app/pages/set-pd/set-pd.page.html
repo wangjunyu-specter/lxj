@@ -1,8 +1,8 @@
 <!--
  * @Author: wjy-mac
  * @Date: 2019-11-18 09:52:37
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-21 00:44:35
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2019-12-18 12:29:03
  * @Description: file content
  -->
 <ion-header mode="ios">
@@ -32,8 +32,11 @@
       <ion-item>
         <ion-input placeholder="请输入新密码" type="password" minlength="6" [(ngModel)]="formData.pwd" #pwd="ngModel" required></ion-input>
       </ion-item>
+      <ion-item>
+        <ion-input placeholder="确认新密码" type="password" minlength="6" [(ngModel)]="formData.yzpwd" #pwd="ngModel" required></ion-input>
+      </ion-item>
     </ion-list>
-    <app-mybutton [isdisabled]="isLoading || name.invalid || formData.pwd.length < 6 || !formData.yzm" [bname]="'提交'" minlength="6" [isblock]="true" (subClick)="sub()"></app-mybutton>
+    <app-mybutton [isdisabled]="isLoading || name.invalid || formData.pwd.length < 6 || formData.yzpwd.length < 6 || !formData.yzm" [bname]="'提交'" minlength="6" [isblock]="true" (subClick)="sub()"></app-mybutton>
     
     <ion-progress-bar *ngIf="isLoading" type="indeterminate" reversed="true"></ion-progress-bar>
   </div>

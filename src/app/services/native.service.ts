@@ -2,12 +2,12 @@
 /*
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-03 17:39:52
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2019-12-24 15:21:53
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
-import {AlertController, LoadingController, ToastController, Platform } from '@ionic/angular';
+import {AlertController, LoadingController, ToastController, Platform, NavController } from '@ionic/angular';
 import {NativeStorage} from '@ionic-native/native-storage/ngx';
 import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions, CaptureVideoOptions } from '@ionic-native/media-capture/ngx';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
@@ -43,6 +43,7 @@ export class NativeService {
               private videoPlayer: VideoPlayer, private network: Network, private appVersion: AppVersion,
               private market: Market, private callNumber: CallNumber, private device: Device,
               private openNativeSettings: OpenNativeSettings, private toast: Toast,
+              private nav: NavController
               // private alipay: Alipay,
               // private wechat: Wechat
               ) { }
@@ -165,7 +166,7 @@ export class NativeService {
       this.webToast(msg);
     }
   }
-  async webToast(msg: string) {
+  private async webToast(msg: string) {
     const toast = await this.toastController.create({
       message: msg,
       duration: 2000,
@@ -173,7 +174,7 @@ export class NativeService {
     });
     toast.present();
   }
-  mobileToast(msg: string) {
+  private mobileToast(msg: string) {
     this.toast.show(msg, '2000', 'bottom').subscribe(
       toast => {
       }
@@ -207,7 +208,12 @@ export class NativeService {
    * @Date: 2019-08-03 17:32:35
    */
   openStore() {
-    this.market.open('com.cdlxj.wjy');
+    // alert('户外旅行家/id1490243013?l=zh&ls=1');
+    // cordova.plugins.market.open('1490243013');
+    this.market.open('1490243013').then(res => {
+    }).catch(err => {
+      alert(JSON.stringify(err))
+    });
   }
   callTel(tel: string) {
     if (!tel) {
@@ -268,8 +274,7 @@ export class NativeService {
         }
       } else {
         const data = window.sessionStorage.getItem(title);
-        if (data) {
-          console.log(data);
+        if (data && data != 'undefined') {
           return JSON.parse(data);
         } else {
           throw null;
@@ -333,6 +338,14 @@ export class NativeService {
         );
     });
   }
+  
+  /**
+   * @Author: wjy-mac
+   * @description: 通过相册获取图片
+   * @Date: 2019-12-11 17:03:00
+   * @param {type} 
+   * @return: 
+   */  
   async getPictures(max: number = 9) {
     try {
       const imgsrcarr = await this.getPicturesfn(1, max) as string[];
@@ -375,7 +388,7 @@ export class NativeService {
       // encodingType: this.camera.EncodingType.JPEG,
       targetWidth: 800, // 缩放图像的宽度（像素）
       targetHeight: 800, // 缩放图像的高度（像素）5889
-      saveToPhotoAlbum: true, // 是否保存到相册
+      saveToPhotoAlbum: false, // 是否保存到相册
       encodingType: 1,
       correctOrientation: true // 设置摄像机拍摄的图像是否为正确的方向
     }, options);
@@ -387,6 +400,26 @@ export class NativeService {
         // this.warn('getPicture:' + err);
       });
     });
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 通过相册获取视频
+   * @Date: 2019-12-11 17:03:24
+   * @param {type} 
+   * @return: 
+   */  
+  async getViedeo() {
+    try {
+      const res = await this.getPicture({
+        sourceType: 0,
+        mediaType: 1,
+        destinationType: 2 // DATA_URL: 0 base64字符串, FILE_URI: 1图片路径
+      });
+      return res;
+    } catch (err) {
+      String(err).indexOf('cancel') != -1 ? this.presentToast('取消拍照') : this.presentToast('获取照片失败');
+      throw new Error();
+    }
   }
   /**
    * 通过拍照获取照片
@@ -445,6 +478,13 @@ export class NativeService {
     // oMyForm.append('abc', '123');
     return oMyForm;
   }
+  /**
+   * @Author: wjy-mac
+   * @description: 设置全屏
+   * @Date: 2019-12-06 20:18:27
+   * @param {type} 
+   * @return: 
+   */  
   setFullscreen() {
     if (this.isandroid()) {
       this.androidFullScreen.immersiveMode();
@@ -452,6 +492,13 @@ export class NativeService {
       this.statusbar.hide();
     }
   }
+  /**
+   * @Author: wjy-mac
+   * @description: 退出全屏
+   * @Date: 2019-12-06 20:18:34
+   * @param {type} 
+   * @return: 
+   */  
   backFullscreen() {
     if (this.isandroid()) {
       this.androidFullScreen.showSystemUI();
@@ -460,9 +507,12 @@ export class NativeService {
     }
     this.statusbar.overlaysWebView(true);
   }
+  setIosdefault() {
+    this.statusbar.styleDefault();
+  }
   /**
    * @Author: wjy-mac
-   * @description: 设置头部白色背景
+   * @description: 设置头部白色背景深色字
    * @param {type} 
    * @return: 
    * @Date: 2019-08-07 23:23:27
@@ -472,7 +522,17 @@ export class NativeService {
   }
   /**
    * @Author: wjy-mac
-   * @description: 回复头部为透明颜色
+   * @description: 设置白色字体
+   * @Date: 2019-12-12 15:54:48
+   * @param {type} 
+   * @return: 
+   */  
+  setStatusbarlighttext() {
+    this.statusbar.styleLightContent();
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 恢复头部为透明颜色
    * @param {type} 
    * @return: 
    * @Date: 2019-08-07 23:23:51
@@ -558,18 +618,19 @@ export class NativeService {
    * @param {type} type 1 朋友圈 2 好友
    * @return: 
    */  
-  wechatShare(title: string, des: string, src: string, type: number = 1) {
+  wechatShare(title: string, des: string, src: string, link: string, type: number = 1) {
+    console.log(link)
     Wechat.share({
       message: {
           title,
-          description: des || title,
+          description: des || '来自专业户外旅行平台-户外旅行家',
           thumb: src,
           mediaTagName: "TEST-TAG-001",
           messageExt: "这是第三方带的测试字段",
           messageAction: "<action>dotalist</action>",
           media: {
             type: Wechat.Type.WEBPAGE,   // webpage
-            webpageUrl: "https://cdlxj.cn/test.html"  // webpage
+            webpageUrl: link  // webpage
           }
       },
       scene: type === 1 ? Wechat.Scene.TIMELINE :  Wechat.Scene.SESSION  // share to Timeline
@@ -578,6 +639,37 @@ export class NativeService {
     }, (reason) => {
         // alert("Failed: " + reason);
     });
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 是否登录
+   * @Date: 2019-12-18 21:37:00
+   * @param {type} 
+   * @return: 
+   */  
+  async resetlogin(type?: number) {
+    const alert = await this.alertController.create({
+      header: '提示',
+      message: type ? '登录已失效，是否登录？' : '需要先登录哦!!!',
+      buttons: [
+        {
+          text: '随便看看',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: '去登录',
+          handler: () => {
+            console.log('Confirm Okay');
+            this.nav.navigateRoot('/login');
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 }
 

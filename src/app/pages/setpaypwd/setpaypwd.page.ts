@@ -16,7 +16,7 @@ export class SetpaypwdPage implements OnInit {
   time: number;
   pwd: string;
   npwd: string;
-  @ViewChild('pwdbox', {static: true}) pwdbox: any;
+  @ViewChild('pwdbox', {static: false}) pwdbox: any;
   isfous: boolean;
   constructor(private nav: NavController, private userfn: UserService,
               public alertController: AlertController, private http: HttpService) { }
@@ -42,7 +42,7 @@ export class SetpaypwdPage implements OnInit {
     this.czjsq();
   }
   czjsq() {
-    this.time = 10;
+    this.time = 60;
     const set = setInterval(() => {
       this.time--;
       if (this.time === 0) {
@@ -107,7 +107,7 @@ export class SetpaypwdPage implements OnInit {
       password: this.loginpwd
     };
     this.http.postformdataloading(this.http.yzpwd, obj).subscribe(res => {
-      this.type = 2;
+      this.type = 3;
       this.czjsq();
     }, err => {
       console.log(err);

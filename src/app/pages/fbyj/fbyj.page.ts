@@ -1,13 +1,13 @@
 import { YjlistService } from 'src/app/services/yjlist.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {ActionSheetController, NavController, Platform, PopoverController, IonContent} from '@ionic/angular';
+import {ActionSheetController, NavController, Platform, PopoverController, IonContent, AlertController} from '@ionic/angular';
 import {ActivatedRoute, Router} from "@angular/router";
 import { Keyboard } from '@ionic-native/keyboard/ngx';
 import { HttpService } from '../../services/http.service';
 import {UserService} from "../../services/user.service";
 import {NativeService} from '../../services/native.service';
 import { UploadComponent } from '../../components/upload/upload.component';
-import {error} from "@angular/compiler/src/util";
+// import {error} from "@angular/compiler/src/util";
 import { EditmyreleaseService } from 'src/app/services/editmyrelease.service';
 @Component({
   selector: 'app-fbyj',
@@ -38,10 +38,11 @@ export class FbyjPage implements OnInit {
   @ViewChild(IonContent, {static: true}) contentbox: IonContent;
   newHandle: any;
   newHandle2: any;
+  setTime: any; // 自动保存对象
   constructor(private nav: NavController,
               public plt: Platform, private keyboard: Keyboard,
               private http: HttpService, private user: UserService,
-              public actionSheetController: ActionSheetController,
+              public actionSheetController: ActionSheetController, public alertController: AlertController,
               private activeroute: ActivatedRoute,
               private native: NativeService, public popoverController: PopoverController,
               private route: Router, private myeditdatafn: EditmyreleaseService, private yjlistfn: YjlistService) { }
@@ -62,7 +63,7 @@ export class FbyjPage implements OnInit {
     }
     this.iscontent = false;
     this.keyboardH = 0;
-    this.content = ''
+    this.content = '';
     this.config = {
       language: 'zh-cn',
       toolbar: 'Full'
@@ -75,12 +76,12 @@ export class FbyjPage implements OnInit {
       // },
       {
         name: 'clipboard', items: [
-          'Cut', 'Copy', 'PasteText', 'PasteFromWord', '-'
+          // 'Cut', 'Copy', 'PasteText', 'PasteFromWord', '-'
         ]
       },
       {
         name: 'editing', items: [
-          'Find', '-', 'SpellChecker'
+          //'Find', '-', 'SpellChecker'
         ]
       },
       // {
@@ -96,22 +97,22 @@ export class FbyjPage implements OnInit {
       {
         name: 'paragraph', items:
           [
-            '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-'
+            'JustifyLeft', 'JustifyCenter', 'JustifyRight', //'JustifyBlock', '-'
           ]
       },
       {
         name: 'insert', items: [
-          'Image', 'Table', 'HorizontalRule', 'Emojione',
+          'Image', 'Table',// 'HorizontalRule', 'Emojione',
         ]
       },
       {
         name: 'styles', items: [
-           'Format', 'FontSize'
+           'Format', //'FontSize'
         ]
       },
       {
         name: 'colors', items: [
-          'TextColor', 'BGColor'
+          'TextColor',// 'BGColor'
         ]
       }
     ];
@@ -119,6 +120,18 @@ export class FbyjPage implements OnInit {
   ionViewWillEnter() {
     const params = this.activeroute.snapshot.queryParams;
     this.type = params['type'] ? Number(params['type']) : 1;
+    this.setPagetitle();
+    const position = this.user.getLocation3();
+    this.address = position.address;
+    this.lnglat = position.longitude + '|' + position.latitude;
+    if (params['iscg']) {
+      this.iscg = true;
+      this.getCg();
+    } else if (params['isedit']) {
+      this.setGeteditdata();
+    }
+  }
+  setPagetitle() {
     switch (this.type) {
       case 1:
         this.title = '游记';
@@ -131,12 +144,6 @@ export class FbyjPage implements OnInit {
         break;
       default:
         this.title = '游记';
-    }
-    if (params['iscg']) {
-      this.iscg = true;
-      this.getCg();
-    } else if (params['isedit']) {
-      this.setGeteditdata();
     }
   }
   ionViewDidEnter() {
@@ -156,10 +163,12 @@ export class FbyjPage implements OnInit {
       window.addEventListener('keyboardWillHide', this.newHandle2);
     } catch (e) {
     }
+    this.addDsq();
   }
   ionViewDidLeave() {
     window.removeEventListener('keyboardWillShow', this.newHandle);
     window.removeEventListener('keyboardWillHide', this.newHandle2);
+    clearInterval(this.setTime);
   }
   keyboardWillShow() {
     const height = this.target.getBoundingClientRect().bottom;
@@ -193,25 +202,55 @@ export class FbyjPage implements OnInit {
    * @param {type} 
    * @return: 
    */  
-  getCg() {
-    this.native.getStorage('yjcontent').then(res => {
-      this.head = res.head;
+  async getCg() {
+    try {
+      const res = await this.native.getStorage('yjcontent' + this.type);
+      // this.head = res.head;
       this.type = res.type - 1;
-      this.address = res.address;
-      this.lnglat = res.lnglat;
+      if (res.address) {
+        this.address = res.address;
+        this.lnglat = res.lnglat;
+      }
       this.content = res.content;
+      if (res['img']) {
+        this.headobj = JSON.parse(res['img']);
+        this.head = this.http.zdomain + this.headobj['src'];
+      }
+      if (res['id']) {
+        this.id = res.id;
+      }
       this.formdata = res;
       if (this.formdata.outtime) {
-        console.log(this.formdata.outtime)
         const date = new Date(this.formdata.outtime * 1000);
         const year = date.getFullYear();
         const month = date.getMonth() + 1;
         const day = date.getDate();
         this.formdata.outtime = year + '.' + month + '.' + day;
-        console.log(this.formdata.outtime)
       }
-    }).catch(error => {
-    })
+    } catch(err) {
+      const alert = await this.alertController.create({
+        header: '提示!',
+        message: '没有获取到数据,是否退出重试!',
+        buttons: [
+          {
+            text: '退出',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: (blah) => {
+              this.goBack(1);
+            }
+          }, {
+            text: '重新开始',
+            handler: () => {
+              console.log('Confirm Okay');
+              this.native.removeStorage('yjcontent' + this.type);
+              this.iscg = false;
+            }
+          }
+        ]
+      });
+      await alert.present();
+    }
   }
   /**
    * @Author: wjy-mac
@@ -233,8 +272,10 @@ export class FbyjPage implements OnInit {
       src: data.imgarr && data.imgarr.length > 0 ? data.imgarr[0] : '',
       thumb: data.thumb && data.thumb.length > 0 ? data.thumb[0] : '',
     };
-    this.address = data.address;
-    this.lnglat = data.lnglat;
+    if (data.address) {
+      this.address = data.address;
+      this.lnglat = data.lnglat;
+    }
     this.content = data.content;
     this.formdata = {
       title: data.title,
@@ -258,8 +299,58 @@ export class FbyjPage implements OnInit {
   setContent() {
     this.iscontent = !this.iscontent;
   }
-  goBack(): void {
+  /**
+   * @Author: wjy-mac
+   * @description: 
+   * @Date: 2019-12-18 16:34:38
+   * @param {type} type？ 1表示完成后返回 没有则表示按钮返回
+   * @return: 
+   */  
+  goBack(type?): any {
+    if (!type) {
+      if (this.head || this.content) {
+        this.Confirmback();
+        return false;
+      }
+      for (const key in this.formdata) {
+        if (this.formdata.hasOwnProperty(key)) {
+          const element = this.formdata[key];
+          if (element) {
+            this.Confirmback();
+            return false;
+          }
+        }
+      }
+      if (!this.iscansub(3)) {
+        this.Confirmback('还有图片正在上传哦,是否放弃?');
+        return false;
+      }
+    }
     this.nav.back();
+  }
+  async Confirmback(msg?) {
+    const alert = await this.alertController.create({
+      header: '提示!',
+      message: msg || '保存后下次还可以继续在个人中心修改哦!',
+      buttons: [
+        {
+          text: '直接退出',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+            this.getpopover(2);
+            this.nav.back();
+          }
+        }, {
+          text: '再等等',
+          handler: () => {
+            console.log('Confirm Okay');
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
   addimg() {
     this.presentActionSheet(2);
@@ -402,6 +493,7 @@ export class FbyjPage implements OnInit {
       oReq.open('POST', this.http.domain + this.http.updateimg);
       oReq.onreadystatechange = (oEvent) => {
         if (oReq.readyState == 4 && oReq.status == 200) {
+          console.log(oReq.response);
           const res = JSON.parse(oReq.response)
           resolve(res.result);
         }
@@ -427,27 +519,102 @@ export class FbyjPage implements OnInit {
   // }
 
   /**
-   * 添加新保存数据
-   * @param {Object[]} arr
-   */
-  // setsave(arr: object[]) { // 保存多个的时候使用，暂定只能保存一个
-  setsave() {
+   * @Author: wjy-mac
+   * @description: 删除定时保存
+   * @Date: 2019-12-18 17:40:12
+   * @param {type} 
+   * @return: 
+   */  
+  clearDsq() {
+    clearInterval(this.setTime);
+    this.setTime = null;
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 添加定时保存
+   * @Date: 2019-12-18 17:40:21
+   * @param {type} 
+   * @return: 
+   */  
+  addDsq() {
+    if (this.setTime) {
+      this.clearDsq();
+    };
+    this.setTime = setInterval(() => {
+      if (this.iscanzdsave()) {
+        this.setsave(1);
+      } else {
+        console.log('保存失败')
+      }
+    }, 300000);
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 判断是否可以自动保存
+   * @Date: 2019-12-18 17:47:57
+   * @param {type} 
+   * @return: 
+   */  
+  iscanzdsave() {
+    if (this.content || this.headobj) {
+      return true;
+    }
+    // for (const key in this.formdata) {
+    //   if (this.formdata.hasOwnProperty(key)) {
+    //     const element = this.formdata[key];
+    //     if (element) {
+    //       return true;
+    //     }
+    //   }
+    // }
+    return false;
+  }
+  /**
+   * @Author: wjy-mac 保存多个的时候使用，暂定只能保存一个
+   * @description: 
+   * @Date: 2019-12-18 17:34:15
+   * @param {type} iszdtype 1 表示自动保存  没有则表示手动
+   * @return: 
+   */  
+  setsave(iszdtype?) {
+    // let obj = {
+    //   head: this.head,
+    //   type: this.type + 1,
+    //   address: this.address,
+    //   lnglat: this.lnglat,
+    //   content: this.content
+    // };
+    // obj = Object.assign(obj, this.formdata);
+    // obj['outtime'] = obj['outtime'] ? Date.parse((new Date(obj['outtime'])).toString()) / 1000 : '';
+    this.title = '正在保存';
+    this.clearDsq();
     let obj = {
-      head: this.head,
       type: this.type + 1,
       address: this.address,
       lnglat: this.lnglat,
       content: this.content
     };
+    if (this.headobj) {
+      obj['img'] = JSON.stringify(this.headobj);
+    }
     obj = Object.assign(obj, this.formdata);
     obj['outtime'] = obj['outtime'] ? Date.parse((new Date(obj['outtime'])).toString()) / 1000 : '';
+    if (this.id) {
+      obj['id'] = this.id;
+    }
     // arr.push(obj); 保存多个的时候使用，暂定只能保存一个
-    this.native.setStorage('yjcontent', obj).then(res => {
+    this.native.setStorage('yjcontent' + this.type, obj).then(res => {
       this.issave = false;
-      this.native.presentAlert(this.iscg ? '保存成功' : '保存成功,如需使用请到个人中心我的草稿里查看');
+      this.addDsq();
+      this.setPagetitle();
+      if (!iszdtype) {
+        this.native.presentAlert(this.iscg ? '保存成功' : '保存成功,如需使用请到个人中心我的草稿里查看');
+      }
     }).catch(err2 => {
       this.issave = false;
-      this.native.presentAlert('保存失败，请重试~');
+      this.addDsq();
+      this.setPagetitle();
+      !iszdtype && this.native.presentAlert('保存失败，请重试~');
     });
   }
   sub(type?) {
@@ -477,7 +644,7 @@ export class FbyjPage implements OnInit {
     this.setsave();
   }
   /**
-   * type 1 表示发表 2 表示保存
+   * type 1 表示发表 2 表示保存 3 询问是否有图片在上传
    * @param {number} type
    * @returns {boolean}
    */
@@ -581,16 +748,16 @@ export class FbyjPage implements OnInit {
    */  
   suberr(num?: any) {
     if (this.iscg) {
-      this.native.removeStorage('yjcontent');
+      this.native.removeStorage('yjcontent' + this.type);
     }
     this.getpopover(2).then(res => {
       if (res) {
         this.issub = false;
         if (num) {
           if (num === 1) {
-            this.goBack();
+            this.goBack(1);
           } else {
-            this.route.navigate(['/fbyjmore'], {queryParams: {type: this.type + 1, num: num.num, sendnum: num.sendnum}});
+            this.route.navigate(['/fbyjmore'], {queryParams: {type: this.type + 1, num: num.num, sendnum: num.sendnum, lxb: num.lxb}});
           }
         }
       } else {

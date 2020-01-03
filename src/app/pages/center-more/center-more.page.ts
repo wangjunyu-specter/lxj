@@ -1,8 +1,8 @@
 /*
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-18 15:55:37
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2019-12-18 13:53:30
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -47,7 +47,7 @@ import { XcsclistService } from 'src/app/services/xcsclist.service';
 import { YhtclistService } from 'src/app/services/yhtclist.service';
 import { YjlistService } from 'src/app/services/yjlist.service';
 import { ZtListService } from 'src/app/services/zt-list.service';
-
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-center-more',
   templateUrl: './center-more.page.html',
@@ -72,7 +72,8 @@ export class CenterMorePage implements OnInit {
               private sjindextjgoods: SjindextjgoodsService, private supplierlist: SupplierlistService,
               private thorder: ThorderService, private usercenter: UsercenterService,
               private ws: WebsocketService, private xclist: XclistService, private xcsclist: XcsclistService,
-              private yhtclist: YhtclistService, private yjlist: YjlistService, private ztlist: ZtListService) { }
+              private yhtclist: YhtclistService, private yjlist: YjlistService, private ztlist: ZtListService,
+              public alertController: AlertController) { }
 
   ngOnInit() {
     this.ismobile = this.native.ismobile();
@@ -108,9 +109,27 @@ export class CenterMorePage implements OnInit {
   setPaypwd() {
     this.route.navigate(['/setpaypwd']);
   }
-  loginout() {
-    this.clearAlldata();
-    this.nav.navigateRoot('/login');
+  async loginout() {
+    const alert = await this.alertController.create({
+      header: '提示!',
+      message: '是否确认退出!',
+      buttons: [
+        {
+          text: '取消',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+          }
+        }, {
+          text: '确认',
+          handler: () => {
+            this.clearAlldata();
+            this.nav.navigateRoot('/login');
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
   gotopage() {
     this.route.navigate(['/contactlist'], {queryParams: {type: 3}});

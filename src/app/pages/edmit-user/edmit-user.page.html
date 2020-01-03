@@ -1,8 +1,8 @@
 <!--
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
- * @LastEditors: wjy
- * @LastEditTime: 2019-08-04 22:55:07
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2019-12-18 11:03:30
  * @Description: file content
  -->
 <ion-header mode="ios">
@@ -17,7 +17,7 @@
 </ion-header>
 
 <ion-content padding>
-  <form #data="ngForm" *ngIf="userData" (ngSubmit)="onSubmit()">
+  <form #data="ngForm" *ngIf="userData" (ngSubmit)="onSubmit()" (ionChange)="changeData()">
     <ion-list>
       <ion-item>
         <ion-label>用户名</ion-label>
@@ -31,7 +31,8 @@
       <!--</ion-item>-->
       <ion-item (click)="imgFrom()" detail>
         <ion-avatar slot="end">
-          <img [src]="userData.headimg | imgsrc: http.domain">
+          <img *ngIf="ischangeHead" [src]="headimg">
+          <img *ngIf="!ischangeHead" [src]="userData.headimg | imgsrc: http.domain">
         </ion-avatar>
         <ion-label>头像</ion-label>
       </ion-item>
@@ -39,6 +40,7 @@
         <ion-label>生日</ion-label>
         <ion-datetime displayFormat="YYYY-MM-DD"
                       pickerFormat="YYYY-MM-DD"
+                      [max]="maxyear"
                       Format="YYYY-MM-DD" doneText="确定" cancelText="取消"
                       [(ngModel)]="userData.birthday" name="birthday"></ion-datetime>
       </ion-item>

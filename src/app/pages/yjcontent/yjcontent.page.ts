@@ -28,6 +28,7 @@ export class YjcontentPage implements OnInit {
   seletename: string;
   isshowDrop: boolean;
   user: any;
+  readnum: number; // 阅读数量
   @ViewChild("myBox", {static: true}) mybox: any;
   // isGetcontentimg: boolean; // 是否已获取详情内图片
   constructor( private nav: NavController,
@@ -65,6 +66,7 @@ export class YjcontentPage implements OnInit {
       }
     }
     this.data = this.yjlist.getPqone(this.id, this.type);
+    this.getReadnum();
     this.getContent();
     this.userfn.getUserp().then(res => {
       this.user = res;
@@ -230,14 +232,14 @@ export class YjcontentPage implements OnInit {
       text: '分享微信好友',
       role: '',
       handler: () => {
-        this.native.wechatShare(this.data.title, this.data.des, img || this.http.zdomain + 'logo108.png', 2);
+        this.wechatShare(2, img);
       }
     },
     {
       text: '分享到朋友圈',
       role: '',
       handler: () => {
-        this.native.wechatShare(this.data.title, this.data.des, img || this.http.zdomain + 'logo108.png', 1);
+        this.wechatShare(1, img);
       }
     }
   ];
@@ -267,6 +269,20 @@ export class YjcontentPage implements OnInit {
       buttons
     });
     await actionSheet.present();
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 微信分享
+   * @Date: 2019-12-24 14:30:37
+   * @param {type} 
+   * @return: 
+   */  
+  wechatShare(type, img?) {
+    this.userfn.getUser().then(res => {
+      console.log('分享进入')
+      this.native.wechatShare(this.data.title || this.data.content, '', img || this.http.zdomain + 'logo108.png',
+      this.http.domain + this.http.shareLink + '&id=' + this.id + '&fuid=' + res['user_id'] + '&pagetype=1', type);
+    }).catch(err => {});
   }
   /**
    * @Author: wjy-mac
@@ -305,5 +321,13 @@ export class YjcontentPage implements OnInit {
     });
 
     await alert.present();
+  }
+  getReadnum() {
+    console.log('获取数量')
+    this.http.getData(this.http.getReadnum, {id: this.id}).subscribe(res => {
+      this.readnum = res.result;
+    }, err => {
+      this.readnum = 0;
+    });
   }
 }

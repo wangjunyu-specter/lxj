@@ -1,3 +1,10 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-06-12 00:35:42
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2020-01-03 13:37:23
+ * @Description: file content
+ -->
 <ion-header mode="ios">
   <ion-toolbar mode="ios">
     <ion-buttons slot="start">
@@ -11,7 +18,7 @@
 <ion-content>
 
 <ion-content padding>
-  <ion-segment (ionChange)="segmentChanged($event)">
+  <ion-segment (ionChange)="segmentChanged($event)" color="success">
     <ion-segment-button value="goods" checked>
       <ion-label>商品</ion-label>
     </ion-segment-button>
@@ -19,13 +26,23 @@
       <ion-label>店铺</ion-label>
     </ion-segment-button>
   </ion-segment>
-  <div *ngIf="type === 'goods'">
-    <app-productlist *ngFor="let item of goodslist" [data]="item" (open)="openpage($event)"></app-productlist>
+  <div *ngIf="type === 'goods'" class="ion-margin-top">
+    <app-nomore *ngIf="goodslist && goodslist.length === 0"></app-nomore>
+    <ion-list>
+      <ion-item-sliding *ngFor="let item of goodslist">
+        <ion-item>
+          <app-productlist [data]="item" (open)="openpage($event)"></app-productlist>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option color="danger" (click)="unread(item.rec_id)">删除</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
   </div>
   <div *ngIf="type === 'shops'" style="margin-top: 15px">
+    <app-nomore *ngIf="shoplist && shoplist.length === 0"></app-nomore>
     <ion-list>
       <ion-item-sliding *ngFor="let item of shoplist" (click)="openpage(item)">
-
         <ion-item>
           <ion-thumbnail slot="start">
             <ion-img [src]="http.zdomain + item.shop_logo"></ion-img>

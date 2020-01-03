@@ -1,3 +1,10 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-06-25 00:03:10
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2020-01-03 11:43:02
+ * @Description: file content
+ -->
 <ion-header mode="ios">
   <ion-toolbar mode="ios">
     <ion-buttons slot="start">
@@ -14,35 +21,37 @@
   <form #userForm="ngForm" (ngSubmit)="onSubmit()">
     <ion-list>
       <ion-item>
+        <ion-label>姓名<ion-text color="danger">*</ion-text></ion-label>
         <ion-input placeholder="请输入姓名" required [(ngModel)]="dataObj.consignee" name="consignee" #consignee="ngModel"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input placeholder="请输入有效手机号码" required [(ngModel)]="dataObj.tel" name="tel" #tel="ngModel"></ion-input>
+        <ion-label>手机<ion-text color="danger">*</ion-text></ion-label>
+        <ion-input placeholder="请输入有效手机号码" type="number" required [(ngModel)]="dataObj.tel" name="tel" #tel="ngModel"></ion-input>
       </ion-item>
       <ion-item>
+        <ion-label>身份证<ion-text color="danger">*</ion-text></ion-label>
         <ion-input placeholder="请输入18位身份证号码" required [(ngModel)]="dataObj.card" name="card" #card="ngModel"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>省</ion-label>
+        <ion-label>省<ion-text color="danger">*</ion-text></ion-label>
         <ion-select placeholder="请选择省" (ionChange)="selteaddress(2, dataObj.province)" required [(ngModel)]="dataObj.province" name="province" cancelText="取消" okText="确定" #province="ngModel">
           <ion-select-option *ngFor="let item of provincelist" [value]="item.region_id">{{item.region_name}}</ion-select-option>
         </ion-select>
       </ion-item>
-      <ion-item>
-        <ion-label>市</ion-label>
+      <ion-item *ngIf="citylist.length > 0">
+        <ion-label>市<ion-text color="danger">*</ion-text></ion-label>
         <ion-select placeholder="请选择市" (ionChange)="selteaddress(3, dataObj.city)" required [(ngModel)]="dataObj.city" name="city" cancelText="取消" okText="确定" #city="ngModel">
           <ion-select-option *ngFor="let item of citylist" [value]="item.region_id">{{item.region_name}}</ion-select-option>
         </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label>区</ion-label>
+      </ion-item> 
+      <ion-item *ngIf="arealist.length > 0">
+        <ion-label>区<ion-text color="danger">*</ion-text></ion-label>
         <ion-select placeholder="请选择区" required [(ngModel)]="dataObj.district" name="district" cancelText="取消" okText="确定" #district="ngModel">
           <ion-select-option *ngFor="let item of arealist" [value]="item.region_id">{{item.region_name}}</ion-select-option>
         </ion-select>
-
       </ion-item>
       <ion-item>
-        <ion-textarea placeholder="详细地址：如道路、门牌号、小区、楼栋号、单元室等" required [(ngModel)]="dataObj.address" name="address" #address="ngModel"></ion-textarea>
+        <ion-textarea placeholder="详细地址：如道路、门牌号、小区、楼栋号、单元室等" [(ngModel)]="dataObj.address" name="address" #address="ngModel"></ion-textarea>
       </ion-item>
     </ion-list>
     <ion-list>

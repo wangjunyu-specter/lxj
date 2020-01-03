@@ -1,8 +1,8 @@
 /*
  * @Author: wjy-mac
  * @Date: 2019-07-31 23:26:32
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-04 19:18:43
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2019-12-31 11:30:35
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +13,7 @@ import {UsercenterService} from "../services/usercenter.service";
 import {TopageService} from "../services/topage.service";
 import {NativeService} from "../services/native.service";
 import { OkgoodsService } from '../services/okgoods.service';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ActionSheetController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab4',
@@ -28,9 +28,11 @@ export class Tab4Page implements OnInit {
   centeruser: any;
   hdzxList: object[]; // 活动中心
   isandroid: boolean;
+  yoursurplus: string; // 旅行币
   constructor(private route: Router, private userfn: UserService, public http: HttpService,
               private usercenter: UsercenterService, private toPage: TopageService, private native: NativeService,
-              private okgoodsfn: OkgoodsService, public alertController: AlertController) { }
+              private okgoodsfn: OkgoodsService, public alertController: AlertController,
+              public actionSheetController: ActionSheetController) { }
 
   ngOnInit() {
     this.isshow = false;
@@ -41,6 +43,7 @@ export class Tab4Page implements OnInit {
   ionViewDidEnter() {
     this.userfn.getUserp().then(res => {
       this.user = res;
+      // this.yoursurplus = res.user_money;
     }).catch(err => {
       console.log(err);
     });
@@ -114,19 +117,52 @@ export class Tab4Page implements OnInit {
       this.route.navigate(['/edmit-user']);
     } else if (type === 15) {
       // this.route.navigate(['/fbyj'], {queryParams: {type: res.data.type}});
-      this.native.getStorage('yjcontent').then(res => {
-        this.route.navigate(['/fbyj'], {queryParams: {type: res.type - 1, iscg: 1}});
-      }).catch(error => {
-        this.native.presentAlert('没有草稿!')
-      });
+      this.getmycg();
     } else if (type === 16) {
       this.route.navigate(['/after-salelist']);
+    } else if (type === 17) {
+      this.toPage.toPage(17, '0', '平台客服', 0);
     }
   }
   openOtherpage(item) {
     this.toPage.toPage(item.type, item.url)
   }
-
+  async getmycg() {
+    const actionSheet = await this.actionSheetController.create({
+      header: '请选择草稿类型',
+      buttons: [{
+        text: '游记',
+        handler: () => {
+          this.tomycg(1);
+        }
+      }, {
+        text: '攻略',
+        handler: () => {
+          this.tomycg(2);
+        }
+      }, {
+        text: '游约',
+        handler: () => {
+          this.tomycg(3);
+        }
+      }, {
+        text: '取消',
+        icon: 'close',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      }]
+    });
+    await actionSheet.present();
+  }
+  tomycg(type) {
+    this.native.getStorage('yjcontent' + type).then(res => {
+      this.route.navigate(['/fbyj'], {queryParams: {type, iscg: 1}});
+    }).catch(error => {
+      this.native.presentAlert('没有草稿!');
+    });
+  }
   async hzqt() {
     const alert = await this.alertController.create({
       header: '提示',
@@ -149,5 +185,8 @@ export class Tab4Page implements OnInit {
     });
 
     await alert.present();
+  }
+  showTs() {
+    this.native.presentAlert('旅行币是旅行家平台专用货币,不可提现,只能用于旅行家平台使用,1旅行币=1RMB');
   }
 }

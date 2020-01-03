@@ -1,8 +1,8 @@
 <!--
  * @Author: wjy-mac
  * @Date: 2019-07-28 01:58:20
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-28 16:31:55
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2019-12-24 14:46:30
  * @Description: file content
  -->
 <ion-header [translucent]="true" mode="ios">
@@ -14,10 +14,8 @@
       <div class="center">
       </div>
       <div class="right">
-        <!--<img src="/assets/wechatbg.svg" alt="">-->
-        <div class="round"><ion-icon name="share"></ion-icon></div>
+        <div class="round" (click)="sharefn()"><ion-icon name="share"></ion-icon></div>
         <div class="round" (click)="toprightmore($event)"><ion-icon name="more" mode="ios"></ion-icon></div>
-        <!--<img src="/assets/czbg.svg" alt="">-->
       </div>
     </div>
   </ion-toolbar>
@@ -92,7 +90,6 @@
           <span *ngIf="productData.yf > 0">运费：{{productData.yf}}</span>
           <span *ngIf="productData.yf == -1">快递包邮</span>
         </ion-label>
-        <!--<ion-note>销量3万</ion-note>-->
       </ion-item>
       <ion-item button  (click)="showfw()">
         <ion-label *ngIf="productData && productData.fw">
@@ -303,9 +300,6 @@
       <div *ngIf="productData" [innerHTML]="assembleHTML(productData.twcontent)"></div>
     </div>
     <div class="tmcontent-title xcxl" *ngIf="productData">{{productData.ishw ? '行程线路' : '规格参数'}}</div>
-    <!--<div class="gmxz-des">-->
-      <!--5天4晚|4个景点-->
-    <!--</div>-->
     <div class="" margin-top="5px">
       <ion-grid *ngIf="productData && !productData.ishw">
         <ion-list *ngIf="productData">

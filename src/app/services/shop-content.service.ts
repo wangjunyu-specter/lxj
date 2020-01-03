@@ -1,8 +1,8 @@
 /*
  * @Author: wjy-mac
  * @Date: 2019-07-30 22:58:50
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-04 18:00:01
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2019-12-18 21:58:30
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -69,7 +69,11 @@ export class ShopContentService {
   }
   async getShop() {
     if (!this.hasData) {
-      await this.getShophttp();
+      try {
+        await this.getShophttp();
+      } catch(err) {
+        throw new Error(err);
+      }
     }
     return this.shopObj;
   }
@@ -145,41 +149,44 @@ export class ShopContentService {
     return new Promise((resolve, reject) => {
       this.http.getData(this.http.getIndex).subscribe(res => {
         console.log(res);
-        this.hasData = true;
-        // alert(JSON.stringify(res))
-        const data = res['data'];
-        // alert(JSON.stringify(data))
-        // this.navList = data['menu_list'];
-        this.setIndexnav(data['menu_list']);
-        let obj = {};
-        for (let i = 0, j = data['shop_config'].length; i < j; i++) {
-          const resData = data['shop_config'][i];
-          obj[resData.CODE] = resData.VALUE;
-        }
-        obj['keywords'] = data['keywords'];
-        obj['sckeywords'] = data['sckeywords'];
-        obj['iosapp_verson'] = data['iosapp_verson'];
-        this.setShopObj(obj);
-        this.shopnav.setNav(data['categories']);
-        this.setIndexbanner(data['index_banner']);
-        this.bzjx = data['bzjx'];
-        this.rmzt1 = data['index_box71'];
-        // this.rmzt2 = data['index_box72'];
-        this.indexTitle = data['index_title'];
-        this.hdbox1 = data['index_box41'];
-        this.hdbox2 = data['index_box42'];
-        this.bestGoods = data['tj_goods'];
-        this.caticallist = data['new_articles'];
-        this.index_nav2 = data['index_nav2'];
-        this.sortlistobj = data['flsort'];
+        this.setShopdata(res);
         // this.newGoods = data['new_goods'];
         resolve(true)
       }, err => {
-        // alert(JSON.stringify(err))
         console.log(err);
-        reject(false)
+        reject(err)
       });
     });
+  }
+  setShopdata(res) {
+    this.hasData = true;
+    // alert(JSON.stringify(res))
+    const data = res['data'];
+    // alert(JSON.stringify(data))
+    // this.navList = data['menu_list'];
+    this.setIndexnav(data['menu_list']);
+    let obj = {};
+    for (let i = 0, j = data['shop_config'].length; i < j; i++) {
+      const resData = data['shop_config'][i];
+      obj[resData.CODE] = resData.VALUE;
+    }
+    obj['keywords'] = data['keywords'];
+    obj['sckeywords'] = data['sckeywords'];
+    obj['iosapp_verson'] = data['iosapp_verson'];
+    obj['nologin'] = data['nologin'] || -1;
+    this.setShopObj(obj);
+    this.shopnav.setNav(data['categories']);
+    this.setIndexbanner(data['index_banner']);
+    this.bzjx = data['bzjx'];
+    this.rmzt1 = data['index_box71'];
+    // this.rmzt2 = data['index_box72'];
+    this.indexTitle = data['index_title'];
+    this.hdbox1 = data['index_box41'];
+    this.hdbox2 = data['index_box42'];
+    this.bestGoods = data['tj_goods'];
+    this.caticallist = data['new_articles'];
+    this.index_nav2 = data['index_nav2'];
+    this.sortlistobj = data['flsort'];
   }
   getMoregoods () {
     return this.moreGoods;

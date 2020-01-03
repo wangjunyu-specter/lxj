@@ -1,13 +1,13 @@
 /*
  * @Author: wjy-mac
  * @Date: 2019-07-15 22:18:06
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-05 21:02:42
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2019-12-28 18:58:19
  * @Description: file content
  */
 import { Component, OnInit, ViewChild  } from '@angular/core';
 import { Router } from '@angular/router';
-import {ModalController, NavController, AlertController} from '@ionic/angular';
+import {ModalController, NavController, AlertController, Platform} from '@ionic/angular';
 // import { SearchPage } from '../search/search.page';
 import { SearchComponent } from '../components/search/search.component';
 import { HttpService } from '../services/http.service';
@@ -62,7 +62,7 @@ export class Tab1Page implements OnInit {
               private topage: TopageService, private user: UserService, private route: Router,
               private appUpdate: AppUpdate, private native: NativeService, public alertController: AlertController,
               private ws: WebsocketService, private newslist: NewsListService, private jPush: JPush,
-              private nav: NavController, private statusBar: StatusBar) {
+              private nav: NavController, private statusBar: StatusBar, private platform: Platform) {
   }
   ngOnInit() {
     // this.shopdata = {}
@@ -110,20 +110,12 @@ export class Tab1Page implements OnInit {
   }
   ionViewDidEnter() {
     if (!this.shopdata) {
-      this.moreGoods = this.shop.getMoregoods();
-      this.getShopcontent();
-    }
-    if (this.newslist.getList().length === 0) {
-      this.getNewslist().then(res => {
-        if (res < this.newslist.newsPageobj.limit) {
-          this.newslist.setNewsall();
-        }
-        this.wsfn();
-      }).catch(err => {
-        this.wsfn();
+      console.log('获取首页数据')
+      this.platform.ready().then(() => {
+        this.moreGoods = this.shop.getMoregoods();
+        this.getShopcontent();
       });
     }
-
   }
   getJpushid() {
     this.jPush.getRegistrationID().then(res => {
@@ -211,12 +203,34 @@ export class Tab1Page implements OnInit {
   }
   getShopcontent() {
     this.shop.getShop().then(res => {
-      if (!this.shopdata) {
-        this.shopdata = res;
-        this.getJpushid();
-        this.location = this.user.getLocation();
-        this.jPush.setApplicationIconBadgeNumber(0);
+      if (res['nologin'] == 1) {
+        this.user.setUser();
+        this.native.resetlogin(1);
       }
+      if (!this.shopdata) {
+        this.location = this.user.getLocation();
+        this.user.getUser().then(res => {
+          if (res.user_id != -1) {
+            this.getJpushid();
+            this.jPush.setApplicationIconBadgeNumber(0);
+          }
+        }).catch(err => {
+        });
+      }
+      this.shopdata = res;
+      this.user.getUser().then(res => {
+        console.log(res)
+        if (this.newslist.getList().length === 0 && res.user_id != -1) {
+          this.getNewslist().then(res => {
+            if (res < this.newslist.newsPageobj.limit) {
+              this.newslist.setNewsall();
+            }
+            this.wsfn();
+          }).catch(err => {
+            // this.wsfn();
+          });
+        }
+      }).catch(err => {});
       if (this.native.isandroid()) { // 安卓版本更新
         const updateUrl = this.http.zdomain + 'update.xml';
         this.appUpdate.checkAppUpdate(updateUrl).then(() => { console.log('Update available'); }).catch(err2 => {
@@ -224,10 +238,10 @@ export class Tab1Page implements OnInit {
         });
       } else if (this.native.isios()) { // ios 版本更新
         this.native.getAppversion().then(version => {
-          if (version != res.iosapp_verson) {
+          if (version != res.iosapp_verson && res.iosapp_verson != -1) {
             this.updateios();
           }
-        })
+        });
       }
       this.navList = this.shop.getIndexnav();
       this.bannerList = this.shop.getIndexbanner();
@@ -250,7 +264,8 @@ export class Tab1Page implements OnInit {
       } else {
         this.keywords = this.shopdata['keywords'][0];
       }
-    }).catch(err => {});
+    }).catch(err => {
+    });
   }
   async updateios() {
     const alert = await this.alertController.create({

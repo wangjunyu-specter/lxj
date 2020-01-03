@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-06 15:13:08
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2020-01-03 13:19:07
+ * @Description: file content
+ */
 import { Component, OnInit } from '@angular/core';
 import {NavController} from "@ionic/angular";
 // import {Router} from "@angular/router";
@@ -44,6 +51,8 @@ export class XcsclistPage implements OnInit {
   openpage(data) {
     console.log(data)
     this.topage.toPage(2, data.goods_id);
-
+  }
+  deletem(id: string) {
+    this.xcxlfn.deleteitem(id);
   }
 }

@@ -1,21 +1,23 @@
 /*
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-23 21:30:21
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2019-12-18 20:55:59
  * @Description: 所有跳转页面类型服务
  */
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
 import {UserService} from './user.service';
+import { NativeService } from './native.service';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class TopageService {
 
-  constructor(private router: Router, private iab: InAppBrowser, private user: UserService) { }
+  constructor(private router: Router, private iab: InAppBrowser, private user: UserService, private native: NativeService) { }
 
   /**
    * type 1 商品分类列表 2 商品详情 3 主题 4 选择选择地址 5 搜索 6 商城首页 7 店铺首页 8 品牌馆 9 新闻详情
@@ -63,7 +65,7 @@ export class TopageService {
       if (id.includes('http')) {
         href = id;
       } else {
-        href += 'http://' + id;
+        href += 'https://' + id;
       }
       this.user.getUserp().then(res => {
         if (href.includes('?')) {
@@ -74,7 +76,7 @@ export class TopageService {
         console.log(href);
         this.openBrowser(href);
       }).catch(err2 => {
-        // this.openBrowser(href);
+        this.openBrowser(href);
       });
     } else if (type === 11) {
       this.router.navigate(['/xccontent'], {queryParams: {id, comment: args[0]}});
@@ -94,7 +96,12 @@ export class TopageService {
       this.router.navigate(['/post-comment'], {queryParams: obj});
     } else if (type === 17) {
       console.log(args);
-      this.router.navigate(['/newslist'], {queryParams: {id, name: args[0], kftype: args[1] || 1}});
+      const obj = {
+        id,
+        name: args[0],
+        kftype: args[1] || args[1] === 0 ? args[1] : 1
+      }
+      this.router.navigate(['/newslist'], {queryParams: obj});
     } else if (type === 18) {
         this.router.navigate(['/notice'], {queryParams: {id}});
     } else {
@@ -109,8 +116,10 @@ export class TopageService {
    * @Date: 2019-08-03 19:19:41
    */
   private openBrowser(link: string) {
+    this.native.setFullscreen();
     const options: InAppBrowserOptions = { // : todo 需要设置ios配置
       location: 'no',
+      toolbar: 'no',
       // closebuttoncaption: '关闭',
       toolbarcolor: '#f1f1f1',
       closebuttoncolor: '#333333',
@@ -157,6 +166,9 @@ export class TopageService {
     })
     browser.on('loadstart').subscribe(res => {
       
+    })
+    browser.on('exit').subscribe(res => {
+      this.native.backFullscreen();
     })
     console.log(browser);
   }

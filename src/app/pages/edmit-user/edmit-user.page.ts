@@ -1,8 +1,8 @@
 /*
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-26 21:39:24
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2020-01-02 15:22:28
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -23,11 +23,14 @@ export class EdmitUserPage implements OnInit {
   ischangeHeadend: boolean; // 是否改变图片
   isloading: boolean; // 是否正在上传
   userid: string;
+  headimg: string; // 图片上传期间显示的load图
+  maxyear: string; // 最大年龄年份
   constructor(private nav: NavController, private userfn: UserService,
               private native: NativeService, public actionSheetController: ActionSheetController,
               private http: HttpService) { }
 
   ngOnInit() {
+    this.headimg = '../../../assets/load.jpg';
     this.userfn.getUserp().then(res =>{
       console.log(res);
       this.userid = res.user_id;
@@ -39,9 +42,20 @@ export class EdmitUserPage implements OnInit {
         sex: res.sex
       };
     }).catch(err => {});
+    const date = new Date();
+    const year = date.getFullYear().toString();
+    this.maxyear = year;
   }
-  goBack () {
+  goBack() {
     this.nav.back();
+  }
+  changeData() {
+    this.isupdate = false;
+    console.log(this.userData.username.length)
+    if (this.userData.username.length > 20) {
+      this.userData.username = this.userData.username.substr(0, 20);
+      this.native.presentAlert('标题请不要超过20个字哦~');
+    }
   }
   async onSubmit() {
     console.log(this.userData)
@@ -85,6 +99,7 @@ export class EdmitUserPage implements OnInit {
       this.userfn.upDataobj(data);
       this.isloading = false;
       this.ischangeHeadend = false;
+      this.native.presentToast('修改成功');
     }, error2 => {
       this.isloading = false;
     });
@@ -96,12 +111,13 @@ export class EdmitUserPage implements OnInit {
       oReq.onreadystatechange = (oEvent) => {
         if (oReq.readyState == 4 && oReq.status == 200) {
           const res = JSON.parse(oReq.response);
+          console.log(oReq.response)
           resolve(res.result['src']);
         }
-      }
+      };
       oReq.onerror = (err) => {
         reject(err);
-      }
+      };
       oReq.send(file);
     });
   }
@@ -116,7 +132,6 @@ export class EdmitUserPage implements OnInit {
             if (!filedata) {
               return false;
             }
-            console.log(filedata)
             // console.log()
             this.changeHead(filedata);
           });
@@ -129,7 +144,6 @@ export class EdmitUserPage implements OnInit {
             if (!filedata) {
               return false;
             }
-            console.log(filedata)
             this.changeHead(filedata);
           });
         }
@@ -152,12 +166,11 @@ export class EdmitUserPage implements OnInit {
    */
   private async changeHead(link: string) {
     this.ischangeHead = true;
-    this.userData.headimg = link;
+    this.userData.headimg = '../../../assets/load.jpg';
     try {
-      const file = this.native.getImgbase64tofile(this.userData.headimg, 'userheaduid_' + this.userid);
+      const file = this.native.getImgbase64tofile(link, 'userheaduid_' + this.userid);
       file.append('nothumb', '1');
       file.append('ishead', '1');
-      console.log(file);
       const filepath = await this.imgupload(file);
       console.log(filepath)
       this.userData.headimg = filepath;

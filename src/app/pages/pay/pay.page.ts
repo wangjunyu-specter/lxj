@@ -1,8 +1,8 @@
 /*
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-05 11:21:29
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2019-12-31 14:50:08
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -86,13 +86,11 @@ export class PayPage implements OnInit {
   async submit($event) {
     const surplus = this.kysyye ? this.syye : 0;
 
-    if (false) { // surplus > 0 && !this.isyepayend
+    if (surplus > 0 && !this.isyepayend) {
       const pwd = await this.syyepay(); // 获取密码
-      console.log(pwd)
       if (!pwd) {
         return false;
       } else {
-
         let kypay = false; // 余额支付是否成功
         try {
           kypay = await this.checksurplus(pwd) as any;
@@ -103,7 +101,6 @@ export class PayPage implements OnInit {
           return false;
         }
         this.isyepayend = true;
-        console.log(this.syye )
         if (surplus == this.price) {
           this.isyepayend = false;
           this.gotosucess();
@@ -126,7 +123,7 @@ export class PayPage implements OnInit {
             this.http.postformdataloading(this.http.acteditpayment2, {order_id}).subscribe(res => {
               this.gotosucess();
             }, err => {
-              this.native.presentToast('支付失败!');
+              // this.native.presentToast('支付失败!');
             });
           }
           document.removeEventListener("resume", ispay, false);
@@ -209,7 +206,7 @@ export class PayPage implements OnInit {
 
   setyechange() {
     if (this.syye < 0) {
-      this.native.presentAlert('请输入正确的金额');
+      this.native.presentAlert('请输入正确的数量');
       this.syye = 0;
       return false;
     }
@@ -223,13 +220,13 @@ export class PayPage implements OnInit {
       }
     }
     if (this.syye > this.yoursurplus || this.syye > this.price) {
-      this.native.presentAlert('请输入正确的金额');
+      this.native.presentAlert('请输入正确的数量');
       this.syye = 0;
       return false;
     }
   }
   goBack(): void {
-    this.presentAlertConfirm()
+    this.presentAlertConfirm();
   }
   // async presentAlert() {
   //   const alert = await this.alertController.create({

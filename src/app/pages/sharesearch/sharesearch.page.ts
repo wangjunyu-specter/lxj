@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-15 15:12:56
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-29 11:29:13
+ * @LastEditTime: 2019-12-06 13:07:38
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -24,6 +24,7 @@ export class SharesearchPage implements OnInit {
   limit: number;
   searchtext: string;
   list: any[];
+  gzuserlist: string[]; // 关注的用户列表
   constructor(private http: HttpService, private activeroute: ActivatedRoute,
               private nav: NavController, private gzlistfn: GzlistService, private route: Router) { }
 
@@ -34,6 +35,7 @@ export class SharesearchPage implements OnInit {
     this.limit = 20;
     const params = this.activeroute.snapshot.queryParams;
     this.searchKey = params['searchKey'];
+    this.gzuserlist = this.gzlistfn.getGzlist();
   }
   close() {
     this.nav.back();
@@ -81,5 +83,12 @@ export class SharesearchPage implements OnInit {
   goperson(id) {
     console.log(id)
     this.route.navigate(['/myrelease'], {queryParams: {userid: id}});
+  }
+  setIsgz(id) {
+    if (!this.gzuserlist.includes(id)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

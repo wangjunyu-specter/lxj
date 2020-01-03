@@ -1,3 +1,10 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-07-06 15:14:26
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2020-01-03 13:14:10
+ * @Description: file content
+ -->
 <ion-header mode="ios">
   <ion-toolbar mode="ios">
     <ion-buttons slot="start">
@@ -18,7 +25,17 @@
        refreshingText="Refreshing...">
     </ion-refresher-content>
   </ion-refresher>
-  <app-productlist *ngFor="let item of goodslist" [data]="item" (open)="openpage($event)"></app-productlist>
+  <app-nomore *ngIf="goodslist && goodslist.length === 0"></app-nomore>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of goodslist">
+      <ion-item>
+        <app-productlist [data]="item" (open)="openpage($event)"></app-productlist>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="deletem(item.rec_id)">删除</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
   <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
     <ion-infinite-scroll-content
        loadingSpinner="bubbles"

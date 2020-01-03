@@ -103,7 +103,7 @@
     <ion-list *ngIf="pricearr" inset="true">
       <ion-item  *ngFor="let item of pricearr['pricearr']; let i = index">
         <ion-label>{{item.key}}</ion-label>
-        <div class="end" [ngClass]="{'red': i > 1}">{{item.value}}</div>
+        <div class="end" [ngClass]="{'red': i > 1}">{{item.value}}元</div>
       </ion-item>
     </ion-list>
     <ion-list *ngIf="pricearr" inset="true" no-margin>
@@ -114,7 +114,12 @@
     </ion-list>
   </div>
   <div class="ptxz" padding>
-    点击“提交订单”表示已阅读并同意 <ion-text color="primary">《旅行家平台服务协议》《旅游 安全须知》</ion-text>
+    点击“提交订单”表示已阅读并同意:
+    <br/>
+    <ion-text color="primary">
+      <span (click)="openxy('ptxy.html')">《旅行家平台服务协议》</span>
+      <span (click)="openxy('aqxz.html')">《旅游安全须知》</span>
+    </ion-text>
   </div>
 </ion-content>
 <ion-footer mode="ios">

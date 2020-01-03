@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-06 15:13:08
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2020-01-03 13:34:52
+ * @Description: file content
+ */
 import { Injectable } from '@angular/core';
 import {HttpService} from "./http.service";
 
@@ -6,8 +13,8 @@ import {HttpService} from "./http.service";
 })
 export class XcsclistService {
 
-  list: any[]; // 产品
-  page: number; // 商品
+  list: any[]; // 收藏的行程
+  page: number;
   limit: number;
   constructor(private http: HttpService) {
     this.clear();
@@ -73,8 +80,15 @@ export class XcsclistService {
     //   // this.list.push(data);
     // });
   }
-  deleteitem(id) { // : todo 商品取消收藏未做
-    this.http.postformdata(this.http.delfollow, {rec_id: id}).subscribe(res => {
+  /**
+   * @Author: wjy-mac
+   * @description: 取消收藏行程
+   * @Date: 2020-01-03 13:34:36
+   * @param {type} 
+   * @return: 
+   */  
+  deleteitem(id) {
+    this.http.getData(this.http.delfollowgoods, {rec_id: id}).subscribe(res => {
       console.log(res);
       for (let i = 0, j = this.list.length; i < j; i++) {
         if (this.list[i].rec_id === id) {

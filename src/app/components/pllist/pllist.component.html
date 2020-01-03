@@ -44,7 +44,7 @@
           <ion-text color="medium">{{item.time | oldtonow}}</ion-text>
         </div>
       </div>
-      <ion-button *ngIf="data.plnum > data.chrild.length" no-padding fill="clear" size="small" (click)="geitmore()">全部{{data.plnum - data.chrild.length}}条回复</ion-button>
+      <ion-button *ngIf="data.plnum > data.chrild.length" no-padding fill="clear" size="small" (click)="geitmore()">全部{{data.plnum | plnum: data.chrild.length}}条回复</ion-button>
     </div>
   </div>
 </ion-item>

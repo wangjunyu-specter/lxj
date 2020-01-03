@@ -1,8 +1,8 @@
 <!--
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-18 10:14:36
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2019-12-31 18:41:29
  * @Description: file content
  -->
 <ion-header mode="ios">
@@ -19,8 +19,8 @@
 
 <ion-content class="ion-padding">
   <ion-list>
-    <!-- <ion-item *ngIf="user && user.is_surplus_open == 0" button (click)="setPaypwd()">设置支付密码</ion-item> -->
-    <!-- <ion-item *ngIf="user && user.is_surplus_open == 1" button (click)="setPaypwd()">修改支付密码</ion-item> -->
+    <ion-item *ngIf="user && user.is_surplus_open == 0" button (click)="setPaypwd()">设置支付密码</ion-item>
+    <ion-item *ngIf="user && user.is_surplus_open == 1" button (click)="setPaypwd()">修改支付密码</ion-item>
     <ion-item *ngIf="user" button (click)="gotopage(1)">地址管理</ion-item>
     <!-- <ion-item button (click)="tobill()">账单</ion-item> 感觉无用 wjy -->
     <ion-item button (click)="toSetpw()">修改登录密码</ion-item>

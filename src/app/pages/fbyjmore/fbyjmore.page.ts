@@ -1,8 +1,8 @@
 /*
  * @Author: wjy-mac
  * @Date: 2019-07-06 01:40:14
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-20 12:25:24
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2019-12-31 15:49:09
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -19,6 +19,7 @@ export class FbyjmorePage implements OnInit {
   title: string;
   num: number; // 分数
   allnum: number; // 所有数量
+  lxb: number; // 旅行币
   constructor(private nav: NavController, private route: Router,
               private activeroute: ActivatedRoute) { }
 
@@ -27,6 +28,7 @@ export class FbyjmorePage implements OnInit {
     this.type = params['type'] ? Number(params['type']) : 1;
     this.num = params['num'] || 0;
     this.allnum = params['sendnum'] || 0;
+    this.lxb = params['lxb'] || 0;
     switch (this.type) {
       case 1:
         this.title = '票圈';

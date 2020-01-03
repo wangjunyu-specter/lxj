@@ -1,8 +1,8 @@
 <!--
  * @Author: wjy-mac
  * @Date: 2019-07-07 02:05:04
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-04 14:41:17
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2019-12-28 18:24:36
  * @Description: 支付页面
  -->
 <ion-header>
@@ -42,18 +42,28 @@
   </div>
   <div *ngIf="yepay" class="line"></div>
   <!-- <ion-list *ngIf="yepay" inset="true" line="none"> -->
-  <ion-list *ngIf="yepay" inset="true" line="none" style="display: none;">
+  <ion-list *ngIf="yepay" inset="true" line="none">
     <ion-item>
-      <ion-label>使用余额</ion-label>
+      <ion-label>使用旅行币</ion-label>
       <ion-toggle [(ngModel)]="kysyye" (ionChange)="setyenum()" color="success" [disabled]="isyepayend"></ion-toggle>
     </ion-item>
     <ion-item lines="none" *ngIf="kysyye">
-      <ion-label>输入金额</ion-label>
-      <ion-input type="number" mode="ios" (ionChange)="setyechange()" [disabled]="isyepayend" [max]="yoursurplus" min="0" [(ngModel)]="syye" color="success"></ion-input>
-      <ion-note>元</ion-note>
+      <ion-label>输入旅行币</ion-label>
+      <ion-input 
+      style="text-align: right;"
+      type="number" 
+      mode="ios" 
+      (ionChange)="setyechange()" 
+      [disabled]="isyepayend" 
+      [max]="yoursurplus" 
+      min="0" 
+      [(ngModel)]="syye" 
+      color="success">
+    </ion-input>
+      <ion-note>个</ion-note>
     </ion-item>
     <ion-item>
-      <small>您当前的可用余额为{{yoursurplus}}</small>
+      <small>您当前的可用旅行币为{{yoursurplus}}</small>
     </ion-item>
   </ion-list>
   <div class="line"></div>

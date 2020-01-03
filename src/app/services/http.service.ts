@@ -1,8 +1,8 @@
 /*
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-04 16:42:34
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2020-01-03 13:29:38
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -12,7 +12,7 @@ import { NativeService } from './native.service';
 import { UserService } from './user.service';
 import { HTTP } from '@ionic-native/http/ngx';
 import {error, promise} from 'selenium-webdriver';
-import {NavController} from "@ionic/angular";
+import {NavController, AlertController} from "@ionic/angular";
 // import * as api from '../mo'
 
 
@@ -31,6 +31,7 @@ export class HttpService {
   wslink = 'ws://news.cdlxj.cn';
   login = 'user.php?act=signin'; // 登录
   yzpwd = 'user.php?act=yzpwd'; // 验证密码
+  shareLink = 'article.php?act=wxshare'; // 分享链接
   sendYzm = 'register.php?act=send_mobile_code'; // 发送验证码 mobile_phone
   resetPwd = 'register.php?act=resetPwd'; // 发送验证码 mobile_phone
   editsurplus = 'user.php?act=act_edit_surplus'; // 余额支付
@@ -69,6 +70,7 @@ export class HttpService {
   addgwc = 'flow.php?step=add_to_cart'; // 加入购物车 goods: {"quick":0,"spec":[],"goods_id":277,"number":"1","parent":0}
   addgz = 'user.php?act=collect2'; // 关注商品  user_id, id
   scshop = 'supplier.php?go=other&act=add_guanzhu'; // 收藏店铺 suppId
+  removeguanzhu = 'supplier.php?go=other&act=remove_guanzhu'; // 取消收藏店铺 suppId
   qrorder = 'flow.php?step=checkoutapp'; // 确认订单
   getaddress = 'flow.php?step=consignee_list'; // 获取地址
   setMraddress = 'user.php?act=set_address'; // 设置默认地址
@@ -92,6 +94,7 @@ export class HttpService {
   collectionlist = 'user.php?act=collection_list'; // 我的收藏商品
   followshop = 'user.php?act=follow_shop'; // 我的收藏店铺
   delfollow = 'user.php?act=del_follow'; // 删除收藏店铺
+  delfollowgoods = 'user.php?act=del_attention'; // 删除收藏商品
   getfollowpqlist = 'article.php?act=getfollowlist'; // 获取关注票圈列表
   getfollowlistuser = 'article.php?act=getfollowlistuser'; // 获取关注列表
   getpllist = 'article.php?act=getpllist'; // 获取评论
@@ -103,6 +106,7 @@ export class HttpService {
   setpl = 'article.php?act=setpl'; // 评论
   delpl = 'article.php?act=delpl'; // 删除评论
   setgz = 'article.php?act=setgz'; // 设置关注
+  getReadnum = 'article.php?act=getReadnum'; // 获取已读数量
   getpqlistsearch = 'article.php?act=getpqlistsearch'; // 获取搜索
   updateimg = 'article.php?act=updateimg'; // 上传图片
   shupdateimg = 'includes/kindeditor/php/upload_json.php?dir=image'; // 售后上传图片
@@ -114,7 +118,7 @@ export class HttpService {
   getGoodsTag = 'user.php?act=getGoods_tag'; // 获取商品评论标签&order_id=219
   cancelOrderxc = 'user.php?act=cancel_order_xc'; // 取消行程&order_id=219
   getGzlist = 'user.php?act=getGzlist'; // 获取关注的人
-  editprofile = 'user.php?act=act_edit_profile'; // 获取关注的人
+  editprofile = 'user.php?act=act_edit_profile'; // 修改用户资料
   // getFslist = 'user.php?act=getFslist'; // 获取粉丝列表 无用
   goodsSearch = 'search4.php?'; // 搜索
   tipword = 'ajax_www_68ecshop_com.php?act=tipword'; // 搜索 关键字
@@ -134,7 +138,7 @@ export class HttpService {
   user: any;
   // changebonus = 'flow.php?step=select_shipping'; // 使用红包 bonus suppid sel_cartgoods
   constructor(private http: HttpClient, private nhttp: HTTP, private nativeService: NativeService,
-              private userfn: UserService, private nav: NavController) { }
+              private userfn: UserService, private nav: NavController, public alertController: AlertController) { }
 
   postformdata(url, params = {}): Observable<any> {
     return Observable.create((observer) => {
@@ -319,6 +323,7 @@ export class HttpService {
     } else {
       user = this.user;
     }
+    console.log(user);
     const ze = /^(HTTP)/i;
     if (!ze.test(url)) {
       url = this.domain + url;
@@ -328,8 +333,8 @@ export class HttpService {
     if (uuid) {
       url += '&uuid=' + uuid;
     }
-    const address = this.userfn.getLocation();
-    if (address) {
+    const address = this.userfn.getLocation3();
+    if (address.country) {
       let url2 = ('&country=' + address.country + '&province=' + address.province +
       '&city=' + address.city + '&lat=' + address.lat + '&lng=' + address.lng);
       url += encodeURI(url2);
@@ -365,8 +370,9 @@ export class HttpService {
           this.nativeService.presentToast(res.msg || res.message);
           return true;
       } else if (res && res.status === 3) {
-        this.nativeService.presentToast('登录失效，请重新登录!');
-        this.logints();
+        // this.nativeService.presentToast('登录失效，请重新登录!');
+        // this.logints();
+        this.nativeService.resetlogin();
         return false;
       } else {
         const msg = res ? (res.msg || res.message) : '响应错误';
@@ -386,9 +392,29 @@ export class HttpService {
     });
     return obj;
   }
-  private logints() {
-    this.nav.navigateRoot('/login');
+  async logints() {
+    const alert = await this.alertController.create({
+      header: '提示!',
+      message: '需要先登录哦!!!',
+      buttons: [
+        {
+          text: '随便看看',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: '去登录',
+          handler: () => {
+            console.log('Confirm Okay');
+            this.nav.navigateRoot('/login');
+          }
+        }
+      ]
+    });
 
+    await alert.present();
   }
   private requestFailed(url: string, err, rmsg ?: string) {
     this.nativeService.hideLoading();
@@ -410,7 +436,7 @@ export class HttpService {
         } else if (status === 500) {
           msg += '请求失败，服务器出错，请稍后再试';
         } else {
-          alert(url)
+          // alert(url)
           msg += '请求发生异常';
         }
       }

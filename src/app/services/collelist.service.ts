@@ -37,8 +37,8 @@ export class CollelistService {
     this.page1 = 0;
     this.list = [];
     this.list1 = [];
-    this.getListhttp(1);
-    this.getList2http(1);
+    this.getListhttp(1).then(res => {}).catch(err => {});
+    this.getList2http(1).then(res => {}).catch(err => {});
   }
   async getListhttp(type?) {
     const obj = {page: this.page * this.limit, limit: this.limit};
@@ -114,13 +114,21 @@ export class CollelistService {
     //   // this.list.push(data);
     // });
   }
-  deleteitem(id, type) { // : todo 商品取消收藏未做
+  /**
+   * @Author: wjy-mac
+   * @description: 取消收藏
+   * @Date: 2020-01-03 13:35:48
+   * @param {type} type 1商品 2店铺
+   * @param {type} id 收藏的id或者店铺id
+   * @return: 
+   */  
+  deleteitem(id, type) {
     if (type === 1) {
-      this.http.postformdata(this.http.delfollow, {rec_id: id}).subscribe(res => {
+      this.http.getData(this.http.delfollowgoods, {rec_id: id}).subscribe(res => {
         console.log(res);
-        for (let i = 0, j = this.list1.length; i < j; i++) {
+        for (let i = 0, j = this.list.length; i < j; i++) {
           if (this.list[i].rec_id === id) {
-            this.list1.splice(i, 1);
+            this.list.splice(i, 1);
             break;
           }
         }

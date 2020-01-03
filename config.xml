@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.cdlxj.wjy" version="0.0.8" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.cdlxj.wjy" version="0.0.17" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>旅行家</name>
     <description>户外旅行.</description>
     <author email="wangjy_strive@icloud.com" href="http://ionicframework.com/">Ionic Framework Team</author>
@@ -21,8 +21,6 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="AllowInlineMediaPlayback" value="true" />
-    <preference name="StatusBarOverlaysWebView" value="true" />
-    <preference name="StatusBarStyle" value="lightContent" />
     <platform name="android">
         <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application" xmlns:android="http://schemas.android.com/apk/res/android">
             <application android:networkSecurityConfig="@xml/network_security_config" />
@@ -53,13 +51,28 @@
     </platform>
     <platform name="ios">
         <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
-            <string>need camera access to take pictures</string>
+            <string>通过摄像头可以拍摄你精美的户外行程和身边事</string>
         </edit-config>
         <edit-config file="*-Info.plist" mode="merge" target="NSMicrophoneUsageDescription">
-            <string>need microphone access to record sounds</string>
+            <string>通过麦克风可以让你的短视频有声有色</string>
         </edit-config>
         <edit-config file="*-Info.plist" mode="merge" target="NSPhotoLibraryUsageDescription">
-            <string>need to photo library access to get pictures from there</string>
+            <string>通过照片可以记录你精美的户外行程和身边事</string>
+        </edit-config>
+        <edit-config file="*-Info.plist" mode="merge" target="NSPhotoLibraryAddUsageDescription">
+            <string>需要保存拍摄照片到本地图片使精彩更长久</string>
+        </edit-config>
+        <edit-config file="*-Info.plist" mode="merge" target="NSLocationAlwaysUsageDescription">
+            <string>通过位置来帮你搜寻就近的服务商家和新鲜事</string>
+        </edit-config>
+        <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
+            <string>通过位置来帮你搜寻就近的服务商家和新鲜事</string>
+        </edit-config>
+        <edit-config file="*-Info.plist" mode="merge" target="NSLocationAlwaysAndWhenInUseUsageDescription">
+            <string>通过位置来帮你搜寻就近的服务商家和新鲜事</string>
+        </edit-config>
+        <edit-config file="*-Info.plist" mode="merge" target="NSLocationUsageDescription">
+            <string>通过位置来帮你搜寻就近的服务商家和新鲜事</string>
         </edit-config>
         <preference name="AllowInlineMediaPlayback" value="true" />
         <allow-intent href="itms:*" />

@@ -89,12 +89,19 @@ export class SpgoodsConfirmationPage implements OnInit {
       }
     });
   }
+  /**
+   * @Author: wjy-mac
+   * @description: 获取详情
+   * @Date: 2019-12-31 18:08:20
+   * @param {type} type？ 无值表示刚进来获取数据 有值表示切换地址后获取数据
+   * @return: 
+   */  
   getContent(type?) { // 773
     const idlist = this.idlist;
     const obj = {
       address_id: this.activePerson[0] ? this.activePerson[0]['address_id'] : -1,
       sel_cartgoods: idlist
-    }
+    };
     this.http.postformdata(this.http.qrorder, obj).subscribe(res => {
       console.log(res)
       if (!res['data']['goods_list']) {
@@ -110,7 +117,7 @@ export class SpgoodsConfirmationPage implements OnInit {
       // }
       if (!type) {
         this.allowusebonus = res['data']['allow_use_bonus'];
-        // this.allowusesurplus = res['data']['allow_use_surplus']
+        this.allowusesurplus = parseInt(res['data']['allow_use_surplus'], 10);
         // this.allprice = res['data']['shopping_money'];
         this.config = res['data']['config'];
         this.yoursurplus = res.data.your_surplus;
@@ -404,11 +411,16 @@ export class SpgoodsConfirmationPage implements OnInit {
   setPrice(res) {
     this.total = res.total;
     this.pricearr = res.pricearr;
-    if (res.surplus) {
+    // tslint:disable-next-line: radix
+    if (this.syye && parseInt(res.surplus) !== this.syye) {
       this.syye = res.surplus;
-    } else if (res.total.amount) {
-      this.syye = res.total.amount;
     }
+    // else if (res.total.amount) {
+    //   this.syye = res.total.amount;
+    // }
+  }
+  sekysyye() {
+    console.log(123);
   }
   setissyye() {
     this.setyenum();
@@ -419,14 +431,14 @@ export class SpgoodsConfirmationPage implements OnInit {
       this.syyeset = null;
     }
     if (this.syye < 0) {
-      this.native.presentAlert('请输入正确的金额');
+      this.native.presentAlert('请输入正确的数量');
       this.syye = 0;
       return false;
     }
     if (this.syye && this.syye.toString().includes('.')) {
       const str = this.syye.toString().split('.');
       if (str[1].length > 2) {
-        this.native.presentAlert('最小支持金额为分');
+        this.native.presentAlert('最小支持小数点后两位');
         this.syye = 0;
         console.log(this.syye);
         return false;
@@ -440,7 +452,7 @@ export class SpgoodsConfirmationPage implements OnInit {
   setyenum() {
     const obj: object = {
       surplus: this.kysyye ? this.syye : 0
-    }
+    };
     this.setHttp(this.http.changesurplus, obj);
   }
   setHttp(src, obj) {

@@ -1,0 +1,30 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2019-12-18 15:01:09
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2019-12-18 15:13:42
+ * @Description: file content
+ -->
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start" mode="ios">
+      <!--<ion-back-button></ion-back-button>-->
+      <ion-button (click)="close()">
+        关闭
+      </ion-button>
+    </ion-buttons>
+    <ion-title>发布</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="sub()" [disabled]="!data || !data.address">
+        确定
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="address ion-padding" *ngIf="data">
+    {{data.address}}
+  </div>
+  <div #mapcontent class="mapcontent"></div>
+  <img src="../../../assets/position.png" class="marker" alt="">
+</ion-content>

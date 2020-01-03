@@ -1,8 +1,9 @@
+import { HttpService } from 'src/app/services/http.service';
 /*
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-08-04 00:48:00
+ * @LastEditTime: 2019-12-14 19:14:48
  * @Description: 关于我们页面
  */
 import { ShopContentService } from './../../services/shop-content.service';
@@ -19,7 +20,8 @@ export class AboutUsPage implements OnInit {
   data: any;
   appver: string;
   isios: boolean;
-  constructor(private nav: NavController, private shopservice: ShopContentService, private native: NativeService) { }
+  constructor(private nav: NavController, private shopservice: ShopContentService, private native: NativeService,
+    private http: HttpService) { }
 
   ngOnInit() {
     this.shopservice.getShop().then(res => {

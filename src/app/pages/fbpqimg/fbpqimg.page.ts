@@ -1,12 +1,12 @@
 /*
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-05 16:18:15
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2019-12-31 15:51:02
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
-import {NavController, ActionSheetController, PopoverController} from '@ionic/angular';
+import {NavController, ActionSheetController, PopoverController, ModalController} from '@ionic/angular';
 import { HttpService } from '../../services/http.service';
 import {UserService} from '../../services/user.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -20,6 +20,7 @@ import { NativeService } from '../../services/native.service';
 import {error} from 'selenium-webdriver';
 import {MediaFile} from '@ionic-native/media-capture/ngx';
 import {UploadComponent} from '../../components/upload/upload.component';
+import {AmapComponent} from '../../components/amap/amap.component';
 @Component({
   selector: 'app-fbpqimg',
   templateUrl: './fbpqimg.page.html',
@@ -28,7 +29,7 @@ import {UploadComponent} from '../../components/upload/upload.component';
 export class FbpqimgPage implements OnInit {
   imgs: string[];
   addressObj: any;
-  address: string;
+  address: string; // 发布时地址
   lnglat: string;
   content: string;
   type: string;
@@ -42,6 +43,8 @@ export class FbpqimgPage implements OnInit {
   videofile: MediaFile; // 视频文件
   videofile1: any; // 视频文件
   isseleteVedio: number; // 是否已选择视频 1 视频 2图片 0 未选择
+  bdsrc: string;
+  seleteFilepath: string; // 图库选择的视频路径
   constructor(private nav: NavController, private http: HttpService,
               private user: UserService,
               private seletemedia: SeleteMediaService,
@@ -49,20 +52,27 @@ export class FbpqimgPage implements OnInit {
               private file: File,
               private activeroute: ActivatedRoute,
               private transfer: FileTransfer, public popoverController: PopoverController,
-              private route: Router) { }
+              private route: Router, public modalController: ModalController) { }
 
   ngOnInit() {
     this.isseleteVedio = 0;
     // this.addimg = 'www/assets/add.png';
     this.imgs = [];
     this.isshowend = true;
-    this.address = '12323';
+    
   }
   ionViewDidEnter() {
     const params = this.activeroute.snapshot.queryParams;
     this.type = (params['type']).toString();
     this.addressObj = this.user.getLocation();
+    // this.address = this.addressObj['address'];
+    // this.lnglat = this.addressObj.lng + '|' + this.addressObj.lat;
     this.userdata = this.user.getUserp();
+    this.native.getStorage('pqcontent').then(res => {
+      if (res) {
+        this.content = res;
+      }
+    }).catch(err => {});
   }
   // setSlt() {
   //   const videodata = this.seletemedia.getData()[0];
@@ -72,6 +82,7 @@ export class FbpqimgPage implements OnInit {
   //
   // }
   goBack(): void {
+    this.native.setStorage('pqcontent', this.content).then(res => {}).catch(err => {});
     this.imgs = [];
     this.videofile = null;
     this.videofile1 = null;
@@ -134,6 +145,16 @@ export class FbpqimgPage implements OnInit {
             });
           }, err => {});
         }
+      },
+      {
+        text: '选择视频',
+        role: '',
+        handler: () => {
+          this.native.getViedeo().then(res => {
+            this.isseleteVedio = 1;
+            this.seleteFilepath = res;
+          }).catch(err => {});
+        }
       })
     }
     buttons.push({
@@ -163,8 +184,8 @@ export class FbpqimgPage implements OnInit {
     const obj = {
       img: JSON.stringify(patharr),
       type: 1,
-      address: this.addressObj.address,
-      lnglat: this.addressObj.lng + '|' + this.addressObj.lat,
+      address: this.address,
+      lnglat: this.lnglat,
       content: this.content
     };
     this.http.postformdataloading(this.http.fbpqitem, obj).subscribe(res => {
@@ -173,8 +194,8 @@ export class FbpqimgPage implements OnInit {
       this.user.addjf(res.result.num);
       this.uploadEnd();
       this.imgs.length = 0;
-      this.route.navigate(['/fbyjmore'], {queryParams: {type: 1, num: res.result.num, sendnum: res.result.sendnum}});
-
+      this.route.navigate(['/fbyjmore'], {queryParams: {type: 1, num: res.result.num, sendnum: res.result.sendnum, lxb: res.result.lxb}});
+      this.native.removeStorage('pqcontent');
     }, err2 => {
       this.uploadEnd();
     });
@@ -193,40 +214,52 @@ export class FbpqimgPage implements OnInit {
     }
   }
   getVidefile() {
-    // const oMyForm = new FormData();    // 创建一个空的FormData对象
-    // oMyForm.append('file', this.videofile, this.videofile.name);
-    // // oMyForm.append('abc', '123');
-    // this.imgupload(oMyForm).then(filepath => {
-    //   this.contentsend([filepath as string]);
-    // });
+    let objdata = {
+      name: '',
+      type: '',
+      width: null,
+      height: null,
+      path: null
+    };
+    if (this.seleteFilepath) {
+      objdata['name'] = 'yj' + (new Date()).getTime();
+      const path = this.seleteFilepath;
+      const arr = path.split('.');
+      const type = arr[arr.length - 1];
+      objdata['type'] = 'video/' + type;
+      objdata['width'] = 400;
+      objdata['height'] = 400;
+      objdata['path'] = this.seleteFilepath;
+    } else {
+      return false;
+    }
     const fileTransfer: FileTransferObject = this.transfer.create();
-    const width = this.videofile1.width * 0.5;
-    const height = this.videofile1.height * 0.5;
+    const width = objdata.width || this.videofile1.width * 0.5;
+    const height = objdata.height || this.videofile1.height * 0.5;
     const obj: FileUploadOptions = {
-      fileName: this.videofile.name,
+      fileName: objdata.name || this.videofile.name,
       fileKey: 'file',
       chunkedMode: false,
-      mimeType: this.videofile.type,
+      mimeType: objdata.type || this.videofile.type,
       params: {
         width,
         height
       }
-    }
-    // alert(JSON.stringify(this.videofile))
-    fileTransfer.upload(this.videofile.fullPath, this.http.domain + this.http.updateimg, obj).then(res => {
+    };
+    fileTransfer.upload(objdata.path || this.videofile.fullPath, this.http.domain + this.http.updateimg, obj).then(res => {
       this.videofile = null;
       this.videofile1 = null;
+      this.seleteFilepath = null;
       const result = JSON.parse(res.response);
       if (result['status'] == 1) {
         const path = result['result'];
         this.contentsend([path]);
       } else {
-        alert(res.response);
+      this.native.presentToast(result['msg']);
         this.uploadEnd();
       }
     }).catch(err2 => {
-      console.log('错了我')
-      console.error(err2);
+      this.native.presentToast('上传失败');
       this.uploadEnd();
     });
   }
@@ -252,30 +285,39 @@ export class FbpqimgPage implements OnInit {
           const res = JSON.parse(oReq.response)
           resolve(res.result);
         }
-      }
+      };
       oReq.onerror = (err) => {
         reject(err);
-      }
+      };
       oReq.send(file);
     });
   }
   playvideo() {
     // : todo 此处未实现ios和浏览器播放
-   this.native.nativeVideoplay(this.videofile.fullPath);
+    if (this.native.isandroid()) {
+      this.native.nativeVideoplay(this.seleteFilepath || this.videofile.fullPath);
+    } else {
+      // this.bdsrc = this.videofile.fullPath;
+    }
   }
   async videoSet() {
     const buttons = [];
+    if (this.native.isandroid()) {
+      buttons.push({
+        text: '播放',
+        role: 'destructive',
+        handler: () => {
+          this.playvideo();
+        }
+      });
+    }
     buttons.push(...[{
-      text: '播放',
-      role: 'destructive',
-      handler: () => {
-        this.playvideo();
-      }
-    }, {
       text: '删除',
       handler: () => {
         this.videofile = null;
+        this.videofile1 = null;
         this.isseleteVedio = 0;
+        this.seleteFilepath = null;
       }
     }, {
       text: '取消',
@@ -290,9 +332,11 @@ export class FbpqimgPage implements OnInit {
     });
     await actionSheet.present();
   }
-  uploadEnd() {
+  async uploadEnd() {
     this.isloading = false;
     this.popoverController.dismiss();
+    const element = await this.actionSheetController.getTop();
+    if (element) {element.dismiss();}
   }
   async subloading() {
     const popover = await this.popoverController.create({
@@ -303,6 +347,19 @@ export class FbpqimgPage implements OnInit {
     });
 
     await popover.present();
+  }
+  async openMap() {
+    const modal = await this.modalController.create({
+      component: AmapComponent
+    });
+    modal.onDidDismiss().then((res: any) => {
+      console.log(res);
+      if (res.data) {
+        this.address = res.data.address;
+        this.lnglat = res.data.lnglat;
+      }
+    });
+    return await modal.present();
   }
 }
 

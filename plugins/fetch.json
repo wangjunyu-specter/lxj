@@ -270,5 +270,13 @@
     "variables": {
       "APP_ID": "2019112969522431"
     }
+  },
+  "cordova-plugin-geolocation": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-geolocation@4.0.2"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }
