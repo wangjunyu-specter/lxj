@@ -1,8 +1,8 @@
 /*
  * @Author: wjy-mac
  * @Date: 2019-07-14 23:03:42
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-26 23:29:13
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2020-01-10 15:01:56
  * @Description: file content
  */
 import {Component, OnInit} from '@angular/core';
@@ -39,7 +39,7 @@ export class Tab2Page implements OnInit {
   gllist: any[]; //列表数据
   zmlist: any[]; //列表数据
   gzuserlist: string[]; // 关注的用户列表
-  ishttp: Set<string>;
+  ishttp: Set<string>; // 防止快速点击 关注等请求
   media: any;
   searchKey: string;
   constructor(private http: HttpService, private shop: ShopContentService,

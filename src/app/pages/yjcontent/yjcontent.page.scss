@@ -30,6 +30,10 @@ ion-content {
       align-items: center;
       .right {
         font-size: var(--ion-sm-text);
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
       }
       .left {
         display: flex;

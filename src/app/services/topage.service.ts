@@ -1,8 +1,8 @@
 /*
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
- * @LastEditors  : wjy-mac
- * @LastEditTime : 2019-12-18 20:55:59
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2020-03-05 15:28:58
  * @Description: 所有跳转页面类型服务
  */
 import { Injectable } from '@angular/core';
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
 import {UserService} from './user.service';
 import { NativeService } from './native.service';
+import { ActionSheetController } from '@ionic/angular';
 
 
 @Injectable({
@@ -17,11 +18,13 @@ import { NativeService } from './native.service';
 })
 export class TopageService {
 
-  constructor(private router: Router, private iab: InAppBrowser, private user: UserService, private native: NativeService) { }
+  constructor(private router: Router, private iab: InAppBrowser, private user: UserService, private native: NativeService,
+    public actionSheetController: ActionSheetController) { }
 
   /**
    * type 1 商品分类列表 2 商品详情 3 主题 4 选择选择地址 5 搜索 6 商城首页 7 店铺首页 8 品牌馆 9 新闻详情
    * 10 跳转网页, 11 跳转行程 12跳转订单详情 13专题列表 14商城专题列表 15消息 16 发布评价 17 聊天详情 18 公告详情
+   * 19 微信分享
    * @param type
    * @param id
    * @param args 更多参数
@@ -104,6 +107,8 @@ export class TopageService {
       this.router.navigate(['/newslist'], {queryParams: obj});
     } else if (type === 18) {
         this.router.navigate(['/notice'], {queryParams: {id}});
+    } else if (type === 19) {
+      this.shareActionSheet(id, args[0], args[1])
     } else {
       this.router.navigate(['/tabs/tab1']);
     }
@@ -163,13 +168,62 @@ export class TopageService {
       if (data.name === 'exitWeb') {
         browser.close();
       }
-    })
+    });
     browser.on('loadstart').subscribe(res => {
-      
-    })
+    });
     browser.on('exit').subscribe(res => {
       this.native.backFullscreen();
-    })
+    });
     console.log(browser);
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 选择分享方式
+   * @Date: 2020-03-05 15:26:51
+   * @param {type} link 分享的链接
+   * @param {type} title 分享的标题
+   * @param {type} des 分享的描述
+   * @return: 
+   */  
+  async shareActionSheet(link, title, des) {
+    const actionSheet = await this.actionSheetController.create({
+      header: '请选择分享方式',
+      buttons: [{
+        text: '分享好友',
+        handler: () => {
+          console.log('Share clicked');
+          this.wechatShare(title, des, link, 2);
+        }
+      }, {
+        text: '分享朋友圈',
+        handler: () => {
+          console.log('Share clicked');
+          this.wechatShare(title, des, link, 1);
+        }
+      }, {
+        text: '取消',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      }]
+    });
+    await actionSheet.present();
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 获取用户id重组分享链接调用分享
+   * @Date: 2020-03-05 15:27:49
+   * @param {type} title 分享标题
+   * @param {type} des 分享描述
+   * @param {type} link 分享链接
+   * @param {type} type 分享方式  1 朋友圈 2好友
+   * @return: 
+   */  
+  wechatShare(title, des, link, type) {
+    this.user.getUser().then(res => {
+      this.native.wechatShare(title, des, '',
+      link + '&fuid=' + res['user_id'], type);
+    }).catch(err => {});
   }
 }

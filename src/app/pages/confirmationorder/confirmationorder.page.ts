@@ -35,7 +35,8 @@ export class ConfirmationorderPage implements OnInit {
   order: any;
   addcatobj: any;
   isgetContent: boolean; // 判断是否已获取数据  解决两次都获取数据
-
+  bxxx: any; // 保险信息
+  ptbx: any; // 平台保险
   constructor(private route: Router, private getProduct: GetproductService, private nav: NavController,
               public contactlist: ContactlistService, private http: HttpService,
               private payorder: PayorderService, private userfn: UserService,
@@ -101,14 +102,28 @@ export class ConfirmationorderPage implements OnInit {
       console.log(res)
       this.username = res.user_name;
       this.usertel = res.mobile_phone;
-    })
+    });
   }
+  /**
+   * @Author: wjy-mac
+   * @description: 加入购物车  下单前都需要先加入购物车
+   * @Date: 2020-01-10 16:37:14
+   * @param {type} 
+   * @return: 
+   */  
   addCart() {
     this.http.postformdata(this.http.addgwc, {goods: JSON.stringify(this.addcatobj)}).subscribe(res => {
       this.cid = res['rec_id'];
       this.getYhq();
     }, error2 => {});
   }
+  /**
+   * @Author: wjy-mac
+   * @description: 获取购物车信息
+   * @Date: 2020-01-10 16:37:05
+   * @param {type} 
+   * @return: 
+   */  
   getYhq() {
     if (!this.pid || !this.addressId || this.isgetContent || !this.cid) { // 因获取商品id和地址id都是异步
       return false;
@@ -124,9 +139,33 @@ export class ConfirmationorderPage implements OnInit {
       this.order = res['data']['order'];
       this.pricearr = res.data.pricearr;
       this.redbag = res['data']['goods_list'][0]['redbag'];
-        this.allowusebonus = res['data']['allow_use_bonus'];
-
+      this.allowusebonus = res['data']['allow_use_bonus'];
+      this.bxxx = res['data']['bxxx'];
+      this.ptbx = res['data']['ptbx'];
     }, error2 => {});
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 跳转购买保险
+   * @Date: 2020-01-10 16:50:36
+   * @param {type} 
+   * @return: 
+   */  
+  buybx() {
+    this.toPagefn.toPage(this.ptbx['type'], this.ptbx['link']);
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 查看保险详情
+   * @Date: 2020-01-10 16:52:40
+   * @param {type} 
+   * @return: 
+   */  
+  scanbxcontent() {
+    if (!this.bxxx['link']) {
+      return false;
+    }
+    this.toPagefn.toPage(this.bxxx['type'], this.bxxx['link']);
   }
   changeYhq(id: string, index: number) {
     // if (this.isxxyhq[index]) {

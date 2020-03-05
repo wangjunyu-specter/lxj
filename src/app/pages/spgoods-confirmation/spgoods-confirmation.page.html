@@ -76,7 +76,7 @@
       <!--</div>-->
     <!--</ion-item>-->
   </ion-list>
-  <ion-list *ngIf="pricearr" inset="true">
+  <ion-list *ngIf="pricearr && pricearr['hdarr'] && pricearr['hdarr'].length > 0" inset="true">
     <ion-item  *ngFor="let item of pricearr['hdarr']">
       <ion-label>{{item.key}}</ion-label>
       <div class="end">{{item.value}}</div>
@@ -93,9 +93,15 @@
       <ion-label>使用旅行币</ion-label>
       <ion-toggle [(ngModel)]="kysyye" [disabled]="allowusesurplus !== 1 || yoursurplusnum == 0" (ionChange)="setissyye()"></ion-toggle>
     </ion-item>
-    <ion-item lines="none" *ngIf="kysyye">
-      <ion-label>使用旅行币</ion-label>
-      <ion-input type="number" mode="ios" (ionChange)="setyechange()" [max]="yoursurplus" min="0" [(ngModel)]="syye" color="success"></ion-input>
+    <ion-item lines="none" *ngIf="kysyye" mode="ios">
+      <ion-label class="ion-padding-start">输入旅行币</ion-label>
+      <ion-input
+      style="text-align: right;"
+      type="number" mode="ios"
+      (ionChange)="setyechange()"
+      [max]="yoursurplus" min="0"
+      [(ngModel)]="syye"
+      color="success"></ion-input>
       <ion-note>个</ion-note>
     </ion-item>
     <ion-item>

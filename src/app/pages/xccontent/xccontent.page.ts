@@ -1,8 +1,8 @@
 /*
  * @Author: wjy-mac
  * @Date: 2019-07-07 23:49:04
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-05 11:26:03
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2020-01-10 23:49:46
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -32,7 +32,7 @@ export class XccontentPage implements OnInit {
   setouttime: string; // 出发时间
   nowistimeout: boolean; // 当前是否已到出发日期
   comment: number; // 评论id 大于0表示未评论
-
+  djstime: any; // 倒计时定时器
   constructor(private activeroute: ActivatedRoute, private nav: NavController,
               private http: HttpService, private native: NativeService, private paymentlist: PaymentListService,
               public alertController: AlertController, public popoverController: PopoverController, private topage: TopageService,
@@ -57,13 +57,15 @@ export class XccontentPage implements OnInit {
     this.getDatahttp();
     this.getData();
   }
+  ionViewWillLeave() {
+    clearTimeout(this.djstime);
+  }
   getData() {
     this.paymentlist.getHlist().then(res => {
       this.payList = res;
       this.payType = res[0].pay_code;
     }).catch(err2 => {
-
-    })
+    });
   }
   doRefresh(event) {
     this.getData();
@@ -80,25 +82,9 @@ export class XccontentPage implements OnInit {
         this.data = res.data;
         console.log(this.data)
         if (res.data.order.order_status !== '已取消' && res.data.order.order_status !== '已完成') {
-          const endDate = res.data['order'].add_time;
-          const nowDate = Date.parse((new Date()).toString()) / 1000;
-          const totalSeconds = parseInt(((Number(nowDate) - Number(endDate))).toString(), 10);
-          let modulo = totalSeconds % (60 * 60 * 24);
-          let hours: any = Math.floor(modulo / (60 * 60));
-          modulo = modulo % (60 * 60);
-          let minutes: any = Math.floor(modulo / 60);
-          const seconds = parseInt((modulo % 60).toString(), 10);
-          if (hours < 10) {
-            hours = `0${hours}`;
-          }
-          if (minutes < 10) {
-            minutes = `0${minutes}`;
-          }
-          this.endtime = hours + '小时' + minutes + '分钟'
+          this.setYetime(res.data['order'].add_time);
         }
         this.setouttime = this.data.order.setouttime;
-        console.log(transdate(this.setouttime))
-        console.log((new Date()).valueOf())
         const now = (new Date()).valueOf();
         const outime = transdate(this.setouttime);
         if (now >= outime) {
@@ -111,6 +97,35 @@ export class XccontentPage implements OnInit {
         reject(false)
       })
     });
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 设置倒计时
+   * @Date: 2020-01-10 23:31:34
+   * @param {type} 
+   * @return: 
+   */  
+  setYetime(time) {
+    const endDate = time;
+    const nowDate = Date.parse((new Date()).toString()) / 1000;
+    const totalSeconds = 1800 - (nowDate - parseInt(endDate, 10));
+    let modulo = totalSeconds % (60 * 60 * 24);
+    let hours: any = Math.floor(modulo / (60 * 60));
+    modulo = modulo % (60 * 60);
+    let minutes: any = Math.floor(modulo / 60);
+    const seconds = parseInt((modulo % 60).toString(), 10);
+    if (hours < 10) {
+      hours = `0${hours}`;
+    }
+    if (minutes < 10) {
+      minutes = `0${minutes}`;
+    }
+    this.endtime = hours + '小时' + minutes + '分钟';
+    if (parseInt(hours) === 0 && parseInt(minutes) === 0) {
+      clearTimeout(this.djstime);
+      return false;
+    }
+    this.djstime = setTimeout(() => this.setYetime(time), 6000);
   }
   setyenum() {
     if (!this.syye) {

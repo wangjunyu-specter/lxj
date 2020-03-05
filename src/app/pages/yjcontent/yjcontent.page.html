@@ -1,8 +1,8 @@
 <!--
  * @Author: wjy-mac
  * @Date: 2019-06-22 21:52:44
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-06 13:31:25
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2020-01-10 14:53:07
  * @Description: file content
  -->
 <ion-header [translucent]="true" mode="ios">
@@ -34,6 +34,11 @@
         <img src="../../../assets/tagleft.svg" alt=""><div class="box" *ngIf="data.tag && data.tag != 'null'">{{data.tag}}</div>
       </div>
       <div class="right">
+        <ion-button size="small" fill="clear" color="dark"  (click)="setdz()">
+          <ion-icon name="heart-empty" *ngIf="data.isdz == 0"></ion-icon>
+          <ion-icon name="heart" color="danger" *ngIf="data.isdz == 1"></ion-icon>
+          <ion-text color="medium">{{data.dznum | setnum}}</ion-text>
+        </ion-button>
         <ion-text color="medium">{{readnum}}阅读</ion-text>
       </div>
     </div>

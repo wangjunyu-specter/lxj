@@ -29,6 +29,8 @@ export class YjcontentPage implements OnInit {
   isshowDrop: boolean;
   user: any;
   readnum: number; // 阅读数量
+  ishttp: Set<string>; // 防止快速点击 关注等请求
+
   @ViewChild("myBox", {static: true}) mybox: any;
   // isGetcontentimg: boolean; // 是否已获取详情内图片
   constructor( private nav: NavController,
@@ -50,6 +52,7 @@ export class YjcontentPage implements OnInit {
     this.setPlitem = {};
     // this.isGetcontentimg = false;
     this.toolbaropacity = '0';
+    this.ishttp = new Set();
   }
   ionViewDidEnter() {
     console.log('进入新的');
@@ -322,12 +325,50 @@ export class YjcontentPage implements OnInit {
 
     await alert.present();
   }
+  /**
+   * @Author: wjy-mac
+   * @description: 获取阅读数量
+   * @Date: 2020-01-10 14:44:48
+   * @param {type} 
+   * @return: 
+   */  
   getReadnum() {
     console.log('获取数量')
     this.http.getData(this.http.getReadnum, {id: this.id}).subscribe(res => {
       this.readnum = res.result;
     }, err => {
       this.readnum = 0;
+    });
+  }
+  setdz() {
+    if (this.ishttp.has(this.data.id)) {
+      this.native.presentToast('请稍后再试!');
+      return false;
+    }
+    this.ishttp.add(this.data.id);
+    let isqx: number;
+    if (this.data.isdz === 0) {
+      isqx = 0;
+    } else {
+      isqx = 1;
+    }
+    const obj = {
+      touid: this.data.userid,
+      tid: this.data.id,
+      istop: 1,
+      isqx
+    };
+    this.http.getData(this.http.setdz, obj).subscribe(res => {
+      this.ishttp.delete(this.data.id);
+      if (this.data.isdz === 0) {
+        this.data.isdz = 1;
+        this.data.dznum = res.result.dznum;
+      } else {
+        this.data.isdz = 0;
+        this.data.dznum = res.result.dznum;
+      }
+    }, error2 => {
+      this.ishttp.delete(this.data.id);
     });
   }
 }

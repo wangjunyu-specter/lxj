@@ -1,8 +1,8 @@
 /*
  * @Author: wjy-mac
  * @Date: 2019-07-31 23:26:32
- * @LastEditors  : wjy-mac
- * @LastEditTime : 2019-12-31 11:30:35
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2020-03-05 15:43:01
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -48,6 +48,7 @@ export class Tab4Page implements OnInit {
       console.log(err);
     });
     this.centeruser = this.usercenter.getUserdata();
+    console.log(this.centeruser)
     this.okgoodsfn.sendOkgoods(); // 发送确自动认收货请求
     // this.userfn.getGz().then(res => {
     //   console.log(res)
@@ -124,8 +125,25 @@ export class Tab4Page implements OnInit {
       this.toPage.toPage(17, '0', '平台客服', 0);
     }
   }
+  /**
+   * @Author: wjy-mac
+   * @description: 跳转其他页面
+   * @Date: 2020-03-05 15:39:19
+   * @param {type} 
+   * @return: 
+   */  
   openOtherpage(item) {
-    this.toPage.toPage(item.type, item.url)
+    this.toPage.toPage(item.type, item.url);
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 跳转活动
+   * @Date: 2020-03-05 15:38:37
+   * @param {type} 
+   * @return: 
+   */  
+  openHd(item) { 
+    this.toPage.toPage(item.type, item.url, item.name, item.des);
   }
   async getmycg() {
     const actionSheet = await this.actionSheetController.create({

@@ -249,11 +249,7 @@ export class SpgoodsConfirmationPage implements OnInit {
         //   // 支付余额小于订单金额时
         // }
       }
-    } else {
-      // this.native.presentAlert('暂未开通支付，请选择余额支付');
-      // return false;
     }
-
     this.paysuccess(surplus);
     // : todo 调用支付还未做
     // alert('调用支付还未做')
@@ -301,13 +297,20 @@ export class SpgoodsConfirmationPage implements OnInit {
       });
     });
   }
+  /**
+   * @Author: wjy-mac
+   * @description: 确定订单 及 余额支付
+   * @Date: 2020-01-10 23:03:47
+   * @param {type} 
+   * @return: 
+   */  
   paysuccess(surplus = 0) {
     const bonusarr = []; // 红包列表
     this.changebonus.map(res => { // 过滤已选红包id内空值
       if (res) {
         bonusarr.push(res);
       }
-    })
+    });
     const bzarr = []; // 备注列表
     this.bzarr.map((res, index) => {
       if (res) {
@@ -346,10 +349,21 @@ export class SpgoodsConfirmationPage implements OnInit {
         })
       });
       this.orderId = res.data.order.order_id;
-      this.getPaymsg(res.data.order.order_id, res.data.order.order_sn);
+      if (res.data.order.pay_status == 2) {
+        this.getHttpayend(res.data.order.order_id, 3);
+      } else {
+        this.getPaymsg(res.data.order.order_id, res.data.order.order_sn);
+      }
       // this.route.navigate(['/ordersuccess'], {queryParams: {type: 1}});
     }, error2 => {});
   }
+  /**
+   * @Author: wjy-mac
+   * @description: 获取支付信息及使用第三方支付
+   * @Date: 2020-01-10 23:04:22
+   * @param {type} 
+   * @return: 
+   */  
   getPaymsg(order_id, order_sn) {
     let pay_code;
     for (let index = 0; index < this.payList.length; index++) {
@@ -370,7 +384,7 @@ export class SpgoodsConfirmationPage implements OnInit {
               this.route.navigate(['/ordersuccess'], {queryParams: {type: 1}});
             }, err => {
               // alert(JSON.stringify(err));
-              this.closeOrder(order_id, order_sn);
+              this.closeOrder(order_sn);
             });
           }
           document.removeEventListener("resume", ispay, false);
@@ -379,17 +393,17 @@ export class SpgoodsConfirmationPage implements OnInit {
       document.addEventListener("resume", ispay, false);
       if (pay_code == 'alipay'){
         this.native.alipayment(res.result).then(res => {
-          this.getHttpayend(order_id, order_sn);
+          this.getHttpayend(order_id, 1);
         }).catch(err => {
-          this.closeOrder(order_id, order_sn);
+          this.closeOrder(order_sn);
         }).finally(() => {
           gopay = false;
         });
       } else {
         this.native.wechatpayment(res.result).then(res => {
-          this.getHttpayend(order_id, order_sn);
+          this.getHttpayend(order_id, 2);
         }).catch(err => {
-          this.closeOrder(order_id, order_sn);
+          this.closeOrder(order_sn);
         }).finally(() => {
           gopay = false;
         })
@@ -397,16 +411,34 @@ export class SpgoodsConfirmationPage implements OnInit {
     }, error2 => {
     });
   }
-  closeOrder(order_id, order_sn) {
+  /**
+   * @Author: wjy-mac
+   * @description: 关闭订单
+   * @Date: 2020-01-10 23:13:59
+   * @param {type} 
+   * @return: 
+   */  
+  closeOrder(order_sn) {
     this.topage.toPage(12, order_sn, -1);
     // this.http.postformdata(this.http.actionacteditpaymentclose, {order_id}).subscribe(res => {}, err => {});
   }
-  getHttpayend(order_id, order_sn) {
+  /**
+   * @Author: wjy-mac
+   * @description: 支付完成
+   * @Date: 2020-01-10 23:06:52
+   * @param {type} order_id
+   * @param {type} type 1 支付宝 2微信 3余额
+   * @return: 
+   */  
+  getHttpayend(order_id, type) {
+    console.log(type);
     this.route.navigate(['/ordersuccess'], {queryParams: {type: 1}});
-    this.http.postformdataloading(this.http.acteditpayment2, {order_id}).subscribe(res => {
-    }, err => {
-      // this.topage.toPage(12, order_sn, -1);
-    });
+    if (type !== 3) {
+      this.http.postformdataloading(this.http.acteditpayment2, {order_id}).subscribe(res => {
+      }, err => {
+        // this.topage.toPage(12, order_sn, -1);
+      });
+    }
   }
   setPrice(res) {
     this.total = res.total;

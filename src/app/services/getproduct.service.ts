@@ -1,8 +1,8 @@
 /*
  * @Author: wjy-mac
  * @Date: 2019-07-28 02:20:08
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-28 15:38:20
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2020-01-10 10:59:34
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -676,6 +676,7 @@ export class GetproductService {
     this.http.getpostformdata(this.http.getProductprice, {id: this.id, attr: str, number: this.data.persenNum}, ).subscribe(res => {
       this.data.activestartprice = res.result;
       this.data.disabled = false;
+      this.data.rebate = res.rebate;
       this.activeData = res;
     }, err => {
       this.data.disabled = true;

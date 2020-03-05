@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-07 01:46:32
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2020-01-10 14:27:07
+ * @Description: file content
+ */
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
@@ -9,17 +16,19 @@ export class XccontentsplitPipe implements PipeTransform {
     if (!value) {
       return '';
     }
-    value = value.replace(/\r?\n|\r/g, "")
-    const arr = value.split(' ');
+    console.log(value);
+    value = value.replace(/\r?\n|\r/g, "|")
+    console.log(value);
+    const arr = value.split('|');
     const arr2 = [];
     arr.map(res => {
       if (!res) {
         return false;
       }
       res = res.replace(/(\[\d*\])/g, '');
-      arr2.push(res.split(':'))
-    })
-
+      res = res.replace(/:/, '|');
+      arr2.push(res.split('|'));
+    });
     return arr2;
   }
 

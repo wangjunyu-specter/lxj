@@ -2,8 +2,8 @@
 /*
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
- * @LastEditors  : wjy-mac
- * @LastEditTime : 2019-12-24 15:21:53
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2020-03-05 18:27:18
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -617,15 +617,14 @@ export class NativeService {
    * @Date: 2019-11-27 20:35:49
    * @param {type} type 1 朋友圈 2 好友
    * @return: 
-   */  
+   */
   wechatShare(title: string, des: string, src: string, link: string, type: number = 1) {
-    console.log(link)
     Wechat.share({
       message: {
           title,
           description: des || '来自专业户外旅行平台-户外旅行家',
-          thumb: src,
-          mediaTagName: "TEST-TAG-001",
+          thumb: src || 'https://sc.cdlxj.cn/logo512.png',
+          mediaTagName: "旅行家",
           messageExt: "这是第三方带的测试字段",
           messageAction: "<action>dotalist</action>",
           media: {

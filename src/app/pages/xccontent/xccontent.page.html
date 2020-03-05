@@ -1,8 +1,8 @@
 <!--
  * @Author: wjy-mac
  * @Date: 2019-07-08 22:01:44
- * @LastEditors: wjy-mac
- * @LastEditTime: 2019-11-13 15:06:19
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2020-01-10 14:21:09
  * @Description: 行程订单详情
  -->
 <ion-header>
@@ -58,21 +58,21 @@
         <img class="cancle" *ngIf="data.order.order_status == '2' && data.order.shipping_status == '0' && data.order.pay_status == '0'" src="../../../assets/icon/cancle.svg" alt="">
       </span>
       <span>{{data.order | orderstatus: 1}}</span>
-      <span margin-top 
+      <span class="ion-margin-top"
       *ngIf="data.order.order_status == '5' && data.order.shipping_status == '2' && data.order.pay_status == '2' || 
       data.order.order_status == '2' && data.order.shipping_status == '0' && data.order.pay_status == '0'"><ion-button size="small" color="secondary" (click)="toPagefn(2, data.goods_list[0].goods_id)">再次购买</ion-button></span>
     </div>
   </div>
-<div *ngIf="data" class="goods-content" padding-bottom>
+<div *ngIf="data" class="goods-content ion-padding-bottom">
   <app-ordercontentgoods [goods_list]="data.goods_list" [shopname]="data.order.referer" [supplier_id]="data.order.supplier_id"></app-ordercontentgoods>
-  <ion-list no-margin>
+  <ion-list class="ion-no-margin">
     <ion-item *ngFor="let item of data.goods_list[0].goods_attr | xccontentsplit" lines="none">
       <ion-label><p><ion-text color="dark">{{item[0]}}</ion-text></p></ion-label>
       <ion-note slot="end">{{item[1]}}</ion-note>
     </ion-item>
   </ion-list>
   <div class="line"></div>
-  <ion-list lines="none" no-padding no-margin>
+  <ion-list lines="none ion-no-padding ion-no-margin">
     <ion-item lines="none">
       <ion-label><p><ion-text color="dark">商品总价</ion-text></p></ion-label>
       <ion-note slot="end">{{data.order.formated_goods_amount}}</ion-note>
@@ -120,22 +120,22 @@
     <p *ngIf="data.order.extension_code == 'group_buy'"><ion-text color="medum">（备注：团购如果有保证金，第一次只需支付保证金和相应的支付费用）</ion-text></p>
   </ion-list>
 </div>
-  <div class="tksm" *ngIf="data" margin-top padding-top padding-bottom>
-    <div class="title" margin-start margin-bottom>联系人</div>
-    <ion-list no-margin>
+  <div class="tksm  ion-padding-bottom ion-margin-top ion-padding-top" *ngIf="data">
+    <div class="title ion-margin-start ion-margin-bottom">联系人</div>
+    <ion-list class="ion-no-margin">
       <ion-item lines="none">
-        <ion-label no-padding no-margin><p><ion-text color="dark">联系人</ion-text></p></ion-label>
+        <ion-label class="ion-no-padding ion-no-margin"><p><ion-text color="dark">联系人</ion-text></p></ion-label>
         <ion-note slot="end">{{data.order.username}}</ion-note>
       </ion-item>
       <ion-item lines="none">
-        <ion-label no-padding no-margin><p><ion-text color="dark">联系电话</ion-text></p></ion-label>
+        <ion-label class="ion-no-padding ion-no-margin"><p><ion-text color="dark">联系电话</ion-text></p></ion-label>
         <ion-note slot="end">{{data.order.usertel}}</ion-note>
       </ion-item>
     </ion-list>
   </div>
-  <div class="outperson" *ngIf="data && data.outperson" margin-top padding-top padding-bottom>
-    <div class="title" margin-start margin-bottom>出行人</div>
-    <ion-list no-margin>
+  <div class="outperson ion-padding-bottom ion-margin-top ion-padding-top" *ngIf="data && data.outperson">
+    <div class="title ion-margin-start ion-margin-bottom">出行人</div>
+    <ion-list class="ion-no-margin">
       <ion-item *ngFor="let item of data.outperson">
         <ion-label>
           <h3>{{item.consignee}} <span>{{item.mobile || item.tel}}</span></h3>
@@ -145,28 +145,28 @@
       </ion-item>
     </ion-list>
   </div>
-<div class="tksm" margin-top padding-top padding-bottom *ngIf="data && data.goods_list">
-  <div class="title" margin-start margin-bottom>退款说明</div>
-  <ion-list no-margin *ngIf="data.goods_list[0].istk == 2">
+<div class="tksm ion-padding-bottom ion-margin-top  ion-padding-top" *ngIf="data && data.goods_list">
+  <div class="title ion-margin-start ion-margin-bottom">退款说明</div>
+  <ion-list class="ion-no-margin" *ngIf="data.goods_list[0].istk == 2">
     <ion-item *ngFor="let item of data.goods_list[0].tksm" lines="none">
-      <ion-label no-padding no-margin><p><ion-text color="dark">出发前{{item['beforetime']}}天</ion-text></p></ion-label>
+      <ion-label class="ion-no-padding ion-no-margin"><p><ion-text color="dark">出发前{{item['beforetime']}}天</ion-text></p></ion-label>
       <ion-note slot="end">扣除{{item['kcbl']}}%</ion-note>
     </ion-item>
     <ion-item *ngIf="data.goods_list[0].tksm && data.goods_list[0].tksm.length > 0" lines="none">
-      <ion-label no-padding no-margin><p><ion-text color="dark">作为卖家损失费</ion-text></p></ion-label>
+      <ion-label class="ion-no-padding ion-no-margin"><p><ion-text color="dark">作为卖家损失费</ion-text></p></ion-label>
     </ion-item>
     <ion-item *ngIf="!data.goods_list[0].tksm || data.goods_list[0].tksm.length === 0" lines="none">
-      <ion-label no-padding no-margin><p><ion-text color="dark">出行前随时可退</ion-text></p></ion-label>
+      <ion-label class="ion-no-padding ion-no-margin"><p><ion-text color="dark">出行前随时可退</ion-text></p></ion-label>
     </ion-item>
   </ion-list>
-  <ion-list no-margin *ngIf="data.goods_list[0].istk == 1">
+  <ion-list class="ion-no-margin" *ngIf="data.goods_list[0].istk == 1">
     <ion-item lines="none">
       <ion-label><p><ion-text color="dark">商家确认后不支持退款</ion-text></p></ion-label>
     </ion-item>
   </ion-list>
 </div>
-<div class="order-content" *ngIf="data" padding margin-top>
-  <div class="title" margin-bottom>订单信息</div>
+<div class="order-content ion-margin-top ion-padding" *ngIf="data">
+  <div class="title ion-margin-bottom">订单信息</div>
   <div class="my-item">
     <div class="left">订单编号:</div>
     <div class="right">{{data.order.order_sn}}</div>
@@ -192,7 +192,7 @@
     <div class="right">{{data.order.to_buyer}}</div>
   </div>
 </div>
-<div class="yepay-box" *ngIf="data && data.allow_edit_surplus == 1 && data.canchangepay  && data.order.order_status == '未确认' && data.order.pay_status === '未付款'" margin-top>
+<div class="yepay-box ion-margin-top" *ngIf="data && data.allow_edit_surplus == 1 && data.canchangepay  && data.order.order_status == '未确认' && data.order.pay_status === '未付款'">
   <ion-list inset="true" lines="none">
     <ion-item lines="none">
       <ion-label>使用余额</ion-label>
@@ -208,7 +208,7 @@
     </ion-item>
   </ion-list>
 </div>
-<div class="zftype" padding-end margin-top *ngIf="data && data.order.order_status == '未确认' && data.order.pay_status === '未付款'">
+<div class="zftype ion-margin-top ion-padding-end" *ngIf="data && data.order.order_status == '未确认' && data.order.pay_status === '未付款'">
   <ion-list>
     <ion-radio-group [(ngModel)]="payType">
       <ion-list-header>
@@ -221,7 +221,7 @@
     </ion-radio-group>
   </ion-list>
 </div>
-<ion-grid class="contact-box" margin-top>
+<ion-grid class="contact-box ion-margin-top">
     <ion-row>
       <ion-col>
         <ion-button expand="full" fill="clear" color="dark" (click)="toMessage()">

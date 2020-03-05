@@ -1,3 +1,10 @@
+/*
+ * @Author: wjy-mac
+ * @Date: 2019-07-07 00:58:34
+ * @LastEditors  : wjy-mac
+ * @LastEditTime : 2020-01-10 14:40:09
+ * @Description: 设置显示数字
+ */
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
@@ -20,7 +27,7 @@ export class SetnumPipe implements PipeTransform {
           str += '.' + q + '+';
         }
       }
-      return str + '万'
+      return str + '万';
     }
     return value;
   }

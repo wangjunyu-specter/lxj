@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-28 01:58:20
  * @LastEditors  : wjy-mac
- * @LastEditTime : 2019-12-24 14:46:30
+ * @LastEditTime : 2020-01-10 14:29:30
  * @Description: file content
  -->
 <ion-header [translucent]="true" mode="ios">
@@ -106,9 +106,10 @@
       <ion-item button (click)="showyh()">
         <ion-label *ngIf="productData">
           优惠
-          <app-yhbox style="margin-left: 10px" *ngIf="!productData.promotion || productData.promotion.length === 0" [title]="'优惠券自动抵扣'"></app-yhbox>
+          <app-yhbox style="margin-left: 10px" *ngIf="productData && productData.rebate && productData.rebate != 0.00" [title]="'返旅行币'" [des]="productData.rebate"></app-yhbox>
           <app-yhbox style="margin-left: 10px" *ngFor="let item of productData.promotion" [title]="item.act_name" [des]="item.act_name"></app-yhbox>
           <app-yhbox style="margin-left: 10px" *ngFor="let item of productData.volume_price_list" [title]="'满' + item.number + '件' + item.price +'/件'" [des]="'满' + item.number + '件' + item.price +'/件'"></app-yhbox>
+          <app-yhbox style="margin-left: 10px" *ngIf="!productData.promotion || productData.promotion.length === 0" [title]="'优惠券自动抵扣'"></app-yhbox>
         </ion-label>
       </ion-item>
       <ion-item *ngIf="productData && !productData.ishw && productData.mrseletestr && productData.isdelete == 0 && productData.onsale == 1" button (click)="presentModal(1)">

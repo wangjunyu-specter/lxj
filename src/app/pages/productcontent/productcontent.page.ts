@@ -4,7 +4,7 @@ import { NativeService } from './../../services/native.service';
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors  : wjy-mac
- * @LastEditTime : 2020-01-03 14:01:36
+ * @LastEditTime : 2020-01-10 11:09:29
  * @Description: file content
  */
 import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
@@ -174,13 +174,14 @@ export class ProductcontentPage implements OnInit {
   }
   async getData(id, isre?) {
     await this.getProduct.getProduct(id, isre).then(res => {
+      console.log(res);
       this.productData = res;
       if (this.productData.xsprice.promote_price && this.productData.xsprice.promote_price !== '0'
         && this.productData.xsprice.promote_end_date) {
         this.setXstime();
       }
     }).catch(err => {
-      this.goBack()
+      this.goBack();
       // console.error(err);
     });
     return true;
@@ -434,22 +435,31 @@ export class ProductcontentPage implements OnInit {
 
     this.showMore(arr, '所有服务')
   }
-  showyh () {
-    let arr = [];
+  showyh() {
+    const arr = [];
+    if (this.productData && this.productData.rebate !== '0.00') {
+      const obj = {
+        text: '返旅行币' + this.productData.rebate + '/件',
+        handler: () => {
+          this.native.presentAlert('每购买一件返旅行币' + this.productData.rebate + ',旅行币是旅行家专用虚拟币,1个旅行币价值1元');
+        }
+      };
+      arr.push(obj);
+    }
     for (let i = 0, j = this.productData.promotion.length; i < j; i++) {
-      let item = this.productData.promotion[i];
-      let obj = {
+      const item = this.productData.promotion[i];
+      const obj = {
         text: item.act_name,
         handler: () => {}
-      }
+      };
       arr.push(obj);
     }
     for (let i = 0, j = this.productData.volume_price_list.length; i < j; i++) {
-      let item = this.productData.volume_price_list[i];
-      let obj = {
-        text: '满' + item.number + '件享受' + item.price +'/件',
+      const item = this.productData.volume_price_list[i];
+      const obj = {
+        text: '满' + item.number + '件享受' + item.price + '/件',
         handler: () => {}
-      }
+      };
       arr.push(obj);
     }
     this.showMore(arr, '优惠信息')

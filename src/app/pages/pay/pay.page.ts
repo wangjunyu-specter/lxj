@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors  : wjy-mac
- * @LastEditTime : 2019-12-31 14:50:08
+ * @LastEditTime : 2020-01-10 23:49:33
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -35,6 +35,8 @@ export class PayPage implements OnInit {
   orderId: number;
   isyepayend: boolean;
   addtime: number;
+  endtime: string; // 倒计时
+  djstime: any; // 倒计时定时器
   constructor(private nav: NavController, private http: HttpService,
               private paymentlist: PaymentListService, private native: NativeService,
               private payorder: PayorderService, private userfn: UserService,
@@ -58,6 +60,7 @@ export class PayPage implements OnInit {
       this.ordersn = order.order_sn;
       this.orderId = order.order_id;
       this.addtime = order.add_time;
+      this.setYetime();
     }
     // this.http.getData(this.http.getpaymentlist).subscribe(res => {
     //   console.log(res);
@@ -72,6 +75,38 @@ export class PayPage implements OnInit {
     this.userfn.getUserp().then(res => {
       this.yoursurplus = res.user_money;
     }).catch(err2 => {});
+  }
+  ionViewWillLeave() {
+    clearTimeout(this.djstime);
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 设置倒计时
+   * @Date: 2020-01-10 23:42:08
+   * @param {type} 
+   * @return: 
+   */  
+  setYetime() {
+    const endDate = this.addtime;
+    const nowDate = Date.parse((new Date()).toString()) / 1000;
+    const totalSeconds = 1800 - (nowDate - endDate);
+    let modulo = totalSeconds % (60 * 60 * 24);
+    let hours: any = Math.floor(modulo / (60 * 60));
+    modulo = modulo % (60 * 60);
+    let minutes: any = Math.floor(modulo / 60);
+    const seconds = parseInt((modulo % 60).toString(), 10);
+    if (hours < 10) {
+      hours = `0${hours}`;
+    }
+    if (minutes < 10) {
+      minutes = `0${minutes}`;
+    }
+    this.endtime = hours + '小时' + minutes + '分钟';
+    if (parseInt(hours) === 0 && parseInt(minutes) === 0) {
+      clearTimeout(this.djstime);
+      return false;
+    }
+    this.djstime = setTimeout(() => this.setYetime(), 6000);
   }
   toggle() {
     console.log(this.dataObj.payType);

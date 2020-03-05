@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-07-07 02:05:04
  * @LastEditors  : wjy-mac
- * @LastEditTime : 2019-12-28 18:24:36
+ * @LastEditTime : 2020-01-10 23:24:39
  * @Description: 支付页面
  -->
 <ion-header>
@@ -21,12 +21,7 @@
   <div class="pay-box">
     <div class="title">支付剩余时间</div>
     <div class="time">
-      <div class="box">0</div>
-      <div class="box">0</div>:
-      <div class="box">4</div>
-      <div class="box">7</div>:
-      <div class="box">3</div>
-      <div class="box">2</div>
+      {{endtime}}
     </div>
     <div class="des">支付成功后客服会与您取得联系</div>
   </div>
@@ -43,12 +38,12 @@
   <div *ngIf="yepay" class="line"></div>
   <!-- <ion-list *ngIf="yepay" inset="true" line="none"> -->
   <ion-list *ngIf="yepay" inset="true" line="none">
-    <ion-item>
+    <ion-item  lines="none">
       <ion-label>使用旅行币</ion-label>
       <ion-toggle [(ngModel)]="kysyye" (ionChange)="setyenum()" color="success" [disabled]="isyepayend"></ion-toggle>
     </ion-item>
-    <ion-item lines="none" *ngIf="kysyye">
-      <ion-label>输入旅行币</ion-label>
+    <ion-item lines="none" *ngIf="kysyye" mode="ios">
+      <ion-label class="ion-padding-start">输入旅行币</ion-label>
       <ion-input 
       style="text-align: right;"
       type="number" 
