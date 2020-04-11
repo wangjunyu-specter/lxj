@@ -240,6 +240,14 @@ ion-card {
     margin-bottom: 10px;
   }
 }
+.item-box-noimg {
+  align-items: center;
+  background-color: #1ac6a4;
+  span {
+    margin-bottom: 0;
+    font-weight: 600;
+  }
+}
 .rmtj {
   .box {
     display: flex;

@@ -2,7 +2,7 @@
  * @Author: wjy-home
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-14 19:14:25
+ * @LastEditTime: 2020-03-13 15:06:56
  * @Description: file content
  -->
 <ion-header mode="ios">
@@ -30,6 +30,11 @@
     <ion-text *ngIf="data" color="medium">{{data.shop_name}}公司&nbsp;&nbsp;版本所有</ion-text>
     <br>
     <ion-text color="medium">Copyright&nbsp;&nbsp;©2019-2029&nbsp;&nbsp;lvxingjia.All&nbsp;&nbsp;Rights&nbsp;&nbsp;Reserved</ion-text>
+  </div>
+  <div class="footer-2">
+    <span (click)="openxy('ptxy.html')"><ion-text color="primary">《旅行家平台服务协议》</ion-text></span>
+    <span (click)="openxy('yszc.html')"><ion-text color="primary">《隐私权政策》</ion-text></span>
+    <span (click)="openxy('flsm.html')"><ion-text color="primary">《法律声明》</ion-text></span>
   </div>
 </ion-content>
 

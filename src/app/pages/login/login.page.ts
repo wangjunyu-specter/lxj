@@ -4,7 +4,7 @@ import { TopageService } from './../../services/topage.service';
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-09 16:16:27
+ * @LastEditTime: 2020-03-09 16:50:36
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -200,8 +200,6 @@ export class LoginPage implements OnInit {
     };
     this.isLoading = true;
     this.http.postformdataloading(this.http.register, obj).subscribe(res => {
-      console.log(1);
-      console.log(res);
       if (res.status == 1) {
         this.presentAlert('', '注册成功,返回登录', 1);
       } else {

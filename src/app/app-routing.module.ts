@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-10-22 09:40:41
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-09 15:12:56
+ * @LastEditTime: 2020-04-08 22:18:08
  * @Description: file content
  */
 import { NgModule } from '@angular/core';
@@ -94,6 +94,11 @@ const routes: Routes = [
   { path: 'comments-list', loadChildren: './pages/comments-list/comments-list.module#CommentsListPageModule' },
   { path: 'notice', loadChildren: './pages/notice/notice.module#NoticePageModule' },
   { path: 'set-pd', loadChildren: './pages/set-pd/set-pd.module#SetPdPageModule' },
+  {
+    path: 'myewm',
+    loadChildren: './pages/myewm/myewm.module#MyewmPageModule'
+  },
+
 
 ];
 @NgModule({

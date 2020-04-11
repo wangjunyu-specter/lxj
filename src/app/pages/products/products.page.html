@@ -1,8 +1,8 @@
 <!--
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
- * @LastEditors  : wjy-mac
- * @LastEditTime : 2020-01-03 12:18:55
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2020-03-13 14:19:54
  * @Description: file content
  -->
 <ion-header [translucent]="true" mode="ios">
@@ -67,8 +67,8 @@
     <div padding-start padding-end>
       <ion-slides [options]="slideOptslv">
           <ion-slide *ngFor="let item of childnav" (click)="goothercate(item.id)">
-            <div class="item-box">
-              <img [src]="item.catimg | imgsrc: http.zdomain + 'data/catthumb/'" alt="">
+            <div class="item-box" [ngClass]="{'item-box-noimg': !item.catimg}">
+              <img *ngIf="item.catimg" [src]="item.catimg | imgsrc: http.zdomain + 'data/catthumb/'" alt="">
               <span class="text-shadow">{{item.name}}</span>
             </div>
           </ion-slide>

@@ -111,6 +111,9 @@
     },
     "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "com.cdlxj.wjy"
+    },
+    "cordova-plugin-photo-library": {
+      "PACKAGE_NAME": "com.cdlxj.wjy"
     }
   },
   "dependent_plugins": {

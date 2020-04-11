@@ -3,7 +3,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
  * @LastEditors: wjy-mac
- * @LastEditTime: 2020-03-05 18:27:18
+ * @LastEditTime: 2020-04-08 21:44:29
  * @Description: file content
  */
 import { Injectable } from '@angular/core';
@@ -22,6 +22,7 @@ import { CallNumber } from '@ionic-native/call-number/ngx';
 import { Device } from '@ionic-native/device/ngx';
 import { OpenNativeSettings } from '@ionic-native/open-native-settings/ngx';
 import { Toast } from '@ionic-native/toast/ngx';
+import { PhotoLibrary } from '@ionic-native/photo-library/ngx';
 // import { Alipay } from '@ionic-native/alipay/ngx';
 // import { Wechat } from '@ionic-native/wechat/ngx';
 
@@ -43,7 +44,7 @@ export class NativeService {
               private videoPlayer: VideoPlayer, private network: Network, private appVersion: AppVersion,
               private market: Market, private callNumber: CallNumber, private device: Device,
               private openNativeSettings: OpenNativeSettings, private toast: Toast,
-              private nav: NavController
+              private nav: NavController, private photoLibrary: PhotoLibrary
               // private alipay: Alipay,
               // private wechat: Wechat
               ) { }
@@ -179,6 +180,29 @@ export class NativeService {
       toast => {
       }
     );
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 保存图片到相册
+   * @Date: 2020-04-08 21:44:23
+   * @param {type} 
+   * @return: 
+   */  
+  saveImage(base64: string) {
+    this.photoLibrary.requestAuthorization().then(() => {
+      this.photoLibrary.getLibrary().subscribe({
+        next: library => {
+          this.photoLibrary.saveImage(base64, '旅行家').then(res => {
+            this.presentToast('保存成功!');
+          }).catch(err => {
+            this.presentToast('保存失败!');
+          });
+        },
+        error: err => { console.log('could not get photos'); },
+        complete: () => { console.log('done getting photos'); }
+      });
+    })
+    .catch(err => this.presentToast('获取权限失败!'));
   }
   getUuid() {
     return this.device.uuid;

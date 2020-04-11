@@ -104,6 +104,9 @@ MIT
 @ionic-native/open-native-settings
 MIT
 
+@ionic-native/photo-library
+MIT
+
 @ionic-native/photo-viewer
 MIT
 

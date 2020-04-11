@@ -1,8 +1,8 @@
 /*
  * @Author: wjy-mac
  * @Date: 2019-07-07 23:49:04
- * @LastEditors  : wjy-mac
- * @LastEditTime : 2020-01-10 23:49:46
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2020-03-06 10:44:36
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -38,13 +38,12 @@ export class XccontentPage implements OnInit {
               public alertController: AlertController, public popoverController: PopoverController, private topage: TopageService,
               private xcxllist: XclistService) { }
  
-
   ngOnInit() {
     this.kysyye = false;
-    console.log(this.orderId)
   }
   goBack(): void {
-    this.nav.back();
+    // this.nav.back();
+    this.nav.navigateBack('/xclist');
   }
   ionViewWillEnter() {
     const params = this.activeroute.snapshot.queryParams;

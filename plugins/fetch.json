@@ -278,5 +278,23 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova-plugin-photo-library": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-photo-library"
+    },
+    "is_top_level": true,
+    "variables": {
+      "PHOTO_LIBRARY_USAGE_DESCRIPTION": " "
+    }
+  },
+  "cordova-plugin-add-swift-support": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-add-swift-support@1.6.0"
+    },
+    "is_top_level": false,
+    "variables": {}
   }
 }

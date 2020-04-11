@@ -1,0 +1,33 @@
+<!--
+ * @Author: wjy-mac
+ * @Date: 2020-04-08 21:46:37
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2020-04-08 23:31:30
+ * @Description: file content
+ -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>二维码</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="list">
+    <div class="item" *ngFor="let item of links; let i = index"
+    [ngClass]="{'active': type === i}" (click)="toggle(i)">
+      <img [src]="item" alt="" srcset="">
+    </div>
+  </div>
+  <div class="big-bg" #bigbg>
+    <canvas #canvas></canvas>
+  </div>
+  <div id="ewm" #ewm></div>
+  <div class="btn">
+    <ion-button (click)="save()" expand="block" shape="round">
+      保存
+    </ion-button>
+  </div>
+</ion-content>

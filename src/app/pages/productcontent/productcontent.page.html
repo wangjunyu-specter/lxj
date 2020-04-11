@@ -1,8 +1,8 @@
 <!--
  * @Author: wjy-mac
  * @Date: 2019-07-28 01:58:20
- * @LastEditors  : wjy-mac
- * @LastEditTime : 2020-01-10 14:29:30
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2020-03-06 18:11:46
  * @Description: file content
  -->
 <ion-header [translucent]="true" mode="ios">
@@ -88,7 +88,7 @@
         <ion-label>
           <span class="ion-margin-end">发货</span>
           <span *ngIf="productData.yf > 0">运费：{{productData.yf}}</span>
-          <span *ngIf="productData.yf == -1">快递包邮</span>
+          <span *ngIf="productData.yf == -1">商家包邮</span>
         </ion-label>
       </ion-item>
       <ion-item button  (click)="showfw()">

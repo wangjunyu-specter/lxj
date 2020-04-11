@@ -60,7 +60,7 @@
       <app-pagetitle [myname]="'保险服务'" [smpadding]="true"></app-pagetitle>
     </div>
     <div class="des" *ngIf="bxxx">您购买的商品可能包含高风险性旅游项目，商家已为您购买保险<span>,您也可以稍后在<ion-text color="success">首页</ion-text>给自己加一份保险</span></div>
-    <div class="des" *ngIf="!bxxx">您购买的商品可能包含高风险性旅游项目，建议您购买旅游保险以保障您的权益及出行安全。您也可以稍后在<span><ion-text color="success">首页</ion-text>购买哦</span></div>
+    <div class="des" *ngIf="!bxxx">您购买的商品可能包含高风险性旅游项目，建议您购买旅游保险以保障您的权益及出行安全。您也可以稍后在<span><ion-text color="success">APP首页</ion-text>购买哦</span></div>
     <p style="margin-bottom: 0;" *ngIf="bxxx && bxxx.title">商家为您购买:</p>
     <ion-button fill="clear" color="dark" size="small" *ngIf="bxxx && bxxx.title" (click)="scanbxcontent()">
       {{bxxx.title}}

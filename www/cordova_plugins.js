@@ -588,6 +588,24 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
       "pluginId": "cordova-plugin-geolocation",
       "runs": true
+    },
+    {
+      "id": "cordova-plugin-photo-library.PhotoLibrary",
+      "file": "plugins/cordova-plugin-photo-library/www/PhotoLibrary.js",
+      "pluginId": "cordova-plugin-photo-library",
+      "clobbers": [
+        "cordova.plugins.photoLibrary"
+      ]
+    },
+    {
+      "id": "cordova-plugin-photo-library.async",
+      "file": "plugins/cordova-plugin-photo-library/www/async/dist/async.min.js",
+      "pluginId": "cordova-plugin-photo-library"
+    },
+    {
+      "id": "cordova-plugin-photo-library.async_map",
+      "file": "plugins/cordova-plugin-photo-library/www/async/dist/async.min.map",
+      "pluginId": "cordova-plugin-photo-library"
     }
   ];
   module.exports.metadata = {
@@ -624,6 +642,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "es.keensoft.fullscreenimage": "1.0.1",
     "jpush-phonegap-plugin": "3.7.3",
     "mx.ferreyra.callnumber": "0.0.2",
-    "cordova-plugin-geolocation": "4.0.2"
+    "cordova-plugin-geolocation": "4.0.2",
+    "cordova-plugin-photo-library": "2.2.1"
   };
 });

@@ -3,13 +3,14 @@ import { HttpService } from 'src/app/services/http.service';
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-12-14 19:14:48
+ * @LastEditTime: 2020-03-13 15:22:52
  * @Description: 关于我们页面
  */
 import { ShopContentService } from './../../services/shop-content.service';
 import { Component, OnInit } from '@angular/core';
 import {NavController} from '@ionic/angular';
 import { NativeService } from 'src/app/services/native.service';
+import { TopageService } from 'src/app/services/topage.service';
 // import { Market } from '@ionic-native/market/ngx';
 @Component({
   selector: 'app-about-us',
@@ -21,7 +22,7 @@ export class AboutUsPage implements OnInit {
   appver: string;
   isios: boolean;
   constructor(private nav: NavController, private shopservice: ShopContentService, private native: NativeService,
-    private http: HttpService) { }
+    private http: HttpService, private toPagefn: TopageService) { }
 
   ngOnInit() {
     this.shopservice.getShop().then(res => {
@@ -48,6 +49,9 @@ export class AboutUsPage implements OnInit {
    */
   openStore() {
     this.native.openStore();
+  }
+  openxy(link) {
+    this.toPagefn.toPage(10, this.http.zdomain + link);
   }
   /**
    * @Author: wjy-home

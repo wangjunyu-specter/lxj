@@ -1,8 +1,8 @@
 <!--
  * @Author: wjy-mac
  * @Date: 2019-07-08 22:01:44
- * @LastEditors  : wjy-mac
- * @LastEditTime : 2020-01-10 14:21:09
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2020-03-06 14:17:10
  * @Description: 行程订单详情
  -->
 <ion-header>
@@ -102,7 +102,7 @@
       <ion-note slot="end">{{data.order.formated_money_paid}}</ion-note>
     </ion-item>
     <ion-item *ngIf="data.order.surplus > 0" lines="none">
-      <ion-label><p><ion-text color="dark">使用余额</ion-text></p></ion-label>
+      <ion-label><p><ion-text color="dark">使用旅行币</ion-text></p></ion-label>
       <ion-note slot="end">{{data.order.formated_surplus}}</ion-note>
     </ion-item>
     <ion-item *ngIf="data.order.integral_money > 0" lines="none">
@@ -171,11 +171,11 @@
     <div class="left">订单编号:</div>
     <div class="right">{{data.order.order_sn}}</div>
   </div>
-  <div class="my-item" *ngIf="data.order.pay_name && data.order.pay_fee != '0.00'">
+  <div class="my-item" *ngIf="data.order.pay_name && data.order.surplus != data.order.total_fee">
     <div class="left">支付方式:</div>
     <div class="right">{{data.order.pay_name}}</div>
   </div>
-  <div class="my-item" *ngIf="data.order.pay_fee == '0.00'">
+  <div class="my-item" *ngIf="data.order.surplus == data.order.total_fee">
     <div class="left">支付方式:</div>
     <div class="right">余额支付</div>
   </div>
@@ -245,8 +245,7 @@
     </ion-toolbar>
   </ion-footer>
   <ion-footer 
-  *ngIf="data && data.order.order_status == '1' && (data.order.shipping_status == '0' || data.order.shipping_status == '3') && data.order.pay_status === '2' ||
-  data && data.order.order_status == '2' && data.order.shipping_status == '0' && data.order.pay_status === '2'">
+  *ngIf="data && data.order.order_status == '1' && (data.order.shipping_status == '0' || data.order.shipping_status == '3') && data.order.pay_status === '2'">
     <ion-toolbar>
       <div class="footer-bar">
         <ion-button size="small" color="light" (click)="cancleOrder(1)">退款</ion-button>

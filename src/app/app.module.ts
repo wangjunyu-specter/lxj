@@ -1,8 +1,8 @@
 /*
  * @Author: wjy-mac
  * @Date: 2019-08-03 23:14:51
- * @LastEditors  : wjy-mac
- * @LastEditTime : 2019-12-18 15:02:44
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2020-04-10 13:26:12
  * @Description: file content
  */
 import { NgModule } from '@angular/core';
@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CKEditorModule } from 'ng2-ckeditor';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx'; // 不兼容
 import { File } from '@ionic-native/file/ngx';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
@@ -25,6 +25,7 @@ import { AppUpdate } from '@ionic-native/app-update/ngx';
 import { JPush } from '@jiguang-ionic/jpush/ngx';
 import { AppMinimize } from '@ionic-native/app-minimize/ngx';
 import { Toast } from '@ionic-native/toast/ngx';
+import { PhotoLibrary } from '@ionic-native/photo-library/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -78,7 +79,7 @@ import {EditmyreleaseService} from './services/editmyrelease.service';
 
 import {NativeStorage} from '@ionic-native/native-storage/ngx';
 import { HTTP } from '@ionic-native/http/ngx';
-import { Keyboard } from '@ionic-native/keyboard/ngx';
+import { Keyboard } from '@ionic-native/keyboard/ngx'; // 不兼容
 import { AndroidFullScreen } from '@ionic-native/android-full-screen/ngx';
 import { FbseleteComponent } from './components/fbselete/fbselete.component';
 import { MediaCapture } from '@ionic-native/media-capture/ngx';
@@ -203,6 +204,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
     // Alipay,
     Wechat,
     Geolocation,
+    PhotoLibrary,
     // Md5,
     // NavigationBar,
     // ComponentsModule,

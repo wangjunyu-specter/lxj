@@ -3,8 +3,8 @@ import { ThorderService } from './../../services/thorder.service';
 /*
  * @Author: wjy-mac
  * @Date: 2019-07-29 22:29:34
- * @LastEditors  : wjy-mac
- * @LastEditTime : 2020-01-03 12:04:16
+ * @LastEditors: wjy-mac
+ * @LastEditTime: 2020-03-06 10:45:32
  * @Description: file content
  */
 import { Component, OnInit } from '@angular/core';
@@ -46,7 +46,8 @@ export class OrdercontentPage implements OnInit {
   }
   goBack(): void {
     // this.nav.back();
-    this.route.navigateByUrl('/allorder');
+    // this.route.navigateByUrl('/allorder');
+    this.nav.navigateBack('/allorder');
   }
   ionViewWillEnter() {
     console.log('进入2')

@@ -2,7 +2,7 @@
  * @Author: wjy-mac
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2019-10-15 15:37:37
+ * @LastEditTime: 2020-03-13 12:06:27
  * @Description: file content
  -->
 <div class="list-box" (click)="openpage()">
@@ -35,9 +35,9 @@
         <div class="price-box">
           <span *ngIf="price">¥ {{price}}</span>
           <span *ngIf="!price && data.rank_price"><small>[会员专享]</small>¥{{data.rank_price}}</span>
-          <span *ngIf="!price && !data.rank_price && data.shop_price">¥ {{data.shop_price}}</span>
-          <span *ngIf="!noshowmore">起</span>
-          <span *ngIf="!showyj && (data.market_price && data.shop_price != data.market_price)" class="oldprice">原价{{data.market_price}}</span>
+          <span *ngIf="!price && !data.rank_price && data.shop_price">¥ {{data.promote_price > 0 ? data.promote_price : data.shop_price}}</span>
+          <span *ngIf="!noshowmore && (data.shop_price && (data.shop_price < data.market_price || data.promote_price && data.promote_price != 0 && data.promote_price < data.shop_price))">起</span>
+          <span *ngIf="!showyj && data.market_price && data.market_price != 0 && data.shop_price != data.market_price" class="oldprice">原价{{data.market_price}}</span>
           <span *ngIf="data.buymax" color="medium">限购{{data.buymax}}</span>
         </div>
         <div class="des" *ngIf="data.des">{{data.des}}</div>

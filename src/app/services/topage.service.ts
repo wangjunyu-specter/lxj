@@ -2,7 +2,7 @@
  * @Author: wjy
  * @Date: 2019-08-03 14:52:31
  * @LastEditors: wjy-mac
- * @LastEditTime: 2020-03-05 15:28:58
+ * @LastEditTime: 2020-04-08 21:54:55
  * @Description: 所有跳转页面类型服务
  */
 import { Injectable } from '@angular/core';
@@ -64,23 +64,9 @@ export class TopageService {
     } else if (type === 9) {
       this.router.navigate(['/articlecontent'], {queryParams: {id}});
     } else if (type === 10) {
-      let href = '';
-      if (id.includes('http')) {
-        href = id;
-      } else {
-        href += 'https://' + id;
-      }
-      this.user.getUserp().then(res => {
-        if (href.includes('?')) {
-          href += '&user_id=' + res['user_id'];
-        } else {
-          href += '?user_id=' + res['user_id'];
-        }
-        console.log(href);
-        this.openBrowser(href);
-      }).catch(err2 => {
-        this.openBrowser(href);
-      });
+      this.setLink(id).then(link => {
+        this.openBrowser(link);
+      }).catch(err => {});
     } else if (type === 11) {
       this.router.navigate(['/xccontent'], {queryParams: {id, comment: args[0]}});
     } else if (type === 12) {
@@ -103,12 +89,12 @@ export class TopageService {
         id,
         name: args[0],
         kftype: args[1] || args[1] === 0 ? args[1] : 1
-      }
+      };
       this.router.navigate(['/newslist'], {queryParams: obj});
     } else if (type === 18) {
         this.router.navigate(['/notice'], {queryParams: {id}});
     } else if (type === 19) {
-      this.shareActionSheet(id, args[0], args[1])
+      this.shareActionSheet(id, args[0], args[1]);
     } else {
       this.router.navigate(['/tabs/tab1']);
     }
@@ -142,7 +128,9 @@ export class TopageService {
     }
     const browser = this.iab.create(link, '', options);
     browser.on('loadstop').subscribe(res => {
-      if (link.includes('xiebao18')) {
+      if (link.includes('cdlxj.cn')) {
+        return false;
+      } else if (link.includes('xiebao18')) {
         const code = `(function() {
           var href = window.location.href;
           if (href == 'https://cpsh5.xiebao18.com/wjy2055506') {
@@ -157,12 +145,24 @@ export class TopageService {
           }
         })()`;
         browser.executeScript({code});
+      } else {
+        const code = `(function() {
+          var div = document.createElement('div');
+          div.innerText = '返回';
+          div.style.cssText = 'position: absolute;width: 50px;padding-left: 10px;color: #fff;font-size: .32rem;height: 1.08rem;line-height: 1.08rem;z-index: 100;top: 0; left: 0;';
+          document.body.appendChild(div);
+          div.onclick = function () {
+            var msg = JSON.stringify({name: 'exitWeb'});
+            webkit.messageHandlers.cordova_iab.postMessage(msg);
+          }
+        })()`;
+        browser.executeScript({code});
       }
-    })
+    });
     browser.on('loaderror').subscribe(res => {
       console.log(2)
       console.log(res);
-    })
+    });
     browser.on('message').subscribe(res => {
       const data = res['data'];
       if (data.name === 'exitWeb') {
@@ -191,14 +191,20 @@ export class TopageService {
       buttons: [{
         text: '分享好友',
         handler: () => {
-          console.log('Share clicked');
           this.wechatShare(title, des, link, 2);
         }
       }, {
         text: '分享朋友圈',
         handler: () => {
-          console.log('Share clicked');
           this.wechatShare(title, des, link, 1);
+        }
+      }, {
+        text: '分享二维码',
+        handler: () => {
+          this.setLink(link).then(href => {
+            this.router.navigate(['/myewm'], {queryParams: {link: href}});
+          }).catch(err => {});
+          
         }
       }, {
         text: '取消',
@@ -221,9 +227,35 @@ export class TopageService {
    * @return: 
    */  
   wechatShare(title, des, link, type) {
-    this.user.getUser().then(res => {
+    this.setLink(link).then(href => {
       this.native.wechatShare(title, des, '',
-      link + '&fuid=' + res['user_id'], type);
+      href, type);
     }).catch(err => {});
+  }
+  /**
+   * @Author: wjy-mac
+   * @description: 处理链接
+   * @Date: 2020-03-09 14:58:07
+   * @param {type} link: string 原始链接
+   * @return: 
+   */
+  async setLink(link: string) {
+    let href = '';
+    if (link.includes('http')) {
+      href = link;
+    } else {
+      href += 'https://' + link;
+    }
+    try {
+      const user = await this.user.getUserp();
+      if (href.includes('?')) {
+        href += '&user_id=' + user['user_id'];
+      } else {
+        href += '?user_id=' + user['user_id'];
+      }
+      return href;
+    } catch (err) {
+      return href;
+    }
   }
 }
