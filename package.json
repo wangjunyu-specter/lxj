@@ -97,7 +97,7 @@
     "jpush-phonegap-plugin": "^3.7.3",
     "ng2-ckeditor": "^1.2.6",
     "rxjs": "^6.5.3",
-    "socket.io": "^2.3.0",
+    "socket.io": "^2.4.0",
     "ts-md5": "^1.2.7",
     "tslib": "^1.9.3",
     "videogular2": "^6.4.0",
