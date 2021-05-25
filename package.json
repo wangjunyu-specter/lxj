@@ -53,7 +53,7 @@
     "@ionic/angular": "^4.11.5",
     "@jiguang-ionic/jpush": "^2.0.0",
     "@types/ws": "^6.0.4",
-    "browserslist": "^4.9.1",
+    "browserslist": "^4.16.5",
     "call-number": "^1.0.1",
     "caniuse-lite": "^1.0.30001032",
     "com-sarriaroman-photoviewer": "^1.2.4",
